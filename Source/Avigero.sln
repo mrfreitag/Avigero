@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avigero", "Avigero\Avigero.csproj", "{853F4FA3-4141-4986-975C-66BDA4F9FA38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortAndSplit", "SortAndSplit\SortAndSplit.csproj", "{AA1D0E23-5650-4E15-A513-764B8215AB0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderStats", "FolderStats\FolderStats.csproj", "{0D6E078A-191B-4C7D-88DF-D132B755B528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPUpload", "WPUpload\WPUpload.csproj", "{856676AE-5B7B-4174-8055-F4609D6B8CE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{853F4FA3-4141-4986-975C-66BDA4F9FA38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{853F4FA3-4141-4986-975C-66BDA4F9FA38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{853F4FA3-4141-4986-975C-66BDA4F9FA38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{853F4FA3-4141-4986-975C-66BDA4F9FA38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA1D0E23-5650-4E15-A513-764B8215AB0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA1D0E23-5650-4E15-A513-764B8215AB0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA1D0E23-5650-4E15-A513-764B8215AB0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA1D0E23-5650-4E15-A513-764B8215AB0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6E078A-191B-4C7D-88DF-D132B755B528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6E078A-191B-4C7D-88DF-D132B755B528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6E078A-191B-4C7D-88DF-D132B755B528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6E078A-191B-4C7D-88DF-D132B755B528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{856676AE-5B7B-4174-8055-F4609D6B8CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{856676AE-5B7B-4174-8055-F4609D6B8CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{856676AE-5B7B-4174-8055-F4609D6B8CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{856676AE-5B7B-4174-8055-F4609D6B8CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
