@@ -1,0 +1,7 @@
+************
+* Overview *
+************
+
+Avigero is a machine learning based toolchain integration wrapped around common tools
+and techniques in order to create an overview of bugzilla reports and eventually
+predict how long it will take to take down that bug.
