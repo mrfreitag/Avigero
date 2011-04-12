@@ -1,0 +1,71 @@
+[inline]
+		<!-- 1. Add these JavaScript inclusions in the head of your page -->
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="http://www.avigero.com/highcharts/js/highcharts.js"></script>
+		
+		<!-- 1a) Optional: the exporting module -->
+		<script type="text/javascript" src="http://www.avigero.com/highcharts/js/modules/exporting.js"></script>
+		
+		
+		<!-- 2. Add the JavaScript to initialize the chart on document ready -->
+		<script type="text/javascript">
+				
+			var chart;
+			$(document).ready(function() {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'containerpie',
+						margin: [50, 0, 0, 0],
+						plotBackgroundColor: 'none',
+						plotBorderWidth: 0,
+						plotShadow: false				
+					},
+					title: {
+						text: 'Package Evolution'
+					},
+					subtitle: {
+						text: 'Inner circle: x, outer circle: y'
+					},
+					plotArea: {
+						shadow: null,
+						borderWidth: null,
+						backgroundColor: null
+					},
+					tooltip: {
+						formatter: function() {
+							return '<b>'+ this.series.name +'</b><br/>'+ 
+								this.point.name +': '+ this.y +' Bugs';
+						}
+					},
+					legend: {
+						enabled: false
+					},
+				    series: [{
+						type: 'pie',
+						name: '2010',
+						innerSize: '45%',
+						data: [
+						     ($PieDataEntries)
+						],
+						dataLabels: {
+							enabled: true,
+							formatter: function() {
+								if (this.y > 100) return this.point.name;
+							},
+							color: 'white',
+							style: {
+								font: '13px Trebuchet MS, Verdana, sans-serif'
+							}
+						}
+					}]
+				});
+				
+				
+			});
+				
+		</script>
+
+[/inline]
+		<!-- 3. Add the container -->
+		<h3>Package Evolution</h3>
+		<div id="containerpie" style="width: 800px; height: 400px; margin: 0 auto"></div>
