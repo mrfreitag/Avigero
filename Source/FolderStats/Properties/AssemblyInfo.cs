@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FolderStats")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Siemens Corporate Research")]
-[assembly: AssemblyProduct("FolderStats")]
-[assembly: AssemblyCopyright("Copyright © Siemens Corporate Research 2010")]
+[assembly: AssemblyCompany("Avigero by Mr. Freitag")]
+[assembly: AssemblyProduct("Avigero")]
+[assembly: AssemblyCopyright("Copyright © Mr. Freitag 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
