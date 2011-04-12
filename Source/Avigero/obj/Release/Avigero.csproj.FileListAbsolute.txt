@@ -1,0 +1,13 @@
+E:\Avigero\Binaries\Avigero.exe
+E:\Avigero\Binaries\Avigero.pdb
+E:\Avigero\Source\obj\Release\ResolveAssemblyReference.cache
+E:\Avigero\Source\obj\Release\Avigero.exe
+E:\Avigero\Source\obj\Release\Avigero.pdb
+C:\Private\Avigero\Source_copybackafterwork\obj\Release\Avigero.exe
+C:\Private\Avigero\Source_copybackafterwork\obj\Release\Avigero.pdb
+C:\Private\Avigero\Binaries\Avigero.exe
+C:\Private\Avigero\Binaries\Avigero.pdb
+C:\Private\Avigero\Source_copybackafterwork\obj\Release\ResolveAssemblyReference.cache
+E:\Avigero\Source\Avigero\obj\Release\Avigero.exe
+E:\Avigero\Source\Avigero\obj\Release\Avigero.pdb
+E:\Avigero\Source\Avigero\obj\Release\ResolveAssemblyReference.cache

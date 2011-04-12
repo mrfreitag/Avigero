@@ -1,0 +1,10 @@
+E:\Avigero\Binaries\WPUpload.exe
+E:\Avigero\Binaries\WPUpload.pdb
+E:\Avigero\Source\WPUpload\obj\Debug\ResolveAssemblyReference.cache
+E:\Avigero\Source\WPUpload\obj\Debug\WPUpload.exe
+E:\Avigero\Source\WPUpload\obj\Debug\WPUpload.pdb
+C:\Pr\Archive\Avigero\Source\WPUpload\obj\Debug\ResolveAssemblyReference.cache
+C:\Pr\Archive\Avigero\Source\WPUpload\obj\Debug\WPUpload.exe
+C:\Pr\Archive\Avigero\Source\WPUpload\obj\Debug\WPUpload.pdb
+C:\Pr\Archive\Avigero\Binaries\WPUpload.exe
+C:\Pr\Archive\Avigero\Binaries\WPUpload.pdb

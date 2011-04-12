@@ -1,0 +1,5 @@
+E:\Avigero\Binaries\SortAndSplit.exe
+E:\Avigero\Binaries\SortAndSplit.pdb
+E:\Avigero\Source\SortAndSplit\obj\Release\ResolveAssemblyReference.cache
+E:\Avigero\Source\SortAndSplit\obj\Release\SortAndSplit.exe
+E:\Avigero\Source\SortAndSplit\obj\Release\SortAndSplit.pdb

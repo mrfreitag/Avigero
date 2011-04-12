@@ -1,0 +1,12 @@
+E:\Avigero\Source\FolderStats\bin\Debug\FolderStats.exe
+E:\Avigero\Source\FolderStats\bin\Debug\FolderStats.pdb
+E:\Avigero\Source\FolderStats\obj\Debug\ResolveAssemblyReference.cache
+E:\Avigero\Source\FolderStats\obj\Debug\FolderStats.exe
+E:\Avigero\Source\FolderStats\obj\Debug\FolderStats.pdb
+E:\Avigero\Binaries\FolderStats.exe
+E:\Avigero\Binaries\FolderStats.pdb
+C:\Pr\Archive\Avigero\Binaries\FolderStats.exe
+C:\Pr\Archive\Avigero\Binaries\FolderStats.pdb
+C:\Pr\Archive\Avigero\Source\FolderStats\obj\Debug\ResolveAssemblyReference.cache
+C:\Pr\Archive\Avigero\Source\FolderStats\obj\Debug\FolderStats.exe
+C:\Pr\Archive\Avigero\Source\FolderStats\obj\Debug\FolderStats.pdb

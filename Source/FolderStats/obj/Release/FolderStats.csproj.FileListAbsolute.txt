@@ -1,0 +1,5 @@
+E:\Avigero\Binaries\FolderStats.exe
+E:\Avigero\Binaries\FolderStats.pdb
+E:\Avigero\Source\FolderStats\obj\Release\ResolveAssemblyReference.cache
+E:\Avigero\Source\FolderStats\obj\Release\FolderStats.exe
+E:\Avigero\Source\FolderStats\obj\Release\FolderStats.pdb
