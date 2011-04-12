@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647797</bug_id>
+          
+          <creation_ts>2011-04-05 04:07:00 -0700</creation_ts>
+          <short_desc>Provide Opensearch plugin on new developer.mozilla.org</short_desc>
+          <delta_ts>2011-04-05 07:51:55 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Developer Network</product>
+          <component>Website</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://developer.mozilla.org/en-US/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Florent Verschelde">florent</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>florent</cc>
+    
+    <cc>jay</cc>
+    
+    <cc>lcrouch</cc>
+          <qa_contact>website</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390983</commentid>
+            <who name="Florent Verschelde">florent</who>
+            <bug_when>2011-04-05 04:07:01 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+The old website/pages referenced this Opensearch plugin:
+https://developer.mozilla.org/deki/gui/opensearch.php?type=description
+There is an existing bug for removing this plugin since it sends to a broken search engine: Bug 631680.
+
+This is a feature request for creating a new Opensearch plugin, sending requests to the new search feature, and for referencing it from all pages in the new website.
+
+Additionally, it might be a good idea to redirect the old Opensearch URL to the new one. It seems the old Opensearch plugin didn&apos;t include options for automatic update, so this may not be enough for updating the plugins for end users who had installed the old plugin. Perhaps all requests should be rewritten for the new engine? Or requests to the old engine should show a page or message offering to install the new plugin.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391134</commentid>
+            <who name="Luke Crouch [:groovecoder]">lcrouch</who>
+            <bug_when>2011-04-05 07:37:36 -0700</bug_when>
+            <thetext>This is a good idea. But since the current search is only a custom Google search it might make sense to wait until we implement our new search system</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

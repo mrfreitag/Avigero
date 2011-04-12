@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647695</bug_id>
+          
+          <creation_ts>2011-04-04 09:20:00 -0700</creation_ts>
+          <short_desc>TM: Crash [@ js::types::TypeFailure] involving missing type XML:prototype:new</short_desc>
+          <delta_ts>2011-04-11 07:37:33 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash, testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>465479</blocked>
+    
+    <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Gary Kwong [:nth10sd]">gary</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>brendan</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>dherman</cc>
+    
+    <cc>jandemooij</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390230</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 09:20:17 -0700</bug_when>
+            <thetext>let(x = XMLList(7), y = let(a = x)(&quot;&quot;)) {}
+
+crashes js debug shell on JM changeset a58525f1f4be with -m, -a and -n at js::types::TypeFailure with the message:
+
+[infer failure] Missing type at #2:00018 pushed 0: XML:prototype:new</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390235</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 09:22:34 -0700</bug_when>
+            <thetext>Tested on 64-bit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392816</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 11:49:23 -0700</bug_when>
+            <thetext>This looks like a bug in TM. Here is the disassembly:
+
+let(x = XMLList(7), y = let(a = x)(&quot;&quot;)) {}
+
+00000:  enterblock depth 0 {y: 1, x: 0}
+00003:  callgname &quot;XMLList&quot;
+00006:  int8 7
+00008:  call 1
+00011:  setlocal 0
+00014:  pop
+00015:  enterblock depth 2 {a: 0}
+00018:  getgname &quot;x&quot;
+00021:  setlocal 2
+00024:  pop
+00025:  string &quot;&quot;
+00028:  leaveblockexpr 1
+00033:  setlocal 1
+00036:  pop
+00037:  leaveblock 2
+
+The access to &apos;x&apos; in &apos;a = x&apos; is a JSOP_GETGNAME.  The interpreter sees this and executes it the same way as a JSOP_NAME, getting the &apos;x&apos; in the let block.  There is no assertion in the interpreter for JSOP_GETGNAME that it is actually getting a property on a global object, this inconsistency has bitten before on XML filters (bug 605200) and should be fixed.
+
+What are the right semantics here?  If the &apos;x&apos; in &apos;a = x&apos; should in fact be getting a property on the global then the interpreter&apos;s JSOP_GETGNAME case is broken, and if it should be getting the let block &apos;x&apos; then the emitter is broken.  Cc&apos;ing brendan/dherman.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400164</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-11 05:54:49 -0700</bug_when>
+            <thetext>*** Bug 648968 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648514</bug_id>
+          
+          <creation_ts>2011-04-08 04:26:00 -0700</creation_ts>
+          <short_desc>Crash in JS Interpreter: pointer being reallocated was not allocated</short_desc>
+          <delta_ts>2011-04-11 08:22:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="TGOS">spamcop</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>dmandelin</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396274</commentid>
+            <who name="TGOS">spamcop</who>
+            <bug_when>2011-04-08 04:26:03 -0700</bug_when>
+            <thetext>[I don&apos;t know which version to select, since I have no idea on what version Firefox 4 is based-upon; please fix this for me]
+
+I get the following crash rather frequently (several times a day, usually when filling out forms):
+
+Identifier:      org.mozilla.firefox
+Version:         4.0 (4.0)
+Code Type:       X86-64 (Native)
+Parent Process:  ??? [1]
+
+Date/Time:       2011-04-08 13:14:02.061 +0200
+OS Version:      Mac OS X 10.6.7 (10J869)
+Report Version:  6
+
+Interval Since Last Report:          182549 sec
+Crashes Since Last Report:           1
+Per-App Interval Since Last Report:  516618 sec
+Per-App Crashes Since Last Report:   1
+Anonymous UUID:                      71B2DE78-6E4C-4E05-A258-B96958927F1D
+
+Exception Type:  EXC_CRASH (SIGABRT)
+Exception Codes: 0x0000000000000000, 0x0000000000000000
+Crashed Thread:  0  Dispatch queue: com.apple.main-thread
+
+Application Specific Information:
+*** error for object 0x118968690: pointer being reallocated was not allocated
+
+Thread 0 Crashed:  Dispatch queue: com.apple.main-thread
+0   libSystem.B.dylib             	0x00007fff808c05d6 __kill + 10
+1   libSystem.B.dylib             	0x00007fff80960cd6 abort + 83
+2   libSystem.B.dylib             	0x00007fff8094f90d szone_error + 519
+3   libSystem.B.dylib             	0x00007fff8087a13e szone_realloc + 102
+4   libSystem.B.dylib             	0x00007fff8087a09b malloc_zone_realloc + 92
+5   libSystem.B.dylib             	0x00007fff80886132 realloc + 169
+6   XUL                           	0x0000000101003d67 js_CheckUndeclaredVarAssignment(JSContext*, JSString*) + 2567
+7   XUL                           	0x00000001010142d5 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19061
+8   XUL                           	0x0000000100f5bd58 JS_HasUCProperty + 1320
+9   XUL                           	0x0000000100fb1e7e js_GetSrcNoteOffset + 98878
+10  XUL                           	0x00000001010142ff JSObject::clone(JSContext*, JSObject*, JSObject*) + 19103
+11  XUL                           	0x00000001010b6d8f JSWrapper::trace(JSTracer*, JSObject*) + 591
+12  XUL                           	0x000000010105e293 js::FixProxy(JSContext*, JSObject*, int*) + 4595
+13  XUL                           	0x0000000100f73214 js_CloneDensePrimitiveArray(JSContext*, JSObject*, JSObject**) + 10804
+14  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+15  XUL                           	0x0000000100fbda2c js::IsBuiltinFunctionConstructor(JSFunction*) + 37948
+16  XUL                           	0x00000001010142ff JSObject::clone(JSContext*, JSObject*, JSObject*) + 19103
+17  XUL                           	0x00000001010b6d8f JSWrapper::trace(JSTracer*, JSObject*) + 591
+18  XUL                           	0x000000010105e293 js::FixProxy(JSContext*, JSObject*, int*) + 4595
+19  XUL                           	0x0000000100f73214 js_CloneDensePrimitiveArray(JSContext*, JSObject*, JSObject**) + 10804
+20  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+21  XUL                           	0x00000001010b66d8 JSWrapper::typeOf(JSContext*, JSObject*) + 344
+22  XUL                           	0x00000001010b6ffd JSWrapper::trace(JSTracer*, JSObject*) + 1213
+23  XUL                           	0x000000010105e293 js::FixProxy(JSContext*, JSObject*, int*) + 4595
+24  XUL                           	0x0000000101005529 js_obj_defineGetter(JSContext*, unsigned int, js::Value*) + 4137
+25  XUL                           	0x0000000101014b7b JSObject::clone(JSContext*, JSObject*, JSObject*) + 21275
+26  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+27  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+28  XUL                           	0x0000000100fbda2c js::IsBuiltinFunctionConstructor(JSFunction*) + 37948
+29  XUL                           	0x00000001010142ff JSObject::clone(JSContext*, JSObject*, JSObject*) + 19103
+30  XUL                           	0x00000001010b6d8f JSWrapper::trace(JSTracer*, JSObject*) + 591
+31  XUL                           	0x000000010105e293 js::FixProxy(JSContext*, JSObject*, int*) + 4595
+32  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+33  XUL                           	0x00000001010b66d8 JSWrapper::typeOf(JSContext*, JSObject*) + 344
+34  XUL                           	0x00000001010b6ffd JSWrapper::trace(JSTracer*, JSObject*) + 1213
+35  XUL                           	0x000000010105e293 js::FixProxy(JSContext*, JSObject*, int*) + 4595
+36  XUL                           	0x0000000101005529 js_obj_defineGetter(JSContext*, unsigned int, js::Value*) + 4137
+37  XUL                           	0x0000000101014b7b JSObject::clone(JSContext*, JSObject*, JSObject*) + 21275
+38  XUL                           	0x00000001010b6d8f JSWrapper::trace(JSTracer*, JSObject*) + 591
+39  XUL                           	0x000000010105e293 js::FixProxy(JSContext*, JSObject*, int*) + 4595
+40  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+41  XUL                           	0x00000001010b66d8 JSWrapper::typeOf(JSContext*, JSObject*) + 344
+42  XUL                           	0x00000001010b6ffd JSWrapper::trace(JSTracer*, JSObject*) + 1213
+43  XUL                           	0x000000010105e293 js::FixProxy(JSContext*, JSObject*, int*) + 4595
+44  XUL                           	0x0000000101005529 js_obj_defineGetter(JSContext*, unsigned int, js::Value*) + 4137
+45  XUL                           	0x0000000101014b7b JSObject::clone(JSContext*, JSObject*, JSObject*) + 21275
+46  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+47  XUL                           	0x0000000101005529 js_obj_defineGetter(JSContext*, unsigned int, js::Value*) + 4137
+48  XUL                           	0x0000000101014b93 JSObject::clone(JSContext*, JSObject*, JSObject*) + 21299
+49  XUL                           	0x00000001010145b6 JSObject::clone(JSContext*, JSObject*, JSObject*) + 19798
+50  XUL                           	0x0000000100fcd771 js::MarkContext(JSTracer*, JSContext*) + 8497
+51  XUL                           	0x0000000100fce540 js::MarkContext(JSTracer*, JSContext*) + 12032
+52  XUL                           	0x000000010096fba5 DumpJSValue + 741
+53  XUL                           	0x000000010096badd vpx_reset_mmx_state + 1878453
+54  XUL                           	0x0000000100e24d1a XRE_AddStaticComponent + 38682
+55  XUL                           	0x0000000100e24db8 XRE_AddStaticComponent + 38840
+56  XUL                           	0x0000000100e211b3 XRE_AddStaticComponent + 23475
+57  XUL                           	0x0000000100ddd21e nsPrintSession::Release() + 1129646
+58  XUL                           	0x0000000100cbc30d JSD_DebuggerOnForUser + 1178781
+59  XUL                           	0x0000000100c87be7 JSD_DebuggerOnForUser + 963959
+60  com.apple.CoreFoundation      	0x00007fff81f26401 __CFRunLoopDoSources0 + 1361
+61  com.apple.CoreFoundation      	0x00007fff81f245f9 __CFRunLoopRun + 873
+62  com.apple.CoreFoundation      	0x00007fff81f23dbf CFRunLoopRunSpecific + 575
+63  com.apple.HIToolbox           	0x00007fff8325a7ee RunCurrentEventLoopInMode + 333
+64  com.apple.HIToolbox           	0x00007fff8325a5f3 ReceiveNextEventCommon + 310
+65  com.apple.HIToolbox           	0x00007fff8325a4ac BlockUntilNextEventMatchingListInMode + 59
+66  com.apple.AppKit              	0x00007fff8610ae64 _DPSNextEvent + 718
+67  com.apple.AppKit              	0x00007fff8610a7a9 -[NSApplication nextEventMatchingMask:untilDate:inMode:dequeue:] + 155
+68  com.apple.AppKit              	0x00007fff860d048b -[NSApplication run] + 395
+69  XUL                           	0x0000000100c874ad JSD_DebuggerOnForUser + 962109
+70  XUL                           	0x0000000100af01b4 js::JSProxyHandler::isOuterWindow() + 609220
+71  XUL                           	0x0000000100016aae XRE_main + 8574
+72  org.mozilla.firefox           	0x0000000100001af7 start + 471
+73  org.mozilla.firefox           	0x0000000100001954 start + 52
+
+Thread 0 crashed with X86 Thread State (64-bit):
+  rax: 0x0000000000000000  rbx: 0x00000001057a4000  rcx: 0x00007fff5fbfc608  rdx: 0x0000000000000000
+  rdi: 0x0000000000000ac5  rsi: 0x0000000000000006  rbp: 0x00007fff5fbfc620  rsp: 0x00007fff5fbfc608
+   r8: 0x0000000000000e03   r9: 0x0000000000000000  r10: 0x00007fff808bc616  r11: 0x0000000000000202
+  r12: 0x0000000000000000  r13: 0x0000000118968690  r14: 0x0000000101d34000  r15: 0x00000001057a40c0
+  rip: 0x00007fff808c05d6  rfl: 0x0000000000000202  cr2: 0x00007fff8094b442
+
+
+The crash might be caused by an extension; however, no matter what the extension does, the crash happens while JS code of this extension is being executed and even if the extension has a bug, the JS interpreter must not crash.
+
+I think I have probably submitted a couple of those crashes via the build-in crash reporter, but now, that I finally got a real system crash report, I thought I should maybe track this issue by filing a bug for it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396470</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 07:55:21 -0700</bug_when>
+            <thetext>For what it&apos;s worth, the crash reports you submitted probably have more information than the system crash report.  As soon as you submit a crash report, you can look in about:crashes and submit a bug report with the report url or id for that particular report...  Could you post one (or more) of those here?
+
+Just to check something, did you perhaps enable chrome methodjit?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400214</commentid>
+            <who name="TGOS">spamcop</who>
+            <bug_when>2011-04-11 06:26:15 -0700</bug_when>
+            <thetext>Thank you for the hint to &quot;about:crashes&quot;, I never noticed that you can see your crash reports that way. And I&apos;m sorry to say that I just found out that my other regular crashes don&apos;t happen because of a re-malloc issues, but because of a bad-access in the GC code. So I don&apos;t have Mozilla crash report for the issue above, I&apos;m sorry.
+
+Regarding the config, methodjit settings are all default. I installed Fx 4.0 with a fresh profile; I always create a fresh profile on major updates. Methodjit for chrome is disabled, it is enabled for content and methodjit_always is also disabled.
+
+Maybe this bug can be closed then, since I cannot really provide any more information than I already did above.
+
+Should I maybe open a bug for all my other crashes or are crash reports automatically treated as &quot;bugs&quot;? All my crashes happen exactly at the same line of code in the GC.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400399</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-11 08:22:07 -0700</bug_when>
+            <thetext>Crash reports that happen to enough users are filed as bugs.  You should probably file a separate bug on your GC issue.
+
+It&apos;s probably better to leave this bug open in case someone can make sense of the stack from comment</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400400</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-11 08:22:22 -0700</bug_when>
+            <thetext>I meant &quot;from comment 0&quot;.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648106</bug_id>
+          
+          <creation_ts>2011-04-06 13:58:00 -0700</creation_ts>
+          <short_desc>Allow JSContext::free to be called only during finalization.</short_desc>
+          <delta_ts>2011-04-07 16:14:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Other Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647103</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Igor Bukanov">igor</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>anygregor</cc>
+    
+    <cc>brendan</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>cdleary</cc>
+    
+    <cc>dmandelin</cc>
+    
+    <cc>emanuel.hoogeveen</cc>
+    
+    <cc>gal</cc>
+    
+    <cc>igor</cc>
+    
+    <cc>jones.chris.g</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>luke</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>moz</cc>
+    
+    <cc>nnethercote</cc>
+    
+    <cc>pbiggar</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393145</commentid>
+            <who name="Igor Bukanov">igor</who>
+            <bug_when>2011-04-06 13:58:29 -0700</bug_when>
+            <thetext>Currently we allow to call JSContext::free outside the finalization phase to support the callers that use the method to release temporary memory. This implies that the implementation must take an extra branch to check for the background finalization thread. We should stop that and insist that those places should be switched to use Foreground::free_</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393208</commentid>
+            <who name="Luke Wagner [:luke]">luke</who>
+            <bug_when>2011-04-06 14:22:00 -0700</bug_when>
+            <thetext>Alternatively, could we use the background-free thread for calls to free outside of finalization?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393459</commentid>
+            <who name="Nicholas Nethercote [:njn]">nnethercote</who>
+            <bug_when>2011-04-06 16:01:16 -0700</bug_when>
+            <thetext>Is this just to save one branch per free?  Smells like premature optimization to me.  Do you have measurements indicating it&apos;ll be noticeable?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394089</commentid>
+            <who name="Igor Bukanov">igor</who>
+            <bug_when>2011-04-07 00:52:16 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Is this just to save one branch per free? 
+
+This is about saving one branch per adding the pointer to the background free set. It should not affect the time the background thread takes to call the free.
+
+&gt; Smells like premature optimization
+&gt; to me.  Do you have measurements indicating it&apos;ll be noticeable?
+
+I should have filed this bug 588016. Although most of the speedup there came from lesser memory bandwidth, saving a branch per finalization helped as well (the patch avoided !cx-&gt;thread branch). So there are clear benefits from doing that.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394095</commentid>
+            <who name="Igor Bukanov">igor</who>
+            <bug_when>2011-04-07 00:59:23 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Alternatively, could we use the background-free thread for calls to free
+&gt; outside of finalization?
+
+When the GC adds the thing to the background thread, it knows that that the thread is waiting. It allows to simplify quite few things.
+
+But setting aside the question about the code complexity, why would one want to delay the release temporary allocated storage when it is still in the CPU caches and when its quick release allows for lesser heap fragmentation?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394730</commentid>
+            <who name="Luke Wagner [:luke]">luke</who>
+            <bug_when>2011-04-07 11:06:13 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+Because free isn&apos;t free.  IIRC, on Mac, its quite expensive.  However, I haven&apos;t measured time spent in free outside finalization.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

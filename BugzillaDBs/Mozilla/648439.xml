@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648439</bug_id>
+          
+          <creation_ts>2011-04-07 18:20:00 -0700</creation_ts>
+          <short_desc>Sync the permissions on my LDAP account(?)</short_desc>
+          <delta_ts>2011-04-09 13:20:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Account Requests</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mark Banner (:standard8)">bugzilla</reporter>
+          <assigned_to>desktop-support</assigned_to>
+          <cc>tmzmoz</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395620</commentid>
+            <who name="Mark Banner (:standard8)">bugzilla</who>
+            <bug_when>2011-04-07 18:20:53 -0700</bug_when>
+            <thetext>I&apos;ve just had mbanner at mozilla.com set up for me. So far I&apos;ve discovered that:
+
+- LDAP address books just return a few email addresses and no names.
+- I can&apos;t send via SMTP, although I can receive.
+
+I can get full contact information via LDAP and I can send via SMTP with my mbanner at mozillamessaging.com account.
+
+Please could you ensure that the permissions flags on my mozilla.com account match (or improve on!) my mozillamessaging.com account.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

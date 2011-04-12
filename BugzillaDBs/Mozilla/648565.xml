@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648565</bug_id>
+          
+          <creation_ts>2011-04-08 10:15:00 -0700</creation_ts>
+          <short_desc>Mouse does not work with drop-down select boxes</short_desc>
+          <delta_ts>2011-04-09 13:39:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla.com/en-US/firefox/fx/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>support</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396739</commentid>
+            <who name="">support</who>
+            <bug_when>2011-04-08 10:15:34 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Whenever there is a drop-down select box, cannot select items via mouse, only way is via up/down cursor keys. Problem exists on every web page visited.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Sample web page demo&apos;s problem: http://www.mozilla.com/en-US/firefox/fx/
+
+2. Simple html file also demos problem:
+
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;form&gt;
+      &lt;select&gt;
+        &lt;option value=&quot;Apples&quot;&gt;Apples&lt;/option&gt;
+        &lt;option value=&quot;Oranges&quot;&gt;Oranges&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/form&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+
+Actual Results:  
+1. Other language drop-down box in lower right will not allow selecting via mouse, only up/down cursor keys.
+
+2. Will not allow selecting via mouse, only up/down cursor keys.
+
+Expected Results:  
+Should be able to mouse over drop-down items and click to select
+
+Tried both with and without &quot;User hardware accelerator&quot;
+
+Problem only occurs with Firefox 4. No problem with Firefox 3, IE8, Safari 5, or Opera 11.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396866</commentid>
+            <who name="">support</who>
+            <bug_when>2011-04-08 10:47:44 -0700</bug_when>
+            <thetext>Update:
+
+OK it appears it cannot always be reproduced. Additional facts re problem:
+
+(1) It appears to happen after Firefox 4 has been running for a while.
+
+(2) Other odd mouse things appear to also crop up after Firefox 4 has been running for a while -- for example, cannot click on minimize/maximize/close in the upper right corner of Firefox 4 window unless alt-tab away to another window and then alt-tab back to Firefox 4
+
+(3) After the mouse problems start, Firefox 4 becomes very slow and eventually unresponsive.
+
+(4) Re-booting seems to bring everything back to normal.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398258</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-09 04:40:12 -0700</bug_when>
+            <thetext>Is your Issue reproducible without Extensions in Safe-Mode and/or using a new Profile?
+https://support.mozilla.com/en-US/kb/Safe+Mode
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398603</commentid>
+            <who name="">support</who>
+            <bug_when>2011-04-09 13:39:20 -0700</bug_when>
+            <thetext>Many thanks for reply.
+
+I am trying to keep track of what I&apos;m doing to see if I can create a reproduceable sequence of steps that lead to the problem.
+
+I will also try starting in safe mode next time problem occurs to see what happens there.
+
+Will post again as soon as I have something.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

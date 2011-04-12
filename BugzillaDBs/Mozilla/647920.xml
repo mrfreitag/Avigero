@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647920</bug_id>
+          
+          <creation_ts>2011-04-05 19:44:00 -0700</creation_ts>
+          <short_desc>Randomly getting the old version/layout of editor tools</short_desc>
+          <delta_ts>2011-04-11 12:47:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Admin/Editor Tools</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>6.0.6</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Erik Vold">erikvvold</reporter>
+          <assigned_to name="Jeremy Orem [oremj@mozilla.com]">jeremy.orem+bugs</assigned_to>
+          <cc>clouserw</cc>
+    
+    <cc>jorge</cc>
+          <qa_contact>admin-tools</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391806</commentid>
+            <who name="Erik Vold">erikvvold</who>
+            <bug_when>2011-04-05 19:44:06 -0700</bug_when>
+            <thetext>I sometimes see the old version + layout of the editor tools, when I refresh the page it usually goes back to the new version + layout.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391907</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-05 22:30:30 -0700</bug_when>
+            <thetext>Can you give me an example URL?  You&apos;re saying the new and old site appear on the same URL?  I disabled most of the old editor tools already, so, I&apos;m curious what URL you&apos;re seeing this on.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391911</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-05 22:34:21 -0700</bug_when>
+            <thetext>I think he means that he sometimes sees the remora pages for the editor tools, in their entirety, at random moments. I know most of us have been seeing them after the push, and it happens frequently.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391912</commentid>
+            <who name="Erik Vold">erikvvold</who>
+            <bug_when>2011-04-05 22:36:08 -0700</bug_when>
+            <thetext>it&apos;s every editor tools url afaict, but here is the most recent
+https://addons.mozilla.org/en-US/editors/review/711783?num=39</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391914</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-05 22:38:45 -0700</bug_when>
+            <thetext>Can you save the request/response headers of request where you get the old page?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391920</commentid>
+            <who name="Erik Vold">erikvvold</who>
+            <bug_when>2011-04-05 22:49:47 -0700</bug_when>
+            <thetext>Request URL:https://addons.mozilla.org/en-US/editors/review/770959?num=1
+Request Method:GET
+Status Code:200 OK
+
+Request Headers
+Accept:application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Connection:keep-alive
+Cookie:wtspl=741320; AMOv3=3nis94a9fkgo7n8iicentk1392; amo_home_promo_seen=5; sessionid=6c082956df8eb915470ab42cf7d6edcf; csrftoken=29739863c78b794b781d649b3564899a; WT_FPC=id=2f26eebb7b742e3992c1295417802045:lv=1302065272375:ss=1302063213778
+Host:addons.mozilla.org
+Referer:https://addons.mozilla.org/en-US/editors/queue/nominated
+User-Agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Query String Parameters
+num:1
+
+Response Headers
+Cache-Control:no-cache
+Connection:Keep-Alive
+Content-Encoding:gzip
+Content-Type:text/html; charset=UTF-8
+Date:Wed, 06 Apr 2011 05:48:26 GMT
+Keep-Alive:timeout=5, max=1000
+P3P:CP=&quot;NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM&quot;
+Server:Apache
+Transfer-Encoding:chunked
+Vary:Accept-Encoding
+Via:Moz-Cache-pp-zlb01
+X-AMO-ServedBy:pm-app-amo27.mozilla.org
+X-Backend-Server:pm-app-amo27
+X-Powered-By:PHP/5.2.9
+X-amo-darklaunch:z</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393730</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-06 17:45:17 -0700</bug_when>
+            <thetext>Please try again</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393908</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-06 21:59:11 -0700</bug_when>
+            <thetext>This should be fixed up.  Thanks for the report and headers.  That box is new and wasn&apos;t in the configuration pool.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395837</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-07 20:46:28 -0700</bug_when>
+            <thetext>I just got this on https://addons.mozilla.org/en-US/firefox/editors/review/72598 and hit pm-app-amo12:
+
+20:43:16.409[2260ms][total 6870ms] Status: 200[OK]
+GET https://addons.mozilla.org/en-US/firefox/editors/review/72598 Load Flags[LOAD_DOCUMENT_URI  LOAD_INITIAL_DOCUMENT_URI  ] Content Size[-1] Mime Type[text/html]
+   Request Headers:
+      Host[addons.mozilla.org]
+      User-Agent[Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0b13pre) Gecko/20110311 Firefox/4.0b13pre]
+      Accept[text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8]
+      Accept-Language[en-us,en;q=0.5]
+      Accept-Encoding[gzip, deflate]
+      Accept-Charset[ISO-8859-1,utf-8;q=0.7,*;q=0.7]
+      Keep-Alive[115]
+      DNT[1]
+      Connection[keep-alive]
+      Cookie[WT_FPC=id=x:lv=1x:ss=1x; __unam=x-4; dloadday=63.245x779868; SSID_AMO=xI; SSRT=xA; csrftoken=x8; __switchTo5x=x4; __qca=x0; wtspl=x8; AMOappName=firefox; sessionid=xf; amo_home_promo_seen=5; AMOv3=x0]
+   Response Headers:
+      Server[Apache]
+      X-Backend-Server[pm-app-amo12]
+      Vary[Accept-Encoding]
+      Cache-Control[no-cache]
+      Content-Type[text/html; charset=UTF-8]
+      X-amo-darklaunch[z]
+      Content-Encoding[gzip]
+      P3P[CP=&quot;NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM&quot;]
+      Date[Fri, 08 Apr 2011 03:43:17 GMT]
+      Keep-Alive[timeout=5, max=995]
+      X-AMO-ServedBy[pm-app-amo12.mozilla.org]
+      Transfer-Encoding[chunked]
+      Via[Moz-Cache-pp-zlb01]
+      Connection[Keep-Alive]
+      X-Powered-By[PHP/5.2.9]</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401245</commentid>
+            <who name="Jeremy Orem [oremj@mozilla.com]">jeremy.orem+bugs</who>
+            <bug_when>2011-04-11 12:47:49 -0700</bug_when>
+            <thetext>This rewrite wasn&apos;t set up to look for app, just locale.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

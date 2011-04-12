@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648315</bug_id>
+          
+          <creation_ts>2011-04-07 11:11:00 -0700</creation_ts>
+          <short_desc>Excessive freezing while downloading high resolution JPG images.</short_desc>
+          <delta_ts>2011-04-08 07:45:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dillon Z">guymed435</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394740</commentid>
+            <who name="Dillon Z">guymed435</who>
+            <bug_when>2011-04-07 11:11:14 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When download large resolution (1600x900 or higher) JPG images in Firefox 4, the download manager would freeze for about 15 to 30 seconds during the download and or virus scanning process. Downloads are completed successfully every time but the freezing does not go away.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Find a large JPG image (1600x900 or larger.)
+2. Save the file to somewhere other than the standard downloads folder.
+3. Watch Firefox freeze during the virus scanning process.
+Actual Results:  
+Excessive freezing during the download/virus scanning process, 15 to 30 seconds later the download is completed. 
+
+
+No custom theme used. 64 bit hardware.
+
+Intel i5 650 @ 3.20 GHZ
+8GB DDR3 RAM
+ATI Radeon HD 5750 Video Card with 1GB GDDR5</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395798</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-07 20:11:41 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile
+
+What anti-virus scanner are you using?
+
+Does the freeze go away if you turn off the scan file on download? (Type about:config in the Firefox location bar and filter for the string browser.download.manager.scanWhenDone. Set the value to false)
+
+Can you provide an example URL?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

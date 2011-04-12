@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648385</bug_id>
+          
+          <creation_ts>2011-04-07 15:42:00 -0700</creation_ts>
+          <short_desc>gfxFont::GetUniqueName() is unused &amp; just forwards to GetName</short_desc>
+          <delta_ts>2011-04-11 19:43:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Zack Weinberg (:zwol)">zackw</reporter>
+          <assigned_to name="Zack Weinberg (:zwol)">zackw</assigned_to>
+          <cc>gavin.sharp</cc>
+    
+    <cc>matjk7</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395288</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 15:42:25 -0700</bug_when>
+            <thetext>gfxFont has both a GetName and a GetUniqueName method; the former just looks at the name in the font entry, and the latter is virtual, apparently on the theory that some font backends might need to be more specific.  There are a few font backends that override GetUniqueName ... but all of them just call GetName again.  And there&apos;s only one user of GetUniqueName in the entire tree.  I think it should go.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395296</commentid>
+              <attachid>524516</attachid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 15:44:44 -0700</bug_when>
+            <thetext>Created attachment 524516
+patch
+
+Like so.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402632</commentid>
+            <who name="Gavin Sharp">gavin.sharp</who>
+            <bug_when>2011-04-11 19:43:41 -0700</bug_when>
+            <thetext>https://hg.mozilla.org/mozilla-central/rev/525a9d7f3437</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524516</attachid>
+            <date>2011-04-07 15:44:00 -0700</date>
+            <delta_ts>2011-04-11 08:24:38 -0700</delta_ts>
+            <desc>patch</desc>
+            <filename>648385-kill-gfxfont-getuniquename.diff</filename>
+            <type>text/plain</type>
+            <size>6990</size>
+            <attacher>zackw</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgOTc1ZWU5NDQ4YzRiNzkwMWMzZGUyNWMyMWE5
+ZDVmMTNmMDk3ZjYyMgojIFVzZXIgWmFjayBXZWluYmVyZyA8emFja3dAcGFuaXguY29tPgpCdWcg
+NjQ4Mzg1OiBSZW1vdmUgZ2Z4Rm9udDo6R2V0VW5pcXVlTmFtZS4KCmRpZmYgLS1naXQgYS9nZngv
+dGhlYmVzL2dmeERXcml0ZUZvbnRzLmNwcCBiL2dmeC90aGViZXMvZ2Z4RFdyaXRlRm9udHMuY3Bw
+Ci0tLSBhL2dmeC90aGViZXMvZ2Z4RFdyaXRlRm9udHMuY3BwCisrKyBiL2dmeC90aGViZXMvZ2Z4
+RFdyaXRlRm9udHMuY3BwCkBAIC0xODMsMjIgKzE4MywxNiBAQCBnZnhEV3JpdGVGb250OjpDb3B5
+V2l0aEFudGlhbGlhc09wdGlvbihBCiB9CiAKIHZvaWQKIGdmeERXcml0ZUZvbnQ6OkNyZWF0ZVBs
+YXRmb3JtU2hhcGVyKCkKIHsKICAgICBtUGxhdGZvcm1TaGFwZXIgPSBuZXcgZ2Z4RFdyaXRlU2hh
+cGVyKHRoaXMpOwogfQogCi1uc1N0cmluZwotZ2Z4RFdyaXRlRm9udDo6R2V0VW5pcXVlTmFtZSgp
+Ci17Ci0gICAgcmV0dXJuIG1Gb250RW50cnktPk5hbWUoKTsKLX0KLQogY29uc3QgZ2Z4Rm9udDo6
+TWV0cmljcyYKIGdmeERXcml0ZUZvbnQ6OkdldE1ldHJpY3MoKQogewogICAgIHJldHVybiAqbU1l
+dHJpY3M7CiB9CiAKIFBSQm9vbAogZ2Z4RFdyaXRlRm9udDo6R2V0RmFrZU1ldHJpY3NGb3JBcmlh
+bEJsYWNrKERXUklURV9GT05UX01FVFJJQ1MgKmFGb250TWV0cmljcykKZGlmZiAtLWdpdCBhL2dm
+eC90aGViZXMvZ2Z4RFdyaXRlRm9udHMuaCBiL2dmeC90aGViZXMvZ2Z4RFdyaXRlRm9udHMuaAot
+LS0gYS9nZngvdGhlYmVzL2dmeERXcml0ZUZvbnRzLmgKKysrIGIvZ2Z4L3RoZWJlcy9nZnhEV3Jp
+dGVGb250cy5oCkBAIC01NiwxOCArNTYsMTYgQEAgcHVibGljOgogICAgIGdmeERXcml0ZUZvbnQo
+Z2Z4Rm9udEVudHJ5ICphRm9udEVudHJ5LAogICAgICAgICAgICAgICAgICAgY29uc3QgZ2Z4Rm9u
+dFN0eWxlICphRm9udFN0eWxlLAogICAgICAgICAgICAgICAgICAgUFJCb29sIGFOZWVkc0JvbGQg
+PSBQUl9GQUxTRSwKICAgICAgICAgICAgICAgICAgIEFudGlhbGlhc09wdGlvbiA9IGtBbnRpYWxp
+YXNEZWZhdWx0KTsKICAgICB+Z2Z4RFdyaXRlRm9udCgpOwogCiAgICAgdmlydHVhbCBnZnhGb250
+KiBDb3B5V2l0aEFudGlhbGlhc09wdGlvbihBbnRpYWxpYXNPcHRpb24gYW5BQU9wdGlvbik7CiAK
+LSAgICB2aXJ0dWFsIG5zU3RyaW5nIEdldFVuaXF1ZU5hbWUoKTsKLQogICAgIHZpcnR1YWwgY29u
+c3QgZ2Z4Rm9udDo6TWV0cmljcyYgR2V0TWV0cmljcygpOwogCiAgICAgdmlydHVhbCBQUlVpbnQz
+MiBHZXRTcGFjZUdseXBoKCk7CiAKICAgICB2aXJ0dWFsIFBSQm9vbCBTZXR1cENhaXJvRm9udChn
+ZnhDb250ZXh0ICphQ29udGV4dCk7CiAKICAgICB2aXJ0dWFsIFBSQm9vbCBJc1ZhbGlkKCk7CiAK
+ZGlmZiAtLWdpdCBhL2dmeC90aGViZXMvZ2Z4RlQyRm9udEJhc2UuY3BwIGIvZ2Z4L3RoZWJlcy9n
+ZnhGVDJGb250QmFzZS5jcHAKLS0tIGEvZ2Z4L3RoZWJlcy9nZnhGVDJGb250QmFzZS5jcHAKKysr
+IGIvZ2Z4L3RoZWJlcy9nZnhGVDJGb250QmFzZS5jcHAKQEAgLTE2NSwyMiArMTY1LDE2IEBAIGdm
+eEZUMkZvbnRCYXNlOjpHZXRNZXRyaWNzKCkKICAgICBmcHJpbnRmIChzdGRlcnIsICIgICAgc3Bh
+Y2VXaWR0aDogJWYgYXZlQ2hhcldpZHRoOiAlZiB4SGVpZ2h0OiAlZlxuIiwgbU1ldHJpY3Muc3Bh
+Y2VXaWR0aCwgbU1ldHJpY3MuYXZlQ2hhcldpZHRoLCBtTWV0cmljcy54SGVpZ2h0KTsKICAgICBm
+cHJpbnRmIChzdGRlcnIsICIgICAgdU9mZjogJWYgdVNpemU6ICVmIHN0T2ZmOiAlZiBzdFNpemU6
+ICVmIHN1T2ZmOiAlZiBzdVNpemU6ICVmXG4iLCBtTWV0cmljcy51bmRlcmxpbmVPZmZzZXQsIG1N
+ZXRyaWNzLnVuZGVybGluZVNpemUsIG1NZXRyaWNzLnN0cmlrZW91dE9mZnNldCwgbU1ldHJpY3Mu
+c3RyaWtlb3V0U2l6ZSwgbU1ldHJpY3Muc3VwZXJzY3JpcHRPZmZzZXQsIG1NZXRyaWNzLnN1YnNj
+cmlwdE9mZnNldCk7CiAjZW5kaWYKIAogICAgIG1IYXNNZXRyaWNzID0gUFJfVFJVRTsKICAgICBy
+ZXR1cm4gbU1ldHJpY3M7CiB9CiAKLW5zU3RyaW5nCi1nZnhGVDJGb250QmFzZTo6R2V0VW5pcXVl
+TmFtZSgpCi17Ci0gICAgcmV0dXJuIEdldE5hbWUoKTsKLX0KLQogLy8gR2V0IHRoZSBnbHlwaElE
+IG9mIGEgc3BhY2UKIFBSVWludDMyCiBnZnhGVDJGb250QmFzZTo6R2V0U3BhY2VHbHlwaCgpCiB7
+CiAgICAgTlNfQVNTRVJUSU9OKEdldFN0eWxlKCktPnNpemUgIT0gMCwKICAgICAgICAgICAgICAg
+ICAgImZvcmdvdCB0byBzaG9ydC1jaXJjdWl0IGEgdGV4dCBydW4gd2l0aCB6ZXJvLXNpemVkIGZv
+bnQ/Iik7CiAgICAgR2V0TWV0cmljcygpOwogICAgIHJldHVybiBtU3BhY2VHbHlwaDsKZGlmZiAt
+LWdpdCBhL2dmeC90aGViZXMvZ2Z4RlQyRm9udEJhc2UuaCBiL2dmeC90aGViZXMvZ2Z4RlQyRm9u
+dEJhc2UuaAotLS0gYS9nZngvdGhlYmVzL2dmeEZUMkZvbnRCYXNlLmgKKysrIGIvZ2Z4L3RoZWJl
+cy9nZnhGVDJGb250QmFzZS5oCkBAIC01MywxNyArNTMsMTYgQEAgcHVibGljOgogICAgICAgICAg
+ICAgICAgICAgIGdmeEZvbnRFbnRyeSAqYUZvbnRFbnRyeSwKICAgICAgICAgICAgICAgICAgICBj
+b25zdCBnZnhGb250U3R5bGUgKmFGb250U3R5bGUpOwogICAgIHZpcnR1YWwgfmdmeEZUMkZvbnRC
+YXNlKCk7CiAKICAgICBQUlVpbnQzMiBHZXRHbHlwaChQUlVpbnQzMiBhQ2hhckNvZGUpOwogICAg
+IHZvaWQgR2V0R2x5cGhFeHRlbnRzKFBSVWludDMyIGFHbHlwaCwKICAgICAgICAgICAgICAgICAg
+ICAgICAgICBjYWlyb190ZXh0X2V4dGVudHNfdCogYUV4dGVudHMpOwogICAgIHZpcnR1YWwgY29u
+c3QgZ2Z4Rm9udDo6TWV0cmljcyYgR2V0TWV0cmljcygpOwotICAgIHZpcnR1YWwgbnNTdHJpbmcg
+R2V0VW5pcXVlTmFtZSgpOwogICAgIHZpcnR1YWwgUFJVaW50MzIgR2V0U3BhY2VHbHlwaCgpOwog
+ICAgIHZpcnR1YWwgaGJfYmxvYl90ICpHZXRGb250VGFibGUoUFJVaW50MzIgYVRhZyk7CiAgICAg
+dmlydHVhbCBQUkJvb2wgUHJvdmlkZXNHZXRHbHlwaCgpIGNvbnN0IHsgcmV0dXJuIFBSX1RSVUU7
+IH0KICAgICB2aXJ0dWFsIFBSVWludDMyIEdldEdseXBoKFBSVWludDMyIHVuaWNvZGUsIFBSVWlu
+dDMyIHZhcmlhdGlvbl9zZWxlY3Rvcik7CiAgICAgdmlydHVhbCBQUkJvb2wgUHJvdmlkZXNHbHlw
+aFdpZHRocygpIHsgcmV0dXJuIFBSX1RSVUU7IH0KICAgICB2aXJ0dWFsIFBSSW50MzIgR2V0R2x5
+cGhXaWR0aChnZnhDb250ZXh0ICphQ3R4LCBQUlVpbnQxNiBhR0lEKTsKIAogICAgIGNhaXJvX3Nj
+YWxlZF9mb250X3QgKkNhaXJvU2NhbGVkRm9udCgpIHsgcmV0dXJuIG1TY2FsZWRGb250OyB9Owpk
+aWZmIC0tZ2l0IGEvZ2Z4L3RoZWJlcy9nZnhGb250LmNwcCBiL2dmeC90aGViZXMvZ2Z4Rm9udC5j
+cHAKLS0tIGEvZ2Z4L3RoZWJlcy9nZnhGb250LmNwcAorKysgYi9nZngvdGhlYmVzL2dmeEZvbnQu
+Y3BwCkBAIC0xMjM4LDE4ICsxMjM4LDE5IEBAIGdmeEZvbnQ6OkRyYXcoZ2Z4VGV4dFJ1biAqYVRl
+eHRSdW4sIFBSVWkKICAgICAgICAgfQogICAgIH0KIAogICAgIGlmIChnZnhGb250VGVzdFN0b3Jl
+OjpDdXJyZW50U3RvcmUoKSkgewogICAgICAgICAvKiBUaGlzIGFzc3VtZXMgdGhhdCB0aGUgdGVz
+dHMgd29uJ3QgaGF2ZSBhbnl0aGluZyB0aGF0IHJlc3VsdHMKICAgICAgICAgICogaW4gbW9yZSB0
+aGFuIEdMWVBIX0JVRkZFUl9TSVpFIGdseXBocy4gIERvIHRoaXMgYmVmb3JlIHdlCiAgICAgICAg
+ICAqIGZsdXNoLCBzaW5jZSB0aGF0J2xsIGJsb3cgYXdheSB0aGUgbnVtX2dseXBocy4KICAgICAg
+ICAgICovCi0gICAgICAgIGdmeEZvbnRUZXN0U3RvcmU6OkN1cnJlbnRTdG9yZSgpLT5BZGRJdGVt
+KEdldFVuaXF1ZU5hbWUoKSwKLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgZ2x5cGhzLm1HbHlwaEJ1ZmZlciwgZ2x5cGhzLm1OdW1HbHlwaHMpOworICAg
+ICAgICBnZnhGb250VGVzdFN0b3JlOjpDdXJyZW50U3RvcmUoKS0+QWRkSXRlbShHZXROYW1lKCks
+CisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdseXBo
+cy5tR2x5cGhCdWZmZXIsCisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIGdseXBocy5tTnVtR2x5cGhzKTsKICAgICB9CiAKICAgICAvLyBkcmF3IGFueSBy
+ZW1haW5pbmcgZ2x5cGhzCiAgICAgZ2x5cGhzLkZsdXNoKGNyLCBhRHJhd1RvUGF0aCwgaXNSVEws
+IFBSX1RSVUUpOwogCiAgICAgKmFQdCA9IGdmeFBvaW50KHgsIHkpOwogfQogCmRpZmYgLS1naXQg
+YS9nZngvdGhlYmVzL2dmeEZvbnQuaCBiL2dmeC90aGViZXMvZ2Z4Rm9udC5oCi0tLSBhL2dmeC90
+aGViZXMvZ2Z4Rm9udC5oCisrKyBiL2dmeC90aGViZXMvZ2Z4Rm9udC5oCkBAIC05NTMsMTggKzk1
+MywxNiBAQCBwdWJsaWM6CiAgICAgICAgICAgICAvLyBvdXRzaWRlIHRoZSBoaW50ZWQgb3V0bGlu
+ZS4KICAgICAgICAgICAgIC8vIEFsc28gTk9URTogaXQgaXMgcmVsYXRpdmVseSBleHBlbnNpdmUg
+dG8gcmVxdWVzdCB0aGlzLAogICAgICAgICAgICAgLy8gYXMgaXQgZG9lcyBub3QgdXNlIGNhY2hl
+ZCBnbHlwaCBleHRlbnRzIGluIHRoZSBmb250LgogICAgIH0gQm91bmRpbmdCb3hUeXBlOwogCiAg
+ICAgY29uc3QgbnNTdHJpbmcmIEdldE5hbWUoKSBjb25zdCB7IHJldHVybiBtRm9udEVudHJ5LT5O
+YW1lKCk7IH0KICAgICBjb25zdCBnZnhGb250U3R5bGUgKkdldFN0eWxlKCkgY29uc3QgeyByZXR1
+cm4gJm1TdHlsZTsgfQogCi0gICAgdmlydHVhbCBuc1N0cmluZyBHZXRVbmlxdWVOYW1lKCkgeyBy
+ZXR1cm4gR2V0TmFtZSgpOyB9Ci0KICAgICB2aXJ0dWFsIGdmeEZvbnQqIENvcHlXaXRoQW50aWFs
+aWFzT3B0aW9uKEFudGlhbGlhc09wdGlvbiBhbkFBT3B0aW9uKSB7CiAgICAgICAgIC8vIHBsYXRm
+b3JtcyB3aGVyZSB0aGlzIGFjdHVhbGx5IG1hdHRlcnMgc2hvdWxkIG92ZXJyaWRlCiAgICAgICAg
+IHJldHVybiBuc251bGw7CiAgICAgfQogCiAgICAgdmlydHVhbCBnZnhGbG9hdCBHZXRBZGp1c3Rl
+ZFNpemUoKSB7CiAgICAgICAgIHJldHVybiBtQWRqdXN0ZWRTaXplID4gMC4wID8gbUFkanVzdGVk
+U2l6ZSA6IG1TdHlsZS5zaXplOwogICAgIH0KZGlmZiAtLWdpdCBhL2dmeC90aGViZXMvZ2Z4T1My
+Rm9udHMuY3BwIGIvZ2Z4L3RoZWJlcy9nZnhPUzJGb250cy5jcHAKLS0tIGEvZ2Z4L3RoZWJlcy9n
+ZnhPUzJGb250cy5jcHAKKysrIGIvZ2Z4L3RoZWJlcy9nZnhPUzJGb250cy5jcHAKQEAgLTQ1Mywy
+NyArNDUzLDE2IEBAIGNhaXJvX3NjYWxlZF9mb250X3QgKmdmeE9TMkZvbnQ6OkNhaXJvU2MKICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAmaWRlbnRpdHlNYXRyaXgs
+IGZvbnRPcHRpb25zKTsKICAgICBjYWlyb19mb250X29wdGlvbnNfZGVzdHJveShmb250T3B0aW9u
+cyk7CiAKICAgICBOU19BU1NFUlRJT04oY2Fpcm9fc2NhbGVkX2ZvbnRfc3RhdHVzKG1TY2FsZWRG
+b250KSA9PSBDQUlST19TVEFUVVNfU1VDQ0VTUywKICAgICAgICAgICAgICAgICAgIkZhaWxlZCB0
+byBtYWtlIHNjYWxlZCBmb250Iik7CiAgICAgcmV0dXJuIG1TY2FsZWRGb250OwogfQogCi1uc1N0
+cmluZyBnZnhPUzJGb250OjpHZXRVbmlxdWVOYW1lKCkKLXsKLSNpZmRlZiBERUJVR190aGViZXMK
+LSAgICBwcmludGYoImdmeE9TMkZvbnQ6OkdldFVuaXF1ZU5hbWUoKT0lc1xuIiwgKGNoYXIgKilH
+ZXROYW1lKCkuZ2V0KCkpOwotI2VuZGlmCi0gICAgLy8gZ2Z4Rm9udDo6R2V0TmFtZSgpIHNob3Vs
+ZCBhbHJlYWR5IGJlIHVuaXF1ZSBlbm91Z2gKLSAgICAvLyBBdHN1aSB1c2VzIHRoYXQsIHRvbywg
+d2hpbGUgV2luIGFwcGVuZHMgc2l6ZSwgYW5kIHByb3BlcnRpZXMuLi4KLSAgICAvLyBkb2Vzbid0
+IHNlZW0gdG8gZ2V0IGNhbGxlZCBhdCBhbGwgYW55d2F5Ci0gICAgcmV0dXJuIEdldE5hbWUoKTsK
+LX0KLQogUFJCb29sIGdmeE9TMkZvbnQ6OlNldHVwQ2Fpcm9Gb250KGdmeENvbnRleHQgKmFDb250
+ZXh0KQogewogI2lmZGVmIERFQlVHX3RoZWJlc18yCiAgICAgcHJpbnRmKCJnZnhPUzJGb250WyUj
+eF06OlNldHVwQ2Fpcm9Gb250KCUjeClcbiIsCiAgICAgICAgICAgICh1bnNpZ25lZCl0aGlzLCAo
+dW5zaWduZWQpIGFDb250ZXh0KTsKICNlbmRpZgogICAgIC8vIGdmeFBhbmdvRm9udCBjaGVja3Mg
+dGhlIENUTSBidXQgV2luZG93cyBkb2Vzbid0IHNvIGxlYXZlIGF3YXkgaGVyZSwgdG9vCiAKZGlm
+ZiAtLWdpdCBhL2dmeC90aGViZXMvZ2Z4T1MyRm9udHMuaCBiL2dmeC90aGViZXMvZ2Z4T1MyRm9u
+dHMuaAotLS0gYS9nZngvdGhlYmVzL2dmeE9TMkZvbnRzLmgKKysrIGIvZ2Z4L3RoZWJlcy9nZnhP
+UzJGb250cy5oCkBAIC02MSwxOCArNjEsMTYgQEAgY2xhc3MgZ2Z4T1MyRm9udCA6IHB1YmxpYyBn
+ZnhGb250IHsKIHB1YmxpYzoKICAgICBnZnhPUzJGb250KGdmeE9TMkZvbnRFbnRyeSAqYUZvbnRF
+bnRyeSwgY29uc3QgZ2Z4Rm9udFN0eWxlICphRm9udFN0eWxlKTsKICAgICB2aXJ0dWFsIH5nZnhP
+UzJGb250KCk7CiAKICAgICB2aXJ0dWFsIGNvbnN0IGdmeEZvbnQ6Ok1ldHJpY3MmIEdldE1ldHJp
+Y3MoKTsKICAgICBjYWlyb19mb250X2ZhY2VfdCAqQ2Fpcm9Gb250RmFjZSgpOwogICAgIGNhaXJv
+X3NjYWxlZF9mb250X3QgKkNhaXJvU2NhbGVkRm9udCgpOwogCi0gICAgdmlydHVhbCBuc1N0cmlu
+ZyBHZXRVbmlxdWVOYW1lKCk7Ci0KICAgICAvLyBHZXQgdGhlIGdseXBoSUQgb2YgYSBzcGFjZQog
+ICAgIHZpcnR1YWwgUFJVaW50MzIgR2V0U3BhY2VHbHlwaCgpIHsKICAgICAgICAgaWYgKCFtTWV0
+cmljcykKICAgICAgICAgICAgIEdldE1ldHJpY3MoKTsKICAgICAgICAgcmV0dXJuIG1TcGFjZUds
+eXBoOwogICAgIH0KIAogICAgIHN0YXRpYyBhbHJlYWR5X0FkZFJlZmVkPGdmeE9TMkZvbnQ+IEdl
+dE9yTWFrZUZvbnQoY29uc3QgbnNBU3RyaW5nJiBhTmFtZSwK
+</data>
+<flag name="review"
+          id="438163"
+          type_id="4"
+          status="+"
+          setter="jdaggett"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648239</bug_id>
+          
+          <creation_ts>2011-04-07 05:13:00 -0700</creation_ts>
+          <short_desc>Update compatibility to support trunk (currently 4.2a1pre)</short_desc>
+          <delta_ts>2011-04-08 13:28:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Labs</product>
+          <component>Test Pilot</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Paul [sabret00the]">sabret00the</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>kbrosnan</cc>
+          <qa_contact>test-pilot</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394228</commentid>
+            <who name="Paul [sabret00the]">sabret00the</who>
+            <bug_when>2011-04-07 05:13:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+Build Identifier: 
+
+Current Test Pilot is marked incompatible which means should a study start and users aren&apos;t forcing compatibility we&apos;re leaving out said users from any tests.
+
+Reproducible: Always</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

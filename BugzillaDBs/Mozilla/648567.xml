@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648567</bug_id>
+          
+          <creation_ts>2011-04-08 10:23:00 -0700</creation_ts>
+          <short_desc>TI+JM: incorrect result with array testcase</short_desc>
+          <delta_ts>2011-04-08 19:00:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>emanuel.hoogeveen</cc>
+    
+    <cc>gary</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396766</commentid>
+              <attachid>524661</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-08 10:23:44 -0700</bug_when>
+            <thetext>Created attachment 524661
+Testcase
+
+$ ./js -a -n -m test.js
+test.js:8: Error: Assertion failed: got 1e-323, expected 2
+
+The test does not fail if the first element in the array is &gt;= 0, it will use JSOP_OBJECT instead of JSOP_INITARRAY.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397961</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-08 19:00:59 -0700</bug_when>
+            <thetext>When inlining a call, we don&apos;t write types for the inlined call&apos;s local variables when they are known statically.  For uninlined calls, we do make such writes (we probably shouldn&apos;t be doing this, just remember known types on the JITScript and fill in before recompiling).  When expanding inline frames, these unsynced type tags always need to be written.
+
+The reason this works if the initializer is a JSOP_OBJECT is that we use the default, unknown type object for singleton arrays with heterogenous element type, so did not assume anything at all about the array or its contents and didn&apos;t incur the recompilations triggering this bug.
+
+http://hg.mozilla.org/projects/jaegermonkey/rev/ef890e014ce1</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524661</attachid>
+            <date>2011-04-08 10:23:00 -0700</date>
+            <delta_ts>2011-04-08 10:23:44 -0700</delta_ts>
+            <desc>Testcase</desc>
+            <filename>test.js</filename>
+            <type>application/x-javascript</type>
+            <size>220</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">dmFyIGFyciA9IFstMTAsIHRydWVdOwp0cnVlIHx8IGFyclswXTsKCmZ1bmN0aW9uIGcoKSB7CiAg
+ICB2YXIgeCA9IGFyclsxMl07CiAgICB2YXIgeSA9IGFyci5sZW5ndGg7CiAgICBhcnJbdW5kZWZp
+bmVkXSA9IHg7CiAgICBhc3NlcnRFcSh5LCAyKTsKfQp7CiAgICBmdW5jdGlvbiBmKCkgewogICAg
+ICAgIGdjKCk7CiAgICAgICAgZygpOyAgICAgICAgCiAgICB9CiAgICBmKCk7Cn0KCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

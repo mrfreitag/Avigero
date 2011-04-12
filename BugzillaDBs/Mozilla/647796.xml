@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647796</bug_id>
+          
+          <creation_ts>2011-04-05 03:55:00 -0700</creation_ts>
+          <short_desc>Broken parsing of Accept-Language for language redirection</short_desc>
+          <delta_ts>2011-04-05 09:00:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Developer Network</product>
+          <component>Website</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://developer.mozilla.org/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Florent Verschelde">florent</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>florent</cc>
+    
+    <cc>lcrouch</cc>
+          <qa_contact>website</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390978</commentid>
+            <who name="Florent Verschelde">florent</who>
+            <bug_when>2011-04-05 03:55:56 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+When going to http://developer.mozilla.org (or https://developer.mozilla.org) the user gets redirected to a specific language version. This redirection seems to be based on the value of the HTTP header Accept-Language, but the parsing of this value is probably wrong.
+
+Four examples of this bug, with cookies disabled and varying Accept-Language configs:
+
+1. Accept-Language:en,fr;q=0.5
+   Redirects to: https://developer.mozilla.org/fr/ (expected: /en/ or /en-US/)
+2. Accept-Language:en,de;q=0.5
+   Redirects to: https://developer.mozilla.org/de/ (expected: /en/ or /en-US/)
+3. Accept-Language:it,en;q=0.8,de;q=0.5,en-us;q=0.3
+   Redirects to: https://developer.mozilla.org/de/ (expected: /it/)
+4. Accept-Language:it,en;q=0.8,en-us;q=0.5,de;q=0.3
+   Redirects to: https://developer.mozilla.org/en-US/ (expected: /it/)
+
+It seems the redirection only considers the &quot;new&quot; language versions, including:
+https://developer.mozilla.org/en-US/
+https://developer.mozilla.org/fr/
+https://developer.mozilla.org/de/
+And excluding:
+https://developer.mozilla.org/en
+https://developer.mozilla.org/it
+https://developer.mozilla.org/fr
+
+In Accept-Language, &quot;en&quot; is not matched with &quot;en-US&quot; (I think it should!), and &quot;it&quot; is not matched since there is no new Italian version yet (no idea on what should be done for this).
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391132</commentid>
+            <who name="Luke Crouch [:groovecoder]">lcrouch</who>
+            <bug_when>2011-04-05 07:35:50 -0700</bug_when>
+            <thetext>This bug is just for &apos;en&apos; not matching to &apos;en-US&apos;
+
+&apos;it&apos; would match if there were an Italian translation available.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391171</commentid>
+            <who name="Florent Verschelde">florent</who>
+            <bug_when>2011-04-05 08:05:18 -0700</bug_when>
+            <thetext>Two things:
+- I would argue that if a user asks for &apos;en-GB&apos; (or any &apos;en-..&apos; but not &apos;en-US&apos; or &apos;en&apos;, he should be directed to &apos;en-US&apos; as well. For technical reasons discussed in Bug 647801, it seems &apos;en-US&apos; is the new &apos;en&apos;. ;)
+- I see there is a &apos;it&apos; version at https://developer.mozilla.org/it but I guess it was too embryonic to be ported to the new system.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391207</commentid>
+            <who name="Luke Crouch [:groovecoder]">lcrouch</who>
+            <bug_when>2011-04-05 09:00:01 -0700</bug_when>
+            <thetext>&gt; I see there is a &apos;it&apos; version at https://developer.mozilla.org/it but I guess
+&gt; it was too embryonic to be ported to the new system.
+That&apos;s the Italian home page of the *Doc Center* (i.e., the DekiWiki system). We don&apos;t auto-redirect to &apos;/it/&apos; because we don&apos;t have an Italian translation of the django content. :(</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

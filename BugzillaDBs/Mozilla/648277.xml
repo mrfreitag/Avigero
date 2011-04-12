@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648277</bug_id>
+          
+          <creation_ts>2011-04-07 08:45:00 -0700</creation_ts>
+          <short_desc>Flash fails to paint until I hover on it</short_desc>
+          <delta_ts>2011-04-08 09:47:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.stockholm.se/TrafikStadsplanering/</bug_file_loc>
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai de Leeuw">deleeuw+bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>ben</cc>
+    
+    <cc>bugzilla</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>josh</cc>
+    
+    <cc>romaxa</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394465</commentid>
+            <who name="Kai de Leeuw">deleeuw+bugzilla</who>
+            <bug_when>2011-04-07 08:45:15 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+Build Identifier: 
+
+When I on the attached URL display a Flash movie by clicking on &quot;Teckenspråk&quot; it doesn&apos;t show until I move the mouse on the place where it should be.
+
+I have confirmed that it is an issue with IPC. I have disabled IPC and then it works as it should. 
+
+It also works in 3.6. It also works in Chrome 10.
+
+I also have a colleague that gets the same problem on her Firefox 4 on Windows 7.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Load the URL in this bug
+2. Press &quot;Teckenspråk&quot;
+3. A white space opens up, in that white space, move the mouse a bit
+Actual Results:  
+Flash not painting itself.
+
+Expected Results:  
+Flash painting itself.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394474</commentid>
+            <who name="José Jeria">bugzilla</who>
+            <bug_when>2011-04-07 08:51:08 -0700</bug_when>
+            <thetext>Confirming with build: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394480</commentid>
+            <who name="Josh Matthews [:jdm]">josh</who>
+            <bug_when>2011-04-07 08:54:31 -0700</bug_when>
+            <thetext>I can reproduce on Fedora 12.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394483</commentid>
+            <who name="Kai de Leeuw">deleeuw+bugzilla</who>
+            <bug_when>2011-04-07 08:55:45 -0700</bug_when>
+            <thetext>My report may have been a bit confusing:
+
+Steps to Reproduce:
+1. Load the URL in this bug
+2. Press &quot;Teckenspråk&quot;
+3. A white space opens up, where a flash should be
+
+Actual Results:  
+Flash not painting itself.
+
+Expected Results:  
+Flash painting itself.
+
+To repaint the flash move the mouse a bit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396476</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-08 07:56:35 -0700</bug_when>
+            <thetext>Last good nightly: 2011-01-13 First bad nightly: 2011-01-14
+
+Pushlog: http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=54184cfa6f0e&amp;tochange=9f412256da4c
+
+against Flash 10.3.180.65/WinXP.
+
+=&gt; Fallout of Bug 605618?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396505</commentid>
+            <who name="Josh Matthews [:jdm]">josh</who>
+            <bug_when>2011-04-08 08:22:19 -0700</bug_when>
+            <thetext>I suspect bug 605618 or bug 619176.  stechz, romaxa, thoughts?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396614</commentid>
+            <who name="Benjamin Stover (:stechz)">ben</who>
+            <bug_when>2011-04-08 09:39:50 -0700</bug_when>
+            <thetext>I know little about Flash. Does Flash use nsGfxScrollFrames at all in the plugin process?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396636</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 09:47:16 -0700</bug_when>
+            <thetext>It does not.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

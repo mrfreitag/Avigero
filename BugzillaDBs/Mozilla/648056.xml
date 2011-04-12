@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648056</bug_id>
+          
+          <creation_ts>2011-04-06 11:34:00 -0700</creation_ts>
+          <short_desc>404 error on page</short_desc>
+          <delta_ts>2011-04-06 11:49:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www-trunk.stage.mozilla.com/en-US/firefox/all-older.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="raymond [:retornam]">mozbugs.retornam</reporter>
+          <assigned_to name="James Long (:jlongster)">jlong</assigned_to>
+          <cc>jlong</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392758</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-06 11:34:23 -0700</bug_when>
+            <thetext>STR:
+1) Visit http://www-trunk.stage.mozilla.com/en-US/firefox/all-older.html
+2) Open the web console and notice the 404 error below
+
+GET https://www-trunk.stage.mozilla.com/en-US/style/covehead/all-older.css [HTTP/1.1 404 Not Found 179ms]</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

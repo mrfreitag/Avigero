@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647999</bug_id>
+          
+          <creation_ts>2011-04-06 08:22:00 -0700</creation_ts>
+          <short_desc>The old status bar should should be visible if the user so wishes in Firefox 4</short_desc>
+          <delta_ts>2011-04-07 00:33:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Toolbars</component>
+          <version>4.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>602237</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>gyll</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>toolbars</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392302</commentid>
+            <who name="">gyll</who>
+            <bug_when>2011-04-06 08:22:10 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+I want the status bar back in Firefox 4, as an OPTION in the View-&gt;Toolbars menu. If you just don&apos;t do this, i&apos;m done with firefox, and i&apos;ll make sure to drag as many people with me away from fx as i possibly can (&quot;direct marketing&quot;, blogs, you name it). 
+
+This is INSANE what you&apos;re doing, to just cut such a core piece of a browser&apos;s UI that users have been used to for decades. INSANE.
+
+------
+PS
+I know that others have posted quite a bunch of issues on this topic, but i&apos;m still adding a new one, because you guys should really wake up in terms of how you treat your public (or you&apos;re gonna be at 5% browser share in 2 years from now, you&apos;s no longer the only option around you know).
+
+Reproducible: Always
+
+Actual Results:  
+The visibility of the status bar should be an option in the View menu</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392312</commentid>
+            <who name="sdrocking">dugar.siddhartha</who>
+            <bug_when>2011-04-06 08:34:00 -0700</bug_when>
+            <thetext>Try: https://addons.mozilla.org/en-US/firefox/addon/status-4-evar/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392313</commentid>
+            <who name="Robert Longson">longsonr</who>
+            <bug_when>2011-04-06 08:35:27 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 602237 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394071</commentid>
+            <who name="">gyll</who>
+            <bug_when>2011-04-07 00:33:31 -0700</bug_when>
+            <thetext>thanks sdrocking, i&apos;ll try it, maybe fx will stand another chance on my laptop after all. maybe. (still, this doesn&apos;t make the UI design change utterly insane)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

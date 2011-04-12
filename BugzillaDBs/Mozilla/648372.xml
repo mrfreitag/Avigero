@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648372</bug_id>
+          
+          <creation_ts>2011-04-07 14:34:00 -0700</creation_ts>
+          <short_desc>fix direct message use</short_desc>
+          <delta_ts>2011-04-08 11:44:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Services</product>
+          <component>Server: Share</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>648601</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Shane Caraveo (:mixedpuppy)">mixedpuppy</reporter>
+          <assigned_to name="Mark Hammond">mhammond</assigned_to>
+          <cc>jrburke</cc>
+    
+    <cc>mixedpuppy</cc>
+    
+    <cc>tarek</cc>
+          <qa_contact>share-server</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395147</commentid>
+            <who name="Shane Caraveo (:mixedpuppy)">mixedpuppy</who>
+            <bug_when>2011-04-07 14:34:14 -0700</bug_when>
+            <thetext>reenable direct messaging that was disabled for Bug 647509
+	
+1. get a patch together for the current live server
+2. create a patch plus tests for the new server code</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396845</commentid>
+              <attachid>524671</attachid>
+            <who name="Shane Caraveo (:mixedpuppy)">mixedpuppy</who>
+            <bug_when>2011-04-08 10:41:58 -0700</bug_when>
+            <thetext>Created attachment 524671
+hotfix patch for current server
+
+This patch is applied after reverting changes that disabled dm:
+
+https://github.com/mozilla/f1/commit/e94518f54bacd22b2a8a9bdb08b4e5ccd2f298ea
+
+https://github.com/mozilla/f1/commit/160798a62b8ca932d9baa19ac4bbd5f73c46c739</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396852</commentid>
+              <attachid>524673</attachid>
+            <who name="Shane Caraveo (:mixedpuppy)">mixedpuppy</who>
+            <bug_when>2011-04-08 10:43:37 -0700</bug_when>
+            <thetext>Created attachment 524673
+patch applied to linkoauth library in server-share-core
+
+Patch is the same changes as in the hotfix, but applied to linkoauth.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396869</commentid>
+            <who name="Tarek Ziadé (:tarek)">tarek</who>
+            <bug_when>2011-04-08 10:48:20 -0700</bug_when>
+            <thetext>The patch looks good to me, but I think we want to add a specific test here that exercise the new behavior.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396901</commentid>
+            <who name="Shane Caraveo (:mixedpuppy)">mixedpuppy</who>
+            <bug_when>2011-04-08 10:57:04 -0700</bug_when>
+            <thetext>assigning to mark for getting the test code to support tests for this.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524671</attachid>
+            <date>2011-04-08 10:41:00 -0700</date>
+            <delta_ts>2011-04-08 10:41:58 -0700</delta_ts>
+            <desc>hotfix patch for current server</desc>
+            <filename>bug648372.patch</filename>
+            <type>text/plain</type>
+            <size>4820</size>
+            <attacher>mixedpuppy</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2xpbmtkcm9wL2xpYi9vYXV0aC9mYWNlYm9va18ucHkgYi9saW5rZHJvcC9s
+aWIvb2F1dGgvZmFjZWJvb2tfLnB5CmluZGV4IDllMzBjOTEuLjY4OWRlYjggMTAwNjQ0Ci0tLSBh
+L2xpbmtkcm9wL2xpYi9vYXV0aC9mYWNlYm9va18ucHkKKysrIGIvbGlua2Ryb3AvbGliL29hdXRo
+L2ZhY2Vib29rXy5weQpAQCAtMjUzLDExICsyNTMsMjAgQEAgY2xhc3MgYXBpKCk6CiAgICAgICAg
+ICAgJ3NvdXJjZSc6ICdzb3VyY2UnCiAgICAgIH0KICAgICAgZGVmIHNlbmRtZXNzYWdlKHNlbGYs
+IG1lc3NhZ2UsIG9wdGlvbnM9e30pOgotICAgICAgICAgIGRpcmVjdCA9IG9wdGlvbnMuZ2V0KCd0
+bycsIE5vbmUpCi0gICAgICAgICAgaWYgZGlyZWN0OgorICAgICAgICAgIHNoYXJlX3R5cGUgPSBv
+cHRpb25zLmdldCgnc2hhcmVUeXBlJywgTm9uZSkKKyAgICAgICAgICBpZiBzaGFyZV90eXBlID09
+ICdncm91cFdhbGwnOgorICAgICAgICAgICAgICAgZGlyZWN0ID0gb3B0aW9ucy5nZXQoJ3RvJywg
+Tm9uZSkKKyAgICAgICAgICAgICAgIGlmIG5vdCBkaXJlY3Q6CisgICAgICAgICAgICAgICAgICAg
+IHJldHVybiBOb25lLCB7J2NvZGUnOiA0MDAsCisgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgJ3Byb3ZpZGVyJzogZG9tYWluLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICdtZXNzYWdlJzogJ1dhbGwgbmFtZSBpcyBtaXNzaW5nJ30KICAgICAgICAgICAgICAgIHVy
+bCA9ICJodHRwczovL2dyYXBoLmZhY2Vib29rLmNvbS8lcy9mZWVkIiAlIChkaXJlY3QsKQotICAg
+ICAgICAgIGVsc2U6CisgICAgICAgICAgZWxpZiBzaGFyZV90eXBlID09ICd3YWxsJzoKICAgICAg
+ICAgICAgICAgIHVybCA9IGNvbmZpZy5nZXQoIm9hdXRoLmZhY2Vib29rLmNvbS5mZWVkIiwgImh0
+dHBzOi8vZ3JhcGguZmFjZWJvb2suY29tL21lL2ZlZWQiKQorICAgICAgICAgIGVsc2U6CisgICAg
+ICAgICAgICAgICByZXR1cm4gTm9uZSwgeydjb2RlJzogNDAwLAorICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAncHJvdmlkZXInOiBkb21haW4sCisgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICdtZXNzYWdlJzogJ1NoYXJlIHR5cGUgaXMgbWlzc2luZyd9CiAgICAgICAgICAgYm9keSA9
+IHsKICAgICAgICAgICAgICAgICJtZXNzYWdlIjogbWVzc2FnZQogICAgICAgICAgIH0KZGlmZiAt
+LWdpdCBhL2xpbmtkcm9wL2xpYi9vYXV0aC9saW5rZWRpbl8ucHkgYi9saW5rZHJvcC9saWIvb2F1
+dGgvbGlua2VkaW5fLnB5CmluZGV4IDU5Y2VmYjEuLmMyOTc4YTAgMTAwNjQ0Ci0tLSBhL2xpbmtk
+cm9wL2xpYi9vYXV0aC9saW5rZWRpbl8ucHkKKysrIGIvbGlua2Ryb3AvbGliL29hdXRoL2xpbmtl
+ZGluXy5weQpAQCAtMTA5LDggKzEwOSwyMSBAQCBjbGFzcyBhcGkoKToKICAgICAgICAgcmV0dXJu
+IHJlc3VsdCwgZXJyb3IKIAogICAgIGRlZiBzZW5kbWVzc2FnZShzZWxmLCBtZXNzYWdlLCBvcHRp
+b25zPXt9KToKLSAgICAgICAgZGlyZWN0ID0gb3B0aW9ucy5nZXQoJ3RvJywgJ2FueW9uZScpCi0g
+ICAgICAgIGlmIGRpcmVjdCBpbiAoJ2FueW9uZScsICdjb25uZWN0aW9ucy1vbmx5Jyk6CisgICAg
+ICAgIHNoYXJlX3R5cGUgPSBzdHIob3B0aW9ucy5nZXQoJ3NoYXJlVHlwZScsICcnKSkKKyAgICAg
+ICAgaWYgbm90IHNoYXJlX3R5cGUgb3Igc2hhcmVfdHlwZSBub3QgaW4gXAorICAgICAgICAgICAg
+KCdwdWJsaWMnLCAnbXlDb25uZWN0aW9ucycsICdjb250YWN0Jyk6CisgICAgICAgICAgICByZXR1
+cm4gTm9uZSwgeydjb2RlJzogNDAwLAorICAgICAgICAgICAgICAgICAgICAgICAgICAncHJvdmlk
+ZXInOiAnbGlua2VkaW4nLAorICAgICAgICAgICAgICAgICAgICAgICAgICAnbWVzc2FnZSc6ICdJ
+bnZhbGlkIHNoYXJlIHR5cGUnfQorCisgICAgICAgICMgVE9ETzogdGhpcyBuZWVkcyBhIGJpdCB3
+b3JrLCBpdCBpcyBub3QgcmVhbGx5ICJkaXJlY3QiLgorICAgICAgICBpZiBzaGFyZV90eXBlIGlu
+ICgncHVibGljJywgJ215Q29ubmVjdGlvbnMnKToKKyAgICAgICAgICAgIGRpcmVjdCA9IG9wdGlv
+bnMuZ2V0KCd0bycsICdhbnlvbmUnKQorICAgICAgICAgICAgaWYgKHNoYXJlX3R5cGUgPT0gJ3B1
+YmxpYycgYW5kIGRpcmVjdCAhPSAnYW55b25lJykgb3IgXAorICAgICAgICAgICAgICAgKHNoYXJl
+X3R5cGUgPT0gJ215Q29ubmVjdGlvbnMnIGFuZCBkaXJlY3QgIT0gJ2Nvbm5lY3Rpb25zLW9ubHkn
+KToKKyAgICAgICAgICAgICAgICByZXR1cm4gTm9uZSwgeydjb2RlJzogNDAwLAorICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgJ3Byb3ZpZGVyJzogJ2xpbmtlZGluJywKKyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICdtZXNzYWdlJzogJ0luY29ycmVjdCBhZGRyZXNzaW5nIGZvciBw
+b3N0J30KICAgICAgICAgICAgIHVybCA9ICJodHRwOi8vYXBpLmxpbmtlZGluLmNvbS92MS9wZW9w
+bGUvfi9zaGFyZXMiCiAgICAgICAgICAgICBib2R5ID0gewogICAgICAgICAgICAgICAgICJjb21t
+ZW50IjogbWVzc2FnZSwKQEAgLTEzOCw4ICsxNTEsMTIgQEAgY2xhc3MgYXBpKCk6CiAgICAgICAg
+ICAgICBkZXNjcmlwdGlvbiA9IG9wdGlvbnMuZ2V0KCdkZXNjcmlwdGlvbicsICcnKVs6MjgwXQog
+CiAgICAgICAgICAgICB0b18gPSBbXQotICAgICAgICAgICAgZm9yIGEgaW4gdG9fYWRkcnMuYWRk
+cmVzc2xpc3Q6Ci0gICAgICAgICAgICAgICAgdG9fLmFwcGVuZCh7J3BlcnNvbic6IHsnX3BhdGgn
+OiAnL3Blb3BsZS8nK2FbMV0gfX0pCisgICAgICAgICAgICBpZHMgPSBbYVsxXSBmb3IgYSBpbiB0
+b19hZGRycy5hZGRyZXNzbGlzdF0KKyAgICAgICAgICAgIGlmIG5vdCBpZHM6CisgICAgICAgICAg
+ICAgICAgcmV0dXJuIE5vbmUsIHsnY29kZSc6IDQwMCwKKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICdtZXNzYWdlJzogJ01pc3NpbmcgY29udGFjdHMgZm9yIGRpcmVjdCBtZXNzYWdpbmcu
+J30KKyAgICAgICAgICAgIGZvciBpZCBpbiBpZHM6CisgICAgICAgICAgICAgICAgdG9fLmFwcGVu
+ZCh7J3BlcnNvbic6IHsnX3BhdGgnOiAnL3Blb3BsZS8nICsgaWR9fSkKIAogICAgICAgICAgICAg
+Yy5zYWZlSFRNTCA9IHNhZmVIVE1MCiAgICAgICAgICAgICBjLm9wdGlvbnMgPSBvcHRpb25zCmRp
+ZmYgLS1naXQgYS9saW5rZHJvcC9saWIvb2F1dGgvdHdpdHRlcl8ucHkgYi9saW5rZHJvcC9saWIv
+b2F1dGgvdHdpdHRlcl8ucHkKaW5kZXggMWM0YmQyOS4uOGM0MmIzOCAxMDA2NDQKLS0tIGEvbGlu
+a2Ryb3AvbGliL29hdXRoL3R3aXR0ZXJfLnB5CisrKyBiL2xpbmtkcm9wL2xpYi9vYXV0aC90d2l0
+dGVyXy5weQpAQCAtMTczLDYgKzE3Myw3IEBAIGNsYXNzIGFwaSgpOgogICAgICAgICAgICAgIyBp
+bnNlcnQgdGhlIHVybCBpZiBpdCBpcyBub3QgYWxyZWFkeSBpbiB0aGUgbWVzc2FnZQogICAgICAg
+ICAgICAgbG9uZ3VybCA9IG9wdGlvbnMuZ2V0KCdsaW5rJykKICAgICAgICAgICAgIHNob3J0dXJs
+ID0gb3B0aW9ucy5nZXQoJ3Nob3J0dXJsJykKKyAgICAgICAgICAgIHNoYXJlX3R5cGUgPSBvcHRp
+b25zLmdldCgnc2hhcmVUeXBlJywgTm9uZSkKICAgICAgICAgICAgIGlmIHNob3J0dXJsOgogICAg
+ICAgICAgICAgICAgICMgaWYgdGhlIGxvbmcgdXJsIGlzIGluIHRoZSBtZXNzYWdlIGJvZHksIHJl
+cGxhY2UgaXQgd2l0aAogICAgICAgICAgICAgICAgICMgdGhlIHNob3J0IHVybCwgb3RoZXJ3aXNl
+IGp1c3QgbWFrZSBzdXJlIHNob3J0dXJsIGlzIGluCkBAIC0xODUsMTEgKzE4NiwyMCBAQCBjbGFz
+cyBhcGkoKToKICAgICAgICAgICAgICAgICAjIHNvbWUgcmVhc29uIHdlIGRvbnQgaGF2ZSBhIHNo
+b3J0IHVybCwgYWRkIHRoZSBsb25nIHVybAogICAgICAgICAgICAgICAgIG1lc3NhZ2UgKz0gIiAl
+cyIgJSBsb25ndXJsCiAKLSAgICAgICAgICAgIGRpcmVjdCA9IG9wdGlvbnMuZ2V0KCd0bycsIE5v
+bmUpCi0gICAgICAgICAgICBpZiBkaXJlY3Q6CisgICAgICAgICAgICBpZiBzaGFyZV90eXBlID09
+ICdkaXJlY3QnOgorICAgICAgICAgICAgICAgIGRpcmVjdCA9IG9wdGlvbnMuZ2V0KCd0bycsIE5v
+bmUpCisgICAgICAgICAgICAgICAgaWYgbm90IGRpcmVjdDoKKyAgICAgICAgICAgICAgICAgICAg
+cmV0dXJuIE5vbmUsIFwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICB7J2NvZGUnOiA0MDAs
+CisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdwcm92aWRlcic6IGRvbWFpbiwKKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgJ21lc3NhZ2UnOiAnTWlzc2luZyBhZGRyZXNzZWUgZm9y
+IGRpcmVjdCBtZXNzYWdlJ30KICAgICAgICAgICAgICAgICByZXN1bHQgPSBzZWxmLmFwaSgpLmRp
+cmVjdF9tZXNzYWdlcy5uZXcodGV4dD1tZXNzYWdlLCB1c2VyPWRpcmVjdCkKLSAgICAgICAgICAg
+IGVsc2U6CisgICAgICAgICAgICBlbGlmIHNoYXJlX3R5cGUgPT0gJ3B1YmxpYyc6CiAgICAgICAg
+ICAgICAgICAgcmVzdWx0ID0gc2VsZi5hcGkoKS5zdGF0dXNlcy51cGRhdGUoc3RhdHVzPW1lc3Nh
+Z2UpCisgICAgICAgICAgICBlbHNlOgorICAgICAgICAgICAgICAgcmV0dXJuIE5vbmUsIHsnY29k
+ZSc6IDQwMCwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ3Byb3ZpZGVyJzogZG9tYWlu
+LAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAnbWVzc2FnZSc6ICdTaGFyZSB0eXBlIGlz
+IG1pc3NpbmcnfQogICAgICAgICAgICAgcmVzdWx0W2RvbWFpbl0gPSByZXN1bHRbJ2lkJ10KICAg
+ICAgICAgZXhjZXB0IFR3aXR0ZXJIVFRQRXJyb3IsIGV4YzoKICAgICAgICAgICAgIGVycm9yID0g
+c2VsZi5fdHdpdHRlcl9leGNfdG9fZXJyb3IoZXhjKQo=
+</data>
+<flag name="review"
+          id="438294"
+          type_id="4"
+          status="?"
+          setter="mixedpuppy"
+          requestee="tarek"
+    />
+    <flag name="feedback"
+          id="438295"
+          type_id="607"
+          status="?"
+          setter="mixedpuppy"
+          requestee="dascher"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524673</attachid>
+            <date>2011-04-08 10:43:00 -0700</date>
+            <delta_ts>2011-04-08 10:43:37 -0700</delta_ts>
+            <desc>patch applied to linkoauth library in server-share-core</desc>
+            <filename>bug648372.patch</filename>
+            <type>text/plain</type>
+            <size>4569</size>
+            <attacher>mixedpuppy</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2xpbmtvYXV0aC9mYWNlYm9va18ucHkgYi9saW5rb2F1dGgvZmFjZWJvb2tf
+LnB5CmluZGV4IGQxOTY1MTIuLmIxNGM0ZTkgMTAwNjQ0Ci0tLSBhL2xpbmtvYXV0aC9mYWNlYm9v
+a18ucHkKKysrIGIvbGlua29hdXRoL2ZhY2Vib29rXy5weQpAQCAtMjYwLDExICsyNjAsMTYgQEAg
+Y2xhc3MgYXBpKCk6CiAgICAgICAgICAgJ3NvdXJjZSc6ICdzb3VyY2UnCiAgICAgIH0KICAgICAg
+ZGVmIHNlbmRtZXNzYWdlKHNlbGYsIG1lc3NhZ2UsIG9wdGlvbnM9e30pOgotICAgICAgICAgIGRp
+cmVjdCA9IG9wdGlvbnMuZ2V0KCd0bycsIE5vbmUpCi0gICAgICAgICAgaWYgZGlyZWN0OgorICAg
+ICAgICAgIHNoYXJlX3R5cGUgPSBvcHRpb25zLmdldCgnc2hhcmVUeXBlJywgTm9uZSkKKyAgICAg
+ICAgICBpZiBzaGFyZV90eXBlID09ICdncm91cFdhbGwnOgorICAgICAgICAgICAgICAgZGlyZWN0
+ID0gb3B0aW9ucy5nZXQoJ3RvJywgTm9uZSkKKyAgICAgICAgICAgICAgIGlmIG5vdCBkaXJlY3Q6
+CisgICAgICAgICAgICAgICAgICAgIHJldHVybiBOb25lLCB7J2NvZGUnOiA0MDAsICdtZXNzYWdl
+JzogJ1dhbGwgbmFtZSBpcyBtaXNzaW5nJ30KICAgICAgICAgICAgICAgIHVybCA9ICJodHRwczov
+L2dyYXBoLmZhY2Vib29rLmNvbS8lcy9mZWVkIiAlIChkaXJlY3QsKQotICAgICAgICAgIGVsc2U6
+CisgICAgICAgICAgZWxpZiBzaGFyZV90eXBlID09ICd3YWxsJzoKICAgICAgICAgICAgICAgIHVy
+bCA9IGNvbmZpZy5nZXQoIm9hdXRoLmZhY2Vib29rLmNvbS5mZWVkIiwgImh0dHBzOi8vZ3JhcGgu
+ZmFjZWJvb2suY29tL21lL2ZlZWQiKQorICAgICAgICAgIGVsc2U6CisgICAgICAgICAgICAgICBy
+ZXR1cm4gTm9uZSwgeydjb2RlJzogNDAwLCAnbWVzc2FnZSc6ICdTaGFyZSB0eXBlIGlzIG1pc3Np
+bmcnfQogICAgICAgICAgIGJvZHkgPSB7CiAgICAgICAgICAgICAgICAibWVzc2FnZSI6IG1lc3Nh
+Z2UKICAgICAgICAgICB9CmRpZmYgLS1naXQgYS9saW5rb2F1dGgvbGlua2VkaW5fLnB5IGIvbGlu
+a29hdXRoL2xpbmtlZGluXy5weQppbmRleCAzOWU1OTczLi4wNjRiMDMyIDEwMDY0NAotLS0gYS9s
+aW5rb2F1dGgvbGlua2VkaW5fLnB5CisrKyBiL2xpbmtvYXV0aC9saW5rZWRpbl8ucHkKQEAgLTEy
+MCw4ICsxMjAsMjEgQEAgY2xhc3MgYXBpKCk6CiAgICAgICAgIHJldHVybiByZXN1bHQsIGVycm9y
+CiAKICAgICBkZWYgc2VuZG1lc3NhZ2Uoc2VsZiwgbWVzc2FnZSwgb3B0aW9ucz17fSk6Ci0gICAg
+ICAgIGRpcmVjdCA9IG9wdGlvbnMuZ2V0KCd0bycsICdhbnlvbmUnKQotICAgICAgICBpZiBkaXJl
+Y3QgaW4gKCdhbnlvbmUnLCAnY29ubmVjdGlvbnMtb25seScpOgorICAgICAgICBzaGFyZV90eXBl
+ID0gc3RyKG9wdGlvbnMuZ2V0KCdzaGFyZVR5cGUnLCAnJykpCisgICAgICAgIGlmIG5vdCBzaGFy
+ZV90eXBlIG9yIHNoYXJlX3R5cGUgbm90IGluIFwKKyAgICAgICAgICAgICgncHVibGljJywgJ215
+Q29ubmVjdGlvbnMnLCAnY29udGFjdCcpOgorICAgICAgICAgICAgcmV0dXJuIE5vbmUsIHsnY29k
+ZSc6IDQwMCwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgJ3Byb3ZpZGVyJzogJ2xpbmtlZGlu
+JywKKyAgICAgICAgICAgICAgICAgICAgICAgICAgJ21lc3NhZ2UnOiAnSW52YWxpZCBzaGFyZSB0
+eXBlJ30KKworICAgICAgICAjIFRPRE86IHRoaXMgbmVlZHMgYSBiaXQgd29yaywgaXQgaXMgbm90
+IHJlYWxseSAiZGlyZWN0Ii4KKyAgICAgICAgaWYgc2hhcmVfdHlwZSBpbiAoJ3B1YmxpYycsICdt
+eUNvbm5lY3Rpb25zJyk6CisgICAgICAgICAgICBkaXJlY3QgPSBvcHRpb25zLmdldCgndG8nLCAn
+YW55b25lJykKKyAgICAgICAgICAgIGlmIChzaGFyZV90eXBlID09ICdwdWJsaWMnIGFuZCBkaXJl
+Y3QgIT0gJ2FueW9uZScpIG9yIFwKKyAgICAgICAgICAgICAgIChzaGFyZV90eXBlID09ICdteUNv
+bm5lY3Rpb25zJyBhbmQgZGlyZWN0ICE9ICdjb25uZWN0aW9ucy1vbmx5Jyk6CisgICAgICAgICAg
+ICAgICAgcmV0dXJuIE5vbmUsIHsnY29kZSc6IDQwMCwKKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICdwcm92aWRlcic6ICdsaW5rZWRpbicsCisgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAnbWVzc2FnZSc6ICdJbmNvcnJlY3QgYWRkcmVzc2luZyBmb3IgcG9zdCd9CiAgICAgICAg
+ICAgICB1cmwgPSAiaHR0cDovL2FwaS5saW5rZWRpbi5jb20vdjEvcGVvcGxlL34vc2hhcmVzIgog
+ICAgICAgICAgICAgYm9keSA9IHsKICAgICAgICAgICAgICAgICAiY29tbWVudCI6IG1lc3NhZ2Us
+CkBAIC0xNTIsOCArMTY1LDEyIEBAIGNsYXNzIGFwaSgpOgogICAgICAgICAgICAgZGVzY3JpcHRp
+b24gPSBvcHRpb25zLmdldCgnZGVzY3JpcHRpb24nLCAnJylbOjI4MF0KIAogICAgICAgICAgICAg
+dG9fID0gW10KLSAgICAgICAgICAgIGZvciBhIGluIHRvX2FkZHJzLmFkZHJlc3NsaXN0OgotICAg
+ICAgICAgICAgICAgIHRvXy5hcHBlbmQoeydwZXJzb24nOiB7J19wYXRoJzogJy9wZW9wbGUvJyAr
+IGFbMV19fSkKKyAgICAgICAgICAgIGlkcyA9IFthWzFdIGZvciBhIGluIHRvX2FkZHJzLmFkZHJl
+c3NsaXN0XQorICAgICAgICAgICAgaWYgbm90IGlkczoKKyAgICAgICAgICAgICAgICByZXR1cm4g
+Tm9uZSwgeydjb2RlJzogNDAwLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ21lc3Nh
+Z2UnOiAnTWlzc2luZyBjb250YWN0cyBmb3IgZGlyZWN0IG1lc3NhZ2luZy4nfQorICAgICAgICAg
+ICAgZm9yIGlkIGluIGlkczoKKyAgICAgICAgICAgICAgICB0b18uYXBwZW5kKHsncGVyc29uJzog
+eydfcGF0aCc6ICcvcGVvcGxlLycgKyBpZH19KQogCiAgICAgICAgICAgICBleHRyYV92YXJzID0g
+eydzYWZlSFRNTCc6IHNhZmVIVE1MfQogICAgICAgICAgICAgZXh0cmFfdmFyc1snb3B0aW9ucydd
+ID0gb3B0aW9ucwpkaWZmIC0tZ2l0IGEvbGlua29hdXRoL3R3aXR0ZXJfLnB5IGIvbGlua29hdXRo
+L3R3aXR0ZXJfLnB5CmluZGV4IGNjMTBlZjQuLmM2NTljZGIgMTAwNjQ0Ci0tLSBhL2xpbmtvYXV0
+aC90d2l0dGVyXy5weQorKysgYi9saW5rb2F1dGgvdHdpdHRlcl8ucHkKQEAgLTE3Myw2ICsxNzMs
+NyBAQCBjbGFzcyBhcGkoKToKICAgICAgICAgICAgICMgaW5zZXJ0IHRoZSB1cmwgaWYgaXQgaXMg
+bm90IGFscmVhZHkgaW4gdGhlIG1lc3NhZ2UKICAgICAgICAgICAgIGxvbmd1cmwgPSBvcHRpb25z
+LmdldCgnbGluaycpCiAgICAgICAgICAgICBzaG9ydHVybCA9IG9wdGlvbnMuZ2V0KCdzaG9ydHVy
+bCcpCisgICAgICAgICAgICBzaGFyZV90eXBlID0gb3B0aW9ucy5nZXQoJ3NoYXJlVHlwZScsIE5v
+bmUpCiAgICAgICAgICAgICBpZiBzaG9ydHVybDoKICAgICAgICAgICAgICAgICAjIGlmIHRoZSBs
+b25nIHVybCBpcyBpbiB0aGUgbWVzc2FnZSBib2R5LCByZXBsYWNlIGl0IHdpdGgKICAgICAgICAg
+ICAgICAgICAjIHRoZSBzaG9ydCB1cmwsIG90aGVyd2lzZSBqdXN0IG1ha2Ugc3VyZSBzaG9ydHVy
+bCBpcyBpbgpAQCAtMTg1LDExICsxODYsMjAgQEAgY2xhc3MgYXBpKCk6CiAgICAgICAgICAgICAg
+ICAgIyBzb21lIHJlYXNvbiB3ZSBkb250IGhhdmUgYSBzaG9ydCB1cmwsIGFkZCB0aGUgbG9uZyB1
+cmwKICAgICAgICAgICAgICAgICBtZXNzYWdlICs9ICIgJXMiICUgbG9uZ3VybAogCi0gICAgICAg
+ICAgICBkaXJlY3QgPSBvcHRpb25zLmdldCgndG8nLCBOb25lKQotICAgICAgICAgICAgaWYgZGly
+ZWN0OgorICAgICAgICAgICAgaWYgc2hhcmVfdHlwZSA9PSAnZGlyZWN0JzoKKyAgICAgICAgICAg
+ICAgICBkaXJlY3QgPSBvcHRpb25zLmdldCgndG8nLCBOb25lKQorICAgICAgICAgICAgICAgIGlm
+IG5vdCBkaXJlY3Q6CisgICAgICAgICAgICAgICAgICAgIHJldHVybiBOb25lLCBcCisgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgeydjb2RlJzogNDAwLAorICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAncHJvdmlkZXInOiBkb21haW4sCisgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICdtZXNzYWdlJzogJ01pc3NpbmcgYWRkcmVzc2VlIGZvciBkaXJlY3QgbWVzc2FnZSd9CiAgICAg
+ICAgICAgICAgICAgcmVzdWx0ID0gc2VsZi5hcGkoKS5kaXJlY3RfbWVzc2FnZXMubmV3KHRleHQ9
+bWVzc2FnZSwgdXNlcj1kaXJlY3QpCi0gICAgICAgICAgICBlbHNlOgorICAgICAgICAgICAgZWxp
+ZiBzaGFyZV90eXBlID09ICdwdWJsaWMnOgogICAgICAgICAgICAgICAgIHJlc3VsdCA9IHNlbGYu
+YXBpKCkuc3RhdHVzZXMudXBkYXRlKHN0YXR1cz1tZXNzYWdlKQorICAgICAgICAgICAgZWxzZToK
+KyAgICAgICAgICAgICAgIHJldHVybiBOb25lLCB7J2NvZGUnOiA0MDAsCisgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICdwcm92aWRlcic6IGRvbWFpbiwKKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgJ21lc3NhZ2UnOiAnU2hhcmUgdHlwZSBpcyBtaXNzaW5nJ30KICAgICAgICAgICAg
+IHJlc3VsdFtkb21haW5dID0gcmVzdWx0WydpZCddCiAgICAgICAgIGV4Y2VwdCBUd2l0dGVySFRU
+UEVycm9yLCBleGM6CiAgICAgICAgICAgICBlcnJvciA9IHNlbGYuX3R3aXR0ZXJfZXhjX3RvX2Vy
+cm9yKGV4YykK
+</data>
+<flag name="review"
+          id="438296"
+          type_id="4"
+          status="?"
+          setter="mixedpuppy"
+          requestee="tarek"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

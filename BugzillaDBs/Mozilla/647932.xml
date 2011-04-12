@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647932</bug_id>
+          
+          <creation_ts>2011-04-05 21:49:00 -0700</creation_ts>
+          <short_desc>Verify compatibility info on AMO for SeaMonkey is set at least to 2.1 final</short_desc>
+          <delta_ts>2011-04-06 23:50:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Other Applications</product>
+          <component>ChatZilla</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647928</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Robert Ginda">rginda</assigned_to>
+          <cc>bugspam.Callek</cc>
+    
+    <cc>bugzilla</cc>
+    
+    <cc>dominique</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>samuel</cc>
+    
+    <cc>silver</cc>
+          <qa_contact>chatzilla</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391875</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-05 21:49:46 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #634307 +++
+
+We want to be sure that Chatzilla on AMO is set as compatible with at least SeaMonkey 2.1 final,
+
+2.2a1 is preferrable, as our trunk builds are 2.2a1pre at the moment.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392168</commentid>
+            <who name="James Ross">silver</who>
+            <bug_when>2011-04-06 05:27:39 -0700</bug_when>
+            <thetext>The source install.rdf says 2.2.* so I think that will avoid it checking with AMO anyway, but if it does AMO is currently set to 2.1b3. I will update that to 2.2a1pre since there is no 2.1 final entry in AMO yet.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

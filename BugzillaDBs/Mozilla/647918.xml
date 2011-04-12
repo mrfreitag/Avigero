@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647918</bug_id>
+          
+          <creation_ts>2011-04-05 18:33:00 -0700</creation_ts>
+          <short_desc>Simon Tracking</short_desc>
+          <delta_ts>2011-04-05 18:39:26 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Tamarin</product>
+          <component>Virtual Machine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>TRACKING</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>617198</dependson>
+    
+    <dependson>621086</dependson>
+    
+    <dependson>622827</dependson>
+    
+    <dependson>622954</dependson>
+    
+    <dependson>623095</dependson>
+    
+    <dependson>623205</dependson>
+    
+    <dependson>623233</dependson>
+    
+    <dependson>623293</dependson>
+    
+    <dependson>623618</dependson>
+    
+    <dependson>623762</dependson>
+    
+    <dependson>623802</dependson>
+    
+    <dependson>623993</dependson>
+    
+    <dependson>624023</dependson>
+    
+    <dependson>629269</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andre Kruetzfeldt">akruetzf</reporter>
+          <assigned_to name="Andre Kruetzfeldt">akruetzf</assigned_to>
+          
+          <qa_contact>vm</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391771</commentid>
+            <who name="Andre Kruetzfeldt">akruetzf</who>
+            <bug_when>2011-04-05 18:33:59 -0700</bug_when>
+            <thetext>Tracking Simon&apos;s bugs</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

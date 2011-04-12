@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648500</bug_id>
+          
+          <creation_ts>2011-04-08 01:46:00 -0700</creation_ts>
+          <short_desc>mochitest-ipcplugins intermittently leaks 289779 bytes</short_desc>
+          <delta_ts>2011-04-08 01:46:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://tinderbox.mozilla.org/showlog.cgi?log=Cedar/1302245793.1302249540.16679.gz&amp;fulltext=1</bug_file_loc>
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Henri Sivonen (:hsivonen)">hsivonen</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396183</commentid>
+            <who name="Henri Sivonen (:hsivonen)">hsivonen</who>
+            <bug_when>2011-04-08 01:46:29 -0700</bug_when>
+            <thetext>Push unrelated to plug-ins:
+http://hg.mozilla.org/projects/cedar/pushloghtml?changeset=119dd70688e2
+
+== BloatView: ALL (cumulative) LEAK AND BLOAT STATISTICS, default process 381
+
+     |&lt;----------------Class---------------&gt;|&lt;-----Bytes------&gt;|&lt;----------------Objects----------------&gt;|&lt;--------------References--------------&gt;|
+                                              Per-Inst   Leaked    Total      Rem      Mean       StdDev     Total      Rem      Mean       StdDev
+   0 TOTAL                                          16   289779 16887211    11277 ( 2794.31 +/-  2912.03)  6020231     4628 ( 2947.74 +/-  5438.08)
+   8 AtomImpl                                       20     2200     5281      110 ( 1308.51 +/-   409.75)    67835      235 ( 6288.15 +/-  1652.75)
+   9 BackstagePass                                  24       24        1        1 (    1.00 +/-     0.00)    51804       19 (  159.28 +/-    32.82)
+  39 Connection                                    112      112       12        1 (    6.26 +/-     3.40)      617        4 (   92.08 +/-    43.15)
+  44 DR_State                                       40       40        1        1 (    1.00 +/-     0.00)        0        0 (    0.00 +/-     0.00)
+  58 DocumentRule                                   36       36        1        1 (    1.00 +/-     0.00)        3        1 (    1.40 +/-     0.55)
+  66 GenericFactory                                 16       16      256        1 (  128.25 +/-    73.83)    39953        2 (  223.68 +/-    54.46)
+  71 HttpBaseChannel                               244      244      231        1 (    7.83 +/-     2.89)    10924        1 (   32.73 +/-    13.31)
+  75 ImportRule                                     44       88        6        2 (    3.50 +/-     1.58)       12        2 (    3.77 +/-     1.72)
+  76 ImportantRule                                  16      224       34       14 (   19.72 +/-     9.10)     2028       14 (  192.05 +/-    56.21)
+  86 LiteralImpl                                    12       12       77        1 (   23.80 +/-     9.62)     1533        1 (   64.15 +/-    43.95)
+  87 Loader                                        200      200      205        1 (   37.66 +/-    13.70)     1199        1 (   38.80 +/-    11.98)
+  90 MediaRule                                      36      144        5        4 (    3.17 +/-     1.47)       15        4 (    3.42 +/-     1.50)
+ 102 Monitor                                        16      128      670        8 (   41.76 +/-     9.41)        0        0 (    0.00 +/-     0.00)
+ 103 Mutex                                          12      180     1564       15 (  102.62 +/-    16.84)        0        0 (    0.00 +/-     0.00)
+ 104 NameSpaceManagerImpl                           48       48        1        1 (    1.00 +/-     0.00)        3        2 (    1.50 +/-     0.58)
+ 105 NameSpaceRule                                  40      440      178       11 (   37.78 +/-     9.33)      667       11 (   39.00 +/-     9.49)
+ 114 PrincipalHolder                                16       16        4        1 (    1.71 +/-     0.76)       12        1 (    2.26 +/-     0.92)
+ 117 PtrAndPrincipalHashKey                         16       32      287        2 (    7.31 +/-     3.93)        0        0 (    0.00 +/-     0.00)
+ 122 RDFServiceImpl                                276      276        1        1 (    1.00 +/-     0.00)      185        3 (   38.02 +/-    14.20)
+ 128 Rule                                           20     9040     3269      452 ( 1361.34 +/-   515.28)    22151      452 ( 2884.35 +/-   951.38)
+ 131 Service                                        40       40        1        1 (    1.00 +/-     0.00)       45        2 (   12.64 +/-     6.21)
+ 137 Statement                                      60      180      124        3 (   45.54 +/-    27.41)     2920        3 (   77.47 +/-    23.11)
+ 138 StatementParams                                24       24       10        1 (    5.26 +/-     2.83)       90        2 (   16.53 +/-     8.32)
+ 140 StorageMemoryReporter                          32      128       48        4 (   24.98 +/-    13.40)      192        4 (   48.68 +/-    27.46)
+ 141 StringAdopt                                     1        2    10319        2 (    2.95 +/-     0.95)        0        0 (    0.00 +/-     0.00)
+ 144 StyleRule                                      40    17360     3079      434 ( 1307.01 +/-   502.81)    21454      434 ( 2839.79 +/-   938.25)
+ 151 URIAndPrincipalHashKey                         12       48      413        4 (   11.66 +/-     4.73)        0        0 (    0.00 +/-     0.00)
+ 155 UploadLastDir                                  56       56        1        1 (    1.00 +/-     0.00)        3        1 (    1.40 +/-     0.55)
+ 159 XPCContext                                     40       40      106        1 (   31.50 +/-    12.25)        0        0 (    0.00 +/-     0.00)
+ 163 XPCNativeInterface                             20      520      855       26 (  183.66 +/-    55.29)        0        0 (    0.00 +/-     0.00)
+ 164 XPCNativeMember                                 8      208    39044       26 (  205.89 +/-    74.18)        0        0 (    0.00 +/-     0.00)
+ 165 XPCNativeScriptableInfo                         8       72     4314        9 ( 1161.47 +/-   419.45)        0        0 (    0.00 +/-     0.00)
+ 166 XPCNativeScriptableShared                     160      640     4422        4 (   53.59 +/-    18.64)        0        0 (    0.00 +/-     0.00)
+ 167 XPCNativeSet                                    8       96     1850       12 (  144.28 +/-    46.76)        0        0 (    0.00 +/-     0.00)
+ 169 XPCWrappedNative                               56     1064    13572       19 ( 2181.25 +/-   780.01)   118332       19 ( 2306.21 +/-   694.46)
+ 170 XPCWrappedNativeProto                          32      288     3852        9 (  573.03 +/-   182.57)        0        0 (    0.00 +/-     0.00)
+ 171 XPCWrappedNativeScope                          60      420      218        7 (   65.76 +/-    23.36)        0        0 (    0.00 +/-     0.00)
+ 176 gfxFont                                       100     2200       36       22 (   18.94 +/-     7.94)    15861       92 (  305.04 +/-    84.64)
+ 177 gfxFontEntry                                   92      828      219        9 (  111.71 +/-    62.06)      466       22 (  126.74 +/-    70.66)
+ 180 gfxGlyphExtents                                40       40        3        1 (    1.80 +/-     0.84)        0        0 (    0.00 +/-     0.00)
+ 182 gfxTextRun                                    100     6700     2997       67 (  269.42 +/-    76.00)        0        0 (    0.00 +/-     0.00)
+ 183 gfxTextRunFactory                              12      120      166       10 (   26.85 +/-     9.73)     3163       67 (  285.90 +/-    79.54)
+ 187 imgLoader                                      44       44        1        1 (    1.00 +/-     0.00)       38        2 (    4.26 +/-     1.42)
+ 196 mozilla::css::Declaration                      32    13888     3086      434 ( 1308.34 +/-   502.85)        0        0 (    0.00 +/-     0.00)
+ 213 nsAtomList                                      8      696     2105       87 ( 1057.30 +/-   571.52)        0        0 (    0.00 +/-     0.00)
+ 214 nsAttrSelector                                 32     8320      935      260 (  522.08 +/-   249.63)        0        0 (    0.00 +/-     0.00)
+ 223 nsBaseURLParser                                12       24        3        2 (    2.00 +/-     0.82)    37005      264 (  919.54 +/-   248.71)
+ 226 nsBidiKeyboard                                 12       12        1        1 (    1.00 +/-     0.00)        4        1 (    1.71 +/-     0.76)
+ 231 nsBoxLayout                                    12       24        2        2 (    1.50 +/-     0.71)     9822        2 (  185.60 +/-    45.56)
+ 244 nsCSSScanner                                 1028     2056        2        2 (    1.50 +/-     0.71)        0        0 (    0.00 +/-     0.00)
+ 245 nsCSSSelector                                  40    61000     5097     1525 ( 2725.48 +/-  1196.41)        0        0 (    0.00 +/-     0.00)
+ 246 nsCSSSelectorList                              12    13272     3578     1106 ( 1848.34 +/-   766.38)        0        0 (    0.00 +/-     0.00)
+ 249 nsCSSStyleSheet                                72      432      454        6 (   65.07 +/-    18.38)     9483       12 (  257.33 +/-    55.23)
+ 250 nsCSSStyleSheetInner                           80      480      209        6 (   40.46 +/-    10.34)        0        0 (    0.00 +/-     0.00)
+ 251 nsCSSValue::Array                              16       64      366        4 (  184.00 +/-   105.16)      516        2 (  116.94 +/-    59.32)
+ 253 nsCSSValue::URL                                24     3504      354      146 (  202.48 +/-    93.29)     7231      146 (  546.56 +/-   139.84)
+ 256 nsCSSValueList                                 12      504      755       42 (  380.63 +/-   208.07)        0        0 (    0.00 +/-     0.00)
+ 257 nsCSSValueList_heap                            20      760      580       38 (  292.09 +/-   158.05)     5875       38 (  498.28 +/-   125.04)
+ 259 nsCSSValuePairList                             20      100      129        5 (   65.61 +/-    36.41)        0        0 (    0.00 +/-     0.00)
+ 260 nsCSSValuePairList_heap                        28      140      127        5 (   64.61 +/-    35.83)      490        5 (   92.76 +/-    38.89)
+ 262 nsCStringKey                                   20    15540    24103      777 ( 1166.22 +/-   372.51)        0        0 (    0.00 +/-     0.00)
+ 274 nsCategoryObserver                             64      192        8        3 (    4.69 +/-     2.10)     1800        3 (   44.37 +/-     7.32)
+ 304 nsContentPolicy                                36       36        1        1 (    1.00 +/-     0.00)      460        1 (    2.99 +/-     0.72)
+ 313 nsCookiePermission                             36       36        1        1 (    1.00 +/-     0.00)       16        1 (    4.45 +/-     2.20)
+ 314 nsCookieService                                84       84        1        1 (    1.00 +/-     0.00)       43        1 (    3.35 +/-     1.65)
+ 319 nsDNSService                                   60       60        1        1 (    1.00 +/-     0.00)      220        2 (   18.52 +/-     4.30)
+ 325 nsDOMClassInfo                                 20       20       57        1 (   28.75 +/-    16.38)    43984        2 (  387.67 +/-   152.61)
+ 329 nsDOMEventGroup                                12       12        1        1 (    1.00 +/-     0.00)    35556        1 (    2.05 +/-     0.74)
+ 330 nsDOMEventListenerWrapper                      16       16        2        1 (    0.67 +/-     0.58)       14        2 (    2.19 +/-     0.80)
+ 332 nsDOMEventTargetHelper                         36       36       23        1 (    2.42 +/-     1.03)    11413        2 (   15.83 +/-     5.67)
+ 333 nsDOMEventTargetWrapperCache                   40       40       13        1 (    1.24 +/-     0.88)     1012        2 (   11.03 +/-     5.46)
+ 340 nsDOMStorageManager                            52       52        1        1 (    1.00 +/-     0.00)       22        1 (    8.47 +/-     3.47)
+ 350 nsDateTimeFormatMac                            40       40        1        1 (    1.00 +/-     0.00)        2        1 (    1.33 +/-     0.58)
+ 353 nsDeque                                        52       52    15254        1 (   10.86 +/-     5.55)        0        0 (    0.00 +/-     0.00)
+ 393 nsEffectiveTLDService                          48       48        1        1 (    1.00 +/-     0.00)        6        1 (    2.18 +/-     0.98)
+ 399 nsEventListenerManager                         96       96     5037        1 ( 1303.52 +/-   737.61)    61328        1 ( 1307.39 +/-   890.80)
+ 400 nsEventListenerThisTranslator                  12       12        1        1 (    1.00 +/-     0.00)        3        1 (    1.40 +/-     0.55)
+ 402 nsExceptionManager                             24       24        1        1 (    1.00 +/-     0.00)      206        1 (    2.99 +/-     0.72)
+ 423 nsFocusManager                                 56       56        1        1 (    1.00 +/-     0.00)      355        1 (    4.31 +/-     1.03)
+ 428 nsFrameList                                     8        8   218017        1 ( 1054.51 +/-   180.35)        0        0 (    0.00 +/-     0.00)
+ 445 nsHTMLDNSPrefetch::nsDeferrals               4136     4136        1        1 (    1.00 +/-     0.00)      840        1 (    2.00 +/-     0.71)
+ 446 nsHTMLDNSPrefetch::nsListener                  12       12        1        1 (    1.00 +/-     0.00)      129        1 (    4.81 +/-     1.66)
+ 473 nsHashKey                                       8     6216    49353      777 ( 1734.73 +/-   440.17)        0        0 (    0.00 +/-     0.00)
+ 474 nsHashPropertyBag                              48       48      846        1 (   33.14 +/-    16.42)    18723        1 (   76.07 +/-    30.71)
+ 475 nsHashtable                                    44     5016      775      114 (  296.66 +/-   104.92)        0        0 (    0.00 +/-     0.00)
+ 478 nsHtml5AttributeName                           16     9296      621      581 (  326.28 +/-   183.89)        0        0 (    0.00 +/-     0.00)
+ 479 nsHtml5ElementName                             16     6272      392      392 (  196.50 +/-   113.30)        0        0 (    0.00 +/-     0.00)
+ 480 nsHtml5HtmlAttributes                          24       24      591        1 (   50.09 +/-    63.54)        0        0 (    0.00 +/-     0.00)
+ 499 nsHttpChannel                                 416      416      231        1 (    7.83 +/-     2.89)    10924        1 (   32.73 +/-    13.31)
+ 500 nsHttpChannelAuthProvider                     136      136      231        1 (    2.35 +/-     1.79)      693        1 (    3.01 +/-     1.85)
+ 503 nsHttpConnectionInfo                           40       40      233        1 (    8.85 +/-     2.91)      494        2 (    9.77 +/-     3.30)
+ 504 nsHttpConnectionMgr                           112      112        1        1 (    1.00 +/-     0.00)      182        1 (    1.51 +/-     0.51)
+ 507 nsHttpHandler                                 304      304        1        1 (    1.00 +/-     0.00)    10428        2 (   11.42 +/-     4.79)
+ 508 nsHttpTransaction                             156      156       87        1 (    0.86 +/-     1.15)      441        1 (    2.80 +/-     2.39)
+ 511 nsIDNService                                   64       64        1        1 (    1.00 +/-     0.00)      187        4 (    6.33 +/-     1.66)
+ 512 nsIOService                                   124      124        1        1 (    1.00 +/-     0.00)    27386        3 (   15.88 +/-     4.77)
+ 520 nsInputStreamPump                              84       84      394        1 (    2.81 +/-     5.41)     1476        1 (    7.64 +/-    12.41)
+ 524 nsInterfaceRequestorAgg                        20       20       87        1 (    0.87 +/-     1.15)      696        1 (    2.69 +/-     2.28)
+ 532 nsJISx4051LineBreaker                          12       12        1        1 (    1.00 +/-     0.00)        4        1 (    1.71 +/-     0.76)
+ 538 nsJSID                                         36       72     1334        2 (  145.24 +/-    96.24)     6195        2 (  263.35 +/-   205.01)
+ 549 nsLayoutStatics                                 1        1        1        1 (    1.00 +/-     0.00)     7250        1 (   82.84 +/-    26.64)
+ 550 nsLayoutStylesheetCache                        36       36        1        1 (    1.00 +/-     0.00)        7        1 (    3.77 +/-     1.96)
+ 554 nsLoadGroup                                     8        8      103        1 (   17.11 +/-     8.48)     4316        1 (   72.04 +/-    26.10)
+ 556 nsLocalFile                                   136      408     1711        3 (  123.85 +/-    48.33)     6562        3 (  291.75 +/-   143.92)
+ 567 nsMediaList                                    24      144       14        6 (    8.14 +/-     3.59)       76        8 (   14.17 +/-     6.10)
+ 585 nsNativeTheme                                 112      112        1        1 (    1.00 +/-     0.00)      272        1 (   12.41 +/-     5.21)
+ 586 nsNativeThemeCocoa                            144      144        1        1 (    1.00 +/-     0.00)      272        1 (   12.41 +/-     5.21)
+ 597 nsNetworkLinkService                           28       28        1        1 (    1.00 +/-     0.00)        7        1 (    2.85 +/-     1.21)
+ 605 nsNullPrincipal                                36       72      433        2 (   49.62 +/-    17.10)     4752        4 (   58.54 +/-    13.85)
+ 606 nsNullPrincipalURI                             36       72      462        2 (   51.24 +/-    17.33)     1025        2 (   55.32 +/-    19.46)
+ 609 nsObserverService                              48       48        1        1 (    1.00 +/-     0.00)     8441        6 (   22.54 +/-     7.27)
+ 614 nsParserService                                68       68        1        1 (    1.00 +/-     0.00)        4        1 (    1.71 +/-     0.76)
+ 616 nsPermissionManager                            96       96        1        1 (    1.00 +/-     0.00)      133        2 (    6.55 +/-     1.40)
+ 617 nsPersistentProperties                         80       80       19        1 (    7.97 +/-     4.95)       57        1 (    8.50 +/-     4.99)
+ 618 nsPipe                                        168      168      486        1 (    3.86 +/-     5.49)     7367        3 (   22.84 +/-    35.08)
+ 633 nsPrefBranch                                   80      160       65        2 (   15.92 +/-     7.08)      881        3 (   44.62 +/-    26.10)
+ 635 nsPrefOldCallback                              36     1476       56       41 (   32.62 +/-    16.65)     4230       41 (  161.18 +/-    27.09)
+ 636 nsPrefService                                  40       40        1        1 (    1.00 +/-     0.00)     8503        2 (   31.91 +/-    12.52)
+ 638 nsPrincipal                                    76     8360      898      110 (  175.33 +/-    38.90)    17700      110 (  447.94 +/-    84.78)
+ 639 nsPrivateBrowsingObserver                      24       24        1        1 (    1.00 +/-     0.00)        6        1 (    1.82 +/-     0.75)
+ 645 nsProxyInfo                                    44       44      231        1 (    7.83 +/-     2.89)     1730        2 (   10.09 +/-     3.07)
+ 647 nsPseudoClassList                              12     5556     1517      463 (  686.86 +/-   246.03)        0        0 (    0.00 +/-     0.00)
+ 648 nsRDFResource                                  28       84      161        3 (   47.67 +/-    22.73)     5634        3 (  238.21 +/-   115.08)
+ 653 nsRect                                         16       16 14700197        1 ( 2244.83 +/-   305.19)        0        0 (    0.00 +/-     0.00)
+ 654 nsRecyclingAllocatorImpl                       56       56        1        1 (    1.00 +/-     0.00)      378        1 (    3.90 +/-     5.50)
+ 656 nsRepeatService                                24       24        1        1 (    1.00 +/-     0.00)        1        1 (    1.00 +/-     0.00)
+ 682 nsSameOriginChecker                            16       16        1        1 (    1.00 +/-     0.00)       85        1 (   12.43 +/-     6.18)
+ 683 nsSampleWordBreaker                            12       12        1        1 (    1.00 +/-     0.00)        4        1 (    1.71 +/-     0.76)
+ 694 nsScriptNameSpaceManager                       56      112        2        2 (    1.50 +/-     0.71)      185        1 (    2.16 +/-     0.69)
+ 695 nsScriptSecurityManager                        84       84        1        1 (    1.00 +/-     0.00)     4127        3 (   17.08 +/-     2.47)
+ 708 nsSocketTransportService                     1704     1704        1        1 (    1.00 +/-     0.00)     2151        1 (    9.62 +/-     1.51)
+ 711 nsStandardURL                                 188    49632    11156      264 (  932.14 +/-   222.11)   146769      429 ( 1995.84 +/-   484.14)
+ 713 nsStaticCaseInsensitiveNameTable               48      192        4        4 (    2.50 +/-     1.29)        0        0 (    0.00 +/-     0.00)
+ 720 nsStrictTransportSecurityService               60       60        1        1 (    1.00 +/-     0.00)        5        1 (    2.33 +/-     1.00)
+ 721 nsStringBuffer                                  8    13800   146003     1725 (11928.28 +/-  3051.76)   323075     1794 (18198.77 +/-  4095.32)
+ 722 nsStringBundle                                 52       52       23        1 (   10.07 +/-     6.14)     1174        1 (   31.70 +/-     8.30)
+ 725 nsStringInputStream                            40       40      210        1 (    5.20 +/-     3.84)     1201        1 (    7.63 +/-     4.55)
+ 762 nsSystemPrincipal                              36       36        1        1 (    1.00 +/-     0.00)    57939      156 (  238.28 +/-    88.12)
+ 763 nsTArray_base                                   4     3440   787161      860 (14678.19 +/-  2707.18)        0        0 (    0.00 +/-     0.00)
+ 775 nsThread                                      116      232       54        2 (   11.35 +/-     2.95)    12847        8 (  101.60 +/-    14.15)
+ 779 nsTimerImpl                                    72      288     1356        4 (   31.94 +/-     4.34)    11849        4 (   57.84 +/-     7.39)
+ 786 nsTransportEventSinkProxy                      40       40       87        1 (    0.86 +/-     1.15)      274        1 (    1.82 +/-     2.06)
+ 790 nsURIHashKey                                    8       32      642        4 (  125.95 +/-    55.81)        0        0 (    0.00 +/-     0.00)
+ 794 nsUnicodeNormalizer                            12       12        1        1 (    1.00 +/-     0.00)        4        1 (    1.71 +/-     0.76)
+ 799 nsUrlClassifierDBService                       76       76        1        1 (    1.00 +/-     0.00)      421        1 (   12.80 +/-     2.12)
+ 800 nsUrlClassifierDBServiceWorker                652      652        1        1 (    1.00 +/-     0.00)        5        1 (    2.11 +/-     1.05)
+ 801 nsUrlClassifierHashCompleter                   88       88        1        1 (    1.00 +/-     0.00)       10        1 (    2.42 +/-     1.02)
+ 808 nsVoidArray                                     4       68    49023       17 ( 3749.27 +/-  1759.36)        0        0 (    0.00 +/-     0.00)
+ 810 nsWeakReference                                16       80     1665        5 (  236.12 +/-    89.09)    21388        5 (  942.84 +/-   316.96)
+ 835 nsXBLService                                   56       56        1        1 (    1.00 +/-     0.00)     2061        1 (    2.99 +/-     0.72)
+ 839 nsXHREventTarget                               68       68       13        1 (    1.24 +/-     0.88)     1012        2 (   11.03 +/-     5.46)
+ 844 nsXMLHttpRequest                              280      280       13        1 (    1.24 +/-     0.88)     1012        2 (   11.03 +/-     5.46)
+ 847 nsXPCComponents                                60      420      432        7 (   82.91 +/-    25.47)     5367       10 (  335.25 +/-   107.09)
+ 848 nsXPCComponents_Classes                        20      120       80        6 (   38.16 +/-    18.34)     1576        6 (  188.40 +/-    62.94)
+ 850 nsXPCComponents_ID                             20      120       35        6 (   18.91 +/-     9.48)      521        6 (   77.99 +/-    46.89)
+ 851 nsXPCComponents_Interfaces                     28      168       85        6 (   40.02 +/-    19.05)     4318        6 (  211.69 +/-    47.14)
+ 852 nsXPCComponents_Results                        20      120       45        6 (   23.38 +/-    11.57)      684        6 (  108.36 +/-    43.13)
+ 853 nsXPCComponents_Utils                          24      144       73        6 (   36.74 +/-    18.71)     1119        6 (  111.02 +/-    43.88)
+ 858 nsXPCWrappedJS                                 64       64     1370        1 (  263.34 +/-    89.51)    16066        2 (  731.44 +/-   231.11)
+ 859 nsXPCWrappedJSClass                            44       44      118        1 (   29.51 +/-    10.39)    11248        1 (  263.62 +/-    76.48)
+ 860 nsXPConnect                                   100      100        1        1 (    1.00 +/-     0.00)    62130        1 (   11.09 +/-     1.15)
+ 865 nsXTFService                                   44       44        1        1 (    1.00 +/-     0.00)        4        1 (    1.71 +/-     0.76)
+ 876 nsXULPopupManager                              72       72        1        1 (    1.00 +/-     0.00)       65        1 (    2.95 +/-     0.75)
+ 878 nsXULPrototypeCache                           176      176        1        1 (    1.00 +/-     0.00)       17        1 (    5.48 +/-     2.03)
+ 899 xpcPerThreadData                               44       44       54        1 (   10.21 +/-     2.68)        0        0 (    0.00 +/-     0.00)
+ 900 xptiInterfaceInfo                              20      540     2387       27 (  219.02 +/-   127.16)    44361       40 (  822.74 +/-   264.93)
+ 901 xptiInterfaceInfoManager                      140      140        1        1 (    1.00 +/-     0.00)    10536        7 (   59.02 +/-    11.56)
+ 902 xptiWorkingSet                                 72       72        1        1 (    1.00 +/-     0.00)        0        0 (    0.00 +/-     0.00)
+
+nsTraceRefcntImpl::DumpStatistics: 902 entries
+TEST-UNEXPECTED-FAIL | automationutils.processLeakLog() | leaked 289779 bytes during test execution
+TEST-UNEXPECTED-FAIL | automationutils.processLeakLog() | leaked 110 instances of AtomImpl with size 20 bytes each (2200 bytes total)
+TEST-UNEXPECTED-FAIL | automationutils.processLeakLog() | leaked 1 instance of BackstagePass with size 24 bytes
+TEST-UNEXPECTED-FAIL | automationutils.processLeakLog() | leaked 1 instance of Connection with size 112 bytes
+TEST-UNEXPECTED-FAIL | automationutils.processLeakLog() | leaked 1 instance of DR_State with size 40 bytes
+TEST-UNEXPECTED-FAIL | automationutils.processLeakLog() | leaked 1 instance of DocumentRule with size 36 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of GenericFactory with size 16 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of HttpBaseChannel with size 244 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of ImportRule with size 44 bytes each (88 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 14 instances of ImportantRule with size 16 bytes each (224 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of LiteralImpl with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of Loader with size 200 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of MediaRule with size 36 bytes each (144 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 8 instances of Monitor with size 16 bytes each (128 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 15 instances of Mutex with size 12 bytes each (180 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of NameSpaceManagerImpl with size 48 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 11 instances of NameSpaceRule with size 40 bytes each (440 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of PrincipalHolder with size 16 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of PtrAndPrincipalHashKey with size 16 bytes each (32 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of RDFServiceImpl with size 276 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 452 instances of Rule with size 20 bytes each (9040 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of Service with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 3 instances of Statement with size 60 bytes each (180 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of StatementParams with size 24 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of StorageMemoryReporter with size 32 bytes each (128 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of StringAdopt with size 1 bytes each (2 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 434 instances of StyleRule with size 40 bytes each (17360 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of URIAndPrincipalHashKey with size 12 bytes each (48 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of UploadLastDir with size 56 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of XPCContext with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 26 instances of XPCNativeInterface with size 20 bytes each (520 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 26 instances of XPCNativeMember with size 8 bytes each (208 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 9 instances of XPCNativeScriptableInfo with size 8 bytes each (72 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of XPCNativeScriptableShared with size 160 bytes each (640 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 12 instances of XPCNativeSet with size 8 bytes each (96 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 19 instances of XPCWrappedNative with size 56 bytes each (1064 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 9 instances of XPCWrappedNativeProto with size 32 bytes each (288 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 7 instances of XPCWrappedNativeScope with size 60 bytes each (420 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 22 instances of gfxFont with size 100 bytes each (2200 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 9 instances of gfxFontEntry with size 92 bytes each (828 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of gfxGlyphExtents with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 67 instances of gfxTextRun with size 100 bytes each (6700 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 10 instances of gfxTextRunFactory with size 12 bytes each (120 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of imgLoader with size 44 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 434 instances of mozilla::css::Declaration with size 32 bytes each (13888 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 87 instances of nsAtomList with size 8 bytes each (696 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 260 instances of nsAttrSelector with size 32 bytes each (8320 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsBaseURLParser with size 12 bytes each (24 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsBidiKeyboard with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsBoxLayout with size 12 bytes each (24 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsCSSScanner with size 1028 bytes each (2056 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1525 instances of nsCSSSelector with size 40 bytes each (61000 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1106 instances of nsCSSSelectorList with size 12 bytes each (13272 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsCSSStyleSheet with size 72 bytes each (432 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsCSSStyleSheetInner with size 80 bytes each (480 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of nsCSSValue::Array with size 16 bytes each (64 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 146 instances of nsCSSValue::URL with size 24 bytes each (3504 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 42 instances of nsCSSValueList with size 12 bytes each (504 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 38 instances of nsCSSValueList_heap with size 20 bytes each (760 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 5 instances of nsCSSValuePairList with size 20 bytes each (100 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 5 instances of nsCSSValuePairList_heap with size 28 bytes each (140 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 777 instances of nsCStringKey with size 20 bytes each (15540 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 3 instances of nsCategoryObserver with size 64 bytes each (192 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsContentPolicy with size 36 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsCookiePermission with size 36 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsCookieService with size 84 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDNSService with size 60 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDOMClassInfo with size 20 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDOMEventGroup with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDOMEventListenerWrapper with size 16 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDOMEventTargetHelper with size 36 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDOMEventTargetWrapperCache with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDOMStorageManager with size 52 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDateTimeFormatMac with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsDeque with size 52 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsEffectiveTLDService with size 48 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsEventListenerManager with size 96 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsEventListenerThisTranslator with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsExceptionManager with size 24 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsFocusManager with size 56 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsFrameList with size 8 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHTMLDNSPrefetch::nsDeferrals with size 4136 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHTMLDNSPrefetch::nsListener with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 777 instances of nsHashKey with size 8 bytes each (6216 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHashPropertyBag with size 48 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 114 instances of nsHashtable with size 44 bytes each (5016 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 581 instances of nsHtml5AttributeName with size 16 bytes each (9296 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 392 instances of nsHtml5ElementName with size 16 bytes each (6272 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHtml5HtmlAttributes with size 24 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHttpChannel with size 416 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHttpChannelAuthProvider with size 136 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHttpConnectionInfo with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHttpConnectionMgr with size 112 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHttpHandler with size 304 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsHttpTransaction with size 156 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsIDNService with size 64 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsIOService with size 124 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsInputStreamPump with size 84 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsInterfaceRequestorAgg with size 20 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsJISx4051LineBreaker with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsJSID with size 36 bytes each (72 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsLayoutStatics with size 1 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsLayoutStylesheetCache with size 36 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsLoadGroup with size 8 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 3 instances of nsLocalFile with size 136 bytes each (408 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsMediaList with size 24 bytes each (144 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsNativeTheme with size 112 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsNativeThemeCocoa with size 144 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsNetworkLinkService with size 28 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsNullPrincipal with size 36 bytes each (72 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsNullPrincipalURI with size 36 bytes each (72 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsObserverService with size 48 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsParserService with size 68 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsPermissionManager with size 96 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsPersistentProperties with size 80 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsPipe with size 168 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsPrefBranch with size 80 bytes each (160 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 41 instances of nsPrefOldCallback with size 36 bytes each (1476 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsPrefService with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 110 instances of nsPrincipal with size 76 bytes each (8360 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsPrivateBrowsingObserver with size 24 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsProxyInfo with size 44 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 463 instances of nsPseudoClassList with size 12 bytes each (5556 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 3 instances of nsRDFResource with size 28 bytes each (84 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsRect with size 16 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsRecyclingAllocatorImpl with size 56 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsRepeatService with size 24 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsSameOriginChecker with size 16 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsSampleWordBreaker with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsScriptNameSpaceManager with size 56 bytes each (112 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsScriptSecurityManager with size 84 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsSocketTransportService with size 1704 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 264 instances of nsStandardURL with size 188 bytes each (49632 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of nsStaticCaseInsensitiveNameTable with size 48 bytes each (192 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsStrictTransportSecurityService with size 60 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1725 instances of nsStringBuffer with size 8 bytes each (13800 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsStringBundle with size 52 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsStringInputStream with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsSystemPrincipal with size 36 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 860 instances of nsTArray_base with size 4 bytes each (3440 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 2 instances of nsThread with size 116 bytes each (232 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of nsTimerImpl with size 72 bytes each (288 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsTransportEventSinkProxy with size 40 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 4 instances of nsURIHashKey with size 8 bytes each (32 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsUnicodeNormalizer with size 12 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsUrlClassifierDBService with size 76 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsUrlClassifierDBServiceWorker with size 652 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsUrlClassifierHashCompleter with size 88 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 17 instances of nsVoidArray with size 4 bytes each (68 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 5 instances of nsWeakReference with size 16 bytes each (80 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXBLService with size 56 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXHREventTarget with size 68 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXMLHttpRequest with size 280 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 7 instances of nsXPCComponents with size 60 bytes each (420 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsXPCComponents_Classes with size 20 bytes each (120 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsXPCComponents_ID with size 20 bytes each (120 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsXPCComponents_Interfaces with size 28 bytes each (168 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsXPCComponents_Results with size 20 bytes each (120 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 6 instances of nsXPCComponents_Utils with size 24 bytes each (144 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXPCWrappedJS with size 64 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXPCWrappedJSClass with size 44 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXPConnect with size 100 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXTFService with size 44 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXULPopupManager with size 72 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of nsXULPrototypeCache with size 176 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of xpcPerThreadData with size 44 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 27 instances of xptiInterfaceInfo with size 20 bytes each (540 bytes total)
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of xptiInterfaceInfoManager with size 140 bytes
+TEST-INFO | automationutils.processLeakLog() | leaked 1 instance of xptiWorkingSet with size 72 bytes</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

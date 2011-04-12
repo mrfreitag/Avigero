@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648035</bug_id>
+          
+          <creation_ts>2011-04-06 10:54:00 -0700</creation_ts>
+          <short_desc>Switching between Firefox 3.5 and 4.0 causes Firefox to loose saved cookies</short_desc>
+          <delta_ts>2011-04-06 14:33:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Gary Karasiuk">gkarasiuk</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392596</commentid>
+            <who name="Gary Karasiuk">gkarasiuk</who>
+            <bug_when>2011-04-06 10:54:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Firefox 4 doesn&apos;t support VMWare, so I also need to keep a 3.5 version installed. But after running firefox 3.5, the 4.0 version looses it&apos;s cookies.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Use firefox 4.0 and sign onto a secure site. In my case I used a bank site. Allow the site to remember your userid, by letting firefox save a cookie.
+2. Restart firefox 4.0, and verify that the cookie was saved, and that you can sign on to the site, with out reentering all your information
+3. Stop firefox 4, and start forefox 3.5.
+4. Stop firefox 3.5 and start firefox 4. Try to sign on the bank site and notice that it no longer remembers you and that you need to reenter all your information.
+Actual Results:  
+I need to reenter my userid on a site that should have &quot;remembered&quot; me. 
+
+Expected Results:  
+The site should have filled in my userid.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392633</commentid>
+            <who name="Gary Karasiuk">gkarasiuk</who>
+            <bug_when>2011-04-06 11:03:22 -0700</bug_when>
+            <thetext>The exact version of my firefox 3.5 is:
+
+Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.17) Gecko/20110121 Firefox/3.5.17</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393247</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-06 14:33:53 -0700</bug_when>
+            <thetext>Sharing a profile between two generations of browsers feels like a big no-no to me and maybe one should even be happy that it&apos;s just the cookies that get lost. 
+
+But that is just my spontaneous reaction.Hopefully someone can give a more authoritative answer to this.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

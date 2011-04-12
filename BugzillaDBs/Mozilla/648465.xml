@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648465</bug_id>
+          
+          <creation_ts>2011-04-07 20:11:00 -0700</creation_ts>
+          <short_desc>Accessing opened window document triggers &quot;Permission denied to access property &apos;document&apos;&quot;</short_desc>
+          <delta_ts>2011-04-08 07:30:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Martijn Wargers [:mw22] (QA - IRC nick: mw22)">martijn.martijn</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>josh</cc>
+    
+    <cc>jst</cc>
+    
+    <cc>mark.finkle</cc>
+    
+    <cc>Olli.Pettay</cc>
+    
+    <cc>wjohnston</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395796</commentid>
+              <attachid>524561</attachid>
+            <who name="Martijn Wargers [:mw22] (QA - IRC nick: mw22)">martijn.martijn</who>
+            <bug_when>2011-04-07 20:11:37 -0700</bug_when>
+            <thetext>Created attachment 524561
+testcase
+
+See testcase, I&apos;m seeing the error I mentioned in the summary when clicking on the button, using Fennec.
+I guess this is a bug in ipc, right?
+
+Bookmarklets use this technique a lot, so they don&apos;t work currently in Fennec.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395881</commentid>
+              <attachid>524568</attachid>
+            <who name="Josh Matthews [:jdm]">josh</who>
+            <bug_when>2011-04-07 21:15:20 -0700</bug_when>
+            <thetext>Created attachment 524568
+Backtrace from the permission error</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395885</commentid>
+            <who name="Josh Matthews [:jdm]">josh</who>
+            <bug_when>2011-04-07 21:18:35 -0700</bug_when>
+            <thetext>Presumably this occurs because about: urls are loaded in the chrome process?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395910</commentid>
+            <who name="Mark Finkle (:mfinkle)">mark.finkle</who>
+            <bug_when>2011-04-07 21:34:55 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Presumably this occurs because about: urls are loaded in the chrome process?
+
+about:blank is special cased to open remotely</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395939</commentid>
+            <who name="Mark Finkle (:mfinkle)">mark.finkle</who>
+            <bug_when>2011-04-07 21:52:33 -0700</bug_when>
+            <thetext>Johnny - Does this type of error seem like a compartments issue? Is it expected or not?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396417</commentid>
+            <who name="Wesley Johnston (:wesj)">wjohnston</who>
+            <bug_when>2011-04-08 07:30:41 -0700</bug_when>
+            <thetext>This looks a lot like what I saw in bug 608331 (which I never really solved).</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524561</attachid>
+            <date>2011-04-07 20:11:00 -0700</date>
+            <delta_ts>2011-04-07 20:11:37 -0700</delta_ts>
+            <desc>testcase</desc>
+            <filename>_crash1.htm</filename>
+            <type>text/html</type>
+            <size>322</size>
+            <attacher>martijn.martijn</attacher>
+            
+              <data encoding="base64">PGh0bWw+CjxoZWFkPg0KPHN0eWxlPg0KYm9keSB7DQpiYWNrZ3JvdW5kLWNvbG9yOiBsaW1lOw0K
+fQ0KPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4NCjxidXR0b24gb25jbGljaz0idz13aW5kb3cub3Bl
+bignYWJvdXQ6YmxhbmsnKTsgdy5kb2N1bWVudC53cml0ZShkb2N1bWVudC5kb2N1bWVudEVsZW1l
+bnQuaW5uZXJIVE1MKTt3LmRvY3VtZW50LmNsb3NlKCk7Ij5DbGlja2luZyB0aGlzIGJ1dHRvbiBz
+aG91bGQgb3BlbiBhIG5ldyB3aW5kb3cgd2l0aCB0aGUgc2FtZSBjb250ZW50IGFzIHRoaXMgcGFn
+ZTwvYnV0dG9uPg0KPC9zY3JpcHQ+CjwvYm9keT4KPC9odG1sPg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524568</attachid>
+            <date>2011-04-07 21:15:00 -0700</date>
+            <delta_ts>2011-04-07 21:15:20 -0700</delta_ts>
+            <desc>Backtrace from the permission error</desc>
+            <filename>xpc.txt</filename>
+            <type>text/plain</type>
+            <size>2608</size>
+            <attacher>josh</attacher>
+            
+              <data encoding="base64">IzAgIHhwYzo6QWNjZXNzQ2hlY2s6OmRlbnkgKGN4PTB4Yjc2NDcwNTAsIGlkPSRqc2lkKCJkb2N1
+bWVudCIpKSBhdCAvaG9tZS90X21hdHRqby9zcmMvZmlyZWZveC9tb2JpbGViYXNlL2pzL3NyYy94
+cGNvbm5lY3Qvd3JhcHBlcnMvQWNjZXNzQ2hlY2suY3BwOjQyMgojMSAgMHgwMjE4Zjg5MSBpbiB4
+cGM6OkNyb3NzT3JpZ2luQWNjZXNzaWJsZVByb3BlcnRpZXNPbmx5OjpjaGVjayAoY3g9MHhiNzY0
+NzA1MCwgd3JhcHBlcj0weGI0MjVhMWY4IFtPYmplY3QgUHJveHldLCBpZD0kanNpZCgiZG9jdW1l
+bnQiKSwgYWN0PUdFVCwgcGVybT1AMHhiZmNhZWVlYykKICAgIGF0IC9ob21lL3RfbWF0dGpvL3Ny
+Yy9maXJlZm94L21vYmlsZWJhc2UvanMvc3JjL3hwY29ubmVjdC93cmFwcGVycy9BY2Nlc3NDaGVj
+ay5oOjExMwojMiAgMHgwMjE5MDFmNyBpbiB4cGM6OkZpbHRlcmluZ1dyYXBwZXI8eHBjOjpYcmF5
+V3JhcHBlcjxKU0Nyb3NzQ29tcGFydG1lbnRXcmFwcGVyPiwgeHBjOjpDcm9zc09yaWdpbkFjY2Vz
+c2libGVQcm9wZXJ0aWVzT25seT46OmVudGVyICh0aGlzPTB4MzY0YTc3YywgY3g9MHhiNzY0NzA1
+MCwgd3JhcHBlcj0weGI0MjVhMWY4IFtPYmplY3QgUHJveHldLCBpZD0KICAgICRqc2lkKCJkb2N1
+bWVudCIpLCBhY3Q9R0VULCBicD0weGJmY2FlZjUzKSBhdCAvaG9tZS90X21hdHRqby9zcmMvZmly
+ZWZveC9tb2JpbGViYXNlL2pzL3NyYy94cGNvbm5lY3Qvd3JhcHBlcnMvRmlsdGVyaW5nV3JhcHBl
+ci5jcHA6MTI2CiMzICAweDAyMTkzNGVjIGluIHhwYzo6WHJheVdyYXBwZXI8SlNDcm9zc0NvbXBh
+cnRtZW50V3JhcHBlcj46OmdldFByb3BlcnR5RGVzY3JpcHRvciAodGhpcz0weDM2NGE3N2MsIGN4
+PTB4Yjc2NDcwNTAsIHdyYXBwZXI9MHhiNDI1YTFmOCBbT2JqZWN0IFByb3h5XSwgaWQ9JGpzaWQo
+ImRvY3VtZW50IiksIHNldD1mYWxzZSwgZGVzY19pbj0weGJmY2FlZmQ4KQogICAgYXQgL2hvbWUv
+dF9tYXR0am8vc3JjL2ZpcmVmb3gvbW9iaWxlYmFzZS9qcy9zcmMveHBjb25uZWN0L3dyYXBwZXJz
+L1hyYXlXcmFwcGVyLmNwcDo1MTcKIzQgIDB4MDJjZDdmOWEgaW4ganM6OkpTUHJveHlIYW5kbGVy
+OjpnZXQgKHRoaXM9MHgzNjRhNzdjLCBjeD0weGI3NjQ3MDUwLCBwcm94eT0weGI0MjVhMWY4IFtP
+YmplY3QgUHJveHldLCByZWNlaXZlcj0weGI0MjVhMWY4IFtPYmplY3QgUHJveHldLCBpZD0kanNp
+ZCgiZG9jdW1lbnQiKSwgdnA9MHhiZmNhZjU1MCkKICAgIGF0IC9ob21lL3RfbWF0dGpvL3NyYy9m
+aXJlZm94L21vYmlsZWJhc2UvanMvc3JjL2pzcHJveHkuY3BwOjExOAojNSAgMHgwMjE5M2YwMiBp
+biB4cGM6OlhyYXlXcmFwcGVyPEpTQ3Jvc3NDb21wYXJ0bWVudFdyYXBwZXI+OjpnZXQgKHRoaXM9
+MHgzNjRhNzdjLCBjeD0weGI3NjQ3MDUwLCB3cmFwcGVyPTB4YjQyNWExZjggW09iamVjdCBQcm94
+eV0sIHJlY2VpdmVyPTB4YjQyNWExZjggW09iamVjdCBQcm94eV0sIGlkPSRqc2lkKCJkb2N1bWVu
+dCIpLCB2cD0weGJmY2FmNTUwKQogICAgYXQgL2hvbWUvdF9tYXR0am8vc3JjL2ZpcmVmb3gvbW9i
+aWxlYmFzZS9qcy9zcmMveHBjb25uZWN0L3dyYXBwZXJzL1hyYXlXcmFwcGVyLmNwcDo3ODEKIzYg
+IDB4MDJjZGIxZGYgaW4ganM6OkpTUHJveHk6OmdldCAoY3g9MHhiNzY0NzA1MCwgcHJveHk9MHhi
+NDI1YTFmOCBbT2JqZWN0IFByb3h5XSwgcmVjZWl2ZXI9MHhiNDI1YTFmOCBbT2JqZWN0IFByb3h5
+XSwgaWQ9JGpzaWQoImRvY3VtZW50IiksIHZwPTB4YmZjYWY1NTApCiAgICBhdCAvaG9tZS90X21h
+dHRqby9zcmMvZmlyZWZveC9tb2JpbGViYXNlL2pzL3NyYy9qc3Byb3h5LmNwcDo4MDAKIzcgIDB4
+MDJjZGI4NTEgaW4ganM6OnByb3h5X0dldFByb3BlcnR5IChjeD0weGI3NjQ3MDUwLCBvYmo9MHhi
+NDI1YTFmOCBbT2JqZWN0IFByb3h5XSwgcmVjZWl2ZXI9MHhiNDI1YTFmOCBbT2JqZWN0IFByb3h5
+XSwgaWQ9JGpzaWQoImRvY3VtZW50IiksIHZwPTB4YmZjYWY1NTApCiAgICBhdCAvaG9tZS90X21h
+dHRqby9zcmMvZmlyZWZveC9tb2JpbGViYXNlL2pzL3NyYy9qc3Byb3h5LmNwcDo5MTcKIzggIDB4
+MDJiZGFiYzQgaW4gSlNPYmplY3Q6OmdldFByb3BlcnR5ICh0aGlzPTB4YjQyNWExZjgsIGN4PTB4
+Yjc2NDcwNTAsIHJlY2VpdmVyPTB4YjQyNWExZjggW09iamVjdCBQcm94eV0sIGlkPSRqc2lkKCJk
+b2N1bWVudCIpLCB2cD0weGJmY2FmNTUwKSBhdCAvaG9tZS90X21hdHRqby9zcmMvZmlyZWZveC9t
+b2JpbGViYXNlL2pzL3NyYy9qc29iai5oOjEyMjMKIzkgIDB4MDJiZGFiZjcgaW4gSlNPYmplY3Q6
+OmdldFByb3BlcnR5ICh0aGlzPTB4YjQyNWExZjgsIGN4PTB4Yjc2NDcwNTAsIGlkPSRqc2lkKCJk
+b2N1bWVudCIpLCB2cD0weGJmY2FmNTUwKSBhdCAvaG9tZS90X21hdHRqby9zcmMvZmlyZWZveC9t
+b2JpbGViYXNlL2pzL3NyYy9qc29iai5oOjEyMjcKIzEwIDB4MDJlYTQxNDYgaW4ganM6OkludGVy
+cHJldCAoY3g9MHhiNzY0NzA1MCwgZW50cnlGcmFtZT0weGI0M2ZlMWE4LCBpbmxpbmVDYWxsQ291
+bnQ9MCwgaW50ZXJwTW9kZT1KU0lOVEVSUF9OT1JNQUwpIGF0IC9ob21lL3RfbWF0dGpvL3NyYy9m
+aXJlZm94L21vYmlsZWJhc2UvanMvc3JjL2pzaW50ZXJwLmNwcDo0MjA4Cg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

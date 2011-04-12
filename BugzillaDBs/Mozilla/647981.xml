@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647981</bug_id>
+          
+          <creation_ts>2011-04-06 05:29:00 -0700</creation_ts>
+          <short_desc>Intermittent crashtest leak of objects related to 612662-1.svg</short_desc>
+          <delta_ts>2011-04-06 17:29:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>SVG</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>646814</dup_id>
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>khuey</cc>
+          <qa_contact name="General SVG Bugs">general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392169</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-06 05:29:09 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=TraceMonkey/1302090550.1302091174.10688.gz&amp;fulltext=1
+Rev3 Fedora 12 tracemonkey debug test crashtest on 2011/04/06 04:49:10
+s: talos-r3-fed-007
+
+Leaked URLs:
+  resource://gre-resources/ua.css
+...
+  file:///home/cltbld/talos-slave/test/build/reftest/tests/layout/svg/crashtests/612662-1.svg#a
+  file:///home/cltbld/talos-slave/test/build/reftest/tests/layout/svg/crashtests/612662-1.svg#a
+  resource://gre/res/svg.css
+  file:///home/cltbld/talos-slave/test/build/reftest/tests/layout/svg/crashtests/612662-1.svg#a</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393675</commentid>
+            <who name="Kyle Huey [:khuey]">khuey</who>
+            <bug_when>2011-04-06 17:29:54 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 646814 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

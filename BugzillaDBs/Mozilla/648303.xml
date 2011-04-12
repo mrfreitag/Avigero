@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648303</bug_id>
+          
+          <creation_ts>2011-04-07 10:17:00 -0700</creation_ts>
+          <short_desc>Improve geolocation fallback by auto-detecting the closest major city</short_desc>
+          <delta_ts>2011-04-11 10:29:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>1.1</target_milestone>
+          
+          <blocked>649045</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Franck Lecollinet">franck.bugzilla</reporter>
+          <assigned_to name="Franck Lecollinet">franck.bugzilla</assigned_to>
+          <cc>clooney</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394642</commentid>
+            <who name="Franck Lecollinet">franck.bugzilla</who>
+            <bug_when>2011-04-07 10:17:02 -0700</bug_when>
+            <thetext>The geolocation process will be changed to the following logic:
+
+1. Try to get .address property when user clicks on &quot;Locate me&quot;
+
+2. If it fails, detect closest city from the major cities database (used in the global visualizer + manual city selection page)
+
+3. Invite the user to confirm - or - select another city manually
+
+4. If the user selects another city manually, go back to #3</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

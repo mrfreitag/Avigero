@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647680</bug_id>
+          
+          <creation_ts>2011-04-04 07:40:00 -0700</creation_ts>
+          <short_desc>I took your UPDATE and subsequently toolbar problems and Mozilla &quot;not responding&quot; when opening facebook, address book, etc.</short_desc>
+          <delta_ts>2011-04-06 07:34:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Toolbars</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dianne Issa">dkissa</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bclary</cc>
+          <qa_contact>toolbars</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390130</commentid>
+            <who name="Dianne Issa">dkissa</who>
+            <bug_when>2011-04-04 07:40:36 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.6) Gecko/20100625 YFF35 Firefox/3.6.6 ( .NET CLR 3.5.30729; .NET4.0C)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.6) Gecko/20100625 YFF35 Firefox/3.6.6 ( .NET CLR 3.5.30729; .NET4.0C)
+
+I took your UPDATE and now I have problems with toolbar and Mozilla &quot;not responding&quot; and everything has slowed down...address book, facebook, etc.
+
+If I don&apos;t hear back asap, I am changing back to something else.  Thanks.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Forward address book
+2.Click on facebook
+3.No tool bar
+Actual Results:  
+No toolbar
+
+Expected Results:  
+Nothing</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390131</commentid>
+            <who name="Dianne Issa">dkissa</who>
+            <bug_when>2011-04-04 07:42:35 -0700</bug_when>
+            <thetext>What happens next????</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392252</commentid>
+            <who name="Daniel Veditz">dveditz</who>
+            <bug_when>2011-04-06 07:34:57 -0700</bug_when>
+            <thetext>You appear to be running a very old version, about 10 monthly security fix updates. Is that your new version? If so you probably got scammed since we would never give someone such an old version. If 3.6.6 is the old version why haven&apos;t you been updating in the meanwhile, and what did you try updating to?
+
+It&apos;s also possible you&apos;ve got some add-on (either wanted or parasitic) that is causing the user-agent printed above to lie. I see you have Microsoft&apos;s .NET (which shouldn&apos;t break the UA) and something called &quot;YFF35&quot; that I&apos;ve never heard of.
+
+First I recommend trying http://support.mozilla.com/en-US/kb/Safe+Mode to see if your add-ons are the cause of the problem. If they are you can try adding them back one-by-one and see if we can identify which one is causing the conflict.
+
+Second, if speed is your concern I strongly recommend Firefox 4, our fastest Firefox yet.
+
+Third, you might be infected with malware, picked up through downloads or plugins. Many of the common malware/adware infections going around hook into browsers at a pretty low level to do their dirty deeds. When we changed internal structures in Firefox 4 we broke some of this malware, which in turn broke the browser because of how deeply they had their hooks in.
+
+I think at this point you&apos;re going to need help from our support forums at http://support.mozilla.com/ trying to identify the underlying cause.
+
+You should also check that your plugins are up to date at https://www.mozilla.com/en-US/plugincheck/ because those are the most common entry point for malware. Why write separate malware attacks for IE users, Firefox users, and Safari users when you can write just one Flash or Java attack?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

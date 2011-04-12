@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647917</bug_id>
+          
+          <creation_ts>2011-04-05 17:55:00 -0700</creation_ts>
+          <short_desc>ParseAndAppendEscape should only eat newlines in strings</short_desc>
+          <delta_ts>2011-04-05 18:31:13 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Style System (CSS)</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Boris Zbarsky (:bz)">bzbarsky</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dbaron</cc>
+          <qa_contact>style-system</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391748</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 17:55:31 -0700</bug_when>
+            <thetext>Testcase attached.
+
+The question is what it should do.  The &quot;escape&quot; production in CSS2.1 is:
+
+  escape		{unicode}|\\[^\r\n\f0-9a-f]
+
+so the behavior of a backslash followed by \r, \n, or \f is not really defined: the stylesheet can&apos;t be tokenized if that happens....</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391766</commentid>
+              <attachid>524114</attachid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 18:31:13 -0700</bug_when>
+            <thetext>Created attachment 524114
+Testcase</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524114</attachid>
+            <date>2011-04-05 18:31:00 -0700</date>
+            <delta_ts>2011-04-05 18:31:13 -0700</delta_ts>
+            <desc>Testcase</desc>
+            <filename>test.html</filename>
+            <type>text/html</type>
+            <size>155</size>
+            <attacher>bzbarsky</attacher>
+            
+              <data encoding="base64">PCFET0NUWVBFIGh0bWw+CjxzdHlsZT4KICAvKiBJbXBvcnRhbnQ6IG5lZWQgdG8gaGF2ZSBuZXds
+aW5lIHJpZ2h0IGFmdGVyIHRoZSBiYWNrc2xhc2ggKi8KICBcCiAgZGl2IHsgY29sb3I6IHJlZDsg
+fQo8L3N0eWxlPgo8ZGl2PlNob3VsZCBiZSBncmVlbjwvZGl2PgogIAo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647748</bug_id>
+          
+          <creation_ts>2011-04-04 16:15:00 -0700</creation_ts>
+          <short_desc>Provide a callback for CERTCertDBHandle which indicates when an ocsp or crl request fails</short_desc>
+          <delta_ts>2011-04-04 16:15:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647669</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="timeless">timeless</reporter>
+          <assigned_to>nobody</assigned_to>
+          
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390603</commentid>
+            <who name="timeless">timeless</who>
+            <bug_when>2011-04-04 16:15:59 -0700</bug_when>
+            <thetext>Roughly:
+
+enum RequestType {
+  REQUEST_OCSP,
+  REQUEST_CRL,
+  ...
+};
+struct RequestInfo {
+  PRUint32 sourcesRemaining;
+  RequestType requestType;
+  const CERTCertificate *origin;
+  const char *location;
+  const char *httpResponse;
+  ...
+};
+typedef void *(PR_CALLBACK *DBRequestErrorHandler)(CERTCertDBHandle *handle, const RequestInfo *request); 
+
+void
+RegisterRequestErrorHandler(
+CERTCertDBHandle *handle,
+DBRequestErrorHandler *func,
+)
+
+My understanding is that there can be multiple OCSP servers encoded in a Certificate, and I know there can be multiple CRLs encoded in a certificate, so I definitely need the URL for the actual failing request. Ideally i&apos;d like access to the Certificate which triggered the request as &apos;origin&apos; -- i&apos;m not sure if that&apos;s available. The &apos;sourcesRemaining&apos; bit is for when nss supports multiple CRLDPs and thus ==0 means the request has failed and &gt;0 means there will be further attempts to contact additional servers before giving up -- until that is implemented, sourcesRemaining should always be 0.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

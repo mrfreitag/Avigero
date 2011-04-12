@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647805</bug_id>
+          
+          <creation_ts>2011-04-05 04:56:00 -0700</creation_ts>
+          <short_desc>ZWNJ and ZWJ in a page will disrupt search operation (&quot;Find&quot;)</short_desc>
+          <delta_ts>2011-04-05 10:10:15 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Find Backend</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://en.wikipedia.org/w/index.php?title=Zero-width_non-joiner&amp;oldid=422495995</bug_file_loc>
+          <status_whiteboard>DUPEME</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>640856</dependson>
+          
+          
+          
+          <reporter name="j. &apos;mach&apos; wust">j_mach_wust</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>VYV03354</cc>
+          <qa_contact>find-backend</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391016</commentid>
+            <who name="j. &apos;mach&apos; wust">j_mach_wust</who>
+            <bug_when>2011-04-05 04:56:11 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+According to The Unicode Standard, Version 6.0 (section 16.2 Layout Controls, paragraph &quot;Filtering Joiner and Non-joiner&quot;, p. 528), the characters ZERO WIDTH JOINER and ZERO WIDTH NON-JOINER should be &quot;ordinarily ignored by processes that analyze text content. For example, a spell-checker or a search operation should filter them out when checking for matches.&quot;
+
+In Firefox, however, the search operation does not filter them out.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to: http://en.wikipedia.org/w/index.php?title=Zero-width_non-joiner&amp;oldid=422495995
+2. Select &quot;Find&quot; from the &quot;Edit&quot; menu and enter &quot;Aufl&quot;
+
+Actual Results:  
+Only the instances of &quot;Auflösung&quot; without ZWNJ are found.
+
+Expected Results:  
+All instances of &quot;Auflösung&quot; should be found, regardless of the ZWNJ.
+
+This bug is probably related Bug 434044 which is about the spell-checker.
+
+The SOFT HYPHEN (SHY) character, by comparison, does not disrupt the search operation. That is, a search for &quot;hello&quot; will match any instance of &quot;hello&quot;, whether it is written with SHY or not. That is exactly how the search operation should behave be with regard to the ZWNJ and ZWJ.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391169</commentid>
+            <who name="Masatoshi Kimura [:emk]">VYV03354</who>
+            <bug_when>2011-04-05 08:03:52 -0700</bug_when>
+            <thetext>Bug 640856 patch will fix this.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

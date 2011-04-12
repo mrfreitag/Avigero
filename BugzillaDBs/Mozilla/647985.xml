@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647985</bug_id>
+          
+          <creation_ts>2011-04-06 05:57:00 -0700</creation_ts>
+          <short_desc>Crashes frequently when fast scrolling web pages using wheel on mouse since B4.12 installed.</short_desc>
+          <delta_ts>2011-04-06 09:41:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.advfn.com/cmn/fbb/thread.php3?id=22427025</bug_file_loc>
+          
+          <keywords>stackwanted</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Simon Thompson">st</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392190</commentid>
+            <who name="Simon Thompson">st</who>
+            <bug_when>2011-04-06 05:57:13 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Flicking mouse wheel for rapid scroll of web pages sometimes crashes Ffox v b4.12. Not experienced in previous versions.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Web page (typical one attached)
+2. Flick mouse wheel for quick scroll to bottom of page
+3. 
+Actual Results:  
+Ffox crashes.
+All other apps unaffected.
+Crash report submitted
+
+Expected Results:  
+Scroll through page to bottom</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392424</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-06 09:41:41 -0700</bug_when>
+            <thetext>Please provide some related CrashIDs: https://developer.mozilla.org/En/How_to_get_a_stacktrace_for_a_bug_report</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

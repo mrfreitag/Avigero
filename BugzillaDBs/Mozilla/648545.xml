@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648545</bug_id>
+          
+          <creation_ts>2011-04-08 09:34:00 -0700</creation_ts>
+          <short_desc>Remove outdated instances of META_COMPONENT from mozilla-central</short_desc>
+          <delta_ts>2011-04-09 05:07:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Security: PSM</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://mxr.mozilla.org/mozilla-central/search?string=META_COMPONENT&amp;case=1&amp;find=%2Fsecurity%2Fmanager%2F</bug_file_loc>
+          <status_whiteboard>[good first bug]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>420707</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Serge Gautherie (:sgautherie)">sgautherie.bz</reporter>
+          <assigned_to name="Ed Morley">bmo</assigned_to>
+          <cc>bmo</cc>
+          <qa_contact>psm</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="in-testsuite"
+          id="438260"
+          type_id="37"
+          status="-"
+          setter="sgautherie.bz"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5396600</commentid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-08 09:34:19 -0700</bug_when>
+            <thetext>&quot;Found 3 matching lines in 3 files&quot;
+
+Noticed while checking bug 643508.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398255</commentid>
+              <attachid>524843</attachid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-09 04:28:57 -0700</bug_when>
+            <thetext>Created attachment 524843
+Patch v1
+
+Who should I ask for review?</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524843</attachid>
+            <date>2011-04-09 04:28:00 -0700</date>
+            <delta_ts>2011-04-09 05:07:29 -0700</delta_ts>
+            <desc>Patch v1</desc>
+            <filename>Bug-648545.diff</filename>
+            <type>text/plain</type>
+            <size>1821</size>
+            <attacher>bmo</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgYTI4ODRiZmQxMzkyMjZjYzNjMGIxNTVlMTE4
+MWI2NjhjNjkyY2YxZQojIFVzZXIgRWQgTW9ybGV5IDxibW9AZWRtb3JsZXkuY28udWs+CkJ1ZyA2
+NDg1NDUgLSBSZW1vdmUgb3V0ZGF0ZWQgaW5zdGFuY2VzIG9mIE1FVEFfQ09NUE9ORU5UIGZyb20g
+bW96aWxsYS1jZW50cmFsCgpkaWZmIC0tZ2l0IGEvc2VjdXJpdHkvbWFuYWdlci9ib290L3NyYy9N
+YWtlZmlsZS5pbiBiL3NlY3VyaXR5L21hbmFnZXIvYm9vdC9zcmMvTWFrZWZpbGUuaW4KLS0tIGEv
+c2VjdXJpdHkvbWFuYWdlci9ib290L3NyYy9NYWtlZmlsZS5pbgorKysgYi9zZWN1cml0eS9tYW5h
+Z2VyL2Jvb3Qvc3JjL01ha2VmaWxlLmluCkBAIC00NCwxNyArNDQsMTYgQEAgVlBBVEgJCT0gQHNy
+Y2RpckAKIAogaW5jbHVkZSAkKERFUFRIKS9jb25maWcvYXV0b2NvbmYubWsKIAogTU9EVUxFCQk9
+IHBpcGJvb3QKIExJQlJBUllfTkFNRQk9IHBpcGJvb3QKIElTX0NPTVBPTkVOVAk9IDEKIE1PRFVM
+RV9OQU1FCT0gQk9PVAogRVhQT1JUX0xJQlJBUlkJPSAxCi1NRVRBX0NPTVBPTkVOVAk9IGNyeXB0
+bwogR1JFX01PRFVMRQk9IDEKIExJQlhVTF9MSUJSQVJZCT0gMQogCiBDUFBTUkNTID0gXAogCW5z
+RW50cm9weUNvbGxlY3Rvci5jcHAgXAogCW5zU2VjdXJlQnJvd3NlclVJSW1wbC5jcHAgXAogCW5z
+Qk9PVE1vZHVsZS5jcHAgXAogCW5zU2VjdXJpdHlXYXJuaW5nRGlhbG9ncy5jcHAgXApkaWZmIC0t
+Z2l0IGEvc2VjdXJpdHkvbWFuYWdlci9wa2kvc3JjL01ha2VmaWxlLmluIGIvc2VjdXJpdHkvbWFu
+YWdlci9wa2kvc3JjL01ha2VmaWxlLmluCi0tLSBhL3NlY3VyaXR5L21hbmFnZXIvcGtpL3NyYy9N
+YWtlZmlsZS5pbgorKysgYi9zZWN1cml0eS9tYW5hZ2VyL3BraS9zcmMvTWFrZWZpbGUuaW4KQEAg
+LTQ1LDE3ICs0NSwxNiBAQCBWUEFUSAkJPSBAc3JjZGlyQAogCiBpbmNsdWRlICQoREVQVEgpL2Nv
+bmZpZy9hdXRvY29uZi5tawogCiBNT0RVTEUJCT0gcGlwcGtpCiBMSUJSQVJZX05BTUUJPSBwaXBw
+a2kKIElTX0NPTVBPTkVOVAk9IDEKIE1PRFVMRV9OQU1FCT0gUEtJCiBFWFBPUlRfTElCUkFSWQk9
+IDEKLU1FVEFfQ09NUE9ORU5UCT0gY3J5cHRvCiBHUkVfTU9EVUxFCT0gMQogTElCWFVMX0xJQlJB
+UlkJPSAxCiAKIENQUFNSQ1MgPSBcCiAJbnNOU1NEaWFsb2dzLmNwcCBcCiAJbnNQS0lNb2R1bGUu
+Y3BwIFwKIAluc1BLSVBhcmFtQmxvY2suY3BwIFwKICAgICAgICAgbnNBU04xVHJlZS5jcHAgXApk
+aWZmIC0tZ2l0IGEvc2VjdXJpdHkvbWFuYWdlci9zc2wvc3JjL01ha2VmaWxlLmluIGIvc2VjdXJp
+dHkvbWFuYWdlci9zc2wvc3JjL01ha2VmaWxlLmluCi0tLSBhL3NlY3VyaXR5L21hbmFnZXIvc3Ns
+L3NyYy9NYWtlZmlsZS5pbgorKysgYi9zZWN1cml0eS9tYW5hZ2VyL3NzbC9zcmMvTWFrZWZpbGUu
+aW4KQEAgLTQ1LDE3ICs0NSwxNiBAQCBWUEFUSAkJPSBAc3JjZGlyQAogCiBpbmNsdWRlICQoREVQ
+VEgpL2NvbmZpZy9hdXRvY29uZi5tawogCiBNT0RVTEUJCT0gcGlwbnNzCiBMSUJSQVJZX05BTUUJ
+PSBwaXBuc3MKIElTX0NPTVBPTkVOVAk9IDEKIE1PRFVMRV9OQU1FCT0gTlNTCiBFWFBPUlRfTElC
+UkFSWQk9IDEKLU1FVEFfQ09NUE9ORU5UCT0gY3J5cHRvCiBHUkVfTU9EVUxFCT0gMQogTElCWFVM
+X0xJQlJBUlkJPSAxCiAKIENQUFNSQ1MgPSAJCQkJXAogCW5zTlNTQ2xlYW5lci5jcHAgICAgICAg
+ICAgICAgICAgXAogCW5zQ2VydE92ZXJyaWRlU2VydmljZS5jcHAgICBcCiAJbnNSZWNlbnRCYWRD
+ZXJ0cy5jcHAgXAogICAgICAgICBuc0NsaWVudEF1dGhSZW1lbWJlci5jcHAgICAgICAgIFwK
+</data>
+<flag name="review"
+          id="438415"
+          type_id="4"
+          status="?"
+          setter="sgautherie.bz"
+          requestee="kaie"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

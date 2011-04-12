@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647620</bug_id>
+          
+          <creation_ts>2011-04-03 18:06:00 -0700</creation_ts>
+          <short_desc>Interpreter simplification wishlist</short_desc>
+          <delta_ts>2011-04-10 12:41:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647624</dependson>
+    
+    <dependson>647626</dependson>
+    
+    <dependson>647628</dependson>
+    
+    <dependson>648175</dependson>
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian Hackett">bhackett1024</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>brendan</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>dmandelin</cc>
+    
+    <cc>evilpies</cc>
+    
+    <cc>luke</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>sphink</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389630</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-03 18:06:57 -0700</bug_when>
+            <thetext>There are fair number of optimizations in the interpreter which don&apos;t really add anything in the presence of two JITs.  These make the code more complex, and make JIT implementation more complex and buggier.
+
+This is a tracking bug for identifying and removing these optimizations.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

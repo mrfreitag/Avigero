@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647879</bug_id>
+          
+          <creation_ts>2011-04-05 13:07:00 -0700</creation_ts>
+          <short_desc>page messed up when scrolling w/ fixed background image</short_desc>
+          <delta_ts>2011-04-11 14:47:35 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Axure">axure</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391471</commentid>
+            <who name="Axure">axure</who>
+            <bug_when>2011-04-05 13:07:01 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+An ugly bug appears in FF4 in Windows 7. It happens when you scroll a webpage with a fixed-image background in both axes. Basically the whole page gets messed up. (&quot;Fixed&quot; means bg img doesn&apos;t move when you scroll the page.)
+
+Here is an example HTML code: http://pastebin.com/aQJN4ARk
+Here is what it looks like before scrolling (good): http://postimage.org/image/11i2yll5w/
+Here is what it looks like after scrolling (bad): http://postimage.org/image/11il5ielg/
+The latter image was achieved by scrolling the page a tiny bit to the right, then a bit down.
+
+It does not happen in other browsers in Win7. It does [b]not[/b] happen in FF4 in Win XP.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. paste code from http://pastebin.com/aQJN4ARk into empty html document and save
+2. open document
+3. scroll a little down
+4. scroll a little right
+Actual Results:  
+Both the background and the foreground objects (here: a couple of divs) are rendered improperly.
+
+Expected Results:  
+Normal scrolling of foreground divs against a fixed background image.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391933</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-05 22:58:51 -0700</bug_when>
+            <thetext>Does setting &quot;gfx.direct2d.disabled&quot; to &quot;true&quot; via &quot;about:config&quot; and restarting Firefox show a Difference?
+
+If yes, please post the Content of the Graphics Section you can get via &quot;about:support&quot; after you set it back to &quot;false&quot; and restarted.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392090</commentid>
+            <who name="Axure">axure</who>
+            <bug_when>2011-04-06 03:01:18 -0700</bug_when>
+            <thetext>Nope, disabling Direct2D does not help.
+
+BTW, I didn&apos;t know there&apos;s such an awesome hidden config panel. ;)
+
+FYI: Out of curiosity I&apos;ve downloaded Firefox 3.6.16 and in it this problem does not occur. 
+
+Q: Were you able to reproduce this bug? Do you have Win7?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398413</commentid>
+            <who name="Axure">axure</who>
+            <bug_when>2011-04-09 09:23:39 -0700</bug_when>
+            <thetext>Will Mozilla at least acknowledge this bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401746</commentid>
+              <attachid>525178</attachid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-11 14:47:35 -0700</bug_when>
+            <thetext>Created attachment 525178
+HTML file of example code
+
+WFM with Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Please post the Graphics section from about:support</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>525178</attachid>
+            <date>2011-04-11 14:47:00 -0700</date>
+            <delta_ts>2011-04-11 14:47:35 -0700</delta_ts>
+            <desc>HTML file of example code</desc>
+            <filename>Bug.html</filename>
+            <type>text/html</type>
+            <size>862</size>
+            <attacher>fmdevelopertim</attacher>
+            
+              <data encoding="base64">PGh0bWw+DQo8aGVhZD4NCgk8dGl0bGU+RmlyZWZveCA0IHNjcm9sbGluZyBidWcgaW4gV2luZG93
+cyA3PC90aXRsZT4NCgk8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCQlib2R5IHsNCgkJCWJhY2tn
+cm91bmQtaW1hZ2U6IHVybCgnaHR0cDovL3d3dy5zdWRva3UuNHRoZXd3dy5jb20vR3JpZHMvZ3Jp
+ZC5qcGcnKTsNCgkJCWJhY2tncm91bmQtYXR0YWNobWVudDpmaXhlZDsJCQ0KCQl9DQoJCS5lbGVt
+ZW50IHsNCgkJCXBvc2l0aW9uOiBhYnNvbHV0ZTsNCgkJCXotaW5kZXg6IDE1MDsNCgkJCXdpZHRo
+OiA1MHB4Ow0KCQkJaGVpZ2h0OiA1MHB4Ow0KCQkJYmFja2dyb3VuZC1jb2xvcjogYnJvd247DQoJ
+CQlib3JkZXI6IDFweCBzb2xpZCBibGFjazsNCgkJfQ0KCTwvc3R5bGU+DQo8L2hlYWQ+DQo8Ym9k
+eT4NCgk8ZGl2IGNsYXNzPSJlbGVtZW50IiBzdHlsZT0ibGVmdDogMTBweDsgdG9wOiAxMHB4OyI+
+PC9kaXY+DQoJPGRpdiBjbGFzcz0iZWxlbWVudCIgc3R5bGU9ImxlZnQ6IDMwMHB4OyB0b3A6IDMw
+MHB4OyI+PC9kaXY+DQoJPGRpdiBjbGFzcz0iZWxlbWVudCIgc3R5bGU9ImxlZnQ6IDQ1MHB4OyB0
+b3A6IDMwMHB4OyI+PC9kaXY+DQoJPGRpdiBjbGFzcz0iZWxlbWVudCIgc3R5bGU9ImxlZnQ6IDYw
+MHB4OyB0b3A6IDMwMHB4OyI+PC9kaXY+DQoJPGRpdiBjbGFzcz0iZWxlbWVudCIgc3R5bGU9Imxl
+ZnQ6IDYwMHB4OyB0b3A6IDYwMHB4OyI+PC9kaXY+CQ0KCQ0KCTxkaXYgY2xhc3M9ImVsZW1lbnQi
+IHN0eWxlPSJsZWZ0OiAzMDAwcHg7IHRvcDogMTBweDsiPjwvZGl2Pg0KCTxkaXYgY2xhc3M9ImVs
+ZW1lbnQiIHN0eWxlPSJsZWZ0OiAxMHB4OyB0b3A6IDIwMDBweDsiPjwvZGl2Pg0KPC9ib2R5Pg0K
+PC9odG1sPg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

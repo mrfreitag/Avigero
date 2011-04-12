@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648195</bug_id>
+          
+          <creation_ts>2011-04-06 20:46:00 -0700</creation_ts>
+          <short_desc>Create careers home page</short_desc>
+          <delta_ts>2011-04-07 11:54:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          <blocked>604247</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Michael Morgan [:morgamic]">morgamic</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393862</commentid>
+            <who name="Michael Morgan [:morgamic]">morgamic</who>
+            <bug_when>2011-04-06 20:46:35 -0700</bug_when>
+            <thetext>Concept:
+http://people.mozilla.org/~morgamic/careers/careers-home.png
+
+Goals:
+- get users to job listings, make them browsable
+- present paths to more info
+- Mozilla at a glance -- make a good first impression</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394801</commentid>
+            <who name="Laura Forrest">lforrest</who>
+            <bug_when>2011-04-07 11:47:10 -0700</bug_when>
+            <thetext>Great idea!
+
+Morgamic - can you work with Creative to get the copy/graphic assets needed for these new pages?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394818</commentid>
+            <who name="Michael Morgan [:morgamic]">morgamic</who>
+            <bug_when>2011-04-07 11:54:05 -0700</bug_when>
+            <thetext>Sure, if we need them.  Excuse me if I don&apos;t use mass edit.  You can assume the same answer for bug 648194 and bug 648196.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

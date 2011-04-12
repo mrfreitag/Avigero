@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647892</bug_id>
+          
+          <creation_ts>2011-04-05 14:02:00 -0700</creation_ts>
+          <short_desc>Web gl does not start because WebGLFloatArray is not defined for sample7 of webgl page</short_desc>
+          <delta_ts>2011-04-05 14:09:35 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Developer Network</product>
+          <component>Docs Platform</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://developer.mozilla.org/samples/webgl/sample7/index.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Naoki Hirata :nhirata">nhirata.bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>eshepherd</cc>
+    
+    <cc>lcrouch</cc>
+          <qa_contact>docs-platform</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391520</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-05 14:02:44 -0700</bug_when>
+            <thetext>Build identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.2a1pre) Gecko/20110331 Firefox/4.2a1pre
+
+1. go to https://developer.mozilla.org/samples/webgl/sample7/index.html
+2. look in console
+
+Expected: a demo sample of code running
+Actual : Error: WebGLFloatArray is not defined
+Source File: https://developer.mozilla.org/samples/webgl/sample7/webgl-demo.js
+Line: 142</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391522</commentid>
+            <who name="Luke Crouch [:groovecoder]">lcrouch</who>
+            <bug_when>2011-04-05 14:04:26 -0700</bug_when>
+            <thetext>Sheppy, know if this demo should work in all browsers?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391530</commentid>
+            <who name="Eric Shepherd [:sheppy]">eshepherd</who>
+            <bug_when>2011-04-05 14:09:35 -0700</bug_when>
+            <thetext>I&apos;m working on updating these demos; they&apos;re slightly out of date, written to an old version of the spec. Unfortunately, there appears to be an additional spec change that I&apos;m not aware of because fixing the stuff that I do know needs fixing isn&apos;t enough. I&apos;m going to talk to Paul this week to get his guidance in figuring out why the fixed versions still don&apos;t work. I have not gotten to sample7 yet.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

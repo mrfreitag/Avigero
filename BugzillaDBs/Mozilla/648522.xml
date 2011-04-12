@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648522</bug_id>
+          
+          <creation_ts>2011-04-08 06:52:00 -0700</creation_ts>
+          <short_desc>Done button is not working in Edit Bookmark popup</short_desc>
+          <delta_ts>2011-04-08 10:53:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>Bookmarks</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Cristian Nicolae">nicolae.cristian</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>21</cc>
+    
+    <cc>anamaria.moldovan</cc>
+    
+    <cc>andreea.pod</cc>
+    
+    <cc>ioana.chiorean</cc>
+    
+    <cc>nicolae.cristian</cc>
+          <qa_contact>bookmarks</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396360</commentid>
+            <who name="Cristian Nicolae">nicolae.cristian</who>
+            <bug_when>2011-04-08 06:52:38 -0700</bug_when>
+            <thetext>Steps to reproduce:
+1. Open Fennec App
+2. Browse to any website
+3. Tap on the White Star to Bookmark webpage
+4. Tap on Edit button
+5. Add a tag and press Done
+6. Tap on the Yellow Star
+7. Repeat steps 4-5
+
+Expected result:
+Done button closes the Edit Bookmark popup, and the changes are saved.
+
+Actual result:
+Done button is not working. The only way to close Edit Bookmark popup is pressing the system Back button.
+
+Note:
+Please see the following video: http://www.youtube.com/user/qaioana#p/a/u/0/rR8VzDv1IdQ</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396886</commentid>
+            <who name="Vivien Nicolas (:vingtetun)">21</who>
+            <bug_when>2011-04-08 10:53:41 -0700</bug_when>
+            <thetext>It works for me on device and desktop, but maybe my android build is a bit old...</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

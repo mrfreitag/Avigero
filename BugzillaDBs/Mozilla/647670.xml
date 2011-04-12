@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647670</bug_id>
+          
+          <creation_ts>2011-04-04 05:39:00 -0700</creation_ts>
+          <short_desc>incorrect file permissions within firefox-4.2a1pre x86_64 platform tar.bz file</short_desc>
+          <delta_ts>2011-04-06 09:33:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="p.kerry@sheffield.ac.uk">p.kerry</reporter>
+          <assigned_to name="John Ford [:jhford]">jhford</assigned_to>
+          <cc>aki</cc>
+    
+    <cc>bugcuddler</cc>
+    
+    <cc>jhford</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389999</commentid>
+            <who name="p.kerry@sheffield.ac.uk">p.kerry</who>
+            <bug_when>2011-04-04 05:39:38 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110403 Firefox/4.2a1pre
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110403 Firefox/4.2a1pre
+
+The tar.bz file for nightly builds of 4.2a1pre from around 20110403 for linux x86_64 extracts files with incorrect permissions - examples are mode 700 for all &quot;.so&quot; files, &quot;firefox&quot;, &quot;firefox-bin&quot;, &quot;plugin-container&quot;, etc, etc instead of mode 755.
+
+The i686 version from the same date looks to have the correct permissions.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.download &quot;Linux 64-bit Intel&quot; .tar.bz file from http://nightly.mozilla.org/
+2.extract .tar.bz file
+3.several extracted files have incorrect file permissions</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390059</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 06:39:07 -0700</bug_when>
+            <thetext>The change occurred between these two releases:
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011-03-31-03-mozilla-central-debug/firefox-4.2a1pre.en-US.debug-linux-x86_64.tar.bz2
+
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011-04-01-03-mozilla-central-debug/firefox-4.2a1pre.en-US.debug-linux-x86_64.tar.bz2</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390083</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-04 07:03:45 -0700</bug_when>
+            <thetext>Thanks for narrowing that down! Changesets in that regression range:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=422bbd8245a7&amp;tochange=1a89509e25e4
+(For reference, you can get the changesets by looking at the .txt files next to each build: http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011-03-31-03-mozilla-central-debug/firefox-4.2a1pre.en-US.debug-linux-x86_64.txt or using about:buildconfig if you run the builds.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390209</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 09:01:10 -0700</bug_when>
+            <thetext>I&apos;m not familiar enough with the Firefox build tree to track this down, but I&apos;ve done a couple of observations:
+
+The tar balls created in http://hg.mozilla.org/mozilla-central/file/3a205e920ec0/toolkit/mozapps/installer/packager.mk are made by subtracting the write permissions from the files: --mode=&quot;go-w&quot;
+
+My own firefox-4.2a1pre.en-US.debug-linux-x86_64.tar.bz2 packages created the latest two days do not have this permission problem. (But my build environment is probably far from standard.)
+
+Anyway: Are the i686 and x86_64 packages built on different computers/accounts/shells with different umask:s?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390683</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 17:46:12 -0700</bug_when>
+            <thetext>Here the permission problem still exists:
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011-04-03-03-mozilla-central-debug/firefox-4.2a1pre.en-US.debug-linux-x86_64.tar.bz2
+http://hg.mozilla.org/mozilla-central/rev/4e4c7457e8f7
+
+But now it&apos;s suddenly gone:
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011-04-04-03-mozilla-central-debug/firefox-4.2a1pre.en-US.debug-linux-x86_64.tar.bz2
+http://hg.mozilla.org/mozilla-central/rev/f76c34fd7228
+
+That&apos;s just three changesets:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=4e4c7457e8f7&amp;tochange=f76c34fd7228
+
+And I can&apos;t imagine how these three changesets could ever re-enable the read-/execute-permissions for x86_64. But I&apos;m not a programmer...
+
+Maybe this despite everything is an umask-question outside the buildtree itself?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391183</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-05 08:19:15 -0700</bug_when>
+            <thetext>We&apos;ll throw this over the wall at Release Engineering and see if they can deduce anything. (RelEng maintains the build machines.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391893</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 22:12:40 -0700</bug_when>
+            <thetext>The problem still exists in the current nightly build: http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/firefox-4.2a1pre.en-US.linux-x86_64.tar.bz2
+
+But it&apos;s still gone in: http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011-04-05-03-mozilla-central-debug/firefox-4.2a1pre.en-US.debug-linux-x86_64.tar.bz2</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391925</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-05 22:53:17 -0700</bug_when>
+            <thetext>The linux64 buildbot.tac&apos;s need to set umask to 002 (instead of None).
+This may be isolated to the new ix linux64 boxes; I haven&apos;t doublechecked the VMs.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392396</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-06 09:28:32 -0700</bug_when>
+            <thetext>That is when the new Linux64 machines were rolled out.  I will fix the umask issue on those slaves</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392408</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-06 09:33:14 -0700</bug_when>
+            <thetext>All machines other than
+
+linux64-ix-slave26.build.mozilla.org
+linux64-ix-slave14.build.mozilla.org
+linux64-ix-slave16.build.mozilla.org
+linux64-ix-slave13.build.mozilla.org
+linux64-ix-slave10.build.mozilla.org
+linux64-ix-slave04.build.mozilla.org
+linux64-ix-slave12.build.mozilla.org
+linux64-ix-slave11.build.mozilla.org
+
+Have been fixed by setting umask = 002.  Those machines are not expected to be working because they are either defective or at IX.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648136</bug_id>
+          
+          <creation_ts>2011-04-06 15:18:00 -0700</creation_ts>
+          <short_desc>Add Macedonian spellchecker to Dictionaries page</short_desc>
+          <delta_ts>2011-04-06 22:12:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Dictionaries</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.mozilla.org/en-US/firefox/addon/macedonian-makedonski-mk-mk/</bug_file_loc>
+          
+          
+          <priority>P3</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>6.0.6</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jorge Villalobos [:jorgev]">jorge</reporter>
+          <assigned_to name="Wil Clouser [:clouserw]">clouserw</assigned_to>
+          <cc>clouserw</cc>
+          <qa_contact>dictionaries</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393358</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-06 15:18:50 -0700</bug_when>
+            <thetext>The author of the Macedonian spellchecker
+(https://addons.mozilla.org/en-US/firefox/addon/macedonian-makedonski-mk-mk/) is requesting to add the add-on to the Dictionaries &amp; Language Packs page
+(https://addons.mozilla.org/en-US/firefox/language-tools/)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

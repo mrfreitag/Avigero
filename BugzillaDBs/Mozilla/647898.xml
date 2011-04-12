@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647898</bug_id>
+          
+          <creation_ts>2011-04-05 14:49:00 -0700</creation_ts>
+          <short_desc>Links from SeaMonkey Nightly Builds page are broken</short_desc>
+          <delta_ts>2011-04-05 17:43:55 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.seamonkey-project.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="rsx11m">rsx11m.pub</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>kairo</cc>
+          <qa_contact>www-seamonkey-project-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391561</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 14:49:26 -0700</bug_when>
+            <thetext>As reported in the MozillaZine forums a couple of days ago, the nightly-build links from the web site are broken and cause a &quot;not found&quot; error.
+
+http://www.seamonkey-project.org/dev/nightly
+
+The reason appears to be that they try to find 2.1b3pre in comm-central-trunk.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391565</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 14:52:12 -0700</bug_when>
+            <thetext>Either make it seamonkey/nightly/latest-comm-2.0/seamonkey-2.1b3pre.* or seamonkey/nightly/latest-comm-central-trunk/seamonkey-2.2a1pre.* instead,
+where the comm-central/mozilla-2.0 builds may be the preferred ones until SeaMonkey 2.1 is closing in on release and comm-central/mozilla-central
+gets the attention again.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391621</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-05 15:37:56 -0700</bug_when>
+            <thetext>The problem there is that&apos;s I&apos;m not sure that linking to 2.2a1pre builds is what we want there, but linking to comm-2.0 would need a larger change in the website template to do it correctly.
+
+Linking to 2.2a1pre would just be a change of the variable in the config.tmpl file (I think that&apos;s what it&apos;s called).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391625</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 15:42:51 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; The problem there is that&apos;s I&apos;m not sure that linking to 2.2a1pre builds is
+&gt; what we want there,
+
+Agreed, the last comm-central/mozilla-central nightly was March 31, so that&apos;s spotty (and likely buggy) at best.
+
+&gt; but linking to comm-2.0 would need a larger change in the
+&gt; website template to do it correctly.
+
+If you look at it from the positive side, this may be a good opportunity to make the template more general to be covered in future similar situations.  ;-)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391734</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 17:43:55 -0700</bug_when>
+            <thetext>Looking at seamonkeyproject-org/src/dev/nightly.en.html, the path constructs
+as [% develdownloadbase %]/seamonkey-[% develversion %].en-US.*, thus another level for the branch would be needed with a similar variable in config.tmpl,
+[% develdownloadbase %]-[% develbranch %]/seamonkey-[% develversion %].en-US.*
+
+  develdownloadbase = http://.../latest-comm
+  develbranch = 2.0
+  develversion = 2.1b3pre
+
+This might be the most flexible solution.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

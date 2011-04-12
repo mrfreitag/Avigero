@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648040</bug_id>
+          
+          <creation_ts>2011-04-06 11:09:00 -0700</creation_ts>
+          <short_desc>Paypal Error for email</short_desc>
+          <delta_ts>2011-04-08 15:35:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Public Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[paypal]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andy McKay [:andym]">amckay</reporter>
+          <assigned_to name="Andy McKay [:andym]">amckay</assigned_to>
+          <cc>clouserw</cc>
+          <qa_contact>web-ui</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392651</commentid>
+            <who name="Andy McKay [:andym]">amckay</who>
+            <bug_when>2011-04-06 11:09:01 -0700</bug_when>
+            <thetext>Got quite a few of these errors: The email account ... is based in a country that isn&apos;t enabled to receive payments.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393968</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-06 22:31:56 -0700</bug_when>
+            <thetext>I don&apos;t think there is anything we can do with this.  There are a couple other errors I&apos;ve been saving to ask paypal about too.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393970</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-06 22:32:43 -0700</bug_when>
+            <thetext>Oh, for the record, the address hitting this error in the log most often is a spammer address so I don&apos;t think this is a big deal.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397718</commentid>
+            <who name="Andy McKay [:andym]">amckay</who>
+            <bug_when>2011-04-08 15:35:37 -0700</bug_when>
+            <thetext>This is a good one today:
+
+PaypalError: The email account Receiver not in receive money enabled country is based in a country that isn&apos;t enabled to receive payments</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

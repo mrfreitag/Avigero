@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647778</bug_id>
+          
+          <creation_ts>2011-04-05 00:04:00 -0700</creation_ts>
+          <short_desc>Searching on a link list page interferes with the floating status bar</short_desc>
+          <delta_ts>2011-04-05 11:16:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Yves Goergen">nospam</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+    
+    <cc>andrei.domuta</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390872</commentid>
+            <who name="Yves Goergen">nospam</who>
+            <bug_when>2011-04-05 00:04:14 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When searching on a page that contains many links, the status bar pops up when a match was found inside a link. Also, the search match will be placed in the bottom-most line in the window. Consequently, the match is obscured by the status bar.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open the page from the URL field above
+2. Search for &quot;telnet&quot;
+3. Click anywhere outside the found link
+4. Continue searching
+Actual Results:  
+After a few more matches, you cannot see the match highlighting anymore.
+
+Expected Results:  
+I expect the search match highlighting to be clearly visible. There&apos;s two solutions for it.
+
+1. Put that status bar out of the way.
+2. (preferred one) Scroll the search match more into the view, not to the outer-most line of the window. This also allows for better seeing the context around that match. Right now, I always have to scroll a bit further when something was found.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390895</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-05 00:53:42 -0700</bug_when>
+            <thetext>I was not able to reproduce the issue. If possible, can you attach some screenshots?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390899</commentid>
+            <who name="Yves Goergen">nospam</who>
+            <bug_when>2011-04-05 01:00:40 -0700</bug_when>
+            <thetext>Screenshots of something that is not visible? Or can you recommend me a screen-video-recorder software?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390909</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-05 01:17:49 -0700</bug_when>
+            <thetext>If possible, would help. Thanks</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390921</commentid>
+            <who name="Yves Goergen">nospam</who>
+            <bug_when>2011-04-05 01:58:19 -0700</bug_when>
+            <thetext>AndreiD, what do you see when searching on the page? Is the floating status bar out of the way? Is is not visible at all? Does the page scroll the match more into the view? Does it find nothing at all?
+
+If it makes a difference, I have enabled Find As You Type and just started typing &quot;telnet&quot;, not pressing Ctrl+F or something before.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390932</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-05 02:18:22 -0700</bug_when>
+            <thetext>Is the issue described here similar to the one reported in bug 631270?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390952</commentid>
+            <who name="Yves Goergen">nospam</who>
+            <bug_when>2011-04-05 02:52:32 -0700</bug_when>
+            <thetext>Maybe. But theirs is fixed, mine is not. There must be a difference. Notice the click (or even mouse hovering the status bar) before continuing the search with F3!
+
+I don&apos;t think I can provide a video of it. I have found a free screen recorder and another shareware, but they won&apos;t mark clicks and key presses, so it&apos;s pretty useless.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391368</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-05 11:16:00 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; I don&apos;t think I can provide a video of it. I have found a free screen recorder
+&gt; and another shareware, but they won&apos;t mark clicks and key presses, so it&apos;s
+&gt; pretty useless.
+
+I&apos;ve used http://www.techsmith.com/jing/free/ for screen capturing in the past and it works OK.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

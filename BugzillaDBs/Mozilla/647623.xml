@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647623</bug_id>
+          
+          <creation_ts>2011-04-03 18:39:00 -0700</creation_ts>
+          <short_desc>Random crashes on new clean installation [@ js::mjit::JaegerShot ]</short_desc>
+          <delta_ts>2011-04-03 22:41:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Alex">anonimo_antonimo</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389654</commentid>
+            <who name="Alex">anonimo_antonimo</who>
+            <bug_when>2011-04-03 18:39:05 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Firefox kept crashing randomly on my previous installation, so I deleted all the plist and application support files and installed a clean copy just in case an extension was causing issues. Five minutes after the installation Firefox crashed with no extensions even installed.
+
+This is getting anoying and is making Firefox unusable.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1.Open firefox
+2.Browse a webpage or just leave it like it is
+3.Sometimes it will crash. Could be in 3 minutes could be in a day.
+Actual Results:  
+Firefox crashed
+
+Expected Results:  
+Not crash</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389655</commentid>
+            <who name="Alex">anonimo_antonimo</who>
+            <bug_when>2011-04-03 18:40:11 -0700</bug_when>
+            <thetext>Crash report ID: 8885e620-d869-49f1-8f71-7dfa02110403</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389669</commentid>
+            <who name="Alex">anonimo_antonimo</who>
+            <bug_when>2011-04-03 18:51:57 -0700</bug_when>
+            <thetext>Also crash reporter lists my cpu as AMD64, and it&apos;s a C2D running in 32 bit kernel.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389787</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 22:11:18 -0700</bug_when>
+            <thetext>Please click once on the report in about:crashes to get it send. 
+We currently throttle incoming crash reports and your report isn&apos;t processed.
+The ID should change with a bp- in front, post the new ID, thanks</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389792</commentid>
+            <who name="Alex">anonimo_antonimo</who>
+            <bug_when>2011-04-03 22:16:26 -0700</bug_when>
+            <thetext>Clicked it.
+ID is bp-8885e620-d869-49f1-8f71-7dfa02110403
+Hope this is what you needed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389801</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 22:25:39 -0700</bug_when>
+            <thetext>I can hear the bang :-)
+
+0 		@0x123fd061d 	
+1 	XUL 	js::mjit::JaegerShot 	js/src/methodjit/MethodJIT.cpp:749
+2 	XUL 	js::RunScript 	js/src/jsinterp.cpp:646
+3 	XUL 	js::Invoke 	js/src/jsinterp.cpp:740
+4 	XUL 	js::ExternalInvoke 	js/src/jsinterp.cpp:863
+5 	XUL 	JS_CallFunctionValue 	js/src/jsapi.cpp:5173
+6 	XUL 	nsJSContext::CallEventHandler 	dom/base/nsJSEnvironment.cpp:1914
+7 	XUL 	nsGlobalWindow::RunTimeout 	dom/base/nsGlobalWindow.cpp:9107
+8 	XUL 	nsGlobalWindow::TimerCallback 	dom/base/nsGlobalWindow.cpp:9452
+9 	XUL 	nsTimerImpl::Fire 	xpcom/threads/nsTimerImpl.cpp:425
+10 	XUL 	nsTimerEvent::Run 	xpcom/threads/nsTimerImpl.cpp:517
+11 	XUL 	nsThread::ProcessNextEvent 	xpcom/threads/nsThread.cpp:633</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389815</commentid>
+            <who name="Alex">anonimo_antonimo</who>
+            <bug_when>2011-04-03 22:41:09 -0700</bug_when>
+            <thetext>Yep that&apos;s my boy right there.
+
+If it helps at all I had a crash after 3 hours (@ nsCycleCollector::ScanRoots), it&apos;s ID bp-edd94e12-7826-4cba-8ff7-9d1b42110403
+
+I haven&apos;t submitted the report yet, I&apos;ll stick to one bug at a time, but maybe there is a correlation between both of them.
+
+Please tell me if you need any else of these reports or just stick to the JS ones or just keep quiet :P.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

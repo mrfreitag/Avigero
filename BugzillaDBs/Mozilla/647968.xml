@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647968</bug_id>
+          
+          <creation_ts>2011-04-06 03:46:00 -0700</creation_ts>
+          <short_desc>firefox 4 will not close out of window processes</short_desc>
+          <delta_ts>2011-04-11 14:20:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Daniel Schwerin">dlschwerin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392110</commentid>
+            <who name="Daniel Schwerin">dlschwerin</who>
+            <bug_when>2011-04-06 03:46:54 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+when I go to close firefox 4, the program will close. I will then go to reopen firefox browser and I will get the statement &quot;Firefox is already running, but is not responding.  To open a new window, you must fist close the existing Firefox process, or restart your system&quot;
+
+from this point I have to click control / alt / delete and go to the task manager to close the firefox process.  What a couple of seconds and then restart the program.
+
+Unfortunately this is becoming very annoying.  An issue I have not had with the 3.6 build.  This only started with the upgrade to 4.0.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.doens&apos;t happen every time, but would say 3 out of 5 times
+2.
+3.
+
+
+
+I would like an email back to dlschwerin@bex.net that this has been received.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401613</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-11 14:20:01 -0700</bug_when>
+            <thetext>Does the issue occur in Safe Mode? http://support.mozilla.com/en-US/Safe+Mode
+
+This is usually caused by an extensions preventing Firefox from closing properly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401620</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-11 14:20:47 -0700</bug_when>
+            <thetext>Sorry - correct link is http://support.mozilla.com/en-US/kb/Safe+Mode</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

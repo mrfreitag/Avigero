@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648301</bug_id>
+          
+          <creation_ts>2011-04-07 10:11:00 -0700</creation_ts>
+          <short_desc>Mobile2.0 tegras barfing on graphs post</short_desc>
+          <delta_ts>2011-04-11 10:36:43 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Aki Sasaki [:aki]">aki</reporter>
+          <assigned_to name="Aki Sasaki [:aki]">aki</assigned_to>
+          <cc>bear</cc>
+    
+    <cc>jhford</cc>
+    
+    <cc>philringnalda</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394633</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-07 10:11:23 -0700</bug_when>
+            <thetext>I think I have the talos branch wrong for the tegras.
+Should be a quick fix.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397105</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-08 11:47:14 -0700</bug_when>
+            <thetext>*** Bug 648476 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397170</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-08 12:11:35 -0700</bug_when>
+            <thetext>i have a patch to take care of this, will post it when test-masters.sh is done.  don&apos;t have time to run this in staging though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397547</commentid>
+            <who name="Mike Taylor [:bear]">bear</who>
+            <bug_when>2011-04-08 14:34:48 -0700</bug_when>
+            <thetext>I can run it on the tegra staging server when it&apos;s ready</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397597</commentid>
+              <attachid>524750</attachid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-08 14:51:59 -0700</bug_when>
+            <thetext>Created attachment 524750
+buildbot-configs v1
+
+Explicitly set the mobile talos branch as mobile branches don&apos;t necessarily relate to the tinderbox tree they run on.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397599</commentid>
+              <attachid>524752</attachid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-08 14:52:26 -0700</bug_when>
+            <thetext>Created attachment 524752
+buildbotcustom v1
+
+Use the new config entries</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397631</commentid>
+              <attachid>524758</attachid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-08 15:03:31 -0700</bug_when>
+            <thetext>Created attachment 524758
+buildbotcustom v2
+
+actually send the talosBranch to the factory</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397647</commentid>
+              <attachid>524750</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-08 15:10:24 -0700</bug_when>
+            <thetext>Comment on attachment 524750
+buildbot-configs v1
+
+We&apos;ll need to add this to the other branches as we enable them, but this fixes the immediate problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400830</commentid>
+              <attachid>524750</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 10:35:42 -0700</bug_when>
+            <thetext>Comment on attachment 524750
+buildbot-configs v1
+
+http://hg.mozilla.org/build/buildbot-configs/rev/17fcf5afb187</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400834</commentid>
+              <attachid>524758</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 10:36:43 -0700</bug_when>
+            <thetext>Comment on attachment 524758
+buildbotcustom v2
+
+http://hg.mozilla.org/build/buildbotcustom/rev/9224749bec79</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524750</attachid>
+            <date>2011-04-08 14:51:00 -0700</date>
+            <delta_ts>2011-04-11 10:35:42 -0700</delta_ts>
+            <desc>buildbot-configs v1</desc>
+            <filename>bbconf-v1.diff</filename>
+            <type>text/plain</type>
+            <size>970</size>
+            <attacher>jhford</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL21vemlsbGEtdGVzdHMvY29uZmlnLnB5IGIvbW96aWxsYS10ZXN0cy9jb25m
+aWcucHkKLS0tIGEvbW96aWxsYS10ZXN0cy9jb25maWcucHkKKysrIGIvbW96aWxsYS10ZXN0cy9j
+b25maWcucHkKQEAgLTQ0Niw2ICs0NDYsNyBAQCBmb3IgaywgdiBpbiBsb2NhbGNvbmZpZy5QUk9K
+RUNUUy5pdGVtcygpCiAjIyMjIyMjIyBtb3ppbGxhLWNlbnRyYWwKIEJSQU5DSEVTWydtb3ppbGxh
+LWNlbnRyYWwnXVsnYnJhbmNoX25hbWUnXSA9ICJGaXJlZm94IgogQlJBTkNIRVNbJ21vemlsbGEt
+Y2VudHJhbCddWydtb2JpbGVfYnJhbmNoX25hbWUnXSA9ICJNb2JpbGUiCitCUkFOQ0hFU1snbW96
+aWxsYS1jZW50cmFsJ11bJ21vYmlsZV90YWxvc19icmFuY2gnXSA9ICJtb2JpbGUiCiBCUkFOQ0hF
+U1snbW96aWxsYS1jZW50cmFsJ11bJ2J1aWxkX2JyYW5jaCddID0gIjEuOS4yIgogQlJBTkNIRVNb
+J21vemlsbGEtY2VudHJhbCddWyd0YWxvc19jb21tYW5kJ10gPSBUQUxPU19DTUQKIEJSQU5DSEVT
+Wydtb3ppbGxhLWNlbnRyYWwnXVsnZmV0Y2hfc3ltYm9scyddID0gVHJ1ZQpAQCAtNTUzLDYgKzU1
+NCw3IEBAIEJSQU5DSEVTWydtb3ppbGxhLTIuMCddWydyZXBvX3BhdGgnXSA9ICIKICMjIyMjIyMj
+IG1vemlsbGEtMi4xCiBCUkFOQ0hFU1snbW96aWxsYS0yLjEnXVsnYnJhbmNoX25hbWUnXSA9ICJN
+b2JpbGUyLjAiCiBCUkFOQ0hFU1snbW96aWxsYS0yLjEnXVsnbW9iaWxlX2JyYW5jaF9uYW1lJ10g
+PSAiTW9iaWxlMi4wIgorQlJBTkNIRVNbJ21vemlsbGEtMi4xJ11bJ21vYmlsZV90YWxvc19icmFu
+Y2gnXSA9ICJtb2JpbGUtMi4wIgogQlJBTkNIRVNbJ21vemlsbGEtMi4xJ11bJ2J1aWxkX2JyYW5j
+aCddID0gIjIuMSIKIEJSQU5DSEVTWydtb3ppbGxhLTIuMSddWyd0YWxvc19jb21tYW5kJ10gPSBU
+QUxPU19DTUQKIEJSQU5DSEVTWydtb3ppbGxhLTIuMSddWydmZXRjaF9zeW1ib2xzJ10gPSBUcnVl
+Cg==
+</data>
+<flag name="review"
+          id="438363"
+          type_id="4"
+          status="+"
+          setter="aki"
+    />
+    <flag name="checked-in"
+          id="438630"
+          type_id="481"
+          status="+"
+          setter="aki"
+    />
+          </attachment>
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524752</attachid>
+            <date>2011-04-08 14:52:00 -0700</date>
+            <delta_ts>2011-04-08 15:03:31 -0700</delta_ts>
+            <desc>buildbotcustom v1</desc>
+            <filename>bbcust-v1.diff</filename>
+            <type>text/plain</type>
+            <size>2102</size>
+            <attacher>jhford</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL21pc2MucHkgYi9taXNjLnB5Ci0tLSBhL21pc2MucHkKKysrIGIvbWlzYy5w
+eQpAQCAtMjM5Nyw5ICsyMzk3LDExIEBAIGRlZiBnZW5lcmF0ZVRhbG9zQnJhbmNoT2JqZWN0cyhi
+cmFuY2gsIGIKICAgICAgICAgaWYgcGxhdGZvcm1fY29uZmlnLmdldCgnaXNfbW9iaWxlJywgRmFs
+c2UpOgogICAgICAgICAgICAgYnJhbmNoTmFtZSA9IGJyYW5jaF9jb25maWdbJ21vYmlsZV9icmFu
+Y2hfbmFtZSddCiAgICAgICAgICAgICB0aW5kZXJib3hUcmVlID0gYnJhbmNoX2NvbmZpZ1snbW9i
+aWxlX3RpbmRlcmJveF90cmVlJ10KKyAgICAgICAgICAgIHRhbG9zQnJhbmNoID0gYnJhbmNoX2Nv
+bmZpZy5nZXQoJ21vYmlsZV90YWxvc19icmFuY2gnLCBicmFuY2hfY29uZmlnWydtb2JpbGVfdGlu
+ZGVyYm94X3RyZWUnXSkKICAgICAgICAgZWxzZToKICAgICAgICAgICAgIGJyYW5jaE5hbWUgPSBi
+cmFuY2hfY29uZmlnWydicmFuY2hfbmFtZSddCiAgICAgICAgICAgICB0aW5kZXJib3hUcmVlID0g
+YnJhbmNoX2NvbmZpZ1sndGluZGVyYm94X3RyZWUnXQorICAgICAgICAgICAgdGFsb3NCcmFuY2gg
+PSBicmFuY2hfY29uZmlnWyd0aW5kZXJib3hfdHJlZSddCiAKICAgICAgICAgaWYgdGluZGVyYm94
+VHJlZSBub3QgaW4gYnJhbmNoX2J1aWxkZXJzOgogICAgICAgICAgICAgYnJhbmNoX2J1aWxkZXJz
+W3RpbmRlcmJveFRyZWVdID0gW10KZGlmZiAtLWdpdCBhL3Byb2Nlc3MvZmFjdG9yeS5weSBiL3By
+b2Nlc3MvZmFjdG9yeS5weQotLS0gYS9wcm9jZXNzL2ZhY3RvcnkucHkKKysrIGIvcHJvY2Vzcy9m
+YWN0b3J5LnB5CkBAIC03MDc5LDcgKzcwNzksOCBAQCBjbGFzcyBUYWxvc0ZhY3RvcnkoUmVxdWVz
+dFNvcnRpbmdCdWlsZEZhCiAgICAgICAgICAgICBjb25maWdPcHRpb25zLCB0YWxvc0NtZCwgY3Vz
+dG9tTWFuaWZlc3Q9Tm9uZSwgY3VzdG9tVGFsb3M9Tm9uZSwKICAgICAgICAgICAgIHdvcmtkaXJC
+YXNlPU5vbmUsIGZldGNoU3ltYm9scz1GYWxzZSwgcGx1Z2lucz1Ob25lLCBwYWdlc2V0PU5vbmUs
+CiAgICAgICAgICAgICByZW1vdGVUZXN0cz1GYWxzZSwgcHJvZHVjdE5hbWU9ImZpcmVmb3giLCBy
+ZW1vdGVFeHRyYXM9Tm9uZSwKLSAgICAgICAgICAgIHRhbG9zQWRkT25zPVtdLCBhZGRvblRlc3Rl
+cj1GYWxzZSwgcmVsZWFzZVRlc3Rlcj1GYWxzZSk6CisgICAgICAgICAgICB0YWxvc0FkZE9ucz1b
+XSwgYWRkb25UZXN0ZXI9RmFsc2UsIHJlbGVhc2VUZXN0ZXI9RmFsc2UsCisgICAgICAgICAgICB0
+YWxvc0JyYW5jaD1Ob25lKToKIAogICAgICAgICBCdWlsZEZhY3RvcnkuX19pbml0X18oc2VsZikK
+IApAQCAtNzEwOSw2ICs3MTEwLDExIEBAIGNsYXNzIFRhbG9zRmFjdG9yeShSZXF1ZXN0U29ydGlu
+Z0J1aWxkRmEKICAgICAgICAgc2VsZi5yZWxlYXNlVGVzdGVyID0gcmVsZWFzZVRlc3RlcgogICAg
+ICAgICBzZWxmLnByb2R1Y3ROYW1lID0gcHJvZHVjdE5hbWUKICAgICAgICAgc2VsZi5yZW1vdGVF
+eHRyYXMgPSByZW1vdGVFeHRyYXMKKyAgICAgICAgaWYgdGFsb3NCcmFuY2ggaXMgTm9uZToKKyAg
+ICAgICAgICAgIHNlbGYudGFsb3NCcmFuY2ggPSBicmFuY2hOYW1lCisgICAgICAgIGVsc2U6Cisg
+ICAgICAgICAgICBzZWxmLnRhbG9zQnJhbmNoID0gdGFsb3NCcmFuY2gKKwogCiAgICAgICAgIHNl
+bGYuYWRkSW5mb1N0ZXBzKCkKICAgICAgICAgc2VsZi5hZGRDbGVhbnVwU3RlcHMoKQpAQCAtNzU1
+MCw3ICs3NTU2LDcgQEAgY2xhc3MgVGFsb3NGYWN0b3J5KFJlcXVlc3RTb3J0aW5nQnVpbGRGYQog
+ICAgICAgICBzZWxmLmFkZFN0ZXAodGFsb3Nfc3RlcHMuTW96aWxsYVVwZGF0ZUNvbmZpZygKICAg
+ICAgICAgIHdvcmtkaXI9b3MucGF0aC5qb2luKHNlbGYud29ya2RpckJhc2UsICJ0YWxvcy8iKSwK
+ICAgICAgICAgIGJyYW5jaD1zZWxmLmJ1aWxkQnJhbmNoLAotICAgICAgICAgYnJhbmNoTmFtZT1z
+ZWxmLmJyYW5jaE5hbWUsCisgICAgICAgICBicmFuY2hOYW1lPXNlbGYudGFsb3NCcmFuY2gsCiAg
+ICAgICAgICByZW1vdGVUZXN0cz1zZWxmLnJlbW90ZVRlc3RzLAogICAgICAgICAgaGFsdE9uRmFp
+bHVyZT1UcnVlLAogICAgICAgICAgZXhlY3V0YWJsZVBhdGg9c2VsZi5leGVwYXRoLAo=
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524758</attachid>
+            <date>2011-04-08 15:03:00 -0700</date>
+            <delta_ts>2011-04-11 10:36:43 -0700</delta_ts>
+            <desc>buildbotcustom v2</desc>
+            <filename>bbcust-v2.diff</filename>
+            <type>text/plain</type>
+            <size>2536</size>
+            <attacher>jhford</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL21pc2MucHkgYi9taXNjLnB5Ci0tLSBhL21pc2MucHkKKysrIGIvbWlzYy5w
+eQpAQCAtMjM5Nyw5ICsyMzk3LDExIEBAIGRlZiBnZW5lcmF0ZVRhbG9zQnJhbmNoT2JqZWN0cyhi
+cmFuY2gsIGIKICAgICAgICAgaWYgcGxhdGZvcm1fY29uZmlnLmdldCgnaXNfbW9iaWxlJywgRmFs
+c2UpOgogICAgICAgICAgICAgYnJhbmNoTmFtZSA9IGJyYW5jaF9jb25maWdbJ21vYmlsZV9icmFu
+Y2hfbmFtZSddCiAgICAgICAgICAgICB0aW5kZXJib3hUcmVlID0gYnJhbmNoX2NvbmZpZ1snbW9i
+aWxlX3RpbmRlcmJveF90cmVlJ10KKyAgICAgICAgICAgIHRhbG9zQnJhbmNoID0gYnJhbmNoX2Nv
+bmZpZy5nZXQoJ21vYmlsZV90YWxvc19icmFuY2gnLCBicmFuY2hfY29uZmlnWydtb2JpbGVfdGlu
+ZGVyYm94X3RyZWUnXSkKICAgICAgICAgZWxzZToKICAgICAgICAgICAgIGJyYW5jaE5hbWUgPSBi
+cmFuY2hfY29uZmlnWydicmFuY2hfbmFtZSddCiAgICAgICAgICAgICB0aW5kZXJib3hUcmVlID0g
+YnJhbmNoX2NvbmZpZ1sndGluZGVyYm94X3RyZWUnXQorICAgICAgICAgICAgdGFsb3NCcmFuY2gg
+PSBicmFuY2hfY29uZmlnWyd0aW5kZXJib3hfdHJlZSddCiAKICAgICAgICAgaWYgdGluZGVyYm94
+VHJlZSBub3QgaW4gYnJhbmNoX2J1aWxkZXJzOgogICAgICAgICAgICAgYnJhbmNoX2J1aWxkZXJz
+W3RpbmRlcmJveFRyZWVdID0gW10KQEAgLTI0MzMsNiArMjQzNSw3IEBAIGRlZiBnZW5lcmF0ZVRh
+bG9zQnJhbmNoT2JqZWN0cyhicmFuY2gsIGIKICAgICAgICAgICAgICAgICAgICAgICAgIHdvcmtk
+aXJCYXNlPSIuLi90YWxvcy1kYXRhIiwKICAgICAgICAgICAgICAgICAgICAgICAgIGJ1aWxkQnJh
+bmNoPWJ1aWxkQnJhbmNoLAogICAgICAgICAgICAgICAgICAgICAgICAgYnJhbmNoTmFtZT1icmFu
+Y2hOYW1lLAorICAgICAgICAgICAgICAgICAgICAgICAgdGFsb3NCcmFuY2g9dGFsb3NCcmFuY2gs
+CiAgICAgICAgICAgICAgICAgICAgICAgICBjb25maWdPcHRpb25zPXRhbG9zQ29uZmlnLAogICAg
+ICAgICAgICAgICAgICAgICAgICAgdGFsb3NDbWQ9dGFsb3NDbWQsCiAgICAgICAgICAgICAgICAg
+ICAgICAgICBmZXRjaFN5bWJvbHM9YnJhbmNoX2NvbmZpZ1snZmV0Y2hfc3ltYm9scyddIGFuZApk
+aWZmIC0tZ2l0IGEvcHJvY2Vzcy9mYWN0b3J5LnB5IGIvcHJvY2Vzcy9mYWN0b3J5LnB5Ci0tLSBh
+L3Byb2Nlc3MvZmFjdG9yeS5weQorKysgYi9wcm9jZXNzL2ZhY3RvcnkucHkKQEAgLTcwNzksNyAr
+NzA3OSw4IEBAIGNsYXNzIFRhbG9zRmFjdG9yeShSZXF1ZXN0U29ydGluZ0J1aWxkRmEKICAgICAg
+ICAgICAgIGNvbmZpZ09wdGlvbnMsIHRhbG9zQ21kLCBjdXN0b21NYW5pZmVzdD1Ob25lLCBjdXN0
+b21UYWxvcz1Ob25lLAogICAgICAgICAgICAgd29ya2RpckJhc2U9Tm9uZSwgZmV0Y2hTeW1ib2xz
+PUZhbHNlLCBwbHVnaW5zPU5vbmUsIHBhZ2VzZXQ9Tm9uZSwKICAgICAgICAgICAgIHJlbW90ZVRl
+c3RzPUZhbHNlLCBwcm9kdWN0TmFtZT0iZmlyZWZveCIsIHJlbW90ZUV4dHJhcz1Ob25lLAotICAg
+ICAgICAgICAgdGFsb3NBZGRPbnM9W10sIGFkZG9uVGVzdGVyPUZhbHNlLCByZWxlYXNlVGVzdGVy
+PUZhbHNlKToKKyAgICAgICAgICAgIHRhbG9zQWRkT25zPVtdLCBhZGRvblRlc3Rlcj1GYWxzZSwg
+cmVsZWFzZVRlc3Rlcj1GYWxzZSwKKyAgICAgICAgICAgIHRhbG9zQnJhbmNoPU5vbmUpOgogCiAg
+ICAgICAgIEJ1aWxkRmFjdG9yeS5fX2luaXRfXyhzZWxmKQogCkBAIC03MTA5LDYgKzcxMTAsMTEg
+QEAgY2xhc3MgVGFsb3NGYWN0b3J5KFJlcXVlc3RTb3J0aW5nQnVpbGRGYQogICAgICAgICBzZWxm
+LnJlbGVhc2VUZXN0ZXIgPSByZWxlYXNlVGVzdGVyCiAgICAgICAgIHNlbGYucHJvZHVjdE5hbWUg
+PSBwcm9kdWN0TmFtZQogICAgICAgICBzZWxmLnJlbW90ZUV4dHJhcyA9IHJlbW90ZUV4dHJhcwor
+ICAgICAgICBpZiB0YWxvc0JyYW5jaCBpcyBOb25lOgorICAgICAgICAgICAgc2VsZi50YWxvc0Jy
+YW5jaCA9IGJyYW5jaE5hbWUKKyAgICAgICAgZWxzZToKKyAgICAgICAgICAgIHNlbGYudGFsb3NC
+cmFuY2ggPSB0YWxvc0JyYW5jaAorCiAKICAgICAgICAgc2VsZi5hZGRJbmZvU3RlcHMoKQogICAg
+ICAgICBzZWxmLmFkZENsZWFudXBTdGVwcygpCkBAIC03NTUwLDcgKzc1NTYsNyBAQCBjbGFzcyBU
+YWxvc0ZhY3RvcnkoUmVxdWVzdFNvcnRpbmdCdWlsZEZhCiAgICAgICAgIHNlbGYuYWRkU3RlcCh0
+YWxvc19zdGVwcy5Nb3ppbGxhVXBkYXRlQ29uZmlnKAogICAgICAgICAgd29ya2Rpcj1vcy5wYXRo
+LmpvaW4oc2VsZi53b3JrZGlyQmFzZSwgInRhbG9zLyIpLAogICAgICAgICAgYnJhbmNoPXNlbGYu
+YnVpbGRCcmFuY2gsCi0gICAgICAgICBicmFuY2hOYW1lPXNlbGYuYnJhbmNoTmFtZSwKKyAgICAg
+ICAgIGJyYW5jaE5hbWU9c2VsZi50YWxvc0JyYW5jaCwKICAgICAgICAgIHJlbW90ZVRlc3RzPXNl
+bGYucmVtb3RlVGVzdHMsCiAgICAgICAgICBoYWx0T25GYWlsdXJlPVRydWUsCiAgICAgICAgICBl
+eGVjdXRhYmxlUGF0aD1zZWxmLmV4ZXBhdGgsCg==
+</data>
+<flag name="review"
+          id="438370"
+          type_id="4"
+          status="+"
+          setter="aki"
+    />
+    <flag name="checked-in"
+          id="438631"
+          type_id="481"
+          status="+"
+          setter="aki"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

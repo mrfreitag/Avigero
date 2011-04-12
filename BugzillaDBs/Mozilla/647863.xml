@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647863</bug_id>
+          
+          <creation_ts>2011-04-05 11:15:00 -0700</creation_ts>
+          <short_desc>Page with &lt;canvas&gt; tag fails to render at all</short_desc>
+          <delta_ts>2011-04-05 14:05:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>XSLT</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.HTML-5.com/tags/canvas-tag/index.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Rob Simpson">Rob.Simpson</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>jonas</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>xslt</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391367</commentid>
+            <who name="Rob Simpson">Rob.Simpson</who>
+            <bug_when>2011-04-05 11:15:47 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Page with &lt;canvas&gt; tag at http://www.HTML-5.com/tags/canvas-tag/index.html does not render at all in Firefox 4.0 for Windows. The page renders fine in Firefox 4.0 for Mac &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0&quot; and other browsers on both platforms.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to http://www.HTML-5.com/tags/index.html#embedded-content-tags
+2. The page should automatically scroll to the section with the &lt;canvas&gt; tag in it, but if it doesn&apos;t, put the cursor in the address bar and hit Return. (Not honoring the fragment identifier in the URL is a regression from May 2010, Firefox Bug #645075.)
+3. Click on the second link: &quot;&lt;canvas tag&gt;&quot;. Should display that page like other browsers do, but Firefox just stays on the index page.
+4. Right click on that link and &quot;Open Link in New Tab&quot;. No joy there either.
+5. Try some of the other links, and they pretty much all work OK.
+6. Try the steps 1-4 above in other browsers and it works.
+6. In a browser where the page gets displayed, scroll to the bottom of the page and click &quot;Valid HTML 5&quot;. The W3C Markup Validation Service shows it&apos;s valid HTML.
+
+Actual Results:  
+Page does not render at all in Firefox 4.0 for Windows
+
+Expected Results:  
+Should render the page like in other browsers.
+
+The only thing the error console shows is:
+
+    Warning: Unknown property &apos;-moz-outline&apos;.  Declaration dropped.
+
+Even though the &quot;software hangs&quot;, I&apos;m not sure if this deserves &quot;Cricical&quot; severity.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391524</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 14:05:56 -0700</bug_when>
+            <thetext>I see this in Firefox 3.6 as well.  And I&apos;m on Mac.
+
+Jonas, what happens here is that nsXMLContentSink::DidBuildModel is called and nulls out mXSLTProcessor after starting the transform.  Then before the transform is done, onload fires for a child document (URI is about:blank; frame element is null) which flushes _layout_ on the parent document, which is the XML document we&apos;re parsing.  And since mXSLTProcessor is null, we start layout.  Then in OnTransformDone we blow away the old document + presshell, try to start layout on the new one, but bail out because we think we started layout already.  We should consider resetting that mLayoutStarted boolean to false when we blow away the old document+shell, but the fact that we start layout on the pre-transform document to start with seems broken....</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

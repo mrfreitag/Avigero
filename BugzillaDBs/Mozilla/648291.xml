@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648291</bug_id>
+          
+          <creation_ts>2011-04-07 09:20:00 -0700</creation_ts>
+          <short_desc>Set up hg.m.o/mozilla-beta as a clone of mozilla-central</short_desc>
+          <delta_ts>2011-04-07 14:47:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>648290</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Chris AtLee [:catlee]">catlee</reporter>
+          <assigned_to name="Justin Lazaro [:jlazaro]">jlazaro</assigned_to>
+          <cc>clegnitto</cc>
+    
+    <cc>jlazaro</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394528</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-07 09:20:06 -0700</bug_when>
+            <thetext></thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395167</commentid>
+            <who name="Justin Lazaro [:jlazaro]">jlazaro</who>
+            <bug_when>2011-04-07 14:47:42 -0700</bug_when>
+            <thetext>hg.m.o/mozilla-beta L3 repo created, cloned from mozilla-central</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

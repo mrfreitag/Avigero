@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648018</bug_id>
+          
+          <creation_ts>2011-04-06 10:06:00 -0700</creation_ts>
+          <short_desc>ISP files aren&apos;t read anymore</short_desc>
+          <delta_ts>2011-04-07 07:39:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Account Manager</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ludovic Hirlimann [:Usul ]">ludovic</reporter>
+          <assigned_to name="Mark Banner (:standard8)">bugzilla</assigned_to>
+          <cc>ben.bucksch</cc>
+    
+    <cc>bugzilla</cc>
+    
+    <cc>bwinton</cc>
+    
+    <cc>gary</cc>
+    
+    <cc>unicorn.consulting</cc>
+          <qa_contact>account-manager</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>needed</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392484</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-06 10:06:52 -0700</bug_when>
+            <thetext>1) Create an ISP config xml file.
+2) put it in the ISP directory
+3) Try to create an account
+
+Account data is fetched from the ISPDB
+
+Console says :
+mail.wizardINFOfetchConfigFromDisk failed: [Exception... &quot;Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIChannel.open]&quot;  nsresult: &quot;0x80520012 (NS_ERROR_FILE_NOT_FOUND)&quot;  location: &quot;JS frame :: chrome://messenger/content/accountcreation/util.js :: readURLasUTF8 :: line 112&quot;  data: no]</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392491</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 10:09:06 -0700</bug_when>
+            <thetext>What&apos;s the exact filename and directory?
+
+You know that you must append &quot;.xml&quot;?
+
+&lt;https://developer.mozilla.org/en/Thunderbird/Autoconfiguration#Mechanisms&gt;
+&gt; tb-install-dir/isp/example.com.xml on the harddisk</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392900</commentid>
+            <who name="Blake Winton (:bwinton)">bwinton</who>
+            <bug_when>2011-04-06 12:08:26 -0700</bug_when>
+            <thetext>I put a similar file in ﻿/Users/bwinton/Programming/thunderbird/objdir-src-central-default/mozilla/dist/ShredderDebug.app/Contents/MacOS/isp/mozilla.com.xml and it worked just fine for me.  Come see me, and I&apos;ll show you.
+
+But, I want to leave this open so that we can track my fixing the documentation and adding some code to tell us which file it can&apos;t find when it can&apos;t find a file.
+
+Later,
+Blake.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393431</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-06 15:44:35 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; What&apos;s the exact filename and directory?
+&gt; 
+&gt; You know that you must append &quot;.xml&quot;?
+&gt; 
+&gt; &lt;https://developer.mozilla.org/en/Thunderbird/Autoconfiguration#Mechanisms&gt;
+&gt; &gt; tb-install-dir/isp/example.com.xml on the harddisk
+
+mozilla.com.xml
+
+in /Applications/Shredder.app/Content/MacOs/Content/isp/ ..</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393559</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 16:48:27 -0700</bug_when>
+            <thetext>I just tested it. I saved the attached file as isp/foobar.com, entered &quot;foo@foobar.com&quot; as email address, clicked Continue, and *immediately* saw imap.frooop.de as email server.
+
+Your XML file probably is invalid and thus skipped.
+
+INVALID.
+
+Please attach your mozilla.com.xml file, and I can help you debugging it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393562</commentid>
+              <attachid>524307</attachid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 16:49:51 -0700</bug_when>
+            <thetext>Created attachment 524307
+foobar.com.xml</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393678</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-06 17:30:19 -0700</bug_when>
+            <thetext>&quot;jar:file:///Users/dul/Miramar.app/Contents/MacOS/omni.jar!/isp/mozilla.com.xml&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393760</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:58:19 -0700</bug_when>
+            <thetext>&gt; jar:file:///Users/dul/Miramar.app/Contents/MacOS/omni.jar!/isp/mozilla.com.xml
+
+Sorry, that doesn&apos;t help me. Please attach it.
+
+Also, you cannot put this file in the JAR, IIRC.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393881</commentid>
+            <who name="Mark Banner (:standard8)">bugzilla</who>
+            <bug_when>2011-04-06 21:25:34 -0700</bug_when>
+            <thetext>(In reply to comment #7)
+&gt; &gt; jar:file:///Users/dul/Miramar.app/Contents/MacOS/omni.jar!/isp/mozilla.com.xml
+&gt; 
+&gt; Sorry, that doesn&apos;t help me. Please attach it.
+
+The xml file is valid.
+
+&gt; Also, you cannot put this file in the JAR, IIRC.
+
+What Ludovic should have said was that the account wizard is looking for the xml file in omni.jar in omni.jar enabled builds.
+
+I have a rough idea of the fix this but I need to check on what we&apos;ve done elsewhere first.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394056</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-07 00:17:20 -0700</bug_when>
+            <thetext>Sorry, but I don&apos;t see the bug. It worksforme. Can somebody show me how to reproduce the problem, or describe what the problem is?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394288</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-07 06:11:21 -0700</bug_when>
+            <thetext>(In reply to comment #9)
+&gt; Sorry, but I don&apos;t see the bug. It worksforme. Can somebody show me how to
+&gt; reproduce the problem, or describe what the problem is?
+
+In a nightly (probably works in Alpha3 too) :
+1) download a known ISP xml file from live.momo/autoconfig/...
+2) Add that file into the proper directory
+3) Create a new account for that domain
+4) see that the account information is fetched from the ispdb and not from the file</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524307</attachid>
+            <date>2011-04-06 16:49:00 -0700</date>
+            <delta_ts>2011-04-06 16:49:51 -0700</delta_ts>
+            <desc>foobar.com.xml</desc>
+            <filename>foobar.com.xml</filename>
+            <type>application/xml</type>
+            <size>2179</size>
+            <attacher>ben.bucksch</attacher>
+            
+              <data encoding="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGNsaWVudENvbmZpZyB2ZXJz
+aW9uPSIxLjEiPgogIDxlbWFpbFByb3ZpZGVyIGlkPSJmcmVlbmV0LmRlIj4KICAgIDxkb21haW4+
+Zm9vYmFyLmNvbTwvZG9tYWluPgogICAgPGRpc3BsYXlOYW1lPkZyZWVuZXQgTWFpbDwvZGlzcGxh
+eU5hbWU+CiAgICA8ZGlzcGxheVNob3J0TmFtZT5GcmVlbmV0PC9kaXNwbGF5U2hvcnROYW1lPgog
+ICAgPGluY29taW5nU2VydmVyIHR5cGU9ImltYXAiPgogICAgICA8aG9zdG5hbWU+aW1hcC5mcm9v
+b3AuZGU8L2hvc3RuYW1lPgogICAgICA8cG9ydD45OTM8L3BvcnQ+CiAgICAgIDxzb2NrZXRUeXBl
+PlNTTDwvc29ja2V0VHlwZT4KICAgICAgPGF1dGhlbnRpY2F0aW9uPnBhc3N3b3JkLWVuY3J5cHRl
+ZDwvYXV0aGVudGljYXRpb24+CiAgICAgIDx1c2VybmFtZT4lRU1BSUxBRERSRVNTJTwvdXNlcm5h
+bWU+CiAgICA8L2luY29taW5nU2VydmVyPgogICAgPGluY29taW5nU2VydmVyIHR5cGU9ImltYXAi
+PgogICAgICA8aG9zdG5hbWU+bXguZnJlZW5ldC5kZTwvaG9zdG5hbWU+CiAgICAgIDxwb3J0PjE0
+MzwvcG9ydD4KICAgICAgPHNvY2tldFR5cGU+U1RBUlRUTFM8L3NvY2tldFR5cGU+CiAgICAgIDxh
+dXRoZW50aWNhdGlvbj5wYXNzd29yZC1lbmNyeXB0ZWQ8L2F1dGhlbnRpY2F0aW9uPgogICAgICA8
+dXNlcm5hbWU+JUVNQUlMQUREUkVTUyU8L3VzZXJuYW1lPgogICAgPC9pbmNvbWluZ1NlcnZlcj4K
+ICAgIDxpbmNvbWluZ1NlcnZlciB0eXBlPSJwb3AzIj4KICAgICAgPGhvc3RuYW1lPm14LmZyZWVu
+ZXQuZGU8L2hvc3RuYW1lPgogICAgICA8cG9ydD45OTU8L3BvcnQ+CiAgICAgIDxzb2NrZXRUeXBl
+PlNTTDwvc29ja2V0VHlwZT4KICAgICAgPGF1dGhlbnRpY2F0aW9uPnBhc3N3b3JkLWNsZWFydGV4
+dDwvYXV0aGVudGljYXRpb24+CiAgICAgIDx1c2VybmFtZT4lRU1BSUxBRERSRVNTJTwvdXNlcm5h
+bWU+CiAgICA8L2luY29taW5nU2VydmVyPgogICAgPGluY29taW5nU2VydmVyIHR5cGU9InBvcDMi
+PgogICAgICA8aG9zdG5hbWU+bXguZnJlZW5ldC5kZTwvaG9zdG5hbWU+CiAgICAgIDxwb3J0PjEx
+MDwvcG9ydD4KICAgICAgPHNvY2tldFR5cGU+U1RBUlRUTFM8L3NvY2tldFR5cGU+CiAgICAgIDxh
+dXRoZW50aWNhdGlvbj5wYXNzd29yZC1jbGVhcnRleHQ8L2F1dGhlbnRpY2F0aW9uPgogICAgICA8
+dXNlcm5hbWU+JUVNQUlMQUREUkVTUyU8L3VzZXJuYW1lPgogICAgPC9pbmNvbWluZ1NlcnZlcj4K
+ICAgIDxvdXRnb2luZ1NlcnZlciB0eXBlPSJzbXRwIj4KICAgICAgPGhvc3RuYW1lPm14LmZyZWVu
+ZXQuZGU8L2hvc3RuYW1lPgogICAgICA8cG9ydD40NjU8L3BvcnQ+CiAgICAgIDxzb2NrZXRUeXBl
+PlNTTDwvc29ja2V0VHlwZT4KICAgICAgPGF1dGhlbnRpY2F0aW9uPnBhc3N3b3JkLWVuY3J5cHRl
+ZDwvYXV0aGVudGljYXRpb24+CiAgICAgIDx1c2VybmFtZT4lRU1BSUxBRERSRVNTJTwvdXNlcm5h
+bWU+CiAgICA8L291dGdvaW5nU2VydmVyPgogICAgPG91dGdvaW5nU2VydmVyIHR5cGU9InNtdHAi
+PgogICAgICA8aG9zdG5hbWU+bXguZnJlZW5ldC5kZTwvaG9zdG5hbWU+CiAgICAgIDxwb3J0PjU4
+NzwvcG9ydD4KICAgICAgPHNvY2tldFR5cGU+U1RBUlRUTFM8L3NvY2tldFR5cGU+CiAgICAgIDxh
+dXRoZW50aWNhdGlvbj5wYXNzd29yZC1lbmNyeXB0ZWQ8L2F1dGhlbnRpY2F0aW9uPgogICAgICA8
+dXNlcm5hbWU+JUVNQUlMQUREUkVTUyU8L3VzZXJuYW1lPgogICAgPC9vdXRnb2luZ1NlcnZlcj4K
+ICAgIDxkb2N1bWVudGF0aW9uIHVybD0iaHR0cDovL2t1bmRlbnNlcnZpY2UuZnJlZW5ldC5kZS9o
+aWxmZS9lbWFpbC9wcm9ncmFtbWUvY29uZmlnL2luZGV4Lmh0bWwiPgogICAgICA8ZGVzY3IgbGFu
+Zz0iZW4iPkdlbmVyaWMgc2V0dGluZ3MgcGFnZTwvZGVzY3I+CiAgICA8L2RvY3VtZW50YXRpb24+
+CiAgICA8ZG9jdW1lbnRhdGlvbiB1cmw9Imh0dHA6Ly9rdW5kZW5zZXJ2aWNlLmZyZWVuZXQuZGUv
+aGlsZmUvZW1haWwvcHJvZ3JhbW1lL2NvbmZpZy90aHVuZGVyYmlyZC9pbWFwLXRodW5kZXJiaXJk
+L2ltYXAvaW5kZXguaHRtbCI+CiAgICAgIDxkZXNjciBsYW5nPSJlbiI+VEIgMi4wIElNQVAgc2V0
+dGluZ3M8L2Rlc2NyPgogICAgPC9kb2N1bWVudGF0aW9uPgogIDwvZW1haWxQcm92aWRlcj4KPC9j
+bGllbnRDb25maWc+Cg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

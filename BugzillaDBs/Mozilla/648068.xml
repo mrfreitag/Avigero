@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648068</bug_id>
+          
+          <creation_ts>2011-04-06 11:57:00 -0700</creation_ts>
+          <short_desc>In Blocklist, Remove the OOB value &quot;reset&quot; from days since last request</short_desc>
+          <delta_ts>2011-04-11 11:29:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Add-ons Manager</component>
+          <version>2.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Daniel Einspanjer :dre">deinspanjer</reporter>
+          <assigned_to name="Daniel Einspanjer :dre">deinspanjer</assigned_to>
+          <cc>dtownsend</cc>
+    
+    <cc>gavin.sharp</cc>
+    
+    <cc>hskupin</cc>
+    
+    <cc>johnath</cc>
+    
+    <cc>robert.bugzilla</cc>
+          <qa_contact>add-ons.manager</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="in-testsuite"
+          id="438290"
+          type_id="37"
+          status="+"
+          setter="dtownsend"
+    />
+    <flag name="in-litmus"
+          id="438291"
+          type_id="325"
+          status="-"
+          setter="dtownsend"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5392850</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-06 11:57:01 -0700</bug_when>
+            <thetext>I have looked through the code and as near as I can tell, &quot;reset&quot; should only show up if the &quot;ping count&quot; is a negative number.  The only place in the code where ping count can be set to a negative number is if it rolls over.  Neither of these scenarios makes a lot of sense to me, but we are now getting millions of requests with the &quot;reset&quot; value per day and I have no confidence in my understanding of what that means or how to treat them.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392946</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-06 12:33:20 -0700</bug_when>
+            <thetext>Okay, I found the cause in AddonManager.jsm.  When the appChanged flag is set to true, the ping count variable will be -1 which will cause days since last to be &quot;reset&quot;.
+
+Changing this bug to request the removal of this special value.  It forces me to undercount when a browser is upgraded as the first event in the time period being counted.
+
+If we instead just returned a 0 or 1 or whatever the proper value is, the upgrade would not impact the metric at all.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393005</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 13:04:13 -0700</bug_when>
+            <thetext>I would say it should block a release on 2.0. Otherwise we can&apos;t get the correct metrics. Requesting for blocking.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393156</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-06 14:02:17 -0700</bug_when>
+            <thetext>Reading through bug 616835 it seems that this is doing exactly what was requested, am I misreading things or is this just a request to change to a different behaviour?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393482</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-06 16:08:06 -0700</bug_when>
+            <thetext>Yes, this is a request to change to a different behavior.  When this method was prototyped, the reset value was useful to be able to look at the upgrade patterns.  After analyzing several weeks of data from the 4.0 release though we have found that it creates a hole in the metric.  
+
+I don&apos;t intend to be making any more feature requests to the blocklist metrics because we are working on our proposal for moving the mechanism to a separate service, but this is the removal of a line of code that will improve these existing metrics, so I am hoping we can work it in to the existing pipeline.
+
+The data hole is noticeable but small so I didn&apos;t want to try to raise it as an immediate blocker, but since our new service isn&apos;t going to be in Firefox 5 it would be good to be fixed before then.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393517</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-06 16:29:17 -0700</bug_when>
+            <thetext>Ok, sounds like it doesn&apos;t make sense to try to block 4.0 on this, we&apos;ll try to find someone to get it done in time for Firefox 5.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393973</commentid>
+              <attachid>524357</attachid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-06 22:34:38 -0700</bug_when>
+            <thetext>Created attachment 524357
+Patch to remove &quot;reset&quot; value with additional unit tests
+
+Would it help the possibility of getting it into 4.0.1 if I can put together an acceptable patch myself or would it be disruptive to other work that is better suited to be considered blocking?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394614</commentid>
+              <attachid>524357</attachid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-07 09:55:55 -0700</bug_when>
+            <thetext>Comment on attachment 524357
+Patch to remove &quot;reset&quot; value with additional unit tests
+
+Certainly, if we can get this landed we can request approval, but I know the branch drivers are trying to take only critical fixes for 4.0.1 so you&apos;ll need to elaborate on why it is such an important fix to take.
+
+This patch seems ok but it is failing tests with:
+
+TEST-UNEXPECTED-FAIL | /Users/dave/mozilla/build/minefield/_tests/xpcshell/toolkit/mozapps/extensions/test/xpcshell-unpack/test_bug620837.js | 1&amp;3&amp;2 == 1&amp;3&amp;1</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394670</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-07 10:34:06 -0700</bug_when>
+            <thetext>Okay, I was having trouble getting the test set up to run on my sandbox so I eyeballed them.  Let me review the order of operations on that one and figure out what I did wrong.  Will attach a new patch shortly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394685</commentid>
+              <attachid>524422</attachid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-07 10:41:53 -0700</bug_when>
+            <thetext>Created attachment 524422
+Patch to remove &quot;reset&quot; value with additional unit tests
+
+Okay, test4 should have a days since value of 2 since the last ping time was set to two days ago.  Typo on my part.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394689</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-07 10:42:56 -0700</bug_when>
+            <thetext>The justification for taking the fix in 4.0.1 is that it gives us a chance to close this data hole before 4.0 is pushed out to our largest pool of users.  While the hole isn&apos;t destructive, it is definitely better to close quickly than waiting.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395224</commentid>
+              <attachid>524422</attachid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-07 15:15:08 -0700</bug_when>
+            <thetext>Comment on attachment 524422
+Patch to remove &quot;reset&quot; value with additional unit tests
+
+Looks good</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396829</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-08 10:37:16 -0700</bug_when>
+            <thetext>Landed: http://hg.mozilla.org/mozilla-central/rev/de57e98c7a28</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397809</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-08 16:11:21 -0700</bug_when>
+            <thetext>Who should I talk to to explore the possibility of getting this into 4.0.1?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397881</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-08 17:22:44 -0700</bug_when>
+            <thetext>View the details of the patch and request approval2.0=? for the patch. The drivers triage the approval2.0 queue periodically.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397882</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-08 17:23:08 -0700</bug_when>
+            <thetext>Also include reasons why the patch should be accepted.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397942</commentid>
+              <attachid>524422</attachid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-08 18:32:56 -0700</bug_when>
+            <thetext>Comment on attachment 524422
+Patch to remove &quot;reset&quot; value with additional unit tests
+
+please see comment #10 for possible justification.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524357</attachid>
+            <date>2011-04-06 22:34:00 -0700</date>
+            <delta_ts>2011-04-07 10:41:53 -0700</delta_ts>
+            <desc>Patch to remove &quot;reset&quot; value with additional unit tests</desc>
+            <filename>remove_reset_oob_value.patch</filename>
+            <type>text/plain</type>
+            <size>4606</size>
+            <attacher>deinspanjer</attacher>
+            
+              <data encoding="base64">ZGlmZiAtciA0YTNkMTFlMDVjOGUgdG9vbGtpdC9tb3phcHBzL2V4dGVuc2lvbnMvbnNCbG9ja2xp
+c3RTZXJ2aWNlLmpzCi0tLSBhL3Rvb2xraXQvbW96YXBwcy9leHRlbnNpb25zL25zQmxvY2tsaXN0
+U2VydmljZS5qcwlXZWQgQXByIDA2IDE2OjM5OjE0IDIwMTEgLTA3MDAKKysrIGIvdG9vbGtpdC9t
+b3phcHBzL2V4dGVuc2lvbnMvbnNCbG9ja2xpc3RTZXJ2aWNlLmpzCVdlZCBBcHIgMDYgMjI6MzA6
+MTcgMjAxMSAtMDcwMApAQCAtNDI4LDIyICs0MjgsMTggQEAgQmxvY2tsaXN0LnByb3RvdHlwZSA9
+IHsKICAgICAgIExPRygiQmxvY2tsaXN0Ojpub3RpZnk6IFRoZSAiICsgUFJFRl9CTE9DS0xJU1Rf
+VVJMICsgIiBwcmVmZXJlbmNlIiArCiAgICAgICAgICAgIiBpcyBtaXNzaW5nISIpOwogICAgICAg
+cmV0dXJuOwogICAgIH0KIAogICAgIHZhciBwaW5nQ291bnRWZXJzaW9uID0gZ2V0UHJlZigiZ2V0
+SW50UHJlZiIsIFBSRUZfQkxPQ0tMSVNUX1BJTkdDT1VOVFZFUlNJT04sIDApOwogICAgIHZhciBw
+aW5nQ291bnRUb3RhbCA9IGdldFByZWYoImdldEludFByZWYiLCBQUkVGX0JMT0NLTElTVF9QSU5H
+Q09VTlRUT1RBTCwgMSk7CiAgICAgdmFyIGRheXNTaW5jZUxhc3RQaW5nID0gMDsKLSAgICBpZiAo
+cGluZ0NvdW50VmVyc2lvbiA8IDEgfHwgcGluZ0NvdW50VG90YWwgPCAxKSB7Ci0gICAgICBkYXlz
+U2luY2VMYXN0UGluZyA9IHBpbmdDb3VudFZlcnNpb24gPT0gMCA/ICJuZXciIDogInJlc2V0IjsK
+LSAgICAgIGlmIChwaW5nQ291bnRWZXJzaW9uIDwgMSkKLSAgICAgICAgcGluZ0NvdW50VmVyc2lv
+biA9IDE7Ci0gICAgICBpZiAocGluZ0NvdW50VG90YWwgPCAxKQotICAgICAgICBwaW5nQ291bnRU
+b3RhbCA9IDE7CisgICAgaWYgKHBpbmdDb3VudFZlcnNpb24gPT0gMCkgeworICAgICAgZGF5c1Np
+bmNlTGFzdFBpbmcgPSAibmV3IjsKICAgICB9CiAgICAgZWxzZSB7CiAgICAgICAvLyBTZWNvbmRz
+IGluIG9uZSBkYXkgaXMgdXNlZCBiZWNhdXNlIG5zSVVwZGF0ZVRpbWVyTWFuYWdlciBzdG9yZXMg
+dGhlCiAgICAgICAvLyBsYXN0IHVwZGF0ZSB0aW1lIGluIHNlY29uZHMuCiAgICAgICBsZXQgc2Vj
+b25kc0luRGF5ID0gNjAgKiA2MCAqIDI0OwogICAgICAgbGV0IGxhc3RVcGRhdGVUaW1lID0gZ2V0
+UHJlZigiZ2V0SW50UHJlZiIsIFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1FLCAwKTsKICAg
+ICAgIGlmIChsYXN0VXBkYXRlVGltZSA9PSAwKSB7CiAgICAgICAgIGRheXNTaW5jZUxhc3RQaW5n
+ID0gImludmFsaWQiOwpAQCAtNDUzLDE2ICs0NDksMjEgQEAgQmxvY2tsaXN0LnByb3RvdHlwZSA9
+IHsKICAgICAgICAgZGF5c1NpbmNlTGFzdFBpbmcgPSBNYXRoLmZsb29yKChub3cgLSBsYXN0VXBk
+YXRlVGltZSkgLyBzZWNvbmRzSW5EYXkpOwogICAgICAgfQogCiAgICAgICBpZiAoZGF5c1NpbmNl
+TGFzdFBpbmcgPT0gMCB8fCBkYXlzU2luY2VMYXN0UGluZyA9PSAiaW52YWxpZCIpIHsKICAgICAg
+ICAgcGluZ0NvdW50VmVyc2lvbiA9IHBpbmdDb3VudFRvdGFsID0gImludmFsaWQiOwogICAgICAg
+fQogICAgIH0KIAorICAgIGlmIChwaW5nQ291bnRWZXJzaW9uIDwgMSkKKyAgICAgIHBpbmdDb3Vu
+dFZlcnNpb24gPSAxOworICAgIGlmIChwaW5nQ291bnRUb3RhbCA8IDEpCisgICAgICBwaW5nQ291
+bnRUb3RhbCA9IDE7CisKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVBUFBfSUQlL2csIGdB
+cHAuSUQpOwogICAgIGRzVVJJID0gZHNVUkkucmVwbGFjZSgvJUFQUF9WRVJTSU9OJS9nLCBnQXBw
+LnZlcnNpb24pOwogICAgIGRzVVJJID0gZHNVUkkucmVwbGFjZSgvJVBST0RVQ1QlL2csIGdBcHAu
+bmFtZSk7CiAgICAgZHNVUkkgPSBkc1VSSS5yZXBsYWNlKC8lVkVSU0lPTiUvZywgZ0FwcC52ZXJz
+aW9uKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVCVUlMRF9JRCUvZywgZ0FwcC5hcHBC
+dWlsZElEKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVCVUlMRF9UQVJHRVQlL2csIGdB
+cHAuT1MgKyAiXyIgKyBnQUJJKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVPU19WRVJT
+SU9OJS9nLCBnT1NWZXJzaW9uKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVMT0NBTEUl
+L2csIGdldExvY2FsZSgpKTsKZGlmZiAtciA0YTNkMTFlMDVjOGUgdG9vbGtpdC9tb3phcHBzL2V4
+dGVuc2lvbnMvdGVzdC94cGNzaGVsbC90ZXN0X2J1ZzYyMDgzNy5qcwotLS0gYS90b29sa2l0L21v
+emFwcHMvZXh0ZW5zaW9ucy90ZXN0L3hwY3NoZWxsL3Rlc3RfYnVnNjIwODM3LmpzCVdlZCBBcHIg
+MDYgMTY6Mzk6MTQgMjAxMSAtMDcwMAorKysgYi90b29sa2l0L21vemFwcHMvZXh0ZW5zaW9ucy90
+ZXN0L3hwY3NoZWxsL3Rlc3RfYnVnNjIwODM3LmpzCVdlZCBBcHIgMDYgMjI6MzA6MTcgMjAxMSAt
+MDcwMApAQCAtNjMsMTcgKzYzLDE3IEBAIGZ1bmN0aW9uIHRlc3QzKCkgewogICBub3RpZnlfYmxv
+Y2tsaXN0KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3Q0KCkgewogICBTZXJ2aWNlcy5wcmVmcy5zZXRJ
+bnRQcmVmKFBSRUZfQkxPQ0tMSVNUX1BJTkdDT1VOVFZFUlNJT04sIC0xKTsKICAgU2VydmljZXMu
+cHJlZnMuc2V0SW50UHJlZihQUkVGX0JMT0NLTElTVF9MQVNUVVBEQVRFVElNRSwKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAoZ2V0Tm93SW5TZWNvbmRzKCkgLSAoU0VDT05EU19JTl9EQVkg
+KiAyKSkpOwogICBnTmV4dFRlc3QgPSB0ZXN0NTsKLSAgZ0V4cGVjdGVkUXVlcnlTdHJpbmcgPSAi
+MSYzJnJlc2V0IjsKKyAgZ0V4cGVjdGVkUXVlcnlTdHJpbmcgPSAiMSYzJjEiOwogICBub3RpZnlf
+YmxvY2tsaXN0KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3Q1KCkgewogICBTZXJ2aWNlcy5wcmVmcy5z
+ZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1FLCBnZXROb3dJblNlY29uZHMo
+KSk7CiAgIGdOZXh0VGVzdCA9IHRlc3Q2OwogICBnRXhwZWN0ZWRRdWVyeVN0cmluZyA9ICJpbnZh
+bGlkJmludmFsaWQmMCI7CiAgIG5vdGlmeV9ibG9ja2xpc3QoKTsKQEAgLTk1LDMyICs5NSw0OSBA
+QCBmdW5jdGlvbiB0ZXN0NygpIHsKICAgZ0V4cGVjdGVkUXVlcnlTdHJpbmcgPSAiMjE0NzQ4MzY0
+NyY1JjQiOwogICBub3RpZnlfYmxvY2tsaXN0KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3Q4KCkgewog
+ICBTZXJ2aWNlcy5wcmVmcy5zZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1F
+LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIChnZXROb3dJblNlY29uZHMoKSAtIChTRUNP
+TkRTX0lOX0RBWSAqIDUpKSk7CiAgIGdOZXh0VGVzdCA9IHRlc3Q5OwotICBnRXhwZWN0ZWRRdWVy
+eVN0cmluZyA9ICIxJjYmcmVzZXQiOworICBnRXhwZWN0ZWRRdWVyeVN0cmluZyA9ICIxJjYmNSI7
+CiAgIG5vdGlmeV9ibG9ja2xpc3QoKTsKIH0KIAogZnVuY3Rpb24gdGVzdDkoKSB7CiAgIFNlcnZp
+Y2VzLnByZWZzLnNldEludFByZWYoUFJFRl9CTE9DS0xJU1RfUElOR0NPVU5UVE9UQUwsIDIxNDc0
+ODM2NDcpOwogICBTZXJ2aWNlcy5wcmVmcy5zZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RV
+UERBVEVUSU1FLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIChnZXROb3dJblNlY29uZHMo
+KSAtIChTRUNPTkRTX0lOX0RBWSAqIDYpKSk7CiAgIGdOZXh0VGVzdCA9IHRlc3QxMDsKICAgZ0V4
+cGVjdGVkUXVlcnlTdHJpbmcgPSAiMiYyMTQ3NDgzNjQ3JjYiOwogICBub3RpZnlfYmxvY2tsaXN0
+KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3QxMCgpIHsKICAgU2VydmljZXMucHJlZnMuc2V0SW50UHJl
+ZihQUkVGX0JMT0NLTElTVF9MQVNUVVBEQVRFVElNRSwKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAoZ2V0Tm93SW5TZWNvbmRzKCkgLSAoU0VDT05EU19JTl9EQVkgKiA3KSkpOworICBnTmV4
+dFRlc3QgPSB0ZXN0MTE7CisgIGdFeHBlY3RlZFF1ZXJ5U3RyaW5nID0gIjMmMSY3IjsKKyAgbm90
+aWZ5X2Jsb2NrbGlzdCgpOworfQorCitmdW5jdGlvbiB0ZXN0MTEoKSB7CisgIFNlcnZpY2VzLnBy
+ZWZzLnNldEludFByZWYoUFJFRl9CTE9DS0xJU1RfUElOR0NPVU5UVkVSU0lPTiwgLTEpOworICBT
+ZXJ2aWNlcy5wcmVmcy5zZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1FLAor
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChnZXROb3dJblNlY29uZHMoKSAtIChTRUNPTkRT
+X0lOX0RBWSAqIDgpKSk7CisgIGdOZXh0VGVzdCA9IHRlc3QxMjsKKyAgZ0V4cGVjdGVkUXVlcnlT
+dHJpbmcgPSAiMSYyJjgiOworICBub3RpZnlfYmxvY2tsaXN0KCk7Cit9CisKK2Z1bmN0aW9uIHRl
+c3QxMigpIHsKKyAgU2VydmljZXMucHJlZnMuc2V0SW50UHJlZihQUkVGX0JMT0NLTElTVF9MQVNU
+VVBEQVRFVElNRSwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAoZ2V0Tm93SW5TZWNvbmRz
+KCkgLSAoU0VDT05EU19JTl9EQVkgKiA5KSkpOwogICBnTmV4dFRlc3QgPSBmaW5pc2g7Ci0gIGdF
+eHBlY3RlZFF1ZXJ5U3RyaW5nID0gIjMmMSZyZXNldCI7CisgIGdFeHBlY3RlZFF1ZXJ5U3RyaW5n
+ID0gIjImMyY5IjsKICAgbm90aWZ5X2Jsb2NrbGlzdCgpOwogfQogCiBmdW5jdGlvbiBmaW5pc2go
+KSB7CiAgIGdUZXN0c2VydmVyLnN0b3AoZG9fdGVzdF9maW5pc2hlZCk7CiB9Cg==
+</data>
+<flag name="review"
+          id="438009"
+          type_id="4"
+          status="-"
+          setter="dtownsend"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524422</attachid>
+            <date>2011-04-07 10:41:00 -0700</date>
+            <delta_ts>2011-04-08 18:32:56 -0700</delta_ts>
+            <desc>Patch to remove &quot;reset&quot; value with additional unit tests</desc>
+            <filename>remove_reset_oob_value.patch</filename>
+            <type>text/plain</type>
+            <size>4606</size>
+            <attacher>deinspanjer</attacher>
+            
+              <data encoding="base64">ZGlmZiAtciA0YTNkMTFlMDVjOGUgdG9vbGtpdC9tb3phcHBzL2V4dGVuc2lvbnMvbnNCbG9ja2xp
+c3RTZXJ2aWNlLmpzCi0tLSBhL3Rvb2xraXQvbW96YXBwcy9leHRlbnNpb25zL25zQmxvY2tsaXN0
+U2VydmljZS5qcwlXZWQgQXByIDA2IDE2OjM5OjE0IDIwMTEgLTA3MDAKKysrIGIvdG9vbGtpdC9t
+b3phcHBzL2V4dGVuc2lvbnMvbnNCbG9ja2xpc3RTZXJ2aWNlLmpzCVRodSBBcHIgMDcgMTA6NDA6
+MzYgMjAxMSAtMDcwMApAQCAtNDI4LDIyICs0MjgsMTggQEAgQmxvY2tsaXN0LnByb3RvdHlwZSA9
+IHsKICAgICAgIExPRygiQmxvY2tsaXN0Ojpub3RpZnk6IFRoZSAiICsgUFJFRl9CTE9DS0xJU1Rf
+VVJMICsgIiBwcmVmZXJlbmNlIiArCiAgICAgICAgICAgIiBpcyBtaXNzaW5nISIpOwogICAgICAg
+cmV0dXJuOwogICAgIH0KIAogICAgIHZhciBwaW5nQ291bnRWZXJzaW9uID0gZ2V0UHJlZigiZ2V0
+SW50UHJlZiIsIFBSRUZfQkxPQ0tMSVNUX1BJTkdDT1VOVFZFUlNJT04sIDApOwogICAgIHZhciBw
+aW5nQ291bnRUb3RhbCA9IGdldFByZWYoImdldEludFByZWYiLCBQUkVGX0JMT0NLTElTVF9QSU5H
+Q09VTlRUT1RBTCwgMSk7CiAgICAgdmFyIGRheXNTaW5jZUxhc3RQaW5nID0gMDsKLSAgICBpZiAo
+cGluZ0NvdW50VmVyc2lvbiA8IDEgfHwgcGluZ0NvdW50VG90YWwgPCAxKSB7Ci0gICAgICBkYXlz
+U2luY2VMYXN0UGluZyA9IHBpbmdDb3VudFZlcnNpb24gPT0gMCA/ICJuZXciIDogInJlc2V0IjsK
+LSAgICAgIGlmIChwaW5nQ291bnRWZXJzaW9uIDwgMSkKLSAgICAgICAgcGluZ0NvdW50VmVyc2lv
+biA9IDE7Ci0gICAgICBpZiAocGluZ0NvdW50VG90YWwgPCAxKQotICAgICAgICBwaW5nQ291bnRU
+b3RhbCA9IDE7CisgICAgaWYgKHBpbmdDb3VudFZlcnNpb24gPT0gMCkgeworICAgICAgZGF5c1Np
+bmNlTGFzdFBpbmcgPSAibmV3IjsKICAgICB9CiAgICAgZWxzZSB7CiAgICAgICAvLyBTZWNvbmRz
+IGluIG9uZSBkYXkgaXMgdXNlZCBiZWNhdXNlIG5zSVVwZGF0ZVRpbWVyTWFuYWdlciBzdG9yZXMg
+dGhlCiAgICAgICAvLyBsYXN0IHVwZGF0ZSB0aW1lIGluIHNlY29uZHMuCiAgICAgICBsZXQgc2Vj
+b25kc0luRGF5ID0gNjAgKiA2MCAqIDI0OwogICAgICAgbGV0IGxhc3RVcGRhdGVUaW1lID0gZ2V0
+UHJlZigiZ2V0SW50UHJlZiIsIFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1FLCAwKTsKICAg
+ICAgIGlmIChsYXN0VXBkYXRlVGltZSA9PSAwKSB7CiAgICAgICAgIGRheXNTaW5jZUxhc3RQaW5n
+ID0gImludmFsaWQiOwpAQCAtNDUzLDE2ICs0NDksMjEgQEAgQmxvY2tsaXN0LnByb3RvdHlwZSA9
+IHsKICAgICAgICAgZGF5c1NpbmNlTGFzdFBpbmcgPSBNYXRoLmZsb29yKChub3cgLSBsYXN0VXBk
+YXRlVGltZSkgLyBzZWNvbmRzSW5EYXkpOwogICAgICAgfQogCiAgICAgICBpZiAoZGF5c1NpbmNl
+TGFzdFBpbmcgPT0gMCB8fCBkYXlzU2luY2VMYXN0UGluZyA9PSAiaW52YWxpZCIpIHsKICAgICAg
+ICAgcGluZ0NvdW50VmVyc2lvbiA9IHBpbmdDb3VudFRvdGFsID0gImludmFsaWQiOwogICAgICAg
+fQogICAgIH0KIAorICAgIGlmIChwaW5nQ291bnRWZXJzaW9uIDwgMSkKKyAgICAgIHBpbmdDb3Vu
+dFZlcnNpb24gPSAxOworICAgIGlmIChwaW5nQ291bnRUb3RhbCA8IDEpCisgICAgICBwaW5nQ291
+bnRUb3RhbCA9IDE7CisKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVBUFBfSUQlL2csIGdB
+cHAuSUQpOwogICAgIGRzVVJJID0gZHNVUkkucmVwbGFjZSgvJUFQUF9WRVJTSU9OJS9nLCBnQXBw
+LnZlcnNpb24pOwogICAgIGRzVVJJID0gZHNVUkkucmVwbGFjZSgvJVBST0RVQ1QlL2csIGdBcHAu
+bmFtZSk7CiAgICAgZHNVUkkgPSBkc1VSSS5yZXBsYWNlKC8lVkVSU0lPTiUvZywgZ0FwcC52ZXJz
+aW9uKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVCVUlMRF9JRCUvZywgZ0FwcC5hcHBC
+dWlsZElEKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVCVUlMRF9UQVJHRVQlL2csIGdB
+cHAuT1MgKyAiXyIgKyBnQUJJKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVPU19WRVJT
+SU9OJS9nLCBnT1NWZXJzaW9uKTsKICAgICBkc1VSSSA9IGRzVVJJLnJlcGxhY2UoLyVMT0NBTEUl
+L2csIGdldExvY2FsZSgpKTsKZGlmZiAtciA0YTNkMTFlMDVjOGUgdG9vbGtpdC9tb3phcHBzL2V4
+dGVuc2lvbnMvdGVzdC94cGNzaGVsbC90ZXN0X2J1ZzYyMDgzNy5qcwotLS0gYS90b29sa2l0L21v
+emFwcHMvZXh0ZW5zaW9ucy90ZXN0L3hwY3NoZWxsL3Rlc3RfYnVnNjIwODM3LmpzCVdlZCBBcHIg
+MDYgMTY6Mzk6MTQgMjAxMSAtMDcwMAorKysgYi90b29sa2l0L21vemFwcHMvZXh0ZW5zaW9ucy90
+ZXN0L3hwY3NoZWxsL3Rlc3RfYnVnNjIwODM3LmpzCVRodSBBcHIgMDcgMTA6NDA6MzYgMjAxMSAt
+MDcwMApAQCAtNjMsMTcgKzYzLDE3IEBAIGZ1bmN0aW9uIHRlc3QzKCkgewogICBub3RpZnlfYmxv
+Y2tsaXN0KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3Q0KCkgewogICBTZXJ2aWNlcy5wcmVmcy5zZXRJ
+bnRQcmVmKFBSRUZfQkxPQ0tMSVNUX1BJTkdDT1VOVFZFUlNJT04sIC0xKTsKICAgU2VydmljZXMu
+cHJlZnMuc2V0SW50UHJlZihQUkVGX0JMT0NLTElTVF9MQVNUVVBEQVRFVElNRSwKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAoZ2V0Tm93SW5TZWNvbmRzKCkgLSAoU0VDT05EU19JTl9EQVkg
+KiAyKSkpOwogICBnTmV4dFRlc3QgPSB0ZXN0NTsKLSAgZ0V4cGVjdGVkUXVlcnlTdHJpbmcgPSAi
+MSYzJnJlc2V0IjsKKyAgZ0V4cGVjdGVkUXVlcnlTdHJpbmcgPSAiMSYzJjIiOwogICBub3RpZnlf
+YmxvY2tsaXN0KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3Q1KCkgewogICBTZXJ2aWNlcy5wcmVmcy5z
+ZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1FLCBnZXROb3dJblNlY29uZHMo
+KSk7CiAgIGdOZXh0VGVzdCA9IHRlc3Q2OwogICBnRXhwZWN0ZWRRdWVyeVN0cmluZyA9ICJpbnZh
+bGlkJmludmFsaWQmMCI7CiAgIG5vdGlmeV9ibG9ja2xpc3QoKTsKQEAgLTk1LDMyICs5NSw0OSBA
+QCBmdW5jdGlvbiB0ZXN0NygpIHsKICAgZ0V4cGVjdGVkUXVlcnlTdHJpbmcgPSAiMjE0NzQ4MzY0
+NyY1JjQiOwogICBub3RpZnlfYmxvY2tsaXN0KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3Q4KCkgewog
+ICBTZXJ2aWNlcy5wcmVmcy5zZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1F
+LAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIChnZXROb3dJblNlY29uZHMoKSAtIChTRUNP
+TkRTX0lOX0RBWSAqIDUpKSk7CiAgIGdOZXh0VGVzdCA9IHRlc3Q5OwotICBnRXhwZWN0ZWRRdWVy
+eVN0cmluZyA9ICIxJjYmcmVzZXQiOworICBnRXhwZWN0ZWRRdWVyeVN0cmluZyA9ICIxJjYmNSI7
+CiAgIG5vdGlmeV9ibG9ja2xpc3QoKTsKIH0KIAogZnVuY3Rpb24gdGVzdDkoKSB7CiAgIFNlcnZp
+Y2VzLnByZWZzLnNldEludFByZWYoUFJFRl9CTE9DS0xJU1RfUElOR0NPVU5UVE9UQUwsIDIxNDc0
+ODM2NDcpOwogICBTZXJ2aWNlcy5wcmVmcy5zZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RV
+UERBVEVUSU1FLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgIChnZXROb3dJblNlY29uZHMo
+KSAtIChTRUNPTkRTX0lOX0RBWSAqIDYpKSk7CiAgIGdOZXh0VGVzdCA9IHRlc3QxMDsKICAgZ0V4
+cGVjdGVkUXVlcnlTdHJpbmcgPSAiMiYyMTQ3NDgzNjQ3JjYiOwogICBub3RpZnlfYmxvY2tsaXN0
+KCk7CiB9CiAKIGZ1bmN0aW9uIHRlc3QxMCgpIHsKICAgU2VydmljZXMucHJlZnMuc2V0SW50UHJl
+ZihQUkVGX0JMT0NLTElTVF9MQVNUVVBEQVRFVElNRSwKICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAoZ2V0Tm93SW5TZWNvbmRzKCkgLSAoU0VDT05EU19JTl9EQVkgKiA3KSkpOworICBnTmV4
+dFRlc3QgPSB0ZXN0MTE7CisgIGdFeHBlY3RlZFF1ZXJ5U3RyaW5nID0gIjMmMSY3IjsKKyAgbm90
+aWZ5X2Jsb2NrbGlzdCgpOworfQorCitmdW5jdGlvbiB0ZXN0MTEoKSB7CisgIFNlcnZpY2VzLnBy
+ZWZzLnNldEludFByZWYoUFJFRl9CTE9DS0xJU1RfUElOR0NPVU5UVkVSU0lPTiwgLTEpOworICBT
+ZXJ2aWNlcy5wcmVmcy5zZXRJbnRQcmVmKFBSRUZfQkxPQ0tMSVNUX0xBU1RVUERBVEVUSU1FLAor
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIChnZXROb3dJblNlY29uZHMoKSAtIChTRUNPTkRT
+X0lOX0RBWSAqIDgpKSk7CisgIGdOZXh0VGVzdCA9IHRlc3QxMjsKKyAgZ0V4cGVjdGVkUXVlcnlT
+dHJpbmcgPSAiMSYyJjgiOworICBub3RpZnlfYmxvY2tsaXN0KCk7Cit9CisKK2Z1bmN0aW9uIHRl
+c3QxMigpIHsKKyAgU2VydmljZXMucHJlZnMuc2V0SW50UHJlZihQUkVGX0JMT0NLTElTVF9MQVNU
+VVBEQVRFVElNRSwKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAoZ2V0Tm93SW5TZWNvbmRz
+KCkgLSAoU0VDT05EU19JTl9EQVkgKiA5KSkpOwogICBnTmV4dFRlc3QgPSBmaW5pc2g7Ci0gIGdF
+eHBlY3RlZFF1ZXJ5U3RyaW5nID0gIjMmMSZyZXNldCI7CisgIGdFeHBlY3RlZFF1ZXJ5U3RyaW5n
+ID0gIjImMyY5IjsKICAgbm90aWZ5X2Jsb2NrbGlzdCgpOwogfQogCiBmdW5jdGlvbiBmaW5pc2go
+KSB7CiAgIGdUZXN0c2VydmVyLnN0b3AoZG9fdGVzdF9maW5pc2hlZCk7CiB9Cg==
+</data>
+<flag name="review"
+          id="438104"
+          type_id="4"
+          status="+"
+          setter="dtownsend"
+    />
+    <flag name="approval2.0"
+          id="438388"
+          type_id="647"
+          status="?"
+          setter="deinspanjer"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

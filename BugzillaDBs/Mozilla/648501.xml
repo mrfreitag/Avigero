@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648501</bug_id>
+          
+          <creation_ts>2011-04-08 02:01:00 -0700</creation_ts>
+          <short_desc>Crashes when accidental left klik-drag is performed, while multiple tabs are opened.</short_desc>
+          <delta_ts>2011-04-09 08:01:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>beogradjanin.smeker</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex.lakatos</cc>
+    
+    <cc>bugcuddler</cc>
+    
+    <cc>srinivas</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396191</commentid>
+            <who name="">beogradjanin.smeker</who>
+            <bug_when>2011-04-08 02:01:00 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: 4.0
+
+Crashes when accidental left klik-drag is performed, while multiple tabs are opened.
+
+Reproducible: Didn&apos;t try</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396200</commentid>
+            <who name="Srinivas">srinivas</who>
+            <bug_when>2011-04-08 02:09:41 -0700</bug_when>
+            <thetext>Please post the crash ID from about:crashes
+https://developer.mozilla.org/en/How_to_get_a_stacktrace_for_a_bug_report</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396310</commentid>
+            <who name="Alex Lakatos">alex.lakatos</who>
+            <bug_when>2011-04-08 05:58:38 -0700</bug_when>
+            <thetext>Can you please post some clear Steps To Reproduce?
+
+Does this still happen in Safe Mode?
+http://support.mozilla.com/en-US/kb/Safe%20Mode</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398354</commentid>
+            <who name="">beogradjanin.smeker</who>
+            <bug_when>2011-04-09 08:01:16 -0700</bug_when>
+            <thetext>It doesn&apos;t happen is safe mode (What a pleasant surprise).
+It happens when I have 6-8 tabs opened, (mostly with internet translator pages), yes I DO have a lots of bookmarks (like 400), yes I have a few plug-ins. And firefox crushes silently, when I restart it it doesn&apos;t offer &quot;restore your previous session&quot; or &quot;there was a crush, do you want to report this&quot;.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

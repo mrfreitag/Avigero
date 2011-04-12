@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647799</bug_id>
+          
+          <creation_ts>2011-04-05 04:13:00 -0700</creation_ts>
+          <short_desc>Acrobat Reader opens while closing Firefox</short_desc>
+          <delta_ts>2011-04-05 21:18:52 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 2000</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Mark Dekker">mark</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>tyler.downer</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390987</commentid>
+            <who name="Mark Dekker">mark</who>
+            <bug_when>2011-04-05 04:13:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Sometimes this happens when closing with Alt-F4 or sometimes just when i press the X.
+It does not always happen, but when it does, it is really annoying, mostly because Acrobat Reader opens in de background, so i have to go to taskmanager to turn it off.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1.browse
+2.webmail, youtube, facebook, hotmail, etc, just a few hours of browsing
+3. close Firefox with Alt-F4 or the normal way.
+Actual Results:  
+Acrobat Reader (i have 5 installed), starts to open, than i see nothing, but when i open taskmanager it lingers around in the background.
+
+Expected Results:  
+Just close, and not openening Acrobat Reader
+
+It seems to happen mostly on my W2k machine, i haven&apos;t been able to reproduce it on my Windows 7 machine.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391848</commentid>
+            <who name="Tyler Downer [Triage] (do not e-mail) [Away]">tyler.downer</who>
+            <bug_when>2011-04-05 21:18:52 -0700</bug_when>
+            <thetext>you have adobe acrobate reader 5? Update to reader X and see if that helps.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

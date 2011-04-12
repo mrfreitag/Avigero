@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648330</bug_id>
+          
+          <creation_ts>2011-04-07 12:35:00 -0700</creation_ts>
+          <short_desc>Remove First Run page for Aurora Channel</short_desc>
+          <delta_ts>2011-04-11 19:47:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>Firefox4.2</target_milestone>
+          <dependson>648368</dependson>
+          <blocked>646236</blocked>
+    
+    <blocked>646870</blocked>
+    
+    <blocked>648332</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Mesa">lmesa</reporter>
+          <assigned_to name="Gavin Sharp">gavin.sharp</assigned_to>
+          <cc>dewmigg</cc>
+    
+    <cc>gavin.sharp</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>gjimenez</cc>
+    
+    <cc>johnath</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>mayumi</cc>
+    
+    <cc>robert.bugzilla</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="in-testsuite"
+          id="438783"
+          type_id="37"
+          status="-"
+          setter="gavin.sharp"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5394871</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-07 12:35:52 -0700</bug_when>
+            <thetext>We&apos;re trying to ascertain if there is a first run page for the aurora channel as it stands.  If there is, we&apos;d like to remove it. If we can&apos;t remove it for this release, we&apos;d like to remove/disable for subsequent releases.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394963</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-07 13:11:40 -0700</bug_when>
+            <thetext>This could be implemented by the update snippet itself via bug 459972 but I doubt that bug will be fixed anytime soon so it might be better to do this in the browser for now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395310</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-07 15:51:34 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; This could be implemented by the update snippet itself via bug 459972 but I
+&gt; doubt that bug will be fixed anytime soon so it might be better to do this in
+&gt; the browser for now.
+
+Sorry--Rob, not sure if your comment means that we can remove the first run page, but through the browser as opposed to through bug 459972 or if its not possible to remove it at all. Can you clarify?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395695</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-07 19:10:39 -0700</bug_when>
+            <thetext>The first run page is part of browser and not app update so I am not really the one to make the call but I believe it can be one-off&apos;d via nsBrowserContentHandler.js. Gavin would be able to answer this better than I can.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395917</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-07 21:38:17 -0700</bug_when>
+            <thetext>Gavin--
+
+Can you tell us if this is possible? We need to know soon in order for us to take care of creating a first run page tomorrow if not.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396492</commentid>
+            <who name="Gavin Sharp">gavin.sharp</who>
+            <bug_when>2011-04-08 08:01:50 -0700</bug_when>
+            <thetext>Sure, removing it based on the update channel is doable. We&apos;ll need to coordinate with releng to make sure we use the right build time channel name.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396595</commentid>
+            <who name="Gavin Sharp">gavin.sharp</who>
+            <bug_when>2011-04-08 09:32:17 -0700</bug_when>
+            <thetext>Actually, we can just do this by modifying the branding (an empty pref will result in no firstrun/whatsnew pages opening).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402638</commentid>
+            <who name="Gavin Sharp">gavin.sharp</who>
+            <bug_when>2011-04-11 19:47:01 -0700</bug_when>
+            <thetext>The Aurora branding currently does not include any firstrun or whatsnew pages - that can be revisited at later date.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

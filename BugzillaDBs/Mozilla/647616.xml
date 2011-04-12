@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647616</bug_id>
+          
+          <creation_ts>2011-04-03 17:00:00 -0700</creation_ts>
+          <short_desc>Address bar search does not work.</short_desc>
+          <delta_ts>2011-04-06 00:30:12 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Search</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>641271</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>cyberwolf12_2</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+    
+    <cc>hskupin</cc>
+          <qa_contact>search</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389579</commentid>
+            <who name="">cyberwolf12_2</who>
+            <bug_when>2011-04-03 17:00:21 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When doing a search using the address bar, I will get the following message (for example just typing google in the address bar)
+
+Firefox can&apos;t find the file at jar:file:///H:/Program Files (x86)/Mozilla Firefox/omni.jar!/chrome/en-US/locale/browser-region/region.propertiesgoogle.
+
+I do not know why it searches for a jar file with the word I put up there appended to it. Also, it does not happen to every computer I use.
+
+I have tried different things such as a fresh re-install of firefox (unistalling and deleting every files) to no avail.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Type &quot;google&quot; in the address bar.
+2.Press Enter.
+3.Wait a few seconds.
+Actual Results:  
+The following error happened: 
+
+Firefox can&apos;t find the file at jar:file:///H:/Program Files (x86)/Mozilla Firefox/omni.jar!/chrome/en-US/locale/browser-region/region.propertiesgoogle.
+
+Expected Results:  
+Seeing the google search page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389584</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-03 17:11:52 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389591</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-03 17:15:40 -0700</bug_when>
+            <thetext>This is 99% bug 641271, but cyberwolf, please give us some answers first:
+
+* Have you done a pave-over installation or an upgrade?
+* Which version of Firefox existed before?
+* Which locale of Firefox are you using?
+* Have you used zip builds before or always updated/installed a new version of Firefox?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389603</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-03 17:30:18 -0700</bug_when>
+            <thetext>Also do you use a cleanup tool on your machine which removes uninstaller log files? That would probably be the reason I&apos;m thinking of.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389771</commentid>
+            <who name="">cyberwolf12_2</who>
+            <bug_when>2011-04-03 21:41:50 -0700</bug_when>
+            <thetext>It still will do that with a new profile as well as in safe mode. I had initially done an upgrade from 4 RC2, but then when I had this problem, uninstalled and reinstalled. 
+
+Tomorrow as soon as I have some time for this, I will uninstall, run some tools to clear this as it was suggested in comment 3, and will let you know after reinstalling.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390696</commentid>
+            <who name="">cyberwolf12_2</who>
+            <bug_when>2011-04-04 18:05:17 -0700</bug_when>
+            <thetext>Thanks guys, I guess the uninstall did leave something behind as I have uninstalled, ran the cleaner, removed the Firefox entries and reinstalled. Now I get the home page when starting Firefox as well as being able to search with that bar. 
+
+If I see someone else talking about it I will let them know.
+
+Thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390751</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-04 19:52:24 -0700</bug_when>
+            <thetext>Marking as WFM - Fixed is only used when we know what specific code change resolved the issue.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392019</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 00:30:12 -0700</bug_when>
+            <thetext>That sounds really like bug 641271 then. Thanks.
+
+*** This bug has been marked as a duplicate of bug 641271 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647957</bug_id>
+          
+          <creation_ts>2011-04-06 02:11:00 -0700</creation_ts>
+          <short_desc>[meta] Make changes to cbo based on Google&apos;s Page Speed output</short_desc>
+          <delta_ts>2011-04-06 23:39:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Camino</product>
+          <component>Product Site</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://pagespeed.googlelabs.com/#url=http_3A_2F_2Fcaminobrowser.org_2F&amp;mobile=false</bug_file_loc>
+          
+          <keywords>meta</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Samuel Sidler (:ss)">samuel.sidler</reporter>
+          <assigned_to name="Samuel Sidler (:ss)">samuel.sidler</assigned_to>
+          <cc>phiw</cc>
+          <qa_contact>product.site</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392064</commentid>
+            <who name="Samuel Sidler (:ss)">samuel.sidler</who>
+            <bug_when>2011-04-06 02:11:57 -0700</bug_when>
+            <thetext>This is a meta bug for a number of bugs I&apos;m going to file on the output of Google&apos;s Page Speed utility.
+
+The output is available here: http://pagespeed.googlelabs.com/#url=http_3A_2F_2Fcaminobrowser.org_2F&amp;mobile=false
+
+We&apos;ll do as many of these changes as is reasonable.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392139</commentid>
+            <who name="philippe">phiw</who>
+            <bug_when>2011-04-06 04:47:01 -0700</bug_when>
+            <thetext>You could merge print.css with the main stylesheet (add at the bottom)
+
+@media print {
+/* stuff here ..... */
+
+}
+saves 1 http request.
+
+The rest of the report is much hair pulling, not much benefit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392999</commentid>
+            <who name="Smokey Ardisson (offline for a while; no bugmail - do not email)">alqahira</who>
+            <bug_when>2011-04-06 12:57:59 -0700</bug_when>
+            <thetext>Is Keep-Alive suddenly working on the server, or is it no longer recommended by GOOG?  It was the big-ticket item the other day when you linked to the report, and now it&apos;s not there.
+
+(In reply to comment #1)
+&gt; The rest of the report is much hair pulling, not much benefit.
+
+I pretty much agree with this; if we were able to set cache headers for the images on S3, I&apos;d tend to agree setting an expiration on them would be helpful, since they never change.  (Also, why is safari.png not on S3?)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394023</commentid>
+            <who name="philippe">phiw</who>
+            <bug_when>2011-04-06 23:39:48 -0700</bug_when>
+            <thetext>Had a second look at the report (and double checked with the pagespeed extension in Fx 3.6). One suggestion could improve page load time: massaging a little the stylesheets:
+
+* combine both stylesheets together, like this:
+  http://dev.l-c-n.com/camino/cbo/screen.css
+
+* link to the stylesheet first, before any linked js file.
+  Ideally, as the very first thing in the &lt;head&gt;
+
+* instead of using @import, link directly
+  iirc, the way screen.css is loaded now is a hack/filter/_… 
+  (hidding for IE5 Mac. That one is long dead, and combining both stylesheets will do the same).
+
+&lt;link rel=&quot;stylesheet&quot; media=&quot;all&quot; type=&quot;text/css&quot; href=&quot;/css/screen.css&quot;&gt;
+
+* gzipping the stylesheet will buy you much more than minifying (on average, gzip will reduce the file size by 70% on apache 2 - with no adverse effect).
+
+screen.css is currently 12,189bytes, gzipped it should come down to 3746 bytes
+
+in htaccess:
+&lt;FilesMatch &quot;\.(css)$&quot;&gt; 
+SetOutputFilter DEFLATE
+&lt;/FilesMatch&gt;
+
+---
+check your google analytics settings to load that stuff async - you&apos;ll need to swap some code.
+---
+
+some images could be further optimised: I&apos;ve put them on my server:
+http://dev.l-c-n.com/camino/cbo/image-optim/
+
+filename + _old is what is currently on cbo
+bg-footer_060c87479b017c1a08cefb81ff90f390.jpg is optimised by the pagespeed extension on fx 3.6. I&apos;ve done better :-) Ok, image-optim / JPEGoptim did the job.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

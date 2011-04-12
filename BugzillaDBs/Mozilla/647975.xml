@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647975</bug_id>
+          
+          <creation_ts>2011-04-06 04:45:00 -0700</creation_ts>
+          <short_desc>Google calculator search suggestions no longer appear [caused by HTTPS Everywhere]</short_desc>
+          <delta_ts>2011-04-07 09:28:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Extension Compatibility</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="WBT">firstpeterfourten</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+    
+    <cc>bugcuddler</cc>
+    
+    <cc>hskupin</cc>
+          <qa_contact>extension.compatibility</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392138</commentid>
+            <who name="WBT">firstpeterfourten</who>
+            <bug_when>2011-04-06 04:45:31 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Google Calculator search suggestions - or perhaps any search suggestion list of length 1 - no longer appears in Firefox 4.
+
+I&apos;m used to using the Google search bar as a handy in-browser calculator that doesn&apos;t take up any extra space (as an add-on would) and can handle complex expressions.  In FF3, all I have to do is type in the expression, maybe with an equals sign (=) at the end, and it shows me the calculation result as a single search suggestion.  I can then remember the result and input it wherever needed.
+
+Reproducible: Always
+
+Steps to Reproduce:
+In Google Search bar, type in a mathematical expression followed by an equals sign, such as &quot;2*2=&quot;.
+Actual Results:  
+Nothing happens. No search suggestions are shown.
+(If you hit enter to conduct the search, the result is displayed, but it takes over the tab to display the result).
+
+Expected Results:  
+A single search suggestion appears, namely &quot;=      4&quot;.
+This is the useful behavior of FF3.
+
+Personally, I see this as a major feature that broke in the &quot;upgrade.&quot;  I will not install FF4 on my other machines, and may revert on this one for my general use, until the bug is fixed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392297</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-06 08:18:43 -0700</bug_when>
+            <thetext>It works for me with a clean profile and:
+Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I do get the answer as a the topmost suggestion below the search bar and I do not need to press enter.
+
+Maybe you should test again with a new profile:
+https://support.mozilla.com/en-US/kb/Basic%20Troubleshooting#w_8-make-a-new-profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392757</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 11:34:17 -0700</bug_when>
+            <thetext>Are you talking about the Google Toolbar search field or the Firefox own one? As far as I can see it&apos;s for the Toolbar one, which you will have to report to the Google team instead.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392833</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-06 11:52:10 -0700</bug_when>
+            <thetext>To clarify, the thing I tested successfully in Comment 1 was the Firefox native search field in the Navigation toolbar.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392970</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-06 12:45:19 -0700</bug_when>
+            <thetext>Typing &quot;4-6=&quot; (no quotes) on the Minefield search bar gives me the result of &quot;=-2&quot; as the first Suggestion on Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre ID:20110406030427</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392998</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 12:57:53 -0700</bug_when>
+            <thetext>Sounds like an installed extension causes this problem for you in the original profile. Please disable extensions step by step or try safe mode: http://support.mozilla.com/en-US/kb/Safe+Mode</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393801</commentid>
+            <who name="WBT">firstpeterfourten</who>
+            <bug_when>2011-04-06 18:48:02 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Are you talking about the Google Toolbar search field or the Firefox own one?
+&gt; As far as I can see it&apos;s for the Toolbar one, which you will have to report to
+&gt; the Google team instead.
+Firefox&apos;s search field, not Google&apos;s Toolbar.
+
+(In reply to comment #5)
+&gt; Sounds like an installed extension causes this problem for you in the original
+&gt; profile. Please disable extensions step by step or try safe mode:
+&gt; http://support.mozilla.com/en-US/kb/Safe+Mode
+
+Thanks Henrik.  I should have thought of that but didn&apos;t, because I thought I had all the add-ons (and more) in my FF3 install that I had in FF4.
+
+The culprit was (is) HTTPS Everywhere, by the Electronic Frontier Foundation (EFF), at https://www.eff.org/https-everywhere.  Unchecking the Google Search translator cleared this issue up.
+
+I have also checked and duplicated the issue on FF 3.16.13.  Perhaps I installed this extension at about the same time as the upgrade!
+
+I&apos;m reporting the issue to their mailing list, with a link to this bug report.  I&apos;ve set the status here to resolved. 
+
+Thanks Thomas, Henrik, and Alex for your help!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394005</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-06 23:15:19 -0700</bug_when>
+            <thetext>WBT, just some extra information that may be relevant to you:
+
+You may consider replacing your Google search engine with one of the Google SSL search engines, like:
+https://addons.mozilla.org/en-US/firefox/addon/google-ssl-search/
+
+You can select Manage Search Engines by left clicking to the left in the search field.
+
+There are even more SSL search engines on https://addons.mozilla.org/en-US/firefox/search-tools/ so you can search with SSL on YouTube, Wikipedia etc as well.
+
+
+And if you put something like https://encrypted.google.com/search?q= in keyword.URL in about:config the searches done via the location bar will be encrypted as well.
+http://kb.mozillazine.org/Keyword.URL</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394540</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 09:28:40 -0700</bug_when>
+            <thetext>WBT, thanks for your feedback. It would be great if you can get in touch with the add-on developers and tell them about this issue.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647880</bug_id>
+          
+          <creation_ts>2011-04-05 13:15:00 -0700</creation_ts>
+          <short_desc>xml &lt;object&gt;, height attribute: value &apos;auto&apos; hides part of the object rendering</short_desc>
+          <delta_ts>2011-04-09 15:19:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Netsaver">paolo.salvarezza</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391476</commentid>
+            <who name="Netsaver">paolo.salvarezza</who>
+            <bug_when>2011-04-05 13:15:17 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When rendering a xml file containing the tag &lt;object data = &quot;filepath&quot; class = &quot;xmlfile&quot; style = &quot;height: auto&quot;&gt;, Firefox displays the object inside a box smaller than the size of the object.
+The &apos;auto&apos; value should compute the size required for rendering the content of the object (according also to its css sheet) and than adapt the outer box in order to host that content.
+Instead it is necessary to experiment for each object in the xml file a different height value (7em, 10em, 8.5 em...) up to find the ones matching the object size. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.create 2 xml files, A and B
+2.create an object tag inside A with address of B as data attribute
+3.put css automatic height as attribute
+4.browse A file in Firefox
+
+ 
+Actual Results:  
+5.check if all the content of B file is visible inside the object box: part of the content will be hidden
+6.change manually the height attribute up to reach the expected result
+
+Expected Results:  
+height:auto in the inline css or in the related css sheet should adapt object box size to the object content, computing rendered height of the content
+
+Firefox 3.6 and 4.0 (beta 10)
+Windows 7</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392211</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-06 06:30:24 -0700</bug_when>
+            <thetext>Can you attach the 2 xml examples?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398659</commentid>
+              <attachid>524883</attachid>
+            <who name="Netsaver">paolo.salvarezza</who>
+            <bug_when>2011-04-09 15:19:38 -0700</bug_when>
+            <thetext>Created attachment 524883
+examples
+
+example to show the effect of CSS height:auto on objects which are external and internal to a xml (or html) files.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524883</attachid>
+            <date>2011-04-09 15:19:00 -0700</date>
+            <delta_ts>2011-04-09 15:19:38 -0700</delta_ts>
+            <desc>examples</desc>
+            <filename>Obj-height-test.zip</filename>
+            <type>application/xml</type>
+            <size>999</size>
+            <attacher>paolo.salvarezza</attacher>
+            
+              <data encoding="base64">UEsDBBQAAAAIANkBij6NNgiFSgIAAPQHAAATAAAAT2JqLWhlaWdodC10ZXN0LnhtbOVVzW7bMAw+
+L0DegRCwW20vKAo0P05RDNhhlx3aPYBsMbFWW/Ispo437N0nK3JiO+u2dMcJOUT8Ez/yI7262xc5
+PGNlpFYxm4XvGKBKtZBqG7PPjx+CW3a3nk5WGVk7a6tMzDKichFFdV2H9XWoq200m8/n0b61YWvw
+ZzoBWGXIxVFyPK3KKgskDm2wAL/u5HPMUq0IFQXUlMjA32JGuKeoDb6ENOOVQYoPmUH0YmySlOP6
+U/IFU4IM5TYjIDT0gnl0sO9JDDUDAYB2wUKbTGD/wnfoK8E/sgC+I73sB29PLQVlne4kTnQlsFrA
+rNyD0bkUUKFYjnx/DO4+C6n+NYuRKpOEgSl5iouywrH6PNFthah+l+oqOpVwcPrdV7zAmG1RYcVJ
+V72m3xe84VdgEOGcb04ZDfvv+BYNCOdEiRbNKAmfQbl+zKQB++PK19W9z6Wy9G+F7XBsZI5XtnSU
+ucIVnGRq26RsPVorvenoxZXoKjx+KSoHGXipf1JwW4gY2OEa+AqEbpogzbmxI+dJd5quY+SDVz/8
+GTrKEIwtdIfRYTHym5WWmMqNRAFJAwVyZVo8UuVSIbx/eFgMnirHvXw9jh5n2uOY0vp29J3dhjdY
+LLt6Xt+8Xf4F9j8ixyJBISxcqZzObTW77fBXQIfoPAA/dwwGq+GV67Fz7jjbk50T2Ss6Ok8n93kO
+ta6eHPGUhjLnton8CQ185KkVg9hZk0Q308mbi4wvtL7U/CL7/wMnDE6fB4P1deSb+xyOlt94Ig4L
+8ehvP+IHr59QSwMEFAAAAAgAgAGKPidvfS+jAAAAlgIAABMAAABvYmplY3QtY29udGVudC5odG1s
+5ZJBCsIwEEXXFnqHT/c2iKuWtuDWW6RNMNK0CUkkze1NRUXrKmv/avjzGBh4wJpGuElimeRs20I4
+p2tCvPelP5bKXMihqiqyrEzR4Zk8e02N4JR1m468y82iVyzAuiB5W3hxdXxvNR14rQ1/HM+zk5Tw
+yoygM8OsoCUNmOjILc50iDXYLSK9Cnm2S4IT6VQ8if+PP/GVTz9WD378iNpEyTrcAVBLAQIUABQA
+AAAIANkBij6NNgiFSgIAAPQHAAATAAAAAAAAAAEAIAAAAAAAAABPYmotaGVpZ2h0LXRlc3QueG1s
+UEsBAhQAFAAAAAgAgAGKPidvfS+jAAAAlgIAABMAAAAAAAAAAQAgAAAAewIAAG9iamVjdC1jb250
+ZW50Lmh0bWxQSwUGAAAAAAIAAgCCAAAATwMAAAAA
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

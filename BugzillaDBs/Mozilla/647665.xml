@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647665</bug_id>
+          
+          <creation_ts>2011-04-04 03:54:00 -0700</creation_ts>
+          <short_desc>Url bar at bottom left does not disappear if link is removed from dom</short_desc>
+          <delta_ts>2011-04-07 06:35:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://firefogg.org/j/bugs/linkpreview.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>541656</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan Gerber">j</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+    
+    <cc>fullmetaljacket.xp+bugmail</cc>
+    
+    <cc>george.carstoiu</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389936</commentid>
+            <who name="Jan Gerber">j</who>
+            <bug_when>2011-04-04 03:54:38 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+If you hover over a link, the url shows up at the bottom right,
+if now the link element is removed from the dom(or the div around it), the url preview is not removed and sticks around forever.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. open http://firefogg.org/j/bugs/linkpreview.html
+2. move mouse over &apos;link&apos;
+Actual Results:  
+url preview stays around at bottom
+
+Expected Results:  
+url preview should be removed if the link that is previewed is removed from the dom</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389948</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 04:24:46 -0700</bug_when>
+            <thetext>I have reproduced the alleged bug in:
+Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110403 Firefox/4.2a1pre
+Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110403 Firefox/4.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394314</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-07 06:35:18 -0700</bug_when>
+            <thetext>Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Confirming issue on latest trunk.
+
+Present ever since Firefox 3.6.16</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

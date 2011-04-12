@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648130</bug_id>
+          
+          <creation_ts>2011-04-06 14:58:00 -0700</creation_ts>
+          <short_desc>master makefile needs to unset PYTHONPATH</short_desc>
+          <delta_ts>2011-04-11 05:08:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ben Hearsum [:bhearsum]">bhearsum</reporter>
+          <assigned_to name="Ben Hearsum [:bhearsum]">bhearsum</assigned_to>
+          
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393310</commentid>
+            <who name="Ben Hearsum [:bhearsum]">bhearsum</who>
+            <bug_when>2011-04-06 14:58:31 -0700</bug_when>
+            <thetext>Some masters have it set, which means that some of our masters will be $PYTHONPATH which often contains buildbotcustom :(.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395066</commentid>
+              <attachid>524481</attachid>
+            <who name="Ben Hearsum [:bhearsum]">bhearsum</who>
+            <bug_when>2011-04-07 13:58:29 -0700</bug_when>
+            <thetext>Created attachment 524481
+override PYTHONPATH</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524481</attachid>
+            <date>2011-04-07 13:58:00 -0700</date>
+            <delta_ts>2011-04-11 05:08:28 -0700</delta_ts>
+            <desc>override PYTHONPATH</desc>
+            <filename>fix-pythonpath.diff</filename>
+            <type>text/plain</type>
+            <size>336</size>
+            <attacher>bhearsum</attacher>
+            
+              <data encoding="base64">ZGlmZiAtciBiODUwOGM3NzdlZWIgTWFrZWZpbGUubWFzdGVyCi0tLSBhL01ha2VmaWxlLm1hc3Rl
+cglXZWQgQXByIDA2IDE0OjA2OjUwIDIwMTEgLTA3MDAKKysrIGIvTWFrZWZpbGUubWFzdGVyCVRo
+dSBBcHIgMDcgMTM6NTg6MDMgMjAxMSAtMDcwMApAQCAtMiw2ICsyLDcgQEAgUFdEPSQoc2hlbGwg
+cHdkKQogQlVJTERCT1Q9JChQV0QpL2Jpbi9idWlsZGJvdAogSEc9L3Rvb2xzL3B5dGhvbi9iaW4v
+aGcKIGV4cG9ydCBQWVRIT05ET05UV1JJVEVCWVRFQ09ERT0xCitleHBvcnQgUFlUSE9OUEFUSD0i
+IgogCiBzdGFydDoKIAljZCBtYXN0ZXIgJiYgJChCVUlMREJPVCkgc3RhcnQgJCRQV0QK
+</data>
+<flag name="review"
+          id="438138"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="438581"
+          type_id="481"
+          status="+"
+          setter="bhearsum"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

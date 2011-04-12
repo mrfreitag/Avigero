@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647742</bug_id>
+          
+          <creation_ts>2011-04-04 14:47:00 -0700</creation_ts>
+          <short_desc>&quot;do this automatically for files like this from now on&quot; is disabled most of the time</short_desc>
+          <delta_ts>2011-04-04 18:58:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>File Handling</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>647633</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Pete">cackelhorn</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+    
+    <cc>tyler.downer</cc>
+          <qa_contact>file.handling</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390509</commentid>
+            <who name="Pete">cackelhorn</who>
+            <bug_when>2011-04-04 14:47:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+This is a bug even if Matthias Versen (Matti) can&apos;t be bothered to accept it.
+People shouldn&apos;t be forced to use Internet explorer just because the firefox zealots can&apos;t be bothered to fix it.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.https://bugzilla.mozilla.org/show_bug.cgi?id=647633
+2.
+3.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390531</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 15:07:46 -0700</bug_when>
+            <thetext>Do not open multiple bugs if you are unhappy with a resolution.
+see https://bugzilla.mozilla.org/page.cgi?id=etiquette.html point 2.2
+
+*** This bug has been marked as a duplicate of bug 647633 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

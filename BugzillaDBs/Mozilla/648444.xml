@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648444</bug_id>
+          
+          <creation_ts>2011-04-07 18:54:00 -0700</creation_ts>
+          <short_desc>Mechanism for websites to get information like version, channel, etc. from the browser</short_desc>
+          <delta_ts>2011-04-08 12:50:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Robert Kaiser">kairo</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>antoine.mechelynck</cc>
+    
+    <cc>clegnitto</cc>
+    
+    <cc>dao</cc>
+    
+    <cc>djcater+bugzilla</cc>
+    
+    <cc>hsivonen</cc>
+    
+    <cc>kwierso</cc>
+    
+    <cc>mozaakash</cc>
+    
+    <cc>stevew</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395668</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-07 18:54:34 -0700</bug_when>
+            <thetext>For e.g. support websites, probably not only internal ones but also others, we will want some mechanism to fetch information about the browser like accurate version or channel, maybe other info as well.
+This should be a mechanism available to JS but outside the UA string (which can then be cut down more easily) and which need the user to opt into giving away the info, with possibly having a pre-created whitelist of some Mozilla sites like SUMO or AMO.
+The opt-in could be done in a similar fashion to what we do for Geolocation.
+
+I&apos;m not 100% sure which component this belongs to in the end, but it&apos;s IMHO important to have it filed so we can start figuring out what to do here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396148</commentid>
+            <who name="Henri Sivonen (:hsivonen)">hsivonen</who>
+            <bug_when>2011-04-08 00:54:44 -0700</bug_when>
+            <thetext>The API could be something like this:
+
+The page calls netscape.getSupportInfo(callback);. If the Origin of the caller is authorized to obtain support info, a task is queued on the event loop. (This is necessary to make sure the API is always async regardless of how authorization happens.) When the task fires, it calls |callback| with a single argument that is a JavaScript object along the lines of
+{
+  &quot;updateChannel&quot; : &quot;aurora&quot;,
+  &quot;preciseVersion&quot;: &quot;6.0.443839&quot;,
+  &quot;gpuAcceleratedWindows&quot;: &quot;0/2&quot;
+}
+
+This would allow new key-value pairs to be added over time, would allow values for some keys to be arrays, etc.
+
+(I think a totally product-specific API doesn&apos;t belong on the window object and doesn&apos;t belong on navigator. For historical reasons, our vendor object is called netscape. I think reusing that object makes sense.)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648117</bug_id>
+          
+          <creation_ts>2011-04-06 14:23:00 -0700</creation_ts>
+          <short_desc>automatically creating an empty tab and then I can&apos;t close any tab..</short_desc>
+          <delta_ts>2011-04-09 17:16:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>3.6 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.firefox.com</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Saed madanat">saed_madanat</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393217</commentid>
+            <who name="Saed madanat">saed_madanat</who>
+            <bug_when>2011-04-06 14:23:54 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 ( .NET CLR 3.5.30729; .NET4.0E)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 ( .NET CLR 3.5.30729; .NET4.0E)
+
+This is happening a lot, when I lots of tabs open, and I start closing some of them, an empty page is automatically created and after than I can&apos;t close any tab... the little (x) button stops functioning.. and I can&apos;t close any tab, so I close firefox.. when it opens things are fine again.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. open more than one tab (usually I open between 3-7 tabs)
+2. start closing them one by one, starting from the last one
+
+Actual Results:  
+an empty tab automatically appeared.. thus disabling me from closing any other tab
+
+Expected Results:  
+it should have closed the tabs I clicked (x) on</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393367</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 15:22:45 -0700</bug_when>
+            <thetext>Run Firefox in safe mode to make sure that no add-on is causing this problem:
+http://support.mozilla.com/en-US/kb/Safe+Mode
+
+Also please test again with Firefox 4.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

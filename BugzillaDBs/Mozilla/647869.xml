@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647869</bug_id>
+          
+          <creation_ts>2011-04-05 11:34:00 -0700</creation_ts>
+          <short_desc>Add &quot;BETA&quot; to Spark headers</short_desc>
+          <delta_ts>2011-04-06 09:33:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Guillaume Lecollinet">guillaume</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391390</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:34:44 -0700</bug_when>
+            <thetext>Opening this bug per TBG&apos;s request to add &quot;BETA&quot; to various places in the Spark website.
+
+TBG&apos;s recommandation:
+Please implement immediately. No PSD needed. 
+
+Put &quot;Beta&quot; in all 16px #FFFFFFF type under the headers on the mobile site and directly under the &quot;mozilla Firefox&quot; logo lockup on the browser site.
+
+This label will be removed once we have all the bugs &amp; enhancements fixed -- it&apos;s meant to be temporary. PSD can be found here for the mobile solution: http://staging.barbariangroup.com/1903/deliverables/BetaText.zip</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391392</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:36:20 -0700</bug_when>
+            <thetext>Would like to have the go-ahead from Mozilla for this, since it requires an urgent push to prod.
+
+Also, would like Mozilla to confirm that putting &quot;BETA&quot; just below the Mozilla Firefox logo is okay.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391839</commentid>
+            <who name="Caitlin Looney">clooney</who>
+            <bug_when>2011-04-05 21:06:11 -0700</bug_when>
+            <thetext>Hey Ryan,
+
+I&apos;d like to add &quot;Beta&quot; as soon as possible. What&apos;s your recommendation for getting this live as quickly as possible. When&apos;s the next website push?  Thanks!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392407</commentid>
+            <who name="Ryan Snyder [:ryansnyder] [:rsnyder] [:rysny]">ryansnyder.me+bugs</who>
+            <bug_when>2011-04-06 09:33:04 -0700</bug_when>
+            <thetext>Resolving as Invalid.  There is no sense in adding Beta to a website that has an 8 week lifespan.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

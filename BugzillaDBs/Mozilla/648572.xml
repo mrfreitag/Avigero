@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648572</bug_id>
+          
+          <creation_ts>2011-04-08 10:32:00 -0700</creation_ts>
+          <short_desc>Fx4 upgrade INFLUENCER campaign - add videos to influencer page</short_desc>
+          <delta_ts>2011-04-08 15:42:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          <blocked>648569</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jane Finette">jfinette</reporter>
+          <assigned_to name="Laura Forrest">lforrest</assigned_to>
+          <cc>gjost</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>williamr</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396800</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-08 10:32:03 -0700</bug_when>
+            <thetext>Please add hosted videos back into the single landing page at:
+http://www.mozilla.com/en-US/firefox/webhero/
+
+Bug number for video hosting is: bug 648569</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396807</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-08 10:32:45 -0700</bug_when>
+            <thetext>We&apos;re going to make the following edits to the copy.
+
+OLD COPY:
+Take them to school. Send a PDF guide that teaches them how to install Firefox
+4 on their Mac or PC. 
+
+
+NEW COPY:
+Take them to school. Send a video that teaches them how to install Firefox 4 on
+their Mac or PC. Or send them PDF instructions for Mac or PC instead.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647904</bug_id>
+          
+          <creation_ts>2011-04-05 15:31:00 -0700</creation_ts>
+          <short_desc>Firefox 4.0 bookmarks toolbar occasionally disappears</short_desc>
+          <delta_ts>2011-04-08 10:00:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>pcwaterton</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>farvnewho</cc>
+    
+    <cc>mak77</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391612</commentid>
+            <who name="">pcwaterton</who>
+            <bug_when>2011-04-05 15:31:36 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Can&apos;t really see any pattern as to why this happens. If I start a new session then the toolbar reappears. However, if I restore a session, or I reopen tabs from a session that has lost the bookmarks toolbar, then it goes missing on the new session aswell.
+
+I have checked that this isn&apos;t due to the way I have customised firefox.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+No idea, seems random
+Actual Results:  
+bookmarks toolbar disappears
+
+Expected Results:  
+not lost the toolbar</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392588</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 10:52:52 -0700</bug_when>
+            <thetext>Maybe you have some add-on badly interacting with the browser, try in safe mode plase: http://support.mozilla.com/kb/Safe+Mode
+when it disappears is the full bookmarks toolbar or only its contents?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392593</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 10:53:20 -0700</bug_when>
+            <thetext>And, how did you customize firefox? did you move bookmarks from their toolbar to a new position?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393146</commentid>
+            <who name="">pcwaterton</who>
+            <bug_when>2011-04-06 13:59:04 -0700</bug_when>
+            <thetext>I only have my bookmarks on the bookmarks toolbar. It is in its original position but I have disabled tabs on top. I have noticed that it tends to disappear when I open a link in a new window.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396511</commentid>
+            <who name="Mike Miller">farvnewho</who>
+            <bug_when>2011-04-08 08:30:03 -0700</bug_when>
+            <thetext>I experienced this on Windows 7 x64 with 4.0.
+
+1) I moved the home button from the right side to the left of the location field.
+2) After closing the toolbar editor, all my toolbars were appearing, including those I had unchecked like Google toolbar.
+3) I restarted, and after that no toolbars appeared at all.
+4) I went into options and reset toolbars to default, then moved the home button again and everything is fine.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396687</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-08 10:00:53 -0700</bug_when>
+            <thetext>@Mike, that looks like a localstore.rdf corruption, doubt we can do much for that.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

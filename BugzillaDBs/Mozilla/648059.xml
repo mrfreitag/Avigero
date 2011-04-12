@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648059</bug_id>
+          
+          <creation_ts>2011-04-06 11:36:00 -0700</creation_ts>
+          <short_desc>show &quot;username&quot; forgot form after invalid reset code</short_desc>
+          <delta_ts>2011-04-06 11:36:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Services</product>
+          <component>Server: Account Portal</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Richard Soderberg [:atoll]">rsoderberg</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>account-portal</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392770</commentid>
+            <who name="Richard Soderberg [:atoll]">rsoderberg</who>
+            <bug_when>2011-04-06 11:36:03 -0700</bug_when>
+            <thetext>When someone triggers the &quot;invalid reset code&quot; error, show the original &quot;forgot password&quot; form that asks for a username, rather than the &quot;enter new password&quot; form which is no longer appropriate.
+
+Steps to reproduce:
+
+1. Go to https://account.services.mozilla.com/forgot?username=floatingatoll&amp;key=BLAH-BLAH-BLAH-BLAH
+2. Enter some nonsense password twice and submit</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

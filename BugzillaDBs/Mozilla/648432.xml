@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648432</bug_id>
+          
+          <creation_ts>2011-04-07 17:13:00 -0700</creation_ts>
+          <short_desc>Adjust update script to tell zeus to remove the node from the server pool</short_desc>
+          <delta_ts>2011-04-11 13:54:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Web Content Push</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wil Clouser [:clouserw]">clouserw</reporter>
+          <assigned_to name="Jeremy Orem [oremj@mozilla.com]">jeremy.orem+bugs</assigned_to>
+          <cc>jdow</cc>
+    
+    <cc>jeremy.orem+bugs</cc>
+    
+    <cc>krupa.mozbugs</cc>
+    
+    <cc>mozwebqa</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395520</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-07 17:13:51 -0700</bug_when>
+            <thetext>We talked about this in the infra meeting this morning.  We should adjust the preview auto-update script as well as the production push script to have zeus rotate out the boxes getting apache restarted so we have zero downtime.
+
+Apparently bugzilla already does this, so you can probably steal their script.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

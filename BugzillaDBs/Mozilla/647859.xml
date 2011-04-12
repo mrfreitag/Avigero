@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647859</bug_id>
+          
+          <creation_ts>2011-04-05 11:06:00 -0700</creation_ts>
+          <short_desc>Users should be redirected to &quot;Boost your Spark&quot; immediately after registration</short_desc>
+          <delta_ts>2011-04-10 11:12:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>1.1</target_milestone>
+          <dependson>648519</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Franck Lecollinet">franck.bugzilla</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391356</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:06:32 -0700</bug_when>
+            <thetext>Opening this bug per TBG&apos;s request to redirect users to boost your spark step 1 just after the registration.
+
+The link remains in the menu if they skip this step.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392296</commentid>
+            <who name="Franck Lecollinet">franck.bugzilla</who>
+            <bug_when>2011-04-06 08:15:19 -0700</bug_when>
+            <thetext>The boost process now comes directly after user registration.
+
+Commit:
+https://github.com/mozilla/spark/commit/45a3f9a1f029a4b4b371fa958ff7a252071f2627</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396990</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-08 11:24:32 -0700</bug_when>
+            <thetext>reopening as this should also happen after registering on the desktop</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

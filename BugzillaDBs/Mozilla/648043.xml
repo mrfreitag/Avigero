@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648043</bug_id>
+          
+          <creation_ts>2011-04-06 11:10:00 -0700</creation_ts>
+          <short_desc>requesting alias of robc@mozilla.com for rcampbell</short_desc>
+          <delta_ts>2011-04-06 12:16:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Account Requests</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Rob Campbell [:rc] (robcee)">rcampbell</reporter>
+          <assigned_to name="Justin Lazaro [:jlazaro]">jlazaro</assigned_to>
+          <cc>jlazaro</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392658</commentid>
+            <who name="Rob Campbell [:rc] (robcee)">rcampbell</who>
+            <bug_when>2011-04-06 11:10:24 -0700</bug_when>
+            <thetext>Hi,
+
+I&apos;d like an additional email alias of robc@mozilla.com attached to my account. 
+
+thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392882</commentid>
+            <who name="Justin Lazaro [:jlazaro]">jlazaro</who>
+            <bug_when>2011-04-06 12:04:01 -0700</bug_when>
+            <thetext>Looks like you already have this alias, closing out</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392913</commentid>
+            <who name="Rob Campbell [:rc] (robcee)">rcampbell</who>
+            <bug_when>2011-04-06 12:16:47 -0700</bug_when>
+            <thetext>wow! sorry for the unnecessary bug. Must&apos;ve forgotten my original request for it. Thank you. :)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

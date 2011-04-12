@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647760</bug_id>
+          
+          <creation_ts>2011-04-04 18:55:00 -0700</creation_ts>
+          <short_desc>Enter key doesn&apos;t work for an element with contentEditable attribute inside a li</short_desc>
+          <delta_ts>2011-04-05 12:47:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Editor</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>460740</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Satheesh">satheesh_cet</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alice0775</cc>
+    
+    <cc>aravind</cc>
+    
+    <cc>jbecerra</cc>
+    
+    <cc>matspal</cc>
+          <qa_contact>editor</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390725</commentid>
+            <who name="Satheesh">satheesh_cet</who>
+            <bug_when>2011-04-04 18:55:37 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+The page has a div element with contentEditable=true attribute inside a li. Enter key is not responding in this case. It works fine if the div is not inside a li element.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Create a page with the following markup &lt;ul&gt;&lt;li&gt;&lt;div contentEditable=true&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;
+2.Try to type inside the div and type Enter key
+3.
+Actual Results:  
+Enter key doesn&apos;t respond other keys works
+
+Expected Results:  
+New line when enter key is pressed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390893</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-05 00:49:58 -0700</bug_when>
+            <thetext>Confirmed. Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390979</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-05 03:59:46 -0700</bug_when>
+            <thetext>Hmm, Enter creates a sibling &lt;div&gt; for me, 20110404 4.2a1pre on Linux.
+Adding stuff to the DOM outside the root is wrong of course,
+I would expect a new line in the currently edited &lt;div&gt;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391451</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-05 12:37:23 -0700</bug_when>
+            <thetext>duplicate of Bug 460740 ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391458</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-05 12:47:44 -0700</bug_when>
+            <thetext>Yeah, the second case in that bug is the same as is.  I&apos;ll make a note
+in that bug...
+
+*** This bug has been marked as a duplicate of bug 460740 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

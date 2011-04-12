@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648050</bug_id>
+          
+          <creation_ts>2011-04-06 11:23:00 -0700</creation_ts>
+          <short_desc>JM+TI: separate VM and IC operations when updating ICs</short_desc>
+          <delta_ts>2011-04-08 01:54:10 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>608741</blocked>
+          <votes>3</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian Hackett">bhackett1024</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>ask</cc>
+    
+    <cc>dbcooper.nz</cc>
+    
+    <cc>dvander</cc>
+    
+    <cc>fullmetaljacket.xp+bugmail</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392711</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 11:23:27 -0700</bug_when>
+            <thetext>Currently recompilation interacts poorly with IC generation code.  The generation code interleaves calls into the VM with accesses of the ICs, and these VM calls can trigger recompilation which invalidates the ICs.  As a result, we check all over the place to see if recompilations have been triggered, and get memory corruption bugs if we miss a spot.
+
+It would be better to factor the IC code so that while we still have the same basic design, VM and IC operations are not interleaved and the resulting code is less error prone.  The basic model would be:
+
+1. Locally store all information we need from the IC to do the op (involved atoms, etc.)
+
+2. Call into a separate function to do the op, all involved VM operations and record information relevant to IC generation (before/after shape for ADDPROP, etc.).  This function would not have the IC available, thus could not access it.
+
+3. If we recompiled, return to JIT code without touching the IC.
+
+4. Otherwise, update the IC&apos;s state and generate a stub if necessary.  This process should not call back into the VM, which we could enforce with code review and with limited assertions (i.e. nothing was recompiled while processing the IC).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

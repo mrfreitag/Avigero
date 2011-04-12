@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647906</bug_id>
+          
+          <creation_ts>2011-04-05 15:44:00 -0700</creation_ts>
+          <short_desc>Spacebar no longer submits/dismisses Javascript dialog boxes</short_desc>
+          <delta_ts>2011-04-06 00:39:45 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Keyboard Navigation</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://setgame.com/puzzle/set.htm</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>bbeyenhof</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>jbecerra</cc>
+          <qa_contact>keyboard.navigation</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391627</commentid>
+            <who name="">bbeyenhof</who>
+            <bug_when>2011-04-05 15:44:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+In all versions of Firefox prior to Fx4, I was able to dismiss javascript dialogs with the space bar (which would &quot;click&quot; the default/highlighted button). In Firefox 4, this no longer works. The Enter/return key still makes them go away, but spacebar no longer does.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to &lt;http://www.javascripter.net/faq/alert.htm&gt;
+2. Click &quot;try it now&quot;
+3. Hit the spacebar.
+Actual Results:  
+The dialog box remains on the screen.
+
+Expected Results:  
+The dialog box should go away, as if I&apos;d clicked the &apos;OK&apos; button.
+
+The spacebar will dismiss the dialog on Windows and Linux; this is an OS X-only problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392027</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-06 00:39:45 -0700</bug_when>
+            <thetext>Confirmed on Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre
+Unable to exit the dialog by pressing the space button.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

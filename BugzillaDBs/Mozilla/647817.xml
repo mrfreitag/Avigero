@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647817</bug_id>
+          
+          <creation_ts>2011-04-05 07:04:00 -0700</creation_ts>
+          <short_desc>thunderbird trunk l10n nightlies missing since 21.03</short_desc>
+          <delta_ts>2011-04-06 06:23:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Messaging</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Stefan Plewako">splewako</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>release</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391097</commentid>
+            <who name="Stefan Plewako">splewako</who>
+            <bug_when>2011-04-05 07:04:00 -0700</bug_when>
+            <thetext>It seems that Thunderbird l10n nightly builds for comm-central are not generated
+at least since 21.03.2011 (over two weeks now) - it hurts our qa.
+
+ftp://ftp.mozilla.org/pub/thunderbird/nightly/latest-comm-central-l10n/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391823</commentid>
+            <who name="Mark Banner (:standard8)">bugzilla</who>
+            <bug_when>2011-04-05 20:22:00 -0700</bug_when>
+            <thetext>This directory is currently a symlink to the latest-comm-2.0-l10n directory. It displays today&apos;s nightlies when I load it. Can you re-check?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392209</commentid>
+            <who name="Stefan Plewako">splewako</who>
+            <bug_when>2011-04-06 06:23:56 -0700</bug_when>
+            <thetext>Indeed now it&apos;s ok.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

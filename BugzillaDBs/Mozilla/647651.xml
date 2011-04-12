@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647651</bug_id>
+          
+          <creation_ts>2011-04-04 00:02:00 -0700</creation_ts>
+          <short_desc>Popup blocker is not working on clicking a link</short_desc>
+          <delta_ts>2011-04-04 14:24:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.ynetnews.com/home/0,7340,L-3083,00.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="alan">alanfendrich</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389860</commentid>
+            <who name="alan">alanfendrich</who>
+            <bug_when>2011-04-04 00:02:43 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla 4.0
+
+Site seems to have defeated popup blocker
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Click on any story
+2.
+3.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389861</commentid>
+            <who name="alan">alanfendrich</who>
+            <bug_when>2011-04-04 00:03:27 -0700</bug_when>
+            <thetext>http://www.ynetnews.com/home/0,7340,L-3083,00.html</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390480</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-04 14:24:19 -0700</bug_when>
+            <thetext>I clicked a couple stories and got no pop-ups on Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre ID:20110404030429
+
+Please close this bug as it doesn&apos;t look like one. 
+Try the steps detailed at http://support.mozilla.com/en-US/kb/Is%20my%20Firefox%20problem%20a%20result%20of%20malware/ and if your problem persists get further help on http://support.mozilla.com/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

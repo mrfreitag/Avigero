@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647613</bug_id>
+          
+          <creation_ts>2011-04-03 16:33:00 -0700</creation_ts>
+          <short_desc>Double-clicking on the tab bar resizes the window</short_desc>
+          <delta_ts>2011-04-03 17:23:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>576807</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>jaci.coningham</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389552</commentid>
+            <who name="">jaci.coningham</who>
+            <bug_when>2011-04-03 16:33:01 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When tabs are set to be on top, alongside the new menu button, double-clicking on an empty spot on the bar will resize the window when maximized instead of create a new tab. When the window is resized, however, the tab bar moves below the menu button, so double-clicking on an empty spot will create a new tab.
+
+Note that there is no menu bar visible, just the button.
+
+Workarounds include having a &quot;new tab&quot; button in the tab bar or using the keyboard shortcut Ctrl + T. The issue with the shortcut is that it usually gets disabled when viewing sites with Flash.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Have the tab bar located to the right of the menu button;
+2. Make sure the program&apos;s window is maximized;
+3. Double-click on an empty spot in the tab bar;
+4. The window resizes and moves the tab bar down;
+5. Double-click on an empty spot again and a new tab is created.
+Actual Results:  
+A new tab was created only when the window resized, moving the tab bar down instead of keeping it in the same place as before, that is, next to the menu button.
+
+Expected Results:  
+Double-clicking on an empty spot in the tab bar should result in a new tab when the window is maximized.
+The tab bar location should not be different when the window is resized.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389595</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-03 17:23:00 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 576807 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

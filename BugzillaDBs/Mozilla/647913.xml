@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647913</bug_id>
+          
+          <creation_ts>2011-04-05 16:47:00 -0700</creation_ts>
+          <short_desc>Tech Evangelism Website Archived</short_desc>
+          <delta_ts>2011-04-05 16:47:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www-archive.mozilla.org/projects/tech-evangelism/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Christopher Lynch [:Christopher]">cl58.bmo</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>reed</cc>
+          <qa_contact>www-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391685</commentid>
+            <who name="Christopher Lynch [:Christopher]">cl58.bmo</who>
+            <bug_when>2011-04-05 16:47:16 -0700</bug_when>
+            <thetext>The Mozilla Tech Evangelism website (http://www-archive.mozilla.org/projects/tech-evangelism/) is not on the new Mozilla site.  The Tech Evangelism site should be available on the new site as it is still relevant and is even still linked to on the Bugzilla new bug page.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

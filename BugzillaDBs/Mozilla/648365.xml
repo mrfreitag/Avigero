@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648365</bug_id>
+          
+          <creation_ts>2011-04-07 14:30:00 -0700</creation_ts>
+          <short_desc>Cross domain access to flash plugin now broken (worked fine in latest 3.6 version)</short_desc>
+          <delta_ts>2011-04-07 19:58:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="Justin">harsh24x7</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395138</commentid>
+            <who name="Justin">harsh24x7</who>
+            <bug_when>2011-04-07 14:30:54 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Using a frameset in domain1.domain.com accessing externalinterface exposed by flash movie in domain2.domain.com causes a problem (all pages have document.domain set properly and were working for all in FF 3.x prior to installing 4.0).
+
+In the frameset page on domain1 use javascript to do the following:
+top.&lt;frameName&gt;.document.embeds[&quot;flashMovie&quot;].exposedMethod(&quot;value&quot;);
+
+SWF never receives call and Firebug give the following error:
+Error: Bad NPObject as private data!
+
+
+
+There is a workaround to this issue which isn&apos;t a very good solution to the problem:
+Using the frameset page on domain1 use javascript to call the following:
+top.&lt;frameName&gt;.eval(&quot;document.embeds[&apos;flashMovie&apos;].exposedMethod(&apos;vlue&apos;)&quot;);
+
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.frameset in domain1 access externalInterface in Javascript exposed by movie located in domain2
+2.flash never receives call and get an error in the debug information
+3.
+Actual Results:  
+Error: Bad NPObject as private data!
+
+
+
+
+Expected Results:  
+Flash movie should receive the function call.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

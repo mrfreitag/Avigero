@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648345</bug_id>
+          
+          <creation_ts>2011-04-07 13:20:00 -0700</creation_ts>
+          <short_desc>pm-dekiwiki01 down</short_desc>
+          <delta_ts>2011-04-07 13:20:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phong Tran [:phong]">phong</reporter>
+          <assigned_to name="Jeremy Orem [oremj@mozilla.com]">jeremy.orem+bugs</assigned_to>
+          
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394980</commentid>
+            <who name="Phong Tran [:phong]">phong</who>
+            <bug_when>2011-04-07 13:20:12 -0700</bug_when>
+            <thetext>Had to rebuild the O/S.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

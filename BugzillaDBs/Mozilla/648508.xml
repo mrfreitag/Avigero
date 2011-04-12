@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648508</bug_id>
+          
+          <creation_ts>2011-04-08 03:20:00 -0700</creation_ts>
+          <short_desc>Remove the Windows CE code for accelerometer support (follow up)</short_desc>
+          <delta_ts>2011-04-11 19:52:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>DOM: Mozilla Extensions</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows CE</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          <blocked>614720</blocked>
+    
+    <blocked>644743</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ed Morley">bmo</reporter>
+          <assigned_to name="Ed Morley">bmo</assigned_to>
+          <cc>ben</cc>
+    
+    <cc>ehsan</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396244</commentid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-08 03:20:22 -0700</bug_when>
+            <thetext>Bug 644743 removed the WinCE code for accelerometer support, however there are a few remnants left of:
+
+&gt; #if !defined(WINCE) &amp;&amp; !defined(WINCE_WINDOWS_MOBILE) // normal windows.
+
+Since the #ifdef WINCE_WINDOWS_MOBILE cases have been removed; checking
+for the opposite is now presumably redundant (see bug 644743 comment 4).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396308</commentid>
+              <attachid>524610</attachid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-08 05:48:43 -0700</bug_when>
+            <thetext>Created attachment 524610
+Patch (v1)
+
+This is my first patch, hopefully I&apos;ve set up my hgrc correctly.
+
+Ehsan, I don&apos;t have Try access - would you possibly mind vouching for level 1 so I can use try? ie per: http://www.mozilla.org/hacking/commit-access-policy/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396895</commentid>
+              <attachid>524610</attachid>
+            <who name="Johnny Stenback (:jst, jst@mozilla.com)">jst</who>
+            <bug_when>2011-04-08 10:56:04 -0700</bug_when>
+            <thetext>Comment on attachment 524610
+Patch (v1)
+
+Looks good! r=jst</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397023</commentid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-08 11:30:50 -0700</bug_when>
+            <thetext>Thanks!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398575</commentid>
+            <who name="Benjamin Stover (:stechz)">ben</who>
+            <bug_when>2011-04-09 12:57:55 -0700</bug_when>
+            <thetext>Pushed: http://hg.mozilla.org/mozilla-central/rev/6ff088b689a3</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398577</commentid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-09 13:00:03 -0700</bug_when>
+            <thetext>Thanks :-)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402646</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-11 19:52:04 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Ehsan, I don&apos;t have Try access - would you possibly mind vouching for level 1
+&gt; so I can use try? ie per: http://www.mozilla.org/hacking/commit-access-policy/
+
+Of course!  Just file the bug and CC me.  And thanks for your patch!  :-)</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524610</attachid>
+            <date>2011-04-08 05:48:00 -0700</date>
+            <delta_ts>2011-04-08 10:56:04 -0700</delta_ts>
+            <desc>Patch (v1)</desc>
+            <filename>648508.patch</filename>
+            <type>text/plain</type>
+            <size>2382</size>
+            <attacher>bmo</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEVkIE1vcmxleSA8Ym1vQGVkbW9ybGV5LmNvLnVr
+PgojIERhdGUgMTMwMjI2NjAzMyAtMzYwMAojIE5vZGUgSUQgMjhmZTQ4OGIyMjE5MmZjZTAxMDU5
+ODg1YzgyMzg5ODc5Mzc1MzczNAojIFBhcmVudCAgMjdkNmE0YTVlMjBmMjVjNDgzM2ZhOTVlNzhk
+N2Y4M2E4ODllYTJkZApCdWcgNjQ4NTA4IC0gUmVtb3ZlIHRoZSBXaW5kb3dzIENFIGNvZGUgZm9y
+IGFjY2VsZXJvbWV0ZXIgc3VwcG9ydCAoZm9sbG93IHVwKTsgcj1qc3QKCmRpZmYgLS1naXQgYS9k
+b20vc3lzdGVtL3dpbmRvd3MvbnNBY2NlbGVyb21ldGVyU3lzdGVtLmNwcCBiL2RvbS9zeXN0ZW0v
+d2luZG93cy9uc0FjY2VsZXJvbWV0ZXJTeXN0ZW0uY3BwCi0tLSBhL2RvbS9zeXN0ZW0vd2luZG93
+cy9uc0FjY2VsZXJvbWV0ZXJTeXN0ZW0uY3BwCisrKyBiL2RvbS9zeXN0ZW0vd2luZG93cy9uc0Fj
+Y2VsZXJvbWV0ZXJTeXN0ZW0uY3BwCkBAIC0zNCwxOCArMzQsMTYgQEAKICAqIHRoZSB0ZXJtcyBv
+ZiBhbnkgb25lIG9mIHRoZSBNUEwsIHRoZSBHUEwgb3IgdGhlIExHUEwuCiAgKgogICogKioqKiog
+RU5EIExJQ0VOU0UgQkxPQ0sgKioqKiogKi8KIAogI2luY2x1ZGUgIm5zQWNjZWxlcm9tZXRlclN5
+c3RlbS5oIgogI2luY2x1ZGUgIm5zSVNlcnZpY2VNYW5hZ2VyLmgiCiAjaW5jbHVkZSAid2luZG93
+cy5oIgogCi0jaWYgIWRlZmluZWQoV0lOQ0UpICYmICFkZWZpbmVkKFdJTkNFX1dJTkRPV1NfTU9C
+SUxFKSAvLyBub3JtYWwgd2luZG93cy4KLQogLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLwog
+Ly8gVGhpbmtQYWQKIC8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8KIAogdHlwZWRlZiBzdHJ1
+Y3QgewogICBpbnQgc3RhdHVzOyAvLyBDdXJyZW50IGludGVybmFsIHN0YXRlCiAgIHVuc2lnbmVk
+IHNob3J0IHg7IC8vIHJhdyB2YWx1ZQogICB1bnNpZ25lZCBzaG9ydCB5OyAvLyByYXcgdmFsdWUK
+QEAgLTExNiwxOCArMTE0LDE2IEBAIFRoaW5rUGFkU2Vuc29yOjpHZXRWYWx1ZXMoZG91YmxlICp4
+LCBkb3UKICAgLy8gYWNjZWxEYXRhLnggYW5kIGFjY2VsRGF0YS55IGlzIHRoZSBhY2NlbGVyYXRp
+b24gbWVhc3VyZWQgZnJvbSB0aGUgYWNjZWxlcm9tZXRlci4KICAgLy8geCBhbmQgeSBpcyBzd2l0
+Y2hlZCBmcm9tIHdoYXQgd2UgdXNlLCBhbmQgdGhlIGFjY2VsZXJvbWV0ZXIgZG9lcyBub3Qgc3Vw
+cG9ydCB6IGF4aXMuCiAgIC8vIEJhbGFuY2UgcG9pbnQgKDUyNiwgNTI4KSBhbmQgOTAgZGVncmVl
+IHRpbHQgKDE0NCkgZGV0ZXJtaW5lZCBleHBlcmltZW50YWxseS4KICAgKnggPSAoKGRvdWJsZSko
+YWNjZWxEYXRhLnkgLSA1MjYpKSAvIDE0NDsKICAgKnkgPSAoKGRvdWJsZSkoYWNjZWxEYXRhLngg
+LSA1MjgpKSAvIDE0NDsKICAgKnogPSAxLjA7CiB9CiAKLSNlbmRpZgotCiBuc0FjY2VsZXJvbWV0
+ZXJTeXN0ZW06Om5zQWNjZWxlcm9tZXRlclN5c3RlbSgpe30KIG5zQWNjZWxlcm9tZXRlclN5c3Rl
+bTo6fm5zQWNjZWxlcm9tZXRlclN5c3RlbSgpe30KIAogdm9pZAogbnNBY2NlbGVyb21ldGVyU3lz
+dGVtOjpVcGRhdGVIYW5kbGVyKG5zSVRpbWVyICphVGltZXIsIHZvaWQgKmFDbG9zdXJlKQogewog
+ICBuc0FjY2VsZXJvbWV0ZXJTeXN0ZW0gKnNlbGYgPSByZWludGVycHJldF9jYXN0PG5zQWNjZWxl
+cm9tZXRlclN5c3RlbSAqPihhQ2xvc3VyZSk7CiAgIGlmICghc2VsZiB8fCAhc2VsZi0+bVNlbnNv
+cikgewpAQCAtMTQwLDI0ICsxMzYsMjAgQEAgbnNBY2NlbGVyb21ldGVyU3lzdGVtOjpVcGRhdGVI
+YW5kbGVyKG5zSQogfQogCiB2b2lkIG5zQWNjZWxlcm9tZXRlclN5c3RlbTo6U3RhcnR1cCgpCiB7
+CiAgIE5TX0FTU0VSVElPTighbVNlbnNvciwgIm1TZW5zb3Igc2hvdWxkIGJlIG51bGwuICBTdGFy
+dHVwIGNhbGxlZCB0d2ljZT8iKTsKIAogICBQUkJvb2wgc3RhcnRlZCA9IFBSX0ZBTFNFOwogCi0j
+aWYgIWRlZmluZWQoV0lOQ0UpICYmICFkZWZpbmVkKFdJTkNFX1dJTkRPV1NfTU9CSUxFKSAvLyBu
+b3JtYWwgd2luZG93cy4KLQogICBtU2Vuc29yID0gbmV3IFRoaW5rUGFkU2Vuc29yKCk7CiAgIGlm
+IChtU2Vuc29yKQogICAgIHN0YXJ0ZWQgPSBtU2Vuc29yLT5TdGFydHVwKCk7CiAKLSNlbmRpZgot
+CiAgIGlmICghc3RhcnRlZCkKICAgICByZXR1cm47CiAKICAgbVVwZGF0ZVRpbWVyID0gZG9fQ3Jl
+YXRlSW5zdGFuY2UoIkBtb3ppbGxhLm9yZy90aW1lcjsxIik7CiAgIGlmIChtVXBkYXRlVGltZXIp
+CiAgICAgbVVwZGF0ZVRpbWVyLT5Jbml0V2l0aEZ1bmNDYWxsYmFjayhVcGRhdGVIYW5kbGVyLAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdGhpcywKICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1VcGRhdGVJbnRlcnZhbCwK
+</data>
+<flag name="review"
+          id="438230"
+          type_id="4"
+          status="+"
+          setter="jst"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

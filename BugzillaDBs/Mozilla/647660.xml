@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647660</bug_id>
+          
+          <creation_ts>2011-04-04 02:29:00 -0700</creation_ts>
+          <short_desc>NativeMethodInfo used without properly populating it&apos;s fields in AOT mode</short_desc>
+          <delta_ts>2011-04-06 10:41:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Tamarin</product>
+          <component>Virtual Machine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>P2</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>Q2 11 - Wasabi</target_milestone>
+          
+          
+          
+          
+          <reporter name="Alok Manchanda">almancha</reporter>
+          <assigned_to name="Steven Johnson">stejohns</assigned_to>
+          <cc>alexmac</cc>
+    
+    <cc>almancha</cc>
+    
+    <cc>dansmith</cc>
+    
+    <cc>dsingh</cc>
+    
+    <cc>edwsmith</cc>
+    
+    <cc>stejohns</cc>
+          <qa_contact>vm</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="flashplayer-injection"
+          id="437875"
+          type_id="613"
+          status="-"
+          setter="dansmith"
+    />
+    <flag name="flashplayer-qrb"
+          id="437876"
+          type_id="439"
+          status="+"
+          setter="dansmith"
+    />
+    <flag name="flashplayer-bug"
+          id="437877"
+          type_id="705"
+          status="+"
+          setter="dansmith"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5389916</commentid>
+            <who name="Alok Manchanda">almancha</who>
+            <bug_when>2011-04-04 02:29:57 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: 
+
+NativeMethodInfo contains a pointer to to C++ member function (AvmThunkNativeMethodHandler), the size of which exceeds a regular function pointer. As it&apos;s being set to a function pointer, part of it remains uninitialized.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389917</commentid>
+              <attachid>523960</attachid>
+            <who name="Alok Manchanda">almancha</who>
+            <bug_when>2011-04-04 02:32:00 -0700</bug_when>
+            <thetext>Created attachment 523960
+Proposed fix</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390250</commentid>
+            <who name="Edwin Smith">edwsmith</who>
+            <bug_when>2011-04-04 09:39:52 -0700</bug_when>
+            <thetext>A related problem was found with valgrind and fixed by bug 596608.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390286</commentid>
+              <attachid>523960</attachid>
+            <who name="Steven Johnson">stejohns</who>
+            <bug_when>2011-04-04 10:27:31 -0700</bug_when>
+            <thetext>Comment on attachment 523960
+Proposed fix
+
+Looks good; probably worth adding comments to each site explaining that we must zero the entire union.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390867</commentid>
+              <attachid>524041</attachid>
+            <who name="Alok Manchanda">almancha</who>
+            <bug_when>2011-04-04 23:51:19 -0700</bug_when>
+            <thetext>Created attachment 524041
+Updated previous submission to add comments as suggested by Steven</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391209</commentid>
+              <attachid>524041</attachid>
+            <who name="Steven Johnson">stejohns</who>
+            <bug_when>2011-04-05 09:09:21 -0700</bug_when>
+            <thetext>Comment on attachment 524041
+Updated previous submission to add comments as suggested by Steven
+
+Looks good. Is there any real reason to mark this as a &quot;security&quot; bug? If not, I can push this for you.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391371</commentid>
+            <who name="Alok Manchanda">almancha</who>
+            <bug_when>2011-04-05 11:19:26 -0700</bug_when>
+            <thetext>It computes the address to invoke based on uninitialized memory on the stack - I wasn&apos;t sure if it could be exploited, but didn&apos;t want to take a chance. If you think it&apos;s safe could you please push it? Thanks!
+(In reply to comment #5)
+&gt; Comment on attachment 524041 [details]
+&gt; Updated previous submission to add comments as suggested by Steven
+&gt; 
+&gt; Looks good. Is there any real reason to mark this as a &quot;security&quot; bug? If not,
+&gt; I can push this for you.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391373</commentid>
+            <who name="Steven Johnson">stejohns</who>
+            <bug_when>2011-04-05 11:21:39 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; It computes the address to invoke based on uninitialized memory on the stack -
+&gt; I wasn&apos;t sure if it could be exploited, but didn&apos;t want to take a chance. If
+&gt; you think it&apos;s safe could you please push it? Thanks!
+
+Has this code actually shipped in any version of AIR? If not, there&apos;s no risk.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391425</commentid>
+            <who name="Alok Manchanda">almancha</who>
+            <bug_when>2011-04-05 12:15:42 -0700</bug_when>
+            <thetext>Yes, in Spicier :-(</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391474</commentid>
+            <who name="Alex Macdonald">alexmac</who>
+            <bug_when>2011-04-05 13:12:56 -0700</bug_when>
+            <thetext>(In reply to comment #8)
+&gt; Yes, in Spicier :-(
+
+but this is AIR for iOS which is a captive runtime incapable of executing code dynamically so it&apos;s hard to see how this is more than a crash</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391917</commentid>
+            <who name="Alok Manchanda">almancha</who>
+            <bug_when>2011-04-05 22:41:04 -0700</bug_when>
+            <thetext>That makes sense Alex. 
+
+Steven, would you please check this in for me?
+
+Thanks guys!
+
+(In reply to comment #9)
+&gt; (In reply to comment #8)
+&gt; &gt; Yes, in Spicier :-(
+&gt; 
+&gt; but this is AIR for iOS which is a captive runtime incapable of executing code
+&gt; dynamically so it&apos;s hard to see how this is more than a crash</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392568</commentid>
+            <who name="Steven Johnson">stejohns</who>
+            <bug_when>2011-04-06 10:41:37 -0700</bug_when>
+            <thetext>TR 6163:ebc45784da2e</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>523960</attachid>
+            <date>2011-04-04 02:32:00 -0700</date>
+            <delta_ts>2011-04-04 23:51:19 -0700</delta_ts>
+            <desc>Proposed fix</desc>
+            <filename>aot-uninit.patch</filename>
+            <type>text/plain</type>
+            <size>2454</size>
+            <attacher>almancha</attacher>
+            
+              <data encoding="base64">ZGlmZiAtciBhNjY5OTdlMzJiY2QgY29yZS9BYmNQYXJzZXIuY3BwCi0tLSBhL2NvcmUvQWJjUGFy
+c2VyLmNwcAlGcmkgQXByIDAxIDE0OjE4OjE2IDIwMTEgLTA3MDAKKysrIGIvY29yZS9BYmNQYXJz
+ZXIuY3BwCU1vbiBBcHIgMDQgMTQ6MTY6MzkgMjAxMSArMDUzMApAQCAtODM0LDcgKzgzNCw3IEBA
+CiAjaWZkZWYgVk1DRkdfQU9UCiAgICAgICAgICAgICBib29sIGlzQ29tcGlsZWQgPSBmYWxzZTsK
+ICAgICAgICAgICAgIEF2bVRodW5rTmF0aXZlSGFuZGxlciBoYW5kbGVyOwotICAgICAgICAgICAg
+TmF0aXZlTWV0aG9kSW5mbyBjb21waWxlZE1ldGhvZEluZm87CisgICAgICAgICAgICBOYXRpdmVN
+ZXRob2RJbmZvIGNvbXBpbGVkTWV0aG9kSW5mbyA9IHswfTsKICAgICAgICAgICAgIHsKICAgICAg
+ICAgICAgICAgICBNdWx0aW5hbWUgcmV0dXJuVHlwZU5hbWU7CiAgICAgICAgICAgICAgICAgcGFy
+c2VUeXBlTmFtZShyZXRfdHlwZV9wb3MsIHJldHVyblR5cGVOYW1lKTsKZGlmZiAtciBhNjY5OTdl
+MzJiY2QgY29yZS9Bdm1Db3JlLmNwcAotLS0gYS9jb3JlL0F2bUNvcmUuY3BwCUZyaSBBcHIgMDEg
+MTQ6MTg6MTYgMjAxMSAtMDcwMAorKysgYi9jb3JlL0F2bUNvcmUuY3BwCU1vbiBBcHIgMDQgMTQ6
+MTY6MzkgMjAxMSArMDUzMApAQCAtNjUyLDcgKzY1Miw3IEBACiAgICAgICAgICAgICBBdm1Bc3Nl
+cnQobWV0aG9kLT5tZXRob2RfaWQoKSA8IGFvdEluZm8tPm5BY3RpdmF0aW9uVHJhaXRzKTsKICAg
+ICAgICAgICAgIGFvdEluZm8tPmFjdGl2YXRpb25UcmFpdHNbbWV0aG9kLT5tZXRob2RfaWQoKV0g
+PSBhY3RpdmF0aW9uVHJhaXRzOwogICAgICAgICAgICAgaWYgKGFvdEluZm8tPmFjdGl2YXRpb25J
+bmZvW21ldGhvZC0+bWV0aG9kX2lkKCldLmluaXRIYW5kbGVyICE9IE5VTEwpIHsKLSAgICAgICAg
+ICAgICAgICBOYXRpdmVNZXRob2RJbmZvIGNvbXBpbGVkTWV0aG9kSW5mbzsKKyAgICAgICAgICAg
+ICAgICBOYXRpdmVNZXRob2RJbmZvIGNvbXBpbGVkTWV0aG9kSW5mbyA9IHswfTsKICAgICAgICAg
+ICAgICAgICBjb21waWxlZE1ldGhvZEluZm8udGh1bmtlciA9IGFvdFRodW5rZXI7CiAgICAgICAg
+ICAgICAgICAgQXZtVGh1bmtOYXRpdmVIYW5kbGVyIG5oYW5kbGVyOwogICAgICAgICAgICAgICAg
+IG5oYW5kbGVyLmZ1bmN0aW9uID0gYW90SW5mby0+YWN0aXZhdGlvbkluZm9bbWV0aG9kLT5tZXRo
+b2RfaWQoKV0uaW5pdEhhbmRsZXI7CmRpZmYgLXIgYTY2OTk3ZTMyYmNkIGNvcmUvTmF0aXZlRnVu
+Y3Rpb24uY3BwCi0tLSBhL2NvcmUvTmF0aXZlRnVuY3Rpb24uY3BwCUZyaSBBcHIgMDEgMTQ6MTg6
+MTYgMjAxMSAtMDcwMAorKysgYi9jb3JlL05hdGl2ZUZ1bmN0aW9uLmNwcAlNb24gQXByIDA0IDE0
+OjE2OjM5IDIwMTEgKzA1MzAKQEAgLTEzMyw2ICsxMzMsOCBAQAogICAgIGJvb2wgTmF0aXZlSW5p
+dGlhbGl6ZXI6OmdldENvbXBpbGVkSW5mbyhOYXRpdmVNZXRob2RJbmZvICppbmZvLCBBdm1UaHVu
+a05hdGl2ZUhhbmRsZXIqIGhhbmRsZXJPdXQsIE11bHRpbmFtZSAmcmV0dXJuVHlwZU5hbWUsIHVp
+bnQzMl90IGkpIGNvbnN0CiAgICAgewogICAgICAgICBpbmZvLT50aHVua2VyID0gKEdwck1ldGhv
+ZFByb2MpMDsKKyAgICAgICAgaW5mby0+aGFuZGxlci5tZXRob2QgPSBOVUxMOworICAgICAgICBp
+bmZvLT5oYW5kbGVyLmZ1bmN0aW9uID0gTlVMTDsKIAogICAgICAgICBpZiAoaSA8IGNvbXBpbGVk
+TWV0aG9kQ291bnQgJiYgY29tcGlsZWRNZXRob2RzW2ldKQogICAgICAgICB7CmRpZmYgLXIgYTY2
+OTk3ZTMyYmNkIGNvcmUvVHJhaXRzLmNwcAotLS0gYS9jb3JlL1RyYWl0cy5jcHAJRnJpIEFwciAw
+MSAxNDoxODoxNiAyMDExIC0wNzAwCisrKyBiL2NvcmUvVHJhaXRzLmNwcAlNb24gQXByIDA0IDE0
+OjE2OjM5IDIwMTEgKzA1MzAKQEAgLTE2OTQsNyArMTY5NCw3IEBACiAgICAgICAgIC8vIFNlZSBj
+b21tZW50IGluIGluaXRBY3RpdmF0aW9uVHJhaXRzIGFib3V0IHdoeSB0aGlzIGNhbiBiZSBjYWxs
+ZWQgbW9yZSB0aGFuIG9uY2UgcGVyIFRyYWl0cwogICAgICAgICBpZiAoYWN0aXZhdGlvblRyYWl0
+cy0+aW5pdCA9PSBOVUxMKSB7CiAgICAgICAgICAgICBpZiAoYW90SW5mby0+YWN0aXZhdGlvbklu
+Zm9bbS0+bWV0aG9kX2lkKCldLmluaXRIYW5kbGVyKSB7Ci0gICAgICAgICAgICAgICAgTmF0aXZl
+TWV0aG9kSW5mbyBjb21waWxlZE1ldGhvZEluZm87CisgICAgICAgICAgICAgICAgTmF0aXZlTWV0
+aG9kSW5mbyBjb21waWxlZE1ldGhvZEluZm8gPSB7MH07CiAgICAgICAgICAgICAgICAgY29tcGls
+ZWRNZXRob2RJbmZvLnRodW5rZXIgPSBhb3RUaHVua2VyOwogICAgICAgICAgICAgICAgIEF2bVRo
+dW5rTmF0aXZlSGFuZGxlciBuaGFuZGxlcjsKICAgICAgICAgICAgICAgICBuaGFuZGxlci5mdW5j
+dGlvbiA9IGFvdEluZm8tPmFjdGl2YXRpb25JbmZvW20tPm1ldGhvZF9pZCgpXS5pbml0SGFuZGxl
+cjsK
+</data>
+<flag name="review"
+          id="437727"
+          type_id="4"
+          status="+"
+          setter="stejohns"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524041</attachid>
+            <date>2011-04-04 23:51:00 -0700</date>
+            <delta_ts>2011-04-05 09:09:21 -0700</delta_ts>
+            <desc>Updated previous submission to add comments as suggested by Steven</desc>
+            <filename>aot-uninit2.patch</filename>
+            <type>text/plain</type>
+            <size>3467</size>
+            <attacher>almancha</attacher>
+            
+              <data encoding="base64">ZGlmZiAtciA3Mzg4ZjJlYWI4YmUgY29yZS9BYmNQYXJzZXIuY3BwCi0tLSBhL2NvcmUvQWJjUGFy
+c2VyLmNwcAlNb24gQXByIDA0IDExOjEwOjU3IDIwMTEgLTA3MDAKKysrIGIvY29yZS9BYmNQYXJz
+ZXIuY3BwCVR1ZSBBcHIgMDUgMTI6MTk6MDggMjAxMSArMDUzMApAQCAtODM0LDcgKzgzNCwxMiBA
+QAogI2lmZGVmIFZNQ0ZHX0FPVAogICAgICAgICAgICAgYm9vbCBpc0NvbXBpbGVkID0gZmFsc2U7
+CiAgICAgICAgICAgICBBdm1UaHVua05hdGl2ZUhhbmRsZXIgaGFuZGxlcjsKLSAgICAgICAgICAg
+IE5hdGl2ZU1ldGhvZEluZm8gY29tcGlsZWRNZXRob2RJbmZvOworICAgICAgICAgICAgLy8gTmF0
+aXZlTWV0aG9kSW5mby5oYW5kbGVyIGlzIGEgdW5pb24gb2YgCisgICAgICAgICAgICAvLyBwb2lu
+dGVyIHRvIGZ1bmN0aW9uIGFuZCBwb2ludGVyIHRvIG1lbWJlciBmdW5jdGlvbi4KKyAgICAgICAg
+ICAgIC8vIFplcm8gdGhlIHN0cnVjdHVyZSBzbyB0aGF0IHRoZSBlbnRpcmUgdGhpbmcgaXMgCisg
+ICAgICAgICAgICAvLyBpbml0aWFsaXplZC4KKyAgICAgICAgICAgIC8vIFNlZSBidWd6aWxsYSM2
+NDc2NjAKKyAgICAgICAgICAgIE5hdGl2ZU1ldGhvZEluZm8gY29tcGlsZWRNZXRob2RJbmZvID0g
+ezB9OwogICAgICAgICAgICAgewogICAgICAgICAgICAgICAgIE11bHRpbmFtZSByZXR1cm5UeXBl
+TmFtZTsKICAgICAgICAgICAgICAgICBwYXJzZVR5cGVOYW1lKHJldF90eXBlX3BvcywgcmV0dXJu
+VHlwZU5hbWUpOwpkaWZmIC1yIDczODhmMmVhYjhiZSBjb3JlL0F2bUNvcmUuY3BwCi0tLSBhL2Nv
+cmUvQXZtQ29yZS5jcHAJTW9uIEFwciAwNCAxMToxMDo1NyAyMDExIC0wNzAwCisrKyBiL2NvcmUv
+QXZtQ29yZS5jcHAJVHVlIEFwciAwNSAxMjoxOTowOCAyMDExICswNTMwCkBAIC02NTIsNyArNjUy
+LDEyIEBACiAgICAgICAgICAgICBBdm1Bc3NlcnQobWV0aG9kLT5tZXRob2RfaWQoKSA8IGFvdElu
+Zm8tPm5BY3RpdmF0aW9uVHJhaXRzKTsKICAgICAgICAgICAgIGFvdEluZm8tPmFjdGl2YXRpb25U
+cmFpdHNbbWV0aG9kLT5tZXRob2RfaWQoKV0gPSBhY3RpdmF0aW9uVHJhaXRzOwogICAgICAgICAg
+ICAgaWYgKGFvdEluZm8tPmFjdGl2YXRpb25JbmZvW21ldGhvZC0+bWV0aG9kX2lkKCldLmluaXRI
+YW5kbGVyICE9IE5VTEwpIHsKLSAgICAgICAgICAgICAgICBOYXRpdmVNZXRob2RJbmZvIGNvbXBp
+bGVkTWV0aG9kSW5mbzsKKyAgICAgICAgICAgICAgICAvLyBOYXRpdmVNZXRob2RJbmZvLmhhbmRs
+ZXIgaXMgYSB1bmlvbiBvZiAKKyAgICAgICAgICAgICAgICAvLyBwb2ludGVyIHRvIGZ1bmN0aW9u
+IGFuZCBwb2ludGVyIHRvIG1lbWJlciBmdW5jdGlvbi4KKyAgICAgICAgICAgICAgICAvLyBaZXJv
+IHRoZSBzdHJ1Y3R1cmUgc28gdGhhdCB0aGUgZW50aXJlIHRoaW5nIGlzIAorICAgICAgICAgICAg
+ICAgIC8vIGluaXRpYWxpemVkLgorICAgICAgICAgICAgICAgIC8vIFNlZSBidWd6aWxsYSM2NDc2
+NjAKKyAgICAgICAgICAgICAgICBOYXRpdmVNZXRob2RJbmZvIGNvbXBpbGVkTWV0aG9kSW5mbyA9
+IHswfTsKICAgICAgICAgICAgICAgICBjb21waWxlZE1ldGhvZEluZm8udGh1bmtlciA9IGFvdFRo
+dW5rZXI7CiAgICAgICAgICAgICAgICAgQXZtVGh1bmtOYXRpdmVIYW5kbGVyIG5oYW5kbGVyOwog
+ICAgICAgICAgICAgICAgIG5oYW5kbGVyLmZ1bmN0aW9uID0gYW90SW5mby0+YWN0aXZhdGlvbklu
+Zm9bbWV0aG9kLT5tZXRob2RfaWQoKV0uaW5pdEhhbmRsZXI7CmRpZmYgLXIgNzM4OGYyZWFiOGJl
+IGNvcmUvTmF0aXZlRnVuY3Rpb24uY3BwCi0tLSBhL2NvcmUvTmF0aXZlRnVuY3Rpb24uY3BwCU1v
+biBBcHIgMDQgMTE6MTA6NTcgMjAxMSAtMDcwMAorKysgYi9jb3JlL05hdGl2ZUZ1bmN0aW9uLmNw
+cAlUdWUgQXByIDA1IDEyOjE5OjA4IDIwMTEgKzA1MzAKQEAgLTEzMyw2ICsxMzMsMTIgQEAKICAg
+ICBib29sIE5hdGl2ZUluaXRpYWxpemVyOjpnZXRDb21waWxlZEluZm8oTmF0aXZlTWV0aG9kSW5m
+byAqaW5mbywgQXZtVGh1bmtOYXRpdmVIYW5kbGVyKiBoYW5kbGVyT3V0LCBNdWx0aW5hbWUgJnJl
+dHVyblR5cGVOYW1lLCB1aW50MzJfdCBpKSBjb25zdAogICAgIHsKICAgICAgICAgaW5mby0+dGh1
+bmtlciA9IChHcHJNZXRob2RQcm9jKTA7CisgICAgICAgIC8vIE5hdGl2ZU1ldGhvZEluZm8uaGFu
+ZGxlciBpcyBhIHVuaW9uIG9mIAorICAgICAgICAvLyBwb2ludGVyIHRvIGZ1bmN0aW9uIGFuZCBw
+b2ludGVyIHRvIG1lbWJlciBmdW5jdGlvbi4KKyAgICAgICAgLy8gU2V0IHRoZW0gYm90aCBzbyB0
+aGUgZW50aXJlIHVuaW9uIGlzIGluaXRpYWxpemVkLgorICAgICAgICAvLyBTZWUgYnVnemlsbGEj
+NjQ3NjYwCisgICAgICAgIGluZm8tPmhhbmRsZXIubWV0aG9kID0gTlVMTDsKKyAgICAgICAgaW5m
+by0+aGFuZGxlci5mdW5jdGlvbiA9IE5VTEw7CiAKICAgICAgICAgaWYgKGkgPCBjb21waWxlZE1l
+dGhvZENvdW50ICYmIGNvbXBpbGVkTWV0aG9kc1tpXSkKICAgICAgICAgewpkaWZmIC1yIDczODhm
+MmVhYjhiZSBjb3JlL1RyYWl0cy5jcHAKLS0tIGEvY29yZS9UcmFpdHMuY3BwCU1vbiBBcHIgMDQg
+MTE6MTA6NTcgMjAxMSAtMDcwMAorKysgYi9jb3JlL1RyYWl0cy5jcHAJVHVlIEFwciAwNSAxMjox
+OTowOCAyMDExICswNTMwCkBAIC0xNjk0LDcgKzE2OTQsMTIgQEAKICAgICAgICAgLy8gU2VlIGNv
+bW1lbnQgaW4gaW5pdEFjdGl2YXRpb25UcmFpdHMgYWJvdXQgd2h5IHRoaXMgY2FuIGJlIGNhbGxl
+ZCBtb3JlIHRoYW4gb25jZSBwZXIgVHJhaXRzCiAgICAgICAgIGlmIChhY3RpdmF0aW9uVHJhaXRz
+LT5pbml0ID09IE5VTEwpIHsKICAgICAgICAgICAgIGlmIChhb3RJbmZvLT5hY3RpdmF0aW9uSW5m
+b1ttLT5tZXRob2RfaWQoKV0uaW5pdEhhbmRsZXIpIHsKLSAgICAgICAgICAgICAgICBOYXRpdmVN
+ZXRob2RJbmZvIGNvbXBpbGVkTWV0aG9kSW5mbzsKKyAgICAgICAgICAgICAgICAvLyBOYXRpdmVN
+ZXRob2RJbmZvLmhhbmRsZXIgaXMgYSB1bmlvbiBvZiAKKyAgICAgICAgICAgICAgICAvLyBwb2lu
+dGVyIHRvIGZ1bmN0aW9uIGFuZCBwb2ludGVyIHRvIG1lbWJlciBmdW5jdGlvbi4KKyAgICAgICAg
+ICAgICAgICAvLyBaZXJvIHRoZSBzdHJ1Y3R1cmUgc28gdGhhdCB0aGUgZW50aXJlIHRoaW5nIGlz
+IAorICAgICAgICAgICAgICAgIC8vIGluaXRpYWxpemVkLgorICAgICAgICAgICAgICAgIC8vIFNl
+ZSBidWd6aWxsYSM2NDc2NjAKKyAgICAgICAgICAgICAgICBOYXRpdmVNZXRob2RJbmZvIGNvbXBp
+bGVkTWV0aG9kSW5mbyA9IHswfTsKICAgICAgICAgICAgICAgICBjb21waWxlZE1ldGhvZEluZm8u
+dGh1bmtlciA9IGFvdFRodW5rZXI7CiAgICAgICAgICAgICAgICAgQXZtVGh1bmtOYXRpdmVIYW5k
+bGVyIG5oYW5kbGVyOwogICAgICAgICAgICAgICAgIG5oYW5kbGVyLmZ1bmN0aW9uID0gYW90SW5m
+by0+YWN0aXZhdGlvbkluZm9bbS0+bWV0aG9kX2lkKCldLmluaXRIYW5kbGVyOwo=
+</data>
+<flag name="review"
+          id="437774"
+          type_id="4"
+          status="+"
+          setter="stejohns"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647933</bug_id>
+          
+          <creation_ts>2011-04-05 21:50:00 -0700</creation_ts>
+          <short_desc>Add SpiderMonkey -Werror builds to tbpl</short_desc>
+          <delta_ts>2011-04-06 21:07:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Tinderboxpushlog</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647927</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Phil Ringnalda (:philor)">philringnalda</assigned_to>
+          <cc>mounir.lamouri</cc>
+    
+    <cc>nnethercote</cc>
+    
+    <cc>pbiggar</cc>
+          <qa_contact>tinderboxpushlog</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391876</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-05 21:50:11 -0700</bug_when>
+            <thetext>Depending on bug 647927, which is depending on bug 646702, we&apos;ll have SpiderMonkey builds that fail on warnings that tbpl will need to know about. I&apos;m hoping those will take long enough that I can come up with a better letter for them than -We from -Werror, since it doesn&apos;t amuse me nearly as much as the other things in SM() do, and three characters plus a capital messes with my previous aesthetic for them.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393876</commentid>
+              <attachid>524343</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-06 21:07:01 -0700</bug_when>
+            <thetext>Created attachment 524343
+pretty sure this is it
+
+And unlike the last time I guessed about what would be the final name of something, this one I don&apos;t plan on pushing until I see the builds actually happening.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524343</attachid>
+            <date>2011-04-06 21:07:00 -0700</date>
+            <delta_ts>2011-04-06 21:07:01 -0700</delta_ts>
+            <desc>pretty sure this is it</desc>
+            <filename>werror-tbpl</filename>
+            <type>text/plain</type>
+            <size>2509</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2pzL0NvbmZpZy5qcyBiL2pzL0NvbmZpZy5qcwotLS0gYS9qcy9Db25maWcu
+anMKKysrIGIvanMvQ29uZmlnLmpzCkBAIC0xMTAsMTcgKzExMCwxOCBAQCB2YXIgQ29uZmlnID0g
+ewogICAgICAgYnVpbGRib3RCcmFuY2g6ICJtYXBsZSIsCiAgICAgfSwKICAgfSwKICAgZ3JvdXBl
+ZE1hY2hpbmVUeXBlczogewogICAgICJNb2NoaXRlc3QiIDogWyJNb2NoaXRlc3QiXSwKICAgICAi
+UmVmdGVzdCIgOiBbIkNyYXNodGVzdCIsICJDcmFzaHRlc3QtSVBDIiwKICAgICAgICJSZWZ0ZXN0
+IiwgIlJlZnRlc3QtSVBDIiwgIkpTUmVmdGVzdCJdLAogICAgICJTcGlkZXJNb25rZXkiIDogWyJT
+cGlkZXJNb25rZXkgRFRyYWNlIiwgIlNwaWRlck1vbmtleSAtLWRpc2FibGUtbWV0aG9kaml0IiwK
+LSAgICAgICJTcGlkZXJNb25rZXkgLS1kaXNhYmxlLXRyYWNlaml0IiwgIlNwaWRlck1vbmtleSBT
+aGFyayJdLAorICAgICAgIlNwaWRlck1vbmtleSAtLWRpc2FibGUtdHJhY2VqaXQiLCAiU3BpZGVy
+TW9ua2V5IFNoYXJrIiwKKyAgICAgICJTcGlkZXJNb25rZXkgLS1lbmFibGUtc20tZmFpbC1vbi1l
+cnJvciJdLAogICB9LAogICBPU05hbWVzOiB7CiAgICAgImxpbnV4IjogIkxpbnV4IiwKICAgICAi
+bGludXg2NCI6ICJMaW51eDY0IiwKICAgICAib3N4IjoiT1MgWCIsCiAgICAgIm9zeDY0IjogIk9T
+IFg2NCIsCiAgICAgIndpbmRvd3MiOiAiV2luIiwKICAgICAid2luZG93czctNjQiOiAiV2luNjQi
+LApAQCAtMTMzLDE2ICsxMzQsMTcgQEAgdmFyIENvbmZpZyA9IHsKICAgICAiQnVpbGQiIDogIkIi
+LAogICAgICJRdCBCdWlsZCIgOiAiQnEiLAogICAgICJNb2JpbGUgRGVza3RvcCBCdWlsZCIgOiAi
+Qm0iLAogICAgICJTcGlkZXJNb25rZXkiIDogIlNNIiwKICAgICAiU3BpZGVyTW9ua2V5IERUcmFj
+ZSIgOiAiZCIsCiAgICAgIlNwaWRlck1vbmtleSAtLWRpc2FibGUtbWV0aG9kaml0IiA6ICLCrG0i
+LAogICAgICJTcGlkZXJNb25rZXkgLS1kaXNhYmxlLXRyYWNlaml0IiA6ICLCrHQiLAogICAgICJT
+cGlkZXJNb25rZXkgU2hhcmsiIDogInMiLAorICAgICJTcGlkZXJNb25rZXkgLS1lbmFibGUtc20t
+ZmFpbC1vbi1lcnJvciIgOiAiZSIsCiAgICAgIk5pZ2h0bHkiIDogIk4iLAogICAgICJTaGFyayBO
+aWdodGx5IiA6ICJOcyIsCiAgICAgIk1vYmlsZSBEZXNrdG9wIE5pZ2h0bHkiIDogIk5tIiwKICAg
+ICAiTWFlbW8gUXQgTmlnaHRseSIgOiAiTnEiLAogICAgICJNb2NoaXRlc3QiIDogIk0iLAogICAg
+ICJDcmFzaHRlc3QtSVBDIiA6ICJDaXBjIiwKICAgICAiQ3Jhc2h0ZXN0IiA6ICJDIiwKICAgICAi
+UmVmdGVzdC1JUEMiIDogIlJpcGMiLApkaWZmIC0tZ2l0IGEvanMvRGF0YS5qcyBiL2pzL0RhdGEu
+anMKLS0tIGEvanMvRGF0YS5qcworKysgYi9qcy9EYXRhLmpzCkBAIC00NjUsMTYgKzQ2NSwxNyBA
+QCBEYXRhLnByb3RvdHlwZSA9IHsKICAgICAgICAgL3RhbG9zL2kudGVzdChuYW1lKSA/ICJUYWxv
+cyBQZXJmb3JtYW5jZSIgOgogICAgICAgICAvbW9iaWxlIGRlc2t0b3AgLiogbmlnaHRseS9pLnRl
+c3QobmFtZSkgPyAiTW9iaWxlIERlc2t0b3AgTmlnaHRseSIgOgogICAgICAgICAvbWFlbW8gLiog
+cXQgLiogbmlnaHRseS9pLnRlc3QobmFtZSkgPyAiTWFlbW8gUXQgTmlnaHRseSIgOgogICAgICAg
+ICAvbmlnaHRseS9pLnRlc3QobmFtZSkgPyAiTmlnaHRseSIgOgogICAgICAgICAvc3BpZGVybW9u
+a2V5LWR0cmFjZS9pLnRlc3QobmFtZSkgPyAiU3BpZGVyTW9ua2V5IERUcmFjZSIgOgogICAgICAg
+ICAvc3BpZGVybW9ua2V5LW5vbWV0aG9kaml0L2kudGVzdChuYW1lKSA/ICJTcGlkZXJNb25rZXkg
+LS1kaXNhYmxlLW1ldGhvZGppdCIgOgogICAgICAgICAvc3BpZGVybW9ua2V5LW5vdHJhY2VqaXQv
+aS50ZXN0KG5hbWUpID8gIlNwaWRlck1vbmtleSAtLWRpc2FibGUtdHJhY2VqaXQiIDoKICAgICAg
+ICAgL3NwaWRlcm1vbmtleS1zaGFyay9pLnRlc3QobmFtZSkgPyAiU3BpZGVyTW9ua2V5IFNoYXJr
+IiA6CisgICAgICAgIC9zcGlkZXJtb25rZXktd2FybmFzZXJyL2kudGVzdChuYW1lKSA/ICJTcGlk
+ZXJNb25rZXkgLS1lbmFibGUtc20tZmFpbC1vbi13YXJuaW5ncyIgOgogICAgICAgICAvc2hhcmsv
+aS50ZXN0KG5hbWUpID8gIlNoYXJrIE5pZ2h0bHkiIDoKICAgICAgICAgL21vY2hpdGVzdC9pLnRl
+c3QobmFtZSkgPyAiTW9jaGl0ZXN0IiA6CiAgICAgICAgIC91bml0IGNocm9tZXxicm93c2VyLWNo
+cm9tZS9pLnRlc3QobmFtZSkgPyAiTW9jaGl0ZXN0IiA6CiAgICAgICAgIC9jcmFzaHRlc3QtaXBj
+Ly50ZXN0KG5hbWUpID8gIkNyYXNodGVzdC1JUEMiIDoKICAgICAgICAgL2NyYXNodGVzdC9pLnRl
+c3QobmFtZSkgPyAiQ3Jhc2h0ZXN0IiA6CiAgICAgICAgIC9qc3JlZnRlc3QvaS50ZXN0KG5hbWUp
+ID8gIkpTUmVmdGVzdCIgOgogICAgICAgICAvcmVmdGVzdC1pcGMvaS50ZXN0KG5hbWUpID8gIlJl
+ZnRlc3QtSVBDIiA6CiAgICAgICAgIC9yZWZ0ZXN0L2kudGVzdChuYW1lKSA/ICJSZWZ0ZXN0IiA6
+Cg==
+</data>
+<flag name="review"
+          id="437999"
+          type_id="4"
+          status="?"
+          setter="philringnalda"
+          requestee="mstange"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648086</bug_id>
+          
+          <creation_ts>2011-04-06 12:35:00 -0700</creation_ts>
+          <short_desc>Prefwindow title change from &apos;Preferences for x profile&apos; to pane title when selecting pane</short_desc>
+          <delta_ts>2011-04-10 06:23:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Preferences</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>39113</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Stefan (:stefanh)">stefanh</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dominique</cc>
+    
+    <cc>jh</cc>
+          <qa_contact>preferences</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>?</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392948</commentid>
+            <who name="Stefan (:stefanh)">stefanh</who>
+            <bug_when>2011-04-06 12:35:30 -0700</bug_when>
+            <thetext>STR:
+
+1) Open Preferences
+2) Prefwindow opens, with &quot;Browser&quot; pane selected
+3) Prefwindow title says &quot;Preferences for x profile&quot;
+4) Select the Advanced pane
+5) Prefwindow title says &quot;Advanced&quot;
+
+
+
+On mac, we base the prefwindow&apos;s title on the pane label
+
+toolkit/content/widgets/preferences.xml
+787 #ifdef XP_MACOSX
+788           var paneTitle = aPaneElement.label;
+789           if (paneTitle != &quot;&quot;)
+790             document.title = paneTitle;
+791 #endif
+
+We also don&apos;t show any pane header labels.
+
+We could probably live with not updating the prefwindow title (just show the &quot;Preferences for ...&quot; all the time... or maybe we could append the pane header after the &quot;new&quot; Prefwindow title (could get a bit long, though).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397616</commentid>
+            <who name="Stefan (:stefanh)">stefanh</who>
+            <bug_when>2011-04-08 14:58:23 -0700</bug_when>
+            <thetext>I think this should block 2.1. I don&apos;t think the value added by fixing bug 39113 outweights this regression.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398133</commentid>
+            <who name="Jens Hatlak (:InvisibleSmiley)">jh</who>
+            <bug_when>2011-04-09 01:10:16 -0700</bug_when>
+            <thetext>(In reply to comment #0)
+&gt; We could probably live with not updating the prefwindow title (just show the
+&gt; &quot;Preferences for ...&quot; all the time... or maybe we could append the pane header
+&gt; after the &quot;new&quot; Prefwindow title (could get a bit long, though).
+
+Or we could revert to the old behavior for Mac.
+
+Basically, what we first need is consensus, i.e. what needs to be done, before starting implementation. I suggest you discuss this with Karsten or maybe FF Mac guys since I doubt anyone else on the SM team can tell. Then it should be simple for anyone of us to make the change (a hint regarding how to reliably detect Mac from JS would be helpful, though).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398189</commentid>
+            <who name="Philip Chee">philip.chee</who>
+            <bug_when>2011-04-09 02:52:51 -0700</bug_when>
+            <thetext>&gt; (a hint regarding how to reliably
+&gt; detect Mac from JS would be helpful, though)
+/^Mac/.test(navigator.platform) is how we do it in the rest of our js code.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398240</commentid>
+            <who name="Stefan (:stefanh)">stefanh</who>
+            <bug_when>2011-04-09 03:53:38 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Basically, what we first need is consensus, i.e. what needs to be done, before
+&gt; starting implementation. I suggest you discuss this with Karsten or maybe FF
+&gt; Mac guys since I doubt anyone else on the SM team can tell.
+
+Well, the SM prefwindow is very much non-mac anyway, so there&apos;s no &quot;How it should be&quot; here.
+
+I think if we really want to expose the profile name in prefs, we should be consistent across the different platforms. Iotw, we should expose it for mac as well. That said, I don&apos;t think it adds any value exposing the profile name (but that&apos;s another discussion).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399177</commentid>
+            <who name="Stefan (:stefanh)">stefanh</who>
+            <bug_when>2011-04-10 06:23:36 -0700</bug_when>
+            <thetext>The most reasonable thing to do here is probably to stop using the pane labels to set the prefwindow title.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

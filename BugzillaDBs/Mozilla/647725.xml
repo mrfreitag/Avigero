@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647725</bug_id>
+          
+          <creation_ts>2011-04-04 12:45:00 -0700</creation_ts>
+          <short_desc>Escape key cancels XmlHttpRequests too</short_desc>
+          <delta_ts>2011-04-04 13:24:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Networking</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>614304</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Manish">manish3177</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>networking</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390383</commentid>
+            <who name="Manish">manish3177</who>
+            <bug_when>2011-04-04 12:45:23 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: FF 4.0 (and FF 3.6)
+
+Pressing escape while an AJAX request is in progress or if an AJAX request is made in response to a keydown event for escape key, triggers onReadyStateChange right away with readyState === 4. Since this happens before the response is received from the server, the request is considered failed. Escape key should NOT cancel AJAX requests or form submits (haven&apos;t tried it) as it causes AJAX applications to misbehave. It should only cancel browser navigations via the address bar. FWIW, other browsers don&apos;t have this bug and I think this bug showed up in the last month or so in Firefox.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. From the keydown event of an input element of type text, trigger an AJAX request when event.keyCode === 27 (escape). I&apos;m invoking a web service using MS AJAX framework so I&apos;m not providing sample code as it would mostly be noise.
+2. Show a &quot;failed!&quot; alert in the failure delegate of the AJAX request.
+3. Press escape in that input element.
+Actual Results:  
+You will see an alert with (&quot;failed!&quot;). If you set a breakpoint in server code, you will see that the alert fires right away before the call even returned from the server.
+
+Expected Results:  
+Success delegate should&apos;ve been invoked.
+
+Firefox should&apos;ve waited for the server request to actually finish before triggering onReadyStateCache with readyState of 4.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390411</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 13:24:56 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 614304 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

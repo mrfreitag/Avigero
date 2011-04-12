@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648111</bug_id>
+          
+          <creation_ts>2011-04-06 14:20:00 -0700</creation_ts>
+          <short_desc>Embedded C++ class does not work in 64-bit mode (Mac OS X and Linux)</short_desc>
+          <delta_ts>2011-04-07 11:30:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>P2</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Andy Duplain">trojanfoe</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>gal</cc>
+    
+    <cc>wes</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393199</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-06 14:20:39 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: 1.8.5
+
+I have built Spidermonkey from the 1.8.5 release tarball using the default options on both Linux (Fedora 14 x86_64) and Mac OS X 10.6.7 x86_64 and my embedded class fails to work in 64-bit mode but works fine in 32-bit mode.  The failure manifests itself as the JS_IsConstructing() returning JS_FALSE from within the JavaScript constructor function.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Compile and build the attached test source:
+$ make
+g++ -c -I../external/include/js -g -m32 -o jstest32.o jstest.cpp
+g++ -L../external/lib-debug -g -m32 -o jstest32 jstest32.o -lmozjs185-1.0
+g++ -c -I../external/include/js -g -m64 -o jstest64.o jstest.cpp
+g++ -L../external/lib-debug -g -m64 -o jstest64 jstest64.o -lmozjs185-1.0
+$ ./jstest32 script.js
+aclass: the quick brown fox jumps over the lazy dog
+$ ./jstest64 script.js
+script.js:1: Error: Not constructing
+
+Actual Results:  
+$ ./jstest64 script.js
+script.js:1: Error: Not constructing
+
+
+Expected Results:  
+$ ./jstest64 script.js
+aclass: the quick brown fox jumps over the lazy dog
+
+Test source, test script and Makefile attached.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393204</commentid>
+              <attachid>524264</attachid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-06 14:21:30 -0700</bug_when>
+            <thetext>Created attachment 524264
+Test source file</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393206</commentid>
+              <attachid>524265</attachid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-06 14:21:52 -0700</bug_when>
+            <thetext>Created attachment 524265
+Test script file</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393209</commentid>
+              <attachid>524267</attachid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-06 14:22:08 -0700</bug_when>
+            <thetext>Created attachment 524267
+Makefile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393227</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-06 14:25:59 -0700</bug_when>
+            <thetext>Please note that the Makefile is set-up to use a &apos;fat&apos; Mach-O archive, containing both 32- and 64-bit object files, which I built from the libmoz185-1.0.a files using the Mac OS X utility &apos;lipo&apos;.  The Makefile will need adjusting under Linux as &apos;fat&apos; archives are not supported (the location of the include/library directories are probably wrong anyway).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394032</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-06 23:47:26 -0700</bug_when>
+            <thetext>I have commented out the call to JS_IsConstructing() from with the constructor, and while the 32-bit program still works fine, the 64-bit program asserts and then seg-faults, showing that the issue is not just a problem with JS_IsConstructing():
+
+$ ./jstest64 script.js
+Assertion failure: !vp-&gt;isPrimitive() &amp;&amp; callee != &amp;vp[0].toObject(), at /Users/andy/Source/external/src/js-1.8.5/js/src/jscntxtinlines.h:741
+Segmentation fault</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394313</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-07 06:33:57 -0700</bug_when>
+            <thetext>I have now tried with 2.0-beta09 and the issue still exists with that build.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394352</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-07 07:14:26 -0700</bug_when>
+            <thetext>Are you able to generate a minimized test case?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394363</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-07 07:27:32 -0700</bug_when>
+            <thetext>@Wesley: Yes - it is attached to the bug report.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394573</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-07 09:40:04 -0700</bug_when>
+            <thetext>Andy -- normally minimized bugs are smaller than this.  Is all that code really necessary to trigger the failure?
+
+I ask because Occam&apos;s Razor tells me it is more likely that your embedding has a bug than it is for SpiderMonkey to have serious bugs in JS_IsConstructing() -- this is a pretty well-used API.
+
+Wes</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394659</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-07 10:27:01 -0700</bug_when>
+            <thetext>I agree with you Wes, I cannot imagine that spidermonkey &apos;just doesn&apos;t work in 64-bit&apos; so the error is most likely in my code.  I cannot see how to make it smaller really - it&apos;s a simple native class implementation plus the usual (as far as I know it) spidermonkey initialization.   The other files are to help build and test the program.
+
+ Any insights you have would be most appreciated so that I can build and debug under 64-bit mode.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394665</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-07 10:29:46 -0700</bug_when>
+            <thetext>We are shipping a 64-bit Spidermonkey build to millions of mac users.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394683</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-07 10:40:56 -0700</bug_when>
+            <thetext>I understand that - would you be able to tell me where I have slipped-up then in my code?  I have only just started using spidermonkey, so the error is almost certainly in there.  Would I be better of moving this offline to the newsgroup or to stackoverflow.com instead?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394714</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-07 10:55:53 -0700</bug_when>
+            <thetext>The newsgroup would probably get you more eyeballs.
+
+If I was trying to generate a minimized test from your program, I would
+ - strip out C++ class, opting for &apos;static JSClass&apos;
+ - remove methods from the JS class  (you can still test object type from script with instanceof myConstructor)
+ - eliminate all that crap in your constructor besides the JS_IsConstructing() step and related diagnostics
+ - get rid of your finalizer
+ - maybe get rid of your error reporter
+ - ditch init, fini and just go with main()
+ - hard-code the script in JS_EvaluateScript rather than reading from a file
+
+BTW - the way you are reading/executing that script is not particular effecient, although unrelated to your problem.  See JS_CompileFile().</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394777</commentid>
+            <who name="Andy Duplain">trojanfoe</who>
+            <bug_when>2011-04-07 11:30:05 -0700</bug_when>
+            <thetext>OK, I have found the issue - it&apos;s not in spidermonkey or in my test code but in the way I am using the include files I have installed.  I build release/debug/32/64-bit versions of the libraries and install them into 2 fat library files (release version and debug using lipo) but I have been using the include files from the last build installed (debug 32-bit).  I have now rebuilt and reinstalled the 64-bit version and the opposite effect is now in operation (64-bit works and 32-bit does not).
+
+I therefore have to use different include paths for 32- and 64-bit versions of my program, which I think is very difficult to accomplish using Xcode, given it just allows different directories etc based on release/debug modes, not CPU architecture.
+
+Anyway that is not your problem and this bug should be closed please.
+
+Cheers,
+Andy</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524264</attachid>
+            <date>2011-04-06 14:21:00 -0700</date>
+            <delta_ts>2011-04-07 07:06:23 -0700</delta_ts>
+            <desc>Test source file</desc>
+            <filename>jstest.cpp</filename>
+            <type>text/plain</type>
+            <size>5557</size>
+            <attacher>trojanfoe</attacher>
+            
+              <data encoding="base64">I2luY2x1ZGUgPGNzdGRpbz4KI2luY2x1ZGUgPGlvc3RyZWFtPgojaW5jbHVkZSA8ZnN0cmVhbT4K
+I2luY2x1ZGUgPHN0cmluZz4KCiNkZWZpbmUgWFBfVU5JWAojaW5jbHVkZSA8anNhcGkuaD4KCnVz
+aW5nIG5hbWVzcGFjZSBzdGQ7CgpjbGFzcyBOYXRpdmUKewpwcm90ZWN0ZWQ6CiAgICBzdGF0aWMg
+SlNDbGFzcyBtX2pzQ2xhc3M7CiAgICBzdGF0aWMgSlNGdW5jdGlvblNwZWMgbV9qc01ldGhvZHNb
+XTsKICAgIHN0YXRpYyBKU09iamVjdCAqbV9qc1Byb3RvdHlwZTsKICAgIAogICAgc3RyaW5nIG5h
+bWVfOwogICAgCnB1YmxpYzogICAgCiAgICBOYXRpdmUoY29uc3Qgc3RyaW5nICZuYW1lKTsKICAg
+IHZvaWQgcHJpbnQoY29uc3Qgc3RyaW5nICZtZXNzYWdlKTsKICAgIAogICAgc3RhdGljIGJvb2wg
+anNJbml0KEpTQ29udGV4dCAqZ2xvYmFsQ29udGV4dCwgSlNPYmplY3QgKmdsb2JhbE9iamVjdCk7
+CiAgICBzdGF0aWMgSlNCb29sIGpzQ29uc3RydWN0b3IoSlNDb250ZXh0ICpjb250ZXh0LCB1aW50
+TiBhcmdjLCBqc3ZhbCAqdnApOwogICAgc3RhdGljIHZvaWQganNGaW5hbGl6ZXIoSlNDb250ZXh0
+ICpjb250ZXh0LCBKU09iamVjdCAqb2JqKTsKICAgIHN0YXRpYyBKU0Jvb2wganNQcmludChKU0Nv
+bnRleHQgKmNvbnRleHQsIHVpbnROIGFyZ2MsIGpzdmFsICp2cCk7Cn07CgpOYXRpdmU6Ok5hdGl2
+ZShjb25zdCBzdHJpbmcgJm5hbWUpIDogbmFtZV8obmFtZSkKewp9Cgp2b2lkIE5hdGl2ZTo6cHJp
+bnQoY29uc3Qgc3RyaW5nICZtZXNzYWdlKQp7CiAgICBjb3V0IDw8IG5hbWVfIDw8ICI6ICIgPDwg
+bWVzc2FnZSA8PCBlbmRsOwp9CgpKU0NsYXNzIE5hdGl2ZTo6bV9qc0NsYXNzID0KewogICAgIk5h
+dGl2ZSIsIEpTQ0xBU1NfSEFTX1BSSVZBVEUsCiAgICBKU19Qcm9wZXJ0eVN0dWIsICBKU19Qcm9w
+ZXJ0eVN0dWIsIEpTX1Byb3BlcnR5U3R1YiwgSlNfU3RyaWN0UHJvcGVydHlTdHViLAogICAgSlNf
+RW51bWVyYXRlU3R1YiwgSlNfUmVzb2x2ZVN0dWIsICBKU19Db252ZXJ0U3R1YiwgIE5hdGl2ZTo6
+anNGaW5hbGl6ZXIsCiAgICBKU0NMQVNTX05PX09QVElPTkFMX01FTUJFUlMKfTsKCkpTRnVuY3Rp
+b25TcGVjIE5hdGl2ZTo6bV9qc01ldGhvZHNbXSA9CnsKICAgIEpTX0ZTKCJwcmludCIsIE5hdGl2
+ZTo6anNQcmludCwgMSwgIDApLAogICAgSlNfRlNfRU5ECn07CgpKU09iamVjdCAqTmF0aXZlOjpt
+X2pzUHJvdG90eXBlID0gMDsKCmJvb2wgTmF0aXZlOjpqc0luaXQoSlNDb250ZXh0ICpnbG9iYWxD
+b250ZXh0LCBKU09iamVjdCAqZ2xvYmFsT2JqZWN0KQp7CiAgICBpZiAobV9qc1Byb3RvdHlwZSA9
+PSAwKQogICAgewogICAgICAgIG1fanNQcm90b3R5cGUgPSBKU19Jbml0Q2xhc3MoZ2xvYmFsQ29u
+dGV4dCwgZ2xvYmFsT2JqZWN0LCBKU19HZXRQcm90b3R5cGUoZ2xvYmFsQ29udGV4dCwgZ2xvYmFs
+T2JqZWN0KSwKICAgICAgICAgICAgJm1fanNDbGFzcywganNDb25zdHJ1Y3RvciwgMSwgMCwgbV9q
+c01ldGhvZHMsIDAsIDApOwogICAgfQogICAgcmV0dXJuIG1fanNQcm90b3R5cGUgIT0gMDsKfQoK
+SlNCb29sIE5hdGl2ZTo6anNDb25zdHJ1Y3RvcihKU0NvbnRleHQgKmNvbnRleHQsIHVpbnROIGFy
+Z2MsIGpzdmFsICp2cCkKewogICAgSlNTdHJpbmcgKmpzTmFtZTsKICAgIGlmICghSlNfSXNDb25z
+dHJ1Y3RpbmcoY29udGV4dCwgdnApKQogICAgewogICAgICAgIEpTX1JlcG9ydEVycm9yKGNvbnRl
+eHQsICJOb3QgY29uc3RydWN0aW5nIik7CiAgICAgICAgcmV0dXJuIEpTX0ZBTFNFOwogICAgfQog
+ICAgZWxzZSBpZiAoIUpTX0NvbnZlcnRBcmd1bWVudHMoY29udGV4dCwgYXJnYywgSlNfQVJHVihj
+b250ZXh0LCB2cCksICJTIiwgJmpzTmFtZSkpCiAgICB7CiAgICAgICAgSlNfUmVwb3J0RXJyb3Io
+Y29udGV4dCwgIkludmFsaWQgcGFyYW1ldGVyIik7CiAgICAgICAgcmV0dXJuIEpTX0ZBTFNFOwog
+ICAgfQoKICAgIGNvbnN0IGNoYXIgKm5hbWUgPSBKU19FbmNvZGVTdHJpbmcoY29udGV4dCwganNO
+YW1lKTsKICAgIE5hdGl2ZSAqbmF0aXZlID0gbmV3IE5hdGl2ZShuYW1lKTsKICAgIEpTT2JqZWN0
+ICpvYmogPSBKU19OZXdPYmplY3QoY29udGV4dCwgJm1fanNDbGFzcywgbV9qc1Byb3RvdHlwZSwg
+MCk7CiAgICBKU19TZXRQcml2YXRlKGNvbnRleHQsIG9iaiwgKHZvaWQgKiluYXRpdmUpOwogICAg
+SlNfU0VUX1JWQUwoY29udGV4dCwgdnAsIE9CSkVDVF9UT19KU1ZBTChvYmopKTsKICAgIHJldHVy
+biBKU19UUlVFOwp9Cgp2b2lkIE5hdGl2ZTo6anNGaW5hbGl6ZXIoSlNDb250ZXh0ICpjb250ZXh0
+LCBKU09iamVjdCAqb2JqKQp7CiAgICBkZWxldGUgc3RhdGljX2Nhc3Q8TmF0aXZlICo+KEpTX0dl
+dFByaXZhdGUoY29udGV4dCwgb2JqKSk7Cn0KCkpTQm9vbCBOYXRpdmU6OmpzUHJpbnQoSlNDb250
+ZXh0ICpjb250ZXh0LCB1aW50TiBhcmdjLCBqc3ZhbCAqdnApCnsKICAgIEpTT2JqZWN0ICpvYmog
+PSBKU19USElTX09CSkVDVChjb250ZXh0LCB2cCk7CiAgICBpZiAob2JqID09IDApCiAgICB7CiAg
+ICAgICAgSlNfUmVwb3J0RXJyb3IoY29udGV4dCwgIk5vIG5hdGl2ZSBvYmplY3QgZm91bmQiKTsK
+ICAgICAgICByZXR1cm4gSlNfRkFMU0U7CiAgICB9CiAgICBOYXRpdmUgKm5hdGl2ZSA9IHN0YXRp
+Y19jYXN0PE5hdGl2ZSAqPihKU19HZXRQcml2YXRlKGNvbnRleHQsIG9iaikpOwoKICAgIHN0cmlu
+ZyBtZXNzYWdlOwogICAganN2YWwgKmFyZyA9IEpTX0FSR1YoY29udGV4dCwgdnApOwogICAgd2hp
+bGUgKGFyZ2MtLSA+IDApCiAgICB7CiAgICAgICAgaWYgKG1lc3NhZ2UubGVuZ3RoKCkgPiAwKQog
+ICAgICAgICAgICBtZXNzYWdlICs9ICIgIjsKICAgICAgICBtZXNzYWdlICs9IEpTX0VuY29kZVN0
+cmluZyhjb250ZXh0LCBKU19WYWx1ZVRvU3RyaW5nKGNvbnRleHQsICphcmcrKykpOwogICAgfQoK
+ICAgIG5hdGl2ZS0+cHJpbnQobWVzc2FnZSk7CgogICAgcmV0dXJuIEpTX1RSVUU7Cn0KCkpTQ2xh
+c3MgZ2xvYmFsQ2xhc3MgPQp7CiAgICAiZ2xvYmFsIiwgSlNDTEFTU19HTE9CQUxfRkxBR1MsCiAg
+ICBKU19Qcm9wZXJ0eVN0dWIsIEpTX1Byb3BlcnR5U3R1YiwgSlNfUHJvcGVydHlTdHViLCBKU19T
+dHJpY3RQcm9wZXJ0eVN0dWIsCiAgICBKU19FbnVtZXJhdGVTdHViLCBKU19SZXNvbHZlU3R1Yiwg
+SlNfQ29udmVydFN0dWIsIEpTX0ZpbmFsaXplU3R1YiwKICAgIEpTQ0xBU1NfTk9fT1BUSU9OQUxf
+TUVNQkVSUwp9OwoKSlNSdW50aW1lICpydW50aW1lID0gMDsKSlNDb250ZXh0ICpnbG9iYWxDb250
+ZXh0ID0gMDsKSlNPYmplY3QgKmdsb2JhbE9iamVjdCA9IDA7Cgp2b2lkIGVycm9yUmVwb3J0ZXIo
+SlNDb250ZXh0ICpjb250ZXh0LCBjb25zdCBjaGFyICptZXNzYWdlLCBKU0Vycm9yUmVwb3J0ICpy
+ZXBvcnQpCnsKICAgIGZwcmludGYoc3RkZXJyLCAiJXM6JXU6ICVzXG4iLCByZXBvcnQtPmZpbGVu
+YW1lICE9IDAgPyByZXBvcnQtPmZpbGVuYW1lIDogInVuZGVmaW5lZCIsCiAgICAgICAgKHVuc2ln
+bmVkKXJlcG9ydC0+bGluZW5vLCBtZXNzYWdlKTsKfQoKdm9pZCBmaW5pKCkKewogICAgaWYgKGds
+b2JhbENvbnRleHQgIT0gMCkKICAgICAgICBKU19EZXN0cm95Q29udGV4dChnbG9iYWxDb250ZXh0
+KTsKCiAgICBpZiAocnVudGltZSAhPSAwKQogICAgICAgIEpTX0Rlc3Ryb3lSdW50aW1lKHJ1bnRp
+bWUpOwoKICAgIEpTX1NodXREb3duKCk7Cn0KCmJvb2wgaW5pdCgpCnsKICAgIHJ1bnRpbWUgPSBK
+U19OZXdSdW50aW1lKDggKiAxMDI0ICogMTAyNCk7CiAgICBpZiAocnVudGltZSA9PSAwKQogICAg
+ewogICAgICAgIGNlcnIgPDwgIkpTX05ld1J1bnRpbWUoKSBmYWlsZWQiIDw8IGVuZGw7CiAgICAg
+ICAgcmV0dXJuIGZhbHNlOwogICAgfQoKICAgIGdsb2JhbENvbnRleHQgPSBKU19OZXdDb250ZXh0
+KHJ1bnRpbWUsIDggKiAxMDI0KTsKICAgIEpTX1NldE9wdGlvbnMoZ2xvYmFsQ29udGV4dCwgSlNP
+UFRJT05fVkFST0JKRklYIHwgSlNPUFRJT05fSklUIHwgSlNPUFRJT05fTUVUSE9ESklUKTsKICAg
+IEpTX1NldFZlcnNpb24oZ2xvYmFsQ29udGV4dCwgSlNWRVJTSU9OX0xBVEVTVCk7CiAgICBKU19T
+ZXRFcnJvclJlcG9ydGVyKGdsb2JhbENvbnRleHQsIGVycm9yUmVwb3J0ZXIpOwoKICAgIGdsb2Jh
+bE9iamVjdCA9IEpTX05ld0NvbXBhcnRtZW50QW5kR2xvYmFsT2JqZWN0KGdsb2JhbENvbnRleHQs
+ICZnbG9iYWxDbGFzcywgMCk7CiAgICBpZiAoZ2xvYmFsT2JqZWN0ID09IDApCiAgICB7CiAgICAg
+ICAgY2VyciA8PCAiSlNfTmV3Q29tcGFydG1lbnRBbmRHbG9iYWxPYmplY3QoKSBmYWlsZWQiIDw8
+IGVuZGw7CiAgICAgICAgZmluaSgpOwogICAgICAgIHJldHVybiBmYWxzZTsKICAgIH0KCiAgICBp
+ZiAoIUpTX0luaXRTdGFuZGFyZENsYXNzZXMoZ2xvYmFsQ29udGV4dCwgZ2xvYmFsT2JqZWN0KSkK
+ICAgIHsKICAgICAgICBjZXJyIDw8ICJKU19Jbml0U3RhbmRhcmRDbGFzc2VzKCkgZmFpbGVkIiA8
+PCBlbmRsOwogICAgICAgIGZpbmkoKTsKICAgICAgICByZXR1cm4gZmFsc2U7CiAgICB9CgogICAg
+aWYgKCFOYXRpdmU6OmpzSW5pdChnbG9iYWxDb250ZXh0LCBnbG9iYWxPYmplY3QpKQogICAgewog
+ICAgICAgIGNlcnIgPDwgIkZhaWxlZCB0byBpbml0aWFsaXNlIE5hdGl2ZSBjbGFzcyIgPDwgZW5k
+bDsKICAgICAgICBmaW5pKCk7CiAgICAgICAgcmV0dXJuIGZhbHNlOwogICAgfQoKICAgIHJldHVy
+biB0cnVlOwp9Cgpib29sIGV4ZWN1dGUoY29uc3Qgc3RyaW5nICZmaWxlbmFtZSkKewogICAgc3Ry
+aW5nIHNjcmlwdCwgbGluZTsKICAgIGlmc3RyZWFtIGZpbGUoZmlsZW5hbWUuY19zdHIoKSwgaW9z
+Ojppbik7CiAgICBpZiAoIWZpbGUuaXNfb3BlbigpKQogICAgewogICAgICAgIGNlcnIgPDwgIkZh
+aWxlZCB0byBvcGVuIGZpbGUgIiA8PCBmaWxlbmFtZSA8PCBlbmRsOwogICAgICAgIHJldHVybiBm
+YWxzZTsKICAgIH0KICAgIHdoaWxlIChmaWxlLmdvb2QoKSkKICAgIHsKICAgICAgICBnZXRsaW5l
+KGZpbGUsIGxpbmUpOwogICAgICAgIHNjcmlwdCArPSBsaW5lOwogICAgfQogICAgZmlsZS5jbG9z
+ZSgpOwogICAgCiAgICBqc3ZhbCBydmFsOwogICAgYm9vbCByZXR2YWwgPSBKU19FdmFsdWF0ZVNj
+cmlwdChnbG9iYWxDb250ZXh0LCBnbG9iYWxPYmplY3QsIHNjcmlwdC5jX3N0cigpLCBzY3JpcHQu
+bGVuZ3RoKCksCiAgICAgICAgZmlsZW5hbWUuY19zdHIoKSwgMSwgJnJ2YWwpID09IEpTX1RSVUU7
+CiAgICByZXR1cm4gcmV0dmFsOyAKfQoKaW50IG1haW4oaW50IGFyZ2MsIGNoYXIgKiphcmd2KQp7
+CiAgICBpZiAoYXJnYyA9PSAxKQogICAgewogICAgICAgIGNlcnIgPDwgIlVzYWdlICIgPDwgYXJn
+dlswXSA8PCAiIHNjcmlwdC5qcyBbLi4uIHNjcmlwdC5qc10iIDw8IGVuZGw7CiAgICAgICAgcmV0
+dXJuIDE7CiAgICB9CiAgICAKICAgIGlmICghaW5pdCgpKQogICAgICAgIHJldHVybiAyOwoKICAg
+IGZvciAoaW50IGkgPSAxOyBpIDwgYXJnYzsgaSsrKQogICAgewogICAgICAgIHN0cmluZyBmaWxl
+bmFtZShhcmd2W2ldKTsKICAgICAgICBleGVjdXRlKGZpbGVuYW1lKTsKICAgIH0KICAgICAgICAK
+ICAgIGZpbmkoKTsKICAgIHJldHVybiAwOwp9Cg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524265</attachid>
+            <date>2011-04-06 14:21:00 -0700</date>
+            <delta_ts>2011-04-06 14:21:52 -0700</delta_ts>
+            <desc>Test script file</desc>
+            <filename>script.js</filename>
+            <type>application/x-javascript</type>
+            <size>93</size>
+            <attacher>trojanfoe</attacher>
+            
+              <data encoding="base64">CnZhciBvYmogPSBuZXcgTmF0aXZlKCJhY2xhc3MiKTsKCm9iai5wcmludCgidGhlIHF1aWNrIGJy
+b3duIGZveCBqdW1wcyBvdmVyIHRoZSBsYXp5IGRvZyIpOwoK
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524267</attachid>
+            <date>2011-04-06 14:22:00 -0700</date>
+            <delta_ts>2011-04-06 14:22:08 -0700</delta_ts>
+            <desc>Makefile</desc>
+            <filename>Makefile</filename>
+            <type>application/octet-stream</type>
+            <size>504</size>
+            <attacher>trojanfoe</attacher>
+            
+              <data encoding="base64">SU5DRElSPS4uL2V4dGVybmFsL2luY2x1ZGUvanMKTElCRElSPS4uL2V4dGVybmFsL2xpYi1kZWJ1
+ZwpDWFg9ZysrCkNYWEZMQUdTPS1JJChJTkNESVIpIC1nCkxERkxBR1M9LUwkKExJQkRJUikgLWcK
+TElCUz0tbG1vempzMTg1LTEuMAoKYWxsOiBqc3Rlc3QzMiBqc3Rlc3Q2NAoKanN0ZXN0MzI6IGpz
+dGVzdDMyLm8KCSQoQ1hYKSAkKExERkxBR1MpIC1tMzIgLW8ganN0ZXN0MzIganN0ZXN0MzIubyAk
+KExJQlMpCgpqc3Rlc3Q2NDoganN0ZXN0NjQubwoJJChDWFgpICQoTERGTEFHUykgLW02NCAtbyBq
+c3Rlc3Q2NCBqc3Rlc3Q2NC5vICQoTElCUykKCmpzdGVzdDMyLm86IGpzdGVzdC5jcHAKCSQoQ1hY
+KSAtYyAkKENYWEZMQUdTKSAtbTMyIC1vIGpzdGVzdDMyLm8ganN0ZXN0LmNwcAoKanN0ZXN0NjQu
+bzoganN0ZXN0LmNwcAoJJChDWFgpIC1jICQoQ1hYRkxBR1MpIC1tNjQgLW8ganN0ZXN0NjQubyBq
+c3Rlc3QuY3BwCgpjbGVhbjoKCXJtIC1mIGpzdGVzdDMyIGpzdGVzdDY0ICoubwoK
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648144</bug_id>
+          
+          <creation_ts>2011-04-06 15:34:00 -0700</creation_ts>
+          <short_desc>Client does not respond when an Addon button is moved to the Right side of the menu.</short_desc>
+          <delta_ts>2011-04-06 15:34:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Alex Wash">alex.wash</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393397</commentid>
+            <who name="Alex Wash">alex.wash</who>
+            <bug_when>2011-04-06 15:34:08 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+The version I used when the error happened was the build that was first non beta release. The Firefox window stopped responding and upon restart went back to being not responsive. The error happened while I was trying to set up my Stumbleupon add on. I was trying to put the button right after &quot;Help&quot; in the menu (which was, and am, able to have in the pre 4.0 version. As soon as I positioned the button to the right of &quot;Help&quot; and clicked Apply the client became non responsive. 
+
+Reproducible: Didn&apos;t try
+
+Steps to Reproduce:
+1.Install 4.0 version.
+2.Install Stumbleupon addon.
+3.In Stumble addon setting, disable every button but the Main one, Like, Dislike, and Favorites. Then select position of the buttons to the top menu, and drag it to the right of Help.
+Actual Results:  
+BOOM! The client stopped responding, when restarted, the client came up and already was Not Responding.
+
+Expected Results:  
+It should of set the Stumble button to the right of the Help.
+
+It could be related to Stumble addon, but when firefox did the check for the compatible addons, Stumble was alright.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

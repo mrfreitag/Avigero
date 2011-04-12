@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647939</bug_id>
+          
+          <creation_ts>2011-04-05 22:58:00 -0700</creation_ts>
+          <short_desc>test the contact module</short_desc>
+          <delta_ts>2011-04-06 09:22:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Session Restore</component>
+          <version>1.5.0.x Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INCOMPLETE</resolution>
+          
+          
+          <bug_file_loc>http://http://buildonnet/buildingsteps/contacts/mylist.aspx</bug_file_loc>
+          
+          
+          <priority>P1</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>ashd.btl</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>session.restore</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391932</commentid>
+            <who name="">ashd.btl</who>
+            <bug_when>2011-04-05 22:58:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15 GTB7.1 (.NET CLR 3.5.30729)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15 GTB7.1 (.NET CLR 3.5.30729)
+
+contact module
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.test
+import excel
+2.
+3.
+Actual Results:  
+its not importing the excel sheet
+
+Expected Results:  
+it get import
+
+abcd</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392381</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-06 09:22:23 -0700</bug_when>
+            <thetext>Reopen when you read and learnt https://developer.mozilla.org/en/Bug_writing_guidelines</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

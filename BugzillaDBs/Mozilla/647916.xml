@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647916</bug_id>
+          
+          <creation_ts>2011-04-05 17:46:00 -0700</creation_ts>
+          <short_desc>Layout is broken on some versions of the Android stock browser</short_desc>
+          <delta_ts>2011-04-07 16:21:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>1.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Guillaume Lecollinet">guillaume</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391738</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 17:46:12 -0700</bug_when>
+            <thetext>Opening this bug to keep track of the conversation with TBG about this problem.
+
+I&apos;m using the CSS3 background-size property to ensure that images look nice and anti-aliased on Firefox mobile.
+
+However, some older versions of the Android stock browser don&apos;t have support for this property, which causes the entire mobile layout to break.
+
+I haven&apos;t personally been able to reproduce the problem since our devices are equipped with stock browsers that do support CSS3.
+We&apos;re testing with:
+- webkit 3.1 on our HTC Desire (Android 2.2)
+- &quot;browser 2.2&quot; on our Samsung Galaxy Tab (Android 2.2)
+These are the stock browsers that were installed on our devices when we purchased them.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395396</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-07 16:21:56 -0700</bug_when>
+            <thetext>I have no way to test this, but I believe this commit will fix this problem:
+https://github.com/mozilla/spark/commit/9dc02a3d84579022a3b2445ba039cfa7b5054273
+
+I added vendor prefixes for webkit (and opera too, just in case).
+Please reopen the bug if that does not fix the issue on the Android stock browser.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

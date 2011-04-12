@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648389</bug_id>
+          
+          <creation_ts>2011-04-07 15:52:00 -0700</creation_ts>
+          <short_desc>VPN access for bsavage@ to access Mozilla-MPT</short_desc>
+          <delta_ts>2011-04-08 14:39:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Account Requests</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brandon Savage">bsavage</reporter>
+          <assigned_to name="Julius Berry [:b-man]">jberry</assigned_to>
+          <cc>jberry</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395311</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-07 15:52:00 -0700</bug_when>
+            <thetext>I need access to Mozilla-MPT and the documentation instructs the filing of a request.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395334</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-07 16:00:04 -0700</bug_when>
+            <thetext>Enabled MPT bit in LDAP.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396575</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-08 09:21:37 -0700</bug_when>
+            <thetext>I am still having some trouble accessing the VPN. Log is below:
+
+Fri 04/08/11 09:20 AM: IMPORTANT: OpenVPN&apos;s default port number is now 1194
+Fri 04/08/11 09:20 AM: WARNING: No server certificate verification method has been enabled.  See http://openvpn.net/howto.html#mitm for more info.
+Fri 04/08/11 09:20 AM: WARNING: file &apos;Client.key&apos; is group or others accessible
+Fri 04/08/11 09:20 AM: WARNING: file &apos;Tls-auth.key&apos; is group or others accessible
+Fri 04/08/11 09:20 AM: Control Channel Authentication: using &apos;Tls-auth.key&apos; as a OpenVPN static key file
+Fri 04/08/11 09:20 AM: Outgoing Control Channel Authentication: Using 160 bit message hash &apos;SHA1&apos; for HMAC authentication
+Fri 04/08/11 09:20 AM: Incoming Control Channel Authentication: Using 160 bit message hash &apos;SHA1&apos; for HMAC authentication
+Fri 04/08/11 09:20 AM: LZO compression initialized
+Fri 04/08/11 09:20 AM: Control Channel MTU parms [ L:1558 D:166 EF:66 EB:0 ET:0 EL:0 ]
+Fri 04/08/11 09:20 AM: Data Channel MTU parms [ L:1558 D:1450 EF:58 EB:135 ET:0 EL:0 AF:3/1 ]
+Fri 04/08/11 09:20 AM: Local Options hash (VER=V4): &apos;9e7066d2&apos;
+Fri 04/08/11 09:20 AM: Expected Remote Options hash (VER=V4): &apos;162b04de&apos;
+Fri 04/08/11 09:20 AM: UDPv4 link local: [undef]
+Fri 04/08/11 09:20 AM: UDPv4 link remote: 63.245.208.142:1194
+Fri 04/08/11 09:20 AM: TLS: Initial packet from 63.245.208.142:1194
+Fri 04/08/11 09:20 AM: VERIFY OK: depth=1
+Fri 04/08/11 09:20 AM: VERIFY OK: depth=0
+Fri 04/08/11 09:20 AM: Data Channel Encrypt: Cipher &apos;AES-256-CBC&apos; initialized with 256 bit key
+Fri 04/08/11 09:20 AM: Data Channel Encrypt: Using 160 bit message hash &apos;SHA1&apos; for HMAC authentication
+Fri 04/08/11 09:20 AM: Data Channel Decrypt: Cipher &apos;AES-256-CBC&apos; initialized with 256 bit key
+Fri 04/08/11 09:20 AM: Data Channel Decrypt: Using 160 bit message hash &apos;SHA1&apos; for HMAC authentication
+Fri 04/08/11 09:20 AM: Control Channel: TLSv1
+Fri 04/08/11 09:20 AM: [server] Peer Connection Initiated with 63.245.208.142:1194
+Fri 04/08/11 09:20 AM: SENT CONTROL [server]: &apos;PUSH_REQUEST&apos; (status=1)
+Fri 04/08/11 09:20 AM: PUSH: Received control message: &apos;PUSH_REPLY
+Fri 04/08/11 09:20 AM: OPTIONS IMPORT: timers and/or timeouts modified
+Fri 04/08/11 09:20 AM: OPTIONS IMPORT: --ifconfig/up options modified
+Fri 04/08/11 09:20 AM: OPTIONS IMPORT: route options modified
+Fri 04/08/11 09:20 AM: OPTIONS IMPORT: --ip-win32 and/or --dhcp-option options modified
+Fri 04/08/11 09:20 AM: gw 10.250.0.1
+Fri 04/08/11 09:20 AM: Cannot allocate TUN/TAP dev dynamically</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396681</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 09:57:29 -0700</bug_when>
+            <thetext>What operating system are you using?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396684</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-08 09:59:27 -0700</bug_when>
+            <thetext>Mac OS X 10.6.7.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396712</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 10:06:26 -0700</bug_when>
+            <thetext>Were in the building are you located?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396721</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-08 10:08:50 -0700</bug_when>
+            <thetext>I work remotely so I don&apos;t have a specific location; I&apos;ll be in F or G on 3rd for most of the afternoon (after lunch).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396728</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 10:10:49 -0700</bug_when>
+            <thetext>Sounds like you want to handle this after lunch. I&apos;ll look for you then.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397341</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-08 13:26:58 -0700</bug_when>
+            <thetext>It was mentioned that I should provide my public key for VPN to work, which I never did. Should I have provided a public key when I filed this issue?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397475</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 14:15:22 -0700</bug_when>
+            <thetext>No, you don&apos;t need an ssh key. Would you like me to come up and get this resolved?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397478</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-08 14:16:11 -0700</bug_when>
+            <thetext>Sure. I&apos;m in FAIL right now; I can step out whenever you&apos;re ready.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397489</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 14:20:26 -0700</bug_when>
+            <thetext>No worries, I&apos;ll come up there.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397558</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 14:39:28 -0700</bug_when>
+            <thetext>Gave Brandon license key and Info via email, closing out bug. Brandon, please reopen if the problem persist.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

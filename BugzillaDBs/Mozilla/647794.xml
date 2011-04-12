@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647794</bug_id>
+          
+          <creation_ts>2011-04-05 03:39:00 -0700</creation_ts>
+          <short_desc>Firefox Sync causes some errors in FF: cannot close, pulldown menus doesnt react with mouse</short_desc>
+          <delta_ts>2011-04-06 10:16:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="mrdummy">gjkeizer</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mak77</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390970</commentid>
+            <who name="mrdummy">gjkeizer</who>
+            <bug_when>2011-04-05 03:39:58 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I have two laptops. The &quot;original&quot; laptop with FF4 is synced with second laptop with FF4. Before sync, i have no problems, but after sync, its getting worser. The windows buttons in upper right corner (min, max, close) wont react with mouse after clicking on URL bar. The pulldown menus are also not good: i cannot select it with mouse. Only with keyboard cursor.
+
+It happens always after every restart FF. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Sync it with another FF.
+2. Open synced FF
+3. Click on URL bar / browse something.
+4a. Try close FF at normal way with mouse. (with upper right button)
+4b. Try choose something in pulldown menu in form page with mouse.
+Actual Results:  
+You shall see the upper right buttons for closing wont react with mouse.
+Also it seems pulldown menus wont react not with mouse.
+
+
+Expected Results:  
+Mouse react with buttons and pulldown menus and can closed normally or is selectable.
+
+This is perhaps sync error. I have many information synced from another browser, even all data is here, FF is not rebooted after sync but keep running.
+Sync is succesfully done, but the browser reacts more strange! Only original first browser has no this problems, only second synced browser is working not good.
+
+Might cause some errors in mouse over buttons. It looks also FF is sometimes slow and high CPU peaks. 
+Verify the sync process. There is pretty sure wrong.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391088</commentid>
+            <who name="mrdummy">gjkeizer</who>
+            <bug_when>2011-04-05 06:45:41 -0700</bug_when>
+            <thetext>I have reinstalled FF4 again and checked if the problem is still there. I discovered the problem is also found with clean install. When started first time, i can close it normally, but when i clicked on URL bar or on browser body, the upper right buttons wont react with mouse.
+BUT. When i clicked on taskbar below, so FF4 is not more active, and i hover over the buttons, they react with mouse hover and i can close FF.
+A strange &quot;focus&quot; problem. It means FF Sync is not the cause.
+
+About pulldown menu (with &lt;select&gt; code) problem is still unsolved. When i clicked at it, it opens, but it seems transparent (the link below pulldown menu window reacts with mouse) so i cannot select options from menu with mouse.
+
+Both laptops are Win7x64 legal version, home premium. Only second laptop has clean pre-installed Win7x64, first one is installed with Win7 CDROM. And both laptops has same Avast Antivir. program.
+
+I have never seen this problem. How can i debug such problem?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392513</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 10:15:49 -0700</bug_when>
+            <thetext>It&apos;s not clear if your clean install involved a new profile. For now try safe mode please, to exclude add-ons. http://support.mozilla.com/kb/Safe+Mode
+Is the window just reported as &quot;Not reponding&quot; (and content gets grayed out) or looks normal but buttons don&apos;t work?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392516</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 10:16:41 -0700</bug_when>
+            <thetext>Also, which version of Avast? do you have any Avast add-on installed?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

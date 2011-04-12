@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647809</bug_id>
+          
+          <creation_ts>2011-04-05 05:30:00 -0700</creation_ts>
+          <short_desc>SVG feSpotLight light source position, limitingConeAngle and filter area (clipping) wrong</short_desc>
+          <delta_ts>2011-04-09 10:44:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>SVG</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://hoffmann.bplaced.net/svgtest/fespotl05.svg</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>619992</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dr. Olaf Hoffmann">dr.o.hoffmann</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact name="General SVG Bugs">general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391038</commentid>
+            <who name="Dr. Olaf Hoffmann">dr.o.hoffmann</who>
+            <bug_when>2011-04-05 05:30:50 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+For feSpotLight the light source position and the limitingConeAngle are 
+interpreted wrong and there is an unspecified clipping as well (maybe for a
+similar reason than for bug 647687), respecitive alternatively the coordinate
+system for the filter could be wrong.
+
+In the file the animated effect of the limitingConeAngle is indicated with 
+white circles, these circles indicate the cone angles related to the opacity values within the file. The position of the light source and the pointing direction are chosen in such a way, that the horizontal middle axis of the
+document and filtered object is a symmetry axis for the filter effect, this means, the top part is a mirrored correspondence of the part below and vice versa.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. View the file given at the URI above
+2. Compare with description within the file and the specification
+3. Compare with the behaviour of the adobe plugin or Opera (Opera has only a
+slightly wrong limitingConeAngle)
+Actual Results:  
+Apart from the wrong clipping effect respectively filter area, the effect is not
+symmetrical to the central horizontal axis and the limitingConeAngle does not
+fit to the indicating white circles. 
+
+Expected Results:  
+The display has to be symmetrical als explained above, without a clipping effect
+and the limitingConeAngle results in circular borders of the magenta areas, outside the limitingConeAngle the filter area is expected to be black. Borders
+are indicated with the white circles respectively for the used opacity values
+of the filtered object.
+Compare with the adobe plugin or approximately with the behaviour of Opera for details.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391041</commentid>
+            <who name="Robert Longson">longsonr</who>
+            <bug_when>2011-04-05 05:33:21 -0700</bug_when>
+            <thetext>Sounds like some, perhaps all of this is the same as bug 619992</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391258</commentid>
+            <who name="Dr. Olaf Hoffmann">dr.o.hoffmann</who>
+            <bug_when>2011-04-05 09:48:57 -0700</bug_when>
+            <thetext>I can see similar position problems for tests with feSpecularLighting.
+The clipping bug dominates most of my filter tests with light sources, 
+therefore I did not look for more details in them yet...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398478</commentid>
+            <who name="Robert Longson">longsonr</who>
+            <bug_when>2011-04-09 10:44:47 -0700</bug_when>
+            <thetext>This is fixed by the patches in bug 619992</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

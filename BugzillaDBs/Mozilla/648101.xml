@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648101</bug_id>
+          
+          <creation_ts>2011-04-06 13:36:00 -0700</creation_ts>
+          <short_desc>browser.tabs.insertRelatedAfterCurrent misses links opened in foreground</short_desc>
+          <delta_ts>2011-04-07 11:37:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Tabbed Browser</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>data:text/html,&lt;a href=&quot;http://www.seamonkey-project.org/&quot; target=&quot;_blank&quot;&gt;Go&lt;/a&gt;</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Stanimir Stamenkov">stanio</reporter>
+          <assigned_to name="neil@parkwaycc.co.uk">neil</assigned_to>
+          <cc>dominique</cc>
+    
+    <cc>jh</cc>
+    
+    <cc>neil</cc>
+          <qa_contact>tabbed-browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393082</commentid>
+            <who name="Stanimir Stamenkov">stanio</who>
+            <bug_when>2011-04-06 13:36:48 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0pre) Gecko/20110406 SeaMonkey/2.1b3pre
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0pre) Gecko/20110406 SeaMonkey/2.1b3pre
+
+Using the default settings of:
+
+browser.link.open_newwindow;3
+browser.tabs.insertRelatedAfterCurrent;true
+browser.tabs.loadDivertedInBackground;false
+
+causes links meant to open a new window in a tab placed in the current window after the last tab, instead after the current one.  Having:
+
+browser.tabs.loadDivertedInBackground;true
+
+to load the diverted links in background places the new tabs after the current one, as expected.
+
+Reproducible: Always
+
+Steps to Reproduce:
+data:text/html,&lt;a href=&quot;http://www.seamonkey-project.org/&quot; target=&quot;_blank&quot;&gt;Go&lt;/a&gt;
+
+data:text/html,&lt;form action=&quot;http://www.mozilla.org/&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Go&quot;&gt;&lt;/form&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393253</commentid>
+            <who name="Stanimir Stamenkov">stanio</who>
+            <bug_when>2011-04-06 14:35:58 -0700</bug_when>
+            <thetext>The same problem appears when explicitly opening links in a new tab given:
+
+browser.tabs.loadInBackground;false
+
+so it&apos;s not specific to diverted links - I&apos;ve missed the point Neil has given in the newsgroup:
+
+http://groups.google.com/group/mozilla.dev.apps.seamonkey/msg/14fa5bcb516277c0</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393488</commentid>
+              <attachid>524299</attachid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-06 16:10:27 -0700</bug_when>
+            <thetext>Created attachment 524299
+Proposed patch
+
+The problem here is that if we&apos;re switching to the tab (default for diverted tabs and optional for tabs opened via the UI) then the newly created tab becomes the current tab before we check whether it should be inserted after the current tab, so the fix is to move the code that selects the new tab until after we&apos;ve decided whether to insert it after the current tab.
+
+I also moved the TabOpen event because it looked odd to have it fire before all of the other stuff that was now after it, it seems reasonable to me to fire it only once everything else is completely processed. I&apos;m just assuming this won&apos;t break Session Store or any tests.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394701</commentid>
+              <attachid>524299</attachid>
+            <who name="Misak Khachatryan">misak.bugzilla</who>
+            <bug_when>2011-04-07 10:47:35 -0700</bug_when>
+            <thetext>Comment on attachment 524299
+Proposed patch
+
+I ran all the tests on my Linux box, no problems.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394787</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-07 11:37:16 -0700</bug_when>
+            <thetext>Pushed changeset a44d9edd4600 to comm-central.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524299</attachid>
+            <date>2011-04-06 16:10:00 -0700</date>
+            <delta_ts>2011-04-07 10:47:35 -0700</delta_ts>
+            <desc>Proposed patch</desc>
+            <filename>648101.diff</filename>
+            <type>text/plain</type>
+            <size>2813</size>
+            <attacher>neil</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3N1aXRlL2Jyb3dzZXIvdGFiYnJvd3Nlci54bWwgYi9zdWl0ZS9icm93c2Vy
+L3RhYmJyb3dzZXIueG1sCi0tLSBhL3N1aXRlL2Jyb3dzZXIvdGFiYnJvd3Nlci54bWwKKysrIGIv
+c3VpdGUvYnJvd3Nlci90YWJicm93c2VyLnhtbApAQCAtMTQ5NCw0OSArMTQ5NCw0OSBAQAogICAg
+ICAgICAgICAgICBpZiAoYUZyb21FeHRlcm5hbCkKICAgICAgICAgICAgICAgICBmbGFncyB8PSBu
+c0lXZWJOYXZpZ2F0aW9uLkxPQURfRkxBR1NfRlJPTV9FWFRFUk5BTDsKICAgICAgICAgICAgICAg
+dHJ5IHsKICAgICAgICAgICAgICAgICBiLmxvYWRVUklXaXRoRmxhZ3MoYVVSSSwgZmxhZ3MsIGFS
+ZWZlcnJlclVSSSwgYUNoYXJzZXQsIGFQb3N0RGF0YSk7CiAgICAgICAgICAgICAgIH0KICAgICAg
+ICAgICAgICAgY2F0Y2ggKGV4KSB7IH0KICAgICAgICAgICAgIH0KIAotICAgICAgICAgICAgaWYg
+KGFGb2N1c05ld1RhYikgewotICAgICAgICAgICAgICB2YXIgcGFyZW50VGFiID0gdGhpcy5zZWxl
+Y3RlZFRhYjsKLSAgICAgICAgICAgICAgdGhpcy5zZWxlY3RlZFRhYiA9IHQ7Ci0gICAgICAgICAg
+ICAgIHRoaXMubVByZXZpb3VzVGFiID0gcGFyZW50VGFiOwotICAgICAgICAgICAgfQotICAgICAg
+ICAgICAgZWxzZSB7Ci0gICAgICAgICAgICAgIC8vIFdlIHN0YXJ0IG91ciBicm93c2VycyBvdXQg
+YXMgaW5hY3RpdmUsIGFuZCB0aGVuIG1haW50YWluCi0gICAgICAgICAgICAgIC8vIGFjdGl2ZW5l
+c3MgaW4gdGhlIHRhYiBzd2l0Y2hlci4KLSAgICAgICAgICAgICAgYi5kb2NTaGVsbC5pc0FjdGl2
+ZSA9IGZhbHNlOwotCi0gICAgICAgICAgICAgIC8vIFRoZSB1c2VyIG9wZW5lZCBhIGJhY2tncm91
+bmQgdGFiLCBzbyB1cGRhdGVDdXJyZW50QnJvd3NlcgotICAgICAgICAgICAgICAvLyB3b24ndCBi
+ZSBjYWxsZWQuICBFeHBsaWNpdGx5IGNsZWFyIHRoZSBwcmV2aW91cyB0YWIuCi0gICAgICAgICAg
+ICAgIHRoaXMubVByZXZpb3VzVGFiID0gbnVsbDsKLSAgICAgICAgICAgIH0KLQotICAgICAgICAg
+ICAgdmFyIGV2dCA9IGRvY3VtZW50LmNyZWF0ZUV2ZW50KCJFdmVudHMiKTsKLSAgICAgICAgICAg
+IGV2dC5pbml0RXZlbnQoIlRhYk9wZW4iLCB0cnVlLCBmYWxzZSk7Ci0gICAgICAgICAgICB0LmRp
+c3BhdGNoRXZlbnQoZXZ0KTsKLQogICAgICAgICAgICAgLy8gQ2hlY2sgaWYgd2UncmUgb3Blbmlu
+ZyBhIHRhYiByZWxhdGVkIHRvIHRoZSBjdXJyZW50IHRhYiBhbmQKICAgICAgICAgICAgIC8vIG1v
+dmUgaXQgdG8gYWZ0ZXIgdGhlIGN1cnJlbnQgdGFiLgogICAgICAgICAgICAgLy8gYVJlZmVycmVy
+VVJJIGlzIG51bGwgb3IgdW5kZWZpbmVkIGlmIHRoZSB0YWIgaXMgb3BlbmVkIGZyb20KICAgICAg
+ICAgICAgIC8vIGFuIGV4dGVybmFsIGFwcGxpY2F0aW9uIG9yIGJvb2ttYXJrLCBpLmUuIHNvbWV3
+aGVyZSBvdGhlcgogICAgICAgICAgICAgLy8gdGhhbiB0aGUgY3VycmVudCB0YWIuCiAgICAgICAg
+ICAgICBpZiAoKGFSZWxhdGVkVG9DdXJyZW50IHx8IGFSZWZlcnJlclVSSSkgJiYKICAgICAgICAg
+ICAgICAgICB0aGlzLm1QcmVmcy5nZXRCb29sUHJlZigiYnJvd3Nlci50YWJzLmluc2VydFJlbGF0
+ZWRBZnRlckN1cnJlbnQiKSkgewogICAgICAgICAgICAgICB2YXIgbGFzdFJlbGF0ZWRJbmRleCA9
+IHRoaXMubUxhc3RSZWxhdGVkSW5kZXggfHwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICB0aGlzLnRhYkNvbnRhaW5lci5zZWxlY3RlZEluZGV4OwogICAgICAgICAgICAgICB0
+aGlzLm1vdmVUYWJUbyh0LCArK2xhc3RSZWxhdGVkSW5kZXgpOwogICAgICAgICAgICAgICB0aGlz
+Lm1MYXN0UmVsYXRlZEluZGV4ID0gbGFzdFJlbGF0ZWRJbmRleDsKICAgICAgICAgICAgIH0KKwor
+ICAgICAgICAgICAgaWYgKGFGb2N1c05ld1RhYikgeworICAgICAgICAgICAgICB2YXIgcGFyZW50
+VGFiID0gdGhpcy5zZWxlY3RlZFRhYjsKKyAgICAgICAgICAgICAgdGhpcy5zZWxlY3RlZFRhYiA9
+IHQ7CisgICAgICAgICAgICAgIHRoaXMubVByZXZpb3VzVGFiID0gcGFyZW50VGFiOworICAgICAg
+ICAgICAgfQorICAgICAgICAgICAgZWxzZSB7CisgICAgICAgICAgICAgIC8vIFdlIHN0YXJ0IG91
+ciBicm93c2VycyBvdXQgYXMgaW5hY3RpdmUsIGFuZCB0aGVuIG1haW50YWluCisgICAgICAgICAg
+ICAgIC8vIGFjdGl2ZW5lc3MgaW4gdGhlIHRhYiBzd2l0Y2hlci4KKyAgICAgICAgICAgICAgYi5k
+b2NTaGVsbC5pc0FjdGl2ZSA9IGZhbHNlOworCisgICAgICAgICAgICAgIC8vIFRoZSB1c2VyIG9w
+ZW5lZCBhIGJhY2tncm91bmQgdGFiLCBzbyB1cGRhdGVDdXJyZW50QnJvd3NlcgorICAgICAgICAg
+ICAgICAvLyB3b24ndCBiZSBjYWxsZWQuICBFeHBsaWNpdGx5IGNsZWFyIHRoZSBwcmV2aW91cyB0
+YWIuCisgICAgICAgICAgICAgIHRoaXMubVByZXZpb3VzVGFiID0gbnVsbDsKKyAgICAgICAgICAg
+IH0KICAgICAgICAgICAgIHRoaXMudGFiQ29udGFpbmVyLl9oYW5kbGVOZXdUYWIodCk7CiAKKyAg
+ICAgICAgICAgIHZhciBldnQgPSBkb2N1bWVudC5jcmVhdGVFdmVudCgiRXZlbnRzIik7CisgICAg
+ICAgICAgICBldnQuaW5pdEV2ZW50KCJUYWJPcGVuIiwgdHJ1ZSwgZmFsc2UpOworICAgICAgICAg
+ICAgdC5kaXNwYXRjaEV2ZW50KGV2dCk7CisKICAgICAgICAgICAgIHJldHVybiB0OwogICAgICAg
+ICAgIF1dPgogICAgICAgICA8L2JvZHk+CiAgICAgICA8L21ldGhvZD4KIAogICAgICAgPG1ldGhv
+ZCBuYW1lPSJyZW1vdmVBbGxUYWJzQnV0Ij4KICAgICAgICAgPHBhcmFtZXRlciBuYW1lPSJhVGFi
+Ii8+CiAgICAgICAgIDxib2R5Pgo=
+</data>
+<flag name="review"
+          id="437978"
+          type_id="4"
+          status="+"
+          setter="misak.bugzilla"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

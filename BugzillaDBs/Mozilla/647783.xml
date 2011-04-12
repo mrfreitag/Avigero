@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647783</bug_id>
+          
+          <creation_ts>2011-04-05 01:00:00 -0700</creation_ts>
+          <short_desc>Firefox 4 icon for html document is for IE</short_desc>
+          <delta_ts>2011-04-09 17:20:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Shell Integration</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.megapix.com/?p=NEPQRUJK&amp;expid=PHOZG8BTP&amp;expind=0</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="John">jirai.ekibyo.drakmord</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>shell.integration</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390900</commentid>
+            <who name="John">jirai.ekibyo.drakmord</who>
+            <bug_when>2011-04-05 01:00:44 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I recently installed and updated to firefox 4. Then I saved my forefox sync key in html format.
+I visited the directory where my firefox key is saved. I was trembled when I saw that firefox&apos;s icon on html is for IE.
+I checked and re-checked the file type association for html file and everything seems intact.
+
+
+I opened the file and it opened on a new tab on firefox. But why it&apos;s icon is for IE? Is it only in my computer? Or is it firefox tweak/update issue?
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Set firefox 4 as default browser.
+2.save an html-format file.
+
+Actual Results:  
+HTML file icon is for IE. However, it is clear that it&apos;s file-type &quot;open with&quot; is for firefox. Perhaps it really opens with firefox.
+
+Expected Results:  
+Icon should be for firefox, ofcourse...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390971</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-05 03:46:18 -0700</bug_when>
+            <thetext>http://forums.mozillazine.org/viewtopic.php?f=38&amp;t=252032&amp;sid=f7613fd4507267d46c7925e642bb78c9
+If that doesn&apos;t help, please try http://support.mozilla.com/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

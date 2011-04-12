@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648407</bug_id>
+          
+          <creation_ts>2011-04-07 16:22:00 -0700</creation_ts>
+          <short_desc>Fold NSPR and NSS into mozjs (for Windows) or libxul (for other platforms)</short_desc>
+          <delta_ts>2011-04-08 09:55:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Security: PSM</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          <see_also>https://bugzilla.mozilla.org/show_bug.cgi?id=533014</see_also>
+    
+    <see_also>https://bugzilla.mozilla.org/show_bug.cgi?id=534471</see_also>
+          
+          <status_whiteboard>[psm-startup]</status_whiteboard>
+          <keywords>perf</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>561842</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian Smith">bsmith</reporter>
+          <assigned_to name="Brian Smith">bsmith</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>kaie</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>mwu</cc>
+    
+    <cc>rrelyea</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>ted.mielczarek</cc>
+    
+    <cc>tglek</cc>
+    
+    <cc>wtc</cc>
+          <qa_contact>psm</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395398</commentid>
+            <who name="Brian Smith">bsmith</who>
+            <bug_when>2011-04-07 16:22:50 -0700</bug_when>
+            <thetext></thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396615</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-08 09:39:58 -0700</bug_when>
+            <thetext>If we&apos;re going to fold them into mozjs on Windows, I&apos;d rather that we rename the resulting binary. We&apos;ll have to do some fiddling in the build system either way, since JS gets linked way before NSS gets built anyway.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396628</commentid>
+            <who name="Taras Glek (:taras)">tglek</who>
+            <bug_when>2011-04-08 09:44:35 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; If we&apos;re going to fold them into mozjs on Windows, I&apos;d rather that we rename
+&gt; the resulting binary. We&apos;ll have to do some fiddling in the build system either
+&gt; way, since JS gets linked way before NSS gets built anyway.
+
+Good point. restofxulcosmsvcsucks.dll?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396633</commentid>
+            <who name="Kyle Huey [:khuey]">khuey</who>
+            <bug_when>2011-04-08 09:46:05 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; (In reply to comment #1)
+&gt; &gt; If we&apos;re going to fold them into mozjs on Windows, I&apos;d rather that we rename
+&gt; &gt; the resulting binary. We&apos;ll have to do some fiddling in the build system either
+&gt; &gt; way, since JS gets linked way before NSS gets built anyway.
+&gt; 
+&gt; Good point. restofxulcosmsvcsucks.dll?
+
+Have we tested bigxul.dll with MSVC 2010?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396646</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-08 09:49:04 -0700</bug_when>
+            <thetext>I reproduced the linker crash with VC2010 some time ago, but I haven&apos;t tried with SP1.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396662</commentid>
+            <who name="Kyle Huey [:khuey]">khuey</who>
+            <bug_when>2011-04-08 09:53:20 -0700</bug_when>
+            <thetext>Linker crash?  I thought js linked into xul fine, but the resulting binary failed some js tests on a semi-regular basis.  Does it die completely when you add nspr/nss?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396668</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-08 09:55:24 -0700</bug_when>
+            <thetext>The patch from bug 591836 was causing a linker error, bug 598663. I filed bug 611053 to remember to file it with Microsoft, but I couldn&apos;t quite get a reproducible test case together.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

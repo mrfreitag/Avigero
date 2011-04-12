@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648352</bug_id>
+          
+          <creation_ts>2011-04-07 13:43:00 -0700</creation_ts>
+          <short_desc>Custom toolbar don&apos;t remember collapsed status</short_desc>
+          <delta_ts>2011-04-11 14:34:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Toolbars</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>633250</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="TinyButStrong">tinybutstrong</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>bugcuddler</cc>
+    
+    <cc>fmdevelopertim</cc>
+    
+    <cc>jbecerra</cc>
+          <qa_contact>toolbars</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395035</commentid>
+            <who name="TinyButStrong">tinybutstrong</who>
+            <bug_when>2011-04-07 13:43:23 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Addon-bar, toolbars from addons remember the collapsed status, so in next Firefox startup it will restart in same state of previous session. Why custom toolbars do not have the same treatment?
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open Customize window;
+2. Create a new custom toolbar and add any button (optional I think);
+3. Hide this toolbar and restart Firefox.
+Actual Results:  
+The toolbar will back to life in next Firefox startup.
+
+Expected Results:  
+Same state of previous session.
+
+We need same treatment of addon-bar to custom toolbar!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395197</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-07 14:59:27 -0700</bug_when>
+            <thetext>I can reproduce this with a clean profile on:
+Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396013</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-07 22:47:12 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+Able to reproduce. After creating a custom toolbar with a button in it and hiding the same. Upon restart the hidden toolbar is shown.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401690</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-11 14:34:59 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 633250 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

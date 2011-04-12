@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647907</bug_id>
+          
+          <creation_ts>2011-04-05 16:10:00 -0700</creation_ts>
+          <short_desc>hotkeys throws new TypeError(INVALID_COMBINATION)</short_desc>
+          <delta_ts>2011-04-11 12:26:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Add-on SDK</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Matej Cepl">mcepl</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hwiechers</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391648</commentid>
+            <who name="Matej Cepl">mcepl</who>
+            <bug_when>2011-04-05 16:10:42 -0700</bug_when>
+            <thetext>Even the minimal module using hotkeys, e.g., the one consisting only of the following lib/main.js throws on console tracebacks:
+
+&quot;use strict&quot;;
+var url = require(&quot;url&quot;);
+var Hotkey = require(&quot;hotkeys&quot;);
+
+function goUp() {
+    var url = url.URL(require(&quot;window-utils&quot;).activeWindow.location.href);
+    console.log(&quot;current URL is &quot; + url);
+}
+
+var showHotKey = Hotkey({
+  combo: &quot;alt-pageup&quot;,
+  onPress: function() {
+    console.log(&quot;Pressed Alt+PgUp&quot;);
+    goUp();
+  }
+});
+
+The couple of such tracebacks is (and one runtime error on the top, but that&apos;s another issue):
+
+bradford:testmodule $ cfx run -g dev
+Using binary at &apos;/usr/bin/firefox&apos;.
+Using profile at &apos;/home/matej/.mozilla/firefox/rc1clvfj.devel_JP&apos;.
+*** e = [Exception... &quot;Component returned failure code: 0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE) [nsIJSCID.getService]&quot;  nsresult: &quot;0x80570016 (NS_ERROR_XPC_GS_RETURNED_FAILURE)&quot;  location: &quot;JS frame :: chrome://browser/content/utilityOverlay.js :: getShellService :: line 339&quot;  data: no]
+error: An exception occurred.
+Traceback (most recent call last):
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/observer.js&quot;, line 67, in handleEvent
+    this._emit(event.type, event, event.target.ownerDocument.defaultView);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/events.js&quot;, line 147, in _emit
+    return this._emitOnObject.apply(this, args);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/events.js&quot;, line 177, in _emitOnObject
+    listener.apply(targetObj, params);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/hotkeys.js&quot;, line 129, in onKeypress
+    let combination = normalize({ key: key, modifiers: modifiers });
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/utils.js&quot;, line 113, in normalize
+    return toString(toJSON(hotkey, separator), separator);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/utils.js&quot;, line 158, in toJSON
+    throw new TypeError(INVALID_COMBINATION);
+TypeError: Hotkey string must contain one or more modifiers and only one key
+error: An exception occurred.
+Traceback (most recent call last):
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/observer.js&quot;, line 67, in handleEvent
+    this._emit(event.type, event, event.target.ownerDocument.defaultView);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/events.js&quot;, line 147, in _emit
+    return this._emitOnObject.apply(this, args);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/events.js&quot;, line 177, in _emitOnObject
+    listener.apply(targetObj, params);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/hotkeys.js&quot;, line 129, in onKeypress
+    let combination = normalize({ key: key, modifiers: modifiers });
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/utils.js&quot;, line 113, in normalize
+    return toString(toJSON(hotkey, separator), separator);
+  File &quot;resource://jid0-azgwvqko1xbfqeme0ajv76pwfe0-api-utils-lib/keyboard/utils.js&quot;, line 158, in toJSON
+    throw new TypeError(INVALID_COMBINATION);
+TypeError: Hotkey string must contain one or more modifiers and only one key
+OK
+Total time: 9.042711 seconds
+Program terminated successfully.
+bradford:testmodule $</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401198</commentid>
+            <who name="">hwiechers</who>
+            <bug_when>2011-04-11 12:26:16 -0700</bug_when>
+            <thetext>I wrote a fix for this and submitted it as a pull request. 
+https://github.com/mozilla/addon-sdk/pull/145</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

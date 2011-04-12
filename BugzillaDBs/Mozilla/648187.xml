@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648187</bug_id>
+          
+          <creation_ts>2011-04-06 19:02:00 -0700</creation_ts>
+          <short_desc>&quot;Local Folders&quot; folder-date saved search - folder won&apos;t update daily</short_desc>
+          <delta_ts>2011-04-11 12:14:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Search</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[support]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Ghaas Gheet">steve</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>leho</cc>
+    
+    <cc>rtanglao</cc>
+    
+    <cc>StephenFoss</cc>
+    
+    <cc>vseerror</cc>
+          <qa_contact>search</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393806</commentid>
+            <who name="Ghaas Gheet">steve</who>
+            <bug_when>2011-04-06 19:02:53 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 ( .NET CLR 3.5.30729; .NET4.0E)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+Every day I do a search on the main, Local Folders folder and save my results as &quot;SEARCH&quot; in a new folder. 
+Either later that day, or the next day, I have to delete the SEARCH folder and re-do the search; I just can&apos;t update the date-criteria field, e.g., edit, find, search messages, date, is after, 4/1/11 -- and just change 4/1/11 to 4/2/11, then save the folder as SEARCH.  If I simply change 4/1/11 to 4/2/11 then the results are wrong.  
+Hence, I gotta do a whole new search from the beginning.  This extra task is a little annoying.  Thanks for your help in advance.
+
+Reproducible: Always
+
+Steps to Reproduce:
+edit, find, search messages, date, is after, 4/1/11 -- and just change 4/1/11 to 4/2/11, then save the folder as SEARCH.
+
+
+Actual Results:  
+Some or several of &quot;today&apos;s&quot; dates are missing, or even other messages if I have opened another mail folder and have gone back to the SEARCH folder.
+
+Expected Results:  
+I can always reproduce the same &quot;bug&quot; if it&apos;s a bug.  I can work-around my problem by starting a whole new search with the new date, e.g. 4/2/11.
+
+After I simply change the &quot;is after&quot; date criteria, e.g., 4/1/11 to 4/2/11, my SEARCH folder results should be complete and nothing missing.  If this is truly a bug, then it coulde be serious because I may actually miss a message that was important if I only look at my saved SEARCH folder.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394290</commentid>
+            <who name="Leho Kraav">leho</who>
+            <bug_when>2011-04-07 06:15:03 -0700</bug_when>
+            <thetext>Maybe I&apos;m misunderstanding something but isn&apos;t this what the Age filter is for? My Today saved search has &quot;Age is less than 1 days&quot; criteria and that rolls over day by day just fine.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397127</commentid>
+            <who name="Stephen Foss">StephenFoss</who>
+            <bug_when>2011-04-08 11:52:38 -0700</bug_when>
+            <thetext>Thanks. It doesn&apos;t seem to work on my PC system?  I&apos;m not a wise guy.
+
+1.  Yesterday, I did my search using the 4/1/11 criterion; I saw 54 msgs.  Then, I looked around, ..., and I saw 51, then 53, then 54, then 51 But, I never deleted nor sent anything.
+
+2.  Today, as usual, I deleted the SEARCH folder from yesterday, did another search using on 4/3/11, and couldn&apos;t reproduce my bug until I looked around the folders and opened some unread msgs dated =&gt; 4/3/11, then my SEARCH-folder msgs count kept dropping from 44 to 43 to 42, now, it&apos;s 41, and I can&apos;t &quot;see&quot; those msgs I just opened (in diff. folders locations) from my SEARCH folder.  Sorry, I feel like this is my fault, or I misunderstand.
+
+3.  You know what is also annoying?  If I&apos;m &quot;in&quot; my &quot;Annxxxx Financeddd&quot; folder and I have, say, 10 msgs in the list, and say I open one. I can&apos;t get to the next msg without closing the one I&apos;m in and opening the next one.  The green arrows (&quot;next&quot;  and  &quot;prev&quot;) are gray&apos;d out (as well as the &quot;next folder&quot; and &quot;prev folder&quot; if that&apos;s what these things do).  Now, I&apos;m sure it&apos;s I.
+
+Steve</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400844</commentid>
+            <who name="Wayne Mery (:wsmwk)">vseerror</who>
+            <bug_when>2011-04-11 10:38:54 -0700</bug_when>
+            <thetext>Stephen, 
+
+First, what exactly is your use case (i.e. business process)?
+And why doesn&apos;t sorting the folder by date (View|Sort by|Date), and setting grouping (View|Sort by|Grouped by Sort), work for your use case?
+
+Next, FWIW, for many years there have been no bug reports in the area of &quot;age&quot; searching. So one must wonder if there isn&apos;t an issue specific to your profile, or how you are using this.
+
+- &quot;age in days&quot; *is* goes by calendar days, 0=today, 1=yesterday, 2=day before yesterday, etc
+- again in days *is less than*, or *is greater than* utilizes 24 hour periods, not full calendar days.  So if I specify age &lt;1 and run the search at noon today, I get a list of message from noon yesterday to noon today - not just today&apos;s messages, or just yesterday&apos;s messages. 
+
+(In reply to comment #1)
+&gt; Maybe I&apos;m misunderstanding something but isn&apos;t this what the Age filter is for?
+&gt; My Today saved search has &quot;Age is less than 1 days&quot; criteria and that rolls
+&gt; over day by day just fine.
+
+correct. it should.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401168</commentid>
+            <who name="Ghaas Gheet">steve</who>
+            <bug_when>2011-04-11 12:14:24 -0700</bug_when>
+            <thetext>Wayne,
+What are you talking about?  Your reply sounds like nonsense.
+1.  You replied to your own comment (2nd paragraph from the end).
+2.  What &quot;age in days?&quot;  I&apos;m doing a child-hood search on the top-level folder which search is by: &quot;date&quot; &quot;is after&quot; then one criterion (which didn&apos;t change during my testing example throughout this discussion thread).
+3.  Messages are, ipso facto, missing according to my write-ups. You are babbling your way out of it, and I mean that truthfully, not hurtfully.
+4.  The bugs throuout Mozilla products are death-defying. FF ver.3 family only works at all 93.3% of the time, the remainder is catastrophic.  I live with these problems, even to the point of making a fool out of myself when I complained to a certain website captain that his/their site&apos;s checkout routine doesn&apos;t work at all (i.e., the basket would still show the same line item no matter how many times I removed it ... so, I had to go to the every-trustworthy IE8/IE9 and start completely over even with this one-line-item delete task, and, of course, then (using IE8) the checkout worked perfectly).
+5.  I just resurrected my Windows 7 disk (I had removed the SSD and gone back to a WD Raptor) with IE9 and Windows Live Mail (WLM).  My next build will be 100% INTEL for a 100% WinTel platform.
+6.  I don&apos;t need fun-for-learning freeware and OSF Unixware which involves homework problems and learning examples and experiences -- rather, I need hardcore production and getting-the-job-done work, hence Win7, IE9, &amp; WLM.
+7.  I removed my Ubuntu 9.10 install to reclaim assets.  After all, I did spend about 4 hours hand typing decades of unix code just to get an NVIDIA ION graphics card to work.
+8.  Yesterday, after re-doing my SEARCH folder again, you know, my daily routine (see disucssion thread, above), I booted into Win7, and lo-and-behold, without even knowing it, Win7 had automatically installed this NVIDIA ION driver even the newest one (2011) [actually, 2 drivers since I added a second ION card for 3 display cards, in toto]! I didn&apos;t even see it happen.  Impressive, huh?  
+9.  My reply is not just a caustic rant, it&apos;s about useage, production, and logisticts -- not Mozilla bashing as one may think.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647708</bug_id>
+          
+          <creation_ts>2011-04-04 10:26:00 -0700</creation_ts>
+          <short_desc>searching for a link using the &apos; shortcut finds links that are not visible on the page.</short_desc>
+          <delta_ts>2011-04-05 11:31:32 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Keyboard Navigation</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.cbssports.com/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>postingandjunk</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+          <qa_contact>keyboard.navigation</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390283</commentid>
+            <who name="">postingandjunk</who>
+            <bug_when>2011-04-04 10:26:01 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+for example it finds links that are hidden in java script menus.
+searching for &quot;ranking&quot; will display the behavior
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. press &apos;
+2. type in ranking
+Actual Results:  
+see links are found but nothing is highlighted, the problem being that the link isn&apos;t visible on the page but will show up if you expand the menus
+
+Expected Results:  
+only the visible links should be searchable</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391231</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-05 09:38:02 -0700</bug_when>
+            <thetext>I can reproduce on Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre ID:20110404030429 but I personally would consider this bug a feature.
+
+I&apos;ll be using extensively for the time being and hope they don&apos;t fix it, is a big usability improvement ad you don&apos;t have to mouse on the menus but you still see where you&apos;re going on the &quot;URL bubble&quot; =)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391383</commentid>
+            <who name="">postingandjunk</who>
+            <bug_when>2011-04-05 11:31:32 -0700</bug_when>
+            <thetext>with more research it seems all the browsers behave the same way. i think it would be really useful if there was some way of knowing that the link is not visible or something along those lines. so i guess this isn&apos;t a bug but a feature request.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

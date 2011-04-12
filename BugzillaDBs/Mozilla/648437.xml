@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648437</bug_id>
+          
+          <creation_ts>2011-04-07 18:04:00 -0700</creation_ts>
+          <short_desc>Lightning Snooze Drop down disappears off screen-right if reminder is screen-right</short_desc>
+          <delta_ts>2011-04-11 12:04:21 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Calendar</product>
+          <component>Alarms</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="john ruskin">educmale</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>alarms</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395589</commentid>
+            <who name="john ruskin">educmale</who>
+            <bug_when>2011-04-07 18:04:28 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: 1.0b2 Lightning; Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Lightning/1.0b2 Thunderbird/3.1.9
+
+A small, but correctable error....
+
+I had a reminder pop up, and it was placed on my screen towards the right edge.   On selecting snooze, then modifying the time, I was unable to see the cancel/check buttons.
+
+Right now, the the drop down box aligns-left with the snooze field.
+
+Instead, the drop down box should 
+1) slide towards the right if the reminder box is too far to the right to allow one to see the full drop.
+
+Alternatively: 
+2) Place the check/cancel buttons below the time/unit fields, instead of to the right; or,
+3) Left Align the snooze field and the drop down list
+
+Personally, I prefer 1) over 2), and 2) over 3)
+
+Similarly, the all-event snooze disappears screen-right, and screen-bottom.  And in the event one moves the reminder screen low, the one-event may also disappear screen bottom.   I recommend that each of the drop down lists check for placement on the existing screen, rather than fold out and beyond any edges
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.  Innocently place reminder window towards the right side of the screen
+2.  Wait for an inevitable reminder, later, and
+3.  Attempt a snooze setting for specific events
+4.  Forget that the check/cancel buttons are now hidden
+
+
+
+Evaluate the placement of the drop down lists for the one-event and the all-event snooze buttons, and force the list to move onto the screen if it would fall off the edge.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399663</commentid>
+            <who name="john ruskin">educmale</who>
+            <bug_when>2011-04-10 16:36:23 -0700</bug_when>
+            <thetext>My error:  remove alt suggestion 3, above, as I meant right-align, and on realizing that, realized that the reminder could be screen-right, making that solution incorrect, anyway.
+
+On thinking: only #1, checking for screen edge alignment would be sensible, to eliminate any error, regardless of where the reminder box is parked...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401146</commentid>
+            <who name="Philipp Kewisch [:Fallen]">philipp</who>
+            <bug_when>2011-04-11 12:04:21 -0700</bug_when>
+            <thetext>Possibly all we need to do here is to make the calendar-snooze-popup binding extend chrome://global/content/bindings/popup.xml#popup-base. This should happen automatically, but we&apos;re doing a bit of hackery to make the textbox work.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

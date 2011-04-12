@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648020</bug_id>
+          
+          <creation_ts>2011-04-06 10:10:00 -0700</creation_ts>
+          <short_desc>Takes forever to download anything from releases.mozilla.org at 650 Castro</short_desc>
+          <delta_ts>2011-04-06 20:21:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Daniel Holbert [:dholbert]">dholbert</reporter>
+          <assigned_to name="Derek Moore">dmoore</assigned_to>
+          <cc>bkero</cc>
+    
+    <cc>dmoore</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392493</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 10:10:09 -0700</bug_when>
+            <thetext>STEPS TO REPRODUCE:
+ 1. On a terminal run:
+&gt; wget https://addons.mozilla.org/firefox/downloads/file/115204/add_on_compatibility_reporter-0.8.2-fx+tb+sm.xpi
+
+Alternately, just try to visit http://releases.mozilla.org/ in a browser.
+
+ACTUAL RESULTS:  Frequently, these commands take very long (at least a few minutes) to get a response, from within the Mozilla office in Mountain View.
+
+I&apos;m guessing this might be because I&apos;m getting bounced to a very slow mirror (?) -- it&apos;d be great if this could be improved, though.
+
+I&apos;m not sure if this is an IT issue or a WebDev issue.  Filing at IT Helpdesk for now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392507</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 10:14:45 -0700</bug_when>
+            <thetext>In this case, it seemed like the point of failure was the IPv6 address 2001:6b0:e:2018::1337 , as shown in the output below (using the wget command from comment 0, interrupted with Ctrl+c after a minute or two of being paused on the last line):
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+[dholbert@azure:/tmp]$ wget https://addons.mozilla.org/firefox/downloads/latest/15003/addon-15003-latest.xpi?src=search
+--2011-04-06 10:03:02--  https://addons.mozilla.org/firefox/downloads/latest/15003/addon-15003-latest.xpi?src=search
+Resolving addons.mozilla.org... 63.245.213.91
+Connecting to addons.mozilla.org|63.245.213.91|:443... connected.
+HTTP request sent, awaiting response... 301 MOVED PERMANENTLY
+Location: https://addons.mozilla.org/firefox/downloads/latest/add-on-compatibility-reporter/addon-add-on-compatibility-reporter-latest.xpi?src=search [following]
+--2011-04-06 10:03:03--  https://addons.mozilla.org/firefox/downloads/latest/add-on-compatibility-reporter/addon-add-on-compatibility-reporter-latest.xpi?src=search
+Reusing existing connection to addons.mozilla.org:443.
+HTTP request sent, awaiting response... 302 FOUND
+Location: https://addons.mozilla.org/firefox/downloads/file/115204/add_on_compatibility_reporter-0.8.2-fx+tb+sm.xpi?src=search [following]
+--2011-04-06 10:03:04--  https://addons.mozilla.org/firefox/downloads/file/115204/add_on_compatibility_reporter-0.8.2-fx+tb+sm.xpi?src=search
+Reusing existing connection to addons.mozilla.org:443.
+HTTP request sent, awaiting response... 302 FOUND
+Location: http://releases.mozilla.org/pub/mozilla.org/addons/15003/add_on_compatibility_reporter-0.8.2-fx+tb+sm.xpi [following]
+--2011-04-06 10:03:05--  http://releases.mozilla.org/pub/mozilla.org/addons/15003/add_on_compatibility_reporter-0.8.2-fx+tb+sm.xpi
+Resolving releases.mozilla.org... 2001:6b0:e:2018::1337, 216.165.129.141, 64.50.233.100, ...
+Connecting to releases.mozilla.org|2001:6b0:e:2018::1337|:80... ^C
+[dholbert@azure:/tmp]$
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+
+
+And here&apos;s a simple telnet command (also interrupted after a minute, due to lack of output):
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+[dholbert@azure:/tmp]$ telnet releases.mozilla.org 80
+Trying 2001:6b0:e:2018::1337...
+^C
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392555</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 10:36:54 -0700</bug_when>
+            <thetext>It looks like 2001:6b0:e:2018::1337 never actually returns any data, actually -- telnet times out after 3 minutes when trying to connect to it.
+
+(I&apos;m guessing that Firefox / wget will normally switch to the next address returned by the DNS server at that point (216.165.129.141) and finally succeed, after doing nothing for 3 minutes.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393557</commentid>
+            <who name="Derek Moore">dmoore</who>
+            <bug_when>2011-04-06 16:46:40 -0700</bug_when>
+            <thetext>You&apos;re correct, this is a malfunctioning IPv6 mirror. We&apos;ll be removing it from the pool shortly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393619</commentid>
+            <who name="Derek Moore">dmoore</who>
+            <bug_when>2011-04-06 17:10:52 -0700</bug_when>
+            <thetext>Daniel, we&apos;ve been in touch with the site admin and the issue is resolved:
+
+host-4-134:~ dmoore$ curl -v -6 http://releases.mozilla.org
+* About to connect() to releases.mozilla.org port 80 (#0)
+*   Trying 2001:6b0:e:2018::1337... connected
+* Connected to releases.mozilla.org (2001:6b0:e:2018::1337) port 80 (#0)
+
+
+If you&apos;re still having problems, could you reopen and give us more information about which IPv6 address you&apos;ve received?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393665</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 17:25:41 -0700</bug_when>
+            <thetext>I&apos;m still having issues with 2001:6b0:e:2018::1337 -- I repeated the command at the beginning of comment 1, and it got to
+&gt; Resolving releases.mozilla.org... 2001:6b0:e:2018::1337, 131.188.12.212, 155.98.64.83, ...
+&gt; Connecting to releases.mozilla.org|2001:6b0:e:2018::1337|:80... 
+and has been stalled there for 30 seconds so far...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393668</commentid>
+            <who name="Derek Moore">dmoore</who>
+            <bug_when>2011-04-06 17:27:23 -0700</bug_when>
+            <thetext>Daniel,
+
+What&apos;s your current IPv6 address?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393696</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 17:34:39 -0700</bug_when>
+            <thetext>[dholbert@azure:~]$ ifconfig wlan0
+wlan0     Link encap:Ethernet  HWaddr 00:24:d7:71:18:e8  
+          inet addr:10.250.7.24  Bcast:10.250.7.255  Mask:255.255.248.0
+          inet6 addr: fe80::224:d7ff:fe71:18e8/64 Scope:Link
+
+It looks I&apos;m not successfully getting any ipv6 traffic at all right now, though, because e.g. &quot;curl -v -6 ipv6.google.com&quot; doesn&apos;t make any progress either.
+
+So whatever I&apos;m hitting now appears to either be a network-level ipv6 issue or a my-local-machine ipv6 issue.  (i.e. it&apos;s not specific to the releases.mozilla.org address)
+
+Should I file a new bug on that (and/or do some local troubleshooting?)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393841</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 20:21:22 -0700</bug_when>
+            <thetext>Re-resolving as FIXED, after talking to Derek on IRC. Filed bug 648181 on Comment 7.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

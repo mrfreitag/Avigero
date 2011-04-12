@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648207</bug_id>
+          
+          <creation_ts>2011-04-06 22:32:00 -0700</creation_ts>
+          <short_desc>do staging runs of 5.0b1 and 5.0b2</short_desc>
+          <delta_ts>2011-04-11 16:16:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ben Hearsum [:bhearsum]">bhearsum</reporter>
+          <assigned_to name="Ben Hearsum [:bhearsum]">bhearsum</assigned_to>
+          <cc>clegnitto</cc>
+    
+    <cc>jbecerra</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393969</commentid>
+            <who name="Ben Hearsum [:bhearsum]">bhearsum</who>
+            <bug_when>2011-04-06 22:32:22 -0700</bug_when>
+            <thetext>In a meeting about the new release process today it was brought up that drivers would like to do releases from mozilla-beta with the in-app version set to a final version, eg. &quot;5.0&quot;. However, we&apos;ll be doing many releases with the same version, all of which need to get updates to future releases, and be pushed to mirrors in a unique directory.
+
+I think we can use the existing version/appVersion functionality built into the release automation for this, but we need to do a couple of staging runs to verify. Specifically, we should do one with version=5.0b1, and one with 5.0b2.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397570</commentid>
+            <who name="Ben Hearsum [:bhearsum]">bhearsum</who>
+            <bug_when>2011-04-08 14:44:11 -0700</bug_when>
+            <thetext>I just finished doing these staging runs, and I believe we&apos;re in good shape to run releases out of mozilla-beta that are internally versioned as &quot;5.0&quot;, and still enable us to properly serve updates to them, and push them to mirrors.
+
+To be clear, all of the following apply to these builds:
+- The internal version used for blocklist, AUS, and AMO pings is &quot;5.0&quot;
+- The title bar, about window, installed icons, install directory, and all other branding says &quot;Firefox&quot; or &quot;Mozilla Firefox&quot; -- there is no &quot;Beta N&quot; appended.
+- When pushed to mirrors, these go to a &quot;5.0bN&quot; directory.
+- The filenames used also contain &quot;5.0bN&quot;, eg:
+http://releases.mozilla.org/pub/mozilla.org/firefox/releases/5.0b1/win32/en-US/Firefox Setup 5.0 Beta 1.exe
+- Bouncer links will use &quot;5.0bN&quot;, too. Eg, http://download.mozilla.org/?product=firefox-5.0b1&amp;os=win&amp;lang=en-US
+
+Christian and others who care -- are all of the above okay?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397608</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-08 14:54:45 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; - The internal version used for blocklist, AUS, and AMO pings is &quot;5.0&quot;
+
+Related question - do we have any bugs on improving metrics and crash-stats to be able to tell the difference between these N.0 builds ? I think we&apos;re going to want to be able to identify them and those groups currently rely on version to do that. eg How crashy is the latest build ? How many of our users are on the latest build ? 
+
+I know that metrics can query down to the buildid if you ask them, and advanced search on crash-stats can do buildID, but I think we might want to go further than that.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397648</commentid>
+            <who name="Christian Legnitto [:LegNeato]">clegnitto</who>
+            <bug_when>2011-04-08 15:10:26 -0700</bug_when>
+            <thetext>Metrics and the Socorro team are aware of the change, not sure if any work is scoped or bugs are written.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398026</commentid>
+            <who name="Ben Hearsum [:bhearsum]">bhearsum</who>
+            <bug_when>2011-04-08 20:38:27 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; Metrics and the Socorro team are aware of the change, not sure if any work is
+&gt; scoped or bugs are written.
+
+Any response to the bullet points in comment #1?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401996</commentid>
+            <who name="Christian Legnitto [:LegNeato]">clegnitto</who>
+            <bug_when>2011-04-11 15:52:46 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; I just finished doing these staging runs, and I believe we&apos;re in good shape to
+&gt; run releases out of mozilla-beta that are internally versioned as &quot;5.0&quot;, and
+&gt; still enable us to properly serve updates to them, and push them to mirrors.
+&gt; 
+&gt; To be clear, all of the following apply to these builds:
+&gt; - The internal version used for blocklist, AUS, and AMO pings is &quot;5.0&quot;
+
+Cool.
+
+&gt; - The title bar, about window, installed icons, install directory, and all
+&gt; other branding says &quot;Firefox&quot; or &quot;Mozilla Firefox&quot; -- there is no &quot;Beta N&quot;
+&gt; appended.
+
+Cool.
+
+&gt; - When pushed to mirrors, these go to a &quot;5.0bN&quot; directory.
+
+Cool.
+
+&gt; - The filenames used also contain &quot;5.0bN&quot;, eg:
+&gt; http://releases.mozilla.org/pub/mozilla.org/firefox/releases/5.0b1/win32/en-US/Firefox
+&gt; Setup 5.0 Beta 1.exe
+
+That&apos;s fine and it matches the current method, correct? Ideally they don&apos;t have the beta bits in the filename (as it is already in the dir) but it isn&apos;t a big deal either way.
+
+&gt; - Bouncer links will use &quot;5.0bN&quot;, too. Eg,
+&gt; http://download.mozilla.org/?product=firefox-5.0b1&amp;os=win&amp;lang=en-US
+&gt; 
+
+That&apos;s fine for now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402052</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-11 16:16:59 -0700</bug_when>
+            <thetext>AFAIK, we have build IDs in metrics and crash-stats, I have no idea about channels on the metrics side, but I hear that crash-stats doesn&apos;t have them as breakpad doesn&apos;t deliver them.
+
+If we want channels in addition to version and build ID to be in crashes, we need to file bugs on both Breakpad Integration and Socorro and get implementations fast, I guess. Do we need that?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

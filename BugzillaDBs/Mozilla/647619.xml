@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647619</bug_id>
+          
+          <creation_ts>2011-04-03 17:48:00 -0700</creation_ts>
+          <short_desc>Fire infinite errors &quot;preview is undefined&quot;</short_desc>
+          <delta_ts>2011-04-04 09:04:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://localhost/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Aquila">aquilax</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389613</commentid>
+            <who name="Aquila">aquilax</who>
+            <bug_when>2011-04-03 17:48:09 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I&apos;m just coding some html/javascript page on my local web server and testing it in firefox with firebug but the native console is spammed with the following error:
+
+Error: preview is undefined
+Source File: resource://gre/modules/WindowsPreviewPerTab.jsm
+Line: 380
+
+Reproducible: Didn&apos;t try
+
+Steps to Reproduce:
+1. Some local pages? I don&apos;t know if is a problem with the localhost
+
+Actual Results:  
+The console is spammed with 100 time the same error, it is useless you can&apos;t find any error because it get filled all the time.
+
+Expected Results:  
+Good question, perhaps add a check if the &quot;preview&quot; is not null?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390211</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-04 09:04:57 -0700</bug_when>
+            <thetext>Is your Issue reproducible without Extensions in Safe-Mode and/or using a new Profile?
+https://support.mozilla.com/en-US/kb/Safe+Mode
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile
+
+The Error would be available in the Error Console.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

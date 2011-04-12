@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647914</bug_id>
+          
+          <creation_ts>2011-04-05 17:15:00 -0700</creation_ts>
+          <short_desc>Horizontal and vertical SVG paths are omitted from bbox calculations if they have siblings</short_desc>
+          <delta_ts>2011-04-06 10:39:21 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>SVG</component>
+          <version>Trunk</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[good first bug]</status_whiteboard>
+          <keywords>student-project</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>641426</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Pap Lorinc">papuska</reporter>
+          <assigned_to name="Anna [:annasob]">annaopensource</assigned_to>
+          <cc>annaopensource</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>laaglu</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>rjohnson19</cc>
+    
+    <cc>roc</cc>
+          <qa_contact name="General SVG Bugs">general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391706</commentid>
+            <who name="Pap Lorinc">papuska</who>
+            <bug_when>2011-04-05 17:15:25 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+If an element has anything else besides a perfectly horizontal or vertical line, the line will be ignored from the bounds calculation.
+The height of the displayed svg element is wrong too;
+
+The following demonstrates the problem (the first and third box should look like the second and forth (they are not perfectly horizontal and vertical)):
+
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+	function load()
+	{
+      var bounds = document.getElementById(&quot;line1&quot;).getBBox();
+	  rect(bounds.x, bounds.y, bounds.width, bounds.height);
+
+      bounds = document.getElementById(&quot;line2&quot;).getBBox();
+	  rect(bounds.x, bounds.y, bounds.width, bounds.height);
+
+      bounds = document.getElementById(&quot;line3&quot;).getBBox();
+	  rect(bounds.x, bounds.y, bounds.width, bounds.height);
+
+      bounds = document.getElementById(&quot;line4&quot;).getBBox();
+	  rect(bounds.x, bounds.y, bounds.width, bounds.height);
+	}
+	function rect(x, y, w, h)
+	{
+		var shape = document.createElementNS(&apos;http://www.w3.org/2000/svg&apos;, &apos;rect&apos;);
+
+		shape.setAttribute(&quot;x&quot;, x-1);
+		shape.setAttribute(&quot;y&quot;, y-1);
+		shape.setAttribute(&quot;width&quot;,  w+2);
+		shape.setAttribute(&quot;height&quot;, h+2);
+		shape.setAttribute(&quot;style&quot;, &quot;stroke:black; fill:none&quot;);
+
+		document.getElementsByTagName(&quot;svg&quot;)[0].appendChild(shape);
+	}
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body onload=&quot;load();&quot;&gt;
+&lt;svg&gt;
+&lt;g id=&quot;line1&quot;&gt;&lt;circle cx=&quot;100&quot; cy=&quot;50&quot; r=&quot;5&quot;/&gt;&lt;path style=&quot;stroke:black;stroke-width:2&quot; d=&quot;M 100,100 L 100,200&quot;/&gt;&lt;/g&gt;
+&lt;g id=&quot;line2&quot;&gt;&lt;circle cx=&quot;200&quot; cy=&quot;50&quot; r=&quot;5&quot;/&gt;&lt;path style=&quot;stroke:black;stroke-width:2&quot; d=&quot;M 200,100 L 200.01,200&quot;/&gt;&lt;/g&gt;
+&lt;g id=&quot;line3&quot;&gt;&lt;circle cx=&quot;300&quot; cy=&quot;50&quot; r=&quot;5&quot;/&gt;&lt;path style=&quot;stroke:black;stroke-width:2&quot; d=&quot;M 300,100 L 400,100&quot;/&gt;&lt;/g&gt;
+&lt;g id=&quot;line4&quot;&gt;&lt;circle cx=&quot;500&quot; cy=&quot;50&quot; r=&quot;5&quot;/&gt;&lt;path style=&quot;stroke:black;stroke-width:2&quot; d=&quot;M 500,100 L 600,100.01&quot;/&gt;&lt;/g&gt;
+&lt;/svg&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+Reproducible: Always
+
+
+
+
+Workaround:
+as demonstrated above, if the line is not perfectly horizontal or vertical then the bounds are correct;
+
+A quick fix would be welcome. Chrome does the same, Opera is correct again.
+
+Thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391727</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 17:37:33 -0700</bug_when>
+            <thetext>nsSVGDisplayContainerFrame::GetBBoxContribution does this:
+
+  bboxUnion = bboxUnion.Union(svgKid-&gt;GetBBoxContribution(transform));
+
+where bboxUnion is a gfxRect.  But gfxRect::Union ignores empty rectangles:
+
+61 gfxRect
+62 gfxRect::Union(const gfxRect&amp; aRect) const
+63 {
+64   if (IsEmpty())
+65     return aRect;
+66   if (aRect.IsEmpty())
+67     return *this;
+
+which is broken in this case.  nsRect has a UnionRectIncludeEmpty which can be used in cases like this.  Once bug 641426 lands, this will be available on gfxRect.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392353</commentid>
+            <who name="Anna [:annasob]">annaopensource</who>
+            <bug_when>2011-04-06 09:10:02 -0700</bug_when>
+            <thetext>Boris, 
+From you last comment I am gathering that this bug is blocked by bug 641426 is this correct? I am going to take a shot at this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392384</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 09:22:46 -0700</bug_when>
+            <thetext>It&apos;s blocked in the sense that it will be much easier to fix once bug 641426 is fixed.  It could be fixed without that bug being fixed by doing some copy/pasting, but it seems better to just wait for bug 641426 to land.
+
+&gt; I am going to take a shot at this.
+
+Thanks!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648189</bug_id>
+          
+          <creation_ts>2011-04-06 19:35:00 -0700</creation_ts>
+          <short_desc>Location bar menu disappears after mouse pointer hovers over menu, but over only after computer is &quot;awaken&quot; from sleep mode</short_desc>
+          <delta_ts>2011-04-07 06:59:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Location Bar</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>638386</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Matt Kennedy">mk659</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>george.carstoiu</cc>
+          <qa_contact>location.bar</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393816</commentid>
+            <who name="Matt Kennedy">mk659</who>
+            <bug_when>2011-04-06 19:35:17 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+After the computer &quot;awakens&quot; from sleeping, or hibernation and Firefox is still open, the Location Bar&apos;s drop down menu does not function properly. When the pointer opens the drop down menu, and begins to hover over the menu, the menu disappears. This issue seems to extend to the &quot;right click&quot; menus as well. The issue only goes away after the Firefox window is minimized then maximized.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Open Firefox
+2.Place computer into Sleep/Hibernation mode.
+3.Awaken computer.
+4.Click on location menu.
+5.Hover pointer over menu.
+Actual Results:  
+The menu disappears.
+
+Expected Results:  
+Pointer should be able to hover over menu and click on entries.
+
+I put a lock on my computer where I must input my password to unlock computer after sleeping/hibernation. 
+
+Build platform
+target
+i686-pc-linux-gnu
+Build tools
+Compiler 	Version 	Compiler flags
+gcc 	gcc version 4.4.5 (Ubuntu/Linaro 4.4.4-14ubuntu5) 	-Wall -W -Wno-unused -Wpointer-arith -Wcast-align -W -pedantic -Wno-long-long -g -fno-strict-aliasing -pthread -pipe -DNDEBUG -DTRIMMED -Os -freorder-blocks -fomit-frame-pointer
+c++ 	gcc version 4.4.5 (Ubuntu/Linaro 4.4.4-14ubuntu5) 	-fno-rtti -fno-exceptions -Wall -Wpointer-arith -Woverloaded-virtual -Wsynth -Wno-ctor-dtor-privacy -Wno-non-virtual-dtor -Wcast-align -Wno-invalid-offsetof -Wno-variadic-macros -Werror=return-type -pedantic -Wno-long-long -g -fno-strict-aliasing -fshort-wchar -pthread -pipe -DNDEBUG -DTRIMMED -Os -freorder-blocks -fomit-frame-pointer
+Configure arguments
+
+--build=i686-linux-gnu --prefix=/usr --localstatedir=/var --libexecdir=/usr/lib/firefox-4.0 --disable-maintainer-mode --disable-dependency-tracking --disable-silent-rules --srcdir=/build/buildd/firefox-4.0+nobinonly/build-tree/mozilla --disable-elf-dynstr-gc --disable-install-strip --disable-strip --disable-updater --enable-application=browser --enable-default-toolkit=cairo-gtk2 --enable-startup-notification --enable-pango --enable-svg --enable-mathml --enable-safe-browsing --with-distribution-id=com.ubuntu --without-system-jpeg --without-system-png --without-system-zlib --enable-chrome-format=omni --enable-optimize --enable-ipc --enable-tests --enable-mochitest --enable-ipdl-tests --disable-system-cairo --without-system-nspr --without-system-nss --disable-system-sqlite --disable-system-hunspell --enable-crashreporter --enable-official-branding --enable-gnomevfs --disable-gio --disable-debug</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394333</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-07 06:59:46 -0700</bug_when>
+            <thetext> Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Marking this as a duplicate of bug 638386. Matt feel free to reopen if you consider that I am not right.
+
+*** This bug has been marked as a duplicate of bug 638386 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

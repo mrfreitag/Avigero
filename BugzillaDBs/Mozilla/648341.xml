@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648341</bug_id>
+          
+          <creation_ts>2011-04-07 13:07:00 -0700</creation_ts>
+          <short_desc>Cannot remove localizations</short_desc>
+          <delta_ts>2011-04-11 17:01:15 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Developer Pages</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.mozilla.org/da/developers/addon/SOME-ADDON-NAME/edit</bug_file_loc>
+          
+          
+          <priority>P2</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>6.0.6</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter>spmail</reporter>
+          <assigned_to name="Matt Claypotch [:potch]">thepotch</assigned_to>
+          <cc>clouserw</cc>
+    
+    <cc>jbalogh</cc>
+    
+    <cc>krupa.mozbugs</cc>
+          <qa_contact>developers</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394950</commentid>
+            <who name="">spmail</who>
+            <bug_when>2011-04-07 13:07:04 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+In top right, you have the option to choose the current localization you&apos;re working with.
+In the list, there are &quot;X&quot; buttons, to remove a localization.
+After clicking it, it seems to be removed from the list, but after refreshing the page, the localization is back - not removed as intended.
+
+There seems to be no update/save button.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Click the &quot;X&quot; to remove a localization (No update button)
+2. Refresh the page
+Actual Results:  
+The localization was not removed
+
+Expected Results:  
+The localization should be removed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394958</commentid>
+            <who name="">spmail</who>
+            <bug_when>2011-04-07 13:08:52 -0700</bug_when>
+            <thetext>Talking about the URL: https://addons.mozilla.org/da/developers/addon/SOME-ADDON-NAME/edit</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395549</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-07 17:22:48 -0700</bug_when>
+            <thetext>Can you give us the link to your specific add-on?  This doesn&apos;t sound like a bug that affects everyone.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395616</commentid>
+            <who name="krupa raj 82[:krupa]">krupa.mozbugs</who>
+            <bug_when>2011-04-07 18:19:40 -0700</bug_when>
+            <thetext>STR:
+
+1. Pick an add-on with localizations(https://addons.allizom.org/en-US/developers/addon/blahblah123/edit)
+2. Delete one of the locales
+3. Reload the page
+
+
+observed behavior:
+After page reload, the deleted locale is still listed.
+
+
+screencast: http://screencast.com/t/VjrrRaAZal</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401324</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-11 13:12:53 -0700</bug_when>
+            <thetext>-&gt; potch.  This seems like a big deal.  Potch, if this isn&apos;t front end, please let us know early so we can get backend eyes on it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402175</commentid>
+            <who name="Matt Claypotch [:potch]">thepotch</who>
+            <bug_when>2011-04-11 16:49:13 -0700</bug_when>
+            <thetext>seems to be frontend- looking into how to make this work better.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402216</commentid>
+            <who name="Matt Claypotch [:potch]">thepotch</who>
+            <bug_when>2011-04-11 16:58:27 -0700</bug_when>
+            <thetext>After further discussion, the right thing to do here is warn the user they are about to remove all translations for this addon for the given locale, and then remove them if the user opts to proceed. This will require some backend work to handle said POST.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

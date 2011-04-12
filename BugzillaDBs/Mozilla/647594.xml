@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647594</bug_id>
+          
+          <creation_ts>2011-04-03 12:31:00 -0700</creation_ts>
+          <short_desc>enabling/disabling javascript via Tools|Options|Content|Enable Javascript requires a restart.</short_desc>
+          <delta_ts>2011-04-03 14:40:30 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>3.6 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Server 2008</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="rtm443x@gmail.com">rtm443x</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389356</commentid>
+            <who name="rtm443x@gmail.com">rtm443x</who>
+            <bug_when>2011-04-03 12:31:48 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+As it says. It is not made clear that a restart is necessary.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Create a new profile &amp; start it
+2. You are taken to the &apos;firstrun&apos; page which has some panels of colourful themes
+3. run the mouse over them; the themes are applied into the widget areas of FX (toolbar, bookmars bar etc.)
+4. go to Tools|Options|Content and untick Enable Javascript option.
+5. wave mouse around, themes are still copied to panel.
+6. restart fx, wave mouse over them theme panels and they&apos;re not applied.
+... Re-enabling likewise requires a restart also.
+Actual Results:  
+...
+
+Expected Results:  
+Javascript should either be disabled immediately or the Enable Javascript option should have a &quot;... (requires restart)&quot; rider.
+
+Searched for similar bug filing, could not find one.
+Also and unrelated, bugzilla does not allow you to enter windows 2003/2008 as OSs on this page &lt;https://bugzilla.mozilla.org/enter_bug.cgi?product=Firefox&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389358</commentid>
+            <who name="rtm443x@gmail.com">rtm443x</who>
+            <bug_when>2011-04-03 12:33:12 -0700</bug_when>
+            <thetext>Modified platform to windows 2008; could not specify this initially.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389449</commentid>
+            <who name="rtm443x@gmail.com">rtm443x</who>
+            <bug_when>2011-04-03 14:40:30 -0700</bug_when>
+            <thetext>And modified branch to 3.6 (sorry).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

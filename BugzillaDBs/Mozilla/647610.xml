@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647610</bug_id>
+          
+          <creation_ts>2011-04-03 16:17:00 -0700</creation_ts>
+          <short_desc>Misleading information on Systems Requirements page about Mac hardware support</short_desc>
+          <delta_ts>2011-04-06 08:27:45 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla.com/en-US/firefox/4.0/system-requirements/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="David Boswell">david</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jslater</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389541</commentid>
+            <who name="David Boswell">david</who>
+            <bug_when>2011-04-03 16:17:12 -0700</bug_when>
+            <thetext>I just received an email on the mozilla.org webmaster address that pointed out the Systems Requirements information for the Mac is misleading.  It says that an Intel processor is recommended when actually it is a requirement.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

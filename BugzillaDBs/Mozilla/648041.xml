@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648041</bug_id>
+          
+          <creation_ts>2011-04-06 11:09:00 -0700</creation_ts>
+          <short_desc>Need nightly Firefox 4.0.x updates re-enabled or &quot;test&quot; channel for QA to use to test nightly 4.0.x updates</short_desc>
+          <delta_ts>2011-04-11 18:14:26 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>P2</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>648592</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Al Billings [:abillings]">abillings</reporter>
+          <assigned_to name="Nick Thomas [:nthomas]">nrthomas</assigned_to>
+          <cc>benjamin</cc>
+    
+    <cc>clegnitto</cc>
+    
+    <cc>dveditz</cc>
+    
+    <cc>fullmetaljacket.xp+bugmail</cc>
+    
+    <cc>gmealer</cc>
+    
+    <cc>hskupin</cc>
+    
+    <cc>joduinn</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392655</commentid>
+            <who name="Al Billings [:abillings]">abillings</who>
+            <bug_when>2011-04-06 11:09:42 -0700</bug_when>
+            <thetext>We&apos;re shipping a Firefox 4.0.1 fairly soon. Right now, QA cannot do any update testing because the update channel does not point to any of the 4.0.x builds. This makes it difficult to work on fixing issues we&apos;ve had with automated update testing and specific 4.0.1 update testing.
+
+We either need the update channel re-enabled or a test channel created for QA to use for this release.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392827</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-06 11:51:25 -0700</bug_when>
+            <thetext>I propose the we 
+* bump the version in mozilla-2.0 from 4.0pre to 4.0.1pre
+* set up a rule in the aus config that maps versions like &apos;4.0.*&apos; to mozilla-2.0 snippets
+* keep the existing rules that map m-c nightlies with 4.0* and 4.2* version to m-c nightlies
+
+This allows us continue to convert m-c users to 4.2a1pre builds while also provide the updates QA needs. 
+
+LegNeato and/or bsmedberg - can we go ahead with that ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393435</commentid>
+            <who name="Christian Legnitto [:LegNeato]">clegnitto</who>
+            <bug_when>2011-04-06 15:47:29 -0700</bug_when>
+            <thetext>Sounds great to me.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393484</commentid>
+            <who name="Benjamin Smedberg  [:bsmedberg]">benjamin</who>
+            <bug_when>2011-04-06 16:09:53 -0700</bug_when>
+            <thetext>gogogo!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394639</commentid>
+              <attachid>524419</attachid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-07 10:13:09 -0700</bug_when>
+            <thetext>Created attachment 524419
+[cvs] aus config change
+
+This is on top of your Aurora patch. It should catch anything 4.0.* before we hit the rule that sends people to m-c builds.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394640</commentid>
+              <attachid>524420</attachid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-07 10:14:35 -0700</bug_when>
+            <thetext>Created attachment 524420
+[mozilla-2.0] version bump to 4.0.1pre/2.0.1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395358</commentid>
+              <attachid>524420</attachid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-07 16:09:16 -0700</bug_when>
+            <thetext>Comment on attachment 524420
+[mozilla-2.0] version bump to 4.0.1pre/2.0.1pre
+
+http://hg.mozilla.org/releases/mozilla-2.0/rev/7bb8f4cb0fd0</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395519</commentid>
+              <attachid>524544</attachid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-07 17:13:29 -0700</bug_when>
+            <thetext>Created attachment 524544
+[cvs] aus config change + cleanup
+
+This cleans up the config a bunch, removing Thunderbird and Sunbird nightlies no longer served from aus2.m.o, and consolidates all the m-c class branches together without a specific version match. Tested on aus2-staging.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396903</commentid>
+              <attachid>524544</attachid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-08 10:57:57 -0700</bug_when>
+            <thetext>Comment on attachment 524544
+[cvs] aus config change + cleanup
+
+Checking in config-dist.php;
+/cvsroot/mozilla/webtools/aus/xml/inc/config-dist.php,v  &lt;--  config-dist.php
+new revision: 1.128; previous revision: 1.127
+done</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396933</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-08 11:09:44 -0700</bug_when>
+            <thetext>Prep to deploy this, bug 648067, and bug 647328:
+
+$ cd webtools/aus/xml
+$ cvs tag AUS2_PRODUCTION
+W inc/config-dist.php : AUS2_PRODUCTION already exists on version 1.125 : NOT MOVING tag to version 1.128
+$ cvs tag -F AUS2_PRODUCTION
+T inc/config-dist.php
+
+$ cvs tag AUS2_RTM_`date +%Y%m%d%H%M`
+(which created AUS2_RTM_201104081109).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397531</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-08 14:30:13 -0700</bug_when>
+            <thetext>We got a 4.0.1pre nightly last night (http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011/04/2011-04-08-03-mozilla-2.0/), and it&apos;ll update to the next 2.0 nightly tomorrow. Builds which are 4.0pre will still go to m-c.
+
+All done here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401812</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-11 15:01:48 -0700</bug_when>
+            <thetext>Nick, the builds still have the Minefield branding. Will that be solved by another bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401835</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-11 15:10:27 -0700</bug_when>
+            <thetext>Yes, that&apos;s bug 640589.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402468</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-11 18:14:26 -0700</bug_when>
+            <thetext>Thanks. Works like a charm otherwise.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524419</attachid>
+            <date>2011-04-07 10:13:00 -0700</date>
+            <delta_ts>2011-04-07 17:13:29 -0700</delta_ts>
+            <desc>[cvs] aus config change</desc>
+            <filename>b648041-aus-config.diff</filename>
+            <type>text/plain</type>
+            <size>436</size>
+            <attacher>nrthomas</attacher>
+            
+              <data encoding="base64">LS0tIGNvbmZpZy1kaXN0LnBocAkyMDExLTA0LTA3IDEwOjA1OjI1LjAwMDAwMDAwMCAtMDcwMAor
+KysgY29uZmlnLWRpc3QucGhwLm5ldwkyMDExLTA0LTA3IDEwOjEwOjQzLjAwMDAwMDAwMCAtMDcw
+MApAQCAtMTM1LDYgKzEzNSw5IEBACiAgICAgICAgICczLjcqJyAgICA9PiBhcnJheSgKICAgICAg
+ICAgICAgJ25pZ2h0bHknICAgICAgICAgICAgICAgICA9PiAnbW96aWxsYS1jZW50cmFsJywKICAg
+ICAgICAgKSwKKyAgICAgICAgJzQuMC4qJyAgICA9PiBhcnJheSgKKyAgICAgICAgICAgJ25pZ2h0
+bHknICAgICAgICAgICAgICAgICA9PiAnbW96aWxsYS0yLjAnLAorICAgICAgICApLAogICAgICAg
+ICAnNC4wKicgICAgPT4gYXJyYXkoCiAgICAgICAgICAgICduaWdodGx5JyAgICAgICAgICAgICAg
+ICAgPT4gJ21vemlsbGEtY2VudHJhbCcsCiAgICAgICAgICksCg==
+</data>
+<flag name="review"
+          id="438074"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524420</attachid>
+            <date>2011-04-07 10:14:00 -0700</date>
+            <delta_ts>2011-04-07 16:09:16 -0700</delta_ts>
+            <desc>[mozilla-2.0] version bump to 4.0.1pre/2.0.1pre</desc>
+            <filename>b648041-version-bump.diff</filename>
+            <type>text/plain</type>
+            <size>965</size>
+            <attacher>nrthomas</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2Jyb3dzZXIvY29uZmlnL3ZlcnNpb24udHh0IGIvYnJvd3Nlci9jb25maWcv
+dmVyc2lvbi50eHQKLS0tIGEvYnJvd3Nlci9jb25maWcvdmVyc2lvbi50eHQKKysrIGIvYnJvd3Nl
+ci9jb25maWcvdmVyc2lvbi50eHQKQEAgLTEsMSArMSwxIEBACi00LjBwcmUKKzQuMC4xcHJlCmRp
+ZmYgLS1naXQgYS9jb25maWcvbWlsZXN0b25lLnR4dCBiL2NvbmZpZy9taWxlc3RvbmUudHh0Ci0t
+LSBhL2NvbmZpZy9taWxlc3RvbmUudHh0CisrKyBiL2NvbmZpZy9taWxlc3RvbmUudHh0CkBAIC01
+LDkgKzUsOSBAQAogIyAgICB4LngueC54CiAjICAgIHgueC54KwogIwogIyBSZWZlcmVuY2VkIGJ5
+IG1pbGVzdG9uZS5wbC4KICMgSG9wZWZ1bGx5IEknbGwgYmUgYWJsZSB0byBhdXRvbWF0ZSByZXBs
+YWNlbWVudCBvZiAqYWxsKgogIyBoYXJkY29kZWQgbWlsZXN0b25lcyBpbiB0aGUgdHJlZSBmcm9t
+IHRoZXNlIHR3byBmaWxlcy4KICMtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLQogCi0yLjBwcmUKKzIuMC4xcHJlCmRpZmYgLS1naXQgYS9qcy9z
+cmMvY29uZmlnL21pbGVzdG9uZS50eHQgYi9qcy9zcmMvY29uZmlnL21pbGVzdG9uZS50eHQKLS0t
+IGEvanMvc3JjL2NvbmZpZy9taWxlc3RvbmUudHh0CisrKyBiL2pzL3NyYy9jb25maWcvbWlsZXN0
+b25lLnR4dApAQCAtNSw5ICs1LDkgQEAKICMgICAgeC54LngueAogIyAgICB4LngueCsKICMKICMg
+UmVmZXJlbmNlZCBieSBtaWxlc3RvbmUucGwuCiAjIEhvcGVmdWxseSBJJ2xsIGJlIGFibGUgdG8g
+YXV0b21hdGUgcmVwbGFjZW1lbnQgb2YgKmFsbCoKICMgaGFyZGNvZGVkIG1pbGVzdG9uZXMgaW4g
+dGhlIHRyZWUgZnJvbSB0aGVzZSB0d28gZmlsZXMuCiAjLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIAotMi4wcHJlCisyLjAuMXByZQo=
+</data>
+<flag name="review"
+          id="438075"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="438168"
+          type_id="481"
+          status="+"
+          setter="nrthomas"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524544</attachid>
+            <date>2011-04-07 17:13:00 -0700</date>
+            <delta_ts>2011-04-08 10:57:57 -0700</delta_ts>
+            <desc>[cvs] aus config change + cleanup</desc>
+            <filename>b648041-aus-config-cleanup.diff</filename>
+            <type>text/plain</type>
+            <size>2228</size>
+            <attacher>nrthomas</attacher>
+            
+              <data encoding="base64">SW5kZXg6IGNvbmZpZy1kaXN0LnBocAo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ClJDUyBmaWxlOiAvY3Zzcm9vdC9tb3pp
+bGxhL3dlYnRvb2xzL2F1cy94bWwvaW5jL2NvbmZpZy1kaXN0LnBocCx2CnJldHJpZXZpbmcgcmV2
+aXNpb24gMS4xMjcKZGlmZiAtcCAtVSA4IC1yMS4xMjcgY29uZmlnLWRpc3QucGhwCi0tLSBjb25m
+aWctZGlzdC5waHAJNyBBcHIgMjAxMSAyMzoyMzo0NyAtMDAwMAkxLjEyNworKysgY29uZmlnLWRp
+c3QucGhwCTggQXByIDIwMTEgMDA6MTA6MTMgLTAwMDAKQEAgLTEyNCw0OSArMTI0LDMwIEBAICRu
+aWdodGx5Q2hhbm5lbHMgPSBhcnJheSgKICAgICAnbmlnaHRseS1tb3ppbGxhLTIuMScsCiAgICAg
+J25pZ2h0bHktamFlZ2VybW9ua2V5JywKICAgICAnYXVyb3JhJywKICk7CiAKIC8vIFRoaXMgaGFz
+aCBkZWZpbmVzIHRoZSBwcm9kdWN0LT52ZXJzaW9uLT5wYXRjaCByZWxhdGlvbnNoaXBzIGZvciBu
+aWdodGxpZXMKIC8vIEl0IGRldGVybWluZXMgd2hpY2ggcGF0Y2hlcyBhcmUgYXNzb2NpYXRlZCB0
+byB3aGljaCBpbmNvbWluZyBjbGllbnQgdmVyc2lvbnMuCiAvLyBAdG9kbyByZXBsYWNlIHRoaXMg
+d2l0aCBhIGJldHRlciBkYXRhc291cmNlIHRoYXQgY2FuIGJlIGVhc2lseSBtYW5hZ2VkIHZpYSBh
+IEdVSS4KKy8vIFRoZSBvcmRlcmluZyBpcyAhaW1wb3J0YW50ISwgZ2l2ZW4gdGhlIHdpbGRjYXJk
+IGJsb2NrIGF0IHRoZSBib3R0b20uCiAkcHJvZHVjdEJyYW5jaFZlcnNpb25zID0gYXJyYXkoCiAg
+ICAgJ0ZpcmVmb3gnICAgICA9PiAgYXJyYXkoCiAgICAgICAgICczLjUqJyAgICA9PiAnbW96aWxs
+YS0xLjkuMScsCiAgICAgICAgICczLjYqJyAgICA9PiAnbW96aWxsYS0xLjkuMicsCi0gICAgICAg
+ICczLjcqJyAgICA9PiBhcnJheSgKLSAgICAgICAgICAgJ25pZ2h0bHknICAgICAgICAgICAgICAg
+ICA9PiAnbW96aWxsYS1jZW50cmFsJywKLSAgICAgICAgKSwKLSAgICAgICAgJzQuMConICAgID0+
+IGFycmF5KAotICAgICAgICAgICAnbmlnaHRseScgICAgICAgICAgICAgICAgID0+ICdtb3ppbGxh
+LWNlbnRyYWwnLAotICAgICAgICApLAotICAgICAgICAnNC4yKicgICAgPT4gYXJyYXkoCi0gICAg
+ICAgICAgICduaWdodGx5JyAgICAgICAgICAgICAgICAgPT4gJ21vemlsbGEtY2VudHJhbCcsCi0g
+ICAgICAgICksCisgICAgICAgICc0LjAuKicgICA9PiAnbW96aWxsYS0yLjAnLAogICAgICAgICAn
+KicgICAgICAgPT4gYXJyYXkoCisgICAgICAgICAgICduaWdodGx5JyAgICAgICAgICAgICAgICAg
+PT4gJ21vemlsbGEtY2VudHJhbCcsCiAgICAgICAgICAgICduaWdodGx5LXRyYWNlbW9ua2V5JyAg
+ICAgPT4gJ3RyYWNlbW9ua2V5JywKICAgICAgICAgICAgJ25pZ2h0bHktZWxlY3Ryb2x5c2lzJyAg
+ICA9PiAnZWxlY3Ryb2x5c2lzJywKICAgICAgICAgICAgJ25pZ2h0bHktamFlZ2VybW9ua2V5JyAg
+ICA9PiAnamFlZ2VybW9ua2V5JywKICAgICAgICAgICAgJ2F1cm9yYScgICAgICAgICAgICAgICAg
+ICA9PiAnYXVyb3JhJwogICAgICAgICApCiAgICAgKSwKLSAgICAnVGh1bmRlcmJpcmQnID0+ICBh
+cnJheSgKLSAgICAgICAgJzEuNS4wLionID0+ICAnMS41LjAueCcsCi0gICAgICAgICcyLjAqJyAg
+ICA9PiAgJzIuMCcsCi0gICAgICAgICczLjAqJyAgICA9PiAgJ3RydW5rJwotICAgICksCi0gICAg
+J1N1bmJpcmQnICAgICA9PiAgYXJyYXkoCi0gICAgICAgICcwLjRhMScgICA9PiAgJ2JyYW5jaCcs
+Ci0gICAgICAgICcwLjUqJyAgICA9PiAgJ2JyYW5jaCcsCi0gICAgICAgICcwLjcqJyAgICA9PiAg
+J2JyYW5jaCcsCi0gICAgICAgICcwLjgqJyAgICA9PiAgJ2JyYW5jaCcsCi0gICAgICAgICcwLjkq
+JyAgICA9PiAgJ2JyYW5jaCcsCi0gICAgICAgICcwLjZhMScgICA9PiAgJ3RydW5rJwotICAgICks
+CiAgICAgJ0Zlbm5lYycgICAgICA9PiAgYXJyYXkoCiAgICAgICAgICcyLjAqJyAgICA9PiAgYXJy
+YXkoCiAgICAgICAgICAgICduaWdodGx5JyAgICAgICAgICAgICAgICAgPT4gJ21vemlsbGEtY2Vu
+dHJhbCcsCiAgICAgICAgICksCiAgICAgICAgICc0LjAqJyAgICA9PiAgYXJyYXkoCiAgICAgICAg
+ICAgICduaWdodGx5JyAgICAgICAgICAgICAgICAgPT4gJ21vemlsbGEtY2VudHJhbCcsCiAgICAg
+ICAgICAgICduaWdodGx5LW1vemlsbGEtMi4xJyAgICAgPT4gJ21vemlsbGEtMi4xJwogICAgICAg
+ICApLAo=
+</data>
+<flag name="review"
+          id="438191"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="438306"
+          type_id="481"
+          status="+"
+          setter="nrthomas"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647690</bug_id>
+          
+          <creation_ts>2011-04-04 09:02:00 -0700</creation_ts>
+          <short_desc>pk12util: typo in help screen</short_desc>
+          <delta_ts>2011-04-04 09:02:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Tools</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Hanno Boeck">hanno</reporter>
+          <assigned_to>nobody</assigned_to>
+          
+          <qa_contact>tools</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390210</commentid>
+              <attachid>523990</attachid>
+            <who name="Hanno Boeck">hanno</who>
+            <bug_when>2011-04-04 09:02:47 -0700</bug_when>
+            <thetext>Created attachment 523990
+Fix typo in p12util
+
+At the end of &quot;pk12util -H&quot;:
+&quot;[-w p12filepwfile | -W p12filefilepw]&quot;
+
+This should probably be p12filepw (no double file), as it is at the two other places where it appears. Trivial patch attached.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>523990</attachid>
+            <date>2011-04-04 09:02:00 -0700</date>
+            <delta_ts>2011-04-04 09:02:47 -0700</delta_ts>
+            <desc>Fix typo in p12util</desc>
+            <filename>pk12util-typo.patch</filename>
+            <type>text/plain</type>
+            <size>1037</size>
+            <attacher>hanno</attacher>
+            
+              <data encoding="base64">SW5kZXg6IHNlY3VyaXR5L25zcy9jbWQvcGsxMnV0aWwvcGsxMnV0aWwuYwo9PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ClJD
+UyBmaWxlOiAvY3Zzcm9vdC9tb3ppbGxhL3NlY3VyaXR5L25zcy9jbWQvcGsxMnV0aWwvcGsxMnV0
+aWwuYyx2CnJldHJpZXZpbmcgcmV2aXNpb24gMS40NQpkaWZmIC11IC1wIC04IC1yMS40NSBwazEy
+dXRpbC5jCi0tLSBzZWN1cml0eS9uc3MvY21kL3BrMTJ1dGlsL3BrMTJ1dGlsLmMJMTAgQXVnIDIw
+MTAgMTU6MjE6NDEgLTAwMDAJMS40NQorKysgc2VjdXJpdHkvbnNzL2NtZC9wazEydXRpbC9wazEy
+dXRpbC5jCTQgQXByIDIwMTEgMTU6NTk6MjQgLTAwMDAKQEAgLTcyLDE3ICs3MiwxNyBAQCBVc2Fn
+ZShjaGFyICpwcm9nTmFtZSkKICAgICBGUFMgIlx0XHQgWy1rIHNsb3Rwd2ZpbGUgfCAtSyBzbG90
+cHddIFstdyBwMTJmaWxlcHdmaWxlIHwgLVcgcDEyZmlsZXB3XVxuIik7CiAgICAgRlBTICJcdFx0
+IFstdl1cbiIpOwogCiAgICAgRlBTICJVc2FnZToJICVzIC1vIGV4cG9ydGZpbGUgLW4gY2VydG5h
+bWUgWy1kIGNlcnRkaXJdIFstUCBkYnByZWZpeF1cbiIsCiAJCXByb2dOYW1lKTsKICAgICBGUFMg
+Ilx0XHQgWy1jIGtleV9jaXBoZXJdIFstQyBjZXJ0X2NpcGhlcl1cbiIKICAgICAgICAgIlx0XHQg
+Wy1tIHwgLS1rZXlfbGVuIGtleUxlbl0gWy0tY2VydF9rZXlfbGVuIGNlcnRLZXlMZW5dIFstdl1c
+biIpOwogICAgIEZQUyAiXHRcdCBbLWsgc2xvdHB3ZmlsZSB8IC1LIHNsb3Rwd11cbiIKLQkJIlx0
+XHQgWy13IHAxMmZpbGVwd2ZpbGUgfCAtVyBwMTJmaWxlZmlsZXB3XVxuIik7CisJCSJcdFx0IFst
+dyBwMTJmaWxlcHdmaWxlIHwgLVcgcDEyZmlsZXB3XVxuIik7CiAKICAgICBleGl0KFBLMTJVRVJS
+X1VTQUdFKTsKIH0KIAogc3RhdGljIFBSQm9vbAogcDEydV9PcGVuRmlsZShwMTJ1Q29udGV4dCAq
+cDEyY3h0LCBQUkJvb2wgZmlsZVJlYWQpCiB7CiAgICAgaWYoIXAxMmN4dCB8fCAhcDEyY3h0LT5m
+aWxlbmFtZSkgewo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

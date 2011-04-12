@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648531</bug_id>
+          
+          <creation_ts>2011-04-08 07:50:00 -0700</creation_ts>
+          <short_desc>regression with table borders and the rules attribute</short_desc>
+          <delta_ts>2011-04-09 04:36:10 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Style System (CSS)</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://paulgrosso.name/firefox/table-borders.htm</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>43178</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Paul Grosso">pgrosso</reporter>
+          <assigned_to name="fantasai">fantasai.bugs</assigned_to>
+          <cc>bernd.mielke</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>fantasai.bugs</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>style-system</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396457</commentid>
+            <who name="Paul Grosso">pgrosso</who>
+            <bug_when>2011-04-08 07:50:59 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Firefox 4.0 (&quot;up to date&quot; as of 2011 April 8)
+
+See http://paulgrosso.name/firefox/table-borders.htm for a self-explanatory example about a regression from Firefox 3.x (and divergence from Chrome and others and from my understanding of the HTML/CSS specs).
+
+Due to this regression, there is no way to generate HTML/CSS that will work
+properly on both Firefox 3.x and Firefox 4.
+
+Reproducible: Always
+
+Steps to Reproduce:
+See http://paulgrosso.name/firefox/table-borders.htm
+Actual Results:  
+Chrome (10.0.648.204) gives what I believe are the correct results. Both Firefox 3.x and Firefox 4 give incorrect results, but the results are different and incompatible so that there is no way to code a page that works properly in all browsers.
+
+Expected Results:  
+What Chrome (10.0.648.204) shows.
+
+While I&apos;m leaving the severity Normal (it&apos;s hard to say a major feature is broken), this is a regression that will prevent people from upgrading to Firefox 4 in some cases.  My company makes HTML generating software, and we will not be able to provide Firefox 4 support (without breaking Firefox 3.x support) until this bug is fixed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396696</commentid>
+              <attachid>524644</attachid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 10:03:39 -0700</bug_when>
+            <thetext>Created attachment 524644
+Paul&apos;s testcase</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396756</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 10:20:33 -0700</bug_when>
+            <thetext>So the issue seems to be the handling of the rules=&quot;none&quot; cases, right?
+
+In Firefox 3.6 the &quot;rules&quot; attribute did weird stuff that&apos;s not describable in CSS.
+
+The UA stylesheet in Firefox 4 has the following rules which are relevant here:
+ 
+ table[frame] {
+   border: thin hidden;
+ }
+
+ table[frame=&quot;box&quot;], table[frame=&quot;border&quot;] { border-style: outset; } 
+
+ table[rules]:not([rules=&quot;none&quot;]):not([rules=&quot;&quot;]) {
+   border-collapse: collapse;
+ }
+
+ table[rules][rules=&quot;none&quot;]  &gt; tr &gt; td,
+ table[rules][rules=&quot;none&quot;] &gt; * &gt; tr &gt; td,
+ table[rules][rules=&quot;none&quot;] &gt; tr &gt; th,
+ table[rules][rules=&quot;none&quot;] &gt; * &gt; tr &gt; th,
+ table[rules][rules=&quot;none&quot;] &gt; td,
+ table[rules][rules=&quot;none&quot;] &gt; th
+ {
+   border-width: thin;
+   border-style: hidden;
+ }
+
+So in the rules=&quot;none&quot; case we set all the cell borders as &quot;hidden&quot; and do NOT set the table to border-collapse:collapse, because that would override the border created on the table by the &quot;frame&quot; attribute.
+
+But the attached testcase manually sets the table to border-collapse:collapse (which is something that is NOT desirable for rules=&quot;none&quot;), at which point hidden borders will override any other borders they collapse with.
+
+The same effect is happening in the case when the page sets the bottom and right borders only on the cells: the hidden top and right borders hide whtever borders they collapse with.
+
+I suppose we could use &quot;none&quot; instead of &quot;hidden&quot; here; is there a reason we&apos;re using &quot;hidden&quot;?
+
+This CSS was added in bug 43178, for what it&apos;s worth.
+
+Paul, I suspect just removing your additional border-collapse rules and relying solely on the &quot;frame&quot;, &quot;border&quot;, and &quot;rules&quot; attributes will make things do the right thing for the cases those attributes handle.  For the cases they don&apos;t handle, you don&apos;t want to be doing them anyway and want to explicitly style things the way they want them styled...
+
+In general, the question of what exactly those three attributes should do is still an open one; if you have concrete proposals please post then to either the WHATWG or W3C HTML working group list.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396931</commentid>
+            <who name="fantasai">fantasai.bugs</who>
+            <bug_when>2011-04-08 11:09:19 -0700</bug_when>
+            <thetext>I believe the second rule could indeed be none, but the [frame] one must be hidden.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396937</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 11:12:14 -0700</bug_when>
+            <thetext>Yeah, the @rules rule is the one that matters here.  fantasai, do you want to take this bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397114</commentid>
+            <who name="Paul Grosso">pgrosso</who>
+            <bug_when>2011-04-08 11:49:21 -0700</bug_when>
+            <thetext>I just added a copy of the last CSS rule you show above to the .css referenced by my test case and changed hidden to none, and that appears to work (in Firefox 4, Firefox 3.x, Chrome and IE), so that&apos;s great news for me, because I do need to set border-collapse to get things to work as desired in the general case I need to handle.  
+
+If you want to see the kinds of things I need to support, see http://paulgrosso.name/firefox/asdbsamp.htm 
+
+With that added CSS rule, that file displays as desired in all the browsers I tested.
+
+Thanks for the quick responses.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524644</attachid>
+            <date>2011-04-08 10:03:00 -0700</date>
+            <delta_ts>2011-04-08 10:03:39 -0700</delta_ts>
+            <desc>Paul&apos;s testcase</desc>
+            <filename>test2.html</filename>
+            <type>text/html</type>
+            <size>10347</size>
+            <attacher>bzbarsky</attacher>
+            
+              <data encoding="base64">PCFET0NUWVBFIEhUTUwgUFVCTElDICItLy9XM0MvL0RURCBIVE1MIDQuMDEgVHJhbnNpdGlvbmFs
+Ly9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL2h0bWw0L2xvb3NlLmR0ZCI+DQo8aHRtbD4NCiAg
+PGhlYWQ+DQogICAgPHRpdGxlPkZpcmVmb3ggNCBidWcgd2l0aCB0YWJsZSBib3JkZXJzIGFuZCB0
+aGUgcnVsZXMgYXR0cmlidXRlPC90aXRsZT4NCiAgPC9oZWFkPg0KICA8Ym9keT4NCiAgICA8ZGl2
+Pg0KICAgICAgPGgxPkZpcmVmb3ggNCBidWcgd2l0aCB0YWJsZSBib3JkZXJzIGFuZCB0aGUgcnVs
+ZXMgYXR0cmlidXRlPC9oMT4NCiAgICAgIDxwPlN1bW1hcnk6IEl0IGFwcGVhcnMgdGhhdCBGaXJl
+Zm94IDQgaGFzIHRoZSB0YWJsZSB0YWcncyA8Y29kZT5ydWxlczwvY29kZT4gYXR0cmlidXRlIG92
+ZXJyaWRpbmcgYm90aCB0aGUgPGNvZGU+ZnJhbWU8L2NvZGU+IHNwZWNpZmljYXRpb24gYW5kIHRo
+ZSBib3JkZXIgc3R5bGVzIG9uIGluZGl2aWR1YWwgY2VsbHMuPC9wPg0KICAgICAgPGRpdj4NCiAg
+ICAgICAgPGgyPkV4YW1wbGUgdGFibGVzPC9oMj4NCiAgICAgICAgPHRhYmxlIHN0eWxlPSIgYm9y
+ZGVyLWNvbG9yOiAjMDAwMDAwOyBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyAiIHdpZHRoPSIx
+MDAlIiBmcmFtZT0iYm94Ij4NCiAgICAgICAgICA8Y2FwdGlvbj5mcmFtZT1ib3gsIG5vIHJ1bGVz
+IHNwZWNpZmljYXRpb24gb24gdGFibGUgdGFnLCBib3JkZXItcmlnaHQgYW5kIGJvcmRlci1ib3R0
+b20gc29saWQgb24gYWxsIGNlbGxzPC9jYXB0aW9uPg0KICAgICAgICAgIDxjb2xncm91cCBzcGFu
+PSIxIj4NCiAgICAgICAgICAgIDxjb2wgc3Bhbj0iMSI+DQogICAgICAgICAgICA8Y29sIHNwYW49
+IjEiPg0KICAgICAgICAgICAgPGNvbCBzcGFuPSIxIj4NCiAgICAgICAgICA8L2NvbGdyb3VwPg0K
+ICAgICAgICAgIDx0Ym9keT4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgPHRkIHN0
+eWxlPSIgYm9yZGVyLXdpZHRoOiAxcHQ7IGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7IGJvcmRl
+ci1ib3R0b20tc3R5bGU6IHNvbGlkOyAiIHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjExPC90ZD48
+dGQgc3R5bGU9IiBib3JkZXItd2lkdGg6IDFwdDsgYm9yZGVyLXJpZ2h0LXN0eWxlOiBzb2xpZDsg
+Ym9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7ICIgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MTI8
+L3RkPjx0ZCBzdHlsZT0iIGJvcmRlci13aWR0aDogMXB0OyBib3JkZXItcmlnaHQtc3R5bGU6IHNv
+bGlkOyBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsgIiByb3dzcGFuPSIxIiBjb2xzcGFuPSIx
+Ij4xMzwvdGQ+DQogICAgICAgICAgICA8L3RyPg0KICAgICAgICAgICAgPHRyPg0KICAgICAgICAg
+ICAgICA8dGQgc3R5bGU9IiBib3JkZXItd2lkdGg6IDFwdDsgYm9yZGVyLXJpZ2h0LXN0eWxlOiBz
+b2xpZDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7ICIgcm93c3Bhbj0iMSIgY29sc3Bhbj0i
+MSI+MjE8L3RkPjx0ZCBzdHlsZT0iIGJvcmRlci13aWR0aDogMXB0OyBib3JkZXItcmlnaHQtc3R5
+bGU6IHNvbGlkOyBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsgIiByb3dzcGFuPSIxIiBjb2xz
+cGFuPSIxIj4yMjwvdGQ+PHRkIHN0eWxlPSIgYm9yZGVyLXdpZHRoOiAxcHQ7IGJvcmRlci1yaWdo
+dC1zdHlsZTogc29saWQ7IGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOyAiIHJvd3NwYW49IjEi
+IGNvbHNwYW49IjEiPjIzPC90ZD4NCiAgICAgICAgICAgIDwvdHI+DQogICAgICAgICAgICA8dHI+
+DQogICAgICAgICAgICAgIDx0ZCBzdHlsZT0iIGJvcmRlci13aWR0aDogMXB0OyBib3JkZXItcmln
+aHQtc3R5bGU6IHNvbGlkOyBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsgIiByb3dzcGFuPSIx
+IiBjb2xzcGFuPSIxIj4zMTwvdGQ+PHRkIHN0eWxlPSIgYm9yZGVyLXdpZHRoOiAxcHQ7IGJvcmRl
+ci1yaWdodC1zdHlsZTogc29saWQ7IGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOyAiIHJvd3Nw
+YW49IjEiIGNvbHNwYW49IjEiPjMyPC90ZD48dGQgc3R5bGU9IiBib3JkZXItd2lkdGg6IDFwdDsg
+Ym9yZGVyLXJpZ2h0LXN0eWxlOiBzb2xpZDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7ICIg
+cm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MzM8L3RkPg0KICAgICAgICAgICAgPC90cj4NCiAgICAg
+ICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgPHRkIHN0eWxlPSIgYm9yZGVyLXdpZHRoOiAxcHQ7
+IGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7IGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOyAi
+IHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjQxPC90ZD48dGQgc3R5bGU9IiBib3JkZXItd2lkdGg6
+IDFwdDsgYm9yZGVyLXJpZ2h0LXN0eWxlOiBzb2xpZDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29s
+aWQ7ICIgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+NDI8L3RkPjx0ZCBzdHlsZT0iIGJvcmRlci13
+aWR0aDogMXB0OyBib3JkZXItcmlnaHQtc3R5bGU6IHNvbGlkOyBib3JkZXItYm90dG9tLXN0eWxl
+OiBzb2xpZDsgIiByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj40MzwvdGQ+DQogICAgICAgICAgICA8
+L3RyPg0KICAgICAgICAgIDwvdGJvZHk+DQogICAgICAgIDwvdGFibGU+DQogICAgICAgIDx0YWJs
+ZSBzdHlsZT0iIGJvcmRlci1jb2xvcjogIzAwMDAwMDsgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBz
+ZTsgIiB3aWR0aD0iMTAwJSIgZnJhbWU9ImJveCIgcnVsZXM9Im5vbmUiPg0KICAgICAgICAgIDxj
+YXB0aW9uPmZyYW1lPWJveCwgcnVsZXM9bm9uZSwgYm9yZGVyLXJpZ2h0IGFuZCBib3JkZXItYm90
+dG9tIHNvbGlkIG9uIGFsbCBjZWxsczwvY2FwdGlvbj4NCiAgICAgICAgICA8Y29sZ3JvdXAgc3Bh
+bj0iMSI+DQogICAgICAgICAgICA8Y29sIHNwYW49IjEiPg0KICAgICAgICAgICAgPGNvbCBzcGFu
+PSIxIj4NCiAgICAgICAgICAgIDxjb2wgc3Bhbj0iMSI+DQogICAgICAgICAgPC9jb2xncm91cD4N
+CiAgICAgICAgICA8dGJvZHk+DQogICAgICAgICAgICA8dHI+DQogICAgICAgICAgICAgIDx0ZCBz
+dHlsZT0iIGJvcmRlci13aWR0aDogMXB0OyBib3JkZXItcmlnaHQtc3R5bGU6IHNvbGlkOyBib3Jk
+ZXItYm90dG9tLXN0eWxlOiBzb2xpZDsgIiByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4xMTwvdGQ+
+PHRkIHN0eWxlPSIgYm9yZGVyLXdpZHRoOiAxcHQ7IGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7
+IGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOyAiIHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjEy
+PC90ZD48dGQgc3R5bGU9IiBib3JkZXItd2lkdGg6IDFwdDsgYm9yZGVyLXJpZ2h0LXN0eWxlOiBz
+b2xpZDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7ICIgcm93c3Bhbj0iMSIgY29sc3Bhbj0i
+MSI+MTM8L3RkPg0KICAgICAgICAgICAgPC90cj4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAg
+ICAgICAgPHRkIHN0eWxlPSIgYm9yZGVyLXdpZHRoOiAxcHQ7IGJvcmRlci1yaWdodC1zdHlsZTog
+c29saWQ7IGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOyAiIHJvd3NwYW49IjEiIGNvbHNwYW49
+IjEiPjIxPC90ZD48dGQgc3R5bGU9IiBib3JkZXItd2lkdGg6IDFwdDsgYm9yZGVyLXJpZ2h0LXN0
+eWxlOiBzb2xpZDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7ICIgcm93c3Bhbj0iMSIgY29s
+c3Bhbj0iMSI+MjI8L3RkPjx0ZCBzdHlsZT0iIGJvcmRlci13aWR0aDogMXB0OyBib3JkZXItcmln
+aHQtc3R5bGU6IHNvbGlkOyBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsgIiByb3dzcGFuPSIx
+IiBjb2xzcGFuPSIxIj4yMzwvdGQ+DQogICAgICAgICAgICA8L3RyPg0KICAgICAgICAgICAgPHRy
+Pg0KICAgICAgICAgICAgICA8dGQgc3R5bGU9IiBib3JkZXItd2lkdGg6IDFwdDsgYm9yZGVyLXJp
+Z2h0LXN0eWxlOiBzb2xpZDsgYm9yZGVyLWJvdHRvbS1zdHlsZTogc29saWQ7ICIgcm93c3Bhbj0i
+MSIgY29sc3Bhbj0iMSI+MzE8L3RkPjx0ZCBzdHlsZT0iIGJvcmRlci13aWR0aDogMXB0OyBib3Jk
+ZXItcmlnaHQtc3R5bGU6IHNvbGlkOyBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsgIiByb3dz
+cGFuPSIxIiBjb2xzcGFuPSIxIj4zMjwvdGQ+PHRkIHN0eWxlPSIgYm9yZGVyLXdpZHRoOiAxcHQ7
+IGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7IGJvcmRlci1ib3R0b20tc3R5bGU6IHNvbGlkOyAi
+IHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjMzPC90ZD4NCiAgICAgICAgICAgIDwvdHI+DQogICAg
+ICAgICAgICA8dHI+DQogICAgICAgICAgICAgIDx0ZCBzdHlsZT0iIGJvcmRlci13aWR0aDogMXB0
+OyBib3JkZXItcmlnaHQtc3R5bGU6IHNvbGlkOyBib3JkZXItYm90dG9tLXN0eWxlOiBzb2xpZDsg
+IiByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj40MTwvdGQ+PHRkIHN0eWxlPSIgYm9yZGVyLXdpZHRo
+OiAxcHQ7IGJvcmRlci1yaWdodC1zdHlsZTogc29saWQ7IGJvcmRlci1ib3R0b20tc3R5bGU6IHNv
+bGlkOyAiIHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjQyPC90ZD48dGQgc3R5bGU9IiBib3JkZXIt
+d2lkdGg6IDFwdDsgYm9yZGVyLXJpZ2h0LXN0eWxlOiBzb2xpZDsgYm9yZGVyLWJvdHRvbS1zdHls
+ZTogc29saWQ7ICIgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+NDM8L3RkPg0KICAgICAgICAgICAg
+PC90cj4NCiAgICAgICAgICA8L3Rib2R5Pg0KICAgICAgICA8L3RhYmxlPg0KICAgICAgICA8dGFi
+bGUgc3R5bGU9IiBib3JkZXItY29sb3I6ICMwMDAwMDA7IGJvcmRlci1jb2xsYXBzZTogY29sbGFw
+c2U7ICIgd2lkdGg9IjEwMCUiIGZyYW1lPSJib3giPg0KICAgICAgICAgIDxjYXB0aW9uPmZyYW1l
+PWJveCwgbm8gcnVsZXMgc3BlY2lmaWNhdGlvbiwgbm8gYm9yZGVyIHNwZWNpZmljYXRpb25zIG9u
+IGNlbGxzPC9jYXB0aW9uPg0KICAgICAgICAgIDxjb2xncm91cCBzcGFuPSIxIj4NCiAgICAgICAg
+ICAgIDxjb2wgc3Bhbj0iMSI+DQogICAgICAgICAgICA8Y29sIHNwYW49IjEiPg0KICAgICAgICAg
+ICAgPGNvbCBzcGFuPSIxIj4NCiAgICAgICAgICA8L2NvbGdyb3VwPg0KICAgICAgICAgIDx0Ym9k
+eT4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgPHRkIHJvd3NwYW49IjEiIGNvbHNw
+YW49IjEiPjExPC90ZD48dGQgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MTI8L3RkPjx0ZCByb3dz
+cGFuPSIxIiBjb2xzcGFuPSIxIj4xMzwvdGQ+DQogICAgICAgICAgICA8L3RyPg0KICAgICAgICAg
+ICAgPHRyPg0KICAgICAgICAgICAgICA8dGQgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MjE8L3Rk
+Pjx0ZCByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4yMjwvdGQ+PHRkIHJvd3NwYW49IjEiIGNvbHNw
+YW49IjEiPjIzPC90ZD4NCiAgICAgICAgICAgIDwvdHI+DQogICAgICAgICAgICA8dHI+DQogICAg
+ICAgICAgICAgIDx0ZCByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4zMTwvdGQ+PHRkIHJvd3NwYW49
+IjEiIGNvbHNwYW49IjEiPjMyPC90ZD48dGQgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MzM8L3Rk
+Pg0KICAgICAgICAgICAgPC90cj4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgPHRk
+IHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjQxPC90ZD48dGQgcm93c3Bhbj0iMSIgY29sc3Bhbj0i
+MSI+NDI8L3RkPjx0ZCByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj40MzwvdGQ+DQogICAgICAgICAg
+ICA8L3RyPg0KICAgICAgICAgIDwvdGJvZHk+DQogICAgICAgIDwvdGFibGU+DQogICAgICAgIDx0
+YWJsZSBzdHlsZT0iIGJvcmRlci1jb2xvcjogIzAwMDAwMDsgYm9yZGVyLWNvbGxhcHNlOiBjb2xs
+YXBzZTsgIiB3aWR0aD0iMTAwJSIgZnJhbWU9ImJveCIgcnVsZXM9Im5vbmUiPg0KICAgICAgICAg
+IDxjYXB0aW9uPmZyYW1lPWJveCwgcnVsZXM9bm9uZSwgbm8gYm9yZGVyIHNwZWNpZmljYXRpb25z
+IG9uIGNlbGxzPC9jYXB0aW9uPg0KICAgICAgICAgIDxjb2xncm91cCBzcGFuPSIxIj4NCiAgICAg
+ICAgICAgIDxjb2wgc3Bhbj0iMSI+DQogICAgICAgICAgICA8Y29sIHNwYW49IjEiPg0KICAgICAg
+ICAgICAgPGNvbCBzcGFuPSIxIj4NCiAgICAgICAgICA8L2NvbGdyb3VwPg0KICAgICAgICAgIDx0
+Ym9keT4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgPHRkIHJvd3NwYW49IjEiIGNv
+bHNwYW49IjEiPjExPC90ZD48dGQgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MTI8L3RkPjx0ZCBy
+b3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4xMzwvdGQ+DQogICAgICAgICAgICA8L3RyPg0KICAgICAg
+ICAgICAgPHRyPg0KICAgICAgICAgICAgICA8dGQgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MjE8
+L3RkPjx0ZCByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4yMjwvdGQ+PHRkIHJvd3NwYW49IjEiIGNv
+bHNwYW49IjEiPjIzPC90ZD4NCiAgICAgICAgICAgIDwvdHI+DQogICAgICAgICAgICA8dHI+DQog
+ICAgICAgICAgICAgIDx0ZCByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4zMTwvdGQ+PHRkIHJvd3Nw
+YW49IjEiIGNvbHNwYW49IjEiPjMyPC90ZD48dGQgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MzM8
+L3RkPg0KICAgICAgICAgICAgPC90cj4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAg
+PHRkIHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjQxPC90ZD48dGQgcm93c3Bhbj0iMSIgY29sc3Bh
+bj0iMSI+NDI8L3RkPjx0ZCByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj40MzwvdGQ+DQogICAgICAg
+ICAgICA8L3RyPg0KICAgICAgICAgIDwvdGJvZHk+DQogICAgICAgIDwvdGFibGU+DQogICAgICAg
+IDx0YWJsZSBzdHlsZT0iIGJvcmRlci1jb2xvcjogIzAwMDAwMDsgYm9yZGVyLWNvbGxhcHNlOiBj
+b2xsYXBzZTsgIiB3aWR0aD0iMTAwJSIgZnJhbWU9ImJveCI+DQogICAgICAgICAgPGNhcHRpb24+
+ZnJhbWU9Ym94LCBubyBydWxlcyBzcGVjaWZpY2F0aW9uLCAmIzgyMjA7bm9uZSYjODIyMTsgYm9y
+ZGVyIHNwZWNpZmljYXRpb25zIG9uIGNlbGxzPC9jYXB0aW9uPg0KICAgICAgICAgIDxjb2xncm91
+cCBzcGFuPSIxIj4NCiAgICAgICAgICAgIDxjb2wgc3Bhbj0iMSI+DQogICAgICAgICAgICA8Y29s
+IHNwYW49IjEiPg0KICAgICAgICAgICAgPGNvbCBzcGFuPSIxIj4NCiAgICAgICAgICA8L2NvbGdy
+b3VwPg0KICAgICAgICAgIDx0Ym9keT4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAg
+PHRkIHN0eWxlPSIgYm9yZGVyLXJpZ2h0LXN0eWxlOiBub25lOyBib3JkZXItYm90dG9tLXN0eWxl
+OiBub25lOyAiIHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjExPC90ZD48dGQgc3R5bGU9IiBib3Jk
+ZXItcmlnaHQtc3R5bGU6IG5vbmU7IGJvcmRlci1ib3R0b20tc3R5bGU6IG5vbmU7IGJvcmRlci1s
+ZWZ0LXN0eWxlOiBub25lOyIgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MTI8L3RkPjx0ZCBzdHls
+ZT0iIGJvcmRlci1yaWdodC1zdHlsZTogbm9uZTsgYm9yZGVyLWJvdHRvbS1zdHlsZTogbm9uZTsg
+IiByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4xMzwvdGQ+DQogICAgICAgICAgICA8L3RyPg0KICAg
+ICAgICAgICAgPHRyPg0KICAgICAgICAgICAgICA8dGQgc3R5bGU9IiBib3JkZXItcmlnaHQtc3R5
+bGU6IG5vbmU7IGJvcmRlci1ib3R0b20tc3R5bGU6IG5vbmU7ICIgcm93c3Bhbj0iMSIgY29sc3Bh
+bj0iMSI+MjE8L3RkPjx0ZCBzdHlsZT0iIGJvcmRlci1yaWdodC1zdHlsZTogbm9uZTsgYm9yZGVy
+LWJvdHRvbS1zdHlsZTogbm9uZTsgIiByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj4yMjwvdGQ+PHRk
+IHN0eWxlPSIgYm9yZGVyLXJpZ2h0LXN0eWxlOiBub25lOyBib3JkZXItYm90dG9tLXN0eWxlOiBu
+b25lOyAiIHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjIzPC90ZD4NCiAgICAgICAgICAgIDwvdHI+
+DQogICAgICAgICAgICA8dHI+DQogICAgICAgICAgICAgIDx0ZCBzdHlsZT0iIGJvcmRlci1yaWdo
+dC1zdHlsZTogbm9uZTsgYm9yZGVyLWJvdHRvbS1zdHlsZTogbm9uZTsgIiByb3dzcGFuPSIxIiBj
+b2xzcGFuPSIxIj4zMTwvdGQ+PHRkIHN0eWxlPSIgYm9yZGVyLXJpZ2h0LXN0eWxlOiBub25lOyBi
+b3JkZXItYm90dG9tLXN0eWxlOiBub25lOyAiIHJvd3NwYW49IjEiIGNvbHNwYW49IjEiPjMyPC90
+ZD48dGQgc3R5bGU9IiBib3JkZXItcmlnaHQtc3R5bGU6IG5vbmU7IGJvcmRlci1ib3R0b20tc3R5
+bGU6IG5vbmU7ICIgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+MzM8L3RkPg0KICAgICAgICAgICAg
+PC90cj4NCiAgICAgICAgICAgIDx0cj4NCiAgICAgICAgICAgICAgPHRkIHN0eWxlPSIgYm9yZGVy
+LXJpZ2h0LXN0eWxlOiBub25lOyBib3JkZXItYm90dG9tLXN0eWxlOiBub25lOyAiIHJvd3NwYW49
+IjEiIGNvbHNwYW49IjEiPjQxPC90ZD48dGQgc3R5bGU9IiBib3JkZXItcmlnaHQtc3R5bGU6IG5v
+bmU7IGJvcmRlci1ib3R0b20tc3R5bGU6IG5vbmU7ICIgcm93c3Bhbj0iMSIgY29sc3Bhbj0iMSI+
+NDI8L3RkPjx0ZCBzdHlsZT0iIGJvcmRlci1yaWdodC1zdHlsZTogbm9uZTsgYm9yZGVyLWJvdHRv
+bS1zdHlsZTogbm9uZTsgIiByb3dzcGFuPSIxIiBjb2xzcGFuPSIxIj40MzwvdGQ+DQogICAgICAg
+ICAgICA8L3RyPg0KICAgICAgICAgIDwvdGJvZHk+DQogICAgICAgIDwvdGFibGU+DQogICAgICA8
+L2Rpdj4NCiAgICAgIDxkaXY+DQogICAgICAgIDxoMj5EaXNjdXNzaW9uPC9oMj4NCiAgICAgICAg
+PHA+SSBuZWVkIHRvIHdyaXRlIGNvZGUgdGhhdCBnZW5lcmF0ZXMgdGFibGVzIHdpdGggdmFyaW91
+cyBib3JkZXIgc3R5bGVzIChhbmQgd2lkdGhzIGFuZCBjb2xvcnMpIHBvdGVudGlhbGx5IGZvciBl
+YWNoIHRhYmxlIGNlbGwuIFdoZW4gc3RhcnRpbmcgc3VjaCBhIHRhYmxlLCBJIGNhbiBlaXRoZXIg
+b21pdCBhbnkgc3BlY2lmaWNhdGlvbiBmb3IgdGhlIHJ1bGVzIGF0dHJpYnV0ZSBvciBzZXQgaXQg
+dG8gc29tZXRoaW5nICh1c3VhbGx5ICYjODIyMDtub25lJiM4MjIxOykgd2l0aCB0aGUgZXhwZWN0
+YXRpb24gdGhhdCBib3RoIHRoZSBmcmFtZSB2YWx1ZSAod2hpY2ggc2hvdWxkbid0IGJlIGFmZmVj
+dGVkIGJ5IHRoZSBydWxlcyBhdHRyaWJ1dGUgYXQgYWxsKSBhbmQgdGhlIGJvcmRlciBzZXR0aW5n
+cyBvbiB0aGUgaW5kaXZpZHVhbCBjZWxscyB3aWxsIG92ZXJyaWRlIHRoYXQgc2V0dGluZyBhcyBJ
+IGJlbGlldmUgdGhleSBzaG91bGQgYW5kIGRvIGluIENocm9tZSAoMTAuMC42NDguMjA0KS48L3A+
+DQogICAgICAgIDxwPkluIGVhcmxpZXIgdmVyc2lvbnMgb2YgRmlyZWZveCAoZS5nLiwgRmlyZWZv
+eC8yLjAuMC4xOCksIG9taXR0aW5nIHRoZSBydWxlcyBzcGVjaWZpY2F0aW9uIGNhdXNlcyBhbGwg
+bm9uLWZyYW1lIHJ1bGVzIHRvIGJlIGRpc3BsYXllZCB3aGVuIGluZGl2aWR1YWwgY2VsbHMgaGFk
+IG5vIGJvcmRlciBzcGVjaWZpY2F0aW9uIChhcyBpbiB0aGUgJiM4MjIwO2ZyYW1lPWJveCwgbm8g
+cnVsZXMgc3BlY2lmaWNhdGlvbiwgbm8gYm9yZGVyIHNwZWNpZmljYXRpb25zIG9uIGNlbGxzJiM4
+MjIxOyB0YWJsZSBhYm92ZSkgYW5kIGV2ZW4gd2hlbiBib3JkZXJzIGFyZSBzZXQgdG8gJiM4MjIw
+O25vbmUmIzgyMjE7IG9uIGFsbCBpbmRpdmlkdWFsIGNlbGxzIChhcyBpbiB0aGUgJiM4MjIwO2Zy
+YW1lPWJveCwgbm8gcnVsZXMgc3BlY2lmaWNhdGlvbiwgJiM4MjIwO25vbmUmIzgyMjE7IGJvcmRl
+ciBzcGVjaWZpY2F0aW9ucyBvbiBjZWxscyYjODIyMTsgdGFibGUgYWJvdmUpLiBUaGUgd2F5IHRv
+IHdvcmsgYXJvdW5kIHRoaXMgYnVnIHdhcyB0byBzZXQgcnVsZXM9bm9uZSBhcyBpbiB0aGUgJiM4
+MjIwO2ZyYW1lPWJveCwgcnVsZXM9bm9uZSwgbm8gYm9yZGVyIHNwZWNpZmljYXRpb25zIG9uIGNl
+bGxzJiM4MjIxOyB0YWJsZSBhYm92ZS48L3A+DQogICAgICAgIDxwPkhvd2V2ZXIsIGluIEZpcmVm
+b3ggNC4wLCBzZXR0aW5nIHJ1bGVzPW5vbmUgYXBwZWFycyB0byBvdmVycmlkZSBib3RoIGZyYW1l
+PWJveCBhbmQgdGhlIGluZGl2aWR1YWwgY2VsbCBib3JkZXIgc3BlY2lmaWNhdGlvbnMgZXhjZXB0
+IGZvciB0aGUgYm9yZGVyIHNwZWNpZmljYXRpb25zIGZvciB0aGUgb3V0ZXJtb3N0IGNlbGxzLiBU
+aGlzIGJ1ZyBpcyB2aXNpYmxlIGluIGJvdGggdGhlICYjODIyMDtmcmFtZT1ib3gsIHJ1bGVzPW5v
+bmUsIGJvcmRlci1yaWdodCBhbmQgYm9yZGVyLWJvdHRvbSBzb2xpZCBvbiBhbGwgY2VsbHMmIzgy
+MjE7IHRhYmxlIGFuZCB0aGUgJiM4MjIwO2ZyYW1lPWJveCwgcnVsZXM9bm9uZSwgbm8gYm9yZGVy
+IHNwZWNpZmljYXRpb25zIG9uIGNlbGxzJiM4MjIxOyB0YWJsZSBhYm92ZS4gR2l2ZW4gdGhpcyBi
+dWcsIHRoZXJlIGFwcGVhcnMgdG8gYmUgbm8gZ29vZCB3YXkgdG8gd3JpdGUgYSB0YWJsZSB0aGF0
+IHdvcmtzIGluIGJvdGggdmVyc2lvbnMgb2YgRmlyZWZveC48L3A+DQogICAgICA8L2Rpdj4NCiAg
+ICA8L2Rpdj4NCiAgPC9ib2R5Pg0KPC9odG1sPg0K
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

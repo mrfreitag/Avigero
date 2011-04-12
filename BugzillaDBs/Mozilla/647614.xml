@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647614</bug_id>
+          
+          <creation_ts>2011-04-03 16:38:00 -0700</creation_ts>
+          <short_desc>Mail alert required - open mailbox on receipt of mail</short_desc>
+          <delta_ts>2011-04-03 16:40:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Penelope</product>
+          <component>General</component>
+          <version>1.0</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter>alonella</reporter>
+          <assigned_to name="Matt Dudziak">mozilla-bugs</assigned_to>
+          <cc>alonella</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389559</commentid>
+            <who name="">alonella</who>
+            <bug_when>2011-04-03 16:38:26 -0700</bug_when>
+            <thetext>User-Agent:       Opera/9.80 (Windows NT 5.1; U; en) Presto/2.7.62 Version/11.01
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.9) Gecko/20100722 Eudora/3.0.4
+
+In Eudora 7.1 I had the mail alerts set up to open a mailbox when an email was received.  Could we have this feature back please?
+This was one of the major benefits of using Eudora as with many folders there comes a point where they drop out of the window and it is easy to miss messages; however I could guarantee that once all windows were closed I had NOT missed any messages.
+This is a feature that vastly enhances my productivity so please can we have it back?
+
+Reproducible: Always
+
+
+
+
+This may need to be added in tandem with Bug 417230 - Multiple windows, WITHIN Eudora main window (support MDI)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648254</bug_id>
+          
+          <creation_ts>2011-04-07 06:59:00 -0700</creation_ts>
+          <short_desc>Failure code 0x80630001</short_desc>
+          <delta_ts>2011-04-08 15:49:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>3.6 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dietmar Rabich">dietmar.rabich</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+    
+    <cc>kbrosnan</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394332</commentid>
+            <who name="Dietmar Rabich">dietmar.rabich</who>
+            <bug_when>2011-04-07 06:59:39 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; ...) Gecko... Firefox/3.6.16
+
+While using the Browser a JavaScript script show a message: &quot;An Error occured: Component returned failure code: 0x80630001 [nsIDOMStorage.getItem]&quot;
+
+After this message no bookmarks is displayed. FF has to be stopped and restarted.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Work with Firefox
+2. Use Links very often
+
+It&apos;s not easy to reproduce, but the message appears sometimes.
+
+
+
+places.sqlite was checked and it seems that the database has no problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394337</commentid>
+            <who name="Dietmar Rabich">dietmar.rabich</who>
+            <bug_when>2011-04-07 07:00:48 -0700</bug_when>
+            <thetext>The User-Agent depends on the system the bug report was created. It not the system the error occured.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394342</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 07:05:49 -0700</bug_when>
+            <thetext>Can&apos;t reproduce the issue on:
+Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+
+What Firefox build do you see this issue on? 3.6.16 or 4.0? 
+Could you be more clear on the steps to reproduce? Could some specific sites be responsible for it?
+Remaining Unconfirmed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394643</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-07 10:17:40 -0700</bug_when>
+            <thetext>Could it be that a Security/3rd Party App is blocking the places.sqlite Read/Write?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394722</commentid>
+            <who name="Dietmar Rabich">dietmar.rabich</who>
+            <bug_when>2011-04-07 11:01:46 -0700</bug_when>
+            <thetext>It&apos;s Firefox 3.6.16.
+
+I will check for 3rd party software ...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397754</commentid>
+            <who name="Kevin Brosnan">kbrosnan</who>
+            <bug_when>2011-04-08 15:49:03 -0700</bug_when>
+            <thetext>Try Firefox&apos;s safe mode and or a new profile. Details at http://support.mozilla.com/en-US/kb/Basic%20troubleshooting</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

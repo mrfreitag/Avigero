@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648562</bug_id>
+          
+          <creation_ts>2011-04-08 10:14:00 -0700</creation_ts>
+          <short_desc>WAY too many hangups</short_desc>
+          <delta_ts>2011-04-09 10:01:27 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>hang</keywords>
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Chris">chaysters</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+    
+    <cc>tyler.downer</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396733</commentid>
+            <who name="Chris">chaysters</who>
+            <bug_when>2011-04-08 10:14:16 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I want to get rid of the 4.0 version, and use the latest 3. version again.  Version 4.0 has FAR too many cases of (not responding) hangups than the earlier versions.
+Please tell me how to find the download for the latest version 3 download.
+
+Reproducible: Couldn&apos;t Reproduce
+
+Steps to Reproduce:
+1.happens even after I first log into Firefox
+2.happens while on Facebook, doing searches, playing games or reading emails
+3.Happens FAR too often--- WAY more than the other versions
+Actual Results:  
+it just happens--not reproduce-able
+
+Expected Results:  
+it just happens--not reproduce-able
+
+it should WORK... not hangup all the time!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397190</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-08 12:24:57 -0700</bug_when>
+            <thetext>1) http://www.mozilla.com/en-US/firefox/all-older.html
+2) Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

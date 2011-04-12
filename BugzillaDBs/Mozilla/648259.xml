@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648259</bug_id>
+          
+          <creation_ts>2011-04-07 07:29:00 -0700</creation_ts>
+          <short_desc>Firefox does something to my graphic card</short_desc>
+          <delta_ts>2011-04-08 09:40:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Asher">adorlest</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mak77</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394364</commentid>
+            <who name="Asher">adorlest</who>
+            <bug_when>2011-04-07 07:29:32 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I was browsing and Firefox caused my graphics card to fail.  I could move the mouse but the computer did not respond
+
+Reproducible: Sometimes
+
+
+
+
+Had to reboot</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396616</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-08 09:40:06 -0700</bug_when>
+            <thetext>Why do you think it&apos;s a problem with the graphic card? looks like a system hang but there is no data to evaluate that.
+Can you reproduce in safe mode? http://support.mozilla.com/kb/Safe+Mode</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

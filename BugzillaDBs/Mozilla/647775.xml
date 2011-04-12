@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647775</bug_id>
+          
+          <creation_ts>2011-04-04 23:41:00 -0700</creation_ts>
+          <short_desc>merge find bar into the awesome bar</short_desc>
+          <delta_ts>2011-04-05 12:56:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Location Bar</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="Rakshith">rakshithbekal</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>location.bar</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390859</commentid>
+            <who name="Rakshith">rakshithbekal</who>
+            <bug_when>2011-04-04 23:41:41 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: Minefield build as of april 4th 2011
+
+merge the find bar into the location bar making the location bar a bit more awesome.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390975</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-05 03:50:40 -0700</bug_when>
+            <thetext>Can you give some details on how you want this feature to work?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391329</commentid>
+            <who name="Rakshith">rakshithbekal</who>
+            <bug_when>2011-04-05 10:38:43 -0700</bug_when>
+            <thetext>the same way. Use the shortcut &quot;/&quot; and the location bar turns to the find bar with a &quot;find&quot; site identity icon on the left or some other attractive designs.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

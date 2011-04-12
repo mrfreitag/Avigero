@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648073</bug_id>
+          
+          <creation_ts>2011-04-06 12:02:00 -0700</creation_ts>
+          <short_desc>Move js/jsd to js/src/jsd</short_desc>
+          <delta_ts>2011-04-06 12:02:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wesley W. Garland">wes</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>jimb</cc>
+    
+    <cc>jwalden+bmo</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392881</commentid>
+              <attachid>524229</attachid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-06 12:02:59 -0700</bug_when>
+            <thetext>Created attachment 524229
+f? placeholder
+
+SpiderMonkey 1.8.5 ships with /js/jsd/Makefile.in and /js/jsd/idl/Makefile.in, but no way to process them, as /js/src/configure does not reach into its parent directories.
+
+Proposed fix: move /js/jsd into /js/src/jsd, adjust /configure.in and /js/src/configure.in appropriately.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524229</attachid>
+            <date>2011-04-06 12:02:00 -0700</date>
+            <delta_ts>2011-04-06 12:02:59 -0700</delta_ts>
+            <desc>f? placeholder</desc>
+            <filename>placeholder.txt</filename>
+            <type>text/plain</type>
+            <size>74</size>
+            <attacher>wes</attacher>
+            
+              <data encoding="base64">UGxlYXNlIGYrIG9yIGYtIHRvIGluZGljYXRlIHdoZXRoZXIgeW91IHRoaW5rIHRoaXMgaXMgYSBn
+b29kIGlkZWEgb3Igbm90Lgo=
+</data>
+<flag name="feedback"
+          id="437930"
+          type_id="607"
+          status="?"
+          setter="wes"
+          requestee="jimb"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

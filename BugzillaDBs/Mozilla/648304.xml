@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648304</bug_id>
+          
+          <creation_ts>2011-04-07 10:25:00 -0700</creation_ts>
+          <short_desc>only 3 addons show up in the featured list for Sunbird</short_desc>
+          <delta_ts>2011-04-07 17:18:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Public Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          <bug_file_loc>https://addons.allizom.org/en-US/sunbird/</bug_file_loc>
+          <status_whiteboard>[fromAutomation]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Vishal Kamdar [:vish_moz]">vish.mozilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>clouserw</cc>
+    
+    <cc>krupa.mozbugs</cc>
+    
+    <cc>vish.mozilla</cc>
+          <qa_contact>web-ui</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394655</commentid>
+            <who name="Vishal Kamdar [:vish_moz]">vish.mozilla</who>
+            <bug_when>2011-04-07 10:25:28 -0700</bug_when>
+            <thetext>STR:
+1. go to https://addons.allizom.org/en-US/sunbird/
+2. look at the # of featured addons
+
+Actual result:
+3 featured addons in the list
+
+Expected result:
+If the total # of featured addons is 4 or more (https://addons.allizom.org/en-US/sunbird/featured )then at least 4 addons should show up in the browse addons list.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395531</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-07 17:18:05 -0700</bug_when>
+            <thetext>Sunbird is going away in bug 617989</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

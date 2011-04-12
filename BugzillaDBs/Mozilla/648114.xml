@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648114</bug_id>
+          
+          <creation_ts>2011-04-06 14:21:00 -0700</creation_ts>
+          <short_desc>means of pushing sendchanges from amo to addons perf test pool</short_desc>
+          <delta_ts>2011-04-06 14:31:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Talos</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>599169</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="alice nodelman [:alice] [:anode]">anodelman</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>warner-bugzilla</cc>
+          <qa_contact>talos</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393205</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-06 14:21:51 -0700</bug_when>
+            <thetext></thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393214</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-06 14:23:17 -0700</bug_when>
+            <thetext>From offline conversation bwarner suggests that the way to fake a send change from a post is to write a new onchange recipient for buildbot.
+
+We can also investigate creating a small webservice to pick up the amo request and then convert it to a sendchange.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

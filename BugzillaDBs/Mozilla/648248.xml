@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648248</bug_id>
+          
+          <creation_ts>2011-04-07 06:06:00 -0700</creation_ts>
+          <short_desc>Buggy Hebrew fallback font on Mac OS X</short_desc>
+          <delta_ts>2011-04-11 09:21:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Layout: Text</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://unifraktur.sourceforge.net/testcases/bug648248illustration/Illustration%20of%20Bug%20648248.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>623495</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="j. &apos;mach&apos; wust">j_mach_wust</reporter>
+          <assigned_to name="Jonathan Kew">jfkthame</assigned_to>
+          <cc>jayvdb</cc>
+    
+    <cc>jfkthame</cc>
+    
+    <cc>j_mach_wust</cc>
+    
+    <cc>smontagu</cc>
+          <qa_contact>layout.fonts-and-text</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394283</commentid>
+            <who name="j. &apos;mach&apos; wust">j_mach_wust</who>
+            <bug_when>2011-04-07 06:06:49 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+On Mac OS X, Hebrew text falls back to the buggy font Arial Hebrew.
+
+Arial Hebrew will display the dagesh mark in the wrong place.
+
+While this is really not a mozilla bug, there is no knowing when Apple will fix this font (if ever). So for the time being, a better fallback font should be chosen.
+
+The other default Hebrew font, Raanana for serif text, suffers from the very same bug.
+
+Reproducible: Always
+
+Steps to Reproduce:
+View an unstyled sequence (e.g. in Firefox or Thunderbird) of: 1. any Hebrew letter, 2. any niqqud mark, 3. dagesh, 4. another Hebrew letter, for instance: בֵּית (bet-tsere-dagesh-yod-tav) &apos;house&apos;
+Actual Results:  
+The dagesh mark is displayed on the following letter (in the example בֵּית, on the letter י (yod).
+
+Expected Results:  
+The dagesh mark should be displayed on the preceding letter (in the example בֵּית, within the letter ב (bet).
+
+For Mac OS X, I would suggest using the following fonts (preinstalled of course) instead of the buggy fonts Arial Hebrew and Raanana:
+
+default fallback/sans-serif: Lucida Grande or Arial
+serif: Times New Roman
+monospace: Courier New
+
+Safari and Chrome will default to Lucida Grande, so they have no problem.
+
+Incidently, the inverse order is displayed correctly (1. any Hebrew letter, 2. dagesh, 3. any niqqud vowel mark, 4. another Hebrew letter), for instance בֵּית (bet-dagesh-tsere-yod-tav). However, normalization operations will switch to the other order.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396551</commentid>
+            <who name="Jonathan Kew">jfkthame</who>
+            <bug_when>2011-04-08 08:58:36 -0700</bug_when>
+            <thetext>Yes, I can confirm the buggy rendering with Arial Hebrew. That looks like a font bug to me (though I haven&apos;t investigated deeply); it would make sense to specify something different as the default for Hebrew so as to avoid the issue. Simon, any thoughts on the most appropriate choices?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396555</commentid>
+            <who name="j. &apos;mach&apos; wust">j_mach_wust</who>
+            <bug_when>2011-04-08 09:02:52 -0700</bug_when>
+            <thetext>I have written a simple test page that illustrates the issue in two tables (with pictures): First the buggy current fallback fonts; second the alternative correct fallback fonts I would propose:
+
+http://unifraktur.sourceforge.net/testcases/bug648248illustration/Illustration%20of%20Bug%20648248.html</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396562</commentid>
+              <attachid>524635</attachid>
+            <who name="j. &apos;mach&apos; wust">j_mach_wust</who>
+            <bug_when>2011-04-08 09:10:44 -0700</bug_when>
+            <thetext>Created attachment 524635
+Bug 648248 - Change fallback Hebrew fonts to non-buggy fonts
+
+I have tried to write my very first patch. It is supposed to change the fonts according to what I have proposed here (as illustrated on http://unifraktur.sourceforge.net/testcases/bug648248illustration/Illustration%20of%20Bug%20648248.html ).
+
+I do not know whom to put in as reviewer.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396630</commentid>
+              <attachid>524635</attachid>
+            <who name="Jonathan Kew">jfkthame</who>
+            <bug_when>2011-04-08 09:45:07 -0700</bug_when>
+            <thetext>Comment on attachment 524635
+Bug 648248 - Change fallback Hebrew fonts to non-buggy fonts
+
+Thanks for the patch! Asking smontagu for review, as he&apos;s knowledgeable about Hebrew.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400021</commentid>
+              <attachid>524635</attachid>
+            <who name="Simon Montagu">smontagu</who>
+            <bug_when>2011-04-11 02:15:32 -0700</bug_when>
+            <thetext>Comment on attachment 524635
+Bug 648248 - Change fallback Hebrew fonts to non-buggy fonts
+
+I would prefer changing Arial Hebrew to Arial, instead of Lucida Grande, which I find rather ugly in Hebrew.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400074</commentid>
+            <who name="Jonathan Kew">jfkthame</who>
+            <bug_when>2011-04-11 04:07:10 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Comment on attachment 524635 [details]
+&gt; Bug 648248 - Change fallback Hebrew fonts to non-buggy fonts
+&gt; 
+&gt; I would prefer changing Arial Hebrew to Arial, instead of Lucida Grande, which
+&gt; I find rather ugly in Hebrew.
+
+One point to note is that older versions of Arial don&apos;t render Hebrew diacritics well under Core Text. In a brief test, they look OK with v5.01 (which I think is the version currently shipped with the OS), but fail with 3.05, which I had installed locally - it probably comes from MS Office or something like that. I wouldn&apos;t be surprised if it&apos;s fairly common for users to have local versions of Arial that &quot;hide&quot; the default system version, in which case they may see poorer results.
+
+Enabling harfbuzz for Hebrew fixes the rendering with Arial 3.05, so if we fix bug 623495 this will be less of a concern.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400205</commentid>
+              <attachid>525063</attachid>
+            <who name="Jonathan Kew">jfkthame</who>
+            <bug_when>2011-04-11 06:19:52 -0700</bug_when>
+            <thetext>Created attachment 525063
+patch, change Hebrew fallback fonts - updated
+
+Updated patch to use Arial for sans-serif.
+
+j_mach_wust@shared-files.de, would you like to provide a full name to be included in the commit message when we make this change? Normally, we use &quot;full name &lt;email.address&gt;&quot; to record the patch author in the history.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524635</attachid>
+            <date>2011-04-08 09:10:00 -0700</date>
+            <delta_ts>2011-04-08 09:45:07 -0700</delta_ts>
+            <desc>Bug 648248 - Change fallback Hebrew fonts to non-buggy fonts</desc>
+            <filename>Bug 648248.patch</filename>
+            <type>text/plain</type>
+            <size>1950</size>
+            <attacher>j_mach_wust</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL21vZHVsZXMvbGlicHJlZi9zcmMvaW5pdC9hbGwuanMgYi9tb2R1bGVzL2xp
+YnByZWYvc3JjL2luaXQvYWxsLmpzCi0tLSBhL21vZHVsZXMvbGlicHJlZi9zcmMvaW5pdC9hbGwu
+anMKKysrIGIvbW9kdWxlcy9saWJwcmVmL3NyYy9pbml0L2FsbC5qcwpAQCAtMTg1NiwyNiArMTg1
+NiwyNiBAQCBwcmVmKCJmb250Lm5hbWUubW9ub3NwYWNlLmVsIiwgIkx1Y2lkYSBHCiBwcmVmKCJm
+b250Lm5hbWUuY3Vyc2l2ZS5lbCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUu
+ZmFudGFzeS5lbCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUtbGlzdC5zZXJp
+Zi5lbCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUtbGlzdC5zYW5zLXNlcmlm
+LmVsIiwgIkx1Y2lkYSBHcmFuZGUiKTsKIHByZWYoImZvbnQubmFtZS1saXN0Lm1vbm9zcGFjZS5l
+bCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUtbGlzdC5jdXJzaXZlLmVsIiwg
+Ikx1Y2lkYSBHcmFuZGUiKTsKIHByZWYoImZvbnQubmFtZS1saXN0LmZhbnRhc3kuZWwiLCAiTHVj
+aWRhIEdyYW5kZSIpOwogCi1wcmVmKCJmb250Lm5hbWUuc2VyaWYuaGUiLCAiUmFhbmFuYSIpOwot
+cHJlZigiZm9udC5uYW1lLnNhbnMtc2VyaWYuaGUiLCAiQXJpYWwgSGVicmV3Iik7Ci1wcmVmKCJm
+b250Lm5hbWUubW9ub3NwYWNlLmhlIiwgIkFyaWFsIEhlYnJldyIpOwotcHJlZigiZm9udC5uYW1l
+LmN1cnNpdmUuaGUiLCAiQ29yc2l2YSBIZWJyZXciKTsKLXByZWYoImZvbnQubmFtZS5mYW50YXN5
+LmhlIiwgIkNvcnNpdmEgSGVicmV3Iik7Ci1wcmVmKCJmb250Lm5hbWUtbGlzdC5zZXJpZi5oZSIs
+ICJSYWFuYW5hIik7Ci1wcmVmKCJmb250Lm5hbWUtbGlzdC5zYW5zLXNlcmlmLmhlIiwgIkFyaWFs
+IEhlYnJldyIpOwotcHJlZigiZm9udC5uYW1lLWxpc3QubW9ub3NwYWNlLmhlIiwgIkFyaWFsIEhl
+YnJldyIpOwotcHJlZigiZm9udC5uYW1lLWxpc3QuY3Vyc2l2ZS5oZSIsICJDb3JzaXZhIEhlYnJl
+dyIpOwotcHJlZigiZm9udC5uYW1lLWxpc3QuZmFudGFzeS5oZSIsICJDb3JzaXZhIEhlYnJldyIp
+OworcHJlZigiZm9udC5uYW1lLnNlcmlmLmhlIiwgIlRpbWVzIE5ldyBSb21hbiIpOworcHJlZigi
+Zm9udC5uYW1lLnNhbnMtc2VyaWYuaGUiLCAiTHVjaWRhIEdyYW5kZSIpOworcHJlZigiZm9udC5u
+YW1lLm1vbm9zcGFjZS5oZSIsICJDb3VyaWVyIE5ldyIpOworcHJlZigiZm9udC5uYW1lLmN1cnNp
+dmUuaGUiLCAiVGltZXMgTmV3IFJvbWFuIik7CitwcmVmKCJmb250Lm5hbWUuZmFudGFzeS5oZSIs
+ICJUaW1lcyBOZXcgUm9tYW4iKTsKK3ByZWYoImZvbnQubmFtZS1saXN0LnNlcmlmLmhlIiwgIlRp
+bWVzIE5ldyBSb21hbiIpOworcHJlZigiZm9udC5uYW1lLWxpc3Quc2Fucy1zZXJpZi5oZSIsICJM
+dWNpZGEgR3JhbmRlIik7CitwcmVmKCJmb250Lm5hbWUtbGlzdC5tb25vc3BhY2UuaGUiLCAiQ291
+cmllciBOZXciKTsKK3ByZWYoImZvbnQubmFtZS1saXN0LmN1cnNpdmUuaGUiLCAiVGltZXMgTmV3
+IFJvbWFuIik7CitwcmVmKCJmb250Lm5hbWUtbGlzdC5mYW50YXN5LmhlIiwgIlRpbWVzIE5ldyBS
+b21hbiIpOwogCiBwcmVmKCJmb250Lm5hbWUuc2VyaWYuamEiLCAiSGlyYWdpbm8gTWluY2hvIFBy
+byIpOyAKIHByZWYoImZvbnQubmFtZS5zYW5zLXNlcmlmLmphIiwgIkhpcmFnaW5vIEtha3UgR290
+aGljIFBybyIpOyAKIHByZWYoImZvbnQubmFtZS5tb25vc3BhY2UuamEiLCAiT3Nha2EtTW9ubyIp
+OyAKIHByZWYoImZvbnQubmFtZS1saXN0LnNlcmlmLmphIiwgIkhpcmFnaW5vIE1pbmNobyBQcm8i
+KTsgCiBwcmVmKCJmb250Lm5hbWUtbGlzdC5zYW5zLXNlcmlmLmphIiwgIkhpcmFnaW5vIEtha3Ug
+R290aGljIFBybyIpOyAKIHByZWYoImZvbnQubmFtZS1saXN0Lm1vbm9zcGFjZS5qYSIsICJPc2Fr
+YS1Nb25vIik7IAog
+</data>
+<flag name="review"
+          id="438268"
+          type_id="4"
+          status="?"
+          setter="jfkthame"
+          requestee="smontagu"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>525063</attachid>
+            <date>2011-04-11 06:19:00 -0700</date>
+            <delta_ts>2011-04-11 08:03:18 -0700</delta_ts>
+            <desc>patch, change Hebrew fallback fonts - updated</desc>
+            <filename>hebrew-font-prefs</filename>
+            <type>text/plain</type>
+            <size>1935</size>
+            <attacher>jfkthame</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL21vZHVsZXMvbGlicHJlZi9zcmMvaW5pdC9hbGwuanMgYi9tb2R1bGVzL2xp
+YnByZWYvc3JjL2luaXQvYWxsLmpzCi0tLSBhL21vZHVsZXMvbGlicHJlZi9zcmMvaW5pdC9hbGwu
+anMKKysrIGIvbW9kdWxlcy9saWJwcmVmL3NyYy9pbml0L2FsbC5qcwpAQCAtMTg2NiwyNiArMTg2
+NiwyNiBAQCBwcmVmKCJmb250Lm5hbWUubW9ub3NwYWNlLmVsIiwgIkx1Y2lkYSBHCiBwcmVmKCJm
+b250Lm5hbWUuY3Vyc2l2ZS5lbCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUu
+ZmFudGFzeS5lbCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUtbGlzdC5zZXJp
+Zi5lbCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUtbGlzdC5zYW5zLXNlcmlm
+LmVsIiwgIkx1Y2lkYSBHcmFuZGUiKTsKIHByZWYoImZvbnQubmFtZS1saXN0Lm1vbm9zcGFjZS5l
+bCIsICJMdWNpZGEgR3JhbmRlIik7CiBwcmVmKCJmb250Lm5hbWUtbGlzdC5jdXJzaXZlLmVsIiwg
+Ikx1Y2lkYSBHcmFuZGUiKTsKIHByZWYoImZvbnQubmFtZS1saXN0LmZhbnRhc3kuZWwiLCAiTHVj
+aWRhIEdyYW5kZSIpOwogCi1wcmVmKCJmb250Lm5hbWUuc2VyaWYuaGUiLCAiUmFhbmFuYSIpOwot
+cHJlZigiZm9udC5uYW1lLnNhbnMtc2VyaWYuaGUiLCAiQXJpYWwgSGVicmV3Iik7Ci1wcmVmKCJm
+b250Lm5hbWUubW9ub3NwYWNlLmhlIiwgIkFyaWFsIEhlYnJldyIpOwotcHJlZigiZm9udC5uYW1l
+LmN1cnNpdmUuaGUiLCAiQ29yc2l2YSBIZWJyZXciKTsKLXByZWYoImZvbnQubmFtZS5mYW50YXN5
+LmhlIiwgIkNvcnNpdmEgSGVicmV3Iik7Ci1wcmVmKCJmb250Lm5hbWUtbGlzdC5zZXJpZi5oZSIs
+ICJSYWFuYW5hIik7Ci1wcmVmKCJmb250Lm5hbWUtbGlzdC5zYW5zLXNlcmlmLmhlIiwgIkFyaWFs
+IEhlYnJldyIpOwotcHJlZigiZm9udC5uYW1lLWxpc3QubW9ub3NwYWNlLmhlIiwgIkFyaWFsIEhl
+YnJldyIpOwotcHJlZigiZm9udC5uYW1lLWxpc3QuY3Vyc2l2ZS5oZSIsICJDb3JzaXZhIEhlYnJl
+dyIpOwotcHJlZigiZm9udC5uYW1lLWxpc3QuZmFudGFzeS5oZSIsICJDb3JzaXZhIEhlYnJldyIp
+OworcHJlZigiZm9udC5uYW1lLnNlcmlmLmhlIiwgIlRpbWVzIE5ldyBSb21hbiIpOworcHJlZigi
+Zm9udC5uYW1lLnNhbnMtc2VyaWYuaGUiLCAiQXJpYWwiKTsKK3ByZWYoImZvbnQubmFtZS5tb25v
+c3BhY2UuaGUiLCAiQ291cmllciBOZXciKTsKK3ByZWYoImZvbnQubmFtZS5jdXJzaXZlLmhlIiwg
+IlRpbWVzIE5ldyBSb21hbiIpOworcHJlZigiZm9udC5uYW1lLmZhbnRhc3kuaGUiLCAiVGltZXMg
+TmV3IFJvbWFuIik7CitwcmVmKCJmb250Lm5hbWUtbGlzdC5zZXJpZi5oZSIsICJUaW1lcyBOZXcg
+Um9tYW4iKTsKK3ByZWYoImZvbnQubmFtZS1saXN0LnNhbnMtc2VyaWYuaGUiLCAiQXJpYWwiKTsK
+K3ByZWYoImZvbnQubmFtZS1saXN0Lm1vbm9zcGFjZS5oZSIsICJDb3VyaWVyIE5ldyIpOworcHJl
+ZigiZm9udC5uYW1lLWxpc3QuY3Vyc2l2ZS5oZSIsICJUaW1lcyBOZXcgUm9tYW4iKTsKK3ByZWYo
+ImZvbnQubmFtZS1saXN0LmZhbnRhc3kuaGUiLCAiVGltZXMgTmV3IFJvbWFuIik7CiAKIHByZWYo
+ImZvbnQubmFtZS5zZXJpZi5qYSIsICJIaXJhZ2lubyBNaW5jaG8gUHJvIik7IAogcHJlZigiZm9u
+dC5uYW1lLnNhbnMtc2VyaWYuamEiLCAiSGlyYWdpbm8gS2FrdSBHb3RoaWMgUHJvIik7IAogcHJl
+ZigiZm9udC5uYW1lLm1vbm9zcGFjZS5qYSIsICJPc2FrYS1Nb25vIik7IAogcHJlZigiZm9udC5u
+YW1lLWxpc3Quc2VyaWYuamEiLCAiSGlyYWdpbm8gTWluY2hvIFBybyIpOyAKIHByZWYoImZvbnQu
+bmFtZS1saXN0LnNhbnMtc2VyaWYuamEiLCAiSGlyYWdpbm8gS2FrdSBHb3RoaWMgUHJvIik7IAog
+cHJlZigiZm9udC5uYW1lLWxpc3QubW9ub3NwYWNlLmphIiwgIk9zYWthLU1vbm8iKTsgCiAK
+</data>
+<flag name="review"
+          id="438588"
+          type_id="4"
+          status="+"
+          setter="smontagu"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

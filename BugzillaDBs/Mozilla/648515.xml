@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648515</bug_id>
+          
+          <creation_ts>2011-04-08 04:42:00 -0700</creation_ts>
+          <short_desc>Tag colors disappear when multi-tagged</short_desc>
+          <delta_ts>2011-04-08 04:42:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Folder and Message Lists</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Mitra Ardron">mitra_lists</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>folders-message-lists</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396280</commentid>
+            <who name="Mitra Ardron">mitra_lists</who>
+            <bug_when>2011-04-08 04:42:57 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0pre) Gecko/20110407 Thunderbird/3.3a4pre
+
+Tag colors are a great idea, especially when combined with filters to set the tags. 
+
+BUT - if I tag something with two tags, then it takes the color of the first (alphabetically I think). This makes sense if BOTH have colors, but if I have for example &quot;call&quot; and &quot;project1&quot; and &quot;project2&quot;  and pick green for Project 1 and red for &quot;Project2&quot;, then I really don&apos;t want those colors to disappear if I also tag it with &quot;call&quot; which has no color specified. 
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Create a tag MMMM with color Red
+2.Create a tag AAAA - don&apos;t set a color
+3. Tag something MMMM - it changes to red
+4. Tag same item AAAA - the color disappears (defaults to black).
+I think it should stay red.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

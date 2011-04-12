@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648510</bug_id>
+          
+          <creation_ts>2011-04-08 04:07:00 -0700</creation_ts>
+          <short_desc>Firefox 4 does  not run xpi Plugins</short_desc>
+          <delta_ts>2011-04-08 07:45:33 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Martin Husemann">martin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396263</commentid>
+            <who name="Martin Husemann">martin</who>
+            <bug_when>2011-04-08 04:07:14 -0700</bug_when>
+            <thetext>When I install the o2c player plugin (windows only) from www.o2c.de (just visit that url and allow installation), firefox creates a o2cplayer@eleco.com.xpi file in my profile directory, but does not load the plugin (about:plugins does not list it). If I manually unzip the xpi in that directory, everything works fine.
+
+The same xpi works on Firefox 3.6.x just fine. The plugin also works fine on 4.0 after manual extraction.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396285</commentid>
+              <attachid>524607</attachid>
+            <who name="Martin Husemann">martin</who>
+            <bug_when>2011-04-08 04:50:42 -0700</bug_when>
+            <thetext>Created attachment 524607
+Current install.rdf used inside the xpi</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396286</commentid>
+            <who name="Martin Husemann">martin</who>
+            <bug_when>2011-04-08 04:53:39 -0700</bug_when>
+            <thetext>Not being able to load a DLL inside a xpi file is not too suprising, after all. The plugin relies on being able to execute a helper exe file installed sideways sometimes, how would it do that from inside the zip file?
+
+I presume there is some magic needed in the install.rdf, which I have added for your convenience. Please let me know what I need to add there to make Firefox install the plugin in extracted form, as it always did (including the betas I have tried).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396446</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 07:45:25 -0700</bug_when>
+            <thetext>See https://developer.mozilla.org/en/Extensions/Updating_extensions_for_Firefox_4#XPI_unpacking</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524607</attachid>
+            <date>2011-04-08 04:50:00 -0700</date>
+            <delta_ts>2011-04-08 04:50:42 -0700</delta_ts>
+            <desc>Current install.rdf used inside the xpi</desc>
+            <filename>install.rdf</filename>
+            <type>application/rdf+xml</type>
+            <size>1277</size>
+            <attacher>martin</attacher>
+            
+              <data encoding="base64">PFJERiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIN
+CiAgICAgeG1sbnM6ZW09Imh0dHA6Ly93d3cubW96aWxsYS5vcmcvMjAwNC9lbS1yZGYjIj4NCg0K
+ICA8RGVzY3JpcHRpb24gYWJvdXQ9InVybjptb3ppbGxhOmluc3RhbGwtbWFuaWZlc3QiPg0KDQog
+ICAgPGVtOmlkPm8yY3BsYXllckBlbGVjby5jb208L2VtOmlkPg0KICAgIDxlbTpuYW1lPk8yQ1Bs
+YXllciBQbHVnaW48L2VtOm5hbWU+DQogICAgPGVtOnZlcnNpb24+Mi4wLjAuNTc8L2VtOnZlcnNp
+b24+DQogICAgPGVtOnVwZGF0ZVVSTD5odHRwOi8vd3d3Lm8yYy5kZS91cGRhdGUucmRmPC9lbTp1
+cGRhdGVVUkw+DQogICAgPGVtOmNyZWF0b3I+RUxFQ08gU29mdHdhcmUgR21iSDwvZW06Y3JlYXRv
+cj4NCiAgICA8ZW06ZGVzY3JpcHRpb24+SW50ZXJhY3RpdmUgM0Qgb2JqZWN0czwvZW06ZGVzY3Jp
+cHRpb24+DQogICAgPGVtOmNvbnRyaWJ1dG9yPmFwcmlzb2Z0IEdtYkg8L2VtOmNvbnRyaWJ1dG9y
+Pg0KICAgIDxlbTpob21lcGFnZVVSTD5odHRwOi8vd3d3Lm8yYy5kZS88L2VtOmhvbWVwYWdlVVJM
+Pg0KDQogICAgPGVtOnRhcmdldFBsYXRmb3JtPldJTk5UPC9lbTp0YXJnZXRQbGF0Zm9ybT4NCg0K
+ICAgIDxlbTp1cGRhdGVLZXk+TUlHZk1BMEdDU3FHU0liM0RRRUJBUVVBQTRHTkFEQ0JpUUtCZ1FE
+RmVyS1A0Uw0KICAgICAgICAgICAgICAgICAgeXNFWS9vRFYrVnViM05zKzJ6TFRzMm05d3ZUZml0
+am8waGc5OE9jb21BL1Z6VQ0KICAgICAgICAgICAgICAgICAgM0J3ZlJtSDdBbk9HeHZnbk11WkVC
+ZjR0ZUcwMTM4Yk9wZWFOLzRHUml5SmRjeg0KICAgICAgICAgICAgICAgICAgaWpHWmlSMVZIYURz
+TDZZdVYzcVRNTWI4ZEVnUGdzamNCcWk0VlB1eEhzYVo5Kw0KICAgICAgICAgICAgICAgICAgdDZv
+K1g2NFNsbU5yMXNQT0gxbFBEbm5uaXdJREFRQUI8L2VtOnVwZGF0ZUtleT4NCg0KICAgIDxlbTp0
+YXJnZXRBcHBsaWNhdGlvbj4NCiAgICAgIDwhLS0gRmlyZWZveCAzLjAueCAtIDQueCAtLT4NCiAg
+ICAgIDxEZXNjcmlwdGlvbj4NCiAgICAgICAgPGVtOmlkPntlYzgwMzBmNy1jMjBhLTQ2NGYtOWIw
+ZS0xM2EzYTllOTczODR9PC9lbTppZD4NCiAgICAgICAgPGVtOm1pblZlcnNpb24+My4wPC9lbTpt
+aW5WZXJzaW9uPg0KICAgICAgICA8ZW06bWF4VmVyc2lvbj40LjAuKjwvZW06bWF4VmVyc2lvbj4N
+CiAgICAgIDwvRGVzY3JpcHRpb24+DQogICAgPC9lbTp0YXJnZXRBcHBsaWNhdGlvbj4NCg0KICA8
+L0Rlc2NyaXB0aW9uPg0KDQo8L1JERj4=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

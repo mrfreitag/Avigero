@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648556</bug_id>
+          
+          <creation_ts>2011-04-08 10:03:00 -0700</creation_ts>
+          <short_desc>Cannot set local folders as &quot;Draft&quot; and &quot;Sent&quot;</short_desc>
+          <delta_ts>2011-04-08 10:05:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>3.1</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Andre">bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396697</commentid>
+            <who name="Andre">bugzilla</who>
+            <bug_when>2011-04-08 10:03:41 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110321 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.15) Gecko/20110307 Lightning/1.0b2 Lanikai/3.1.9
+
+If I try to set my local Sent- and/or Draft-Folder as Default for my IMAP-account, TB switches these settings back to their online-counterparts when restarted. Meanwhile &quot;Archive&quot; and &quot;Templates&quot; are set to &quot;Local Folder&quot; though they exist neither online nor locally.
+This error is not to be seen easily as TB switches the settings to read only &quot;Sent&quot; (for example) without indicating the folder&apos;s location. Only by realizing that TB keeps saving Emails online instead of locally I found it.
+Nothing of this left any traces in TB&apos;s error-console.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. create an IMAP-account (with Sent-Folder)
+2. create a local folders named like the IMAP-Folders
+3. In account-settings of the IMAP-account set &quot;save copies into&quot; to the folder &quot;Sent&quot; in &quot;Local Folders&quot;
+4. restart TB
+5. send mail and search for its &quot;Sent&quot;-copy
+Actual Results:  
+TB forgets about the settings and returns to the Default - the IMAP-Folders. (Copy will be found there)
+
+Expected Results:  
+Copy should be saved to the local Sent-folder; TB should keep the settings as set by user</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

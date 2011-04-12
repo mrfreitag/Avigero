@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648283</bug_id>
+          
+          <creation_ts>2011-04-07 09:03:00 -0700</creation_ts>
+          <short_desc>These two sites Lags In My Minefield with hardware acceleration enabled</short_desc>
+          <delta_ts>2011-04-07 21:02:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://livefist.blogspot.com/  and http://chhindits.blogspot.com/   and </bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Rakshith">rakshithbekal</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394494</commentid>
+            <who name="Rakshith">rakshithbekal</who>
+            <bug_when>2011-04-07 09:03:39 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+
+They lag when scrolling, when they are loading and opening other tabs at the same time. I have enabled all types of hardware acceleration in my Minefield. And Am using it on a &quot;blacklisted&quot; x3100 graphics chip. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Go to both the sites and whilst loading open new tabs
+2.open new pages simultaneously 
+3.Those two sites use a lot of resource and lags.
+
+
+
+This problem could be because of the hardware acceleration on a blacklisted driver. Just wanted confirmation on the performance in other people&apos;s Firefox/minefield.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394602</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-07 09:48:59 -0700</bug_when>
+            <thetext>For anyone having problem to read the URL:s in the ticket description:
+http://livefist.blogspot.com/
+http://chhindits.blogspot.com/ 
+
+But there is a second &quot;and&quot; in the source code so there may be some information dropped anyway.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395858</commentid>
+            <who name="Rakshith">rakshithbekal</who>
+            <bug_when>2011-04-07 21:02:00 -0700</bug_when>
+            <thetext>yeah thanks</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

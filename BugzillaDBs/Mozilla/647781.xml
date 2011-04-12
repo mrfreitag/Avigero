@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647781</bug_id>
+          
+          <creation_ts>2011-04-05 00:46:00 -0700</creation_ts>
+          <short_desc>Cannot access to the statistics for my add-on</short_desc>
+          <delta_ts>2011-04-05 00:46:52 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Statistics</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Pavel Cvrcek (Mozilla.cz) [:JasnaPaka]">pcvrcek</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>statistics</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390892</commentid>
+            <who name="Pavel Cvrcek (Mozilla.cz) [:JasnaPaka]">pcvrcek</who>
+            <bug_when>2011-04-05 00:46:52 -0700</bug_when>
+            <thetext>I&apos;m developer of extension &quot;RSS Icon In Awesombar&quot; (https://addons.mozilla.org/cs/firefox/addon/rss-icon-in-awesombar/) and I tried to access to the statistics of my add-on (https://addons.mozilla.org/cs/statistics/addon/259364) from list of my add-ons (https://addons.mozilla.org/cs/developers/addons).
+
+Result:
+* &quot;You do not have access to that add-on.&quot;
+
+This is just one extension where I see this problem.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

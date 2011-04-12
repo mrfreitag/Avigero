@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648121</bug_id>
+          
+          <creation_ts>2011-04-06 14:34:00 -0700</creation_ts>
+          <short_desc>Accessibility Telemetry</short_desc>
+          <delta_ts>2011-04-08 11:47:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Disability Access APIs</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="David Bolter [:davidb]">bolterbugz</reporter>
+          <assigned_to name="David Bolter [:davidb]">bolterbugz</assigned_to>
+          
+          <qa_contact>accessibility-apis</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393248</commentid>
+            <who name="David Bolter [:davidb]">bolterbugz</who>
+            <bug_when>2011-04-06 14:34:03 -0700</bug_when>
+            <thetext>We are soon going to get data on whether our test pilots have accessibility instantiated. We should also collect anonymous information on what might have caused the instantiation (e.g. detection based on process-resident modules).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397108</commentid>
+            <who name="David Bolter [:davidb]">bolterbugz</who>
+            <bug_when>2011-04-08 11:47:48 -0700</bug_when>
+            <thetext>Morphing this bug since I think we want to use Telemetry!
+https://wiki.mozilla.org/Platform/Features/Telemetry
+
+Specifically, we should be able to collect data on what parts of our API is being used, and what isn&apos;t. Cross referencing this by tool/technology would be invaluable.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

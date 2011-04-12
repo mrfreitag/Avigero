@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647814</bug_id>
+          
+          <creation_ts>2011-04-05 06:26:00 -0700</creation_ts>
+          <short_desc>Using Roadrunner email, Thunderbird receives email but does not send.</short_desc>
+          <delta_ts>2011-04-05 06:26:27 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="David Garlinghouse">d.m.garlinghouse</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391078</commentid>
+            <who name="David Garlinghouse">d.m.garlinghouse</who>
+            <bug_when>2011-04-05 06:26:27 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: thunderbird 3.1.9
+
+Thunderbird was working fine.  Last week it stopped sending email and gave the following message:
+
+Sending of message failed.
+The message could not be sent because connecting to SMTP server smtp-server.roadrunner.com failed. The server may be unavailable or is refusing SMTP connections. Please verify that your SMTP server settings are correct and try again, or contact the server administrator.
+
+I can use the Roadrunner webmail service without issue, sending and receiving.  Verified all SMTP settings, password, ports, etc.  Uninstalled and reinstalled Thunderbird.  Removed password and reinserted.  Added then removed SSL.  Nothing changes this.  I have reviewed all the various fixes.  Did some update cause this?  HELP!
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Open Thunderbird
+2.Create new message or attempt to reply to existing email
+3.Hit &quot;Send&quot;
+4.After a few seconds of &quot;connecting to server&quot; the error message appears
+Actual Results:  
+Sending of message failed.
+The message could not be sent because connecting to SMTP server smtp-server.roadrunner.com failed. The server may be unavailable or is refusing SMTP connections. Please verify that your SMTP server settings are correct and try again, or contact the server administrator
+
+Expected Results:  
+Mail sent properly.  It worked fine when installed two weeks ago.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

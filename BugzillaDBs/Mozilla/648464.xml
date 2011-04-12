@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648464</bug_id>
+          
+          <creation_ts>2011-04-07 20:09:00 -0700</creation_ts>
+          <short_desc>Fx4 upgrade INFLUENCER campaign - update PDFs</short_desc>
+          <delta_ts>2011-04-11 18:02:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>Firefox 4</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</bug_file_loc>
+          
+          
+          <priority>P1</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.0</target_milestone>
+          
+          <blocked>647730</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jane Finette">jfinette</reporter>
+          <assigned_to name="Craig Cook">craigcook.bugz</assigned_to>
+          <cc>lforrest</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395794</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-07 20:09:44 -0700</bug_when>
+            <thetext>PDFs have been updated! Here is the link:
+http://dl.dropbox.com/u/18740830/Moz/Fx4_Install_Guides_WIN_MAC_updated.zip
+
+Ty included both compressed/optimized and uncompressed versions of the PDFs.
+
+PSD file with the latest copy and hi-res screens can be grabbed from here:
+http://dl.dropbox.com/u/18740830/Moz/FX4_Install_Guide_WIN_MAC.psd.zip</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

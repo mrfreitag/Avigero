@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647915</bug_id>
+          
+          <creation_ts>2011-04-05 17:24:00 -0700</creation_ts>
+          <short_desc>Restart devmo; I think I killed it</short_desc>
+          <delta_ts>2011-04-05 21:09:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Eric Shepherd [:sheppy]">eshepherd</reporter>
+          <assigned_to>server-ops</assigned_to>
+          
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391713</commentid>
+            <who name="Eric Shepherd [:sheppy]">eshepherd</who>
+            <bug_when>2011-04-05 17:24:49 -0700</bug_when>
+            <thetext>devmo has stopped loading. I was using our tag renaming tool on it and apparently it has run amok somehow. Please kick it for me.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391715</commentid>
+            <who name="Eric Shepherd [:sheppy]">eshepherd</who>
+            <bug_when>2011-04-05 17:26:32 -0700</bug_when>
+            <thetext>It started working right after I filed the bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391841</commentid>
+            <who name="Dave Miller [:justdave]">justdave</who>
+            <bug_when>2011-04-05 21:09:20 -0700</bug_when>
+            <thetext>I noticed the page about it being down and went and kicked it based on that.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

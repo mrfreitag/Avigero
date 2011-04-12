@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648526</bug_id>
+          
+          <creation_ts>2011-04-08 07:18:00 -0700</creation_ts>
+          <short_desc>Emit JSOP_OBJECT when array initializer contains negative numbers</short_desc>
+          <delta_ts>2011-04-08 15:45:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to name="Jan de Mooij">jandemooij</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>brendan</cc>
+    
+    <cc>dmandelin</cc>
+    
+    <cc>dvander</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396402</commentid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-08 07:18:12 -0700</bug_when>
+            <thetext>Noticed this when reducing some testcase:
+--
+js&gt; [1]; dis()  
+main:
+00000:  object [1]
+00003:  popv
+--
+And this:
+--
+js&gt; [-1]; dis()    
+main:
+00000:  newarray 1
+00004:  zero
+00005:  int8 -1
+00007:  initelem
+00008:  endinit
+--
+The problem seems to be that JSParseNode::getConstantValue does not support negative numbers.
+
+I don&apos;t know if this will win performance somewhere. SS base64 uses an array with negative numbers though and some benchmarks like to use arrays as vectors like this: [-1, 0, 1].</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396730</commentid>
+              <attachid>524651</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-08 10:11:25 -0700</bug_when>
+            <thetext>Created attachment 524651
+Patch
+
+Brian asking your r? because you wrote JSParseNode::isConstant. The problem was that -10 is constant folded to one token after parsing the initializer.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397155</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-08 12:02:44 -0700</bug_when>
+            <thetext>This will I think break in JSParseNode::getConstantValue if it is not also updated.  Can you add a testcase or update tests/basic/testInitSingleton?</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524651</attachid>
+            <date>2011-04-08 10:11:00 -0700</date>
+            <delta_ts>2011-04-08 10:11:25 -0700</delta_ts>
+            <desc>Patch</desc>
+            <filename>neg.patch</filename>
+            <type>text/plain</type>
+            <size>919</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEphbiBkZSBNb29paiA8amFuZGVtb29pakBnbWFp
+bC5jb20+CiMgUGFyZW50IDcyMmFiOWNlOTE0ZTAyNzc2YjZjMGY3NDI0OTc3MmZmNGFmZTcyNjEK
+QnVnIDY0ODUyNiAtIEVtaXQgSlNPUF9PQkpFQ1Qgd2hlbiBpbml0aWFsaXplciBjb250YWlucyBu
+ZWdhdGl2ZSBudW1iZXJzLiByPWJoYWNrZXR0CgpkaWZmIC0tZ2l0IGEvanMvc3JjL2pzcGFyc2Uu
+Y3BwIGIvanMvc3JjL2pzcGFyc2UuY3BwCi0tLSBhL2pzL3NyYy9qc3BhcnNlLmNwcAorKysgYi9q
+cy9zcmMvanNwYXJzZS5jcHAKQEAgLTg0NTYsMTYgKzg0NTYsMjQgQEAgQmxvY2tJZEluU2NvcGUo
+dWludE4gYmxvY2tpZCwgSlNUcmVlQ29udAogCiBib29sCiBKU1BhcnNlTm9kZTo6aXNDb25zdGFu
+dCgpCiB7CiAgICAgc3dpdGNoIChwbl90eXBlKSB7CiAgICAgICBjYXNlIFRPS19OVU1CRVI6CiAg
+ICAgICBjYXNlIFRPS19TVFJJTkc6CiAgICAgICAgIHJldHVybiB0cnVlOworICAgICAgY2FzZSBU
+T0tfVU5BUllPUDoKKyAgICAgICAgc3dpdGNoKHBuX29wKSB7CisgICAgICAgICAgY2FzZSBKU09Q
+X05FRzoKKyAgICAgICAgICBjYXNlIEpTT1BfUE9TOgorICAgICAgICAgICAgcmV0dXJuIChwbl9r
+aWQtPnBuX3R5cGUgPT0gVE9LX05VTUJFUik7CisgICAgICAgICAgZGVmYXVsdDoKKyAgICAgICAg
+ICAgIHJldHVybiBmYWxzZTsKKyAgICAgICAgfQogICAgICAgY2FzZSBUT0tfUFJJTUFSWToKICAg
+ICAgICAgc3dpdGNoIChwbl9vcCkgewogICAgICAgICAgIGNhc2UgSlNPUF9OVUxMOgogICAgICAg
+ICAgIGNhc2UgSlNPUF9GQUxTRToKICAgICAgICAgICBjYXNlIEpTT1BfVFJVRToKICAgICAgICAg
+ICAgIHJldHVybiB0cnVlOwogICAgICAgICAgIGRlZmF1bHQ6CiAgICAgICAgICAgICByZXR1cm4g
+ZmFsc2U7Cg==
+</data>
+<flag name="review"
+          id="438277"
+          type_id="4"
+          status="?"
+          setter="jandemooij"
+          requestee="bhackett1024"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

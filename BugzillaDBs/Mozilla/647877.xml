@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647877</bug_id>
+          
+          <creation_ts>2011-04-05 12:54:00 -0700</creation_ts>
+          <short_desc>[SeaMonkey] mochitest-browser-chrome: browser_library_infoBox.js fails since 2011.04.02</short_desc>
+          <delta_ts>2011-04-07 08:20:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Bookmarks &amp; History</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>http://mxr.mozilla.org/comm-central/source/suite/common/places/tests/browser/browser_library_infoBox.js</bug_file_loc>
+          <status_whiteboard>[perma-orange]</status_whiteboard>
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>seamonkey2.1final</target_milestone>
+          
+          <blocked>452942</blocked>
+    
+    <blocked>647983</blocked>
+    
+    <blocked>646210</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Serge Gautherie (:sgautherie)">sgautherie.bz</reporter>
+          <assigned_to name="neil@parkwaycc.co.uk">neil</assigned_to>
+          <cc>dominique</cc>
+    
+    <cc>neil</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      <flag name="in-testsuite"
+          id="438030"
+          type_id="37"
+          status="+"
+          setter="sgautherie.bz"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5391461</commentid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-05 12:54:16 -0700</bug_when>
+            <thetext>{
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Expander button is not hidden for recently bookmarked node.
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Expander button is not hidden for bookmark item.
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden by default: #editBMPanel_descriptionRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden by default: #editBMPanel_loadInSidebarCheckbox
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden by default: #editBMPanel_keywordRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly unhidden after toggle: #editBMPanel_descriptionRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly unhidden after toggle: #editBMPanel_loadInSidebarCheckbox
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly unhidden after toggle: #editBMPanel_keywordRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden after toggle: #editBMPanel_descriptionRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden after toggle: #editBMPanel_loadInSidebarCheckbox
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden after toggle: #editBMPanel_keywordRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Expander button is not hidden for second bookmark item.
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden by default: #editBMPanel_descriptionRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden by default: #editBMPanel_loadInSidebarCheckbox
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden by default: #editBMPanel_keywordRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly unhidden after toggle: #editBMPanel_descriptionRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly unhidden after toggle: #editBMPanel_loadInSidebarCheckbox
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly unhidden after toggle: #editBMPanel_keywordRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden after toggle: #editBMPanel_descriptionRow
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden after toggle: #editBMPanel_loadInSidebarCheckbox
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/suite/common/places/tests/browser_library_infoBox.js | Additional info field correctly hidden after toggle: #editBMPanel_keywordRow
+}
+
+Regression timeframe:
+http://build.mozillamessaging.com/tinderboxpushlog/?tree=SeaMonkey2.1&amp;rev=3caccd684365</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391677</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-05 16:40:55 -0700</bug_when>
+            <thetext>Oh, these are all expected, because the test was testing buggy behaviour :-P</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392067</commentid>
+              <attachid>524156</attachid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-06 02:21:23 -0700</bug_when>
+            <thetext>Created attachment 524156
+Proposed patch
+[Checked in: Comment 5+7]
+
+The first change fixes the &quot;bug&quot; that the test was testing the behaviour that bug 646210 changed. (Firefox doesn&apos;t want that change, of course.)
+
+The second change fixes the bug that the test was testing the behaviour of the same bookmark item over and over again, since the focus never moved to the bookmark item that it was actually trying to test. I assume you can handle filing the equivalent Firefox bug, and porting their fix if it&apos;s different.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392159</commentid>
+              <attachid>524156</attachid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-06 05:19:50 -0700</bug_when>
+            <thetext>Comment on attachment 524156
+Proposed patch
+[Checked in: Comment 5+7]
+
+&gt;-    ok(!infoBoxExpanderWrapper.hidden,
+&gt;-       &quot;Expander button is not hidden for recently bookmarked node.&quot;);
+&gt;+    ok(infoBoxExpanderWrapper.hidden,
+&gt;+       &quot;Expander button is hidden for recently bookmarked node.&quot;);
+
+Bug 646210 expected behavior change, right.
+Nit: please add a comment like &quot;# SeaMonkey UI differs from Firefox.&quot;, as a reminder when comparing both tests.
+
+&gt;+    PO._content.focus();
+
+This does fix the reported failures and I can understand it visually.
+Ftr, this test doesn&apos;t report anything about which actual node is being tested, so I just trust you this issue is not caused by an underlying SM &quot;bug&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392179</commentid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-06 05:46:01 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; I assume you can handle
+&gt; filing the equivalent Firefox bug, and porting their fix if it&apos;s different.
+
+I filed bug 647983.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392831</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-06 11:52:03 -0700</bug_when>
+            <thetext>Pushed changeset 89589947a98a to comm-central.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394323</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-07 06:49:45 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; Nit: please add a comment like &quot;# SeaMonkey UI differs from Firefox.&quot;, as a
+&gt; reminder when comparing both tests.
+Sorry, I forgot to do this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394421</commentid>
+              <attachid>524156</attachid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-07 08:15:07 -0700</bug_when>
+            <thetext>Comment on attachment 524156
+Proposed patch
+[Checked in: Comment 5+7]
+
+http://hg.mozilla.org/comm-central/rev/f8f7eaacaf0f</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394433</commentid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-07 08:20:20 -0700</bug_when>
+            <thetext>V.Fixed, per
+http://build.mozillamessaging.com/tinderboxpushlog/?tree=SeaMonkey2.1</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524156</attachid>
+            <date>2011-04-06 02:21:00 -0700</date>
+            <delta_ts>2011-04-07 08:15:07 -0700</delta_ts>
+            <desc>Proposed patch
+[Checked in: Comment 5+7]</desc>
+            <filename>647877.diff</filename>
+            <type>text/plain</type>
+            <size>1388</size>
+            <attacher>neil</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3N1aXRlL2NvbW1vbi9wbGFjZXMvdGVzdHMvYnJvd3Nlci9icm93c2VyX2xp
+YnJhcnlfaW5mb0JveC5qcyBiL3N1aXRlL2NvbW1vbi9wbGFjZXMvdGVzdHMvYnJvd3Nlci9icm93
+c2VyX2xpYnJhcnlfaW5mb0JveC5qcwotLS0gYS9zdWl0ZS9jb21tb24vcGxhY2VzL3Rlc3RzL2Jy
+b3dzZXIvYnJvd3Nlcl9saWJyYXJ5X2luZm9Cb3guanMKKysrIGIvc3VpdGUvY29tbW9uL3BsYWNl
+cy90ZXN0cy9icm93c2VyL2Jyb3dzZXJfbGlicmFyeV9pbmZvQm94LmpzCkBAIC04NiwyMSArODYs
+MjIgQEAgZ1Rlc3RzLnB1c2goewogICAgIHZhciByZWNlbnRseUJvb2ttYXJrZWRUaXRsZSA9IFBs
+YWNlc1VJVXRpbHMuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2V0U3RyaW5n
+KCJyZWNlbnRseUJvb2ttYXJrZWRUaXRsZSIpOwogICAgIGlzbm90KHJlY2VudGx5Qm9va21hcmtl
+ZFRpdGxlLCBudWxsLAogICAgICAgICAgICJDb3JyZWN0bHkgZ290IHRoZSByZWNlbnRseSBib29r
+bWFya2VkIHRpdGxlIGxvY2FsZSBzdHJpbmcuIik7CiAgICAgaXMoY2hpbGROb2RlLnRpdGxlLCBy
+ZWNlbnRseUJvb2ttYXJrZWRUaXRsZSwKICAgICAgICAiQ29ycmVjdGx5IHNlbGVjdGVkIHJlY2Vu
+dGx5IGJvb2ttYXJrZWQgbm9kZS4iKTsKICAgICBQTy5fcGxhY2VzLnNlbGVjdE5vZGUoY2hpbGRO
+b2RlKTsKICAgICBjaGVja0luZm9Cb3hTZWxlY3RlZChQTyk7Ci0gICAgb2soIWluZm9Cb3hFeHBh
+bmRlcldyYXBwZXIuaGlkZGVuLAotICAgICAgICJFeHBhbmRlciBidXR0b24gaXMgbm90IGhpZGRl
+biBmb3IgcmVjZW50bHkgYm9va21hcmtlZCBub2RlLiIpOworICAgIG9rKGluZm9Cb3hFeHBhbmRl
+cldyYXBwZXIuaGlkZGVuLAorICAgICAgICJFeHBhbmRlciBidXR0b24gaXMgaGlkZGVuIGZvciBy
+ZWNlbnRseSBib29rbWFya2VkIG5vZGUuIik7CiAgICAgY2hlY2tBZGRJbmZvRmllbGRzTm90Q29s
+bGFwc2VkKFBPKTsKIAogICAgIC8vIG9wZW4gZmlyc3QgYm9va21hcmsKKyAgICBQTy5fY29udGVu
+dC5mb2N1cygpOwogICAgIHZhciB2aWV3ID0gUE8uX2NvbnRlbnQudHJlZUJveE9iamVjdC52aWV3
+OwogICAgIG9rKHZpZXcucm93Q291bnQgPiAwLCAiQm9va21hcmsgaXRlbSBleGlzdHMuIik7CiAg
+ICAgdmlldy5zZWxlY3Rpb24uc2VsZWN0KDApOwogICAgIGNoZWNrSW5mb0JveFNlbGVjdGVkKFBP
+KTsKICAgICBvayghaW5mb0JveEV4cGFuZGVyV3JhcHBlci5oaWRkZW4sCiAgICAgICAgIkV4cGFu
+ZGVyIGJ1dHRvbiBpcyBub3QgaGlkZGVuIGZvciBib29rbWFyayBpdGVtLiIpOwogICAgIGNoZWNr
+QWRkSW5mb0ZpZWxkc05vdENvbGxhcHNlZChQTyk7CiAgICAgY2hlY2tBZGRJbmZvRmllbGRzKFBP
+LCAiYm9va21hcmsgaXRlbSIpOwo=
+</data>
+<flag name="review"
+          id="437872"
+          type_id="4"
+          status="+"
+          setter="sgautherie.bz"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

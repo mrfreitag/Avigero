@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647841</bug_id>
+          
+          <creation_ts>2011-04-05 10:07:00 -0700</creation_ts>
+          <short_desc>[RTL]Opening a link in a new tab that causes a new column to appear will cause the tab side panel to open</short_desc>
+          <delta_ts>2011-04-11 10:15:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Naoki Hirata :nhirata">nhirata.bugzilla</reporter>
+          <assigned_to name="Anas Husseini [:linostar]">linux.anas</assigned_to>
+          <cc>21</cc>
+    
+    <cc>linux.anas</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391285</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-05 10:07:24 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Android; Linux armv71; rv2.2a1pre) Gecko/20110405 Firefox/4.2a1pre Fennec/4.1a1pre
+Device: Droid 2 
+OS: Android 2.2
+
+1. open 2 tabs so that you have 3 tabs total in landscape mode
+2. on one of the pages go to about:firstrun
+3. click on the link that goes to the mobile features (the arrow that points left)
+
+Expected: the side panel does not open
+Actual: the tab side panel opens.
+
+Note: 
+1. does not occur in LTR</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

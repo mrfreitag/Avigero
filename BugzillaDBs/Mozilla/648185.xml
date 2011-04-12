@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648185</bug_id>
+          
+          <creation_ts>2011-04-06 18:43:00 -0700</creation_ts>
+          <short_desc>Menus crash/blackout after switching from battery mode to normal mode on Sony Vaio Z13</short_desc>
+          <delta_ts>2011-04-07 10:02:35 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Joel Catala">joel.catala</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393797</commentid>
+            <who name="Joel Catala">joel.catala</who>
+            <bug_when>2011-04-06 18:43:48 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+On Sony Vaio Z13 which has automatic power mode switching feature (together with Windows 7), will automatically re-adjust the screen settings (screen will turn on/off after plugging power cord).
+
+Graphic card: Nvidia GeForce GT 330M
+
+Effect on Firefox 4.0:
+Menus and all other menus (such as pulldowns) on web pages will be completely blacked out and it is impossible to see the menus texts.
+
+In order to get a functional UI again is to close Firefox and re-open it.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Open firefox (and use it normally)
+2. Plug power cable back to computer (when battery runs out of course)
+3. and it happens (sometimes, tried to reproduce it once more after it crashed, but did not happen. Happened few days ago.)
+Actual Results:  
+Menus (top left Firefox menu) become all black
+Pulldowns on webpages also become black
+
+Expected Results:  
+Keep menus normal.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394105</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 01:05:58 -0700</bug_when>
+            <thetext>WFM on:
+Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+
+*Note: I cannot reproduce the issue. Does it happen on normal system power management? It sounds more like an interaction problem with the laptop&apos;s power switching feature.
+Remaining Unconfirmed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394112</commentid>
+            <who name="Joel Catala">joel.catala</who>
+            <bug_when>2011-04-07 01:12:48 -0700</bug_when>
+            <thetext>I will take a screenshot next time I face this issue.
+It only happens on this computer.
+The thing I don&apos;t really understand is why the power switching feature would affect Mozilla Firefox and only that!
+(side note, other browser do not face the same issue, or i cannot see it maybe)
+
+would there be a way for me to gather debugging info in case it happens again?
+I don&apos;t mind running Firefox always in &quot;debug mode&quot; (if there is one), and when it happens then i&apos;d have more information to share.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394127</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 01:29:38 -0700</bug_when>
+            <thetext>Thanks for your reply. A screenshot would help. 
+It might be because of the following:
+
+If unplugged, the laptop&apos;s power management feature might not interact properly with the Firefox hardware acceleration feature (graphics card not working on full potential when on low power consumption).
+
+Please disable Firefox hardware acceleration and check if the issue still occurs:  Tools-&gt;Options-&gt;Advanced Tab-&gt;&quot;Use hardware acceleration when available&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394129</commentid>
+            <who name="Joel Catala">joel.catala</who>
+            <bug_when>2011-04-07 01:32:05 -0700</bug_when>
+            <thetext>I&apos;ll see if/whenever it happens again.
+
+I followed your advice, and disabled Firefox&apos;s hardware acceleration.
+
+I&apos;ll post again if it happens while hardware acceleration is off.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

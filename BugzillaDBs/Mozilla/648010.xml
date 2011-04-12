@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648010</bug_id>
+          
+          <creation_ts>2011-04-06 09:29:00 -0700</creation_ts>
+          <short_desc>Fix Geolocation address for Spark</short_desc>
+          <delta_ts>2011-04-06 11:02:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[4.0.1?]</status_whiteboard>
+          
+          <priority>P1</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>636344</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Caitlin Looney">clooney</reporter>
+          <assigned_to name="Doug Turner (:dougt)">doug.turner</assigned_to>
+          <cc>franck.bugzilla</cc>
+    
+    <cc>mark.finkle</cc>
+    
+    <cc>mbrubeck</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>?</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392398</commentid>
+            <who name="Caitlin Looney">clooney</who>
+            <bug_when>2011-04-06 09:29:17 -0700</bug_when>
+            <thetext>Geolocation is currently broken and causing issues in the Spark &quot;boost&quot; portion of the game. Can we resolve the issue asap in order for the game mechanics to work?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392496</commentid>
+            <who name="Matt Brubeck (:mbrubeck)">mbrubeck</who>
+            <bug_when>2011-04-06 10:11:01 -0700</bug_when>
+            <thetext>This could be fixed in 4.0.1 by landing bug 636344 on mozilla-2.1, or fixed server-side by changing the Spark site not to require the &quot;address&quot; field.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

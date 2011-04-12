@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647976</bug_id>
+          
+          <creation_ts>2011-04-06 04:59:00 -0700</creation_ts>
+          <short_desc>Certificate validation does not use Login or System keyrings</short_desc>
+          <delta_ts>2011-04-06 05:01:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Security</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Karri-Pekka Laakso">kplaakso</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>firefox</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392143</commentid>
+            <who name="Karri-Pekka Laakso">kplaakso</who>
+            <bug_when>2011-04-06 04:59:58 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-us) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27
+Build Identifier: 20110318052756
+
+FF4 uses only the unmodifiable System Roots keyring on OSX. However, it should also use the keyrings System (all users for this Mac) and Login (this user). Now the user cannot add a new root cert which FF4 would use to certify remote servers with SSL.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Find a server which has a certificate which was signed using a self-signed CA certificate
+2. Add the CA sertificate to Login or System keyring
+3. Go to the site using https
+
+Actual Results:  
+FF4 gives the &quot;unsecure web site, add exception&quot; page. 
+
+Expected Results:  
+Server connection is accepted based on the CA certificate in the Login or System keyring.
+
+This bug is especially painful when using FF4 with Selenium webdriver, since a new, blank profile is used by default, and the CA cert cannot be added to FF4 certificate store before launching.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392144</commentid>
+            <who name="Karri-Pekka Laakso">kplaakso</who>
+            <bug_when>2011-04-06 05:01:18 -0700</bug_when>
+            <thetext>N.B.: This worked in FF3.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

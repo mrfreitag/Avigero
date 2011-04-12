@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648360</bug_id>
+          
+          <creation_ts>2011-04-07 14:07:00 -0700</creation_ts>
+          <short_desc>Session times out prematurely logging you out of banking session almost immediately.</short_desc>
+          <delta_ts>2011-04-10 11:30:32 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>OS/2</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.bankofamerica.com</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="David Azarewicz">david</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>daveryeo</cc>
+    
+    <cc>dragtext</cc>
+    
+    <cc>mozilla</cc>
+    
+    <cc>stevew</cc>
+    
+    <cc>wuno</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395086</commentid>
+            <who name="David Azarewicz">david</who>
+            <bug_when>2011-04-07 14:07:21 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (OS/2; Warp 4.5; rv:2.0pre) Gecko/20110327 Firefox/4.0pre
+Build Identifier: Mozilla/5.0 (OS/2; Warp 4.5; rv:2.0pre) Gecko/20110327 Firefox/4.0pre
+
+The on-line banking session times out almost immediately making this version of Firefox unusable for the Bank of America web site.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Go to www.bankofamerica.com
+2. Log into your account.
+3. Get logged out almost immediately due to timeout.
+Actual Results:  
+Page redirects to:
+https://www.bankofamerica.com/Control.do?page_msg=timeout&amp;body=signoff
+
+Expected Results:  
+nothing.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396177</commentid>
+            <who name="Peter Weilbacher">mozilla</who>
+            <bug_when>2011-04-08 01:38:08 -0700</bug_when>
+            <thetext>This will be difficult to address for anyone without such an account...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397140</commentid>
+            <who name="Steve Wendt">stevew</who>
+            <bug_when>2011-04-08 11:57:42 -0700</bug_when>
+            <thetext>This is probably BofA&apos;s fault:
+https://bugzilla.mozilla.org/show_bug.cgi?id=625724
+https://bugzilla.mozilla.org/show_bug.cgi?id=639190
+
+David, are you able to test on another platform?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397924</commentid>
+            <who name="David Azarewicz">david</who>
+            <bug_when>2011-04-08 18:09:37 -0700</bug_when>
+            <thetext>Yes, I can test on Linux.  I am out of town until Sunday when I can get to my Linux box.
+
+It is interesting that I just tried it on my laptop and this issue does not occur. My laptop is nearly identical to my desktop except that my laptop is a single processor system and my desktop is an SMP system.  I believe all other settings are the same.
+
+I also read the other tickets and I already know that BofA *is* a user agent sniffing site.
+
+I will do some more testing when I get back on Sunday and update my comments here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397967</commentid>
+            <who name="Dave Yeo">daveryeo</who>
+            <bug_when>2011-04-08 19:11:21 -0700</bug_when>
+            <thetext>You should also test on your desktop with a new profile.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399394</commentid>
+            <who name="David Azarewicz">david</who>
+            <bug_when>2011-04-10 11:30:32 -0700</bug_when>
+            <thetext>Ok, here are the results of my testing:
+
+Real UA - SMP - Old profile: Bad
+FF 2 UA - SMP - Old profile: Bad
+Real UA - SMP - New profile: Bad
+Real UA - 1 processor - old profile: Works OK
+
+Summary:
+In SMP mode, the problem is there, regardless of browser settings.
+If I remove &quot;/SMP&quot; and reboot using only one processor, the browser works fine.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

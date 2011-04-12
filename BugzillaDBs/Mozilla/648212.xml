@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648212</bug_id>
+          
+          <creation_ts>2011-04-06 23:11:00 -0700</creation_ts>
+          <short_desc>real player plugin reports false VIDEO name for download,and file is downloaded with a fake name ,usually the name of a tag.</short_desc>
+          <delta_ts>2011-04-07 07:24:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>File Handling</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Giorgos">apogee_p</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+          <qa_contact>file.handling</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394002</commentid>
+            <who name="Giorgos">apogee_p</who>
+            <bug_when>2011-04-06 23:11:53 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB; rv:1.9.2) Gecko/20100115 Firefox/3.6
+Build Identifier: firefox 4 [UNINSTALLED &amp; USING THE NICE VERSION 3] 
+
+Discovered this while using facebook.opening a youtube file link from facebook [and elsewhere] ,then trying using real downloader to download it,downloads it with a false name ,usually is one of the tags thats opened at the moment.
+FIREFOX 3 DOESNT HAVE THIS BUG,JUST UNINSTALLED MFIREFOX 4 ,INSTALLED 3,6RC2 and everything is fine.Also didi installed latest Real player version.So this same plugin works with 3.6 andnot with 4
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.open some tabs,
+2.try open a youtube video lined to facebook or elsewhere
+3.try use real downloader to download this.
+Actual Results:  
+mistaken file name of the downloaded file
+
+Expected Results:  
+mistaken file name of the downloaded file
+
+downlod file with proper filename as its appears to be on youtube.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394356</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 07:20:17 -0700</bug_when>
+            <thetext>Works for me on:
+ Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+with videos on Youtube. 
+Although the Real Player Plugin does not recognize file names properly with the  videos on Facebook.
+
+Anyway, IMO this is not a Firefox problem but a Real Player one. 
+Got the same behavior on Firefox 3.6.16, as well, so there is no need to switch to an older build.
+Remaining UNCONFIRMED</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

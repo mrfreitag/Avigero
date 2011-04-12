@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648003</bug_id>
+          
+          <creation_ts>2011-04-06 08:50:00 -0700</creation_ts>
+          <short_desc>Specifying advanced installation options do not adhere correctly upon initial program launch</short_desc>
+          <delta_ts>2011-04-06 11:06:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>NSIS Installer</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>433249</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Michael">misaia8</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>nsis.installer</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392330</commentid>
+            <who name="Michael">misaia8</who>
+            <bug_when>2011-04-06 08:50:35 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: File version 2.0.0.4094
+
+When running the installer you select NOT to have Mozilla as your default browser. Upon initial launch you are asked if you would like Mozilla to be your default browser. Defect, or bug?
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Download and run the installer
+2.Select Advanced 
+3.Uncheck the box in step 4 to make Mozilla your default browser, 
+4. Complete installation 
+5. Launch fire-fox and you are prompted again if you would like Mozilla to be your default broswer.
+
+
+
+
+Expected Results:  
+I expect an advanced installation to not prompt me for the same exact information when I took the time to set it up to my liking the first time.
+
+If an advanced installation is selected &amp; the user selects to not have Mozilla be the default browser, upon initial launch of the program it prompts you again for this confirmation. I do not know if this can be used in a harmful way, but I wanted to let you folks know about the issue.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392641</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-06 11:06:04 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 433249 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

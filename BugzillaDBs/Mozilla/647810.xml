@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647810</bug_id>
+          
+          <creation_ts>2011-04-05 05:44:00 -0700</creation_ts>
+          <short_desc>TypeError - c._xmlHttpRequest is null</short_desc>
+          <delta_ts>2011-04-11 08:24:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Tech Evangelism</product>
+          <component>German</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>http://94.23.233.22/cRM.WebAccess.Session1608/login.aspx?ReturnUrl=%2fcRM.WebAccess.Session1608%2fdefault.aspx</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Uwe Schaetzl">uwe.schaetzl</reporter>
+          <assigned_to>german</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>cl-bugs-new2</cc>
+          <qa_contact>german</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391052</commentid>
+            <who name="Uwe Schaetzl">uwe.schaetzl</who>
+            <bug_when>2011-04-05 05:44:09 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 4.0
+
+This error is brand new in FF 4.0.0, even in the beta it was working!
+(also 3.0.x and 3.5.x and 3.6.x it&apos;s still working)
+
+To reproduce:
+Login to the above page with the provide credentials:
+For &quot;Benutzername&quot; enter &quot;crm-online&quot;
+For &quot;Passwort:&quot; enter &quot;combit&quot;
+Then click on left side on any item of the tree control. The error occurs immediately.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Login to the above page with the provide credentials:
+2. For &quot;Benutzername&quot; enter &quot;crm-online&quot;
+3. For &quot;Passwort:&quot; enter &quot;combit&quot;
+4. Then click on left side on any item of the tree control. The error occurs immediately.
+Actual Results:  
+Error occurs: &quot;TypeError - c._xmlHttpRequest is null&quot;
+
+Expected Results:  
+No error, should open new dialog (works well in IE 7,8,9, FF 3.x, Chrome 9.x)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391223</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 09:33:31 -0700</bug_when>
+            <thetext>&gt; even in the beta it was working!
+
+Doesn&apos;t work for me in beta builds going back at least to November 1, 2010 so far.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391286</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 10:07:29 -0700</bug_when>
+            <thetext>The behavior here changed between Sept 16 and Sept 17, 2010.  It then shipped in at least 3 betas with the new behavior.  The changeset range is:
+
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=f38ef1080bfe&amp;tochange=268ef4ccb5ff
+
+There was a change to XMLHttpRequest there to bring us into line with other browsers: bug 313646.
+
+Looks like c._xmlHttpRequest is used in the ScriptResource_003.js file.  Also looks like the relevant code might be this:
+
+    this._onReadyStateChange = function () {
+        if (c._xmlHttpRequest.readyState === 4) {
+            c._clearTimer();
+            c._responseAvailable = true;
+            c._responseData = c._xmlHttpRequest.responseText;
+            c._statusCode = c._xmlHttpRequest.status;
+            c._statusText = c._xmlHttpRequest.statusText;
+            c._headers = c._xmlHttpRequest.getAllResponseHeaders();
+            c._webRequest.completed(Sys.EventArgs.Empty);
+            if (c._xmlHttpRequest) {
+                c._xmlHttpRequest.onreadystatechange = Function.emptyMethod;
+                c._xmlHttpRequest = null
+            }
+        }
+    };
+
+and this wonderful code:
+
+    if (navigator.appName !== &quot;Microsoft Internet Explorer&quot; &amp;&amp;
+        navigator.appName !== &quot;Opera&quot; &amp;&amp; 
+        navigator.appVersion.indexOf(&quot;Safari&quot;) &lt; 0) {
+        this._onReadyStateChange(this._xmlHttpRequest)
+    }
+
+So what this site is doing is that in Firefox only it makes an extra call to this._onReadyStateChange, which ends up throwing because we already called it.  So this is just a site bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396213</commentid>
+            <who name="Uwe Schaetzl">uwe.schaetzl</who>
+            <bug_when>2011-04-08 02:34:39 -0700</bug_when>
+            <thetext>Thanks a lot for your investigation.
+
+We&apos;ll check if this code is coming from Microsoft (AJAX-Library) or from componentart!
+
+Meanwhile: Do you have a suggestion how to change the code that it is still working in Firefox 3.x and before?
+(we have to stay compatible...)
+
+We really appreciate your help!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396337</commentid>
+            <who name="Chris Lawson">cl-bugs-new2</who>
+            <bug_when>2011-04-08 06:31:52 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+
+&gt; Meanwhile: Do you have a suggestion how to change the code that it is still
+&gt; working in Firefox 3.x and before?
+&gt; (we have to stay compatible...)
+
+The best way to differentiate this is probably to sniff for Gecko versions &lt; 2 and send them the *current* code, and send browsers with a Gecko version &gt;= 2 the new code (whatever that ends up being).
+
+cl</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396411</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 07:27:04 -0700</bug_when>
+            <thetext>There is no need for &quot;new code&quot;.  Gecko version &gt;= 2 should just get the code all the other browsers are getting (that is, none in this case).
+
+But yes, sniffing the UA string for &quot;Gecko&quot; and then parsing out the number after &quot;rv:&quot; is the way to go, I think.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400242</commentid>
+            <who name="Uwe Schaetzl">uwe.schaetzl</who>
+            <bug_when>2011-04-11 06:50:13 -0700</bug_when>
+            <thetext>
+Ok, thanks for your hints. We used the following Code:
+It looks like it&apos;s working fine!!!
+
+https://developer.mozilla.org/en/Browser_Detection_and_Cross_Browser_Support#Recommendations
+
+// return the rv value of a Gecko user agent
+// as a floating point number. 
+// returns -1 for non-gecko browsers, 
+//          0 for pre Netscape 6.1/Gecko 0.9.1 browsers
+//          number &gt; 0 where each portion of 
+//          the rv value delimited by . 
+//          will be treated as value out of 100.
+//          e.g. for rv: 3.12.42, 
+//          getGeckoRv() returns 3.1242
+//          for rv:1.9.1.3 it returns 1.090103
+//          
+function geckoGetRv()
+{
+  if (navigator.product != &apos;Gecko&apos;)
+  {
+    return -1;
+  }
+  var rvValue = 0;
+  var ua      = navigator.userAgent.toLowerCase();
+  var rvStart = ua.indexOf(&apos;rv:&apos;);
+  var rvEnd   = ua.indexOf(&apos;)&apos;, rvStart);
+  var rv      = ua.substring(rvStart+3, rvEnd);
+  var rvParts = rv.split(&apos;.&apos;);
+  var exp     = 1;
+
+  for (var i = 0; i &lt; rvParts.length; i++)
+  {
+    var val = parseInt(rvParts[i]);
+    rvValue += val / exp;
+    exp *= 100;
+  }
+
+  return rvValue;
+}</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400405</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-11 08:24:31 -0700</bug_when>
+            <thetext>Thanks for fixing this!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

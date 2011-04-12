@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647951</bug_id>
+          
+          <creation_ts>2011-04-06 00:34:00 -0700</creation_ts>
+          <short_desc>window.top.XULBrowserWindow is null</short_desc>
+          <delta_ts>2011-04-06 00:34:43 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 2000</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="John P Baker">john.p.baker</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392023</commentid>
+            <who name="John P Baker">john.p.baker</who>
+            <bug_when>2011-04-06 00:34:43 -0700</bug_when>
+            <thetext>This may be the same as bug 450683.
+
+1. View/Sidebar/History
+2. Ctrl/N
+3. Close this new window
+
+Error: window.top.XULBrowserWindow is null
+Source File: chrome://browser/content/bookmarks/sidebarUtils.js
+Line: 100
+
+Mozilla/5.0 (Windows NT 5.0; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

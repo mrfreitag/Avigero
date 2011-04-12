@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648502</bug_id>
+          
+          <creation_ts>2011-04-08 02:31:00 -0700</creation_ts>
+          <short_desc>TI+JM: incorrect result with stricteq, inlining</short_desc>
+          <delta_ts>2011-04-10 16:17:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647991</dependson>
+          <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>emanuel.hoogeveen</cc>
+    
+    <cc>gary</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396211</commentid>
+              <attachid>524603</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-08 02:31:49 -0700</bug_when>
+            <thetext>Created attachment 524603
+Testcase
+
+$ ./js -a -n -m test.js
+true
+true
+true
+false &lt;- should be true
+
+Revision a9f916668b29, but I can also reproduce with a build from yesterday. Probably a regression from inlining scripted calls.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397853</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-08 16:46:21 -0700</bug_when>
+            <thetext>Good test case! (real design problem)
+
+During compilation, we coerce things marked by inference as int|float as definitely float, to avoid type tag tests etc.  Which values are coerced to int|float is not stable across compilations due to changing type information, though as compilations progress a value can only go from int -&gt; float and not vice versa.  When recompiling we check that any frames on stack have types consistent with the new compilation, coercing ints to floats where necessary.
+
+The problem is that when expanding inline frames we do a similar thing, creating a stack frame from the inlined version, and the compilation which inlined the frame may have a different type from the compilation of the inlined function (i.e. we know that in the last call to &apos;f&apos; the second arg is an int, but &apos;f&apos; is also called with floats and thus treats its arg as a float), and we don&apos;t do a similar coercion.
+
+We really can&apos;t do such a coercion while expanding, because when expanding we already have the compiled version of the inlined function, and after compilation we forget what things the compiler thinks are doubles at each PC (it might have better information than inference in some cases, e.g. &apos;x = 2; ... x ...&apos; when x is assigned a float elsewhere).
+
+So we need to bake information into the JITScript about what things are thought to be doubles at each rejoin point, and the simple/easy place to do that is in the code generated at the rejoin points.  Thought about that as the original design for this, but if the coercion code is executed many times (e.g. after every scripted call) it will slow things down.  An alternative, which is as fast, simpler, and correct(er) than what we have now is to not allow rejoining at normal calls, but only special rejoin calls which are emitted on the OOL path but don&apos;t have incoming jumps and perform all necessary coercions.
+
+Folding this into bug 647991, which will be making related changes.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399641</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-10 16:17:54 -0700</bug_when>
+            <thetext>Fixed as part of bug 647991.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524603</attachid>
+            <date>2011-04-08 02:31:00 -0700</date>
+            <delta_ts>2011-04-08 02:31:49 -0700</delta_ts>
+            <desc>Testcase</desc>
+            <filename>test.js</filename>
+            <type>application/x-javascript</type>
+            <size>153</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">ZnVuY3Rpb24gZih4LCB5KSB7CiAgICAtKHVuZGVmaW5lZCA/IDAgOiAwKTsKICAgIHByaW50KHkg
+PT09IHkpOwogICAgcmV0dXJuIDA7Cn0KZigxLCAyKTsKewogICAgZigzLCAzLjE0KTsKICAgIGYo
+dHJ1ZSwgZig0LCA1KSk7CgogICAgZnVuY3Rpb24gZygpIHt9Cn0K
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

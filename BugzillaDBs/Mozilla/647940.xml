@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647940</bug_id>
+          
+          <creation_ts>2011-04-05 23:13:00 -0700</creation_ts>
+          <short_desc>Canvas does not scale it&apos;s display height even when css says height = 100%</short_desc>
+          <delta_ts>2011-04-06 10:09:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Layout</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          <keywords>testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Gregg Tavares">gman</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>layout</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391950</commentid>
+            <who name="Gregg Tavares">gman</who>
+            <bug_when>2011-04-05 23:13:54 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+This could be my bad understanding of CSS but the page works in Webkit. 
+
+This page has one WebGL canvas and one 2D canvas (bottom right corner). Both canvases are set in CSS to width: 100%, height: 100%. Yet the second canvas is not scaling it&apos;s height to 100% of its parent.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Run the code below
+
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Bug&lt;/title&gt;
+&lt;style&gt;
+html, body {
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+  font-family: sans-serif;
+}
+#outer {
+  width: 100%;
+  height: 100%;
+}
+#canvas {
+  float: left;
+  width: 85%;
+  height: 100%;
+}
+#status {
+  float: right;
+  width: 15%;
+  background-color: red;
+  height: 100%;
+}
+#highscores-outer {
+  width: 100%;
+  height: 50%;
+  background-color: blue;
+}
+#queue-outer {
+  width: 100%;
+  height: 50%;
+  background-color: #008;
+}
+#queue-canvas {
+  width: 100%;
+  height: 100%;
+}
+&lt;/style&gt;
+&lt;script&gt;
+window.onload = main;
+
+function $(id) {
+  return document.getElementById(id);
+}
+
+function main() {
+  g_canvas1 = $(&quot;canvas&quot;);
+  g_canvas2 = $(&quot;queue-canvas&quot;);
+  gl = g_canvas1.getContext(&quot;experimental-webgl&quot;);
+  ctx = g_canvas2.getContext(&quot;2d&quot;);
+
+  function render() {
+    gl.clearColor(
+      Math.random(),
+      Math.random(),
+      Math.random(),
+      1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    ctx.fillStyle = &quot;rgb(&quot; +
+       Math.floor(Math.random() * 255) + &quot;,&quot; +
+       Math.floor(Math.random() * 255) + &quot;,&quot; +
+       Math.floor(Math.random() * 255) + &quot;)&quot;;
+    ctx.fillRect(0, 0, g_canvas2.width, g_canvas2.height);
+  }
+  setInterval(render, 100);
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;outer&quot;&gt;
+  &lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;
+  &lt;div id=&quot;status&quot;&gt;
+    &lt;div id=&quot;highscores-outer&quot;&gt;
+      &lt;div class=&quot;headline&quot;&gt;High Score&lt;/div&gt;
+      &lt;div id=&quot;highscore&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;queue-outer&quot;&gt;
+      &lt;div class=&quot;headline&quot;&gt;Waiting&lt;/div&gt;
+      &lt;div id=&quot;queue&quot;&gt;&lt;canvas id=&quot;queue-canvas&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+Actual Results:  
+The 2nd canvas does not display at a height of 100% of its container
+
+Expected Results:  
+The 2nd canvas should display at a height of 100% of its container</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392392</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-06 09:27:27 -0700</bug_when>
+            <thetext>Confirmed against Mozilla/5.0 (Windows NT 5.1; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre ID:20110404030429
+
+GC 12/Opera 11 render the same.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392395</commentid>
+              <attachid>524200</attachid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-06 09:28:05 -0700</bug_when>
+            <thetext>Created attachment 524200
+Reporter&apos;s Testcase</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392490</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 10:09:05 -0700</bug_when>
+            <thetext>This is the right behavior.  The &lt;div id=&quot;queue&quot;&gt; has an auto height, and a percentage of auto is still auto per CSS spec (and the page is in stadanrds mode).</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524200</attachid>
+            <date>2011-04-06 09:28:00 -0700</date>
+            <delta_ts>2011-04-06 09:28:05 -0700</delta_ts>
+            <desc>Reporter&apos;s Testcase</desc>
+            <filename>Bug 647940.html</filename>
+            <type>text/html</type>
+            <size>1742</size>
+            <attacher>xtc4uall</attacher>
+            
+              <data encoding="base64">PCFkb2N0eXBlIGh0bWw+DQo8aHRtbD4NCjxoZWFkPg0KPHRpdGxlPkJ1ZzwvdGl0bGU+DQo8c3R5
+bGU+DQpodG1sLCBib2R5IHsNCiAgd2lkdGg6IDEwMCU7DQogIGhlaWdodDogMTAwJTsNCiAgYm9y
+ZGVyOiAwcHg7DQogIHBhZGRpbmc6IDBweDsNCiAgbWFyZ2luOiAwcHg7DQogIGJhY2tncm91bmQt
+Y29sb3I6IGJsYWNrOw0KICBmb250LWZhbWlseTogc2Fucy1zZXJpZjsNCn0NCiNvdXRlciB7DQog
+IHdpZHRoOiAxMDAlOw0KICBoZWlnaHQ6IDEwMCU7DQp9DQojY2FudmFzIHsNCiAgZmxvYXQ6IGxl
+ZnQ7DQogIHdpZHRoOiA4NSU7DQogIGhlaWdodDogMTAwJTsNCn0NCiNzdGF0dXMgew0KICBmbG9h
+dDogcmlnaHQ7DQogIHdpZHRoOiAxNSU7DQogIGJhY2tncm91bmQtY29sb3I6IHJlZDsNCiAgaGVp
+Z2h0OiAxMDAlOw0KfQ0KI2hpZ2hzY29yZXMtb3V0ZXIgew0KICB3aWR0aDogMTAwJTsNCiAgaGVp
+Z2h0OiA1MCU7DQogIGJhY2tncm91bmQtY29sb3I6IGJsdWU7DQp9DQojcXVldWUtb3V0ZXIgew0K
+ICB3aWR0aDogMTAwJTsNCiAgaGVpZ2h0OiA1MCU7DQogIGJhY2tncm91bmQtY29sb3I6ICMwMDg7
+DQp9DQojcXVldWUtY2FudmFzIHsNCiAgd2lkdGg6IDEwMCU7DQogIGhlaWdodDogMTAwJTsNCn0N
+Cjwvc3R5bGU+DQo8c2NyaXB0Pg0Kd2luZG93Lm9ubG9hZCA9IG1haW47DQoNCmZ1bmN0aW9uICQo
+aWQpIHsNCiAgcmV0dXJuIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGlkKTsNCn0NCg0KZnVuY3Rp
+b24gbWFpbigpIHsNCiAgZ19jYW52YXMxID0gJCgiY2FudmFzIik7DQogIGdfY2FudmFzMiA9ICQo
+InF1ZXVlLWNhbnZhcyIpOw0KICBnbCA9IGdfY2FudmFzMS5nZXRDb250ZXh0KCJleHBlcmltZW50
+YWwtd2ViZ2wiKTsNCiAgY3R4ID0gZ19jYW52YXMyLmdldENvbnRleHQoIjJkIik7DQoNCiAgZnVu
+Y3Rpb24gcmVuZGVyKCkgew0KICAgIGdsLmNsZWFyQ29sb3IoDQogICAgICBNYXRoLnJhbmRvbSgp
+LA0KICAgICAgTWF0aC5yYW5kb20oKSwNCiAgICAgIE1hdGgucmFuZG9tKCksDQogICAgICAxKTsN
+CiAgICBnbC5jbGVhcihnbC5DT0xPUl9CVUZGRVJfQklUKTsNCiAgICBjdHguZmlsbFN0eWxlID0g
+InJnYigiICsNCiAgICAgICBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAyNTUpICsgIiwiICsN
+CiAgICAgICBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAyNTUpICsgIiwiICsNCiAgICAgICBN
+YXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAyNTUpICsgIikiOw0KICAgIGN0eC5maWxsUmVjdCgw
+LCAwLCBnX2NhbnZhczIud2lkdGgsIGdfY2FudmFzMi5oZWlnaHQpOw0KICB9DQogIHNldEludGVy
+dmFsKHJlbmRlciwgMTAwKTsNCn0NCg0KPC9zY3JpcHQ+DQo8L2hlYWQ+DQo8Ym9keT4NCjxkaXYg
+aWQ9Im91dGVyIj4NCiAgPGNhbnZhcyBpZD0iY2FudmFzIj48L2NhbnZhcz4NCiAgPGRpdiBpZD0i
+c3RhdHVzIj4NCiAgICA8ZGl2IGlkPSJoaWdoc2NvcmVzLW91dGVyIj4NCiAgICAgIDxkaXYgY2xh
+c3M9ImhlYWRsaW5lIj5IaWdoIFNjb3JlPC9kaXY+DQogICAgICA8ZGl2IGlkPSJoaWdoc2NvcmUi
+PjwvZGl2Pg0KICAgIDwvZGl2Pg0KICAgIDxkaXYgaWQ9InF1ZXVlLW91dGVyIj4NCiAgICAgIDxk
+aXYgY2xhc3M9ImhlYWRsaW5lIj5XYWl0aW5nPC9kaXY+DQogICAgICA8ZGl2IGlkPSJxdWV1ZSI+
+PGNhbnZhcyBpZD0icXVldWUtY2FudmFzIj48L2NhbnZhcz48L2Rpdj4NCiAgICA8L2Rpdj4NCiAg
+PC9kaXY+DQo8L2Rpdj4NCjwvYm9keT4NCjwvaHRtbD4=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

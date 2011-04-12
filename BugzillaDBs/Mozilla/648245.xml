@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648245</bug_id>
+          
+          <creation_ts>2011-04-07 05:41:00 -0700</creation_ts>
+          <short_desc>Crash [@ _cairo_dwrite_font_face_scaled_font_create ] when use japanese font &quot;有澤太楷書P&quot;</short_desc>
+          <delta_ts>2011-04-08 15:09:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.tamasoft.co.jp/ja/general-info/unicode.html</bug_file_loc>
+          
+          <keywords>crash, regression</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>605043</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Alice0775 White">alice0775</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bas.schouten</cc>
+    
+    <cc>jfkthame</cc>
+    
+    <cc>karlt</cc>
+    
+    <cc>kbrosnan</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>?</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394261</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-07 05:41:57 -0700</bug_when>
+            <thetext>Build Identifier:
+http://hg.mozilla.org/mozilla-central/rev/385684ad7eed
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre ID:20110406030427
+
+Crash [@ _cairo_dwrite_font_face_scaled_font_create ] when use Japanese font &quot;有澤太楷書P&quot;
+&quot;有澤太楷書P&quot; is commercial font.
+
+bp-dc09c0aa-217c-4051-b686-ccfe12110407
+
+Looks like Bug 544617, however Minefield still crashes.
+
+Reproducible: Always
+
+Steps to Reproduce#1:
+1. Start Minefield with new profile + the following fonts setting
+2. Open URL ( http://www.tamasoft.co.jp/ja/general-info/unicode.html )
+3. Scroll up/down by thumb of scrollbar
+
+Actual Results:
+ Crash [@ _cairo_dwrite_font_face_scaled_font_create ]
+
+Expected Results:
+ Should not crash
+
+
+
+  Application Basics
+
+        Name
+        Firefox
+
+        Version
+        4.2a1pre
+
+        User Agent
+        Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+
+        Profile Directory
+
+          Open Containing Folder
+
+        Enabled Plugins
+
+          about:plugins
+
+        Build Configuration
+
+          about:buildconfig
+
+  Extensions
+
+        Name
+
+        Version
+
+        Enabled
+
+        ID
+
+  Modified Preferences
+
+      Name
+
+      Value
+
+        browser.places.smartBookmarksVersion
+        2
+
+        browser.startup.homepage_override.buildID
+        20110406030427
+
+        browser.startup.homepage_override.mstone
+        rv:2.2a1pre
+
+        extensions.lastAppVersion
+        4.2a1pre
+
+        font.language.group
+        ja
+
+        font.minimum-size.ja
+        20
+
+        font.name.sans-serif.ja
+        有澤太楷書P
+
+        font.name.serif.ja
+        有澤太楷書P
+
+        network.cookie.prefsMigrated
+        true
+
+        places.history.expiration.transient_current_max_pages
+        128823
+
+        privacy.sanitize.migrateFx3Prefs
+        true
+
+  Graphics
+
+        Adapter Description
+        ATI Radeon HD 4300/4500 Series
+
+        Vendor ID
+        1002
+
+        Device ID
+        954f
+
+        Adapter RAM
+        512
+
+        Adapter Drivers
+        aticfx64 aticfx64 aticfx32 aticfx32 atiumd64 atidxx64 atiumdag atidxx32 atiumdva atiumd6a atitmm64
+
+        Driver Version
+        8.831.2.0
+
+        Driver Date
+        3-8-2011
+
+        Direct2D Enabled
+        true
+
+        DirectWrite Enabled
+        true (6.1.7601.17563, font cache n/a)
+
+        WebGL Renderer
+        Google Inc. -- ANGLE -- OpenGL ES 2.0 (ANGLE 0.0.0.541)
+
+        GPU Accelerated Windows
+        1/1 Direct3D 10</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394641</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-07 10:16:41 -0700</bug_when>
+            <thetext>Regression window(cached m-c hourly):
+Works:
+http://hg.mozilla.org/mozilla-central/rev/05a80026d347
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b8pre) Gecko/20101114 Firefox/4.0b8pre ID:20101114111020
+Crashes:
+http://hg.mozilla.org/mozilla-central/rev/e091e8999c1d
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b8pre) Gecko/20101112 Firefox/4.0b8pre ID:20101114122225
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=05a80026d347&amp;tochange=e091e8999c1d
+
+
+In local build:
+build from 38480a41a8e8 : Crashes
+build from ff0819c81933 : works
+build from b062f63a98fb : works
+Triggerd by;
+38480a41a8e8	Karl Tomlinson — b=605043 round inter-glyph spacing to pixels when glyphs will be pixel snapped r=jfkthame</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

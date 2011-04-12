@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648261</bug_id>
+          
+          <creation_ts>2011-04-07 07:37:00 -0700</creation_ts>
+          <short_desc>Starting firefox from command line with -private option causes two windows to be opened</short_desc>
+          <delta_ts>2011-04-08 15:53:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>biahus</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+    
+    <cc>kbrosnan</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394376</commentid>
+            <who name="">biahus</who>
+            <bug_when>2011-04-07 07:37:24 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Starting firefox from command line with -private option causes two windows to be opened
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open a command windows/shell
+2. Type &quot;c:\Program Files\Mozilla Firefox\firefox.exe&quot; -private 
+3.
+Actual Results:  
+Two windows are opened. First window contains one tab showing Private Browsing page. The second contains one tab on url about:home
+
+Expected Results:  
+One window to open on either default home page or if url specified on command line then that site
+
+Following Bug 645995, comment 2, might prove useful in deciding whether this is a bug or not. Comment 2 read:
+
+&quot;This is by design.  Permanent private browsing mode is not something that we
+want to advertize in the primary UI.&quot; 
+(Ehsan Akhgari [:ehsan])</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394404</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-07 08:01:25 -0700</bug_when>
+            <thetext>Duplicate of bug 631973?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394409</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 08:03:50 -0700</bug_when>
+            <thetext>Works for Me on:
+ Mozilla/5.0 (Windows NT 5.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+-&gt; Latest trunk
+Marking this as Resolved. If you can still reproduce the issue, feel free to reopen it. Thanks for your report</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

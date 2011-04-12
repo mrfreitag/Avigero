@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648367</bug_id>
+          
+          <creation_ts>2011-04-07 14:31:00 -0700</creation_ts>
+          <short_desc>Add run_next_test to head.js</short_desc>
+          <delta_ts>2011-04-07 14:34:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>XPCShell Harness</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>648371</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Philipp von Weitershausen [:philikon]">philipp</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>rnewman</cc>
+    
+    <cc>sdwilsh</cc>
+          <qa_contact>xpcshellharness</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395141</commentid>
+            <who name="Philipp von Weitershausen [:philikon]">philipp</who>
+            <bug_when>2011-04-07 14:31:55 -0700</bug_when>
+            <thetext>So many xcpshell tests are async these days and every component needs to roll a copy or variant of run_next_test in their head_* files right now. Let&apos;s just centralize it by adding it to xcpshell&apos;s head.js and document the heck out of it on MDC.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647854</bug_id>
+          
+          <creation_ts>2011-04-05 10:46:00 -0700</creation_ts>
+          <short_desc>Enhancements for the global visualizer</short_desc>
+          <delta_ts>2011-04-06 11:18:58 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>1.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Guillaume Lecollinet">guillaume</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391337</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 10:46:49 -0700</bug_when>
+            <thetext>Opening this bug per TBG&apos;s request to enable panning in all directions, not only from left to right.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391339</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 10:50:14 -0700</bug_when>
+            <thetext>Regrouping enhancements to the global visualizer in this bug:
+- Panning should be enabled in all directions
+- The visualization should zoom back to 100% when the user starts playing time-lapse.
+- If possible, the animation should move faster.
+- Clicking on a city should enable focus on this location.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

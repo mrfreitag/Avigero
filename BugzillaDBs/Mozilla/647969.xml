@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647969</bug_id>
+          
+          <creation_ts>2011-04-06 04:01:00 -0700</creation_ts>
+          <short_desc>popup menu closes instantly after highlighting text and right clicking</short_desc>
+          <delta_ts>2011-04-07 09:30:12 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Menus</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[DUPEME?] 638386</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>lordsaturn1</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>george.carstoiu</cc>
+    
+    <cc>hskupin</cc>
+          <qa_contact>menus</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392118</commentid>
+            <who name="">lordsaturn1</who>
+            <bug_when>2011-04-06 04:01:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When highlighting a word, and right clicking it, the popup menu will close almost instantly.
+
+I also observed this happening on a drop down box. Less than a second after opening the drop down box, it would close out and select whichever item was highlighted.
+
+My workaround was to simply close and reopen firefox. I&apos;m not sure what triggers the bug.
+
+Reproducible: Sometimes</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392865</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 11:59:31 -0700</bug_when>
+            <thetext>Is it reproducible for you? If yes, please run Firefox in Safe Mode to disable all add-ons: http://support.mozilla.com/en-US/kb/Safe+Mode</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393653</commentid>
+            <who name="">lordsaturn1</who>
+            <bug_when>2011-04-06 17:19:05 -0700</bug_when>
+            <thetext>I can&apos;t reproduce it because I don&apos;t know what causes it. But it does happen over time when using ff.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394321</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-07 06:46:54 -0700</bug_when>
+            <thetext>Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Reporter can you please check whether this is a dupe of bug 638386?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

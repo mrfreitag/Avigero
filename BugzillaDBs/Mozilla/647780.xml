@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647780</bug_id>
+          
+          <creation_ts>2011-04-05 00:40:00 -0700</creation_ts>
+          <short_desc>gmail doesn&apos;t load the first time</short_desc>
+          <delta_ts>2011-04-05 13:59:55 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://gmail.com</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>pitchblackcat</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390886</commentid>
+            <who name="">pitchblackcat</who>
+            <bug_when>2011-04-05 00:40:37 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Whenever i surf to gmail, the loading bar gets stuck on lets say 95%, hitting reload doesn&apos;t reload the page, and only by surfing to another page and then return to gmail, it will try again. Usually it will get through the second time.
+
+Also, switching accounts (if you have multiple accounts) usually doesn&apos;t switch accounts the first time, but the second time it does.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. go to gmail
+2. log in
+3. the bar gets stuck
+4. hit reload, it doens&apos;t do anything
+5. surf to other page
+6. go back to gmail and repeat steps 1 &amp; 2
+7. you are now logged in.
+Actual Results:  
+see steps to reproduce for results
+
+Expected Results:  
+at 2. you should already be logged in
+at 3. the page should be reloaded</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391517</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-05 13:59:55 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

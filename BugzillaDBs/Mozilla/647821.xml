@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647821</bug_id>
+          
+          <creation_ts>2011-04-05 07:53:00 -0700</creation_ts>
+          <short_desc>The zoom keystrokes have gotten mangled</short_desc>
+          <delta_ts>2011-04-11 08:06:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Menus</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Rich Morin">rdm</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+    
+    <cc>simona.marcu</cc>
+    
+    <cc>srinivas</cc>
+          <qa_contact>menus</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391155</commentid>
+            <who name="Rich Morin">rdm</who>
+            <bug_when>2011-04-05 07:53:04 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0) Gecko/20100101 Firefox/4.0
+
+The &quot;View &gt; Zoom&quot; menu item lists &quot;Zoom In&quot; as cmd-&apos;+&apos; and &quot;Zoom Out&quot; as cmd-&apos;-&apos;. However, on my new install of FF 4.0, cmd-&apos;-&apos; is doing a &quot;Zoom In&quot; and I have no idea how to do a &quot;Zoom Out&quot;.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Browse to a web page.
+2. Hold down the command key.
+3. Press the &quot;-&quot; key.
+Actual Results:  
+Text should get smaller.
+
+Expected Results:  
+Text gets bigger.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391987</commentid>
+            <who name="Srinivas">srinivas</who>
+            <bug_when>2011-04-05 23:46:26 -0700</bug_when>
+            <thetext>works fine for me
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0) Gecko/20100101 Firefox/4.0
+
+&quot;Zoom In&quot; (cmd-&apos;-&apos;) and &quot;Zoom Out&quot;(cmd-&apos;+&apos;) and Reset(cmd-&apos;0&apos;) keyboard short cuts works as expected.
+
+Could you please check if any add-ons are installed and also
+Please try if you can reproduce it:
+
+1.in safe mode. 
+https://support.mozilla.com/en-US/kb/Safe+Mode
+
+2.or by creating a new profile
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile.
+
+Please update if you still able to reproduce this issue.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392461</commentid>
+            <who name="Rich Morin">rdm</who>
+            <bug_when>2011-04-06 09:54:41 -0700</bug_when>
+            <thetext>It appears to have been either transient or a cockpit error.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400343</commentid>
+            <who name="Simona B">simona.marcu</who>
+            <bug_when>2011-04-11 07:54:52 -0700</bug_when>
+            <thetext>Verified on:  
+
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.2a1pre) Gecko/20110411 Firefox/4.2a1pre</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

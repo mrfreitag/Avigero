@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647930</bug_id>
+          
+          <creation_ts>2011-04-05 21:46:00 -0700</creation_ts>
+          <short_desc>Add SeaMonkey 2.1b3 to bouncer</short_desc>
+          <delta_ts>2011-04-06 10:36:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>P2</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647928</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aki</cc>
+    
+    <cc>bhearsum</cc>
+    
+    <cc>coop</cc>
+    
+    <cc>joduinn</cc>
+    
+    <cc>justdave</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>nrthomas</cc>
+    
+    <cc>stefanh</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391872</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-05 21:46:45 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #633791 +++
+
+(I&apos;m building this release tonight; but since there is the all-hands figured I would file now, so that whenever someone is free to handle this we can likely be ready to ship)
+
+The SeaMonkey team is preparing a beta of the next release series, SeaMonkey 2.1b3, and once again, we&apos;d like to have the builds added to bouncer for downloads.
+
+The relevant URL snippets for the entries to add are (bouncer and FTP):
+
+?product=seamonkey-2.1b3&amp;os=win
+/seamonkey/releases/2.1b3/win32/:lang/SeaMonkey%20Setup%202.1%20Beta%203.exe
+
+?product=seamonkey-2.1b3&amp;os=linux
+/seamonkey/releases/2.1b3/linux-i686/:lang/seamonkey-2.1b3.tar.bz2
+
+?product=seamonkey-2.1b3&amp;os=osx
+/seamonkey/releases/2.1b3/mac/:lang/SeaMonkey%202.1%20Beta%203.dmg
+
+
+?product=seamonkey-2.1b3-complete&amp;os=win
+/seamonkey/releases/2.1b3/update/win32/:lang/seamonkey-2.1b3.complete.mar
+
+?product=seamonkey-2.1b3-complete&amp;os=linux
+/seamonkey/releases/2.1b3/update/linux-i686/:lang/seamonkey-2.1b3.complete.mar
+
+?product=seamonkey-2.1b3-complete&amp;os=osx
+/seamonkey/releases/2.1b3/update/mac/:lang/seamonkey-2.1b3.complete.mar
+
+product=seamonkey-2.1b3-partial-2.1b2&amp;os=win
+/seamonkey/releases/2.1b3/update/win32/:lang/seamonkey-2.1b2-2.1b3.partial.mar
+
+?product=seamonkey-2.1b3-partial-2.1b2&amp;os=linux
+/seamonkey/releases/2.1b3/update/linux-i686/:lang/seamonkey-2.1b2-2.1b3.partial.mar
+
+?product=seamonkey-2.1b3-partial-2.1b2&amp;os=osx
+/seamonkey/releases/2.1b3/update/mac/:lang/seamonkey-2.1b2-2.1b3.partial.mar
+
+Bouncer monitors locale `tr` which will not be in the b3 release, I&apos;ll fake the info for this so bouncer finds it, like was done for b2.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

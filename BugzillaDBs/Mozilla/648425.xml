@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648425</bug_id>
+          
+          <creation_ts>2011-04-07 16:57:00 -0700</creation_ts>
+          <short_desc>Do not show Oops! page on Paypal errors</short_desc>
+          <delta_ts>2011-04-07 16:57:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Public Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.allizom.org/en-US/firefox/addon/stylish/contribute/?src=addon-detail</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="krupa raj 82[:krupa]">krupa.mozbugs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>web-ui</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395485</commentid>
+            <who name="krupa raj 82[:krupa]">krupa.mozbugs</who>
+            <bug_when>2011-04-07 16:57:49 -0700</bug_when>
+            <thetext>steps to reproduce:
+1. Load https://addons.allizom.org/en-US/firefox/addon/stylish
+2. Try to make a contribution
+ 
+reproducible: sometimes
+
+observed behavior:
+We show the Oops! page on paypal errors.
+
+traceback details:
+Traceback (most recent call last):
+
+ File &quot;/data/amo_python/www/prod/zamboni/vendor/src/django/django/core/handlers/base.py&quot;, line 111, in get_response
+   response = callback(request, *callback_args, **callback_kwargs)
+
+ File &quot;/data/amo_python/www/prod/zamboni/apps/addons/decorators.py&quot;, line 22, in wrapper
+   return f(request, addon, *args, **kw)
+
+ File &quot;/data/amo_python/www/prod/zamboni/apps/addons/views.py&quot;, line 536, in contribute
+   return embedded_contribute(request, addon)
+
+ File &quot;/data/amo_python/www/prod/zamboni/apps/addons/views.py&quot;, line 501, in embedded_contribute
+   &apos;memo&apos;: contrib_for})
+
+ File &quot;/data/amo_python/www/prod/zamboni/apps/paypal/__init__.py&quot;, line 80, in get_paykey
+   raise error(response[&apos;error(0).message&apos;])
+
+PaypalError: The receiver jason.barnabe@gmail.com does not accept payments in this Currency</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

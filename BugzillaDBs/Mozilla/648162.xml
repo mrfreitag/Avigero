@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648162</bug_id>
+          
+          <creation_ts>2011-04-06 16:36:00 -0700</creation_ts>
+          <short_desc>The bookmarks appear in the bookmark menu and not where they are supposed to be</short_desc>
+          <delta_ts>2011-04-09 17:12:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.riiich.se/firefoxerror.jpg</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="Richard Muthwill">richardmuthwill</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mak77</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393531</commentid>
+            <who name="Richard Muthwill">richardmuthwill</who>
+            <bug_when>2011-04-06 16:36:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I can&apos;t move my bookmarks from the top of the bookmark menu back down to the bottom where they&apos;re supposed to be. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Hold down the left mouse button on a bookmark or bookmark folder, and move it to the top of the list
+Alternate 1. Open the &quot;show all bookmarks&quot; menu, and move a bookmark to the &quot;Bookmark Menu&quot; and it the appears at the top (As shown in the picture http://www.riiich.se/firefoxerror.jpg)
+Actual Results:  
+I can&apos;t get the bookmarks back to they&apos;re original position
+
+Expected Results:  
+I thought I should be able to move the bookmarks stuck at the top but I can&apos;t</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393544</commentid>
+            <who name="Richard Muthwill">richardmuthwill</who>
+            <bug_when>2011-04-06 16:40:36 -0700</bug_when>
+            <thetext>I do realize that this is a duplicate to one other one, I just wanted to make you aware that i could not move my bookmarks back to they&apos;re original position.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393561</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 16:49:02 -0700</bug_when>
+            <thetext>Your bookmarks menu is messed up, and that appears caused by an add-on, try to disable your add-ons and re-enable one by one till you figure out the culprit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396906</commentid>
+            <who name="Richard Muthwill">richardmuthwill</who>
+            <bug_when>2011-04-08 11:00:39 -0700</bug_when>
+            <thetext>My Add-ons are: Ad-Block Plus, Firebug, Java Quick Starter, Microsoft NET framework assistant and Page Speed. None of them edit firefox itself</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397001</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-08 11:25:48 -0700</bug_when>
+            <thetext>Page speed and java quick starter are the only ones I never used, the others should be fine, maybe try disabling those 2 and check?
+did you ever add rules to userchrome.css or through a user script?
+I&apos;ll try to reproduce when I have a windows machine at hand.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647674</bug_id>
+          
+          <creation_ts>2011-04-04 06:51:00 -0700</creation_ts>
+          <short_desc>F1 shows up when typing Insert/Home/End/Page Up/Page Down on a web page</short_desc>
+          <delta_ts>2011-04-04 06:58:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Labs</product>
+          <component>F1</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Maxx">maxxyme</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>f1</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390070</commentid>
+            <who name="Maxx">maxxyme</who>
+            <bug_when>2011-04-04 06:51:59 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+F1&apos;s popup shows up when browsing on a random web page and typing one of these special keys: &quot;Insert&quot;, &quot;Home&quot;, &quot;End&quot;, &quot;Page Up&quot; or &quot;Page Down&quot;.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to http://www.gnu.org/
+2. Type either &quot;Insert&quot;, &quot;Home&quot;, &quot;End&quot;, &quot;Page Up&quot; or &quot;Page Down&quot;.
+3. F1&apos;s popup shows up.
+
+
+Expected Results:  
+F1&apos;s popup should not show up.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390078</commentid>
+            <who name="Maxx">maxxyme</who>
+            <bug_when>2011-04-04 06:58:46 -0700</bug_when>
+            <thetext>All I did was updating to the latest version of F1, the one without need to restart the browser.
+
+This is also happening with the following keys: &quot;Tab&quot;, &quot;Win&quot; (both), &quot;Context menu&quot;, &quot;Pause | Attn&quot; or some combinations of Ctrl + key not tied to a context (e.g. Ctrl + V everywhere except in a field or a textarea).
+
+Note: I use a Dell L100 keyboard (French version).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

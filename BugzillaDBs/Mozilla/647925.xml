@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647925</bug_id>
+          
+          <creation_ts>2011-04-05 20:45:00 -0700</creation_ts>
+          <short_desc>cannot correct outgoing server password error without un-installing Thunderbird</short_desc>
+          <delta_ts>2011-04-07 00:04:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Alan Dorman">aldor</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>gphemsley</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391835</commentid>
+            <who name="Alan Dorman">aldor</who>
+            <bug_when>2011-04-05 20:45:53 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+My computer crashed. Reloaded Thunderbird and ran Mozbackup to recover emails and folders and such. Created my account again because reported password was wrong. Was able to download one day of emails from server. 5 minutes later tried again and was told my password was incorrect again. The problem is the outgoing server has a old password. The new password is accepted once THEN Thunderbird defaults to the old password. The only way to get daily emails is t odelete my account, then recreate it, then download my emails, then delete the account (because password has reverted to old one) then recreate the account to get any new emails. If there is a way to change the outgoing server password I have not found it. I have no account set right now but Local Folders still shows a outgoing server account setting which I cannot kill. Tried another Mozbackup before deleting Thunderbird from my system again and now get a report that I could not create a backup because a Zip file could not be read. So I am stuck with a email program that won&apos;t let me change passwords once created and that I can&apos;t backup to save all of the new emails I have collected.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.see above
+2.
+3.
+Actual Results:  
+can&apos;t change local folders outgoing server password.
+
+
+Expected Results:  
+Be able to change local folders outgoing server password.
+
+I really, really need help getting this solved as I am in the middle of some important negotiations.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391843</commentid>
+            <who name="Gordon P. Hemsley [:gphemsley]">gphemsley</who>
+            <bug_when>2011-04-05 21:11:43 -0700</bug_when>
+            <thetext>I don&apos;t know if this really a bug, but it definitely doesn&apos;t belong under this component.
+
+Moving to Thunderbird &gt; General.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394046</commentid>
+            <who name="Alan Dorman">aldor</who>
+            <bug_when>2011-04-07 00:04:51 -0700</bug_when>
+            <thetext>When I reinstalled Thunderbird from a backup file I installed it into a newer version of Thunderbird.
+Not remembering my username or password to get to my ISP&apos;s email server so he gave me new ones. I created an account with this new name and password, the email address remained the same.
+I was able to download one block of messages from the ISP&apos;s server. When I tried again to connect to the server I was blocked for giving the wrong password.
+I deleted all accounts and created a new one with the same email address and with the new username and password. Then I checked my email and was able to connect and download new messages. Trying to connect a second time gave me the same incorrect password error message.
+There is an account embedded in the local folder that was transfered from the mozibackup file that I can&apos;t get to and delete, and it contains my old username and password. For some reason even if I set the new account as the default account Thunderbird only allows me to perform the task of getting my email messages off of the server one time. Then it reverts, and locks in, the old account information. Causing me to delete the new account I just created, then recreating it in order to get a one shot download of my messages on the server.
+
+That&apos;s as clear as I can explain it.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

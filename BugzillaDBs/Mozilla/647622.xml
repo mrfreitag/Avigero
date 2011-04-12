@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647622</bug_id>
+          
+          <creation_ts>2011-04-03 18:24:00 -0700</creation_ts>
+          <short_desc>Tinderbox Valgrind builds broken by build-system merge</short_desc>
+          <delta_ts>2011-04-04 06:39:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Build Config</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647673</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jseward</cc>
+    
+    <cc>mh+mozilla</cc>
+    
+    <cc>nnethercote</cc>
+          <qa_contact>build-config</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389647</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-03 18:24:43 -0700</bug_when>
+            <thetext>If you go way back, to the last Valgrind run before elfhack was disabled in February, http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1298838386.1298839353.10992.gz complains (easy text to find the start of the actual run is &quot;/usr/bin/valgrind&quot;) about how it &quot;Can&apos;t make sense of .plt section mapping&quot; in libbrowsercomps.so and libnssckbi.so. The next Valgrind run after it was disabled, http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1298926078.1298927215.26927.gz, has no complaints.
+
+The last run before the build-system merge, http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1300754822.1300755460.24565.gz, remains happy. The run on the build-system merge (when elfhack was re-enabled, along with lots of other stuff, so I don&apos;t actually know what&apos;s to blame), http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1300846734.1300851818.7976.gz, now can&apos;t make sense of libxul.so, libnspr4.so, libmozsqlite3.so, libssl3.so, libnss3.so, libnssutil3.so, libbrowsercomps.so, libsoftokn3.so, libfreebl3.so, or libnssckbi.so, so it pretty much only sees into system libraries, and draws a blank on where anything might have happened within Firefox. The 32-bit runs, like http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1300839729.1300846027.19289.gz, only complain of not understanding libxul.so, but that&apos;s a sort of handy thing to understand.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389809</commentid>
+            <who name="Mike Hommey [:glandium]">mh+mozilla</who>
+            <bug_when>2011-04-03 22:33:21 -0700</bug_when>
+            <thetext>This could be a problem with valgrind making some wrong assumptions about elf headers. Or elfhack subtly breaking some things. I&apos;ll check which it is.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389828</commentid>
+            <who name="Mike Hommey [:glandium]">mh+mozilla</who>
+            <bug_when>2011-04-03 23:03:57 -0700</bug_when>
+            <thetext>From the valgrind source, it looks like it assumes there&apos;s only one PT_LOAD for executable stuff... so that would be a valgrind bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389835</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-03 23:11:28 -0700</bug_when>
+            <thetext>cc&apos;ed them on every Valgrind bug I&apos;ve filed when I didn&apos;t need to, so of course I didn&apos;t on the one where I should have.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389901</commentid>
+            <who name="Julian Seward">jseward</who>
+            <bug_when>2011-04-04 01:47:33 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; From the valgrind source, it looks like it assumes there&apos;s only one PT_LOAD for
+
+Yeah .. I suspect there&apos;s a bug on this in the Valgrind bug tracker.
+I&apos;ll dig it up.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390060</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-04 06:39:47 -0700</bug_when>
+            <thetext>Filed bug 647673 on doing --disable-elf-hack in the Valgrind tests for now, so this bug is probably invalid.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

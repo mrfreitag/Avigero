@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647579</bug_id>
+          
+          <creation_ts>2011-04-03 10:53:00 -0700</creation_ts>
+          <short_desc>This page (and others on www.bonn.de) never finishes loading</short_desc>
+          <delta_ts>2011-04-04 19:06:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Camino</product>
+          <component>Page Layout</component>
+          <version>unspecified</version>
+          <rep_platform>PowerPC</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.bonn.de/umwelt_gesundheit_planen_bauen_wohnen/gesundheitsportal/ratgeber/04688/index.html?lang=de</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>sebastian.jester</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>cl-bugs-new2</cc>
+    
+    <cc>matti</cc>
+    
+    <cc>phiw</cc>
+          <qa_contact>page.layout</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389284</commentid>
+            <who name="">sebastian.jester</who>
+            <bug_when>2011-04-03 10:53:25 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10.4; en; rv:1.9.0.19) Gecko/2011032020 Camino/2.0.7 (like Firefox/3.0.19)
+Build Identifier: Camino Version 2.0.7 (1.9.0.19 2011032020)
+
+http://www.bonn.de/umwelt_gesundheit_planen_bauen_wohnen/gesundheitsportal/ratgeber/04688/index.html?lang=de and many other pages on www.bonn.de never finish loading in Camino. First I thought it was the site&apos;s fault, but the page appears in a snap in both Opera 10.10 and Safari 4.1.3 
+
+It&apos;s extremely unlikely that someone else is going to file the bug since I do not think many users of the site www.bonn.de both use camino and care about it enough (plus know computer English) to file a bug in bugzilla. However, Camino is our family&apos;s main browser on Macs and we live in Bonn, so we care a lot about having this fixed. If I get instructions on how to help debugging, I&apos;ll be happy to do it.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to http://www.bonn.de/umwelt_gesundheit_planen_bauen_wohnen/gesundheitsportal/ratgeber/04688/index.html?lang=de
+2. Wait for the page never to appear.
+3. &quot;View source&quot; to see that the page text has in fact been downloaded completely, but the processing&amp;rendering stalls somewhere.
+
+
+Actual Results:  
+Completely blank browser window
+
+Expected Results:  
+Page displays as written and as displayed by other browsers
+
+In &quot;Web features&quot; preferences, I have checked the following: &quot;Block flash&quot;, &quot;Block pop-ups&quot;, &quot;enable javascript&quot;, &quot;play animated images only once&quot;, tab selects: &quot;all form controls&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389416</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 13:48:30 -0700</bug_when>
+            <thetext>The page is wfm with Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110331 Firefox/4.2a1pre SeaMonkey/2.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390592</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 15:57:01 -0700</bug_when>
+            <thetext>Worksforme in Firefox as well.  Sounds like a Camino issue...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390601</commentid>
+            <who name="Chris Lawson">cl-bugs-new2</who>
+            <bug_when>2011-04-04 16:10:25 -0700</bug_when>
+            <thetext>Someone should test in Firefox 3.0.19, just to be sure. It&apos;s possible this is a Core bug that was fixed after 1.9.0.
+
+That page loads up immediately and fully for me in a recent Camino 2.1 nightly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390615</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 16:33:23 -0700</bug_when>
+            <thetext>Worksforme in Firefox 3.0.19 as well.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390731</commentid>
+            <who name="philippe">phiw</who>
+            <bug_when>2011-04-04 19:06:03 -0700</bug_when>
+            <thetext>That page loads perfectly fine with both Camino 2.1a2 nightly builds and Camino 2.0.7 release.
+
+Reporter, can you try with a default profile ? Troubleshoot Camino can be used  for that:
+http://pimpmycamino.com/parts/troubleshoot-camino</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

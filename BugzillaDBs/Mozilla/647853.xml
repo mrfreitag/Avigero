@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647853</bug_id>
+          
+          <creation_ts>2011-04-05 10:45:00 -0700</creation_ts>
+          <short_desc>Random crashes in Linux with Assertion failure: mLength + incr &lt;= mCapacity, at jsvector.h:530</short_desc>
+          <delta_ts>2011-04-07 06:56:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="andrea.franceschini@gmail.com">andrea.franceschini</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>george.carstoiu</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391336</commentid>
+            <who name="andrea.franceschini@gmail.com">andrea.franceschini</who>
+            <bug_when>2011-04-05 10:45:48 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110404 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110404 Firefox/4.0
+
+First posted this as a bug to Firebug (https://code.google.com/p/fbug/issues/detail?id=4292) since that extension caused the crashes. After disabling Firebug I couldn&apos;t manage to reproduce the bug. Hwever I&apos;ve been told to file this here.
+
+---------
+
+Hi there. First of all, I think the crash reporter won&apos;t run in this case, simply because Firefox locks up, it&apos;s not like it properly crashes. Anyways, here&apos;s what I&apos;ve been able to gather running an unstripped build of Firefox 4 through gdb. Well, actually this is an unstripped xulrunner build running an unstripped Firefox build.
+
+I just had to open up Firebug and switch between panels.
+
+--DOCSHELL 0x8ae34f0 == 15
+--DOCSHELL 0x9e2fd38 == 14
+--DOCSHELL 0xb873798 == 13
+--DOCSHELL 0x93d18d8 == 12
+--DOCSHELL 0xa1a41d8 == 11
+--DOCSHELL 0xa073078 == 10
+--DOCSHELL 0x9e03568 == 9
+pldhash: for the table at address 0xa1d7fe0, the given entrySize of 48 probably favors chaining over double hashing.
+++DOCSHELL 0xa1d7f78 == 10
+++DOMWINDOW == 27 (0xb213ad4) [serial = 43] [outer = (nil)]
+++DOMWINDOW == 28 (0xbb54ee4) [serial = 44] [outer = 0xb213a90]
+WARNING: NS_ENSURE_TRUE(sf) failed: file nsDocShell.cpp, line 4992
+WARNING: NS_ENSURE_TRUE(sf) failed: file nsDocShell.cpp, line 4992
+++DOMWINDOW == 29 (0xa264f1c) [serial = 45] [outer = 0xb213a90]
+WARNING: NS_ENSURE_TRUE(mDoneSetup) failed: file nsEditingSession.cpp, line 1411
+--DOMWINDOW == 28 (0x971798c) [serial = 18] [outer = (nil)] [url = https://www.google.com/reader/view/?tab=my#stream/user%2F11012131922780524999%2Flabel%2FCose]
+--DOMWINDOW == 27 (0x93d2204) [serial = 10] [outer = (nil)] [url = https://mail.google.com/mail/?ui=2&amp;shva=1#mbox]
+--DOMWINDOW == 26 (0x955f1ac) [serial = 30] [outer = (nil)] [url = https://mail.google.com/mail/?ui=2&amp;view=js&amp;name=main,tlist,ptlist&amp;ver=r-Kz3a_eVE0.en.&amp;am=!lRlU1rM2n-9vHX0jWxY3Hh7eOP8ADapk9puZfyT2afvmoO3MW03v5bLc&amp;fri]
+--DOMWINDOW == 25 (0xa07e524) [serial = 33] [outer = (nil)] [url = https://mail.google.com/mail/?ui=2&amp;view=bsp&amp;ver=ohhl4rw8mbn4]
+--DOMWINDOW == 24 (0xb3fc514) [serial = 37] [outer = (nil)] [url = https://mail.google.com/mail/?ui=2&amp;view=bsp&amp;ver=ohhl4rw8mbn4]
+--DOMWINDOW == 23 (0xa2b27fc) [serial = 28] [outer = (nil)] [url = https://mail.google.com/mail/?ui=2&amp;shva=1#mbox]
+--DOMWINDOW == 22 (0x9f59d24) [serial = 34] [outer = (nil)] [url = https://mail.google.com/mail/?ui=2&amp;view=js&amp;name=main,tlist,ptlist&amp;ver=r-Kz3a_eVE0.en.&amp;am=!lRlU1rM2n-9vHX0jWxY3Hh7eOP8ADapk9puZfyT2afvmoO3MW03v5bLc&amp;fri]
+--DOMWINDOW == 21 (0x90465a4) [serial = 29] [outer = (nil)] [url = https://www.google.com/reader/view/?tab=my#stream/user%2F11012131922780524999%2Flabel%2FCose]
+--DOMWINDOW == 20 (0xc70d71c) [serial = 42] [outer = 0xc5765e8] [url = https://api.twitter.com/p_receiver.html]
+--DOCSHELL 0xc574838 == 9
+--DOCSHELL 0x8b0d3c0 == 8
+--DOMWINDOW == 19 (0xc57662c) [serial = 41] [outer = (nil)] [url = https://api.twitter.com/p_receiver.html]
+--DOMWINDOW == 18 (0xbb54ee4) [serial = 44] [outer = 0xb213a90] [url = about:blank]
+--DOMWINDOW == 17 (0x96aad4c) [serial = 20] [outer = (nil)] [url = https://twitter.com/#]
+Assertion failure: mLength + incr &lt;= mCapacity, at jsvector.h:530
+
+Program received signal SIGABRT, Aborted.
+0xffffe424 in ?? ()
+(gdb) bt
+#0  0xffffe424 in ?? ()
+#1  0xb7ad6415 in JS_Assert (s=0xb7c8cf69 &quot;mLength + incr &lt;= mCapacity&quot;, file=0xb7cb49ed &quot;jsvector.h&quot;, ln=530) at jsutil.cpp:83
+#2  0xb7adab3f in growByImpl&lt;false&gt; (this=0xb77a0a84, cx=0xb7fb7ff4, wrapper=0xaa3e35e8, flags=1, vp=0xadbd1488) at jsvector.h:530
+#3  growByUninitialized (this=0xb77a0a84, cx=0xb7fb7ff4, wrapper=0xaa3e35e8, flags=1, vp=0xadbd1488) at jsvector.h:549
+#4  resize (this=0xb77a0a84, cx=0xb7fb7ff4, wrapper=0xaa3e35e8, flags=1, vp=0xadbd1488) at jscntxt.h:3261
+#5  Reify (this=0xb77a0a84, cx=0xb7fb7ff4, wrapper=0xaa3e35e8, flags=1, vp=0xadbd1488) at jswrapper.cpp:586
+#6  JSCrossCompartmentWrapper::iterate (this=0xb77a0a84, cx=0xb7fb7ff4, wrapper=0xaa3e35e8, flags=1, vp=0xadbd1488) at jswrapper.cpp:607
+#7  0xb7a62f1c in js::JSProxy::iterate (cx=0x8758a40, proxy=0xaa3e35e8, flags=1, vp=0xadbd1488) at jsproxy.cpp:824
+#8  0xb79f9385 in js::GetIterator (cx=0x8758a40, obj=0xaa3e35e8, flags=1, vp=0xadbd1488) at jsiter.cpp:647
+#9  0xb79f9cf2 in js_ValueToIterator (cx=0x8758a40, flags=1, vp=0xadbd1488) at jsiter.cpp:773
+#10 0xb79c25f5 in js::Interpret (cx=0x8758a40, entryFrame=0xadbd10a8, inlineCallCount=8, interpMode=JSINTERP_NORMAL) at jsinterp.cpp:3118
+#11 0xb79ec446 in js::RunScript (cx=0x8758a40, script=0xb234548, fp=0xadbd10a8) at jsinterp.cpp:653
+#12 0xb79ec9a0 in js::Invoke (cx=0x8758a40, argsRef=..., flags=0) at jsinterp.cpp:740
+#13 0xb7999808 in js_fun_apply (cx=0x8758a40, argc=2, vp=0xadbd1078) at jsfun.cpp:2206
+#14 0xb79d1e28 in CallJSNative (cx=0x8758a40, entryFrame=0xadbd1048, inlineCallCount=0, interpMode=JSINTERP_NORMAL) at jscntxtinlines.h:701
+#15 js::Interpret (cx=0x8758a40, entryFrame=0xadbd1048, inlineCallCount=0, interpMode=JSINTERP_NORMAL) at jsinterp.cpp:4799
+#16 0xb79ec446 in js::RunScript (cx=0x8758a40, script=0x901b3c8, fp=0xadbd1048) at jsinterp.cpp:653
+#17 0xb79ec9a0 in js::Invoke (cx=0x8758a40, argsRef=..., flags=8192) at jsinterp.cpp:740
+#18 0xb79ef58f in js::ExternalInvoke (cx=0x8758a40, thisv=..., fval=..., argc=1, argv=0x857f508, rval=0xbfff8db0) at jsinterp.cpp:863
+#19 0xb7901559 in JS_CallFunctionValue (cx=0x8758a40, obj=0xadaee9d8, fval=..., argc=1, argv=0x857f508, rval=0xbfff8db0) at jsapi.cpp:5173
+#20 0xb61e98dd in nsJSContext::CallEventHandler (this=0x87589f8, aTarget=0x8778988, aScope=0xadaee9d8, aHandler=0xa4d98460,
+    aargv=0xbe18fbc, arv=0xbfff8f24) at nsJSEnvironment.cpp:1914
+#21 0xb6226ed8 in nsGlobalWindow::RunTimeout (this=0x8778988, aTimeout=0x8c75e10) at nsGlobalWindow.cpp:9107
+#22 0xb6227d60 in nsGlobalWindow::TimerCallback (aTimer=0x9581780, aClosure=0x8c75e10) at nsGlobalWindow.cpp:9452
+#23 0xb718cb42 in nsTimerImpl::Fire (this=0x9581780) at nsTimerImpl.cpp:425
+#24 0xb718cfc4 in nsTimerEvent::Run (this=0xaa8179e0) at nsTimerImpl.cpp:517
+#25 0xb7181239 in nsThread::ProcessNextEvent (this=0x80c17a8, mayWait=1, result=0xbfff919c) at nsThread.cpp:633
+#26 0xb70f426f in NS_ProcessNextEvent_P (thread=0x0, mayWait=1) at nsThreadUtils.cpp:250
+#27 0xb6fa75a7 in mozilla::ipc::MessagePump::Run (this=0x80bf2b0, aDelegate=0x80bf4a8) at MessagePump.cpp:134
+#28 0xb71e13c3 in MessageLoop::RunInternal (this=0x80bf4a8) at ./src/base/message_loop.cc:219
+#29 0xb71e1474 in RunHandler (this=0x0) at ./src/base/message_loop.cc:202
+#30 MessageLoop::Run (this=0x0) at ./src/base/message_loop.cc:176
+#31 0xb6df17cb in nsBaseAppShell::Run (this=0x80cae58) at nsBaseAppShell.cpp:192
+#32 0xb6a90220 in nsAppStartup::Run (this=0x83d8088) at nsAppStartup.cpp:220
+#33 0xb56b7f2c in XRE_main (argc=1, argv=0xbfffeae4, aAppData=0x8068690) at nsAppRunner.cpp:3786
+#34 0x080492f3 in main (argc=1, argv=0xbfffeae4) at nsXULStub.cpp:584
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Open Firebug.
+2. Do something, like switching between panels or even reloading the page while one panel is open.
+3. Watch as Firefox deadlocks.
+4. Kill Firefox.
+4. Notice that the crash reporter doesn&apos;t get called.
+
+
+
+about:buildconfig
+Build platform
+target
+i686-pc-linux-gnu
+Build tools
+Compiler 	Version 	Compiler flags
+i686-pc-linux-gnu-gcc 	gcc version 4.4.5 (Gentoo 4.4.5 p1.2, pie-0.4.5) 	-Wall -W -Wno-unused -Wpointer-arith -Wcast-align -W -march=pentium-m -pipe -Wno-return-type -w -fno-strict-aliasing -pthread -pipe -DDEBUG -D_DEBUG -DTRACING -g -O2
+i686-pc-linux-gnu-g++ 	gcc version 4.4.5 (Gentoo 4.4.5 p1.2, pie-0.4.5) 	-fno-rtti -fno-exceptions -Wall -Wpointer-arith -Woverloaded-virtual -Wsynth -Wno-ctor-dtor-privacy -Wno-non-virtual-dtor -Wcast-align -Wno-invalid-offsetof -Wno-variadic-macros -Werror=return-type -march=pentium-m -pipe -Wno-return-type -w -fno-strict-aliasing -fshort-wchar -pthread -pipe -DDEBUG -D_DEBUG -DTRACING -g -O2
+Configure arguments
+
+--enable-application=xulrunner --enable-optimize=-O2 --with-system-jpeg --with-system-zlib --enable-pango --enable-svg --enable-system-cairo --disable-installer --disable-pedantic --disable-updater --disable-strip --disable-strip-libs --disable-install-strip --enable-single-profile --disable-profilesharing --disable-profilelocking --enable-elf-dynstr-gc --enable-default-toolkit=cairo-gtk2 --enable-ogg --enable-wave --enable-dbus --enable-debug --enable-tests --enable-debugger-info-modeules --enable-libnotify --enable-startup-notification --disable-system-sqlite --disable-necko-wifi --enable-shared-js --enable-webm --with-system-libvpx --enable-tracejit --with-system-nspr --with-nspr-prefix=/usr --with-system-nss --with-nss-prefix=/usr --x-includes=/usr/include --x-libraries=/usr/lib --with-system-libevent=/usr --enable-system-hunspell --disable-gnomevfs --disable-gnomeui --enable-gio --enable-storage --enable-places --enable-places_bookmarks --enable-oji --enable-mathml --disable-mochitest --with-default-mozilla-five-home=/usr/lib/xulrunner-2.0 --disable-mailnews --enable-canvas --enable-safe-browsing --with-system-png --disable-system-sqlite --disable-gconf --enable-extensions=default --prefix=/usr --build=i686-pc-linux-gnu --host=i686-pc-linux-gnu --mandir=/usr/share/man --infodir=/usr/share/info --datadir=/usr/share --sysconfdir=/etc --localstatedir=/var/lib</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394319</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-07 06:43:37 -0700</bug_when>
+            <thetext>Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+This could be a dupe of Bug 645644. Andrea can you please check?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394331</commentid>
+            <who name="andrea.franceschini@gmail.com">andrea.franceschini</who>
+            <bug_when>2011-04-07 06:56:16 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+&gt; 
+&gt; This could be a dupe of Bug 645644. Andrea can you please check?
+
+Well, it&apos;s hard to say: the only thing they seem to have in common is that Firefox 4 with a fresh profile and Firebug when the latter is being used. The straces attached to the other bugs are quite useless in this sense so, as far as I know, this bug may be a dupe of that one, or may not.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648163</bug_id>
+          
+          <creation_ts>2011-04-06 16:37:00 -0700</creation_ts>
+          <short_desc>The description in the revision is not shown when the user changes the SDK version in an addon</short_desc>
+          <delta_ts>2011-04-07 16:15:52 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Add-on Builder</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ayan Shah[:ashah]">ayanshah62</reporter>
+          <assigned_to name="Piotr Zalewa [:zalun]">zaloon</assigned_to>
+          <cc>dbuchner</cc>
+    
+    <cc>smcarthur</cc>
+    
+    <cc>zaloon</cc>
+          <qa_contact>add-on-builder</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393534</commentid>
+            <who name="Ayan Shah[:ashah]">ayanshah62</who>
+            <bug_when>2011-04-06 16:37:37 -0700</bug_when>
+            <thetext>In an addon, change the Addon kit version number. Do it couple of times.
+then click on the revision button. It will save them as different revision but wont show any description that the addon kit version number was changed.
+we should show that in the description.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

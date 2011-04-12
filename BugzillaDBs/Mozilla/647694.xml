@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647694</bug_id>
+          
+          <creation_ts>2011-04-04 09:18:00 -0700</creation_ts>
+          <short_desc>TI: Crash [@ js::mjit::EnterMethodJIT] or [@ js::mjit::ic::GetGlobalName] with ArrayBuffer, eval, try...catch</short_desc>
+          <delta_ts>2011-04-06 11:01:17 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>646267</dup_id>
+          
+          
+          
+          <keywords>crash, testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>349611</blocked>
+    
+    <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Gary Kwong [:nth10sd]">gary</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>jandemooij</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390227</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 09:18:31 -0700</bug_when>
+            <thetext>function z(f) {
+    try {
+        f()
+    } catch(r) {
+        if (e) {}
+    }
+}
+function g(code) {
+    var f = eval(&quot;(function(){&quot; + code + &quot;})&quot;)
+    z(f)
+}
+g()
+g()
+g()
+g(&quot;\
+  this.bb::h=ArrayBuffer();\
+  function bb(){let(n)*}\
+&quot;)
+
+crashes js debug shell on JM changeset a58525f1f4be with -m, -a and -n at js::mjit::EnterMethodJIT</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390233</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 09:22:30 -0700</bug_when>
+            <thetext>Tested on 64-bit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390284</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 10:26:09 -0700</bug_when>
+            <thetext>function h(code) {
+    try {
+        f = g2(&quot;(function(){&quot; + code + &quot;})&quot;)
+    } catch(r) {} {
+        g(f, code)
+    }
+}
+function g2(s) {
+    return eval(s)
+}
+function g() {
+    try {
+        f()
+        if (a) {}
+    } catch(r) {
+        g()
+    }
+}
+a = 0
+for (var x in 0) {}
+h(&quot;&quot;)
+h(&quot;&quot;)
+h(&quot;{b=x}&quot;);
+h(&quot;this.b::b=Math&quot;)
+
+is a 32-bit testcase that crashes similarly in debug but also crashes at js::mjit::ic::GetGlobalName in opt.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392623</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 11:01:17 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 646267 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

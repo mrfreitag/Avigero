@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648165</bug_id>
+          
+          <creation_ts>2011-04-06 16:50:00 -0700</creation_ts>
+          <short_desc>moz2-linux-slave04 out of disk space</short_desc>
+          <delta_ts>2011-04-11 16:52:32 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          
+          <status_whiteboard>[slaveduty]</status_whiteboard>
+          
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dustin J. Mitchell [:dustin]">dustin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aki</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393564</commentid>
+            <who name="Dustin J. Mitchell [:dustin]">dustin</who>
+            <bug_when>2011-04-06 16:50:05 -0700</bug_when>
+            <thetext>Apr  6 16:46:45 moz2-linux-slave04 puppetd[7624]: (//Node[moz2-linux-slave04.build.mozilla.org]/staging-buildslave/scratchbox/Install_rpm[scratchbox]/Exec[check-for-scratchbox]/returns) executed successfully
+Apr  6 16:47:19 moz2-linux-slave04 puppetd[7624]: (//Node[moz2-linux-slave04.build.mozilla.org]/staging-buildslave/scratchbox/Install_rpm[scratchbox]/Package[scratchbox]/ensure) change from absent to 20100330-0moz1 failed: Could not update: Execution of &apos;/bin/rpm -i --oldpackage http://staging-puppet.build.mozilla.org/staging/centos5-i686/build/RPMs/scratchbox-20100330-0moz1.i686.rpm&apos; returned 1:         installing package scratchbox-20100330-0moz1 needs 767MB on the / filesystem  at /etc/puppet/manifests/includes/functions.pp:20</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402186</commentid>
+            <who name="Dustin J. Mitchell [:dustin]">dustin</who>
+            <bug_when>2011-04-11 16:52:32 -0700</bug_when>
+            <thetext>up for a reimage anyway - I&apos;m not sure why this was in production!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

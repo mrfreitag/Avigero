@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647885</bug_id>
+          
+          <creation_ts>2011-04-05 13:33:00 -0700</creation_ts>
+          <short_desc>getComputedStyle of background-position:0px 0px; returns &quot;0% 0%&quot;, breaking Javascript CSS parsing</short_desc>
+          <delta_ts>2011-04-05 23:00:45 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>DOM: CSS Object Model</component>
+          <version>2.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression, testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>594934</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter>justin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>moz</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>style-system</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391491</commentid>
+            <who name="">justin</who>
+            <bug_when>2011-04-05 13:33:44 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+My web site that had worked in all other browsers, had Javascript errors in Firefox 4, because of a difference in how &quot;background-position&quot; values were read from an html element. One of my elements had a background-position of 0px 0px, which FF4 converted to 0% 0%. I was parsing the css property with Javascript, and ONLY in FF4 did my String.split() on &quot;px&quot; break, because the browser converted those values. I believe this behavior to be non-standard.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Create an HTML element with background-position:0px 0px
+2. Use Javascript to grab the element.style.backgroundPosition value
+3. NOTE: I used Prototype.js to grab the css value: element.getStyle(&apos;background-position&apos;);
+4. split() the value on &quot;px&quot;, and you don&apos;t get the value that every other browser gives you. 
+5. example of split to get vertical background-position: parseInt( bgPosition.split(&apos;px &apos;)[1].split(&apos;px&apos;)[0] );
+
+Actual Results:  
+FF4 gives you NaN, because there was no longer a &quot;px&quot; to split on.
+
+Expected Results:  
+Other browsers give you 0 (zero), which was the correct, because javascript corrently read &quot;0px 0px&quot; from the element&apos;s css 
+
+This happens on both my Windows XP and OS X machines in FF4.
+
+For a quick fix, I had to replace the &quot;%&quot; that FF4 added, with the &quot;px&quot; that my code was expecting. 
+
+example: 
+
+var bgPosition = element.getStyle(&apos;background-position&apos;);
+bgPosition.replace(&apos;0%&apos;,&apos;0px&apos;);	// FF4 fix
+var bgYOffset = parseInt( bgPosition.split(&apos;px &apos;)[1].split(&apos;px&apos;)[0] );
+// bgYOffset now has correct background y-position.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391608</commentid>
+              <attachid>524098</attachid>
+            <who name="j.j.">moz</who>
+            <bug_when>2011-04-05 15:28:39 -0700</bug_when>
+            <thetext>Created attachment 524098
+testcase
+
+Confirming</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391634</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 15:50:44 -0700</bug_when>
+            <thetext>This is a behavior change from bug 594934.
+
+The logic in DoGetBackgroundPosition looks like this:
+
+1533     if (pos.mXPosition.mLength == 0) {
+1534       valX-&gt;SetPercent(pos.mXPosition.mPercent);
+1535     } else if (pos.mXPosition.mPercent == 0.0f) {
+1536       valX-&gt;SetAppUnits(pos.mXPosition.mLength);
+1537     } else {
+1538       nsStyleCoord::Calc calc;
+1539       calc.mPercent = pos.mXPosition.mPercent;
+1540       calc.mLength  = pos.mXPosition.mLength;
+1541       calc.mHasPercent = PR_TRUE;
+1542       SetValueToCalc(&amp;calc, valX);
+1543     }
+
+The problem is that by the time we get here we no longer know whether the position was specified as 0px or 0%; they&apos;re stored identically in the computed style...  What do other browsers return from computed style when you use 0%?
+
+(I should note that the code in comment 0 is all kinds of broken in the face of user stylesheets, but let&apos;s ignore that for now.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391661</commentid>
+            <who name="j.j.">moz</who>
+            <bug_when>2011-04-05 16:26:37 -0700</bug_when>
+            <thetext>Opera 11.10 and Chrome 10 return 0px for &quot;0%&quot; and &quot;0&quot;
+(Chrome returns 0px even for &quot;0pc&quot; or &quot;0em&quot;)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391666</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 16:31:08 -0700</bug_when>
+            <thetext>David, what do you think of doing that?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391672</commentid>
+            <who name="j.j.">moz</who>
+            <bug_when>2011-04-05 16:38:07 -0700</bug_when>
+            <thetext>&gt; Opera 11.10 and Chrome 10 return 0px for &quot;0%&quot; and &quot;0&quot;
+Ignore that!
+
+Opera 11.10 and Chrome return 0% for &quot;0%&quot; and 0px for plain &quot;0&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391693</commentid>
+            <who name="j.j.">moz</who>
+            <bug_when>2011-04-05 16:51:45 -0700</bug_when>
+            <thetext>IE9 supports getComputedStyle now. Checked attachment 524098, returns &quot;0px&quot;
+(using screenshot service http://meineipadresse.de/netrenderer/ )</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524098</attachid>
+            <date>2011-04-05 15:28:00 -0700</date>
+            <delta_ts>2011-04-05 15:28:39 -0700</delta_ts>
+            <desc>testcase</desc>
+            <filename>xxx.html</filename>
+            <type>text/html</type>
+            <size>224</size>
+            <attacher>moz</attacher>
+            
+              <data encoding="base64">PCFET0NUWVBFIGh0bWw+DQo8bWV0YSBjaGFyc2V0PXV0Zi04Pg0KPHRpdGxlPiBUZXN0IGJ1ZyA2
+NDc4ODUgPC90aXRsZT4NCg0KPGJvZHkgc3R5bGU9ImJhY2tncm91bmQtcG9zaXRpb246MHB4IDBw
+eCI+DQoNCjxzY3JpcHQ+DQoNCmRvY3VtZW50LndyaXRlKHdpbmRvdy5nZXRDb21wdXRlZFN0eWxl
+KGRvY3VtZW50LmJvZHksbnVsbCkuYmFja2dyb3VuZFBvc2l0aW9uKQ0KDQo8L3NjcmlwdD4=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

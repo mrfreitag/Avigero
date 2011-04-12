@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647830</bug_id>
+          
+          <creation_ts>2011-04-05 08:49:00 -0700</creation_ts>
+          <short_desc>jsdbgapi.cpp:131: error: &apos;currentThreadId&apos; was not declared in this scope</short_desc>
+          <delta_ts>2011-04-05 08:49:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Build Config</component>
+          <version>unspecified</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>FreeBSD</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Anton Shterenlikht">mexas</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>build.config</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391200</commentid>
+            <who name="Anton Shterenlikht">mexas</who>
+            <bug_when>2011-04-05 08:49:06 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; FreeBSD ia64; en-US; rv:1.9.2.15) Gecko/20110307 Firefox/3.6.15
+Build Identifier: Mozilla/5.0 (X11; U; FreeBSD ia64; en-US; rv:1.9.2.15) Gecko/20110307 Firefox/3.6.15
+
+I&apos;m updating from firefox3.6 to firefox4.0
+on FreeBSD ia64 9.0-current. I get this error:
+
+c++ -o jsdtoa.o -c  -fvisibility=hidden -DOSTYPE=\&quot;FreeBSD9\&quot; -DOSARCH=FreeBSD -DEXPORT_JS_API -D__S
+TDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS -DJS_HAS_CTYPES -DDLL_PREFIX=\&quot;lib\&quot; -DDLL_SUFFIX=\&quot;.so\&quot;
+-DFREEBSD -Ictypes/libffi/include -I.  -I. -I. -I./../../dist/include -I./../../dist/include/nsprpub
+ -I/usr/local/include  -I/usr/local/include/nspr   -I. -I./assembler -I./yarr  -fPIC -I/usr/local/in
+clude -fno-rtti -fno-exceptions -Wall -Wpointer-arith -Woverloaded-virtual -Wsynth -Wno-ctor-dtor-pr
+ivacy -Wno-non-virtual-dtor -Wno-invalid-offsetof -Wno-variadic-macros -Werror=return-type -pipe -g
+-fno-strict-aliasing -pipe  -DDEBUG -D_DEBUG -DTRACING -g -O3 -fstrict-aliasing -fomit-frame-pointer
+ -DUSE_SYSTEM_MALLOC=1 -DENABLE_ASSEMBLER=1 -DENABLE_JIT=1  -I/usr/local/include -DMOZILLA_CLIENT -i
+nclude ./js-confdefs.h jsdtoa.cpp
+jsdbgapi.cpp: In function &apos;bool CompartmentHasLiveScripts(JSCompartment*)&apos;:
+jsdbgapi.cpp:131: error: &apos;currentThreadId&apos; was not declared in this scope
+gmake[3]: *** [jsdbgapi.o] Error 1
+gmake[3]: *** Waiting for unfinished jobs....
+gmake[3]: Leaving directory `/usr/ports/www/firefox/work/mozilla-2.0/js/src&apos;
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Building from FreeBSD ports
+2. cd /usr/ports/www/firefox &amp;&amp; make
+3.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

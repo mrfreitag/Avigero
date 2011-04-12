@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647644</bug_id>
+          
+          <creation_ts>2011-04-03 21:31:00 -0700</creation_ts>
+          <short_desc>Esc to close Find bar when textarea originally had focus sets focus on document, not textarea</short_desc>
+          <delta_ts>2011-04-04 07:38:58 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Camino</product>
+          <component>General</component>
+          <version>1.9.2 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>600483</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="philippe">phiw</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>krmathis</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389759</commentid>
+            <who name="philippe">phiw</who>
+            <bug_when>2011-04-03 21:31:51 -0700</bug_when>
+            <thetext>(as mentioned on IRC)
+
+STR - on any page with a textarea
+1. Focus a textarea, start filling it with text or editing existing text (e.g. wiki articles)
+2. Cmd-F to focus Find bar, search for some string (inside textarea)
+3. press Esc to close Find bar
+
+AR: focus is now set on the document / page, even if the found string is inside the textarea
+ER: focus is set on / returned to the textarea
+
+This works fine with Camino 2.0.7, but never worked correctly with any Gecko 1.9.2 based Camino. This is (probably) due to the changes in focus handling from bug 178324.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

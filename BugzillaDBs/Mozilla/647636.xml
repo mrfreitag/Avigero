@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647636</bug_id>
+          
+          <creation_ts>2011-04-03 20:10:00 -0700</creation_ts>
+          <short_desc>[crash] with stack overflow in Firebug console</short_desc>
+          <delta_ts>2011-04-06 11:55:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[firebug-p1]</status_whiteboard>
+          <keywords>crash</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>643360</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="John J. Barton">johnjbarton</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>odvarko</cc>
+    
+    <cc>sphink</cc>
+    
+    <cc>sroussey</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389718</commentid>
+            <who name="John J. Barton">johnjbarton</who>
+            <bug_when>2011-04-03 20:10:45 -0700</bug_when>
+            <thetext>1. Install Firebug 1.8.0a1, http://getfirebug.com/releases/firebug/1.8
+2. about:blank, Console panel, Command Editor side panel (RHS)
+3. Paste:
+--------------
+var x = [];
+var y = function(z) { z.push(3) };
+x.push( [x] ); // circular reference
+y( x );
+console.log( x );
+-------------
+4. Run button
+
+Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+(I do have a bunch of other extn, but it seems unlikely they would be involved).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389721</commentid>
+            <who name="John J. Barton">johnjbarton</who>
+            <bug_when>2011-04-03 20:13:42 -0700</bug_when>
+            <thetext>Honza, please confirm.
+
+This seems like the other recent stack overflow case where the JS stack overflow  blows the C++ stack.
+
+User reports infinite loop using 1.7:
+http://code.google.com/p/fbug/issues/detail?id=4324</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390033</commentid>
+            <who name="Jan Honza Odvarko">odvarko</who>
+            <bug_when>2011-04-04 06:11:36 -0700</bug_when>
+            <thetext>Verified, here is my crash report:
+https://crash-stats.mozilla.com/report/index/26743591-f5f6-4b74-9a3a-43eb82110404
+
+Built from http://hg.mozilla.org/releases/mozilla-2.0/rev/6be9e31d01b4
+Build Platform target: i686-pc-mingw32
+
+Honza</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390215</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-04 09:09:54 -0700</bug_when>
+            <thetext>Frame 	Module 	Signature 	Source
+0 	xul.dll 	nsScriptSecurityManager::CheckPropertyAccessImpl(unsigned int,nsAXPCNativeCallContext*,JSContext*,JSObject*,nsISupports*,nsIURI*,nsIClassInfo*,char const*,int,void**) 	caps/src/nsScriptSecurityManager.cpp:719
+1 	xul.dll 	nsScriptSecurityManager::CheckPropertyAccess(JSContext*,JSObject*,char const*,int,unsigned int) 	caps/src/nsScriptSecurityManager.cpp:642
+2 	xul.dll 	nsScriptSecurityManager::CheckObjectAccess(JSContext*,JSObject*,int,JSAccessMode,unsigned __int64*) 	caps/src/nsScriptSecurityManager.cpp:625
+3 	mozjs.dll 	InitExnPrivate 	js/src/jsexn.cpp:302
+4 	mozjs.dll 	js_ErrorToException(JSContext*,char const*,JSErrorReport*,JSErrorFormatString const* (*)(void*,char const*,unsigned int),void*) 	js/src/jsexn.cpp:1190
+5 	mozjs.dll 	ReportError 	js/src/jscntxt.cpp:1287
+6 	mozjs.dll 	js_ReportErrorNumberVA(JSContext*,unsigned int,JSErrorFormatString const* (*)(void*,char const*,unsigned int),void*,unsigned int,int,char*) 	js/src/jscntxt.cpp:1639
+7 	mozjs.dll 	JS_ReportErrorNumber 	js/src/jsapi.cpp:5779
+8 	mozjs.dll 	JSCompartment::wrap(JSContext*,js::Value*) 	js/src/jscompartment.cpp:194
+9 	mozjs.dll 	JSCompartment::wrap(JSContext*,JSObject**) 	js/src/jscompartment.cpp:364
+10 	mozjs.dll 	JS_WrapObject 	js/src/jsapi.cpp:1267
+11 	xul.dll 	XPCConvert::NativeInterface2JSObject(XPCLazyCallContext&amp;,unsigned __int64*,nsIXPConnectJSObjectHolder**,xpcObjectHelper&amp;,nsID const*,XPCNativeInterface**,int,int,unsigned int*) 	js/src/xpconnect/src/xpcconvert.cpp:1329
+12 	xul.dll 	XPCConvert::NativeData2JS(XPCLazyCallContext&amp;,unsigned __int64*,void const*,nsXPTType const&amp;,nsID const*,unsigned int*) 	js/src/xpconnect/src/xpcconvert.cpp:487
+13 	xul.dll 	nsXPCWrappedJSClass::CallMethod(nsXPCWrappedJS*,unsigned short,XPTMethodDescriptor const*,nsXPTCMiniVariant*) 	js/src/xpconnect/src/xpcwrappedjsclass.cpp:1566
+14 	xul.dll 	nsXPCWrappedJS::CallMethod(unsigned short,XPTMethodDescriptor const*,nsXPTCMiniVariant*) 	js/src/xpconnect/src/xpcwrappedjs.cpp:588
+15 	xul.dll 	PrepareAndDispatch 	xpcom/reflect/xptcall/src/md/win32/xptcstubs.cpp:114
+16 	xul.dll 	SharedStub 	xpcom/reflect/xptcall/src/md/win32/xptcstubs.cpp:141
+17 	xul.dll 	jsds_ErrorHookProc 	js/jsd/jsd_xpc.cpp:585</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390229</commentid>
+            <who name="John J. Barton">johnjbarton</who>
+            <bug_when>2011-04-04 09:19:35 -0700</bug_when>
+            <thetext>Is this another version of Bug 643360?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390560</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 15:28:38 -0700</bug_when>
+            <thetext>Seems related.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

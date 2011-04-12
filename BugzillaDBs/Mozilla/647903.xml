@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647903</bug_id>
+          
+          <creation_ts>2011-04-05 15:25:00 -0700</creation_ts>
+          <short_desc>Page Updating When Opening Locally Saved HTML Files = 15 Second Delay</short_desc>
+          <delta_ts>2011-04-09 17:16:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>dbkh999</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391605</commentid>
+            <who name="">dbkh999</who>
+            <bug_when>2011-04-05 15:25:49 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Page Updating When Opening Locally Saved HTML Files = 15 Second Delay
+Tried this with FF in safe mode = same result.
+This “Updating” is obvious with a bridged connection when “Local Area” Connection is ENabled, but “DSL modem” Connection is DISabled.
+The result always being a 15 SECOND DELAY for the content of the locally saved HTML file to display.
+
+There is no reason for FF to update this content, but it does it anyway = very annoying15 SECOND DELAY.
+
+With internet access FULLY enabled, you will see, when loading the page below, a brief pop-up in the status bar showing that FF is connecting to craigslist.org – when there is no need for it to do so with a local file.
+
+To duplicate this delay, just create a new text file, paste the code below into the file, save the file, rename file to “Test.HTM” (change extension from txt to HTM).  Then open page with FF to test.  This code is from a page that FF saved (a craigslist listing) with the content within the &lt;head&gt; tags left unchanged.  
+
+The 15 second delay goes away when I remove the line that begins with “&lt;link type=”.   
+Thus I think this has something to do with the way FF saves header code.
+Again, this will only cause a delay when 
+1. My 10/100 Ethernet connection is ENabled and my DSL Modem connection is DISabled.
+2. And with the “&lt;link type=” line below as is.
+
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
+&lt;meta content=&quot;http://charlotte.craigslist.org/zip/2166455734.html&quot; name=&quot;originalURL&quot;&gt;&lt;meta content=&quot;Friday, January 21, 2011 7:54:21 AM&quot; name=&quot;savedOn&quot;&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;meta name=&quot;robots&quot; content=&quot;NOARCHIVE,NOFOLLOW&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;http://www.craigslist.org/styles/craigslist.css?v=8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;big&gt;&lt;big&gt;&lt;b&gt;&lt;big&gt;&lt;big&gt;&lt;big&gt;&lt;big&gt;&lt;big&gt;&lt;big&gt;&lt;big&gt;&lt;small&gt;Test&lt;/small&gt;&lt;br&gt;&lt;small&gt;&lt;small&gt;&lt;small&gt;&lt;small&gt;&lt;small&gt;Did it take 15 seconds for this text to appear (after FireFox opens this page)?&lt;/small&gt;&lt;/small&gt;&lt;/small&gt;&lt;/small&gt;&lt;/small&gt;&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;&lt;/big&gt;&lt;/b&gt;&lt;/big&gt;&lt;/big&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+Thanks
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+SEE ABOVE
+Actual Results:  
+SEE ABOVE
+
+Expected Results:  
+Should not try to connect to any remote URL when file is locally saved.
+
+Security box checked below as FF is connecting when it should not.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392276</commentid>
+            <who name="Daniel Veditz">dveditz</who>
+            <bug_when>2011-04-06 07:50:54 -0700</bug_when>
+            <thetext>That &lt;link&gt; is the stylesheet which is integral information to the page -- according to the HTML specification we have to load it. It is equivalent to if the page had an &lt;img src=&quot;http://craigslist...&lt;etc&gt;&quot;&gt; -- we&apos;d try to load that remotely, too.
+
+Looks like you saved this content from the internet. In Firefox you can save pages as &quot;HTML Only&quot;--which leaves remote references like images and stylesheets in the page--or as &quot;Webpage, complete&quot; which will also save those external files locally so the file can be read entirely off-line.
+
+This is not a bug, Firefox appears to be doing what it (or any other browser) would do when presented with the given HTML locally. If you need more information please see http://support.mozilla.com/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393499</commentid>
+            <who name="">dbkh999</who>
+            <bug_when>2011-04-06 16:17:02 -0700</bug_when>
+            <thetext>Never had these issues with IE -- guess it knew when there was actually a real connection or not.
+Yes I know what CCS is.
+My point is that FF should know right away when it has a real connection or not.
+And not make you wait 15 seconds when there is no additional info to load.
+This is the real issue and IT IS NOT RESOLVED.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648149</bug_id>
+          
+          <creation_ts>2011-04-06 15:40:00 -0700</creation_ts>
+          <short_desc>Compatible Add-on gets disabled</short_desc>
+          <delta_ts>2011-04-07 13:58:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Add-ons Manager</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian King (Briks) [:kinger]">briks.si</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+    
+    <cc>jorge</cc>
+          <qa_contact>add-ons.manager</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393415</commentid>
+            <who name="Brian King (Briks) [:kinger]">briks.si</who>
+            <bug_when>2011-04-06 15:40:13 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+We&apos;ve had multiple reports of this.
+
+Steps:
+1. Install the KidZui K2 add-on
+https://addons.mozilla.org/en-US/firefox/addon/kidzui-k2/
+2. After restart, shut down Firefox again.
+3. On restart, notice that the Add-on is disabled
+
+Note that it might not happen at step 2, i.e. more than one restart might be needed.
+
+The &apos;workaround&apos; is to do &apos;Find Update&apos; and compatibility kicks in again without actually an update occurring.
+
+Note also that the add-on was uploaded with a maxVer of 4.0b&lt;something&gt; but the compatibility to 4.0.* was set on AMO.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393450</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-06 15:55:26 -0700</bug_when>
+            <thetext>Are you seeing this yourself? Can you enable extensions.logging.enabled and see what gets logged each time?
+
+Can you get extensions.log files from people that are seeing this? This can happen if the database gets corrupt or something but that really shouldn&apos;t be happening much.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393475</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 16:06:50 -0700</bug_when>
+            <thetext>Works fine for me in Firefox 4.0 on OS X.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395067</commentid>
+            <who name="Brian King (Briks) [:kinger]">briks.si</who>
+            <bug_when>2011-04-07 13:58:36 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Are you seeing this yourself? Can you enable extensions.logging.enabled and see
+&gt; what gets logged each time?
+
+I have only been able to reproduce once. I&apos;ve turned on logging in case it happens again.
+
+&gt; Can you get extensions.log files from people that are seeing this? This can
+&gt; happen if the database gets corrupt or something but that really shouldn&apos;t be
+&gt; happening much.
+
+Sure, I&apos;ll ask.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

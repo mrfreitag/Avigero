@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647960</bug_id>
+          
+          <creation_ts>2011-04-06 02:47:00 -0700</creation_ts>
+          <short_desc>Tabbing does not work fine if there is input inside a div whose overflow property is set to auto.</short_desc>
+          <delta_ts>2011-04-07 01:22:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>616594</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>7</votes>
+          
+          <reporter>tgvrs_santhosh</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>dkrishna</cc>
+    
+    <cc>jbecerra</cc>
+    
+    <cc>nssmani</cc>
+    
+    <cc>rajendraprasad.zampani</cc>
+    
+    <cc>satyacbit</cc>
+    
+    <cc>vasanthg</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392080</commentid>
+            <who name="">tgvrs_santhosh</who>
+            <bug_when>2011-04-06 02:47:55 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: Firefox 4
+
+The input is not getting focus immediatly if tab is pressed if the input is wrapped inside a div whose overflow property is set to auto.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. have an input in body and another input in div.
+2. set style property overflow to auto for div.
+3. now focus on first input and then press tab, the focus is not on input.
+This happens only in FF4, in FF3 it is working fine.
+Actual Results:  
+the focus is not on input.
+
+Expected Results:  
+the focus should be in input.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392081</commentid>
+              <attachid>524161</attachid>
+            <who name="">tgvrs_santhosh</who>
+            <bug_when>2011-04-06 02:48:22 -0700</bug_when>
+            <thetext>Created attachment 524161
+FF4 Tab Test</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392111</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-06 03:50:41 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre
+
+Works fine in the latest nightly but was able to reproduce in Firefox 4.0. Reporter, can you please try with the latest nightly build ftp://ftp.mozilla.org/pub/firefox/nightly/latest-trunk/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392362</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 09:15:17 -0700</bug_when>
+            <thetext>In firefox 4 overflow:auto elements are always focusable.  So your first tab focuses the &lt;div&gt;.
+
+This was changed back to the old behavior in bug 616594.
+
+*** This bug has been marked as a duplicate of bug 616594 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394120</commentid>
+            <who name="">tgvrs_santhosh</who>
+            <bug_when>2011-04-07 01:22:09 -0700</bug_when>
+            <thetext>Thanks for fixing.
+
+As this is a critical to our business, in which release or tentative date i can expect this solution</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524161</attachid>
+            <date>2011-04-06 02:48:00 -0700</date>
+            <delta_ts>2011-04-06 02:48:22 -0700</delta_ts>
+            <desc>FF4 Tab Test</desc>
+            <filename>ff4tabtestpage.htm</filename>
+            <type>text/html</type>
+            <size>1206</size>
+            <attacher>tgvrs_santhosh</attacher>
+            
+              <data encoding="base64">PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFs
+Ly9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25h
+bC5kdGQiPg0KPGh0bWw+DQo8aGVhZD4NCgk8dGl0bGU+RkY0IFRhYiBUZXN0PC90aXRsZT4NCjwv
+aGVhZD4NCjxib2R5Pg0KCTxpbnB1dCB0eXBlPSJ0ZXh0Ii8+DQoJPGRpdiBzdHlsZT0ib3ZlcmZs
+b3c6YXV0bzsiPg0KCQk8aW5wdXQgdHlwZT0idGV4dCIvPg0KCTwvZGl2Pg0KCQ0KCTxkaXYgc3R5
+bGU9IndoaXRlLXNwYWNlOnByZS13cmFwOyI+DQoJMS4gT3BlbiB0aGUgcGFnZSBpbiBGRjQuDQoJ
+Mi4gRm9jdXMgb24gRmlyc3QgaW5wdXQgZWxlbWVudC4NCgkzLiBQcmVzcyBUYWIsIGlkZWFsbHkg
+dGhlIGZvY3VzIHNob3VsZCBiZSBpbiBzZWNvbmQgaW5wdXQuDQoJNC4gQnV0LCB0aGUgRm9jdXMg
+ZG9lc24ndCBnbyB0aGVyZSBhcyB0aGUgZGl2IHdyYXBwZWQgb24gaW5wdXQgaXMgaGF2aW5nIG92
+ZXJmbG93OmF1dG8gcHJvcGVydHkuDQoJNS4gUHJlc3MsIFRhYiBvbmUgbW9yZSB0aW1lLCB0aGVu
+IHRoZSBmb2N1cyBjb21lcyB0byBpbnB1dC4NCgk8L2Rpdj4NCgkNCgk8aW5wdXQgdHlwZT0idGV4
+dCIvPg0KCTxkaXYgc3R5bGU9Im92ZXJmbG93OmF1dG87Ij4NCgkJPGRpdiBzdHlsZT0ib3ZlcmZs
+b3c6YXV0bzsiPg0KCQkJPGlucHV0IHR5cGU9InRleHQiLz4NCgkJPC9kaXY+DQoJPC9kaXY+DQoJ
+DQoJPGRpdiBzdHlsZT0id2hpdGUtc3BhY2U6cHJlLXdyYXA7Ij4NCgkxLiBUaGUgYWJvdmUgc2Vj
+b25kIGlucHV0IGlzIHdyYXBwZWQgaW5zaWRlIGEgZGl2IHdob3NlIG92ZXJmbG93IGlzIHNldCBh
+dXRvIHdoaWNoIGludHVybiB3cmFwcGVkIGluc2lkZSBhIGRpdiB3aG9zZSBvdmVyZmxvdyBpcyBh
+bHNvIHNldCB0byBhdXRvLg0KCTIuIEZvY3VzIG9uIEZpcnN0IGlucHV0IGVsZW1lbnQuDQoJMy4g
+VXNlciBoYXMgdG8gcHJlc3MgdGFiIHR3byB0aW1lcyB0byBnZXQgZm9jdXMgdG8gc2Vjb25kIGVs
+ZW1lbnQuDQoJNC4gSWYgdGhlcmUgYXJlIG1vcmUgZGl2J3MgdGhhdCBoYXZlIG92ZXJmbG93OmF1
+dG8gcHJvcGVydHkgc2V0LCB0aGVuIHRoZSB1c2VyIGhhcyB0byBwcmVzcyB0aGF0IG1hbnkgbnVt
+YmVyIG9mIHRhYnMgdG8gZ2V0IGZvY3VzIHRvIGlucHV0Lg0KCTwvZGl2Pg0KCQ0KPC9ib2R5Pg0K
+PC9odG1sPg0K
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

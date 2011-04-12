@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648246</bug_id>
+          
+          <creation_ts>2011-04-07 05:49:00 -0700</creation_ts>
+          <short_desc>unable to use Firefox or close the firefox.exe process if a VPN connection gets disconnected</short_desc>
+          <delta_ts>2011-04-07 23:13:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Networking</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="matthieucoquet@gmail.com">matthieucoquet</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bjarne</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>networking</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394265</commentid>
+            <who name="matthieucoquet@gmail.com">matthieucoquet</who>
+            <bug_when>2011-04-07 05:49:17 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+While using Firefox on a VPN connection at work (via Wi-Fi + a proxy), if the VPN gets disconnected the software hangs and is unable to either browse a page or be closed via task manager
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Connect via wi-fi + VPN + proxy
+2. open a page that refreshes automatically
+3. wait for VPN to disconnect
+4. try to browse in an open window
+or
+5. close application and try to force close the firefox.exe process
+Actual Results:  
+Firefox is unable to access any website (even upon VPN reconnection)
+Impossible to close the firefox.exe process, even manually through the task manager
+Need to restart computer to regain functionality
+
+Expected Results:  
+Browsing should not hang upon disconnection, and corresponding process should be freed to be closed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394935</commentid>
+            <who name="Bjarne (:bjarne)">bjarne</who>
+            <bug_when>2011-04-07 13:01:06 -0700</bug_when>
+            <thetext>Is using a proxy necessary for this to happen?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396040</commentid>
+            <who name="matthieucoquet@gmail.com">matthieucoquet</who>
+            <bug_when>2011-04-07 23:13:16 -0700</bug_when>
+            <thetext>Well at least I need to use a proxy for internet access at the office while on VPN so I can&apos;t really test it otherwise. And it would not happen for instance of I connect directly via an Ethernet cable (hence without VPN but still with a proxy)
+
+However the issue never ocurred while at home with my work computer, using the same VPN, but mostly because my private wifi almost never disconnects !</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

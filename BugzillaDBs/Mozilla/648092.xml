@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648092</bug_id>
+          
+          <creation_ts>2011-04-06 13:08:00 -0700</creation_ts>
+          <short_desc>it would be nice to be able to see if a patch is bitrotted</short_desc>
+          <delta_ts>2011-04-06 13:17:10 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Bugzilla: Other b.m.o Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>648093</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jeff Hammel [:jhammel]">jhammel</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dkl</cc>
+    
+    <cc>glob</cc>
+    
+    <cc>justdave</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>other-bmo-issues</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393011</commentid>
+            <who name="Jeff Hammel [:jhammel]">jhammel</who>
+            <bug_when>2011-04-06 13:08:45 -0700</bug_when>
+            <thetext>patches on bugzilla got bitrotted.  It&apos;d be nice to know looking at the bug if the patch no longer applies cleanly.  This should be done e.g. per product/component, as while m-c is the most often used repository, different product/components/etc have different target repos for the patch.  Ideally I would be notified if my patch bitrots.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647806</bug_id>
+          
+          <creation_ts>2011-04-05 04:59:00 -0700</creation_ts>
+          <short_desc>No sound present in xhtml webpage with sound content</short_desc>
+          <delta_ts>2011-04-06 00:46:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          <bug_file_loc>http://ie.microsoft.com/testdrive/Performance/SantasWorkshop/Default.xhtml</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="AndreiD">andrei.domuta</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>jbecerra</cc>
+    
+    <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391017</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-05 04:59:45 -0700</bug_when>
+            <thetext>Build ID:
+Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Steps to reproduce:
+1. Launch Firefox on a clean profile
+2. Open the link:
+http://ie.microsoft.com/testdrive/Performance/SantasWorkshop/Default.xhtml
+
+Expected result:
+2. On page load, you should hear a sound playing 
+
+Actual result:
+2. No sound is played</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391029</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-05 05:22:04 -0700</bug_when>
+            <thetext>Confirmed on Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre
+
+No sound is played.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391053</commentid>
+            <who name="Robert Longson">longsonr</who>
+            <bug_when>2011-04-05 05:46:02 -0700</bug_when>
+            <thetext>The audio is mp4. There would have to be wave or webm version for Firefox to play it.
+
+This is basically the equivalent of bug 541286 for audio I think and is therefore presumably equally WONTFIX.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391061</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-05 06:02:06 -0700</bug_when>
+            <thetext>FFx 4.0 plays mp4. This is the background sound in the example (link fetched from the source code): http://ie.microsoft.com/testdrive/Performance/SantasWorkshop/media/song.mp4
+
+Since bug 541286 was set to WONTFIX several changes were made (see comments)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391249</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-05 09:43:33 -0700</bug_when>
+            <thetext>Gecko doesn&apos;t support mp3 or mp4 as &lt;audio&gt; tag, only ogg is supported.
+mp4 might be supported via plugin but a plugin isn&apos;t used for &lt;audio&gt; or &lt;video&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392033</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-06 00:46:11 -0700</bug_when>
+            <thetext>In reply to comment 4 
+Thanks Matti for clearing it out</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

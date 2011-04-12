@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647603</bug_id>
+          
+          <creation_ts>2011-04-03 14:04:00 -0700</creation_ts>
+          <short_desc>a.replaceChild(b, b) does not remove and re-insert the affected node</short_desc>
+          <delta_ts>2011-04-05 23:15:55 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>DOM</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Aryeh Gregor">Simetrical+ff</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>annevankesteren+mozilla</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>jonas</cc>
+    
+    <cc>jst</cc>
+    
+    <cc>mounir.lamouri</cc>
+    
+    <cc>Ms2ger</cc>
+    
+    <cc>peterv</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389426</commentid>
+            <who name="Aryeh Gregor">Simetrical+ff</who>
+            <bug_when>2011-04-03 14:04:42 -0700</bug_when>
+            <thetext>The current DOM Core spec says that if you call replaceChild() with both arguments the same, the argument should be removed from its parent and then re-added at the original position:
+
+http://dvcs.w3.org/hg/domcore/raw-file/tip/Overview.html#dom-node-replacechild
+
+This does not actually match browsers other than IE, as demonstrated by the following test case:
+
+http://software.hixie.ch/utilities/js/live-dom-viewer/saved/904
+
+The test case checks whether the node was actually removed by a) registering a DOMNodeRemoved handler and checking if it fires, and b) creating a Range that surrounds the node and checking whether it&apos;s collapsed afterwards.
+
+Chrome 11 dev logs nothing.  Firefox 4.0 and Opera 11 log
+
+log: removed for insertBefore
+log: range collapsed after insertBefore
+log: removed for appendChild
+log: range collapsed after appendChild
+
+IE 9 logs
+
+log: removed for insertBefore
+log: range collapsed after insertBefore
+log: removed for replaceChild
+log: removed for replaceChild
+log: range collapsed after replaceChild
+log: removed for appendChild
+log: range collapsed after appendChild
+
+The upshot is that when asked to do a no-op insertBefore() or appendChild(), all engines except WebKit remove the node from the DOM and re-add it, as required by the spec.  But for a no-op replaceChild(), Gecko (along with WebKit and Opera) seems to just leave the node alone.
+
+Since all engines but IE agree on how to behave, I considered filing a bug against the spec instead.  But browser behavior seems pointlessly inconsistent -- the spec&apos;s/IE&apos;s behavior makes more sense, with all three methods behaving the same.  So I&apos;m filing a bug on Gecko instead to change to match IE.  If you think the spec should change instead, WONTFIX this and I&apos;ll file a spec bug.
+
+(Needless to say, this is not likely a bug that is of much importance to users.  But I&apos;m writing DOM Range mutation tests now, and I need to know whether we&apos;re going to change the spec or not so I know what result to require in the tests.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390587</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 15:54:43 -0700</bug_when>
+            <thetext>So our current behavior is actually consistent for insertBefore and replaceChild.  Both are no-ops if the first and second arguments are equal.
+
+Note that in our implementation doing the other thing will take some serious surgery on the node insertion code to use the next/previous links instead of indices.  Then again, we may want to do that anyway....</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391332</commentid>
+            <who name="Aryeh Gregor">Simetrical+ff</who>
+            <bug_when>2011-04-05 10:42:28 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; So our current behavior is actually consistent for insertBefore and
+&gt; replaceChild.  Both are no-ops if the first and second arguments are equal.
+
+Hmm, I didn&apos;t think to test that case.  Updated:
+
+http://software.hixie.ch/utilities/js/live-dom-viewer/saved/915
+
+Gecko, WebKit, and Opera all agree on this case too, same as with replaceChild().  IE9 seems to fire a DOM mutation event but not collapse the range (??).  So I think everyone should either match IE&apos;s behavior and the current spec, or WebKit&apos;s behavior.  The current spec is slightly simpler, and it rarely matters, so I&apos;d say we should leave the spec as-is, yes?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391335</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 10:45:15 -0700</bug_when>
+            <thetext>I don&apos;t really have a strong opinion here.  As a I said, the current spec is not that trivial to implement, but might not be that bad either.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391890</commentid>
+            <who name="Jonas Sicking (:sicking)">jonas</who>
+            <bug_when>2011-04-05 22:06:03 -0700</bug_when>
+            <thetext>I sort of agree that the spec definition is the most consistent and thus preferable.
+
+Boris, why is this hard to fix? Shouldn&apos;t just removing this test and possibly adjust how we adjust indexes do it?
+
+http://mxr.mozilla.org/mozilla-central/source/content/base/src/nsGenericElement.cpp#4057</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391954</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 23:15:55 -0700</bug_when>
+            <thetext>The hard part is the index-adjustment, because the reference node we&apos;re using right now will suddenly be removed from the parent.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

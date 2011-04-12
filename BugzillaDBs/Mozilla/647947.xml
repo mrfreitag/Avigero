@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647947</bug_id>
+          
+          <creation_ts>2011-04-05 23:41:00 -0700</creation_ts>
+          <short_desc>Caret misplaced when sending digit code from RFID reader to input field</short_desc>
+          <delta_ts>2011-04-07 22:03:43 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Ziga Vukcevic">ziga</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>nhirata.bugzilla</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391981</commentid>
+            <who name="Ziga Vukcevic">ziga</who>
+            <bug_when>2011-04-05 23:41:35 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozzila/5.0 (Android; Linux armv7l; rv:2.1) Gecko/20110318 Firefox/4.0b13pre Fennec/4.0
+
+Caret is misplaced when sending digit code from RFID reader to input field. The digit code is not inserted in the right numbers order.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394484</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-07 08:59:26 -0700</bug_when>
+            <thetext>Hi Ziga, could you tell us which app are you using as a RFID reader please?  It would help to know this for bug reproduction purposes.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395963</commentid>
+            <who name="Ziga Vukcevic">ziga</who>
+            <bug_when>2011-04-07 22:03:43 -0700</bug_when>
+            <thetext>Hi,
+
+I&apos;m not using any app. RFID is just connected through USB to my tablet.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

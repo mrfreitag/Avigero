@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647967</bug_id>
+          
+          <creation_ts>2011-04-06 03:41:00 -0700</creation_ts>
+          <short_desc>link to release notes missing from Firefox 4 (and from firstrun page)</short_desc>
+          <delta_ts>2011-04-06 05:53:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Arne Stenström">temporary7</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392107</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 03:41:47 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I can&apos;t find a link to the release notes for Firefox 4.0 anywhere within the application. Not in the &quot;About&quot; window, and neither in any of the pages linked from the entries in the &quot;Help&quot; menu.
+
+This is especially bad since it is also missing from the firstrun/Welcome page for Firefox 4.0 (bug 647965).
+
+
+Reproducible: Always
+
+
+
+Expected Results:  
+There should be a link to the release notes somewhere in Firefox.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392127</commentid>
+            <who name="sdrocking">dugar.siddhartha</who>
+            <bug_when>2011-04-06 04:30:16 -0700</bug_when>
+            <thetext>Removed in Bug 607234</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392141</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-06 04:57:48 -0700</bug_when>
+            <thetext>As sdrocking already wrote, the release notes have been removed from the Help menu in all systems due to low usage in the usability metrics coming in through Test Pilot. See bug 607234.
+
+But you will find a link to the release notes in &quot;about:&quot;.
+
+Bug 622289 &quot;Add a link to release notes in the About Window&quot; has status &quot;RESOLVED WONTFIX&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392181</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 05:48:31 -0700</bug_when>
+            <thetext>&gt; But you will find a link to the release notes in &quot;about:&quot;.
+
+Not very discoverable at all. But now I will make a bookmark of it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392185</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 05:53:22 -0700</bug_when>
+            <thetext>There&apos;s no release notes link in any of the pages of the default bookmarks of a virgin profile either.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

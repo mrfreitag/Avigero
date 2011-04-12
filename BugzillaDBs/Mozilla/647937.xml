@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647937</bug_id>
+          
+          <creation_ts>2011-04-05 22:01:00 -0700</creation_ts>
+          <short_desc>Create 2.1 Beta 3 Release Notes</short_desc>
+          <delta_ts>2011-04-07 15:17:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.seamonkey-project.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>http://www.seamonkey-project.org/releases/seamonkey2.1b3/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647928</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Jens Hatlak (:InvisibleSmiley)">jh</assigned_to>
+          <cc>antoine.mechelynck</cc>
+    
+    <cc>bugzilla</cc>
+    
+    <cc>dominique</cc>
+    
+    <cc>jh</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>rsx11m.pub</cc>
+    
+    <cc>stefanh</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>www-seamonkey-project-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391888</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-05 22:01:50 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #631282 +++
+
+SeaMonkey 2.1 Beta 3 builds will be created today and the milestone needs relnotes when it appears.
+
+
+Jens, are you able to tackle this again for me?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391980</commentid>
+            <who name="Jens Hatlak (:InvisibleSmiley)">jh</who>
+            <bug_when>2011-04-05 23:41:04 -0700</bug_when>
+            <thetext>(In reply to comment #0)
+&gt; Jens, are you able to tackle this again for me?
+
+Sure.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392061</commentid>
+            <who name="Stefan (:stefanh)">stefanh</who>
+            <bug_when>2011-04-06 01:57:56 -0700</bug_when>
+            <thetext>Just a fyi (not sure if you seen it): https://bugzilla.mozilla.org/show_bug.cgi?id=636210#c26</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392872</commentid>
+            <who name="Jens Hatlak (:InvisibleSmiley)">jh</who>
+            <bug_when>2011-04-06 12:01:14 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Just a fyi (not sure if you seen it):
+&gt; https://bugzilla.mozilla.org/show_bug.cgi?id=636210#c26
+
+Yes, included. Please check:
+
+RCS file: /www/seamonkeyproject-org/src/releases/seamonkey2.1b3/changes.en.html,v
+done
+Checking in changes.en.html;
+/www/seamonkeyproject-org/src/releases/seamonkey2.1b3/changes.en.html,v  &lt;--  changes.en.html
+initial revision: 1.1
+done
+RCS file: /www/seamonkeyproject-org/src/releases/seamonkey2.1b3/index.en.html,v
+done
+Checking in index.en.html;
+/www/seamonkeyproject-org/src/releases/seamonkey2.1b3/index.en.html,v  &lt;--  index.en.html
+initial revision: 1.1
+done
+RCS file: /www/seamonkeyproject-org/src/releases/seamonkey2.1b3/relnote.var,v
+done
+Checking in relnote.var;
+/www/seamonkeyproject-org/src/releases/seamonkey2.1b3/relnote.var,v  &lt;--  relnote.var
+initial revision: 1.1
+done
+
+
+Regarding platform changes: Our last beta contained everything up to/including FF4.0b11. The FF4.0b12 relnotes don&apos;t do not contain anything extra noteworthy and the FF4.0 relnotes do not explain what changes wrt. the last beta at all:
+http://www.mozilla.com/en-US/firefox/4.0b12/releasenotes/
+http://www.mozilla.com/en-US/firefox/4.0/releasenotes/
+Thus I&apos; won&apos;t include any platform changes this time unless someone points out something particular.
+
+If anything is wrong or missing, let me know.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393161</commentid>
+            <who name="Jens Hatlak (:InvisibleSmiley)">jh</who>
+            <bug_when>2011-04-06 14:04:05 -0700</bug_when>
+            <thetext>removed Mac Silverlight known issue since bug 643799 has been fixed (requested by stefanh over IRC)
+
+Checking in index.en.html;
+/www/seamonkeyproject-org/src/releases/seamonkey2.1b3/index.en.html,v  &lt;--  index.en.html
+new revision: 1.2; previous revision: 1.1
+done</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395228</commentid>
+            <who name="Jens Hatlak (:InvisibleSmiley)">jh</who>
+            <bug_when>2011-04-07 15:17:25 -0700</bug_when>
+            <thetext>added Composer bug 647682 to Known Issues;
+moved Optimize PNGs Changes entry to General section
+
+Checking in changes.en.html;
+/www/seamonkeyproject-org/src/releases/seamonkey2.1b3/changes.en.html,v  &lt;--  changes.en.html
+new revision: 1.2; previous revision: 1.1
+done
+Checking in index.en.html;
+/www/seamonkeyproject-org/src/releases/seamonkey2.1b3/index.en.html,v  &lt;--  index.en.html
+new revision: 1.3; previous revision: 1.2
+done</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

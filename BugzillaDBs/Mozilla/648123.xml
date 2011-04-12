@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648123</bug_id>
+          
+          <creation_ts>2011-04-06 14:37:00 -0700</creation_ts>
+          <short_desc>silverlight wont open a page</short_desc>
+          <delta_ts>2011-04-08 19:15:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="dimas115@gmail.com">dimas115</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>george.carstoiu</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393257</commentid>
+            <who name="dimas115@gmail.com">dimas115</who>
+            <bug_when>2011-04-06 14:37:22 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Source: http://www.mouser.com/ClientBin/SilverlightBrowser.xap?v=2.3
+Width: 1920px
+Height: 847px
+Background: #
+RuntimeVersion: 4.0.50401.0
+Windowless: no
+MaxFrameRate: 60
+Codecs: ms-codecs
+Build configuration: debug, sanity checks
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394325</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-07 06:52:25 -0700</bug_when>
+            <thetext> Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Silverlight is not supported in Linux.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397969</commentid>
+            <who name="dimas115@gmail.com">dimas115</who>
+            <bug_when>2011-04-08 19:15:44 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt;  Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+&gt; 
+&gt; Silverlight is not supported in Linux.
+
+i installed the monemonkey, and tried to go to sites that requere silver light. and this particular site wont show content of the page. (http://www.mouser.com/catalogviewer.aspx) so i thought that i report this site. this can be one of the bugs that moonmonkey has.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

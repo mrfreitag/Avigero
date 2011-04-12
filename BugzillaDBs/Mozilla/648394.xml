@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648394</bug_id>
+          
+          <creation_ts>2011-04-07 15:56:00 -0700</creation_ts>
+          <short_desc>Smart keyword for tab search</short_desc>
+          <delta_ts>2011-04-08 09:48:17 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Location Bar</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>530209</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Steve Fink [:sfink]">sphink</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+    
+    <cc>mak77</cc>
+          <qa_contact>location.bar</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395331</commentid>
+            <who name="Steve Fink [:sfink]">sphink</who>
+            <bug_when>2011-04-07 15:56:55 -0700</bug_when>
+            <thetext>I like having my open tabs in the awesomebar results, but many times I *only* want to search my open tabs. My preferred interface would be a search keyword, since that&apos;s how I select all my searches these days (which would be a week after I first learned about the search keyword feature.)
+
+I&apos;d want to be able to choose the keyword myself, to make it fit into my own naming scheme.
+
+Of course, open tabs is just the main additional type of search. Others are history, bookmarks, and other computers&apos; tabs. I&apos;ve never personally needed any of those, though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395990</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 22:34:04 -0700</bug_when>
+            <thetext>Which version of Firefox are you using? Is the switch to tab feature in the location bar not enough? When you enter part of the title or URL it should be directly proposed as result in the dropdown.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396642</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-08 09:48:17 -0700</bug_when>
+            <thetext>writing a &quot;%&quot; char in the locationbar will restrict results to open pages, so like &quot;bug %&quot;, there is bug 530209 about improving the preferences in the panel to allow better combinations of what to show in the bar.
+For other restrictions see browser.urlbar.restrict.* prefs in about:config, you can change the char if you wish.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648355</bug_id>
+          
+          <creation_ts>2011-04-07 13:49:00 -0700</creation_ts>
+          <short_desc>Function.prototype.isGenerator</short_desc>
+          <delta_ts>2011-04-08 13:49:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://wiki.ecmascript.org/doku.php?id=strawman:generators</bug_file_loc>
+          <status_whiteboard>fixed-in-tracemonkey</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dave Herman [:dherman]">dherman</reporter>
+          <assigned_to name="Dave Herman [:dherman]">dherman</assigned_to>
+          <cc>brendan</cc>
+    
+    <cc>matjk7</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395052</commentid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-07 13:49:09 -0700</bug_when>
+            <thetext>Function.isGenerator(f) -&gt; boolean
+
+Indicates whether a given function is a generator function. As specified on the attached TC39 wiki page.
+
+Should be easy -- I&apos;ll try to do today.
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395575</commentid>
+              <attachid>524551</attachid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-07 17:55:57 -0700</bug_when>
+            <thetext>Created attachment 524551
+Function.isGenerator
+
+This version tests for generator functions by testing whether a function a) is interpreted and b) starts its script with JSOP_GENERATOR. This seems a bit brittle. Is it worth nabbing a JSFUN_XXX bit and setting that on the JSScript flags?
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395581</commentid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-07 17:59:54 -0700</bug_when>
+            <thetext>Brendan: what was the reason we couldn&apos;t put isGenerator on Function.prototype as a (non-enumerable) zero-argument self-test? Does it create web incompatibilities?
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397267</commentid>
+              <attachid>524713</attachid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-08 13:00:23 -0700</bug_when>
+            <thetext>Created attachment 524713
+moved to Function.prototype, added tests
+
+Ready for review.
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397298</commentid>
+              <attachid>524713</attachid>
+            <who name="Brendan Eich [:brendan]">brendan</who>
+            <bug_when>2011-04-08 13:11:24 -0700</bug_when>
+            <thetext>Comment on attachment 524713
+moved to Function.prototype, added tests
+
+&gt;From: Dave Herman &lt;dherman@mozilla.com&gt;
+&gt;Function.isGenerator (bug 648355, r=?)
+&gt;
+&gt;diff --git a/js/src/jsfun.cpp b/js/src/jsfun.cpp
+&gt;--- a/js/src/jsfun.cpp
+&gt;+++ b/js/src/jsfun.cpp
+&gt;@@ -2331,16 +2331,39 @@ CallOrConstructBoundFunction(JSContext *
+&gt;         return false;
+&gt; 
+&gt;     *vp = args.rval();
+&gt;     return true;
+&gt; }
+&gt; 
+&gt; }
+&gt; 
+&gt;+    bool rval = false;
+
+Nit: rval is a canonical name for a jsval or js::Value local. Suggest result or answer instead.
+
+&gt;+    if (fun-&gt;isInterpreted()) {
+&gt;+        JSScript *script = fun-&gt;u.i.script;
+&gt;+        rval = script-&gt;length &gt; 0 &amp;&amp; script-&gt;code[0] == JSOP_GENERATOR;
+
+Nit: prevailing style prefers != 0 for unsigned tests, not &gt; 0, but:
+
+Non-nit: we don&apos;t need a length check here, scripts by definition have at least JSOP_STOP as a bytecode. So you could get rid of the script local, or keep it and assert that length != 0.
+
+&gt;+script regress-648355.js
+
+I&apos;m glad to have a regression test but this space in the suite is for actual bugs we don&apos;t want to reopen, not features being added and covered. IIRC from discussion with Waldo, something like tests/js1_8_5/extensions/is-generator.js would be better.
+
+Best to update the strawman at the bug&apos;s URL to match what this patch implements.
+
+r=me with these addressed; happy to look again if you like.
+
+/be</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397354</commentid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-08 13:32:19 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/tracemonkey/rev/90fa43dcb844</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397405</commentid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-08 13:49:48 -0700</bug_when>
+            <thetext>Waldo caught a missing #if/#endif. Pushed here:
+
+http://hg.mozilla.org/tracemonkey/rev/dbecfa435101</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524551</attachid>
+            <date>2011-04-07 17:55:00 -0700</date>
+            <delta_ts>2011-04-08 13:00:23 -0700</delta_ts>
+            <desc>Function.isGenerator</desc>
+            <filename>bug648355-isGenerator.patch</filename>
+            <type>text/plain</type>
+            <size>2470</size>
+            <attacher>dherman</attacher>
+            
+              <data encoding="base64">RnJvbTogRGF2ZSBIZXJtYW4gPGRoZXJtYW5AbW96aWxsYS5jb20+CkZ1bmN0aW9uLmlzR2VuZXJh
+dG9yIChidWcgNjQ4MzU1LCByPT8pCgpkaWZmIC0tZ2l0IGEvanMvc3JjL2pzZnVuLmNwcCBiL2pz
+L3NyYy9qc2Z1bi5jcHAKLS0tIGEvanMvc3JjL2pzZnVuLmNwcAorKysgYi9qcy9zcmMvanNmdW4u
+Y3BwCkBAIC0yMzMxLDE2ICsyMzMxLDM5IEBAIENhbGxPckNvbnN0cnVjdEJvdW5kRnVuY3Rpb24o
+SlNDb250ZXh0ICoKICAgICAgICAgcmV0dXJuIGZhbHNlOwogCiAgICAgKnZwID0gYXJncy5ydmFs
+KCk7CiAgICAgcmV0dXJuIHRydWU7CiB9CiAKIH0KIAorI2lmIEpTX0hBU19HRU5FUkFUT1JTCitz
+dGF0aWMgSlNCb29sCitmdW5faXNHZW5lcmF0b3IoSlNDb250ZXh0ICpjeCwgdWludE4gYXJnYywg
+VmFsdWUgKnZwKQoreworICAgIEpTT2JqZWN0ICpmdW5vYmo7CisgICAgaWYgKGFyZ2MgPCAxIHx8
+ICFJc0Z1bmN0aW9uT2JqZWN0KEpTX0FSR1YoY3gsIHZwKVswXSwgJmZ1bm9iaikpIHsKKyAgICAg
+ICAgSlNfU0VUX1JWQUwoY3gsIHZwLCBCb29sZWFuVmFsdWUoZmFsc2UpKTsKKyAgICAgICAgcmV0
+dXJuIHRydWU7CisgICAgfQorCisgICAgSlNGdW5jdGlvbiAqZnVuID0gR0VUX0ZVTkNUSU9OX1BS
+SVZBVEUoY3gsIGZ1bm9iaik7CisKKyAgICBib29sIHJ2YWwgPSBmYWxzZTsKKyAgICBpZiAoZnVu
+LT5pc0ludGVycHJldGVkKCkpIHsKKyAgICAgICAgSlNTY3JpcHQgKnNjcmlwdCA9IGZ1bi0+dS5p
+LnNjcmlwdDsKKyAgICAgICAgcnZhbCA9IHNjcmlwdC0+bGVuZ3RoID4gMCAmJiBzY3JpcHQtPmNv
+ZGVbMF0gPT0gSlNPUF9HRU5FUkFUT1I7CisgICAgfQorCisgICAgSlNfU0VUX1JWQUwoY3gsIHZw
+LCBCb29sZWFuVmFsdWUocnZhbCkpOworICAgIHJldHVybiB0cnVlOworfQorI2VuZGlmCisKIC8q
+IEVTNSAxNS4zLjQuNS4gKi8KIHN0YXRpYyBKU0Jvb2wKIGZ1bl9iaW5kKEpTQ29udGV4dCAqY3gs
+IHVpbnROIGFyZ2MsIFZhbHVlICp2cCkKIHsKICAgICAvKiBTdGVwIDEuICovCiAgICAgVmFsdWUg
+JnRoaXN2ID0gdnBbMV07CiAKICAgICAvKiBTdGVwIDIuICovCkBAIC0yMzkyLDE2ICsyNDE1LDIz
+IEBAIGZ1bl9iaW5kKEpTQ29udGV4dCAqY3gsIHVpbnROIGFyZ2MsIFZhbHUKICAgICAvKiBTdGVw
+cyAxNywgMTktMjEgYXJlIGhhbmRsZWQgYnkgZnVuX3Jlc29sdmUuICovCiAgICAgLyogU3RlcCAx
+OCBpcyB0aGUgZGVmYXVsdCBmb3IgbmV3IGZ1bmN0aW9ucy4gKi8KIAogICAgIC8qIFN0ZXAgMjIu
+ICovCiAgICAgdnAtPnNldE9iamVjdCgqZnVub2JqKTsKICAgICByZXR1cm4gdHJ1ZTsKIH0KIAor
+c3RhdGljIEpTRnVuY3Rpb25TcGVjIGZ1bmN0aW9uX3N0YXRpY19tZXRob2RzW10gPSB7CisjaWYg
+SlNfSEFTX0dFTkVSQVRPUlMKKyAgICBKU19GTigiaXNHZW5lcmF0b3IiLCAgICAgZnVuX2lzR2Vu
+ZXJhdG9yLDEsMCksCisjZW5kaWYKKyAgICBKU19GU19FTkQKK307CisKIHN0YXRpYyBKU0Z1bmN0
+aW9uU3BlYyBmdW5jdGlvbl9tZXRob2RzW10gPSB7CiAjaWYgSlNfSEFTX1RPU09VUkNFCiAgICAg
+SlNfRk4oanNfdG9Tb3VyY2Vfc3RyLCAgIGZ1bl90b1NvdXJjZSwgICAwLDApLAogI2VuZGlmCiAg
+ICAgSlNfRk4oanNfdG9TdHJpbmdfc3RyLCAgIGZ1bl90b1N0cmluZywgICAwLDApLAogICAgIEpT
+X0ZOKGpzX2FwcGx5X3N0ciwgICAgICBqc19mdW5fYXBwbHksICAgMiwwKSwKICAgICBKU19GTihq
+c19jYWxsX3N0ciwgICAgICAganNfZnVuX2NhbGwsICAgIDEsMCksCiAgICAgSlNfRk4oImJpbmQi
+LCAgICAgICAgICAgIGZ1bl9iaW5kLCAgICAgICAxLDApLApAQCAtMjY3OCwxNyArMjcwOCwxNyBA
+QCBUaHJvd1R5cGVFcnJvcihKU0NvbnRleHQgKmN4LCB1aW50TiBhcmdjCiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBKU01TR19USFJPV19UWVBFX0VSUk9SKTsKICAgICByZXR1cm4g
+ZmFsc2U7CiB9CiAKIEpTT2JqZWN0ICoKIGpzX0luaXRGdW5jdGlvbkNsYXNzKEpTQ29udGV4dCAq
+Y3gsIEpTT2JqZWN0ICpvYmopCiB7CiAgICAgSlNPYmplY3QgKnByb3RvID0ganNfSW5pdENsYXNz
+KGN4LCBvYmosIE5VTEwsICZqc19GdW5jdGlvbkNsYXNzLCBGdW5jdGlvbiwgMSwKLSAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgTlVMTCwgZnVuY3Rpb25fbWV0aG9kcywgTlVMTCwg
+TlVMTCk7CisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5VTEwsIGZ1bmN0aW9u
+X21ldGhvZHMsIE5VTEwsIGZ1bmN0aW9uX3N0YXRpY19tZXRob2RzKTsKICAgICBpZiAoIXByb3Rv
+KQogICAgICAgICByZXR1cm4gTlVMTDsKIAogICAgIEpTRnVuY3Rpb24gKmZ1biA9IGpzX05ld0Z1
+bmN0aW9uKGN4LCBwcm90bywgTlVMTCwgMCwgSlNGVU5fSU5URVJQUkVURUQsIG9iaiwgTlVMTCk7
+CiAgICAgaWYgKCFmdW4pCiAgICAgICAgIHJldHVybiBOVUxMOwogICAgIGZ1bi0+ZmxhZ3MgfD0g
+SlNGVU5fUFJPVE9UWVBFOwogCg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524713</attachid>
+            <date>2011-04-08 13:00:00 -0700</date>
+            <delta_ts>2011-04-08 13:11:24 -0700</delta_ts>
+            <desc>moved to Function.prototype, added tests</desc>
+            <filename>bug648355-isGenerator.patch</filename>
+            <type>text/plain</type>
+            <size>3510</size>
+            <attacher>dherman</attacher>
+            
+              <data encoding="base64">RnJvbTogRGF2ZSBIZXJtYW4gPGRoZXJtYW5AbW96aWxsYS5jb20+CkZ1bmN0aW9uLmlzR2VuZXJh
+dG9yIChidWcgNjQ4MzU1LCByPT8pCgpkaWZmIC0tZ2l0IGEvanMvc3JjL2pzZnVuLmNwcCBiL2pz
+L3NyYy9qc2Z1bi5jcHAKLS0tIGEvanMvc3JjL2pzZnVuLmNwcAorKysgYi9qcy9zcmMvanNmdW4u
+Y3BwCkBAIC0yMzMxLDE2ICsyMzMxLDM5IEBAIENhbGxPckNvbnN0cnVjdEJvdW5kRnVuY3Rpb24o
+SlNDb250ZXh0ICoKICAgICAgICAgcmV0dXJuIGZhbHNlOwogCiAgICAgKnZwID0gYXJncy5ydmFs
+KCk7CiAgICAgcmV0dXJuIHRydWU7CiB9CiAKIH0KIAorI2lmIEpTX0hBU19HRU5FUkFUT1JTCitz
+dGF0aWMgSlNCb29sCitmdW5faXNHZW5lcmF0b3IoSlNDb250ZXh0ICpjeCwgdWludE4gYXJnYywg
+VmFsdWUgKnZwKQoreworICAgIEpTT2JqZWN0ICpmdW5vYmo7CisgICAgaWYgKCFJc0Z1bmN0aW9u
+T2JqZWN0KHZwWzFdLCAmZnVub2JqKSkgeworICAgICAgICBKU19TRVRfUlZBTChjeCwgdnAsIEJv
+b2xlYW5WYWx1ZShmYWxzZSkpOworICAgICAgICByZXR1cm4gdHJ1ZTsKKyAgICB9CisKKyAgICBK
+U0Z1bmN0aW9uICpmdW4gPSBHRVRfRlVOQ1RJT05fUFJJVkFURShjeCwgZnVub2JqKTsKKworICAg
+IGJvb2wgcnZhbCA9IGZhbHNlOworICAgIGlmIChmdW4tPmlzSW50ZXJwcmV0ZWQoKSkgeworICAg
+ICAgICBKU1NjcmlwdCAqc2NyaXB0ID0gZnVuLT51Lmkuc2NyaXB0OworICAgICAgICBydmFsID0g
+c2NyaXB0LT5sZW5ndGggPiAwICYmIHNjcmlwdC0+Y29kZVswXSA9PSBKU09QX0dFTkVSQVRPUjsK
+KyAgICB9CisKKyAgICBKU19TRVRfUlZBTChjeCwgdnAsIEJvb2xlYW5WYWx1ZShydmFsKSk7Cisg
+ICAgcmV0dXJuIHRydWU7Cit9CisjZW5kaWYKKwogLyogRVM1IDE1LjMuNC41LiAqLwogc3RhdGlj
+IEpTQm9vbAogZnVuX2JpbmQoSlNDb250ZXh0ICpjeCwgdWludE4gYXJnYywgVmFsdWUgKnZwKQog
+ewogICAgIC8qIFN0ZXAgMS4gKi8KICAgICBWYWx1ZSAmdGhpc3YgPSB2cFsxXTsKIAogICAgIC8q
+IFN0ZXAgMi4gKi8KQEAgLTI0MDAsMTYgKzI0MjMsMTcgQEAgZnVuX2JpbmQoSlNDb250ZXh0ICpj
+eCwgdWludE4gYXJnYywgVmFsdQogc3RhdGljIEpTRnVuY3Rpb25TcGVjIGZ1bmN0aW9uX21ldGhv
+ZHNbXSA9IHsKICNpZiBKU19IQVNfVE9TT1VSQ0UKICAgICBKU19GTihqc190b1NvdXJjZV9zdHIs
+ICAgZnVuX3RvU291cmNlLCAgIDAsMCksCiAjZW5kaWYKICAgICBKU19GTihqc190b1N0cmluZ19z
+dHIsICAgZnVuX3RvU3RyaW5nLCAgIDAsMCksCiAgICAgSlNfRk4oanNfYXBwbHlfc3RyLCAgICAg
+IGpzX2Z1bl9hcHBseSwgICAyLDApLAogICAgIEpTX0ZOKGpzX2NhbGxfc3RyLCAgICAgICBqc19m
+dW5fY2FsbCwgICAgMSwwKSwKICAgICBKU19GTigiYmluZCIsICAgICAgICAgICAgZnVuX2JpbmQs
+ICAgICAgIDEsMCksCisgICAgSlNfRk4oImlzR2VuZXJhdG9yIiwgICAgIGZ1bl9pc0dlbmVyYXRv
+ciwwLDApLAogICAgIEpTX0ZTX0VORAogfTsKIAogLyoKICAqIFJlcG9ydCAibWFsZm9ybWVkIGZv
+cm1hbCBwYXJhbWV0ZXIiIGlmZiBubyBpbGxlZ2FsIGNoYXIgb3Igc2ltaWxhciBzY2FubmVyCiAg
+KiBlcnJvciB3YXMgYWxyZWFkeSByZXBvcnRlZC4KICAqLwogc3RhdGljIGJvb2wKZGlmZiAtLWdp
+dCBhL2pzL3NyYy90ZXN0cy9qczFfOF81L3JlZ3Jlc3MvanN0ZXN0cy5saXN0IGIvanMvc3JjL3Rl
+c3RzL2pzMV84XzUvcmVncmVzcy9qc3Rlc3RzLmxpc3QKLS0tIGEvanMvc3JjL3Rlc3RzL2pzMV84
+XzUvcmVncmVzcy9qc3Rlc3RzLmxpc3QKKysrIGIvanMvc3JjL3Rlc3RzL2pzMV84XzUvcmVncmVz
+cy9qc3Rlc3RzLmxpc3QKQEAgLTk1LDggKzk1LDkgQEAgc2NyaXB0IHJlZ3Jlc3MtNjM0MjEwLTEu
+anMKIHNjcmlwdCByZWdyZXNzLTYzNDIxMC0yLmpzCiBzY3JpcHQgcmVncmVzcy02MzQyMTAtMy5q
+cwogc2NyaXB0IHJlZ3Jlc3MtNjM0MjEwLTQuanMKIHNjcmlwdCByZWdyZXNzLTYzNTE5NS5qcwog
+c2NyaXB0IHJlZ3Jlc3MtNjM2Mzk0LmpzCiBzY3JpcHQgcmVncmVzcy02MzYzNjQuanMKIHNjcmlw
+dCByZWdyZXNzLTY0MDA3NS5qcwogc2NyaXB0IHJlZ3Jlc3MtNjQzMjIyLmpzCitzY3JpcHQgcmVn
+cmVzcy02NDgzNTUuanMKZGlmZiAtLWdpdCBhL2pzL3NyYy90ZXN0cy9qczFfOF81L3JlZ3Jlc3Mv
+cmVncmVzcy02NDgzNTUuanMgYi9qcy9zcmMvdGVzdHMvanMxXzhfNS9yZWdyZXNzL3JlZ3Jlc3Mt
+NjQ4MzU1LmpzCm5ldyBmaWxlIG1vZGUgMTAwNjQ0Ci0tLSAvZGV2L251bGwKKysrIGIvanMvc3Jj
+L3Rlc3RzL2pzMV84XzUvcmVncmVzcy9yZWdyZXNzLTY0ODM1NS5qcwpAQCAtMCwwICsxLDE4IEBA
+CisvKgorICogQW55IGNvcHlyaWdodCBpcyBkZWRpY2F0ZWQgdG8gdGhlIFB1YmxpYyBEb21haW4u
+CisgKiBodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9wdWJsaWNkb21haW4vCisg
+Ki8KK3JlcG9ydENvbXBhcmUodHJ1ZSwgImlzR2VuZXJhdG9yIiBpbiBGdW5jdGlvbi5wcm90b3R5
+cGUsICJGdW5jdGlvbi5wcm90b3R5cGUuaXNHZW5lcmF0b3IgcHJlc2VudCIpOworCityZXBvcnRD
+b21wYXJlKGZhbHNlLCAoZnVuY3Rpb24oKXt9KS5pc0dlbmVyYXRvcigpLCAibGFtYmRhIGlzIG5v
+dCBhIGdlbmVyYXRvciBmbiIpOworcmVwb3J0Q29tcGFyZShmYWxzZSwgRnVuY3Rpb24ucHJvdG90
+eXBlLnRvU3RyaW5nLmlzR2VuZXJhdG9yKCksICJuYXRpdmUgaXMgbm90IGEgZ2VuZXJhdG9yIGZu
+Iik7CityZXBvcnRDb21wYXJlKGZhbHNlLCAoZnVuY3Rpb24oKXt3aXRoKG9iail7fX0pLmlzR2Vu
+ZXJhdG9yKCksICJoZWF2eXdlaWdodCBpcyBub3QgYSBnZW5lcmF0b3IgZm4iKTsKK3JlcG9ydENv
+bXBhcmUoZmFsc2UsIChmdW5jdGlvbigpe29ian0pLmlzR2VuZXJhdG9yKCksICJ1cHZhciBmdW5j
+dGlvbiBpcyBub3QgYSBnZW5lcmF0b3IgZm4iKTsKKworcmVwb3J0Q29tcGFyZSh0cnVlLCAoZnVu
+Y3Rpb24oKXt5aWVsZH0pLmlzR2VuZXJhdG9yKCksICJzaW1wbGUgZ2VuZXJhdG9yIGZuIik7City
+ZXBvcnRDb21wYXJlKHRydWUsIChmdW5jdGlvbigpe3dpdGgob2JqKXt5aWVsZH19KS5pc0dlbmVy
+YXRvcigpLCAiaGVhdnl3ZWlnaHQgZ2VuZXJhdG9yIGZuIik7CityZXBvcnRDb21wYXJlKHRydWUs
+IChmdW5jdGlvbigpe3lpZWxkOyBvYmp9KS5pc0dlbmVyYXRvcigpLCAidXB2YXIgZ2VuZXJhdG9y
+IGZuIik7CisKK3JlcG9ydENvbXBhcmUoZmFsc2UsIEZ1bmN0aW9uLnByb3RvdHlwZS5pc0dlbmVy
+YXRvci5jYWxsKDQyKSwgIm51bWJlciBpcyBub3QgYSBnZW5lcmF0b3IgZm4iKTsKK3JlcG9ydENv
+bXBhcmUoZmFsc2UsIEZ1bmN0aW9uLnByb3RvdHlwZS5pc0dlbmVyYXRvci5jYWxsKHt9KSwgInZh
+bmlsbGEgb2JqZWN0IGlzIG5vdCBhIGdlbmVyYXRvciBmbiIpOworcmVwb3J0Q29tcGFyZShmYWxz
+ZSwgRnVuY3Rpb24ucHJvdG90eXBlLmlzR2VuZXJhdG9yLmNhbGwobmV3IERhdGUoKSksICJkYXRl
+IG9iamVjdCBpcyBub3QgYSBnZW5lcmF0b3IgZm4iKTsK
+</data>
+<flag name="review"
+          id="438336"
+          type_id="4"
+          status="+"
+          setter="brendan"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

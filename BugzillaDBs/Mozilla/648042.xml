@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648042</bug_id>
+          
+          <creation_ts>2011-04-06 11:09:00 -0700</creation_ts>
+          <short_desc>url autocomplete stops working over time</short_desc>
+          <delta_ts>2011-04-11 14:14:10 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Location Bar</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Marty Sachs">msachs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>location.bar</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392656</commentid>
+            <who name="Marty Sachs">msachs</who>
+            <bug_when>2011-04-06 11:09:43 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+In previous versions of Firefox, url autocomplete worked flawlessly.  Since updating to Firefox 4, while url autocomplete works initially upon starting Firefox, after its been running for a while (time varies) the url autocomplete functions stops working.  Instead an endless loop of what appears to be searching takes place (spinning wheel to the left of the url bar).
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.start Firefox 4
+2. enter the first few letters of a url in the location bar field; this should auto complete
+3. try this again after Firefox has been running for a while, and the instead of auto completing the url, one sees a spinning wheel to the left of the url bar.
+Actual Results:  
+After time, instead of auto completing a url, one sees a spinning wheel to the left of the url bar.
+
+Expected Results:  
+As long as Firefox is open, the url auto complete function should continue to work.
+
+I have tried restarting with all add-ons disabled and experience the same issue. So, it doesn&apos;t appear to be due to an incompatibility with an add-on.  
+
+However, my user directory is on a remote AFP server and in the past, this has presented issues for Firefox.  However, I have never experienced this particular issue with versions prior to Firefox 4.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401576</commentid>
+            <who name="Marty Sachs">msachs</who>
+            <bug_when>2011-04-11 14:14:10 -0700</bug_when>
+            <thetext>This may be related to the memory issue described by others (see bug 645310 and bug 646773).  When I&apos;m experiencing the auto-complete problem, I am also seeing that Firefox 4 is using an enormous amount of memory.  When I try to quit, the process is still running and need to do a forced quit.  This may also be related to bug 646615, which I also experience at the same time I&apos;m experiencing this issue.  When Firefox 4 is doing that auto-complete properly and link colors (especially in Google searches) are appearing properly, memory use seems much lower.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

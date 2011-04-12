@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648286</bug_id>
+          
+          <creation_ts>2011-04-07 09:08:00 -0700</creation_ts>
+          <short_desc>panorama: new tab should work just as Ctrl+T</short_desc>
+          <delta_ts>2011-04-11 00:24:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Panorama</component>
+          <version>4.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Cristian Vasile Mocanu">cvmocanu</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>jbecerra</cc>
+    
+    <cc>raymond</cc>
+          <qa_contact>panorama</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394500</commentid>
+            <who name="Cristian Vasile Mocanu">cvmocanu</who>
+            <bug_when>2011-04-07 09:08:53 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When double clicking in an empty space on a tab set in Panorama, a new tab is created and opened.
+This new tab is not created using the same code as when you press Ctrl+T. It always opens a new blank tab.
+
+This causes problems when you have extensions like SpeedDial that replaces this empty tab with something that is actually useful.
+
+Basically, double clicking in an empty space in a tab set in Panorama should create a tab which is identical with the one created when I press Ctrl+T (the SpeedDial in my case).
+To reproduce the bug, simply install SpeedDial and see the difference.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396131</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-08 00:36:15 -0700</bug_when>
+            <thetext>Confirmed on Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Pressing Ctrl+T in Panorama view opens a SpeedDial tab. Double clicking/Clicking new tab button in Panorama view, does not open SpeedDial Tab, but instead opens a blank new tab.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

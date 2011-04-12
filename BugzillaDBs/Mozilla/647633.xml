@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647633</bug_id>
+          
+          <creation_ts>2011-04-03 19:40:00 -0700</creation_ts>
+          <short_desc>&quot;do this automatically for files like this from now on&quot; is disabled most of the time</short_desc>
+          <delta_ts>2011-04-04 16:24:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>File Handling</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Pete">cackelhorn</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>file.handling</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389697</commentid>
+            <who name="Pete">cackelhorn</who>
+            <bug_when>2011-04-03 19:40:16 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+For 99% of sites &quot;do this automatically for files like this from now on&quot; is disabled when you want to save a file - so you have to manually select &quot;save file&quot; over and over and over and over and over and over and over and over.
+
+Bloody annoying. Firefox needs to allow users to keep a list of file extensions and do it based on that, not some other religious method (which hasn&apos;t worked in the previous versions either)
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Click on a file on any website as a prelude to saving it.
+2.
+3.
+
+
+Expected Results:  
+That you can click on &quot;do this automatically for files like this from now on&quot; and that it is stored and remembered for files with that extension.
+
+Save the file.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389784</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 22:06:35 -0700</bug_when>
+            <thetext>Example URL ?
+It&apos;s only disabled for application/octet-stream files.
+Note: File extensions doesn&apos;t matter for http, the content-type does and application/octet-stream is a general binary mime-type.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390272</commentid>
+            <who name="Pete">cackelhorn</who>
+            <bug_when>2011-04-04 10:13:14 -0700</bug_when>
+            <thetext>That&apos;s just the point YES FILE EXTENSION MATTERS - stop with this religious bullshit about mime types!
+
+mime types doesn&apos;t matter - what matters is that *I* the USER wants to save this file forever and always, not what crap setting a website may or may not be using or have set.
+
+I want to set always save for application/octet-stream - its amazing this browser still can&apos;t handle something so simple.
+
+
+(And obviously when I don&apos;t list a url its because i wasn&apos;t going to - password protected)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390308</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 10:49:12 -0700</bug_when>
+            <thetext>&gt;stop with this religious **** about mime types!
+
+That is not religious, that is specified in the http RFC and that is &quot;the Internet Law&quot;
+
+This is working as intended and no bug -&gt; invalid 
+It should be possible to do this with an addon.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390503</commentid>
+            <who name="Pete">cackelhorn</who>
+            <bug_when>2011-04-04 14:42:53 -0700</bug_when>
+            <thetext>Rubbish. The RFC says nothing about you must harass the users and give then an inferior experience. Insisting on giving users a bad expeirence (which they don&apos;t get on other browsers like say internet explorer, chrome or Opera) is clearly being a religious zealot.
+
+If this is &quot;working as intended&quot; that that intent is flawed and should be fixed - less about your egos, more about end users.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390505</commentid>
+            <who name="Pete">cackelhorn</who>
+            <bug_when>2011-04-04 14:44:15 -0700</bug_when>
+            <thetext>Also, it shouldn&apos;t be be necessary to find someone to write an addon to address basic functionality from all other browsers just because you can&apos;t be bothered to fix it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390529</commentid>
+            <who name="Pete">cackelhorn</who>
+            <bug_when>2011-04-04 15:05:01 -0700</bug_when>
+            <thetext>This page: https://developer.mozilla.org/en/Properly_Configuring_Server_MIME_Types#What_are_MIME_types.3F
+
+says &quot;application/octet-stream meaning &quot;download this file&quot;
+
+then fucking program should prompt to save! Instead of asking if i want to open it in something! Amateurs!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390532</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 15:07:46 -0700</bug_when>
+            <thetext>*** Bug 647742 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390545</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 15:16:12 -0700</bug_when>
+            <thetext>developer.mozilla.org is a wiki and you can correct it.
+A content-disposition:attachment header means &quot;download this&quot; and &quot;application/octet-stream&quot; means that this is just undefined binary data.
+
+In both cases a more user friendly way is used and you can select if you want to open it with a helper application. In the case of a content-disposition header we could use the content-type and ignore the RFC but that&apos;s another (existing) bug</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390606</commentid>
+            <who name="Pete">cackelhorn</who>
+            <bug_when>2011-04-04 16:24:34 -0700</bug_when>
+            <thetext>But the whole point is there is NO user friendly way of specifying I wish to save binary files ALWAYS and not open them. I can&apos;t chose &quot;do this&quot; from the menu, you can&apos;t add it in the options etc.
+
+However, I have determined that I can edit the mime types outside of Firefox to fix the problem by creating false mime entries, but it shouldn&apos;t be necessary to be forced to use external programs to edit these files. It should be settable from inside the app.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648190</bug_id>
+          
+          <creation_ts>2011-04-06 20:36:00 -0700</creation_ts>
+          <short_desc>Create videos for careers site testimonials</short_desc>
+          <delta_ts>2011-04-07 11:13:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Video</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>604247</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Michael Morgan [:morgamic]">morgamic</reporter>
+          <assigned_to name="Rainer Cvillink">rcvillink</assigned_to>
+          <cc>morgamic</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>video</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393850</commentid>
+            <who name="Michael Morgan [:morgamic]">morgamic</who>
+            <bug_when>2011-04-06 20:36:33 -0700</bug_when>
+            <thetext>Rainer - here&apos;s a tracking bug for the site videos.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394743</commentid>
+            <who name="Rainer Cvillink">rcvillink</who>
+            <bug_when>2011-04-07 11:13:01 -0700</bug_when>
+            <thetext>awesome ... thx</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

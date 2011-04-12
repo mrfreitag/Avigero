@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647627</bug_id>
+          
+          <creation_ts>2011-04-03 19:00:00 -0700</creation_ts>
+          <short_desc>Make Input work with the new firefox development process</short_desc>
+          <delta_ts>2011-04-11 14:39:35 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Input</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>P1</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>3.4</target_milestone>
+          <dependson>647678</dependson>
+    
+    <dependson>648405</dependson>
+    
+    <dependson>648424</dependson>
+    
+    <dependson>648426</dependson>
+    
+    <dependson>648401</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Aakash Desai [:aakashd]">mozaakash</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fwenzel</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>input</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389674</commentid>
+            <who name="Aakash Desai [:aakashd]">mozaakash</who>
+            <bug_when>2011-04-03 19:00:39 -0700</bug_when>
+            <thetext>Here&apos;s an outline of what needs to get done:
+
+https://wiki.mozilla.org/Firefox/Input/Releases/4.0/Channels_ReWork
+
+Feel free to comment or add questions. This is the highest priority feature to complete by 4/12. In terms of release, we&apos;ll have two options:
+
+1. Do a follow-up 3.3.6 release
+2. Release 3.4.
+
+The second option is only available is all P1/P2 bugs are completed in time for QA testing.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392749</commentid>
+            <who name="Fred Wenzel [:wenzel]">fwenzel</who>
+            <bug_when>2011-04-06 11:33:39 -0700</bug_when>
+            <thetext>There are two parts to this: The Input (incoming feedback) and dashboard side. We first need to get the input part right, so we are not excluding people from leaving feedback, and second, show the data on the dashboard.
+
+For the input, people should be able to leave feedback almost always, and preferably in the same way for whatever Firefox version they are using. Our current code will &quot;break&quot; for the first time when a new nightly uses a 4.0.1.1 (or so). Oour code will think it&apos;s a release and show that feedback method.
+
+Can we do away with different submission processes for different Firefox versions and have everybody just see the same submission page?
+
+After we collect feedback properly, showing it on a unified dashboard will be relatively simple.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

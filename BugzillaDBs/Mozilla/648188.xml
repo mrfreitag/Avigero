@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648188</bug_id>
+          
+          <creation_ts>2011-04-06 19:04:00 -0700</creation_ts>
+          <short_desc>all emails in &quot;in box&quot; dissappear when i try to open one when using yahoo mail</short_desc>
+          <delta_ts>2011-04-07 00:47:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://yahoo mail</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="srknisel@yahoo.com">srknisel</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>srinivas</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393807</commentid>
+            <who name="srknisel@yahoo.com">srknisel</who>
+            <bug_when>2011-04-06 19:04:28 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+yahoo is my home page-when i go to mail the emails appear but vanish when i click on one to open it
+
+Reproducible: Sometimes</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394083</commentid>
+            <who name="Srinivas">srinivas</who>
+            <bug_when>2011-04-07 00:47:05 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Works fine for me. Please try if you can reproduce it or if it works fine
+
+1.in safe mode. 
+https://support.mozilla.com/en-US/kb/Safe+Mode
+
+2.or by creating a new profile
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

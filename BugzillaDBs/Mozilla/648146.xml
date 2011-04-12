@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648146</bug_id>
+          
+          <creation_ts>2011-04-06 15:36:00 -0700</creation_ts>
+          <short_desc>Hook up StAMN to Edgecast CDN</short_desc>
+          <delta_ts>2011-04-11 20:03:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Web Content Push</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wil Clouser [:clouserw]">clouserw</reporter>
+          <assigned_to name="Jake Maul [:jakem]">nmaul</assigned_to>
+          <cc>fligtar</cc>
+    
+    <cc>jdow</cc>
+    
+    <cc>stephen.donner</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393402</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-06 15:36:05 -0700</bug_when>
+            <thetext>Right now static.addons.mozilla.net is hosted on Mozilla servers.  We&apos;d like to begin using edgecast to host this content.  There shouldn&apos;t be any change on the AMO side unless we need to change the actual domain name, and then it&apos;s just a change in settings.
+
+From an implementation point of view, we should make this change on preview.amo first and get QA sign off, and then schedule the actual change in one of our weekly pushes.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393422</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-06 15:41:47 -0700</bug_when>
+            <thetext>I&apos;m happy to edit my HOSTS file to start testing -- what IP do I want to map to static.addons.mozilla.net?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401634</commentid>
+            <who name="Jake Maul [:jakem]">nmaul</who>
+            <bug_when>2011-04-11 14:24:08 -0700</bug_when>
+            <thetext>I am not entirely sure what all is needed to set this up, but I have created this Edgecast property:
+
+http://wac.1237.edgecastcdn.net/801237/static.addons.mozilla.net
+
+As its origin, it uses:
+
+http://static.addons.mozilla.net:80
+
+
+This URL is currently returning a 403 Forbidden when accessed directly, but I&apos;m fairly sure that&apos;s because it&apos;s 404&apos;ing on the index page and then 403&apos;ing on the 404 ErrorDoc page. I&apos;m getting a 404 at the Edgecast URL above... there might be a propagation delay, or it could just be returning the first error and not following the ErrorDoc.
+
+Do we have a sample URL that returns valid content we could test with?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401639</commentid>
+            <who name="matthew zeier [:mrz]">mrz</who>
+            <bug_when>2011-04-11 14:25:27 -0700</bug_when>
+            <thetext>passed along setup email from edgecast</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401642</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-11 14:25:50 -0700</bug_when>
+            <thetext>Unless it is static content, it will be a 403.  Static content is stuff like JS, CSS, images, etc.  You can see the apache rule for details there.  An example: https://static.addons.mozilla.net/en-US/firefox/pages/js_constants.js</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401684</commentid>
+            <who name="Jake Maul [:jakem]">nmaul</who>
+            <bug_when>2011-04-11 14:33:52 -0700</bug_when>
+            <thetext>Note: I have also set up a DNS CNAME for this, in DNS and in Edgecast&apos;s system:
+
+http://static-cdn.addons.mozilla.net:80/
+
+This is still propagating, but should work shortly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401698</commentid>
+            <who name="Jake Maul [:jakem]">nmaul</who>
+            <bug_when>2011-04-11 14:36:24 -0700</bug_when>
+            <thetext>Links to test:
+
+Direct:
+https://static.addons.mozilla.net/en-US/firefox/pages/js_constants.js
+
+CDN - up to 1 hour propagation from now before functionality:
+http://wac.1237.edgecastcdn.net/801237/static.addons.mozilla.net/en-US/firefox/pages/js_constants.js
+http://static-cdn.addons.mozilla.net/en-US/firefox/pages/js_constants.js</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401713</commentid>
+            <who name="matthew zeier [:mrz]">mrz</who>
+            <bug_when>2011-04-11 14:39:31 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Note: I have also set up a DNS CNAME for this, in DNS and in Edgecast&apos;s system:
+&gt; 
+&gt; http://static-cdn.addons.mozilla.net:80/
+&gt; 
+&gt; This is still propagating, but should work shortly.
+
+This needs to revert - this was setup as a normal site, not an ADN site.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401730</commentid>
+            <who name="matthew zeier [:mrz]">mrz</who>
+            <bug_when>2011-04-11 14:44:32 -0700</bug_when>
+            <thetext>Oh, I missed that this was using a non-production URL.  In any event, it&apos;s not setup as an ADN in EdgeCast and still needs SSL cert.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401817</commentid>
+            <who name="Jake Maul [:jakem]">nmaul</who>
+            <bug_when>2011-04-11 15:03:27 -0700</bug_when>
+            <thetext>I have reverted the static-cdn.addons.mozilla.net CNAME record, and removed all of the normal CDN setup config on Edgecast&apos;s side. Effectively this is back to before I did anything.
+
+As for the ADN setup, I need some additional information.
+
+The way this looks to be configured (from mrz&apos;s setup email, from Edgecast), static.addons.mozilla.net actually lives on Edgecast&apos;s servers, not ours. That is, s.a.m.n is the ADN name, not the origin. Do we know what the Origin FQDN is supposed to be for the static.addons.mozilla.net property?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401843</commentid>
+              <attachid>525186</attachid>
+            <who name="Jake Maul [:jakem]">nmaul</who>
+            <bug_when>2011-04-11 15:13:01 -0700</bug_when>
+            <thetext>Created attachment 525186
+sample validation asset from Edgecast (5k gif)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401853</commentid>
+            <who name="Jake Maul [:jakem]">nmaul</who>
+            <bug_when>2011-04-11 15:14:19 -0700</bug_when>
+            <thetext>One other thing.. whatever the origin is, I need to have this 5k &quot;sample asset&quot;, or a similarly-sized static content image/item uploaded to it. Once it (or a similar thing) is uploaded, please let me know the URL where I can access it.
+
+As far as I can tell, any ~5k image should work.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402668</commentid>
+            <who name="matthew zeier [:mrz]">mrz</who>
+            <bug_when>2011-04-11 20:03:44 -0700</bug_when>
+            <thetext>I&apos;m pretty sure &quot;addons.mozilla.org&quot; works as an origin server for this.  If you wish to use a different hostname you just need to tell EdgeCast to provision for that instead.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>525186</attachid>
+            <date>2011-04-11 15:13:00 -0700</date>
+            <delta_ts>2011-04-11 15:13:01 -0700</delta_ts>
+            <desc>sample validation asset from Edgecast (5k gif)</desc>
+            <filename>PerformanceTestObject_5k.gif</filename>
+            <type>image/gif</type>
+            <size>5127</size>
+            <attacher>nmaul</attacher>
+            
+              <data encoding="base64">R0lGODlhmwFrAOYAAMfHx54HFuzs7NDQ0Hx8fNra2oaGhr6+vuPj45iYmI+Pj/b29uW9wbS0tNKL
+kqurq6KioqsoNbE5RaQYJvnu79+ssct7g7hJVPLe4Nicor5aZMVqc+zN0PPz6Xp6bPz8+u3t4PDw
+7NzcxPDw7peXh/v7+Pr6+dLSu+rq2+fn1Pn59ePjzs7Ot6qqm+Li1Pj48/X17nl5bbi4pMbGsNHR
+yaqql93d2d3dx6GhmLm5rLe3pNrazd3d0Ly8qdrazvr69vf38uLizPn59NbWwLq6qc3NuPHx6Lu7
+qezs6+7u4ebm1NLSvMvLtbi4ptPTvPDw5fLy6erq3+vr3dDQu9bWv/7+/Xx8b8DAuu3t3m9vY+fn
+3/Ly8M7OuOzs3ujo1/j497y8r93dzoGBc9jYweTk2KWll/f38dLSyqOjkqmpnrq6psjIvcvLt/f3
+9tDQyOvr2+/v4vv795WVhe7u7OPjzejo1re3sHNzc////wAAAAAAAAAAAAAAAAAAAAAAAAAAACH5
+BAAAAAAALAAAAACbAWsAAAf/gHiCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWm
+p6ipqqusra6vsLGys7S1tre4ubq7vL2+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f
+4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9/v/xOEgIQPCCg0cUNEwIgMsBwYcBLliisCFC
+AAkOKAgiyKAQhQgaPHG48PCCBQyOCg4iGIkkQQkbUAIUxoCgAwsLLTjScPHgrQwXXEow2YiCg5CE
+MCw0aFGCRo6FMASIgPAoo5oBblqcwKHRw454WCIyinRlgA0OLFKdGQyroAwB/yakDABWF1RHbglt
+CID0Y9awdA1h0IhXrKK8eHhK8KoScCLEGwNTuMvWV163FQZO8Dk1wwQGLv9mnso5gmcGNWFOMO1g
+dQU8oBdO2PA0QIaBGrriqcBzQobdmn0Sujt6s6CRPQHbNKsbj8PFBC3g1pi3uHAHAyNwgCj8EGKp
+ATSOjtA9ssWOYsdzfigc6uQAKK3DvrhhdYbWEV4LSnvx9cCD24XnXE6VXeIWBbhV0NN/gC3EAFxn
+MaDgBNIFoBNBDmKlAU8X9YYHB+Txt0GD/IWk4FkOSLjgX8MFpiBG/1GQ0wa/7ZUVWJC5hSF/EmG2
+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
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

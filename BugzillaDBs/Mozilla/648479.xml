@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648479</bug_id>
+          
+          <creation_ts>2011-04-07 21:37:00 -0700</creation_ts>
+          <short_desc>Add Mobile2.0 to tbpl</short_desc>
+          <delta_ts>2011-04-11 18:52:17 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Tinderboxpushlog</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Phil Ringnalda (:philor)">philringnalda</assigned_to>
+          <cc>aki</cc>
+          <qa_contact>tinderboxpushlog</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395915</commentid>
+              <attachid>524571</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-07 21:37:32 -0700</bug_when>
+            <thetext>Created attachment 524571
+Fix
+
+Apparently nobody else has any interest in seeing such a thing (or in ever looking at the tinderbox), but I do, and as far as I&apos;m concerned, that&apos;s enough.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402554</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-11 18:50:49 -0700</bug_when>
+            <thetext>*** Bug 649207 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402558</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-11 18:52:17 -0700</bug_when>
+            <thetext>And for your interim needs, it is available at http://dev.philringnalda.com/tbpl/?tree=Mobile2.0</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524571</attachid>
+            <date>2011-04-07 21:37:00 -0700</date>
+            <delta_ts>2011-04-07 21:37:32 -0700</delta_ts>
+            <desc>Fix</desc>
+            <filename>mobile2.0</filename>
+            <type>text/plain</type>
+            <size>698</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2pzL0NvbmZpZy5qcyBiL2pzL0NvbmZpZy5qcwotLS0gYS9qcy9Db25maWcu
+anMKKysrIGIvanMvQ29uZmlnLmpzCkBAIC02NywxNiArNjcsMjIgQEAgdmFyIENvbmZpZyA9IHsK
+ICAgICAgIGJ1aWxkYm90QnJhbmNoOiAicGxhY2VzIiwKICAgICB9LAogICAgICJNb2JpbGUiOiB7
+CiAgICAgICBwcmltYXJ5UmVwbzogIm1vemlsbGEtY2VudHJhbCIsCiAgICAgICBvdGhlclJlcG86
+ICJtb2JpbGUtYnJvd3NlciIsCiAgICAgICBoYXNHcm91cHM6IHRydWUsCiAgICAgICBidWlsZGJv
+dEJyYW5jaDogIm1vemlsbGEtY2VudHJhbCIsCiAgICAgfSwKKyAgICAiTW9iaWxlMi4wIjogewor
+ICAgICAgcHJpbWFyeVJlcG86ICJyZWxlYXNlcy9tb3ppbGxhLTIuMSIsCisgICAgICBvdGhlclJl
+cG86ICJyZWxlYXNlcy9tb2JpbGUtMi4wIiwKKyAgICAgIGhhc0dyb3VwczogdHJ1ZSwKKyAgICAg
+IGJ1aWxkYm90QnJhbmNoOiAibW96aWxsYS0yLjEiLAorICAgIH0sCiAgICAgIk1vemlsbGFUcnki
+OiB7CiAgICAgICBwcmltYXJ5UmVwbzogInRyeSIsCiAgICAgICBoYXNHcm91cHM6IHRydWUsCiAg
+ICAgICBidWlsZGJvdEJyYW5jaDogInRyeSIsCiAgICAgfSwKICAgICAiQnVpbGQtU3lzdGVtIjog
+ewogICAgICAgcHJpbWFyeVJlcG86ICJwcm9qZWN0cy9idWlsZC1zeXN0ZW0iLAogICAgICAgaGFz
+R3JvdXBzOiB0cnVlLAo=
+</data>
+<flag name="review"
+          id="438210"
+          type_id="4"
+          status="?"
+          setter="philringnalda"
+          requestee="mstange"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

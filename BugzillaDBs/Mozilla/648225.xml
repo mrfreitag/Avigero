@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648225</bug_id>
+          
+          <creation_ts>2011-04-07 01:39:00 -0700</creation_ts>
+          <short_desc>Performance of platform-dependent add-ons is not tested</short_desc>
+          <delta_ts>2011-04-11 13:15:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Talos</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>599169</blocked>
+    
+    <blocked>648784</blocked>
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wladimir Palant">trev.moz</reporter>
+          <assigned_to name="alice nodelman [:alice] [:anode]">anodelman</assigned_to>
+          <cc>anodelman</cc>
+    
+    <cc>bmo</cc>
+    
+    <cc>erikvvold</cc>
+    
+    <cc>fligtar</cc>
+    
+    <cc>harshid</cc>
+    
+    <cc>jorge</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>MaierMan</cc>
+    
+    <cc>sabret00the</cc>
+          <qa_contact>talos</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394133</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-07 01:39:10 -0700</bug_when>
+            <thetext>Talos currently uses URLs like https://addons.mozilla.org/en-US/firefox/downloads/latest/5579  to download add-ons. This URL (which belongs to Cooliris by the way) will not work however because it is a platform-dependent add-on with different downloads for different platforms. Consequently the performance of the add-on will simply not be tested.
+
+Instead the AMO API should be used - https://services.addons.mozilla.org/en-US/firefox/api/1/addon/5579 contains all the download links for the supported platforms.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401054</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 11:39:25 -0700</bug_when>
+            <thetext>If there are platform specific versions of addons we should definitely be testing the correct addon per platform.  I&apos;m going to need to investigate how to change our download/install system to get this up and running.
+
+Is the only route to win here reading that xml file?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401320</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-11 13:12:13 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Is the only route to win here reading that xml file?
+
+You can fall back to platform-specific URLs, like
+https://addons.mozilla.org/firefox/downloads/latest/5579/platform:3/addon-5579-latest.xpi
+(platform=3 is Mac OS)
+
+However, the &quot;latest&quot; URL only works for add-ons with Public status, so this is also going to fail for other cases.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401332</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-11 13:15:06 -0700</bug_when>
+            <thetext>From the look of it, https://addons.mozilla.org/firefox/downloads/latest/1419/platform:5/ will always work - even for add-ons that are not platform-specific. platform:5 is Windows, Linux is 2, OS X is 3. No idea what the other codes stand for.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

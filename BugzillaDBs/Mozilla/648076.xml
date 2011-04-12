@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648076</bug_id>
+          
+          <creation_ts>2011-04-06 12:07:00 -0700</creation_ts>
+          <short_desc>Change copy in Web O&apos; Wonder description</short_desc>
+          <delta_ts>2011-04-07 11:48:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>demos.mozilla.org</component>
+          <version>Firefox 4</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla.com/en-US/firefox/fx/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Matej Novak [:matej]">Mnovak</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>lforrest</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>demos-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392898</commentid>
+            <who name="Matej Novak [:matej]">Mnovak</who>
+            <bug_when>2011-04-06 12:07:39 -0700</bug_when>
+            <thetext>Update Web O&apos; Wonder description in the promo bar to read: &quot;See what the modern Web can do!&quot;
+
+Also, uppercase O&apos; in the link so it reads: Visit Web O&apos; Wonder &gt;&gt;</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

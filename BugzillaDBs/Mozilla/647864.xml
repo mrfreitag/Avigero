@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647864</bug_id>
+          
+          <creation_ts>2011-04-05 11:17:00 -0700</creation_ts>
+          <short_desc>Include badge image and copy in Facebook messages</short_desc>
+          <delta_ts>2011-04-08 18:09:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>1.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Guillaume Lecollinet">guillaume</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>gandalf</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391370</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:17:26 -0700</bug_when>
+            <thetext>Opening this bug per TBG&apos;s request to include the badge image and description in the pre-populated Facebook sharing messages.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

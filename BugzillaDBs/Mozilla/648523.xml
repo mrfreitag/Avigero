@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648523</bug_id>
+          
+          <creation_ts>2011-04-08 06:53:00 -0700</creation_ts>
+          <short_desc>Make windows end process issues more robust</short_desc>
+          <delta_ts>2011-04-08 09:06:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Mozmill</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[mozmill-2.0+][mozmill-1.5.3+][fixed-1.5.3]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>639879</dependson>
+    
+    <dependson>647127</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Clint Talbert ( :ctalbert )">ctalbert</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>mozmill</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396361</commentid>
+              <attachid>524620</attachid>
+            <who name="Clint Talbert ( :ctalbert )">ctalbert</who>
+            <bug_when>2011-04-08 06:53:37 -0700</bug_when>
+            <thetext>Created attachment 524620
+Patch for 1.5.x
+
+This is a clone of jetpack bug 639879.
+
+I&apos;m going to port over the fix to hotfix-1.5, and also fix bug 647127 in the process as well.
+
+I decided to forego the nit about transitioning to a do-while loop over while 1 because this code is so difficult to test and so fragile.  The while 1 code is already in jetpack, so let&apos;s keep the versions the same.
+
+Want a quick review on this so Jeff can have a chance to talk about his undying hatred of magical windows constants. :)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396523</commentid>
+              <attachid>524620</attachid>
+            <who name="Jeff Hammel [:jhammel]">jhammel</who>
+            <bug_when>2011-04-08 08:39:00 -0700</bug_when>
+            <thetext>Comment on attachment 524620
+Patch for 1.5.x
+
++            #TODO: How should we handle this?
++            print &quot;Error Cleaning up: &quot; + str(excinfo[1])
+
+Should probably at least print &gt;&gt; sys.stderr
+
+-                rmtree(self.profile)
++                shutil.rmtree(self.profile, False, oncleanup_error)
+
+This means that we have two versions of rmtree floating around :( is there any reason to keep the other one around at all?
+
+-        if self.returncode is not None:
+-            return self.returncode
+
+I guess we don&apos;t care about the return code?
+
++                # Returns 1 if running, 0 if not, -1 if timed out                
+
+Very C-ish with magical values, but I guess that&apos;s okay for this version.  I&apos;d probably return True, False, or throw e.g. TimedOutException
+
+r+ .  It&apos;d be nice if some of the above could be made better</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396545</commentid>
+            <who name="Clint Talbert ( :ctalbert )">ctalbert</who>
+            <bug_when>2011-04-08 08:54:43 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Comment on attachment 524620 [details]
+&gt; Patch for 1.5.x
+&gt; 
+&gt; +            #TODO: How should we handle this?
+&gt; +            print &quot;Error Cleaning up: &quot; + str(excinfo[1])
+&gt; 
+&gt; Should probably at least print &gt;&gt; sys.stderr
+good idea.  Will do that.
+&gt; 
+&gt; -                rmtree(self.profile)
+&gt; +                shutil.rmtree(self.profile, False, oncleanup_error)
+&gt; 
+&gt; This means that we have two versions of rmtree floating around :( is there any
+&gt; reason to keep the other one around at all?
+We use it in three places.  I&apos;m not really comfortable taking it out on the stable branch any more than we have to.  So, let&apos;s leave it here and remove on master.
+&gt; 
+&gt; -        if self.returncode is not None:
+&gt; -            return self.returncode
+&gt; 
+&gt; I guess we don&apos;t care about the return code?
+It&apos;s returned at the end of the function. We can&apos;t early return with it at the top of the function like this because we will not be able to call back into here after doing a kill because kill sets self.returncode even though the process is not killed on windows yet.
+&gt; 
+&gt; +                # Returns 1 if running, 0 if not, -1 if timed out              
+&gt; 
+&gt; Very C-ish with magical values, but I guess that&apos;s okay for this version.  I&apos;d
+&gt; probably return True, False, or throw e.g. TimedOutException
+Well, I don&apos;t actually want to throw out of that function because I want to keep the flow of control more easy to follow.  I want to refactor all of this on master to something more sane, so I&apos;ll look into that on there.
+&gt; 
+&gt; r+ .  It&apos;d be nice if some of the above could be made better
+Thanks</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396560</commentid>
+            <who name="Clint Talbert ( :ctalbert )">ctalbert</who>
+            <bug_when>2011-04-08 09:06:34 -0700</bug_when>
+            <thetext>Landed hotfix-1.5: https://github.com/mozautomation/mozmill/commit/63ea0ba8337f95dc63554aef958b5edda16e0fa2
+
+Leaving open to track patch for master.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524620</attachid>
+            <date>2011-04-08 06:53:00 -0700</date>
+            <delta_ts>2011-04-08 08:39:00 -0700</delta_ts>
+            <desc>Patch for 1.5.x</desc>
+            <filename>mozrunnerjp.diff</filename>
+            <type>text/plain</type>
+            <size>7565</size>
+            <attacher>ctalbert</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL21venJ1bm5lci9tb3pydW5uZXIvX19pbml0X18ucHkgYi9tb3pydW5uZXIv
+bW96cnVubmVyL19faW5pdF9fLnB5CmluZGV4IDNkYjg1MGMuLmZhODA5NDcgMTAwNjQ0Ci0tLSBh
+L21venJ1bm5lci9tb3pydW5uZXIvX19pbml0X18ucHkKKysrIGIvbW96cnVubmVyL21venJ1bm5l
+ci9fX2luaXRfXy5weQpAQCAtNDcsNiArNDcsNyBAQCBpbXBvcnQgb3B0cGFyc2UKIGltcG9ydCBr
+aWxsYWJsZXByb2Nlc3MKIGltcG9ydCBzdWJwcm9jZXNzCiBpbXBvcnQgcGxhdGZvcm0KK2ltcG9y
+dCBzaHV0aWwKIAogZnJvbSBkaXN0dXRpbHMgaW1wb3J0IGRpcl91dGlsCiBmcm9tIHRpbWUgaW1w
+b3J0IHNsZWVwCkBAIC0yODYsOSArMjg3LDEzIEBAIGNsYXNzIFByb2ZpbGUob2JqZWN0KToKIAog
+ICAgIGRlZiBjbGVhbnVwKHNlbGYpOgogICAgICAgICAiIiJDbGVhbnVwIG9wZXJhdGlvbnMgb24g
+dGhlIHByb2ZpbGUuIiIiCisgICAgICAgIGRlZiBvbmNsZWFudXBfZXJyb3IoZnVuY3Rpb24sIHBh
+dGgsIGV4Y2luZm8pOgorICAgICAgICAgICAgI1RPRE86IEhvdyBzaG91bGQgd2UgaGFuZGxlIHRo
+aXM/CisgICAgICAgICAgICBwcmludCAiRXJyb3IgQ2xlYW5pbmcgdXA6ICIgKyBzdHIoZXhjaW5m
+b1sxXSkKKwogICAgICAgICBpZiBzZWxmLmNyZWF0ZV9uZXc6CiAgICAgICAgICAgICBpZiBvcy5w
+YXRoLmV4aXN0cyhzZWxmLnByb2ZpbGUpOgotICAgICAgICAgICAgICAgIHJtdHJlZShzZWxmLnBy
+b2ZpbGUpCisgICAgICAgICAgICAgICAgc2h1dGlsLnJtdHJlZShzZWxmLnByb2ZpbGUsIEZhbHNl
+LCBvbmNsZWFudXBfZXJyb3IpCiAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICBzZWxmLmNsZWFu
+X3ByZWZlcmVuY2VzKCkKICAgICAgICAgICAgIHNlbGYuY2xlYW5fYWRkb25zKCkKQEAgLTUwMCw2
+ICs1MDUsMTEgQEAgY2xhc3MgUnVubmVyKG9iamVjdCk6CiAgICAgICAgIGVsc2U6CiAgICAgICAg
+ICAgICB0cnk6CiAgICAgICAgICAgICAgICAgc2VsZi5wcm9jZXNzX2hhbmRsZXIua2lsbChncm91
+cD1UcnVlKQorICAgICAgICAgICAgICAgICMgT24gd2luZG93cywgaXQgc29tZXRpbWVzIGJlaG9v
+dmVzIG9uZSB0byB3YWl0IGZvciBkdXN0IHRvIHNldHRsZQorICAgICAgICAgICAgICAgICMgYWZ0
+ZXIga2lsbGluZyBwcm9jZXNzZXMuICBMZXQncyB0cnkgdGhhdC4KKyAgICAgICAgICAgICAgICAj
+IFRPRE86IEJ1ZyA2NDAwNDcgaXMgaW52ZXNpdGdhdGluZyB0aGUgY29ycmVjdCB3YXkgdG8gaGFu
+ZGxlIHRoaXMgY2FzZQorICAgICAgICAgICAgICAgIHNlbGYucHJvY2Vzc19oYW5kbGVyLndhaXQo
+dGltZW91dD0xMCkKKwogICAgICAgICAgICAgZXhjZXB0IEV4Y2VwdGlvbiwgZToKICAgICAgICAg
+ICAgICAgICBsb2dnZXIuZXJyb3IoJ0Nhbm5vdCBraWxsIHByb2Nlc3MsICcrdHlwZShlKS5fX25h
+bWVfXysnICcrZS5tZXNzYWdlKQogCmRpZmYgLS1naXQgYS9tb3pydW5uZXIvbW96cnVubmVyL2tp
+bGxhYmxlcHJvY2Vzcy5weSBiL21venJ1bm5lci9tb3pydW5uZXIva2lsbGFibGVwcm9jZXNzLnB5
+CmluZGV4IGRjYzkxZmYuLjI1ODczMmYgMTAwNjQ0Ci0tLSBhL21venJ1bm5lci9tb3pydW5uZXIv
+a2lsbGFibGVwcm9jZXNzLnB5CisrKyBiL21venJ1bm5lci9tb3pydW5uZXIva2lsbGFibGVwcm9j
+ZXNzLnB5CkBAIC0xMzUsNiArMTM1LDggQEAgY2xhc3MgUG9wZW4oc3VicHJvY2Vzcy5Qb3Blbik6
+CiAgICAgICAgICAgICBjcmVhdGlvbmZsYWdzIHw9IHdpbnByb2Nlc3MuQ1JFQVRFX1NVU1BFTkRF
+RAogICAgICAgICAgICAgY3JlYXRpb25mbGFncyB8PSB3aW5wcm9jZXNzLkNSRUFURV9VTklDT0RF
+X0VOVklST05NRU5UCiAgICAgICAgICAgICBpZiBjYW5DcmVhdGVKb2I6CisgICAgICAgICAgICAg
+ICAgIyBVbmNvbW1lbnQgdGhpcyBsaW5lIGJlbG93IHRvIGRpc2NvdmVyIHZlcnkgdXNlZnVsIHRo
+aW5ncyBhYm91dCB5b3VyIGVudmlyb25tZW50CisgICAgICAgICAgICAgICAgI3ByaW50ICIrKysr
+IGtpbGxhYmxlcHJvY2VzczogcmVsZW5nIHR3aXN0ZCBwYXRjaCBub3QgYXBwbGllZCwgd2UgY2Fu
+IGNyZWF0ZSBqb2Igb2JqZWN0cyIKICAgICAgICAgICAgICAgICBjcmVhdGlvbmZsYWdzIHw9IHdp
+bnByb2Nlc3MuQ1JFQVRFX0JSRUFLQVdBWV9GUk9NX0pPQgogCiAgICAgICAgICAgICAjIGNyZWF0
+ZSB0aGUgcHJvY2VzcwpAQCAtMTU4LDcgKzE2MCw3IEBAIGNsYXNzIFBvcGVuKHN1YnByb2Nlc3Mu
+UG9wZW4pOgogICAgICAgICAgICAgICAgIHdpbnByb2Nlc3MuQXNzaWduUHJvY2Vzc1RvSm9iT2Jq
+ZWN0KHNlbGYuX2pvYiwgaW50KGhwKSkKICAgICAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICAg
+ICAgc2VsZi5fam9iID0gTm9uZQotICAgICAgICAgICAgICAgICAgICAKKwogICAgICAgICAgICAg
+d2lucHJvY2Vzcy5SZXN1bWVUaHJlYWQoaW50KGh0KSkKICAgICAgICAgICAgIGh0LkNsb3NlKCkK
+IApAQCAtMTczLDE1ICsxNzUsMTIgQEAgY2xhc3MgUG9wZW4oc3VicHJvY2Vzcy5Qb3Blbik6CiAg
+ICAgZGVmIGtpbGwoc2VsZiwgZ3JvdXA9VHJ1ZSk6CiAgICAgICAgICIiIktpbGwgdGhlIHByb2Nl
+c3MuIElmIGdyb3VwPVRydWUsIGFsbCBzdWItcHJvY2Vzc2VzIHdpbGwgYWxzbyBiZSBraWxsZWQu
+IiIiCiAgICAgICAgIHNlbGYua2lsbF9jYWxsZWQgPSBUcnVlCisKICAgICAgICAgaWYgbXN3aW5k
+b3dzOgogICAgICAgICAgICAgaWYgZ3JvdXAgYW5kIHNlbGYuX2pvYjoKICAgICAgICAgICAgICAg
+ICB3aW5wcm9jZXNzLlRlcm1pbmF0ZUpvYk9iamVjdChzZWxmLl9qb2IsIDEyNykKICAgICAgICAg
+ICAgIGVsc2U6Ci0gICAgICAgICAgICAgICAgdHJ5OgotICAgICAgICAgICAgICAgICAgICB3aW5w
+cm9jZXNzLlRlcm1pbmF0ZVByb2Nlc3Moc2VsZi5faGFuZGxlLCAxMjcpCi0gICAgICAgICAgICAg
+ICAgZXhjZXB0OgotICAgICAgICAgICAgICAgICAgICAjIFRPRE86IGJldHRlciBlcnJvciBoYW5k
+bGluZyBoZXJlCi0gICAgICAgICAgICAgICAgICAgIHBhc3MKKyAgICAgICAgICAgICAgICB3aW5w
+cm9jZXNzLlRlcm1pbmF0ZVByb2Nlc3Moc2VsZi5faGFuZGxlLCAxMjcpCiAgICAgICAgICAgICBz
+ZWxmLnJldHVybmNvZGUgPSAxMjcgICAgCiAgICAgICAgIGVsc2U6CiAgICAgICAgICAgICBpZiBn
+cm91cDoKQEAgLTE5NywxNCArMTk2LDEwIEBAIGNsYXNzIFBvcGVuKHN1YnByb2Nlc3MuUG9wZW4p
+OgogICAgICAgICBJZiB0aW1lb3V0IHNlY29uZHMgYXJlIHJlYWNoZWQgYW5kIHRoZSBwcm9jZXNz
+IGhhcyBub3QgdGVybWluYXRlZCwKICAgICAgICAgaXQgd2lsbCBiZSBmb3JjZWZ1bGx5IGtpbGxl
+ZC4gSWYgdGltZW91dCBpcyAtMSwgd2FpdCB3aWxsIG5vdAogICAgICAgICB0aW1lIG91dC4iIiIK
+LSAgICAgICAgCiAgICAgICAgIGlmIHRpbWVvdXQgaXMgbm90IE5vbmU6CiAgICAgICAgICAgICAj
+IHRpbWVvdXQgaXMgbm93IGluIG1pbGxpc2Vjb25kcwogICAgICAgICAgICAgdGltZW91dCA9IHRp
+bWVvdXQgKiAxMDAwCiAKLSAgICAgICAgaWYgc2VsZi5yZXR1cm5jb2RlIGlzIG5vdCBOb25lOgot
+ICAgICAgICAgICAgcmV0dXJuIHNlbGYucmV0dXJuY29kZQotCiAgICAgICAgIHN0YXJ0dGltZSA9
+IGRhdGV0aW1lLmRhdGV0aW1lLm5vdygpCiAKICAgICAgICAgaWYgbXN3aW5kb3dzOgpAQCAtMjEy
+LDI2ICsyMDcsNTAgQEAgY2xhc3MgUG9wZW4oc3VicHJvY2Vzcy5Qb3Blbik6CiAgICAgICAgICAg
+ICAgICAgdGltZW91dCA9IC0xCiAgICAgICAgICAgICByYyA9IHdpbnByb2Nlc3MuV2FpdEZvclNp
+bmdsZU9iamVjdChzZWxmLl9oYW5kbGUsIHRpbWVvdXQpCiAgICAgICAgICAgICAKLSAgICAgICAg
+ICAgIGlmIHJjICE9IHdpbnByb2Nlc3MuV0FJVF9USU1FT1VUOgorICAgICAgICAgICAgaWYgKHJj
+ID09IHdpbnByb2Nlc3MuV0FJVF9PQkpFQ1RfMCBvcgorICAgICAgICAgICAgICAgIHJjID09IHdp
+bnByb2Nlc3MuV0FJVF9BQkFORE9ORUQgb3IKKyAgICAgICAgICAgICAgICByYyA9PSB3aW5wcm9j
+ZXNzLldBSVRfRkFJTEVEKToKKyAgICAgICAgICAgICAgICAjIE9iamVjdCBoYXMgZWl0aGVyIHNp
+Z25hbGVkLCBvciB0aGUgQVBJIGNhbGwgaGFzIGZhaWxlZC4gIEluIAorICAgICAgICAgICAgICAg
+ICMgYm90aCBjYXNlcyB3ZSB3YW50IHRvIGdpdmUgdGhlIE9TIHRoZSBiZW5lZml0IG9mIHRoZSBk
+b3VidAorICAgICAgICAgICAgICAgICMgYW5kIHN1cHBseSBhIGxpdHRsZSB0aW1lIGJlZm9yZSB3
+ZSBzdGFydCBzaG9vdGluZyBwcm9jZXNzZXMKKyAgICAgICAgICAgICAgICAjIHdpdGggYW4gTS0x
+Ni4KKworICAgICAgICAgICAgICAgICMgUmV0dXJucyAxIGlmIHJ1bm5pbmcsIDAgaWYgbm90LCAt
+MSBpZiB0aW1lZCBvdXQgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgZGVmIGNoZWNr
+KCk6CiAgICAgICAgICAgICAgICAgICAgIG5vdyA9IGRhdGV0aW1lLmRhdGV0aW1lLm5vdygpCiAg
+ICAgICAgICAgICAgICAgICAgIGRpZmYgPSBub3cgLSBzdGFydHRpbWUKICAgICAgICAgICAgICAg
+ICAgICAgaWYgKGRpZmYuc2Vjb25kcyAqIDEwMDAgKiAxMDAwICsgZGlmZi5taWNyb3NlY29uZHMp
+IDwgKHRpbWVvdXQgKiAxMDAwKToKICAgICAgICAgICAgICAgICAgICAgICAgIGlmIHNlbGYuX2pv
+YjoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiAod2lucHJvY2Vzcy5RdWVyeUluZm9y
+bWF0aW9uSm9iT2JqZWN0KHNlbGYuX2pvYiwgOClbJ0Jhc2ljSW5mbyddWydBY3RpdmVQcm9jZXNz
+ZXMnXSA+IDApOgotICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gVHJ1ZQor
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjIEpvYiBPYmplY3QgaXMgc3RpbGwgY29u
+dGFpbmluZyBhY3RpdmUgcHJvY2Vzc2VzCisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IHJldHVybiAxCiAgICAgICAgICAgICAgICAgICAgICAgICBlbHNlOgotICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIHJldHVybiBUcnVlCi0gICAgICAgICAgICAgICAgICAgIHJldHVybiBGYWxz
+ZQotICAgICAgICAgICAgICAgIHdoaWxlIGNoZWNrKCk6CisgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIyBObyBqb2IsIHdlIHVzZSBHZXRFeGl0Q29kZVByb2Nlc3MsIHdoaWNoIHdpbGwgdGVs
+bCB1cyBpZiB0aGUgcHJvY2VzcyBpcyBzdGlsbCBhY3RpdmUKKyAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBzZWxmLnJldHVybmNvZGUgPSB3aW5wcm9jZXNzLkdldEV4aXRDb2RlUHJvY2Vzcyhz
+ZWxmLl9oYW5kbGUpCisgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHNlbGYucmV0dXJu
+Y29kZSA9PSB3aW5wcm9jZXNzLlNUSUxMX0FDVElWRSk6CisgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICMgUHJvY2VzcyBzdGlsbCBhY3RpdmUsIGNvbnRpbnVlIHdhaXRpbmcKKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIDEKKyAgICAgICAgICAgICAgICAgICAg
+ICAgICMgUHJvY2VzcyBub3QgYWN0aXZlLCByZXR1cm4gMAorICAgICAgICAgICAgICAgICAgICAg
+ICAgcmV0dXJuIDAKKyAgICAgICAgICAgICAgICAgICAgZWxzZToKKyAgICAgICAgICAgICAgICAg
+ICAgICAgICMgVGltZWQgb3V0LCByZXR1cm4gLTEKKyAgICAgICAgICAgICAgICAgICAgICAgIHJl
+dHVybiAtMQorCisgICAgICAgICAgICAgICAgbm90ZG9uZSA9IGNoZWNrKCkKKyAgICAgICAgICAg
+ICAgICB3aGlsZSBub3Rkb25lID09IDE6CiAgICAgICAgICAgICAgICAgICAgIHRpbWUuc2xlZXAo
+LjUpCi0gICAgICAgICAgICAKLSAgICAgICAgICAgIG5vdyA9IGRhdGV0aW1lLmRhdGV0aW1lLm5v
+dygpCi0gICAgICAgICAgICBkaWZmID0gbm93IC0gc3RhcnR0aW1lCi0gICAgICAgICAgICBpZiAo
+ZGlmZi5zZWNvbmRzICogMTAwMCAqIDEwMDAgKyBkaWZmLm1pY3Jvc2Vjb25kcykgPiAodGltZW91
+dCAqIDEwMDApOgotICAgICAgICAgICAgICAgIHNlbGYua2lsbChncm91cCkKKyAgICAgICAgICAg
+ICAgICAgICAgbm90ZG9uZSA9IGNoZWNrKCkKKworICAgICAgICAgICAgICAgIGlmIG5vdGRvbmUg
+PT0gLTE6CisgICAgICAgICAgICAgICAgICAgICMgVGhlbiBjaGVjayB0aW1lZCBvdXQsIHdlIGhh
+dmUgYSBodW5nIHByb2Nlc3MsIGF0dGVtcHQKKyAgICAgICAgICAgICAgICAgICAgIyBsYXN0IGRp
+dGNoIGtpbGwgd2l0aCBleHBsb3NpdmVzCisgICAgICAgICAgICAgICAgICAgIHNlbGYua2lsbChn
+cm91cCkKKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICBlbHNl
+OgotICAgICAgICAgICAgICAgIHNlbGYucmV0dXJuY29kZSA9IHdpbnByb2Nlc3MuR2V0RXhpdENv
+ZGVQcm9jZXNzKHNlbGYuX2hhbmRsZSkKKyAgICAgICAgICAgICAgICAjIEluIHRoaXMgY2FzZSB3
+YWl0Zm9yc2luZ2xlb2JqZWN0IHRpbWVkIG91dC4gIFdlIGhhdmUgdG8KKyAgICAgICAgICAgICAg
+ICAjIHRha2UgdGhlIHByb2Nlc3MgYmVoaW5kIHRoZSB3b29kc2hlZCBhbmQgc2hvb3QgaXQuCisg
+ICAgICAgICAgICAgICAgc2VsZi5raWxsKGdyb3VwKQorCiAgICAgICAgIGVsc2U6CiAgICAgICAg
+ICAgICBpZiAoc3lzLnBsYXRmb3JtID09ICdsaW51eDInKSBvciAoc3lzLnBsYXRmb3JtIGluICgn
+c3Vub3M1JywgJ3NvbGFyaXMnKSk6CiAgICAgICAgICAgICAgICAgZGVmIGdyb3VwX3dhaXQodGlt
+ZW91dCk6CmRpZmYgLS1naXQgYS9tb3pydW5uZXIvbW96cnVubmVyL3dpbnByb2Nlc3MucHkgYi9t
+b3pydW5uZXIvbW96cnVubmVyL3dpbnByb2Nlc3MucHkKaW5kZXggMDhmN2ZkZC4uZmUwMjQzNCAx
+MDA2NDQKLS0tIGEvbW96cnVubmVyL21venJ1bm5lci93aW5wcm9jZXNzLnB5CisrKyBiL21venJ1
+bm5lci9tb3pydW5uZXIvd2lucHJvY2Vzcy5weQpAQCAtMzgsNiArMzgsMTEgQEAgZnJvbSBjdHlw
+ZXMgaW1wb3J0IGNfdm9pZF9wLCBQT0lOVEVSLCBzaXplb2YsIFN0cnVjdHVyZSwgd2luZGxsLCBX
+aW5FcnJvciwgV0lORlUKIGZyb20gY3R5cGVzLndpbnR5cGVzIGltcG9ydCBCT09MLCBCWVRFLCBE
+V09SRCwgSEFORExFLCBMUENXU1RSLCBMUFdTVFIsIFVJTlQsIFdPUkQKIGZyb20gcWlqbyBpbXBv
+cnQgUXVlcnlJbmZvcm1hdGlvbkpvYk9iamVjdAogCisjIEJlY2F1c2Ugd2UgZG8gbm90IHdhbnQg
+dG8gZGVwZW5kIG9uIHB5d2luMzIsIHdlIGNhbm5vdCBnZXQgd2luMzJjb24gd2hpY2ggCisjIGNv
+bnRhaW5zIHRoaXMgbmlmdHkgbGl0dGxlIGNvbnN0YW50LiAgVGhlIGNvbnN0YW50IGhhcyBoYWQg
+dGhlIG1hZ2ljIHZhbHVlCisjIG9mIDI1OSBmb3IgYSBsb25nIHRpbWUgKHNpbmNlIHdpbjJrIGFz
+IGZhciBhcyBJIGNhbiB0ZWxsKS4KK1NUSUxMX0FDVElWRSA9IDI1OQorCiBMUFZPSUQgPSBjX3Zv
+aWRfcAogTFBCWVRFID0gUE9JTlRFUihCWVRFKQogTFBEV09SRCA9IFBPSU5URVIoRFdPUkQpCkBA
+IC0zMTMsNiArMzE4LDcgQEAgSU5GSU5JVEUgPSAtMQogV0FJVF9USU1FT1VUID0gMHgwMTAyCiBX
+QUlUX09CSkVDVF8wID0gMHgwCiBXQUlUX0FCQU5ET05FRCA9IDB4MDA4MAorV0FJVF9GQUlMRUQg
+PSAweEZGRkZGRkZGCiAKICMgR2V0RXhpdENvZGVQcm9jZXNzKCkKIAo=
+</data>
+<flag name="review"
+          id="438240"
+          type_id="4"
+          status="+"
+          setter="jhammel"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

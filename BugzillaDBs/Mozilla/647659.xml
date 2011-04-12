@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647659</bug_id>
+          
+          <creation_ts>2011-04-04 02:21:00 -0700</creation_ts>
+          <short_desc>When using Flash debug player, the error pop-up freezes firefox until plugin-container.exe is closed.</short_desc>
+          <delta_ts>2011-04-11 14:53:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>581272</dup_id>
+          
+          <bug_file_loc>http://armorgames.com/play/5151/civilizations-wars</bug_file_loc>
+          
+          <keywords>crash, flashplayer</keywords>
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="IcePanther">ice.pnthr</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+    
+    <cc>ice.pnthr</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389915</commentid>
+            <who name="IcePanther">ice.pnthr</who>
+            <bug_when>2011-04-04 02:21:31 -0700</bug_when>
+            <thetext>User-Agent:       Opera/9.80 (Windows NT 6.1; U; fr) Presto/2.7.62 Version/11.01
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+This happens on any website that uses Flash, and did NOT happen with Firefox 3.6.*, and does NOT happen on Opera, which uses the same NPSWF32.DLL plug-in.
+
+I use the debug version of the Flash Player for professional reasons (found here : http://www.adobe.com/support/flashplayer/downloads.html), and when an error dialog popus up from it, it just freezes Firefox. I can&apos;t click any button on the dialog, and have to close plugin-container.exe from task manager for firefox to become responsive again.
+Sometimes I can click the buttons on the error message if I&apos;m fast, but Firefox stops responding just after that, and I still have to close plugin-container in the task manager for it to become responsive again.
+It seems also that waiting ~20 seconds allows Firefox to detect the plugin has crashed.
+
+Still, this is a bug with FF 4.0, because I developed my own site with the same Flash player, and it had many errors, which I could close without problems; also, Opera doesn&apos;t exhibit such a behavior either.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Install Flash debug player in place of the regular flash player
+2.Go to a web page with Flash in it, preferably a flash movie that can trigger an error. (in my example, let the game load, and then start a new game to trigger some error).
+3.Firefox freezes until the plug-in container is closed; or the &apos;crash detection time&apos; is exceeded.
+Actual Results:  
+Plugin container crash
+
+Expected Results:  
+Ability to discard the error and continue running the Flash content
+
+Hardware acceleration On, ATI Radeon HD 5870, latest drivers.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390273</commentid>
+            <who name="">tobyfi</who>
+            <bug_when>2011-04-04 10:14:12 -0700</bug_when>
+            <thetext>Duplicate of bug 581272.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401773</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-11 14:53:22 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 581272 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648060</bug_id>
+          
+          <creation_ts>2011-04-06 11:39:00 -0700</creation_ts>
+          <short_desc>enable ssh on HP switches</short_desc>
+          <delta_ts>2011-04-11 14:59:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Netops</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Aaron">ahill</reporter>
+          <assigned_to name="Aaron">ahill</assigned_to>
+          <cc>dmoore</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392783</commentid>
+            <who name="Aaron">ahill</who>
+            <bug_when>2011-04-06 11:39:28 -0700</bug_when>
+            <thetext>HP top of rack and nms switches are currently only accessible through console.  We should enable ssh to aid management and monitoring.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648158</bug_id>
+          
+          <creation_ts>2011-04-06 16:25:00 -0700</creation_ts>
+          <short_desc>Mozilla office is on fire</short_desc>
+          <delta_ts>2011-04-08 15:13:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          <status_whiteboard>good first bug</status_whiteboard>
+          <keywords>helpwanted, smoketest</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jennifer Boriss [:Boriss] (Firefox UX)">jboriss</reporter>
+          <assigned_to>desktop-support</assigned_to>
+          <cc>BernesB</cc>
+    
+    <cc>dholbert</cc>
+    
+    <cc>foxymonkies</cc>
+    
+    <cc>hlangi</cc>
+    
+    <cc>isandu</cc>
+    
+    <cc>jlazaro</cc>
+    
+    <cc>jo.hermans</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>mars.martian+bugmail</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>shayne.anthony.jewers</cc>
+    
+    <cc>wes</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393510</commentid>
+            <who name="Jennifer Boriss [:Boriss] (Firefox UX)">jboriss</who>
+            <bug_when>2011-04-06 16:25:14 -0700</bug_when>
+            <thetext>Could someone look into this?  I think it blocks most other bugs.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393523</commentid>
+            <who name="Justin Lazaro [:jlazaro]">jlazaro</who>
+            <bug_when>2011-04-06 16:32:27 -0700</bug_when>
+            <thetext>We might have some water in storage</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393539</commentid>
+            <who name="Jennifer Boriss [:Boriss] (Firefox UX)">jboriss</who>
+            <bug_when>2011-04-06 16:39:27 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; We might have some water in storage
+
+Water seems to be working for most users, marking fixed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393560</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-06 16:48:33 -0700</bug_when>
+            <thetext>&quot;working for most users&quot; not good enough - please fix problem. And do not forget to get review from the appropriate peer, and sr from the office fire marshall.
+
+Re-opening.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394603</commentid>
+            <who name="Henry Langi">hlangi</who>
+            <bug_when>2011-04-07 09:50:41 -0700</bug_when>
+            <thetext>Property manager has sent an email with info on the alarm yesterday. If anyone has any questions or concerns, send me an email. 
+
+Closing this out.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394995</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-07 13:28:46 -0700</bug_when>
+            <thetext>reminds me of ... http://www.youtube.com/watch?v=9nhiFAI4tUo</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

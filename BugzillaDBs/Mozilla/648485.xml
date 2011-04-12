@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648485</bug_id>
+          
+          <creation_ts>2011-04-07 22:27:00 -0700</creation_ts>
+          <short_desc>Intermittent failure in content/base/test/test_bug482935.html | Received fresh value for second request - got &quot;1&quot;, expected &quot;0&quot;</short_desc>
+          <delta_ts>2011-04-11 19:41:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>DOM</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ehsan Akhgari [:ehsan]">ehsan</reporter>
+          <assigned_to name="Mounir Lamouri (:volkmar)">mounir.lamouri</assigned_to>
+          <cc>ehsan</cc>
+    
+    <cc>matt.woodrow+bugzilla</cc>
+    
+    <cc>mounir.lamouri</cc>
+    
+    <cc>philringnalda</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395982</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-07 22:27:12 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=Cedar/1302227102.1302229749.31490.gz
+Rev3 MacOSX Leopard 10.5.8 cedar debug test mochitests-1/5 on 2011/04/07 18:45:02
+
+25764 INFO TEST-START | /tests/content/base/test/test_bug482935.html
+++DOMWINDOW == 17 (0x1c916148) [serial = 540] [outer = 0x1c155da0]
+25765 INFO TEST-PASS | /tests/content/base/test/test_bug482935.html | Expected empty response to cancelled request - &quot;&quot; should equal &quot;&quot;
+25766 ERROR TEST-UNEXPECTED-FAIL | /tests/content/base/test/test_bug482935.html | Received fresh value for second request - got &quot;1&quot;, expected &quot;0&quot;
+25767 INFO TEST-PASS | /tests/content/base/test/test_bug482935.html | Expected empty response to cancelled request - &quot;&quot; should equal &quot;&quot;
+25768 INFO TEST-PASS | /tests/content/base/test/test_bug482935.html | Received cached value for second request - &quot;1&quot; should equal &quot;1&quot;
+25769 INFO TEST-END | /tests/content/base/test/test_bug482935.html | finished in 2092ms</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397120</commentid>
+              <attachid>524696</attachid>
+            <who name="Mounir Lamouri (:volkmar)">mounir.lamouri</who>
+            <bug_when>2011-04-08 11:50:21 -0700</bug_when>
+            <thetext>Created attachment 524696
+Changes setTimeout to executeSoon [checked-in]
+
+That might fix it. At least, it&apos;s not broken locally.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402265</commentid>
+            <who name="Mounir Lamouri (:volkmar)">mounir.lamouri</who>
+            <bug_when>2011-04-11 17:07:51 -0700</bug_when>
+            <thetext>Pushed:
+http://hg.mozilla.org/mozilla-central/rev/6f1a2405f71e</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402622</commentid>
+            <who name="TinderboxPushlog Robot">tbplbot</who>
+            <bug_when>2011-04-11 19:39:43 -0700</bug_when>
+            <thetext>philor
+http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1302574653.1302575554.24976.gz
+Rev3 MacOSX Snow Leopard 10.6.2 mozilla-central opt test mochitests-1/5 on 2011/04/11 19:17:33
+
+s: talos-r3-snow-004
+25747 ERROR TEST-UNEXPECTED-FAIL | /tests/content/base/test/test_bug482935.html | Received fresh value for second request - got &quot;1&quot;, expected &quot;0&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402623</commentid>
+            <who name="TinderboxPushlog Robot">tbplbot</who>
+            <bug_when>2011-04-11 19:40:01 -0700</bug_when>
+            <thetext>ehsan%mozilla.com
+http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1302574653.1302575554.24976.gz
+Rev3 MacOSX Snow Leopard 10.6.2 mozilla-central opt test mochitests-1/5 on 2011/04/11 19:17:33
+
+s: talos-r3-snow-004
+25747 ERROR TEST-UNEXPECTED-FAIL | /tests/content/base/test/test_bug482935.html | Received fresh value for second request - got &quot;1&quot;, expected &quot;0&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402624</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-11 19:40:26 -0700</bug_when>
+            <thetext>The push right after that says &quot;nope, not quite fixed.&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402627</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-11 19:41:19 -0700</bug_when>
+            <thetext>Hmm, seems like this is now more flaky... :/</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524696</attachid>
+            <date>2011-04-08 11:50:00 -0700</date>
+            <delta_ts>2011-04-11 17:08:14 -0700</delta_ts>
+            <desc>Changes setTimeout to executeSoon [checked-in]</desc>
+            <filename>orange-648485.patch</filename>
+            <type>text/plain</type>
+            <size>2671</size>
+            <attacher>mounir.lamouri</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgMWU3OGJmY2E3M2Q0MWQzNDZhNTJhYTgxY2Y0
+NDcwMTAwNTgwYmEyMwojIFVzZXIgTW91bmlyIExhbW91cmkgPG1vdW5pci5sYW1vdXJpQGdtYWls
+LmNvbT4KIyBEYXRlIDEzMDIyODgzODMgMjUyMDAKCmRpZmYgLS1naXQgYS9jb250ZW50L2Jhc2Uv
+dGVzdC90ZXN0X2J1ZzQ4MjkzNS5odG1sIGIvY29udGVudC9iYXNlL3Rlc3QvdGVzdF9idWc0ODI5
+MzUuaHRtbAotLS0gYS9jb250ZW50L2Jhc2UvdGVzdC90ZXN0X2J1ZzQ4MjkzNS5odG1sCisrKyBi
+L2NvbnRlbnQvYmFzZS90ZXN0L3Rlc3RfYnVnNDgyOTM1Lmh0bWwKQEAgLTI1LDM0ICsyNSwzNCBA
+QCBmdW5jdGlvbiB0ZXN0Q2FuY2VsSW5QaGFzZTQoKSB7CiAKICAgY2xlYXJDYWNoZSgpOwogCiAg
+IC8vIEZpcnN0IHJlcXVlc3QgLSBzaG91bGQgYmUgbG9hZGVkIGZyb20gc2VydmVyCiAgIHZhciB4
+aHIgPSBuZXcgWE1MSHR0cFJlcXVlc3QoKTsKICAgeGhyLmFkZEV2ZW50TGlzdGVuZXIoInJlYWR5
+c3RhdGVjaGFuZ2UiLCBmdW5jdGlvbihlKSB7CiAgICAgaWYgKHhoci5yZWFkeVN0YXRlID49IDQp
+IHsKICAgICAgIHhoci5hYm9ydCgpOwotICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpIHsKKyAg
+ICAgIFNpbXBsZVRlc3QuZXhlY3V0ZVNvb24oZnVuY3Rpb24oKSB7CiAgICAgICAgIC8vIFRoaXMg
+cmVxdWVzdCB3YXMgY2FuY2VsbGVkLCBzbyB0aGUgcmVzcG9uc2VUZXh0IHNob3VsZCBiZSBlbXB0
+eSBzdHJpbmcKICAgICAgICAgaXMoeGhyLnJlc3BvbnNlVGV4dCwgIiIsICJFeHBlY3RlZCBlbXB0
+eSByZXNwb25zZSB0byBjYW5jZWxsZWQgcmVxdWVzdCIpOwogCiAgICAgICAgIC8vIFNlY29uZCBy
+ZXF1ZXN0IC0gc2hvdWxkIGJlIGZvdW5kIGluIGNhY2hlCiAgICAgICAgIHZhciB4aHIyID0gbmV3
+IFhNTEh0dHBSZXF1ZXN0KCk7CiAgICAgICAgIHhocjIub3BlbigiR0VUIiwgdXJsLCBmYWxzZSk7
+IC8vIG5vdGUgOiBzeW5jaC1yZXF1ZXN0CiAgICAgICAgIHhocjIuc2V0UmVxdWVzdEhlYWRlcigi
+WC1SZXF1ZXN0IiwgIjEiLCBmYWxzZSk7CiAKICAgICAgICAgdHJ5IHsgeGhyMi5zZW5kKCk7IH0K
+ICAgICAgICAgY2F0Y2goZSkgewogICAgICAgICAgIGlzKHhocjIuc3RhdHVzLCAiMjAwIiwgIkV4
+Y2VwdGlvbiEiKTsKICAgICAgICAgfQogCiAgICAgICAgIGlzKHhocjIucmVzcG9uc2VUZXh0LCAi
+MCIsICJSZWNlaXZlZCBmcmVzaCB2YWx1ZSBmb3Igc2Vjb25kIHJlcXVlc3QiKTsKICAKICAgICAg
+ICAgdGVzdENhbmNlbEJlZm9yZVBoYXNlNCgpOwotICAgICAgfSwgMTAwKTsKKyAgICAgIH0pOwog
+ICAgIH0KICAgfSwgZmFsc2UpOwogCiAgIHhoci5vcGVuKCJHRVQiLCB1cmwsIHRydWUpOwogICB4
+aHIuc2V0UmVxdWVzdEhlYWRlcigiWC1SZXF1ZXN0IiwgIjAiLCBmYWxzZSk7CiAgIHRyeSB7IHho
+ci5zZW5kKCk7IH0KICAgY2F0Y2goZSkgewogICAgIGlzKCJOb3RoaW5nIiwgIkV4Y2VwdGlvbiIs
+ICJCb29tOiAiICsgZSk7CkBAIC02NSwzNCArNjUsMzQgQEAgZnVuY3Rpb24gdGVzdENhbmNlbEJl
+Zm9yZVBoYXNlNCgpIHsKIAogICBjbGVhckNhY2hlKCk7CiAKICAgLy8gRmlyc3QgcmVxdWVzdCAt
+IHNob3VsZCBiZSBsb2FkZWQgZnJvbSBzZXJ2ZXIKICAgdmFyIHhociA9IG5ldyBYTUxIdHRwUmVx
+dWVzdCgpOwogICB4aHIuYWRkRXZlbnRMaXN0ZW5lcigicmVhZHlzdGF0ZWNoYW5nZSIsIGZ1bmN0
+aW9uKGUpIHsKICAgICBpZiAoeGhyLnJlYWR5U3RhdGUgPT0gMykgewogICAgICAgeGhyLmFib3J0
+KCk7Ci0gICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCkgeworICAgICAgU2ltcGxlVGVzdC5leGVj
+dXRlU29vbihmdW5jdGlvbigpIHsKICAgICAgICAgLy8gVGhpcyByZXF1ZXN0IHdhcyBjYW5jZWxs
+ZWQsIHNvIHRoZSByZXNwb25zZVRleHQgc2hvdWxkIGJlIGVtcHR5IHN0cmluZwogICAgICAgICBp
+cyh4aHIucmVzcG9uc2VUZXh0LCAiIiwgIkV4cGVjdGVkIGVtcHR5IHJlc3BvbnNlIHRvIGNhbmNl
+bGxlZCByZXF1ZXN0Iik7CiAKICAgICAgICAgLy8gU2Vjb25kIHJlcXVlc3QgLSBzaG91bGQgYmUg
+Zm91bmQgaW4gY2FjaGUKICAgICAgICAgdmFyIHhocjIgPSBuZXcgWE1MSHR0cFJlcXVlc3QoKTsK
+ICAgICAgICAgeGhyMi5vcGVuKCJHRVQiLCB1cmwsIGZhbHNlKTsgLy8gbm90ZSA6IHN5bmNoLXJl
+cXVlc3QKICAgICAgICAgeGhyMi5zZXRSZXF1ZXN0SGVhZGVyKCJYLVJlcXVlc3QiLCAiMSIsIGZh
+bHNlKTsKIAogICAgICAgICB0cnkgeyB4aHIyLnNlbmQoKTsgfQogICAgICAgICBjYXRjaChlKSB7
+CiAgICAgICAgICAgaXMoeGhyMi5zdGF0dXMsICIyMDAiLCAiRXhjZXB0aW9uISIpOwogICAgICAg
+ICB9CiAKICAgICAgICAgaXMoeGhyMi5yZXNwb25zZVRleHQsICIxIiwgIlJlY2VpdmVkIGNhY2hl
+ZCB2YWx1ZSBmb3Igc2Vjb25kIHJlcXVlc3QiKTsKIAogICAgICAgICBTaW1wbGVUZXN0LmZpbmlz
+aCgpOwotICAgICAgfSwgMTAwKTsKKyAgICAgIH0pOwogICAgIH0KICAgfSwgZmFsc2UpOwogCiAg
+IHhoci5vcGVuKCJHRVQiLCB1cmwsIHRydWUpOwogICB4aHIuc2V0UmVxdWVzdEhlYWRlcigiWC1S
+ZXF1ZXN0IiwgIjAiLCBmYWxzZSk7CiAgIHRyeSB7IHhoci5zZW5kKCk7IH0KICAgY2F0Y2goZSkg
+ewogICAgIGlzKCJOb3RoaW5nIiwgIkV4Y2VwdGlvbiIsICJCb29tOiAiICsgZSk7Cg==
+</data>
+<flag name="review"
+          id="438317"
+          type_id="4"
+          status="+"
+          setter="ehsan"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

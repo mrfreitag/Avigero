@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648266</bug_id>
+          
+          <creation_ts>2011-04-07 07:58:00 -0700</creation_ts>
+          <short_desc>SVG animate path d subpath of zero length rendering residuals</short_desc>
+          <delta_ts>2011-04-09 08:58:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>SVG</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://hoffmann.bplaced.net/mozilla/path58.svg</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>648748</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dr. Olaf Hoffmann">dr.o.hoffmann</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>jwatt</cc>
+    
+    <cc>longsonr</cc>
+    
+    <cc>roc</cc>
+          <qa_contact name="General SVG Bugs">general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394401</commentid>
+            <who name="Dr. Olaf Hoffmann">dr.o.hoffmann</who>
+            <bug_when>2011-04-07 07:58:58 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+The path d attribute is animated with several combinations of the commands M, m, Z, z producing zero length subpaths with round linecaps, to be displayed therefore as blue circles.
+Apart from the problem that several suppaths are not displayed (maybe bug 584623 ? -if this is not covered by 584623, this is another problem available with this sample), there is a remaining trace of residuals from the one blue subpath, that is rendered. All subpaths should be displayed as blue circles covering always the red circles completely (the blue circles are larger than the red simulations). Gray circles indicate initial and final positions.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Try the example given at the URI above
+2. Compare with desc(ription) and specification
+3. Compare with behaviour of Batik/Squiggle, Adobe plugin, WebKit
+Actual Results:  
+a) Only one blue circle visible at all (maybe due to bug 584623, maybe for other reasons)
+
+b) There remain residuals from the animated circle at previous positions
+(this can be cleared for example by switching to another tab and back again)
+
+c) The appearance of the residuals depends on the transformed red circles as
+well, if this group is removed from the file, there are less residuals, but
+still at most only one blue circle or some residuals from this circle.
+Therefore parts of the residuals seem to be produced by the transformed group
+of red circles below, but not all.
+
+Expected Results:  
+Blue circles should always cover the red circles, animating between the initial
+and final positions indicated as gray circles. 
+Everything else but circles indicate an error (trace residuals).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395859</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 21:02:39 -0700</bug_when>
+            <thetext>Yep, looks like an invalidation issue.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395860</commentid>
+              <attachid>524565</attachid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 21:02:58 -0700</bug_when>
+            <thetext>Created attachment 524565
+The testcase</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524565</attachid>
+            <date>2011-04-07 21:02:00 -0700</date>
+            <delta_ts>2011-04-07 21:02:58 -0700</delta_ts>
+            <desc>The testcase</desc>
+            <filename>test.svg</filename>
+            <type>image/svg+xml</type>
+            <size>2510</size>
+            <attacher>bzbarsky</attacher>
+            
+              <data encoding="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSIgPz4KPCFET0NUWVBFIHN2
+ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyBUaW55IDEuMS8vRU4iCiJodHRwOi8vd3d3LnczLm9y
+Zy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS10aW55LmR0ZCI+Cjxzdmcgd2lkdGg9IjUwMHB4
+IiBoZWlnaHQ9IjUwMHB4IiB2aWV3Qm94PSItNTAwIC01MDAgMTAwMCAxMDAwIgogIHhtbG5zPSJo
+dHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiBiYXNlUHJvZmlsZT0idGlu
+eSIKICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIKICBmaWxsPSJu
+b25lIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2UtbGluZWNhcD0icm91bmQiPgoKPHRp
+dGxlPmFuaW1hdGlvbiB0ZXN0OiBwYXRoPC90aXRsZT4KPGRlc2M+CmFuaW1hdGUgYW5pbWF0aW9u
+IHRlc3Qgb2YgYSBzcGVjaWZpYyBhdHRyaWJ1dGUgb2YgdGhlIHBhdGgtZWxlbWVudDoKZCAocmVw
+cmVzZW50ZWQgYnkgYSBibHVlIGN1cnZlKQpjaGFuZ2VzIGZyb20gdGhlIGRhcmsgZ3JheSBjdXJ2
+ZSB0byB0aGUgbGlnaHQgZ3JheSBjdXJ2ZSBpbiAxMHMuCgpQYXRocyBvZiB6ZXJvIGxlbmd0aHMg
+YXJlIGdlbmVyYXRlZCB3aXRoIHNldmVyYWwgY29tYmluYXRpb25zCm9mIHRoZSBjb21tYW5kcyBN
+LCBtLCBaLCB6LgoKCgpGb3IgY29tcGFyaXNvbiBhbiBhbmltYXRlVHJhbnNmb3JtIG9mIHJlZCBj
+aXJjbGVzIGlzIHByb3ZpZGVkLApkdWUgdG8gdGhlIHNwZWNpZmljIGNob2ljZSBvZiB0aGUgcGF0
+aCBkYXRhLCB0aGlzIGhhcyB0aGUgc2FtZSB2aXN1YWwKZWZmZWN0LiBUaGUgYmx1ZSBwYXRoIGhh
+cyB0byBjb3ZlciB0aGUgcmVkIGNpcmNsZXMgY29tcGxldGVseS4KSWYgc29tZXRoaW5nIHJlZCBn
+ZXRzIHZpc2libGUsIGFuIGVycm9yIGlzIG9jY3VyZWQuCjwvZGVzYz4KCgoKCjxnIHN0cm9rZT0i
+bm9uZSIgZmlsbD0iIzY2NiI+CjxjaXJjbGUgY3g9Ii0zMDAiIGN5PSItMzAwIiByPSIzMCIgIC8+
+CjxjaXJjbGUgY3g9IjQwMCIgY3k9IjQwMCIgcj0iMzAiICAvPgo8Y2lyY2xlIGN4PSIzMDAiIGN5
+PSItMzAwIiByPSIzMCIgIC8+CjxjaXJjbGUgY3g9Ii00MDAiIGN5PSI0MDAiIHI9IjMwIiAgLz4K
+CjxjaXJjbGUgY3g9IjAiIGN5PSI0MDAiIHI9IjMwIiAgLz4KPGNpcmNsZSBjeD0iMCIgY3k9Ii0z
+MDAiIHI9IjMwIiAgLz4KPGNpcmNsZSBjeD0iNDAwIiBjeT0iMCIgcj0iMzAiICAvPgo8Y2lyY2xl
+IGN4PSItMzAwIiBjeT0iMCIgcj0iMzAiICAvPgo8L2c+CjxnIHN0cm9rZT0ibm9uZSIgZmlsbD0i
+I2NjYyI+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjMwMCIgcj0iMjUiICAvPgo8Y2lyY2xlIGN4PSIt
+NDAwIiBjeT0iLTQwMCIgcj0iMjUiICAvPgo8Y2lyY2xlIGN4PSItMzAwIiBjeT0iMzAwIiByPSIy
+NSIgIC8+CjxjaXJjbGUgY3g9IjQwMCIgY3k9Ii00MDAiIHI9IjI1IiAgLz4KCjxjaXJjbGUgY3g9
+IjAiIGN5PSItNDAwIiByPSIyNSIgIC8+CjxjaXJjbGUgY3g9IjAiIGN5PSIzMDAiIHI9IjI1IiAg
+Lz4KPGNpcmNsZSBjeD0iLTQwMCIgY3k9IjAiIHI9IjI1IiAgLz4KPGNpcmNsZSBjeD0iMzAwIiBj
+eT0iMCIgcj0iMjUiICAvPgo8L2c+CgoKCjxnIHN0cm9rZT0ibm9uZSIgZmlsbD0icmVkIj4KPHRp
+dGxlPnRyYW5zZm9ybWVkIHJlZCBwYXRoIGZvciBjb21wYXJpc29uPC90aXRsZT4KPGFuaW1hdGVU
+cmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJzY2FsZSIgdmFsdWVzPSIx
+LDE7IC0xLC0xIiBkdXI9IjEwcyIgZmlsbD0iZnJlZXplIiAvPgo8Y2lyY2xlIGN4PSItMzAwIiBj
+eT0iLTMwMCIgcj0iMTciICAvPgo8Y2lyY2xlIGN4PSI0MDAiIGN5PSI0MDAiIHI9IjE3IiAgLz4K
+PGNpcmNsZSBjeD0iMzAwIiBjeT0iLTMwMCIgcj0iMTciICAvPgo8Y2lyY2xlIGN4PSItNDAwIiBj
+eT0iNDAwIiByPSIxNyIgIC8+Cgo8Y2lyY2xlIGN4PSIwIiBjeT0iNDAwIiByPSIxNyIgIC8+Cjxj
+aXJjbGUgY3g9IjAiIGN5PSItMzAwIiByPSIxNyIgIC8+CjxjaXJjbGUgY3g9IjQwMCIgY3k9IjAi
+IHI9IjE3IiAgLz4KPGNpcmNsZSBjeD0iLTMwMCIgY3k9IjAiIHI9IjE3IiAgLz4KPC9nPgoKCjxw
+YXRoIGlkPSJwMSIKZD0iTS0zMDAgLTMwMFpNNDAwIDQwMHoKTTMwMCAtMzAwek0tNDAwIDQwMFoK
+bTQwMCAwWm0wIC03MDB6Cm00MDAgMzAwem0tNzAwIDBaCiIKCXN0cm9rZT0iYmx1ZSIKCXN0cm9r
+ZS13aWR0aD0iNDAiIC8+CjxhbmltYXRlIHhsaW5rOmhyZWY9IiNwMSIKCWF0dHJpYnV0ZU5hbWU9
+ImQiCglhdHRyaWJ1dGVUeXBlPSJYTUwiCmZyb209Ik0tMzAwIC0zMDBaTTQwMCA0MDB6Ck0zMDAg
+LTMwMHpNLTQwMCA0MDBaCm00MDAgMFptMCAtNzAwegptNDAwIDMwMHptLTcwMCAwWiIKdG89Ik0z
+MDAgMzAwWk0tNDAwIC00MDB6Ck0tMzAwIDMwMHpNNDAwIC00MDBaCm0tNDAwIDBabTAgNzAwIHoK
+bS00MDAgLTMwMHptNzAwIDBaIgoJZHVyPSIxMHMiCglmaWxsPSJmcmVlemUiIC8+CgoKPC9zdmc+
+Cgo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

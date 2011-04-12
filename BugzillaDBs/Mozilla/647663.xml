@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647663</bug_id>
+          
+          <creation_ts>2011-04-04 03:47:00 -0700</creation_ts>
+          <short_desc>Aza Raskin image at the very bottom right of Careers page</short_desc>
+          <delta_ts>2011-04-06 12:05:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Tobias Markus (:Tobbi) [SUMO, QA, Calendar website owner]">tobbi.bugs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jslater</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>morgamic</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389934</commentid>
+            <who name="Tobias Markus (:Tobbi) [SUMO, QA, Calendar website owner]">tobbi.bugs</who>
+            <bug_when>2011-04-04 03:47:09 -0700</bug_when>
+            <thetext>On http://www.mozilla.com/en-US/about/careers.html#feature-first-person you can find that Aza Raskin&apos;s image is at the very bottom right of the pane. 
+
+I guess that&apos;s not intended behaviour?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392448</commentid>
+            <who name="Laura Forrest">lforrest</who>
+            <bug_when>2011-04-06 09:51:20 -0700</bug_when>
+            <thetext>Hey John - what type of images do we want to show in these shots - past and present employees &amp; contributors, or just current employees meaning we should remove past employees?
+
+Cc-ing Morgamic as I know he has a special love for the careers section of the site.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392890</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-06 12:05:42 -0700</bug_when>
+            <thetext>Yeah, the larger issue here is that this content needs a refresh - Aza isn&apos;t the only ex-employee in our careers section.
+
+We do need to update the content on this page in general, though. Laura - thoughts on an upcoming release we could fit this into? It might take a bit longer than a usual page update b/c we&apos;ll also need to work with the recruiting team on content direction.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

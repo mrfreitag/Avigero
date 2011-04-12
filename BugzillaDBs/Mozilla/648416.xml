@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648416</bug_id>
+          
+          <creation_ts>2011-04-07 16:39:00 -0700</creation_ts>
+          <short_desc>Add-on validator should flag known hidden files and folders</short_desc>
+          <delta_ts>2011-04-07 17:30:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Developer Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.mozilla.org/en-US/developers/addon/spedr-url-shorter/file/116373/validation</bug_file_loc>
+          <status_whiteboard>[required amo-editors]</status_whiteboard>
+          
+          <priority>P3</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>6.0.8</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jorge Villalobos [:jorgev]">jorge</reporter>
+          <assigned_to name="Matt Basta (:basta)">mbasta</assigned_to>
+          
+          <qa_contact>developers</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395442</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-07 16:39:48 -0700</bug_when>
+            <thetext>I think this should be easy to implement and would save us some time since we end up accepting add-ons with this minor defect. It&apos;d be best if developers know right away and then fix the add-on before uploading.
+
+This should be a Warning. It should appear when the XPI has a file or folder beginning with &apos;.&apos;, or a folder named &apos;__MACOSX&apos;. This should cover the majority of cases.
+
+The message should be something like:
+
+&quot;Hidden files and folders difficult the review process and can contain sensitive information about the system that generated the XPI. Please modify the packaging process so that these files aren&apos;t included.&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395573</commentid>
+            <who name="Matt Basta (:basta)">mbasta</who>
+            <bug_when>2011-04-07 17:30:06 -0700</bug_when>
+            <thetext>We&apos;ve already got messages for both of those cases. I&apos;ll convert it to a warning if it isn&apos;t already.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648527</bug_id>
+          
+          <creation_ts>2011-04-08 07:20:00 -0700</creation_ts>
+          <short_desc>Bookmark tags are not saved</short_desc>
+          <delta_ts>2011-04-08 07:22:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>Bookmarks</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andreea Pod">andreea.pod</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>anamaria.moldovan</cc>
+    
+    <cc>ioana.chiorean</cc>
+    
+    <cc>mozaakash</cc>
+    
+    <cc>nicolae.cristian</cc>
+    
+    <cc>tchung</cc>
+          <qa_contact>bookmarks</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396404</commentid>
+            <who name="Andreea Pod">andreea.pod</who>
+            <bug_when>2011-04-08 07:20:02 -0700</bug_when>
+            <thetext>Mozilla /5.0 (Android;Linux armv7l;rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre Fennec /4.1a1pre 
+Device: Samsung Captivate (Android 2.1 update 1)
+
+Steps to reproduce:
+1. Go to any page
+2. Tap on the White Star to bookmark the webpage
+4. Tap on Edit button
+5. Add a tag and press Done
+6. Tap on the Yellow Star &gt; Edit
+
+Expected results:
+You should be able to see the tag in tag field.
+
+Actual result:
+No tag in the field. Please see the video: http://www.youtube.com/user/qaioana#p/u/0/bBn3Tcwlu-A</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

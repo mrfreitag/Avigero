@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647996</bug_id>
+          
+          <creation_ts>2011-04-06 07:44:00 -0700</creation_ts>
+          <short_desc>Intermittent /tests/dom/indexedDB/test/test_index_object_cursors.html | indexedDB error, code 1 | [SimpleTest/SimpleTest.js, window.onerror] An error occurred - [object Event] at undefined:undefined</short_desc>
+          <delta_ts>2011-04-06 07:44:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>DOM</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bent.mozilla</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392267</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-06 07:44:39 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=TraceMonkey/1302100086.1302100717.23078.gz
+Rev3 WINNT 5.1 tracemonkey opt test mochitests-2/5 on 2011/04/06 07:28:06
+s: talos-r3-xp-024
+
+1634 INFO TEST-PASS | /tests/dom/indexedDB/test/test_index_object_cursors.html | Got objectStore 4
+1635 INFO TEST-PASS | /tests/dom/indexedDB/test/test_index_object_cursors.html | Got index name
+1636 ERROR TEST-UNEXPECTED-FAIL | /tests/dom/indexedDB/test/test_index_object_cursors.html | indexedDB error, code 1
+1637 ERROR TEST-UNEXPECTED-FAIL | /tests/dom/indexedDB/test/test_index_object_cursors.html | [SimpleTest/SimpleTest.js, window.onerror] An error occurred - [object Event] at undefined:undefined
+1638 INFO TEST-END | /tests/dom/indexedDB/test/test_index_object_cursors.html | finished in 4025ms</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

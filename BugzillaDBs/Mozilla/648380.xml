@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648380</bug_id>
+          
+          <creation_ts>2011-04-07 15:30:00 -0700</creation_ts>
+          <short_desc>Mozmill test for (un)pinning app tabs</short_desc>
+          <delta_ts>2011-04-07 15:30:30 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla QA</product>
+          <component>Mozmill Tests</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Anthony Hughes (:ashughes)">anthony.s.hughes</reporter>
+          <assigned_to name="Shriram ( irc: Mavericks )">kshriram18</assigned_to>
+          
+          <qa_contact>mozmill-tests</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395253</commentid>
+            <who name="Anthony Hughes (:ashughes)">anthony.s.hughes</who>
+            <bug_when>2011-04-07 15:30:30 -0700</bug_when>
+            <thetext>https://litmus.mozilla.org/show_test.cgi?id=12094
+https://litmus.mozilla.org/show_test.cgi?id=12767
+
+Tracking bug for the creation of an automated test for pinning/unpinning App tabs, as per the above Litmus testcases. I think it makes the most sense to cover both of these in a single test module.
+
+Shriram, our newest Mozmill contributor, has agreed to work on this test.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

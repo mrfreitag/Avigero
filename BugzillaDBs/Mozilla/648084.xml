@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648084</bug_id>
+          
+          <creation_ts>2011-04-06 12:21:00 -0700</creation_ts>
+          <short_desc>Firefox 4.2a1pre crash [@ nsRefPtr&lt;nsIDOMEventListener&gt;::~nsRefPtr&lt;nsIDOMEventListener&gt;() | nsBaseCommandController::`scalar deleting destructor&apos;&apos;(unsigned int)]</short_desc>
+          <delta_ts>2011-04-07 09:53:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows NT</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392926</commentid>
+            <who name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</who>
+            <bug_when>2011-04-06 12:21:22 -0700</bug_when>
+            <thetext>This bug was filed from the Socorro interface and is 
+report bp-4c2ebb5d-d8f5-4b94-a0ab-6c9142110401 .
+============================================================= 
+
+Frame 	Module 	Signature [Expand] 	Source
+0 	xul.dll 	nsRefPtr&lt;nsIDOMEventListener&gt;::~nsRefPtr&lt;nsIDOMEventListener&gt; 	obj-firefox/dist/include/nsAutoPtr.h:969
+1 	xul.dll 	nsBaseCommandController::`scalar deleting destructor&apos; 	
+2 	xul.dll 	nsBaseCommandController::Release 	embedding/components/commandhandler/src/nsBaseCommandController.cpp:47
+3 	xul.dll 	nsRefPtr&lt;nsIDOMEventListener&gt;::~nsRefPtr&lt;nsIDOMEventListener&gt; 	obj-firefox/dist/include/nsAutoPtr.h:969
+4 	xul.dll 	nsXULControllers::DeleteControllers 	content/xul/document/src/nsXULControllers.cpp:75
+5 	xul.dll 	nsXULControllers::cycleCollection::Unlink 	content/xul/document/src/nsXULControllers.cpp:102
+6 	xul.dll 	nsCycleCollector::CollectWhite 	xpcom/base/nsCycleCollector.cpp:1920
+7 	xul.dll 	nsCycleCollector::FinishCollection 	xpcom/base/nsCycleCollector.cpp:2728
+8 	xul.dll 	nsCycleCollectorRunner::Collect 	xpcom/base/nsCycleCollector.cpp:3372
+9 	xul.dll 	nsCycleCollector_collect 	xpcom/base/nsCycleCollector.cpp:3438
+10 	xul.dll 	nsJSContext::CycleCollectNow 	dom/base/nsJSEnvironment.cpp:3272
+11 	xul.dll 	CCTimerFired 	dom/base/nsJSEnvironment.cpp:3312
+12 	xul.dll 	nsTimerImpl::Fire 	xpcom/threads/nsTimerImpl.cpp:425
+13 	xul.dll 	nsTimerEvent::Run 	xpcom/threads/nsTimerImpl.cpp:517
+14 	xul.dll 	nsThread::ProcessNextEvent 	xpcom/threads/nsThread.cpp:633
+15 	xul.dll 	TimerThread::RemoveTimer 	xpcom/threads/TimerThread.cpp:429
+16 	xul.dll 	MessageLoop::RunInternal 	ipc/chromium/src/base/message_loop.cc:219
+17 	xul.dll 	MessageLoop::RunHandler 	ipc/chromium/src/base/message_loop.cc:202
+18 	mozcrt19.dll 	_VEC_memzero 	
+19 	xul.dll 	xul.dll@0x37079f 	
+20 	firefox.exe 	firefox.exe@0x1bb7 	
+21 	kernel32.dll 	GetCodePageFileInfo 	
+22 	kernel32.dll 	BaseProcessStart 	
+23 	firefox.exe 	firefox.exe@0x186f</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

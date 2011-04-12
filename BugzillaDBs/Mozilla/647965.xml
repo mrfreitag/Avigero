@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647965</bug_id>
+          
+          <creation_ts>2011-04-06 03:13:00 -0700</creation_ts>
+          <short_desc>link to release notes missing from Fx4 firstrun page (and from Fx4 menus)</short_desc>
+          <delta_ts>2011-04-06 14:14:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla.com/firefox/4.0/firstrun</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Arne Stenström">temporary7</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>david</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>pascalc</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392096</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 03:13:50 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+There is no link to the release notes from the Firefox 4 firstrun/Welcome page, which in my case is:
+
+http://www.mozilla.com/sv-SE/firefox/4.0/firstrun
+
+also missing from http://www.mozilla.com/en-US/firefox/4.0/firstrun
+
+This is especially bad because a link to the release notes is nowhere to be found in the menus of Firefox 4 itself. Not in the &quot;About&quot; window, and not in any of the pages opened by entries in the &quot;Help&quot; menu. (I&apos;ll file a separate bug on Firefox regarding this.)
+
+
+
+Reproducible: Always
+
+
+
+Expected Results:  
+There should be an easily found link to the release notes.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392109</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 03:43:07 -0700</bug_when>
+            <thetext>See also Bug 647967</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392245</commentid>
+            <who name="David Boswell">david</who>
+            <bug_when>2011-04-06 07:24:52 -0700</bug_when>
+            <thetext>FWIW, I&apos;ve received comments that it was very difficult to find the release notes on the Firefox download site from people emailing the mozilla.org webmaster address.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392275</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 07:50:53 -0700</bug_when>
+            <thetext>I see now there&apos;s a release notes link on the Swedish &quot;Features&quot; page, which is prominently linked from the Swedish firstrun page. Good enough.
+
+--
+But starting the en-US browser, I can&apos;t find a release notes link anywhere by navigating from the firstrun page.
+
+I notice that if I navigate to http://www.mozilla.com/en-US/firefox/central/ , there&apos;s no release notes link below the green download link, but if I paste in for example the address http://www.mozilla-europe.org/en/firefox/features/ , a release notes link appears below the green download link on that page. This is using the en-US browser.
+
+But this is already reported Bug 643952.
+
+--
+For this bug, I think a link on a prominent secondary page would be good enough (even though I would prefer it to be on the firstrun page), so I will accept a wontfix.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392286</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 08:03:33 -0700</bug_when>
+            <thetext>But, of course, the release notes link attached to a download link, I suppose it links to the release notes for the version to be downloaded (the currently latest version). But what I am requesting is a link to the release notes for the currently _used_ browser.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392339</commentid>
+            <who name="Arne Stenström">temporary7</who>
+            <bug_when>2011-04-06 08:56:33 -0700</bug_when>
+            <thetext>So, what I said was &quot;Good enough&quot; above is not really good enough, since it is a link to the release notes for the version to be downloaded, and not for the currently used version.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

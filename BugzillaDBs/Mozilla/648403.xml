@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648403</bug_id>
+          
+          <creation_ts>2011-04-07 16:13:00 -0700</creation_ts>
+          <short_desc>Web influencer  page does not validate</short_desc>
+          <delta_ts>2011-04-07 16:48:15 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="raymond [:retornam]">mozbugs.retornam</reporter>
+          <assigned_to name="Craig Cook">craigcook.bugz</assigned_to>
+          <cc>craigcook.bugz</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395367</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-07 16:13:36 -0700</bug_when>
+            <thetext>1) Page does not validate
+http://validator.nu/?doc=https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395454</commentid>
+            <who name="Craig Cook">craigcook.bugz</who>
+            <bug_when>2011-04-07 16:43:28 -0700</bug_when>
+            <thetext>The unencoded ampersands are in the global header so every page will throw those errors (they&apos;re kosher in HTML5 anyway). But I did miss some closing tags. Fixed in r87089.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395461</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-07 16:48:15 -0700</bug_when>
+            <thetext>qa-verified-trunk http://validator.nu/?doc=https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

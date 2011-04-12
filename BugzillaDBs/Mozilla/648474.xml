@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648474</bug_id>
+          
+          <creation_ts>2011-04-07 21:04:00 -0700</creation_ts>
+          <short_desc>Send out 2.1b3 announcement</short_desc>
+          <delta_ts>2011-04-07 21:11:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Release Engineering</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647928</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Justin Wood (:Callek)">bugspam.Callek</assigned_to>
+          <cc>bugspam.Callek</cc>
+    
+    <cc>dominique</cc>
+    
+    <cc>jh</cc>
+    
+    <cc>kairo</cc>
+          <qa_contact>release</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395862</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-07 21:04:44 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #634171 +++
+
+For better documentation of release day work, I&apos;m filing this step as well this time, might also be a good idea in the future.
+
+As soon as the website is live with the new release, the announcement for it should be put up on the blog and sent to the newsgroups as well as the announce list.
+
+To do:
+
+* SeaMonkey blog
+* Newsgroups done:
+  -  Newsgroups:
+mozilla.dev.apps.seamonkey,mozilla.support.seamonkey,mozilla.dev.planning,netscape.public.mozilla.seamonkey,mozilla.dev.l10n
+  - Followup-To: mozilla.dev.apps.seamonkey
+* announce@lists.mozilla.org
+* about-mozilla@mozilla.com
+* update the /topic in #seamonkey with the release.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395873</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-07 21:11:22 -0700</bug_when>
+            <thetext>(In reply to comment #0)
+&gt; +++ This bug was initially created as a clone of Bug #634171 +++
+&gt; To do:
+&gt; 
+&gt; * Newsgroups done:
+&gt; * announce@lists.mozilla.org
+&gt; * about-mozilla@mozilla.com
+
+Done (Sadly through Thunderbird as my local compile failed while I was away, and just wanted to get this out now)
+
+&gt; * SeaMonkey blog
+&gt; * update the /topic in #seamonkey with the release.
+
+Doing now.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

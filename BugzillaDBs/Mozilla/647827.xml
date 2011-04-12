@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647827</bug_id>
+          
+          <creation_ts>2011-04-05 08:36:00 -0700</creation_ts>
+          <short_desc>Image copied from TB message does not paste into new message</short_desc>
+          <delta_ts>2011-04-05 17:48:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>224733</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Russ Ranshaw">home.rr</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dnpyles</cc>
+    
+    <cc>jay</cc>
+    
+    <cc>rsx11m.pub</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391193</commentid>
+            <who name="Russ Ranshaw">home.rr</who>
+            <bug_when>2011-04-05 08:36:15 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 ( .NET CLR 3.5.30729)
+Build Identifier: 3.1.9
+
+1.  Copy an image from a TB message
+2.  Open new message
+3.  Paste into new message
+
+Puts up an outline for the pasted image, with no image, sometimes has a line of text.  Doing Paste Without Formatting gives a long path to the file, usually as an attachment.
+
+Reproducible: Always
+
+Steps to Reproduce:
+See Details.
+
+Actual Results:  
+See details
+
+Expected Results:  
+Copied image does not paste into new message.
+
+Should paste the image rather than an empty image frame with nothing or weird text inside.
+
+Note that if the image copied from a Thunderbird message is first pasted into another app (such as FotoFinish, probably PhotoShop), then copied from that app, it pastes into a new Thunderbird message as expected.
+
+It has been reported that this problem began after the 3pr3 release.  Worked as expected in version 2 and 3pre.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391428</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 12:18:26 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 647825 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391741</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 17:48:23 -0700</bug_when>
+            <thetext>Reduping against the longer pending bug with detailed analysis already.
+
+*** This bug has been marked as a duplicate of bug 224733 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648487</bug_id>
+          
+          <creation_ts>2011-04-07 23:22:00 -0700</creation_ts>
+          <short_desc>Intermittent failure in jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | load failed: timed out while taking snapshot (bug in harness?)</short_desc>
+          <delta_ts>2011-04-08 11:10:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ehsan Akhgari [:ehsan]">ehsan</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>dmandelin</cc>
+    
+    <cc>ehsan</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396048</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-07 23:22:57 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=Cedar/1302241761.1302243013.22226.gz
+Rev3 MacOSX Snow Leopard 10.6.2 cedar debug test jsreftest on 2011/04/07 22:49:21
+
+This looks pretty bad to me...
+
+++DOMWINDOW == 21 (0x126684b68) [serial = 381] [outer = 0x120ab2f30]
+WARNING: An event was posted to a thread that will never run it (rejected): file /builds/slave/ced-osx64-dbg/build/xpcom/threads/nsThread.cpp, line 375
+WARNING: leaking reference to nsTimerImpl: file /builds/slave/ced-osx64-dbg/build/xpcom/threads/nsTimerImpl.cpp, line 490
+REFTEST TEST-START | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js
+++DOMWINDOW == 22 (0x12667b4e8) [serial = 382] [outer = 0x120ab2f30]
+STATUS: 10.1.1 - XML.toString
+STATUS: test empty.toString()
+STATUS: test attribute.toString()
+STATUS: test text.toString()
+STATUS: test simpleContent.toString()
+STATUS: test nonSimpleContent.toString() == nonSimpleContent.toXMLString()
+--DOMWINDOW == 21 (0x127856438) [serial = 374] [outer = 0x120ab2f30] [url = file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/Regress/regress-587434.js]
+--DOMWINDOW == 20 (0x1216c6108) [serial = 365] [outer = 0x120ab2f30] [url = data:text/html,%3C%21%2D%2DCLEAR%2D%2D%3E]
+--DOMWINDOW == 19 (0x12665cfa8) [serial = 373] [outer = 0x120ab2f30] [url = data:text/html,%3C%21%2D%2DCLEAR%2D%2D%3E]
+--DOMWINDOW == 18 (0x11f0403c8) [serial = 368] [outer = 0x120ab2f30] [url = file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/Regress/regress-474319.js]
+--DOMWINDOW == 17 (0x11f055618) [serial = 367] [outer = 0x120ab2f30] [url = data:text/html,%3C%21%2D%2DCLEAR%2D%2D%3E]
+--DOMWINDOW == 16 (0x12789e6b8) [serial = 372] [outer = 0x120ab2f30] [url = file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/Regress/regress-561031.js]
+--DOMWINDOW == 15 (0x1272fb858) [serial = 371] [outer = 0x120ab2f30] [url = data:text/html,%3C%21%2D%2DCLEAR%2D%2D%3E]
+--DOMWINDOW == 14 (0x120dd7ae8) [serial = 370] [outer = 0x120ab2f30] [url = file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/Regress/regress-477053.js]
+--DOMWINDOW == 13 (0x11f0a71c8) [serial = 369] [outer = 0x120ab2f30] [url = data:text/html,%3C%21%2D%2DCLEAR%2D%2D%3E]
+--DOMWINDOW == 12 (0x1240301c8) [serial = 376] [outer = 0x120ab2f30] [url = file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/Statements/12.1.js]
+--DOMWINDOW == 11 (0x120ae94f8) [serial = 375] [outer = 0x120ab2f30] [url = data:text/html,%3C%21%2D%2DCLEAR%2D%2D%3E]
+--DOMWINDOW == 10 (0x12450d7b8) [serial = 378] [outer = 0x120ab2f30] [url = file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/Statements/12.2.js]
+--DOMWINDOW == 9 (0x1278043d8) [serial = 377] [outer = 0x120ab2f30] [url = data:text/html,%3C%21%2D%2DCLEAR%2D%2D%3E]
+--DOMWINDOW == 8 (0x122a51d58) [serial = 380] [outer = 0x120ab2f30] [url = file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/Statements/12.3-01.js]
+REFTEST TEST-UNEXPECTED-FAIL | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | load failed: timed out while taking snapshot (bug in harness?)
+REFTEST INFO | Saved log: START file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js
+REFTEST INFO | Saved log: [CONTENT] OnDocumentLoad triggering AfterOnLoadScripts
+REFTEST INFO | Saved log: Initializing canvas snapshot
+REFTEST INFO | Saved log: [CONTENT] AfterOnLoadScripts belatedly entering WaitForTestEnd
+REFTEST INFO | Saved log: [CONTENT] WaitForTestEnd: Adding listeners
+REFTEST INFO | Saved log: Initializing canvas snapshot
+REFTEST INFO | Saved log: [CONTENT] AfterOnLoadScripts belatedly entering WaitForTestEnd
+REFTEST INFO | Saved log: [CONTENT] WaitForTestEnd: Adding listeners
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: STATE_WAITING_TO_FIRE_INVALIDATE_EVENT
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: dispatching MozReftestInvalidate
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: STATE_WAITING_FOR_REFTEST_WAIT_REMOVAL
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: STATE_WAITING_TO_FINISH
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: Completed
+REFTEST INFO | Loading a blank page
+WARNING: 1 sort operation has occurred for the SQL statement &apos;0x1216767b8&apos;.  See https://developer.mozilla.org/En/Storage/Warnings details.: file /builds/slave/ced-osx64-dbg/build/storage/src/mozStoragePrivateHelpers.cpp, line 139
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 1 of test - 10.1.1 - XML.toString  item 1
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 2 of test - 10.1.1 - XML.toString  item 2
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 3 of test - 10.1.1 - XML.toString  item 3
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 4 of test - 10.1.1 - XML.toString  item 4
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 5 of test - 10.1.1 - XML.toString  item 5
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 6 of test - 10.1.1 - XML.toString  item 6
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 7 of test - 10.1.1 - XML.toString  item 7
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 8 of test - 10.1.1 - XML.toString  item 8
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 9 of test - 10.1.1 - XML.toString  item 9
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 10 of test - 10.1.1 - XML.toString  item 10
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 11 of test - 10.1.1 - XML.toString  item 11
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 12 of test - 10.1.1 - XML.toString  item 12
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 13 of test - 10.1.1 - XML.toString  item 13
+REFTEST TEST-PASS | file:///Users/cltbld/talos-slave/test/build/jsreftest/tests/jsreftest.html?test=e4x/TypeConversion/10.1.1.js | Section 14 of test - 10.1.1 - XML.toString  item 14</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

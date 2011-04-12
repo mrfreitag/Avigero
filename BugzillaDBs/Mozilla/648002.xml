@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648002</bug_id>
+          
+          <creation_ts>2011-04-06 08:45:00 -0700</creation_ts>
+          <short_desc>Redesign Nightly.Mozilla.Org</short_desc>
+          <delta_ts>2011-04-11 13:03:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Marketing</product>
+          <component>Design</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>646943</dependson>
+          <blocked>646236</blocked>
+    
+    <blocked>646880</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Mesa">lmesa</reporter>
+          <assigned_to name="Tara">tshahian</assigned_to>
+          <cc>david</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>gjimenez</cc>
+    
+    <cc>jslater</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>smartell</cc>
+    
+    <cc>tshahian</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>design</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392323</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 08:45:03 -0700</bug_when>
+            <thetext>For phase 2, redesign page to fit general Mozilla Firefox site design
+
+Also for phase 2, add link to Channel selection page (www.mozilla.com/firefox/channel)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393169</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 14:05:45 -0700</bug_when>
+            <thetext>Thanks Laura.  Could you also add the deadline to hand off design files please?  Thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396885</commentid>
+            <who name="David Boswell">david</who>
+            <bug_when>2011-04-08 10:53:32 -0700</bug_when>
+            <thetext>In addition to updating the look of this site, I think it makes sense to add some content about what people can do with the nightly after installing it (running tests, filing bugs, etc.).
+
+This information about what to do with the nightly was previously presented to people after they installed and started things with the Minefield start page at
+
+http://www.mozilla.org/projects/minefield/
+
+I believe this page has been replaced in the nightlies with the about:home page so we need to provide this information to users somewhere else and it makes sense to provide at least some of it on nightly.mozilla.org.
+
+I just talked to Laura Mesa about this and she thought it made sense too.  If people agree, we can create some content to add to the site.  Maybe it would be as simple as &apos;After downloading the nightly, learn more about how you can test things to make the next version of Firefox better&apos; with a link to a page with all the details.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401289</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-11 13:03:07 -0700</bug_when>
+            <thetext>Hey guys
+
+Lets sync up in person to go over what you&apos;re thinking in terms of the redesign.  Is this more of a light update with new skin? or restructuring the layout and adding more copy/content.  Would be great to catch up in person and figure out those details. Also, if you can let me know the design handoff date that would be helpful in terms of planning.... thanks.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

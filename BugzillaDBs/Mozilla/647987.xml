@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647987</bug_id>
+          
+          <creation_ts>2011-04-06 06:18:00 -0700</creation_ts>
+          <short_desc>Maemo permaorange in layout/style/crashtests/645951-1.html - can&apos;t drawWindow remote content</short_desc>
+          <delta_ts>2011-04-06 06:20:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Style System (CSS)</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Maemo</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jmaher</cc>
+    
+    <cc>jones.chris.g</cc>
+          <qa_contact>style-system</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392204</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-06 06:18:38 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=TraceMonkey/1302088733.1302090750.8095.gz&amp;fulltext=1#err1
+n900-gtk tracemonkey unit crashtest on 2011/04/06 04:18:53 
+
+REFTEST TEST-START | file:///builds/fennec/reftest/tests/layout/style/crashtests/645951-1.html
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST INFO | WARNING: USE_WIDGET_LAYERS disabled
+REFTEST INFO | drawWindow flags = DRAWWINDOW_DRAW_CARET | DRAWWINDOW_DRAW_VIEW; window size = 800,480; test browser size = 800,1000
+REFTEST TEST-START | file:///builds/fennec/reftest/tests/layout/style/crashtests/645951-1-ref.html
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-PASS | file:///builds/fennec/reftest/tests/layout/style/crashtests/645951-1.html | image comparison (==)
+
+I was out sick the day we covered remote reftests, so I don&apos;t know why it doesn&apos;t fail for Android (on the rare occasions when Android crashtests actually finish at all), but according to m.d.planning we may be moving the Mobile tests over to mozilla-central today, in which case this and bug 647984 will result in Maemo crashtests being hidden.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648029</bug_id>
+          
+          <creation_ts>2011-04-06 10:30:00 -0700</creation_ts>
+          <short_desc>Side effects of name resolution are out-of-order</short_desc>
+          <delta_ts>2011-04-06 15:41:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Tamarin</product>
+          <component>JIT Compiler (NanoJIT)</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>561368</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Edwin Smith">edwsmith</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>emanuel.hoogeveen</cc>
+          <qa_contact>nanojit</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392540</commentid>
+            <who name="Edwin Smith">edwsmith</who>
+            <bug_when>2011-04-06 10:30:02 -0700</bug_when>
+            <thetext>Property access (get/set/call/delete) with a multiname that has runtime values (name or namespace) involves resolving the runtime value into a name, which can call toString() or valueOf(), showing side effects.
+
+ergo, name resolution has side effects, in general.
+
+The interpreter and JIT execute the side effects in different order relative to the null check and argument coersion.
+
+for OP_callproperty: (and likely others, I haven&apos;t done a full audit):
+jit:  nullcheck, initMultiname, coerce args
+interpreter: initMultiname, nullcheck, coerce args.
+
+Here&apos;s a test case
+
+  function f(object, name) {
+    object[name](1)
+  }
+  var name = { toString: function() { print(&apos;tostring&apos;); return &quot;foo&quot; } }
+  f(null, name)
+
+When JIT compiled, it just throws the NPE.  In the interpreter, it prints &apos;tostring&apos; then throws the NPE, showing the early name resolution.
+
+The order of values on the abc stack is:  object [ns] [name] args..., so if you go by that, the evaluation order ought to be:
+
+  nullcheck object, [toString(name)], coerce(args)...
+
+If we agree, then the JIT is okay and we need to fix the interpreter.  We also need to run through the other opcodes and build test cases for everything.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

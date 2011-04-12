@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648377</bug_id>
+          
+          <creation_ts>2011-04-07 15:00:00 -0700</creation_ts>
+          <short_desc>Resize Icons for in product use for Phase 2</short_desc>
+          <delta_ts>2011-04-11 11:38:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Marketing</product>
+          <component>Design</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>646236</blocked>
+    
+    <blocked>646880</blocked>
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Mesa">lmesa</reporter>
+          <assigned_to name="Sean Martell">smartell</assigned_to>
+          <cc>dewmigg</cc>
+    
+    <cc>gavin.sharp</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>jslater</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>sabret00the</cc>
+    
+    <cc>shorlander</cc>
+    
+    <cc>smartell</cc>
+    
+    <cc>tshahian</cc>
+          <qa_contact>design</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395203</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-07 15:00:59 -0700</bug_when>
+            <thetext>Need this for Phase 2 of Rapid Release project
+
+&quot;document&quot; icon - http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/document.ico
+&quot;document&quot; icon (PNG) - http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/document.png
+300x236 logo+wordmark image - http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/content/about.png
+Splash screen BMP - http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/splash.bmp
+Mac icns files
+  http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/disk.icns
+  http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/firefox.icns
+  http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/document.icns
+OS/2 ICO files
+  http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/document-os2.ico
+  http://mxr.mozilla.org/mozilla-central/source/browser/branding/nightly/firefox-os2.ico</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648320</bug_id>
+          
+          <creation_ts>2011-04-07 11:29:00 -0700</creation_ts>
+          <short_desc>GC: Eliminate standard JSObject finalizers</short_desc>
+          <delta_ts>2011-04-07 19:15:43 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Bill McCloskey (:billm)">wmccloskey</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>dmandelin</cc>
+    
+    <cc>luke</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>nnethercote</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>sphink</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394773</commentid>
+            <who name="Bill McCloskey (:billm)">wmccloskey</who>
+            <bug_when>2011-04-07 11:29:29 -0700</bug_when>
+            <thetext>I think we should try, as much as possible, to get rid of finalizers. Instead, we would allocate stuff like object slots, empty shapes, and arguments data from the GC heap rather than from malloc. This would require some changes to the GC to make allocation classes more flexible, but it shouldn&apos;t be too difficult. Objects with custom finalizers would be allocated from special &quot;penalty&quot; arenas. That way, we could avoid running finalizers at all for most arenas.
+
+If we can get rid of most finalizers, we might be able to eliminate the background free thread, which would simplify the code somewhat.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648216</bug_id>
+          
+          <creation_ts>2011-04-06 23:35:00 -0700</creation_ts>
+          <short_desc>tegra talos, n900 talos+unittests show 2 revisions for single-repo builds</short_desc>
+          <delta_ts>2011-04-06 23:35:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[mobile][unittest][talos]</status_whiteboard>
+          
+          <priority>P5</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Aki Sasaki [:aki]">aki</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394019</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-06 23:35:35 -0700</bug_when>
+            <thetext>Low priority, to be sure, but it would be nice enough to detect when the moz+mobile links are the same, and only output one.
+
+(When 5.0 ships and dual-repo builds are EOLed, we can even remove the detection logic.)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647666</bug_id>
+          
+          <creation_ts>2011-04-04 05:01:00 -0700</creation_ts>
+          <short_desc>Copy to clipboard doesn&apos;t work on MAC OS for some flavors</short_desc>
+          <delta_ts>2011-04-05 23:36:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Widget: Cocoa</component>
+          <version>1.9.2 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dmitry">dukedoc</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>cocoa</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389971</commentid>
+            <who name="Dmitry">dukedoc</who>
+            <bug_when>2011-04-04 05:01:24 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15
+Build Identifier: Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10.5; en-EN; rv:1.9.2.12) Gecko/20101026 Firefox/3.6.12
+
+When copying data to the clipboard using the following code the clipboard is empty.
+function copyData(thumID) {
+    netscape.security.PrivilegeManager.enablePrivilege(&quot;UniversalXPConnect&quot;);
+    var clip = nsCC[&quot;@mozilla.org/widget/clipboard;1&quot;].getService(nsCI.nsIClipboard);
+    if (!clip) return false;
+    var trans = nsCC[&quot;@mozilla.org/widget/transferable;1&quot;].createInstance(nsCI.nsITransferable);
+    if (!trans) return false;
+    var transferString = createTransferableGraphic(thumID);
+    var strGraph = nsCC[&quot;@mozilla.org/supports-string;1&quot;].createInstance(nsCI.nsISupportsString);
+    if (!strGraph) return false;
+    strGraph.data=transferString;
+    trans.addDataFlavor(&quot;text/x-my-specific-xmldata&quot;);
+    trans.setTransferData(&quot;text/x-my-specific-xmldata&quot;, strGraph, transferString.length*2);
+    clip.setData(trans,null,clip.kGlobalClipboard);
+}
+
+After invoking the method on Windows OS the clipboard is not empty, but it is empty on MAC OS.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Create clipboard instance:  var clip = nsCC[&quot;@mozilla.org/widget/clipboard;1&quot;].getService(nsCI.nsIClipboard);
+2. Create transferable object: var trans = nsCC[&quot;@mozilla.org/widget/transferable;1&quot;].createInstance(nsCI.nsITransferable);
+3. Create data to transfer: var transferString = createTransferableGraphic(thumID);
+4. Create transferable data object: var strGraph = nsCC[&quot;@mozilla.org/supports-string;1&quot;].createInstance(nsCI.nsISupportsString);
+5. Add your specific data flavor to transferable object and fill it: trans.addDataFlavor(&quot;text/x-my-specific-xmldata&quot;);
+    trans.setTransferData(&quot;text/x-my-specific-xmldata&quot;, strGraph, transferString.length*2);
+6. Put the data to the clipboard: clip.setData(trans,null,clip.kGlobalClipboard);
+
+Actual Results:  
+The clipboard is empty on MAC OS.
+
+Expected Results:  
+The clipboard should contain data to transfer.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

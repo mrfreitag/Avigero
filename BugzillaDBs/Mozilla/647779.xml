@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647779</bug_id>
+          
+          <creation_ts>2011-04-05 00:22:00 -0700</creation_ts>
+          <short_desc>while pasting content in contentEditable div whose white-space set as pre-wrap, unnecessary new lines are added.</short_desc>
+          <delta_ts>2011-04-11 01:44:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Editor</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>7</votes>
+          
+          <reporter>tgvrs_santhosh</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dkrishna</cc>
+    
+    <cc>matspal</cc>
+    
+    <cc>nssmani</cc>
+    
+    <cc>satyacbit</cc>
+    
+    <cc>vasanthg</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>editor</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390878</commentid>
+            <who name="">tgvrs_santhosh</who>
+            <bug_when>2011-04-05 00:22:33 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: firefox 4
+
+while pasting content in contentEditable div whose white-space set as pre-wrap, unnecessary new lines are added.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.load the attachment in IE.
+2.copy the content of green box.
+3. now, load the attachment in FF4.
+4. paste the content in red box(white-space:pre-wrap is set), you see additional line after function.
+5. paste the content again in green box, it is fine
+Actual Results:  
+additional new lines are inserted while pasting
+
+Expected Results:  
+the pasted content should be same as that of copied content.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390879</commentid>
+              <attachid>524042</attachid>
+            <who name="">tgvrs_santhosh</who>
+            <bug_when>2011-04-05 00:23:09 -0700</bug_when>
+            <thetext>Created attachment 524042
+paste Test Page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391259</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-05 09:50:49 -0700</bug_when>
+            <thetext>(In reply to comment #0)
+&gt; 2.copy the content of green box.
+
+Which version of IE?  How did you select + copy exactly?
+
+I&apos;m using IE9, and I clicked on the green box then CTRL+A and CTRL+C
+
+&gt; 4. paste the content in red box(white-space:pre-wrap is set), you see
+&gt; additional line after function.
+
+No, I don&apos;t see any lines after the function.  I see the caret
+blinking immediately to the right of the final }
+Pressing the DOWN_ARROW key does not move the caret.
+
+Pasting in the green box in Firefox 4 gives the same result.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391889</commentid>
+            <who name="">tgvrs_santhosh</who>
+            <bug_when>2011-04-05 22:02:32 -0700</bug_when>
+            <thetext>Hi Mats,
+
+I checked it in IE8. Just now checked it in IE9.If ie9 is running in ie9 standards mode, then it is working fine.
+
+Run in other standards or run in IE8 or IE7 browser, then additional line will be created.
+
+Also, the additional line is not at the end of all the content. in the attached test case there are two function function x_y and function y_x. after copying the content in IE and pasting it in Firefox, the second function(function y_x) is split into two lines which should not be split.
+
+Please let me know if you can able to reproduce the issue. if not, i will attach the web-ex record.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392198</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-06 06:08:45 -0700</bug_when>
+            <thetext>Thanks for the clarification.  I can reproduce it using IE8 on WinXP.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393727</commentid>
+              <attachid>524322</attachid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-06 17:44:23 -0700</bug_when>
+            <thetext>Created attachment 524322
+clipboard data
+
+The offending newline character is in the raw clipboard data.
+It&apos;s not something Firefox is adding.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399999</commentid>
+            <who name="">tgvrs_santhosh</who>
+            <bug_when>2011-04-11 01:44:02 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Created attachment 524322 [details]
+&gt; clipboard data
+&gt; 
+&gt; The offending newline character is in the raw clipboard data.
+&gt; It&apos;s not something Firefox is adding.
+
+To my understanding, if the raw clipboard data itself has break tag, then it should behave the same way in all cases. but in my case, if i have contentEditable div whose white-space is set as &apos;pre-wrap&apos;, then new line has been inserted in middle. if the white-space property is none, then new line is not inserted. Also, if i copy and paste in IE, new line is not inserted. if the clipboard data has break tag, even if i copy and paste in IE itself, the newline has to be inserted in middle which is not the case.
+
+In the attached test page, there are two div&apos;s. only if i paste the content in redbox, new line will be inserted. if i paste in greenbox, then it is fine.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524042</attachid>
+            <date>2011-04-05 00:23:00 -0700</date>
+            <delta_ts>2011-04-05 00:23:09 -0700</delta_ts>
+            <desc>paste Test Page.</desc>
+            <filename>preTagTest.htm</filename>
+            <type>text/html</type>
+            <size>625</size>
+            <attacher>tgvrs_santhosh</attacher>
+            
+              <data encoding="base64">PCFET0NUWVBFIEhUTUwgUFVCTElDICctLy9XM0MvL0RURCBIVE1MIDQuMDEgVHJhbnNpdGlvbmFs
+Ly9FTicgJ2h0dHA6Ly93d3cudzMub3JnL1RSL2h0bWw0L2xvb3NlLmR0ZCc+DQo8aHRtbD4NCjxo
+ZWFkPg0KPHRpdGxlPnByZSB0YWcgdGVzdDwvdGl0bGU+DQo8c2NyaXB0IHR5cGU9InRleHQvamF2
+YXNjcmlwdCI+DQpmdW5jdGlvbiBzYW1wbGVGdW5jKGV2ZW50T2JqZWN0KQ0Kew0KCWRvY3VtZW50
+LmdldEVsZW1lbnRCeUlkKCdzZWNvbmREaXYnKS5pbm5lclRleHQgPSAiZnVuY3Rpb24geF95KGV2
+ZW50T2JqZWN0KVxue1xuICAgIFxufVxuZnVuY3Rpb24geV94KGV2ZW50T2JqZWN0KVxue1xuICAg
+IFxufVxuIjsNCn0NCjwvc2NyaXB0Pg0KPC9oZWFkPg0KPGJvZHkgb25sb2FkPSJzYW1wbGVGdW5j
+KGV2ZW50KSI+DQo8ZGl2IGNvbnRlbnRFZGl0YWJsZSBzdHlsZT0id2hpdGUtc3BhY2U6cHJlLXdy
+YXA7d2lkdGg6NTAwcHg7aGVpZ2h0OjMwMHB4O2JvcmRlcjpkb3R0ZWQgMnB4IHJlZDsiPjwvZGl2
+Pg0KPGRpdiBpZD0ic2Vjb25kRGl2IiBjb250ZW50RWRpdGFibGUgc3R5bGU9IndpZHRoOjUwMHB4
+O2hlaWdodDozMDBweDtib3JkZXI6ZG90dGVkIDJweCBncmVlbjsiPjwvZGl2Pg0KPC9ib2R5Pg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524322</attachid>
+            <date>2011-04-06 17:44:00 -0700</date>
+            <delta_ts>2011-04-06 17:44:23 -0700</delta_ts>
+            <desc>clipboard data</desc>
+            <filename>647779-raw.txt</filename>
+            <type>text/plain</type>
+            <size>1051</size>
+            <attacher>matspal</attacher>
+            
+              <data encoding="base64">VmVyc2lvbjoxLjANClN0YXJ0SFRNTDowMDAwMDAyMjYNCkVuZEhUTUw6MDAwMDAxMDI2DQpTdGFy
+dEZyYWdtZW50OjAwMDAwMDg4MA0KRW5kRnJhZ21lbnQ6MDAwMDAwOTgyDQpTdGFydFNlbGVjdGlv
+bjowMDAwMDA4ODANCkVuZFNlbGVjdGlvbjowMDAwMDA5ODINClNvdXJjZVVSTDpodHRwczovL2J1
+ZzY0Nzc3OS5idWd6aWxsYS5tb3ppbGxhLm9yZy9hdHRhY2htZW50LmNnaT9pZD01MjQwNDINCjwh
+RE9DVFlQRSBIVE1MIFBVQkxJQyAiLS8vVzNDLy9EVEQgSFRNTCA0LjAxIFRyYW5zaXRpb25hbC8v
+RU4iICJodHRwOi8vd3d3LnczYy5vcmcvVFIvMTk5OS9SRUMtaHRtbDQwMS0xOTk5MTIyNC9sb29z
+ZS5kdCAgICAgIGQiPg0KDQo8SFRNTD48SEVBRD48VElUTEU+cHJlIHRhZyB0ZXN0PC9USVRMRT4N
+CjxTQ1JJUFQgdHlwZT10ZXh0L2phdmFzY3JpcHQ+DQpmdW5jdGlvbiBzYW1wbGVGdW5jKGV2ZW50
+T2JqZWN0KQ0Kew0KICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2Vjb25kRGl2Jyku
+aW5uZXJUZXh0ID0gImZ1bmN0aW9uIHhfeShldmVudE9iamVjdClcbntcbiAgICBcbn1cbmZ1bmN0
+aW9uIHlfeChldmVudE9iamVjICAgICAgdClcbntcbiAgICBcbn1cbiI7DQp9DQo8L1NDUklQVD4N
+CjwvSEVBRD4NCg0KPEJPRFkgb25sb2FkPXNhbXBsZUZ1bmMoZXZlbnQpPg0KDQo8RElWIA0Kc3R5
+bGU9IkJPUkRFUi1CT1RUT006IGdyZWVuIDJweCBkb3R0ZWQ7IEJPUkRFUi1MRUZUOiBncmVlbiAy
+cHggZG90dGVkOyBXSURUSDogNTAwcHg7IEhFSUdIVDogMzAwcHg7IEJPUkRFUi1UT1A6IGdyZWVu
+IDJwICAgICAgeCBkb3R0ZWQ7IEJPUkRFUi1SSUdIVDogZ3JlZW4gMnB4IGRvdHRlZCIgDQppZD1z
+ZWNvbmREaXYgY29udGVudEVkaXRhYmxlPXRydWU+PCEtLVN0YXJ0RnJhZ21lbnQtLT5mdW5jdGlv
+biB4X3koZXZlbnRPYmplY3QpPEJSPns8QlI+wqDCoMKgIDxCUj59PEJSPmZ1bmN0aW9uIA0KeV94
+KGV2ZW50T2JqZWN0KTxCUj57PEJSPsKgwqDCoCA8QlI+fTxCUj48IS0tRW5kRnJhZ21lbnQtLT48
+L0RJVj4NCjwvQk9EWT4NCjwvSFRNTD4NCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647756</bug_id>
+          
+          <creation_ts>2011-04-04 18:04:00 -0700</creation_ts>
+          <short_desc>Impossible to upload to YouTube due to new memory leak.</short_desc>
+          <delta_ts>2011-04-04 20:19:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>647592</dup_id>
+          
+          <bug_file_loc>http://upload.youtube.com/my_videos_upload</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Sherwin Gooch">SJGooch</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+    
+    <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390695</commentid>
+            <who name="Sherwin Gooch">SJGooch</who>
+            <bug_when>2011-04-04 18:04:42 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+You guys have apparently created a memory leak in the new version which makes it impossible to upload reasonable-sized videos to YouTube using Firefox.  In fact, it makes it impossible to do anything at all on my computer after it has been uploading for a couple of hours.  I killed every other app on my machine.  Firefox gobbled up all the VM.  I closed all but the one tab in Firefox.  The VM thrashing gets so bad that the upload process can&apos;t complete.  I couldn&apos;t even QUIT Firefox.  I had to &quot;Force Quit&quot; (kill) it.
+
+Please fix this soon.  I hate to have to use another browser to do my YouTube work!  (Thanks!)
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Upload a 1 GB video to YouTube.
+2. Rinse &amp; repeat. It won&apos;t be long until you have NO virtual memory left!
+3.
+Actual Results:  
+Already answered:  Thrashing, couldn&apos;t run anything on computer, eventually including Firefox.  I had to kill my upload (Force-Quite Firefox) after 6 hours invested in it!
+
+Expected Results:  
+It should have released the VM it requested, and finished uploading my video!
+
+What more can I say:
+I&apos;m running a MacBook Pro, 2.4 GHz Intel Core i5, 4 GB RAM, 1067 MHz DDR3, 350 GB internal HD, 4 TB of HDs on firewire.
+
+System Version:	Mac OS X 10.6.7 (10J869)
+  Kernel Version:	Darwin 10.7.0
+  Boot Mode: Normal
+  Secure Virtual Memory: Enabled
+  64-bit Kernel and Extensions:	No
+
+Hardware Overview:
+
+  Model Name:	MacBook Pro
+  Model Identifier:	MacBookPro6,2
+  Processor Name:	Intel Core i5
+  Processor Speed:	2.4 GHz
+  Number Of Processors:	1
+  Total Number Of Cores:	2
+  L2 Cache (per core):	256 KB
+  L3 Cache:	3 MB
+  Memory:	4 GB
+  Processor Interconnect Speed:	4.8 GT/s
+  Boot ROM Version:	MBP61.0057.B0C
+  SMC Version (system):	1.58f16
+
+Firefox:  Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390699</commentid>
+            <who name="Sherwin Gooch">SJGooch</who>
+            <bug_when>2011-04-04 18:09:56 -0700</bug_when>
+            <thetext>P.S. I always keep 2 additional YouTube tabs in Firefox open while I work.  They are usually just sitting in the &quot;My Videos&quot; page when I am not using them.  I don&apos;t know if this could appreciably influence the state of Firefox, but, being better safe than sorry, I thought I should mention it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390730</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 18:58:06 -0700</bug_when>
+            <thetext>A similar behavior has been reported for Firefox 4 on Windows in bug 647592.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390759</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 20:19:28 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 647592 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

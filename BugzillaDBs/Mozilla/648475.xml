@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648475</bug_id>
+          
+          <creation_ts>2011-04-07 21:22:00 -0700</creation_ts>
+          <short_desc>Exceptions in try masters</short_desc>
+          <delta_ts>2011-04-11 20:06:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[try][mobile]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Chris AtLee [:catlee]">catlee</reporter>
+          <assigned_to name="Aki Sasaki [:aki]">aki</assigned_to>
+          <cc>aki</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395894</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-07 21:22:16 -0700</bug_when>
+            <thetext>Since Wednesday sometime we&apos;ve been getting these exceptions in the try masters:
+Exception in /builds/buildbot/try_master1/master/twistd.log:
+2011-04-07 19:28:38-0700 [-] Unhandled Error
+	Traceback (most recent call last):
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/base.py&quot;, line 374, in _stepDone
+	    return self.startNextStep()
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/base.py&quot;, line 363, in startNextStep
+	    d = defer.maybeDeferred(s.startStep, self.remote)
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/twisted/internet/defer.py&quot;, line 125, in maybeDeferred
+	    result = f(*args, **kw)
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/buildstep.py&quot;, line 724, in startStep
+	    self.step_status.setText(self.describe(False))
+	--- &lt;exception caught here&gt; ---
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/steps/shell.py&quot;, line 144, in describe
+	    words = properties.render(words)
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/properties.py&quot;, line 108, in render
+	    return [ self.render(e) for e in value ]
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/properties.py&quot;, line 106, in render
+	    return value.render(self.pmap)
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/properties.py&quot;, line 194, in render
+	    s = self.fmtstring % pmap
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/properties.py&quot;, line 169, in __getitem__
+	    rv = properties[key]
+	  File &quot;/builds/buildbot/try_master1/lib/python2.6/site-packages/buildbot-0.8.2_hg_a63f22816750_production_0.8-py2.6.egg/buildbot/process/properties.py&quot;, line 50, in __getitem__
+	    rv = self.properties[name][0]
+	exceptions.KeyError: &apos;mobile_repo&apos;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402518</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 18:35:23 -0700</bug_when>
+            <thetext>To reconfig try on buildbot-master5 or production-master02, I pretty much am forced to gracefully shut down the master and restart.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402526</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 18:36:49 -0700</bug_when>
+            <thetext>--------------------------------------------------------------------------------
+Exception in /builds/buildbot/tests_master5/master/twistd.log:
+2011-04-11 17:58:54-0700 [Broker,14517,10.12.49.234] Unhandled Error
+	Traceback (most recent call last):
+	  File &quot;/tools/python-2.6.5/lib/python2.6/threading.py&quot;, line 484, in run
+	    self.__target(*self.__args, **self.__kwargs)
+	  File &quot;/builds/buildbot/tests_master5/lib/python2.6/site-packages/twisted/python/threadpool.py&quot;, line 207, in _worker
+	    result = context.call(ctx, function, *args, **kwargs)
+	  File &quot;/builds/buildbot/tests_master5/lib/python2.6/site-packages/twisted/python/context.py&quot;, line 59, in callWithContext
+	    return self.currentContext().callWithContext(ctx, func, *args, **kw)
+	  File &quot;/builds/buildbot/tests_master5/lib/python2.6/site-packages/twisted/python/context.py&quot;, line 37, in callWithContext
+	    return func(*args,**kw)
+	--- &lt;exception caught here&gt; ---
+	  File &quot;/builds/buildbot/tests_master5/lib/python2.6/site-packages/buildbotcustom/status/log_handlers.py&quot;, line 95, in handleLogs
+	    subprocess.check_call(cmd, stdout=output, stderr=subprocess.STDOUT)
+	  File &quot;/tools/python-2.6.5/lib/python2.6/subprocess.py&quot;, line 493, in check_call
+	    retcode = call(*popenargs, **kwargs)
+	  File &quot;/tools/python-2.6.5/lib/python2.6/subprocess.py&quot;, line 480, in call
+	    return Popen(*popenargs, **kwargs).wait()
+	  File &quot;/tools/python-2.6.5/lib/python2.6/subprocess.py&quot;, line 633, in __init__
+	    errread, errwrite)
+	  File &quot;/tools/python-2.6.5/lib/python2.6/subprocess.py&quot;, line 1049, in _execute_child
+	    self.pid = os.fork()
+	exceptions.OSError: [Errno 12] Cannot allocate memory</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402537</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 18:43:44 -0700</bug_when>
+            <thetext>I&apos;m going to guess the error in comment 0 has something to do with doStepIf not respecting haltOnFailure in a previous step, but am not sure.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402626</commentid>
+              <attachid>525280</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 19:40:55 -0700</bug_when>
+            <thetext>Created attachment 525280
+fix try exceptions ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402642</commentid>
+              <attachid>525283</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 19:48:43 -0700</bug_when>
+            <thetext>Created attachment 525283
+fix descriptions</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402676</commentid>
+              <attachid>525283</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 20:05:53 -0700</bug_when>
+            <thetext>Comment on attachment 525283
+fix descriptions
+
+http://hg.mozilla.org/build/buildbotcustom/rev/ea3c5f528366</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>525280</attachid>
+            <date>2011-04-11 19:40:00 -0700</date>
+            <delta_ts>2011-04-11 19:48:43 -0700</delta_ts>
+            <desc>fix try exceptions ?</desc>
+            <filename>try_exception_fix.diff</filename>
+            <type>text/plain</type>
+            <size>3385</size>
+            <attacher>aki</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3Byb2Nlc3MvZmFjdG9yeS5weSBiL3Byb2Nlc3MvZmFjdG9yeS5weQotLS0g
+YS9wcm9jZXNzL2ZhY3RvcnkucHkKKysrIGIvcHJvY2Vzcy9mYWN0b3J5LnB5CkBAIC01OTk1LDE3
+ICs1OTk1LDIzIEBAIGNsYXNzIE1vYmlsZUJ1aWxkRmFjdG9yeShNb3ppbGxhQnVpbGRGYWMKICAg
+ICAgICAgICAgIHdvcmtkaXI9JyVzLyVzJyAlIChzZWxmLmJhc2VXb3JrRGlyLCBzZWxmLmJyYW5j
+aE5hbWUpLAogICAgICAgICAgICAgZGVzY3JpcHRpb249WydjYXQnLCAnbW96Y29uZmlnJ10KICAg
+ICAgICAgKQogCiAgICAgZGVmIGFkZFByZUJ1aWxkU3RlcHMoc2VsZik6CiAgICAgICAgIHBhc3MK
+IAogICAgIGRlZiBtaXNzaW5nTW9iaWxlRGlyKHNlbGYsIHN0ZXApOgotICAgICAgICByZXR1cm4g
+bm90IHN0ZXAuYnVpbGQuZ2V0UHJvcGVydGllcygpLmhhc19rZXkoIm1vYmlsZV9kaXIiKSBvciBs
+ZW4oc3RlcC5idWlsZC5nZXRQcm9wZXJ0eSgibW9iaWxlX2RpciIpKSA9PSAwOworICAgICAgICBy
+ZXR1cm4gbm90IHN0ZXAuYnVpbGQuZ2V0UHJvcGVydGllcygpLmhhc19rZXkoIm1vYmlsZV9kaXIi
+KSBvciBsZW4oc3RlcC5idWlsZC5nZXRQcm9wZXJ0eSgibW9iaWxlX2RpciIpKSA9PSAwCisKKyAg
+ICBkZWYgaGFzTW9iaWxlUmVwb1Byb3BzKHNlbGYsIHN0ZXApOgorICAgICAgICByZXR1cm4gc3Rl
+cC5idWlsZC5nZXRQcm9wZXJ0aWVzKCkuaGFzX2tleSgibW9iaWxlX3JlcG8iKSBhbmQgXAorICAg
+ICAgICAgICAgICAgbGVuKHN0ZXAuYnVpbGQuZ2V0UHJvcGVydHkoIm1vYmlsZV9yZXBvIikpID4g
+MCBhbmQgXAorICAgICAgICAgICAgICAgc3RlcC5idWlsZC5nZXRQcm9wZXJ0aWVzKCkuaGFzX2tl
+eSgicmVxdWVzdGVkX21vYmlsZV9yZXYiKSBhbmQgXAorICAgICAgICAgICAgICAgbGVuKHN0ZXAu
+YnVpbGQuZ2V0UHJvcGVydHkoInJlcXVlc3RlZF9tb2JpbGVfcmV2IikpID4gMAogCiAgICAgZGVm
+IGFkZEJhc2VSZXBvU3RlcHMoc2VsZik6CiAgICAgICAgIGlmIHNlbGYuZW5hYmxlX3RyeToKICAg
+ICAgICAgICAgIHNlbGYuYWRkU3RlcChNZXJjdXJpYWwoCiAgICAgICAgICAgICAgICAgbmFtZT0n
+aGdfdXBkYXRlJywKICAgICAgICAgICAgICAgICBtb2RlPSdjbG9iYmVyJywKICAgICAgICAgICAg
+ICAgICBiYXNlVVJMPSdodHRwOi8vJXMvJyAlIHNlbGYuaGdIb3N0LAogICAgICAgICAgICAgICAg
+IGRlZmF1bHRCcmFuY2g9c2VsZi5yZXBvUGF0aCwKQEAgLTYwNTQsNDEgKzYwNjAsNDEgQEAgY2xh
+c3MgTW9iaWxlQnVpbGRGYWN0b3J5KE1vemlsbGFCdWlsZEZhYwogICAgICAgICAgICAgKSkKICAg
+ICAgICAgICAgIG1vYmlsZV9jbG9uZV9jbWQgPSAnaGcgY2xvbmUgLVUgaHR0cDovLyVzLycgJSBz
+ZWxmLmhnSG9zdAogICAgICAgICAgICAgbW9iaWxlX2Nsb25lX2NtZCArPSAnJShtb2JpbGVfcmVw
+bylzIG1vYmlsZScKICAgICAgICAgICAgIHNlbGYuYWRkU3RlcChNZXJjdXJpYWxDbG9uZUNvbW1h
+bmQoCiAgICAgICAgICAgICAgICAgbmFtZT0nbW9iaWxlX2Nsb25lJywKICAgICAgICAgICAgICAg
+ICBjb21tYW5kPVsnYmFzaCcsICctYycsIFdpdGhQcm9wZXJ0aWVzKG1vYmlsZV9jbG9uZV9jbWQp
+XSwKICAgICAgICAgICAgICAgICB3b3JrZGlyPSclcy8lcycgJSAoc2VsZi5iYXNlV29ya0Rpciwg
+c2VsZi5icmFuY2hOYW1lKSwKICAgICAgICAgICAgICAgICBoYWx0T25GYWlsdXJlPVRydWUsCi0g
+ICAgICAgICAgICAgICAgZG9TdGVwSWY9c2VsZi5taXNzaW5nTW9iaWxlRGlyCisgICAgICAgICAg
+ICAgICAgZG9TdGVwSWY9c2VsZi5oYXNNb2JpbGVSZXBvUHJvcHMKICAgICAgICAgICAgICkpCiAg
+ICAgICAgICAgICBtb2JpbGVfdXBkYXRlX2NtZCA9ICdoZyB1cGRhdGUgLS1yZXYgJShyZXF1ZXN0
+ZWRfbW9iaWxlX3JldilzJwogICAgICAgICAgICAgc2VsZi5hZGRTdGVwKFNoZWxsQ29tbWFuZCgK
+ICAgICAgICAgICAgICAgICBuYW1lPSdtb2JpbGVfdXBkYXRlJywKICAgICAgICAgICAgICAgICBj
+b21tYW5kPVsnYmFzaCcsICctYycsIFdpdGhQcm9wZXJ0aWVzKG1vYmlsZV91cGRhdGVfY21kKV0s
+CiAgICAgICAgICAgICAgICAgd29ya2Rpcj0nJXMvJXMvbW9iaWxlJyAlIChzZWxmLmJhc2VXb3Jr
+RGlyLCBzZWxmLmJyYW5jaE5hbWUpLAogICAgICAgICAgICAgICAgIGhhbHRPbkZhaWx1cmU9VHJ1
+ZSwKLSAgICAgICAgICAgICAgICBkb1N0ZXBJZj1zZWxmLm1pc3NpbmdNb2JpbGVEaXIKKyAgICAg
+ICAgICAgICAgICBkb1N0ZXBJZj1zZWxmLmhhc01vYmlsZVJlcG9Qcm9wcwogICAgICAgICAgICAg
+KSkKICAgICAgICAgICAgIHNlbGYuYWRkU3RlcChTZXRQcm9wZXJ0eSgKICAgICAgICAgICAgICAg
+ICBuYW1lPSdtb2JpbGVfaWRlbnQnLAogICAgICAgICAgICAgICAgIGNvbW1hbmQ9WydoZycsICdp
+ZGVudCcsICctUicsICdtb2JpbGUnLCAnLWknXSwKICAgICAgICAgICAgICAgICB3b3JrZGlyPScl
+cy8lcycgJSAoc2VsZi5iYXNlV29ya0Rpciwgc2VsZi5icmFuY2hOYW1lKSwKICAgICAgICAgICAg
+ICAgICBwcm9wZXJ0eT0nbW9iaWxlX3JldicsCi0gICAgICAgICAgICAgICAgZG9TdGVwSWY9c2Vs
+Zi5taXNzaW5nTW9iaWxlRGlyCisgICAgICAgICAgICAgICAgZG9TdGVwSWY9c2VsZi5oYXNNb2Jp
+bGVSZXBvUHJvcHMKICAgICAgICAgICAgICkpCiAgICAgICAgICAgICBzZWxmLmFkZFN0ZXAoT3V0
+cHV0U3RlcCgKICAgICAgICAgICAgICAgICBuYW1lPSdzaG93X21vel9yZXYnLAogICAgICAgICAg
+ICAgICAgIGRhdGE9V2l0aFByb3BlcnRpZXMoJ1RpbmRlcmJveFByaW50OiAnICsgbW96X2NzbCks
+CiAgICAgICAgICAgICApKQogICAgICAgICAgICAgc2VsZi5hZGRTdGVwKE91dHB1dFN0ZXAoCiAg
+ICAgICAgICAgICAgICAgbmFtZT0nc2hvd19tb2JpbGVfcmV2JywKICAgICAgICAgICAgICAgICBk
+YXRhPVdpdGhQcm9wZXJ0aWVzKCdUaW5kZXJib3hQcmludDogJyArIG1vYmlsZV9jc2wpLAotICAg
+ICAgICAgICAgICAgIGRvU3RlcElmPXNlbGYubWlzc2luZ01vYmlsZURpcgorICAgICAgICAgICAg
+ICAgIGRvU3RlcElmPXNlbGYuaGFzTW9iaWxlUmVwb1Byb3BzCiAgICAgICAgICAgICApKQogIAog
+ICAgICAgICBlbHNlOgogICAgICAgICAgICAgc2VsZi5hZGRIZ1B1bGxTdGVwcyhyZXBvc2l0b3J5
+PXNlbGYucmVwb3NpdG9yeSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3b3JrZGlyPXNl
+bGYuYmFzZVdvcmtEaXIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2hhbmdlc2V0TGlu
+az1zZWxmLm1vekNoYW5nZXNldExpbmssCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV2
+aXNpb249c2VsZi5tb3pSZXZpc2lvbiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcm9w
+ZXJ0eVByZWZpeD0ibW96aWxsYSIsCg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>525283</attachid>
+            <date>2011-04-11 19:48:00 -0700</date>
+            <delta_ts>2011-04-11 20:05:53 -0700</delta_ts>
+            <desc>fix descriptions</desc>
+            <filename>try_exception_fix2.diff</filename>
+            <type>text/plain</type>
+            <size>2850</size>
+            <attacher>aki</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3Byb2Nlc3MvZmFjdG9yeS5weSBiL3Byb2Nlc3MvZmFjdG9yeS5weQotLS0g
+YS9wcm9jZXNzL2ZhY3RvcnkucHkKKysrIGIvcHJvY2Vzcy9mYWN0b3J5LnB5CkBAIC02MDMzLDUy
+ICs2MDMzLDU3IEBAIGNsYXNzIE1vYmlsZUJ1aWxkRmFjdG9yeShNb3ppbGxhQnVpbGRGYWMKICAg
+ICAgICAgICAgIHNlbGYuYWRkU3RlcChTZXRQcm9wZXJ0eSgKICAgICAgICAgICAgICAgICBuYW1l
+PSdtb2JpbGVfcmVwbycsCiAgICAgICAgICAgICAgICAgY29tbWFuZD1bJ2Jhc2gnLCAnLWMnLAog
+ICAgICAgICAgICAgICAgICAgJ2lmIFsgLWYgbW9iaWxlLXJlcG8gXSA7IHRoZW4gJyArCiAgICAg
+ICAgICAgICAgICAgICAnY2F0IG1vYmlsZS1yZXBvIDsgZWxzZSAnICsKICAgICAgICAgICAgICAg
+ICAgICdlY2hvICJNaXNzaW5nIG1vYmlsZS8gYW5kIG1vYmlsZS1yZXBvISBFeGl0aW5nISI7ICcr
+CiAgICAgICAgICAgICAgICAgICAnZXhpdCAtMSA7IGZpJ10sCiAgICAgICAgICAgICAgICAgcHJv
+cGVydHk9J21vYmlsZV9yZXBvJywKKyAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbj1bInJlYWQi
+LCAibW9iaWxlLXJlcG8iXSwKICAgICAgICAgICAgICAgICB3b3JrZGlyPSclcy8lcycgJSAoc2Vs
+Zi5iYXNlV29ya0Rpciwgc2VsZi5icmFuY2hOYW1lKSwKICAgICAgICAgICAgICAgICBoYWx0T25G
+YWlsdXJlPVRydWUsCiAgICAgICAgICAgICAgICAgZG9TdGVwSWY9c2VsZi5taXNzaW5nTW9iaWxl
+RGlyCiAgICAgICAgICAgICApKQogICAgICAgICAgICAgc2VsZi5hZGRTdGVwKFNldFByb3BlcnR5
+KAogICAgICAgICAgICAgICAgIG5hbWU9J21vYmlsZV9yZXYnLAogICAgICAgICAgICAgICAgIGNv
+bW1hbmQ9WydiYXNoJywgJy1jJywKICAgICAgICAgICAgICAgICAgICdpZiBbWyAtZiBtb2JpbGUt
+cmV2IF1dIDsgdGhlbiAnICsKICAgICAgICAgICAgICAgICAgICdjYXQgbW9iaWxlLXJldiA7IGVs
+c2UgJyArCiAgICAgICAgICAgICAgICAgICAnZWNobyBkZWZhdWx0IDsgZmknXSwKICAgICAgICAg
+ICAgICAgICB3b3JrZGlyPSclcy8lcycgJSAoc2VsZi5iYXNlV29ya0Rpciwgc2VsZi5icmFuY2hO
+YW1lKSwKICAgICAgICAgICAgICAgICBwcm9wZXJ0eT0ncmVxdWVzdGVkX21vYmlsZV9yZXYnLAor
+ICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uPVsicmVhZCIsICJtb2JpbGUtcmV2Il0sCiAgICAg
+ICAgICAgICAgICAgZG9TdGVwSWY9c2VsZi5taXNzaW5nTW9iaWxlRGlyCiAgICAgICAgICAgICAp
+KQogICAgICAgICAgICAgbW9iaWxlX2Nsb25lX2NtZCA9ICdoZyBjbG9uZSAtVSBodHRwOi8vJXMv
+JyAlIHNlbGYuaGdIb3N0CiAgICAgICAgICAgICBtb2JpbGVfY2xvbmVfY21kICs9ICclKG1vYmls
+ZV9yZXBvKXMgbW9iaWxlJwogICAgICAgICAgICAgc2VsZi5hZGRTdGVwKE1lcmN1cmlhbENsb25l
+Q29tbWFuZCgKICAgICAgICAgICAgICAgICBuYW1lPSdtb2JpbGVfY2xvbmUnLAogICAgICAgICAg
+ICAgICAgIGNvbW1hbmQ9WydiYXNoJywgJy1jJywgV2l0aFByb3BlcnRpZXMobW9iaWxlX2Nsb25l
+X2NtZCldLAogICAgICAgICAgICAgICAgIHdvcmtkaXI9JyVzLyVzJyAlIChzZWxmLmJhc2VXb3Jr
+RGlyLCBzZWxmLmJyYW5jaE5hbWUpLAorICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uPVsiY2xv
+bmUiLCAibW9iaWxlLXJlcG8iXSwKICAgICAgICAgICAgICAgICBoYWx0T25GYWlsdXJlPVRydWUs
+CiAgICAgICAgICAgICAgICAgZG9TdGVwSWY9c2VsZi5taXNzaW5nTW9iaWxlRGlyCiAgICAgICAg
+ICAgICApKQogICAgICAgICAgICAgbW9iaWxlX3VwZGF0ZV9jbWQgPSAnaGcgdXBkYXRlIC0tcmV2
+ICUocmVxdWVzdGVkX21vYmlsZV9yZXYpcycKICAgICAgICAgICAgIHNlbGYuYWRkU3RlcChTaGVs
+bENvbW1hbmQoCiAgICAgICAgICAgICAgICAgbmFtZT0nbW9iaWxlX3VwZGF0ZScsCiAgICAgICAg
+ICAgICAgICAgY29tbWFuZD1bJ2Jhc2gnLCAnLWMnLCBXaXRoUHJvcGVydGllcyhtb2JpbGVfdXBk
+YXRlX2NtZCldLAogICAgICAgICAgICAgICAgIHdvcmtkaXI9JyVzLyVzL21vYmlsZScgJSAoc2Vs
+Zi5iYXNlV29ya0Rpciwgc2VsZi5icmFuY2hOYW1lKSwKICAgICAgICAgICAgICAgICBoYWx0T25G
+YWlsdXJlPVRydWUsCisgICAgICAgICAgICAgICAgZGVzY3JpcHRpb249WyJ1cGRhdGUiLCAibW9i
+aWxlLXJlcG8iXSwKICAgICAgICAgICAgICAgICBkb1N0ZXBJZj1zZWxmLm1pc3NpbmdNb2JpbGVE
+aXIKICAgICAgICAgICAgICkpCiAgICAgICAgICAgICBzZWxmLmFkZFN0ZXAoU2V0UHJvcGVydHko
+CiAgICAgICAgICAgICAgICAgbmFtZT0nbW9iaWxlX2lkZW50JywKICAgICAgICAgICAgICAgICBj
+b21tYW5kPVsnaGcnLCAnaWRlbnQnLCAnLVInLCAnbW9iaWxlJywgJy1pJ10sCiAgICAgICAgICAg
+ICAgICAgd29ya2Rpcj0nJXMvJXMnICUgKHNlbGYuYmFzZVdvcmtEaXIsIHNlbGYuYnJhbmNoTmFt
+ZSksCiAgICAgICAgICAgICAgICAgcHJvcGVydHk9J21vYmlsZV9yZXYnLAorICAgICAgICAgICAg
+ICAgIGRlc2NyaXB0aW9uPVsic2V0IiwgIm1vYmlsZV9yZXYiXSwKICAgICAgICAgICAgICAgICBk
+b1N0ZXBJZj1zZWxmLm1pc3NpbmdNb2JpbGVEaXIKICAgICAgICAgICAgICkpCiAgICAgICAgICAg
+ICBzZWxmLmFkZFN0ZXAoT3V0cHV0U3RlcCgKICAgICAgICAgICAgICAgICBuYW1lPSdzaG93X21v
+el9yZXYnLAogICAgICAgICAgICAgICAgIGRhdGE9V2l0aFByb3BlcnRpZXMoJ1RpbmRlcmJveFBy
+aW50OiAnICsgbW96X2NzbCksCiAgICAgICAgICAgICApKQogICAgICAgICAgICAgc2VsZi5hZGRT
+dGVwKE91dHB1dFN0ZXAoCiAgICAgICAgICAgICAgICAgbmFtZT0nc2hvd19tb2JpbGVfcmV2JywK
+</data>
+<flag name="review"
+          id="438784"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="438785"
+          type_id="481"
+          status="+"
+          setter="aki"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

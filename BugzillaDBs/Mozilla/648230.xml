@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648230</bug_id>
+          
+          <creation_ts>2011-04-07 02:52:00 -0700</creation_ts>
+          <short_desc>TI+JM: [infer failure] Missing type at #3:00036 pushed 0: float</short_desc>
+          <delta_ts>2011-04-07 12:43:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>emanuel.hoogeveen</cc>
+    
+    <cc>gary</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394165</commentid>
+              <attachid>524375</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-07 02:52:34 -0700</bug_when>
+            <thetext>Created attachment 524375
+Testcase
+
+$ ./js -a -n -m test.js
+[infer failure] Missing type at #3:00036 pushed 0: float
+
+This is with revision 5cc3893a8438. I think the -null&apos;s are just a way to trigger some recompile/inline limit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394707</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-07 10:51:12 -0700</bug_when>
+            <thetext>Good call, if we abort compilation due to static overflow N times for N==5, we mark the script unjittable.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394884</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-07 12:43:03 -0700</bug_when>
+            <thetext>Two separate bugs, one reported here and one on IRC.
+
+The first issue is that when compiling the division we don&apos;t know the types of the operands yet (they are NAME accesses and need to dynamically occur before we know what they might be), which tricked the compiler into thinking the result of the division was known as possibly-double and it divided 1/2 without marking the &apos;overflow&apos;.  When the compiler is optimizing away checks for double or undefined result it shouldn&apos;t rely on the known type tags but should inspect pushed type sets directly (other places we do this, e.g. mayPushUndefined, should be fine).
+
+The second issue is that if during the initial compilation of a script it was marked as unjittable due to many static overflows, subsequent attempts to inline the script could succeed if the overflows had been resolved during the first compilation attempt.  We should never try to inline scripts which have been marked as unjittable.
+
+http://hg.mozilla.org/projects/jaegermonkey/rev/848de7bc8930</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524375</attachid>
+            <date>2011-04-07 02:52:00 -0700</date>
+            <delta_ts>2011-04-07 02:52:34 -0700</delta_ts>
+            <desc>Testcase</desc>
+            <filename>test.js</filename>
+            <type>application/x-javascript</type>
+            <size>139</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">dmFyIGkgPSAxOwp2YXIgaiA9IDI7CmZ1bmN0aW9uIGYoKSB7CiAgICBpZiAoZmFsc2UpIAogICAg
+ICAgIGZ1bmN0aW9uIGcoKSB7fTsKICAgIHJldHVybiBpIC8gajsKfQotbnVsbDsKLW51bGw7Ci1u
+dWxsOwotbnVsbDsKLW51bGw7CmYoKTsKCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647983</bug_id>
+          
+          <creation_ts>2011-04-06 05:45:00 -0700</creation_ts>
+          <short_desc>mochitest-browser-chrome: fix browser_library_infoBox.js to check the intended elements</short_desc>
+          <delta_ts>2011-04-06 11:37:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://mxr.mozilla.org/mozilla-central/source/browser/components/places/tests/browser/browser_library_infoBox.js</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647877</dependson>
+          <blocked>430148</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Serge Gautherie (:sgautherie)">sgautherie.bz</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dominique</cc>
+    
+    <cc>mak77</cc>
+    
+    <cc>margaret.leibovic</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392178</commentid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-06 05:45:05 -0700</bug_when>
+            <thetext>Bug 647877 comment 2:
+{
+neil@parkwaycc.co.uk      2011-04-06 02:21:23 PDT
+
+The first change fixes the &quot;bug&quot; that the test was testing the behaviour that
+bug 646210 changed. (Firefox doesn&apos;t want that change, of course.)
+
+The second change fixes the bug that the test was testing the behaviour of the
+same bookmark item over and over again, since the focus never moved to the
+bookmark item that it was actually trying to test.
+}
+
+1- Fwiw, you can check (again) whether FF would want bug 646210 changed behavior.
+
+2a- This bug is at least to investigate porting the second test fix.
+
+
+Bug 647877 comment 3:
+{
+Serge Gautherie (:sgautherie)      2011-04-06 05:19:50 PDT
+
+this test doesn&apos;t report anything about which actual node is being tested
+}
+
+2b- It would help to report (for example) &quot;values&quot; of (some) tested items, so human testers could figure out whether this test works as intended or not...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392777</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 11:37:22 -0700</bug_when>
+            <thetext>As it is I don&apos;t understand much of this report, can I have a sum up without reading hundreds other bugs please?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

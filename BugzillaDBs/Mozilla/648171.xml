@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648171</bug_id>
+          
+          <creation_ts>2011-04-06 17:17:00 -0700</creation_ts>
+          <short_desc>fix JS_Enumerate leaks</short_desc>
+          <delta_ts>2011-04-06 17:59:30 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>DOM</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andreas Gal :gal">gal</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matjk7</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393644</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-06 17:17:30 -0700</bug_when>
+            <thetext>JS_Enumerate requires JS_DestroyIdArray to be called otherwise we leak.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393647</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-06 17:17:49 -0700</bug_when>
+            <thetext>All uses of JS_Enumerate:
+
+http://mxr.mozilla.org/mozilla-central/search?string=JS_Enumerate%28&amp;find=&amp;findi=&amp;filter=^[^\0]*%24&amp;hitlimit=&amp;tree=mozilla-central</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

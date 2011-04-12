@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648334</bug_id>
+          
+          <creation_ts>2011-04-07 12:49:00 -0700</creation_ts>
+          <short_desc>Thousands of crash reports over the past month or so ... this is not good at all</short_desc>
+          <delta_ts>2011-04-08 07:48:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>stackwanted</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Bynxie">XxXDean1972XxX</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394900</commentid>
+            <who name="Bynxie">XxXDean1972XxX</who>
+            <bug_when>2011-04-07 12:49:21 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.3) Gecko/20100401 BTRS25915 Firefox/3.6.3
+Build Identifier: Mozilla/3.6
+
+K when going onto facebook or even onto any site that requires the plugins I find I&apos;m having serious crashes within five minutes of being on your web browser and even when disabling the plugins i still get crash reports coming up notifying me that a problem is within plugins . please get a fix on this problem... if you can&apos;t fix earlier platforms of firefox how can the general public trust your software and programs on up to date specs
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395116</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 14:17:51 -0700</bug_when>
+            <thetext>Reporter, could you please look at about:crashes and paste a few of the crash reports you see there in this bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396113</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-08 00:22:55 -0700</bug_when>
+            <thetext>Firefox 3.6.3 is very old, please update to the latest version (3.6.14 or Firefox4)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

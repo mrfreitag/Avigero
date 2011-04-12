@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648021</bug_id>
+          
+          <creation_ts>2011-04-06 10:13:00 -0700</creation_ts>
+          <short_desc>Firefox 4.0 Crash Report [@ KERNELBASE.dll@0xb727 | McFFPlg.dll@0x1114] (100% correlation to McAfee Site Advisor)</short_desc>
+          <delta_ts>2011-04-08 04:31:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Plugins</product>
+          <component>McAfee AV</component>
+          <version>3.x</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>chofmann</cc>
+          <qa_contact>mcafee-antivirus</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392504</commentid>
+            <who name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</who>
+            <bug_when>2011-04-06 10:13:21 -0700</bug_when>
+            <thetext>Seen while looking at Top Changers report.
+
+https://crash-stats.mozilla.com/report/index/147b47f2-0f2a-4092-85af-b44bd2110404
+
+100% (12/12) vs.   5% (2867/59758) {B7082FAA-CB62-4872-9106-E42DD88EDE45} (McAfee SiteAdvisor, http://www.siteadvisor.com/)
+
+Frame 	Module 	Signature [Expand] 	Source
+0 	KERNELBASE.dll 	KERNELBASE.dll@0xb727 	
+1 	McFFPlg.dll 	McFFPlg.dll@0x1114 	
+2 	McFFPlg.dll 	McFFPlg.dll@0x1151 	
+3 	McFFPlg.dll 	McFFPlg.dll@0x11a4 	
+4 	McFFPlg.dll 	McFFPlg.dll@0x6508 	
+5 	McFFPlg.dll 	McFFPlg.dll@0x6dbf 	
+6 	McFFPlg.dll 	McFFPlg.dll@0x6ad2 	
+7 	McFFPlg.dll 	McFFPlg.dll@0x1c333 	
+8 	xul.dll 	nsObserverList::NotifyObservers 	xpcom/ds/nsObserverList.cpp:130
+9 	xul.dll 	nsObserverService::NotifyObservers 	xpcom/ds/nsObserverService.cpp:182
+10 	xul.dll 	nsHttpHandler::NotifyObservers 	netwerk/protocol/http/nsHttpHandler.cpp:544
+11 	xul.dll 	nsHttpChannel::AsyncOpen 	netwerk/protocol/http/nsHttpChannel.cpp:3631
+12 	xul.dll 	imgLoader::LoadImage 	modules/libpr0n/src/imgLoader.cpp:1660
+13 	xul.dll 	nsLoadGroup::AddRef 	netwerk/base/src/nsLoadGroup.cpp:204
+14 	xul.dll 	nsImageLoadingContent::LoadImage 	content/base/src/nsImageLoadingContent.cpp:733
+15 	xul.dll 	nsCOMPtr_base::assign_from_qi 	obj-firefox/xpcom/build/nsCOMPtr.cpp:96
+16 	xul.dll 	nsImageLoadingContent::LoadImage 	content/base/src/nsImageLoadingContent.cpp:658
+17 	xul.dll 	nsHTMLImageElement::SetAttr 	
+18 	xul.dll 	nsGenericHTMLElement::SetAttr 	content/html/content/src/nsGenericHTMLElement.h:166
+19 	xul.dll 	nsGenericHTMLElement::SetAttrHelper 	content/html/content/src/nsGenericHTMLElement.cpp:2083
+20 	xul.dll 	nsHTMLImageElement::SetSrc 	content/html/content/src/nsHTMLImageElement.cpp:221
+21 	xul.dll 	nsIDOMHTMLImageElement_SetSrc 	obj-firefox/js/src/xpconnect/src/dom_quickstubs.cpp:17416
+22 	mozjs.dll 	js::Shape::set 	js/src/jsscopeinlines.h:282
+23 	mozjs.dll 	js_NativeSet 	js/src/jsobj.cpp:5313
+24 	mozjs.dll 	js::Interpret 	js/src/jsinterp.cpp:4423
+25 	mozjs.dll 	UncachedInlineCall 	js/src/methodjit/InvokeHelpers.cpp:393
+26 	mozjs.dll 	js::mjit::stubs::UncachedCallHelper 	js/src/methodjit/InvokeHelpers.cpp:469
+27 	mozjs.dll 	CallCompiler::update 	js/src/methodjit/MonoIC.cpp:946
+28 	mozjs.dll 	js::mjit::ic::Call 	js/src/methodjit/MonoIC.cpp:1000
+29 		@0x6509001 	
+30 	mozjs.dll 	CheckStackAndEnterMethodJIT 	js/src/methodjit/MethodJIT.cpp:778
+31 	mozjs.dll 	js::mjit::JaegerShot 	js/src/methodjit/MethodJIT.cpp:802
+32 	mozjs.dll 	js::Interpret 	js/src/jsinterp.cpp:4782
+33 	mozjs.dll 	js::RunScript 	js/src/jsinterp.cpp:653
+34 	mozjs.dll 	js::Invoke 	js/src/jsinterp.cpp:740
+35 	mozjs.dll 	js::ExternalInvoke 	js/src/jsinterp.cpp:863
+36 	mozjs.dll 	JS_CallFunctionValue 	js/src/jsapi.cpp:5173
+37 	xul.dll 	nsJSContext::CallEventHandler 	dom/base/nsJSEnvironment.cpp:1914
+38 	xul.dll 	nsGlobalWindow::RunTimeout 	dom/base/nsGlobalWindow.cpp:9107
+39 	xul.dll 	nsGlobalWindow::TimerCallback 	dom/base/nsGlobalWindow.cpp:9452
+40 	xul.dll 	nsTimerImpl::Fire 	xpcom/threads/nsTimerImpl.cpp:425
+41 	xul.dll 	nsTimerEvent::Run 	xpcom/threads/nsTimerImpl.cpp:517
+42 	xul.dll 	nsThread::ProcessNextEvent 	xpcom/threads/nsThread.cpp:633
+43 	xul.dll 	mozilla::ipc::MessagePump::Run 	ipc/glue/MessagePump.cpp:110
+44 	xul.dll 	xul.dll@0xb367c7 	
+45 	xul.dll 	MessageLoop::RunInternal 	ipc/chromium/src/base/message_loop.cc:219
+46 	xul.dll 	MessageLoop::RunHandler 	ipc/chromium/src/base/message_loop.cc:202
+47 	mozcrt19.dll 	_VEC_memzero 	
+48 	xul.dll 	xul.dll@0x35d7cd 	
+49 	firefox.exe 	firefox.exe@0x1bb7 	
+50 	ntdll.dll 	WinSqmSetIfMaxDWORD 	
+51 	ntdll.dll 	_RtlUserThreadStart 	
+52 	firefox.exe 	firefox.exe@0x186f 	
+53 	firefox.exe 	firefox.exe@0x186f</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396276</commentid>
+            <who name="timeless">timeless</who>
+            <bug_when>2011-04-08 04:31:37 -0700</bug_when>
+            <thetext>Marcia: since frames 1..7 are mcffplg.dll, it&apos;s safe to say this is McAffee and not a random extension. We&apos;ve recently given them a home of their own...
+
+And if the change i&apos;m making to the signature doesn&apos;t work, please fix socorro so that it does.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

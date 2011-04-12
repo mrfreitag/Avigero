@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647901</bug_id>
+          
+          <creation_ts>2011-04-05 15:03:00 -0700</creation_ts>
+          <short_desc>Bookmark this page window - Folder option drop down menu not remaining on top.</short_desc>
+          <delta_ts>2011-04-06 11:18:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="shelleyrobynweeks@yahoo.co.uk">shelleyrobynweeks</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mak77</cc>
+    
+    <cc>srinivas</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391583</commentid>
+            <who name="shelleyrobynweeks@yahoo.co.uk">shelleyrobynweeks</who>
+            <bug_when>2011-04-05 15:03:09 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Drop down list not remaining on top of bookmark window.  Seems to be staying open behind bookmarks window and only showing when mousing over the area the list should be.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Click on star in address bar or firefox menu &gt; bookmarks &gt; bookmark this page
+2.Click on &apos;Folder:&apos; drop down list
+3.
+Actual Results:  
+Drop down list not remaining on top of bookmark window.
+
+Expected Results:  
+Drop down list should remain open until option selected, mouse moved away or clicked again.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391909</commentid>
+            <who name="Srinivas">srinivas</who>
+            <bug_when>2011-04-05 22:32:30 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre
+
+Works fine for me. Please try if you can reproduce it or if it works fine
+
+1.in safe mode. 
+https://support.mozilla.com/en-US/kb/Safe+Mode
+
+2.or by creating a new profile
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391959</commentid>
+            <who name="shelleyrobynweeks@yahoo.co.uk">shelleyrobynweeks</who>
+            <bug_when>2011-04-05 23:18:15 -0700</bug_when>
+            <thetext>Works fine in safe mode. Also just realised that the problem is only occuring in the second screen of my extended desktop.  Sorries.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392100</commentid>
+            <who name="Srinivas">srinivas</who>
+            <bug_when>2011-04-06 03:24:38 -0700</bug_when>
+            <thetext>Considering Comment 2 marking this as Resolved Worksforme</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392583</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 10:49:47 -0700</bug_when>
+            <thetext>Actually, could be some grafic bug due to hardware acceleration, could you tell me something more about that?
+Please check in about:support and report here your Graphics section.
+You could try to upgrade your graphic card drivers since some old driver is known to cause the problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392689</commentid>
+            <who name="shelleyrobynweeks@yahoo.co.uk">shelleyrobynweeks</who>
+            <bug_when>2011-04-06 11:18:11 -0700</bug_when>
+            <thetext>Adapter Description: ATI Mobility Radeon HD 4500/5100 Series
+Vendor ID: 1002
+Device ID9553: Adapter RAM512
+Adapter Driver: saticfx64 aticfx64 aticfx32 aticfx32 atiumd64 atidxx64 atiumdag atidxx32 atiumdva atiumd6a atitmm64
+Driver Version: 8.812.0.0Driver Date1-4-2011
+Direct2D Enabled: true
+DirectWrite Enabled: true (6.1.7600.16385, font cache n/a)
+WebGL Rendere: rGoogle Inc. -- ANGLE -- OpenGL ES 2.0 (ANGLE 0.0.0.541)
+GPU Accelerated Windows: 1/1 Direct3D 10</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

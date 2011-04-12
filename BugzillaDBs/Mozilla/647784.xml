@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647784</bug_id>
+          
+          <creation_ts>2011-04-05 01:07:00 -0700</creation_ts>
+          <short_desc>Use RFC5652. Cryptographic Message Syntax (CMS)</short_desc>
+          <delta_ts>2011-04-06 05:26:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Security: PSM</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://tools.ietf.org/html/rfc5652</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Michael Borvang">snabelm</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>ludovic</cc>
+    
+    <cc>snabelm</cc>
+    
+    <cc>vseerror</cc>
+          <qa_contact>psm</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390902</commentid>
+            <who name="Michael Borvang">snabelm</who>
+            <bug_when>2011-04-05 01:07:19 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.2; en-GB; rv:1.9.2.8) Gecko/20100722 Firefox/3.6.8 (.NET CLR 3.5.30729)
+Build Identifier: Thunderbird 3.x
+
+I think that Thunderbird shall use RFC5652 for Cryptographic Message Syntax.
+
+Reproducible: Always</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

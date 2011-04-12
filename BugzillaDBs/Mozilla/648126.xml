@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648126</bug_id>
+          
+          <creation_ts>2011-04-06 14:43:00 -0700</creation_ts>
+          <short_desc>Traceback from rebuild_kb cron</short_desc>
+          <delta_ts>2011-04-08 13:40:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>support.mozilla.com</product>
+          <component>Knowledge Base Software</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          <status_whiteboard>[qa-]</status_whiteboard>
+          
+          <priority>P1</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>2.7.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="James Socol [:jsocol, :james]">james</reporter>
+          <assigned_to name="James Socol [:jsocol, :james]">james</assigned_to>
+          <cc>rbillings</cc>
+          <qa_contact>kb-software</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393281</commentid>
+            <who name="James Socol [:jsocol, :james]">james</who>
+            <bug_when>2011-04-06 14:43:30 -0700</bug_when>
+            <thetext>I have a fix for this guy:
+
+
+
+Traceback (most recent call last):
+  File &quot;./manage.py&quot;, line 49, in &lt;module&gt;
+    execute_manager(settings)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/django/django/core/management/__init__.py&quot;, line 438, in execute_manager
+    utility.execute()
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/django/django/core/management/__init__.py&quot;, line 379, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/django/django/core/management/base.py&quot;, line 191, in run_from_argv
+    self.execute(*args, **options.__dict__)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/django/django/core/management/base.py&quot;, line 220, in execute
+    output = self.handle(*args, **options)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/django-cronjobs/cronjobs/management/commands/cron.py&quot;, line 38, in handle
+    registered[script](*args)
+  File &quot;/data/www/support.mozilla.com/kitsune/apps/wiki/cron.py&quot;, line 62, in rebuild_kb
+    tasks.rebuild_kb()
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/celery/celery/task/base.py&quot;, line 227, in __call__
+    return self.run(*args, **kwargs)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/celery/celery/app/__init__.py&quot;, line 141, in run
+    return fun(*args, **kwargs)
+  File &quot;/data/www/support.mozilla.com/kitsune/apps/wiki/tasks.py&quot;, line 77, in rebuild_kb
+    connection=conn)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/celery/celery/task/base.py&quot;, line 434, in apply_async
+    exchange_type=exchange_type)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/celery/celery/task/base.py&quot;, line 287, in get_publisher
+    **options)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/celery/celery/app/amqp.py&quot;, line 328, in TaskPublisher
+    return TaskPublisher(*args, **self.app.merge(defaults, kwargs))
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/celery/celery/app/amqp.py&quot;, line 156, in __init__
+    super(TaskPublisher, self).__init__(*args, **kwargs)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/kombu/kombu/compat.py&quot;, line 79, in __init__
+    self.backend = connection.channel()
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/kombu/kombu/connection.py&quot;, line 99, in channel
+    return self.transport.create_channel(self.connection)
+  File &quot;/data/www/support.mozilla.com/kitsune/vendor/src/kombu/kombu/transport/pyamqplib.py&quot;, line 197, in create_channel
+    return connection.channel()
+AttributeError: &apos;NoneType&apos; object has no attribute &apos;channel&apos;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395314</commentid>
+            <who name="James Socol [:jsocol, :james]">james</who>
+            <bug_when>2011-04-07 15:53:13 -0700</bug_when>
+            <thetext>https://github.com/jsocol/kitsune/commit/da6cc50078</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397380</commentid>
+            <who name="Rebecca Billings">rbillings</who>
+            <bug_when>2011-04-08 13:40:42 -0700</bug_when>
+            <thetext>Closed as [qa-]</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

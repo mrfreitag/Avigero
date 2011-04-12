@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648140</bug_id>
+          
+          <creation_ts>2011-04-06 15:25:00 -0700</creation_ts>
+          <short_desc>Some namespaces should be checked in nsMathMLContainerFrame.cpp</short_desc>
+          <delta_ts>2011-04-06 22:54:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>MathML</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[good first bug]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Frédéric Wang (:fred)">fred.wang</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+          <qa_contact>mathml</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393376</commentid>
+            <who name="Frédéric Wang (:fred)">fred.wang</who>
+            <bug_when>2011-04-06 15:25:28 -0700</bug_when>
+            <thetext>David wrote XXX comments where he indicated we should check namespaces.
+This can be done by using nsIContent::GetNameSpaceID and seeing if the result is kNameSpaceID_None.
+
+fred@debian:~/mozilla/src/layout/mathml$ grep -n -C2 &quot;XXX&quot; *.cpp | grep -C2 namespace
+nsMathMLContainerFrame.cpp-744-    if (!content)
+nsMathMLContainerFrame.cpp-745-      break;
+nsMathMLContainerFrame.cpp:746:    // XXXldb This should check namespaces too.
+nsMathMLContainerFrame.cpp-747-    if (content-&gt;Tag() == nsGkAtoms::math)
+nsMathMLContainerFrame.cpp-748-      break;
+--
+nsMathMLContainerFrame.cpp-1417-    return 0;
+nsMathMLContainerFrame.cpp-1418-  }
+nsMathMLContainerFrame.cpp:1419:  // XXXldb This should check namespaces too.
+nsMathMLContainerFrame.cpp-1420-  nsIAtom *parentTag = parentContent-&gt;Tag();
+nsMathMLContainerFrame.cpp-1421-  if (parentTag == nsGkAtoms::math ||</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393407</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 15:37:34 -0700</bug_when>
+            <thetext>Er.... kNameSpaceID_MathML, no?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393983</commentid>
+            <who name="Frédéric Wang (:fred)">fred.wang</who>
+            <bug_when>2011-04-06 22:54:06 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Er.... kNameSpaceID_MathML, no?
+
+Yes :-)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

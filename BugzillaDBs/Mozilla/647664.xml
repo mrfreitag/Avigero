@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647664</bug_id>
+          
+          <creation_ts>2011-04-04 03:54:00 -0700</creation_ts>
+          <short_desc>abort in orkinHeap::Alloc()</short_desc>
+          <delta_ts>2011-04-04 05:35:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>547454</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Brian Murrell">brian</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bienvenu</cc>
+    
+    <cc>ludovic</cc>
+    
+    <cc>mh+mozilla</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389935</commentid>
+            <who name="Brian Murrell">brian</who>
+            <bug_when>2011-04-04 03:54:30 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Ubuntu/10.10 Chromium/10.0.648.133 Chrome/10.0.648.133 Safari/534.16
+Build Identifier: 
+
+Is calling abort() really the best way to handle an allocation error?
+
+Thread 35 (Thread 14468):
+#0  0x0062d416 in __kernel_vsyscall ()
+No symbol table info available.
+#1  0x00420884 in pthread_cond_timedwait@@GLIBC_2.3.2 () at ../nptl/sysdeps/unix/sysv/linux/i386/i686/../i486/pthread_cond_timedwait.S:236
+No locals.
+#2  0x00753cde in pt_TimedWait (cv=&lt;value optimized out&gt;, ml=0xb760d100, timeout=40) at ptsynch.c:292
+        rv = &lt;value optimized out&gt;
+        now = {tv_sec = 1301913488, tv_usec = 279018}
+        tmo = {tv_sec = 1301913488, tv_nsec = 319018000}
+        ticks = &lt;value optimized out&gt;
+#3  0x00754af4 in PR_WaitCondVar (cvar=0x808c10c0, timeout=40) at ptsynch.c:419
+        rv = 279017
+        thred = &lt;value optimized out&gt;
+#4  0x0075aa5f in PR_Sleep (ticks=40) at ptthread.c:814
+        delta = &lt;value optimized out&gt;
+        cv = 0x808c10c0
+        timein = 538397591
+        rv = 1
+#5  0x08815579 in nsLDAPConnectionLoop::Run (this=0x90050d20) at nsLDAPConnection.cpp:879
+        rv = 0
+        strongConn = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x904ffdc0}, &lt;No data fields&gt;}
+#6  0x00386676 in nsThread::ProcessNextEvent (this=0x928b4ec0, mayWait=1, result=0x941f215c) at nsThread.cpp:527
+        event = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x90050d20}, &lt;No data fields&gt;}
+        notifyGlobalObserver = 1
+        obs = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}
+        rv = 135509775
+#7  0x00353942 in NS_ProcessNextEvent_P (thread=0xfffffdfc, mayWait=1) at nsThreadUtils.cpp:250
+        val = 1
+#8  0x00386d83 in nsThread::ThreadFunc (arg=0x928b4ec0) at nsThread.cpp:254
+        event = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}
+#9  0x0075af87 in _pt_root (arg=0x91e0f5e0) at ptthread.c:228
+        detached = 0
+#10 0x0041bcc9 in start_thread (arg=0x941f2b70) at pthread_create.c:304
+        __res = &lt;value optimized out&gt;
+        __ignore1 = &lt;value optimized out&gt;
+        __ignore2 = &lt;value optimized out&gt;
+        pd = 0x941f2b70
+        now = &lt;value optimized out&gt;
+        unwind_buf = {cancel_jmp_buf = {{jmp_buf = {4378612, 0, 4001536, -1809898776, -1568779328, 524509416}, mask_was_saved = 0}}, priv = {pad = {0x0, 0x0, 0x0, 0x0}, data = {prev = 0x0, cleanup = 0x0, canceltype = 0}}}
+        not_first_call = &lt;value optimized out&gt;
+        robust = &lt;value optimized out&gt;
+        freesize = &lt;value optimized out&gt;
+        __PRETTY_FUNCTION__ = &quot;start_thread&quot;
+#11 0x07bc069e in clone () at ../sysdeps/unix/sysv/linux/i386/clone.S:130
+No locals.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Select and move a large number o messages to another folder
+Actual Results:  
+See stack above.
+
+Expected Results:  
+They move, life goes on.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389937</commentid>
+            <who name="Brian Murrell">brian</who>
+            <bug_when>2011-04-04 04:01:35 -0700</bug_when>
+            <thetext>How about a stack trace of the correct thread this time:
+
+Thread 1 (Thread 10465):
+#0  0x0062d416 in __kernel_vsyscall ()
+No symbol table info available.
+#1  0x00424990 in raise (sig=6) at ../nptl/sysdeps/unix/sysv/linux/pt-raise.c:42
+        resultvar = &lt;value optimized out&gt;
+#2  0x0808391b in nsProfileLock::FatalSignalHandler (signo=6, info=0xbfc286bc, context=0xbfc2873c) at nsProfileLock.cpp:213
+        unblock_sigs = {__val = {32, 0 &lt;repeats 31 times&gt;}}
+        oldact = &lt;value optimized out&gt;
+#3  &lt;signal handler called&gt;
+No symbol table info available.
+#4  0x0062d416 in __kernel_vsyscall ()
+No symbol table info available.
+#5  0x07b1a941 in raise (sig=6) at ../nptl/sysdeps/unix/sysv/linux/raise.c:64
+        resultvar = &lt;value optimized out&gt;
+        pid = 130322420
+        selftid = 10465
+#6  0x07b1de42 in abort () at abort.c:92
+        act = {__sigaction_handler = {sa_handler = 0xbfc28b08, sa_sigaction = 0xbfc28b08}, sa_mask = {__val = {14867330, 3217197816, 57505876, 3217197804, 14948980, 0, 3078893936, 5, 0, 1, 3078926336, 3078926336, 0, 3217197784, 0, 57712015, 1, 130323911, 0, 3217197876, 3217197804, 3217197816, 2, 3078926336, 0, 130323840, 14897966, 57715103, 57529572, 3078926336, 3217197808, 4294967295}}, sa_flags = 14946292, sa_restorer = 0x3709d8f}
+        sigs = {__val = {32, 0 &lt;repeats 31 times&gt;}}
+#7  0x03780055 in __gnu_cxx::__verbose_terminate_handler() () from /usr/lib/libstdc++.so.6
+No symbol table info available.
+#8  0x0377df35 in ?? () from /usr/lib/libstdc++.so.6
+No symbol table info available.
+#9  0x0377df72 in std::terminate() () from /usr/lib/libstdc++.so.6
+No symbol table info available.
+#10 0x0377e0e1 in __cxa_throw () from /usr/lib/libstdc++.so.6
+No symbol table info available.
+#11 0x0377e677 in operator new(unsigned int) () from /usr/lib/libstdc++.so.6
+No symbol table info available.
+#12 0x081a5b67 in orkinHeap::Alloc (this=0x8e16a480, mev=0x81a34768, inSize=65544, outBlock=0xbfc28c80) at orkinHeap.cpp:90
+        outErr = &lt;value optimized out&gt;
+        block = &lt;value optimized out&gt;
+#13 0x081a52c7 in morkZone::zone_new_hunk (this=0x826cf0ec, ev=0x81a34740, inSize=65536) at morkZone.cpp:266
+        hunkSize = 65544
+        outBlock = 0x0
+#14 0x081a538c in morkZone::zone_grow_at (this=0x826cf0ec, ev=0x81a34740, inNeededSize=32) at morkZone.cpp:242
+        newSize = 65536
+        hunk = &lt;value optimized out&gt;
+        run = &lt;value optimized out&gt;
+        prev = 0x28e1
+#15 0x081a540c in morkZone::zone_new_chip (this=0x826cf0ec, ev=0x81a34740, inSize=32) at morkZone.cpp:319
+        at = 0x0
+        atSize = 6
+#16 0x08198600 in morkPool::NewRow (this=0x826cf538, ev=0x81a34740, ioZone=0x826cf0ec) at morkPool.cpp:237
+        newRow = &lt;value optimized out&gt;
+#17 0x081b0c3d in morkRowSpace::NewRow (this=0x91f48040, ev=0x81a34740) at morkRowSpace.cpp:629
+        oid = {mOid_Scope = 109, mOid_Id = 3428}
+        pool = 0x826cf538
+        row = &lt;value optimized out&gt;
+        store = 0x826cf000
+        id = &lt;value optimized out&gt;
+        outRow = &lt;value optimized out&gt;
+#18 0x0819cf4e in morkTable::GetMetaRow (this=0x6fcff3a0, ev=0x81a34740, inOptionalMetaRowOid=0x0) at morkTable.cpp:1195
+        store = 0x0
+        outRow = 0x0
+#19 0x0819dbf1 in morkTable::GetMetaRow (this=0x6fcff3a0, mev=0x81a34768, inOptionalMetaRowOid=0x0, outOid=0x0, acqRow=0xa2e8d660) at morkTable.cpp:423
+        row = &lt;value optimized out&gt;
+        outErr = &lt;value optimized out&gt;
+        outRow = &lt;value optimized out&gt;
+        ev = &lt;value optimized out&gt;
+#20 0x088eeb5f in nsMsgThread::nsMsgThread (this=0xa2e8d640, db=0x80a326a0, table=0x6fcff3d0) at nsMsgThread.cpp:64
+No locals.
+#21 0x088e2641 in nsMsgDatabase::CreateNewThread (this=0x80a326a0, threadId=4760, subject=0x8e16a0ac &quot;re&quot;, pnewThread=0xbfc28ec0) at nsMsgDatabase.cpp:4164
+        err = &lt;value optimized out&gt;
+        threadTableOID = {mOid_Scope = 128, mOid_Id = 4760}
+        allThreadsTableOID = {mOid_Scope = 154, mOid_Id = 4760}
+        threadTable = 0x6fcff3d0
+        res = &lt;value optimized out&gt;
+        threadRow = 0x90c2dee8
+#22 0x088e2030 in nsMsgDatabase::AddNewThread (this=0x80a326a0, msgHdr=0x90c2de80) at nsMsgDatabase.cpp:4567
+        threadHdr = 0x0
+        subject = {&lt;nsACString_internal&gt; = {mData = 0x8e16a0ac &quot;re&quot;, mLength = 2, mFlags = 9}, &lt;No data fields&gt;}
+        threadKey = 4760
+        err = 2147500035
+#23 0x088e3700 in nsMsgDatabase::ThreadNewHdr (this=0x80a326a0, newHdr=0x90c2de80, newThread=@0xbfc28ff0) at nsMsgDatabase.cpp:4383
+        thread = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}
+        newHdrKey = 4760
+        newHdrFlags = 0
+        result = 2147549183
+        replyToHdr = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}
+        threadId = 4294967295
+        numReferences = 0
+#24 0x088e3794 in nsMsgDatabase::AddNewHdrToDB (this=0x80a326a0, newHdr=0x90c2de80, notify=1) at nsMsgDatabase.cpp:3251
+        newThread = -2120005824
+        hasKey = 0
+        err = &lt;value optimized out&gt;
+#25 0x088ec6a2 in nsImapMailDatabase::AddNewHdrToDB (this=0x80a326a0, newHdr=0x90c2de80, notify=1) at nsImapMailDatabase.cpp:154
+        rv = &lt;value optimized out&gt;
+#26 0x088de3b7 in nsMsgDatabase::CopyHdrFromExistingHdr (this=0x80a326a0, key=4760, existingHdr=0x91870a80, addHdrToDB=1, newHdr=0xbfc29104) at nsMsgDatabase.cpp:3322
+        destMsgHdr = 0x6
+        sourceRow = &lt;value optimized out&gt;
+        destRow = &lt;value optimized out&gt;
+        err = &lt;value optimized out&gt;
+#27 0x08900f10 in nsImapMailFolder::CopyMessagesOffline (this=0x81a2e400, srcFolder=0xb38f3c20, messages=0x8147cdf0, isMove=1, msgWindow=0xa4d78d30, listener=0x0) at nsImapMailFolder.cpp:7074
+        successfulCopy = &lt;value optimized out&gt;
+        srcDBhighWaterMark = 1164191
+        newMailHdr = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}
+        msgKey = 7588
+        messageReturningHome = &lt;value optimized out&gt;
+        message = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x91870a80}, &lt;No data fields&gt;}
+        msgKey = 1161437
+        sourceOp = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x6eeffe80}, &lt;No data fields&gt;}
+        mailHdr = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x91870a80}, &lt;No data fields&gt;}
+        originalSrcFolderURI = {&lt;nsACString_internal&gt; = {mData = 0xb2f3e7c8 &quot;imap://brian@mail.example.com/backup&quot;, mLength = 40, mFlags = 5}, &lt;No data fields&gt;}
+        originalKey = 1161437
+        sourceKeyIndex = 4759
+        fakeBase = 1
+        folderInfo = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x98f334c0}, &lt;No data fields&gt;}
+        highWaterMark = 0
+        inputStream = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x84cc76b4}, &lt;No data fields&gt;}
+        outputStream = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x83a9722c}, &lt;No data fields&gt;}
+        messageId = {&lt;nsACString_internal&gt; = {mData = 0x73ae5008 &quot;11567031156707115669611566971156698115670011566991156701115670211567041156723116303411567051156722115670611567081156709115671011567111156712115671311567151156716115671711567181156720115671911567211156&quot;..., mLength = 33320, mFlags = 5}, &lt;No data fields&gt;}
+        txnMgr = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xa5729690}, &lt;No data fields&gt;}
+        rv = &lt;value optimized out&gt;
+        stopit = 0
+        msgHdrsCopied = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x814aa8f0}, &lt;No data fields&gt;}
+        keysToDelete = {&lt;nsTArray_base&gt; = {static sEmptyHdr = {mLength = 0, mCapacity = 0, mIsAutoArray = 0}, mHdr = 0x3b05b4}, &lt;No data fields&gt;}
+        srcDbFolderInfo = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x94efcf20}, &lt;No data fields&gt;}
+        deleteToTrash = 0
+        srcSupport = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x74613d}, &lt;No data fields&gt;}
+        sourceMailDB = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x8e6fcd60}, &lt;No data fields&gt;}
+        deleteImmediately = 0
+        srcCount = 6890
+        imapServer = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb2fdec3c}, &lt;No data fields&gt;}
+        numHdrs = &lt;value optimized out&gt;
+#28 0x089093ec in nsImapMailFolder::CopyMessages (this=0x81a2e400, srcFolder=0xb38f3c20, messages=0x8147cdf0, isMove=1, msgWindow=0xa4d78d30, listener=0x0, isFolder=0, allowUndo=1) at nsImapMailFolder.cpp:7336
+        srcImapFolder = &lt;value optimized out&gt;
+        rv = 0
+        srcServer = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb2fdebc0}, &lt;No data fields&gt;}
+        dstServer = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb2fdebc0}, &lt;No data fields&gt;}
+        srcSupport = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb38f3c00}, &lt;No data fields&gt;}
+        sameServer = 1
+#29 0x08859103 in nsMsgCopyService::DoNextCopy (this=0xb0901a50) at nsMsgCopyService.cpp:321
+        activeTargets = {&lt;nsCOMArray_base&gt; = {mArray = {mImpl = 0x842f9760}}, &lt;No data fields&gt;}
+        rv = 0
+        copySource = 0x8141df50
+        i = &lt;value optimized out&gt;
+        cnt = 14
+        scnt = 1
+        copyRequest = 0x81a34380
+        j = &lt;value optimized out&gt;
+#30 0x0885926a in nsMsgCopyService::DoCopy (this=0xb0901a50, aRequest=0x81a34380) at nsMsgCopyService.cpp:263
+        copyImmediately = 1
+#31 0x08859a18 in nsMsgCopyService::CopyMessages (this=0xb0901a50, srcFolder=0xb38f3c20, messages=0x810e81f0, dstFolder=0x81a2e420, isMove=1, listener=0x0, window=0xa4d78d30, allowUndo=1) at nsMsgCopyService.cpp:531
+        copySource = 0x8141df50
+        msgArray = {&lt;nsCOMArray_base&gt; = {mArray = {mImpl = 0x80e34000}}, &lt;No data fields&gt;}
+        cnt = 4294967295
+        msg = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x838f3a00}, &lt;No data fields&gt;}
+        aSupport = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb38f3c00}, &lt;No data fields&gt;}
+        rv = 0
+        curFolder = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb38f3c20}, &lt;No data fields&gt;}
+#32 0x089bc3f6 in nsMsgDBView::CopyMessages (this=0x8ea60140, window=0xa4d78d30, indices=0x80887008, numIndices=6890, isMove=1, destFolder=0x81a2e420) at nsMsgDBView.cpp:2682
+        rv = 0
+        messageArray = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x810e81f0}, &lt;No data fields&gt;}
+        copyService = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb0901a50}, &lt;No data fields&gt;}
+#33 0x089bc0b4 in nsMsgDBView::ApplyCommandToIndicesWithFolder (this=0x8ea60140, command=14, indices=0x80887008, numIndices=6890, destFolder=0x81a2e420) at nsMsgDBView.cpp:2702
+        rv = 6
+        msgWindow = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xa4d78d30}, &lt;No data fields&gt;}
+#34 0x089bd1ab in nsMsgDBView::DoCommandWithFolder (this=0x8ea60140, command=14, destFolder=0x81a2e420) at nsMsgDBView.cpp:2352
+        selection = {&lt;nsTArray&lt;unsigned int&gt;&gt; = {&lt;nsTArray_base&gt; = {static sEmptyHdr = {mLength = 0, mCapacity = 0, mIsAutoArray = 0}, mHdr = 0x80887000}, &lt;No data fields&gt;}, mAutoBuf = &quot;\000\000\000\000\001\000\000\200\000l\003&quot;}
+        rv = &lt;value optimized out&gt;
+#35 0x003933ab in NS_InvokeByIndex_P () from /usr/lib/thunderbird-3.1.8/libxpcom_core.so
+No locals.
+#36 0x081279b4 in XPCWrappedNative::CallMethod (ccx=..., mode=XPCWrappedNative::CALL_METHOD) at xpcwrappednative.cpp:2722
+        rv = &lt;value optimized out&gt;
+        retval = &lt;value optimized out&gt;
+        paramCount = &lt;value optimized out&gt;
+        err = &lt;value optimized out&gt;
+        tls = &lt;value optimized out&gt;
+        secAction = &lt;value optimized out&gt;
+        methodInfo = 0xb4d19068
+        src = -1297023232
+        foundDependentParam = 0
+        argc = 2
+        i = 6 &apos;\006&apos;
+        argv = 0x8883a0b8
+        secFlag = &lt;value optimized out&gt;
+        autoStringUsed = 0
+        invokeResult = &lt;value optimized out&gt;
+        param_iid = {m0 = 2503703473, m1 = 27198, m2 = 19035, m3 = &quot;\204\037czƍ\356\016&quot;}
+        paramBuffer = {{&lt;nsXPTCMiniVariant&gt; = {val = {i8 = 14 &apos;\016&apos;, i16 = 14, i32 = 14, i64 = -5511161296738844658, u8 = 14 &apos;\016&apos;, u16 = 14, u32 = 14, u64 = 12935582776970706958, f = 1.96181785e-44, d = -1.5885705015946352e-60, b = 14, c = 14 &apos;\016&apos;, wc = 14, p = 0xe}}, ptr = 0x0, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 2 &apos;\002&apos;}, &lt;No data fields&gt;}, flags = 0 &apos;\000&apos;}, {&lt;nsXPTCMiniVariant&gt; = {val = {i8 = 32 &apos; &apos;, i16 = -7136, i32 = -2120031200, i64 = -5723069088253418464, u8 = 32 &apos; &apos;, u16 = 58400, u32 = 2174936096, u64 = 12723674985456133152, f = -5.98367448e-38, d = -1.0818930693146978e-74, b = -2120031200, c = 32 &apos; &apos;, wc = 58400, p = 0x81a2e420}}, ptr = 0x0, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 146 &apos;\222&apos;}, &lt;No data fields&gt;}, flags = 4 &apos;\004&apos;}, {&lt;nsXPTCMiniVariant&gt; = {val = {i8 = -128 &apos;\200&apos;, i16 = -19072, i32 = -1280723584, i64 = -5511161293724600960, u8 = 128 &apos;\200&apos;, u16 = 46464, u32 = 3014243712, u64 = 12935582779984950656, f = -7.90269041e-08, d = -1.5885713346031677e-60, b = -1280723584, c = -128 &apos;\200&apos;, wc = 46464, p = 0xb3a9b580}}, ptr = 0xbfc29678, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 123 &apos;{&apos;}, &lt;No data fields&gt;}, flags = 211 &apos;\323&apos;}, {&lt;nsXPTCMiniVariant&gt; = {val = {i8 = 0 &apos;\000&apos;, i16 = 27648, i32 = -1283167232, i64 = -5500665905484108800, u8 = 0 &apos;\000&apos;, u16 = 27648, u32 = 3011800064, u64 = 12946078168225442816, f = -6.16637408e-08, d = -7.9993734565287837e-60, b = -1283167232, c = 0 &apos;\000&apos;, wc = 27648, p = 0xb3846c00}}, ptr = 0xb09392fc, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 132 &apos;\204&apos;}, &lt;No data fields&gt;}, flags = 150 &apos;\226&apos;}, {&lt;nsXPTCMiniVariant&gt; = {val = {i8 = -119 &apos;\211&apos;, i16 = -13431, i32 = 135449481, i64 = 73149893513, u8 = 137 &apos;\211&apos;, u16 = 52105, u32 = 135449481, u64 = 73149893513, f = 4.41745313e-34, d = 3.6140849381718756e-313, b = 135449481, c = -119 &apos;\211&apos;, wc = 52105, p = 0x812cb89}}, ptr = 0x7, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 0 &apos;\000&apos;}, &lt;No data fields&gt;}, flags = 0 &apos;\000&apos;}, {&lt;nsXPTCMiniVariant&gt; = {val = {i8 = 0 &apos;\000&apos;, i16 = 0, i32 = 0, i64 = -6704981713321197568, u8 = 0 &apos;\000&apos;, u16 = 0, u32 = 0, u64 = 11741762360388354048, f = 0, d = -2.5086741849234713e-140, b = 0, c = 0 &apos;\000&apos;, wc = 0, p = 0x0}}, ptr = 0xbfc29668, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 220 &apos;\334&apos;}, &lt;No data fields&gt;}, flags = 199 &apos;\307&apos;}, {&lt;nsXPTCMiniVariant&gt; = {val = {i8 = 0 &apos;\000&apos;, i16 = 27648, i32 = -1283167232, i64 = -5567533942077887488, u8 = 0 &apos;\000&apos;, u16 = 27648, u32 = 3011800064, u64 = 12879210131631664128, f = -6.16637408e-08, d = -2.672623142832696e-64, b = -1283167232, c = 0 &apos;\000&apos;, wc = 27648, p = 0xb3846c00}}, ptr = 0x1, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 97 &apos;a&apos;}, &lt;No data fields&gt;}, flags = 168 &apos;\250&apos;}, {&lt;nsXPTCMiniVariant&gt; = {val = {i8 = 0 &apos;\000&apos;, i16 = 0, i32 = -1231355904, i64 = 11653545984, u8 = 0 &apos;\000&apos;, u16 = 0, u32 = 3063611392, u64 = 11653545984, f = -4.61935997e-06, d = 5.757616722925625e-314, b = -1231355904, c = 0 &apos;\000&apos;, wc = 0, p = 0xb69b0000}}, ptr = 0x8cbbae0, type = {&lt;XPTTypeDescriptorPrefix&gt; = {flags = 128 &apos;\200&apos;}, &lt;No data fields&gt;}, flags = 181 &apos;\265&apos;}}
+        autoString = &quot;\250\227¿o\375\023\b\000l\204\263\200\265\251\263`%\274\262l\230¿x\230¿\214\227¿\240\331\363\264\240\331\363\264\300\367\205\263\234\227¿\270\227¿\264\226\232\000PE\225\266\300\367\205\263\001\000\000\000\000l\204\263\f\230¿\002\000\000\000\340\272\313\b\005\000\000\000\001\000\000\000\270\240\203\210\350\227¿&lt;\230¿`%\274\262\270\240\203\210ؗ¿V\f\224\000\000l\204\263`%\274\262\001\000\000\000\370\227¿\270\240\203\210|\231¿\b\230¿&quot;
+        dispatchParams = 0xbfc295b0
+        requiredArgs = &lt;value optimized out&gt;
+        sm = &lt;value optimized out&gt;
+        rt = 0xb766e370
+        callee = 0x8ea60140
+        vtblIndex = 0
+        name = 9
+#37 0x0812f4a2 in XPC_WN_CallMethod (cx=0xb3846c00, obj=0xb3a9b580, argc=2, argv=0x8883a0b8, vp=0xbfc2997c) at xpcwrappednativejsops.cpp:1740
+        funobj = &lt;value optimized out&gt;
+        wrapper = &lt;value optimized out&gt;
+        member = 0xae4da860
+        ccx = {&lt;nsAXPCNativeCallContext&gt; = {_vptr.nsAXPCNativeCallContext = 0x8b36650}, mState = XPCCallContext::READY_TO_CALL, mXPC = 0xb6954550, mThreadData = 0xb4f3d9a0, mXPCContext = 0xb385c8b0, mJSContext = 0xb3846c00, mContextPopRequired = 0, mDestroyJSContextInDestructor = 0, mCallerLanguage = XPCContext::LANG_JS, mPrevCallerLanguage = XPCContext::LANG_UNKNOWN, mPrevCallContext = 0x0, mOperandJSObject = 0xb3a9b580, mCurrentJSObject = 0xb3a9b580, mFlattenedJSObject = 0xb3a9b580, mWrapper = 0x8e14d940, mTearOff = 0x8e14d95c, mScriptableInfo = 0x0, mSet = 0xb1529ae0, mInterface = 0xae4da800, mMember = 0xae4da860, mName = -1332505860, mStaticMemberIsLocal = 0, mArgc = 2, mArgv = 0x8883a0b8, mRetVal = 0xbfc2997c, mReturnValueWasSet = 0, mMethodIndex = 9, mCallee = 0x0, mStringWrapperData = &quot;\000\000\000\000\300b|\245\000l\204\263\000\000\000\000\001\000\000\000Ș¿\000l\204\263\000\000\000&quot;}
+        iface = 0xae4da800
+#38 0x0099b363 in js_Invoke (cx=0xb3846c00, argc=2, vp=0x8883a0b0, flags=2) at jsinterp.cpp:1360
+        frame = {regs = 0x0, imacpc = 0x0, slots = 0x0, callobj = 0x0, argsobj = 0, varobj = 0x0, script = 0x0, fun = 0xa2f31ea8, thisp = 0xb3a9b580, argc = 2, argv = 0x8883a0b8, rval = 22, down = 0x8883a048, annotation = 0x0, scopeChain = 0xb385f7c0, blockChain = 0x0, sharpDepth = 0, sharpArray = 0x0, flags = 34, dormantNext = 0x0, displaySave = 0x0}
+        argv = 0x8883a0b8
+        funobj = &lt;value optimized out&gt;
+        ok = -1841926192
+        clasp = 0xbfc29950
+        i = &lt;value optimized out&gt;
+        sp = &lt;value optimized out&gt;
+        newvp = &lt;value optimized out&gt;
+        v = -1296292512
+        ops = &lt;value optimized out&gt;
+        hookData = &lt;value optimized out&gt;
+        parent = 0xb3a9b580
+        fun = 0xa2f31ea8
+        rootedArgsFlag = 32
+        native = 0x812f3c0 &lt;XPC_WN_CallMethod(JSContext*, JSObject*, uintN, jsval*, jsval*)&gt;
+        script = 0x0
+        nslots = 0
+        hook = &lt;value optimized out&gt;
+#39 0x0098b664 in js_Interpret (cx=0xb3846c00) at jsops.cpp:2240
+        getter = 0x8883a0b0
+        op = 2290327728
+        prop = 0xae38a030
+        npairs = &lt;value optimized out&gt;
+        currentVersion = 12468
+        obj = 0xb2bc2560
+        d = 0
+        off = &lt;value optimized out&gt;
+        fp = 0x8883a048
+        inlineCallCount = 1
+        regs = {pc = 0xb0a33d5b &quot;:&quot;, sp = 0x8883a0c0}
+        pc2 = &lt;value optimized out&gt;
+        clasp = &lt;value optimized out&gt;
+        low = 12676099
+        rt = 0xb69b0000
+        op2 = &lt;value optimized out&gt;
+        vp = &lt;value optimized out&gt;
+        script = 0xb0a33ca0
+        originalVersion = 8372
+        obj2 = 0xb385f7c0
+        cond = 0
+        lval = &lt;value optimized out&gt;
+        id = -1332505844
+        d2 = 0
+        fun = &lt;value optimized out&gt;
+        normalJumpTable = {0x98d3ce, 0x98c3ae, 0x98a3fb, 0x98e86d, 0x990c35, 0x990c6b, 0x98a497, 0x990ccb, 0x990d39, 0x990252, 0x98c578, 0x98f9ba, 0x98e639, 0x98fa18, 0x98d889, 0x9900bd, 0x98ca53, 0x98bf3c, 0x98da86, 0x98db94, 0x98c45a, 0x98c4e9, 0x98e1e0, 0x98e26f, 0x98d3ff, 0x98d48f, 0x98ea04, 0x98ea84, 0x98d6f2, 0x98fef0, 0x98fff4, 0x98ed6a, 0x98ee12, 0x98ec8b, 0x98ece0, 0x98e8b8, 0x98e925, 0x98f7f5, 0x98f890, 0x98a934, 0x98d2fb, 0x98d3fa, 0x98d3f5, 0x98d32f, 0x98d339, 0x98d2f6, 0x98d334, 0x989e8e, 0x989f4a, 0x989cf4, 0x989e8e, 0x989f4a, 0x989cf4, 0x98a989, 0x98a5e4, 0x98ee87, 0x98df88, 0x98a74a, 0x990a93, 0x98a74a, 0x98a8ae, 0x98a8ae, 0x98f060, 0x98f09c, 0x98efe8, 0x98c28a, 0x98f024, 0x98f4bb, 0x98e534, 0x98e589, 0x98f4f7, 0x98e367, 0x98cafc, 0x98e677, 0x98de19, 0x9904b8, 0x99053c, 0x990c85, 0x989f76, 0x98fa5f, 0x98f926, 0x98ed3c, 0x98e0e5, 0x98e4b2, 0x98a574, 0x98ef76, 0x98c72d, 0x98f723, 0x990be8, 0x98fd20, 0x98fdbe, 0x98cc13, 0x98cdb0, 0x98ce65, 0x98cf08, 0x98e34e, 0x98cb66, 0x98d2c4, 0x98e335, 0x98d1e1, 0x98d2dd, 0x98d1f7, 0x98d1a6, 0x98ee6d, 0x98c77d, 0x98c847, 0x98e5fb, 0x98e4f7, 0x98d9d8, 0x98a5e4, 0x990a98, 0x99045a, 0x990b88, 0x98dd37, 0x98f203, 0x98f2ef, 0x98f33a, 0x98f138, 0x98d276, 0x98dc9f, 0x98a490, 0x989f76, 0x98e057, 0x98b431, 0x98b431, 0x98fa9e, 0x98b039, 0x98b039, 0x98f383, 0x98e82f, 0x990ac3, 0x98d802, 0x98d29d, 0x98c610, 0x98b156, 0x98b156, 0x9902a8, 0x990141, 0x99106b, 0x98a43e, 0x98bfc0, 0x990a14, 0x98c03f, 0x98c094, 0x98f268, 0x98e6e1, 0x98a437, 0x98f5d7, 0x98f714, 0x98ad41, 0x98ad41, 0x98c5d0, 0x98a3fb, 0x98a35a, 0x98b380, 0x990320, 0x98d253, 0x98d20d, 0x98c22e, 0x98d230, 0x98c641, 0x98ddc9, 0x990da7, 0x99101b, 0x9908c0, 0x990933, 0x9906de, 0x990734, 0x98ac29, 0x98ac29, 0x98d51f, 0x98d591, 0x98ab8e, 0x98aafb, 0x98c3ea, 0x98f785, 0x990794, 0x99086d, 0x98f466, 0x9907e7, 0x98c92d, 0x98c9d5, 0x990996, 0x990f9a, 0x98cfbd, 0x98a4d8, 0x98a4d8, 0x98aafb, 0x9912d0, 0x98f0d8, 0x98a8fe, 0x98a8fe, 0x98c906, 0x98f111, 0x98dee6, 0x98a35a, 0x98a989, 0x98ab8e, 0x98a934, 0x99061c...}
+        len = &lt;value optimized out&gt;
+        str = &lt;value optimized out&gt;
+        ok = &lt;value optimized out&gt;
+        atom = &lt;value optimized out&gt;
+        rval = 29
+        i = &lt;value optimized out&gt;
+        setter = &lt;value optimized out&gt;
+        index = &lt;value optimized out&gt;
+        attrs = 0
+        flags = 3002771168
+        ltmp = -1561125208
+        j = &lt;value optimized out&gt;
+        atoms = 0xb0a33cd4
+        parent = &lt;value optimized out&gt;
+        argc = &lt;value optimized out&gt;
+        slot = 0
+        str2 = &lt;value optimized out&gt;
+        type = &lt;value optimized out&gt;
+        interruptJumpTable = {0x98d345 &lt;repeats 235 times&gt;}
+        jumpTable = 0xa7a880
+        rtmp = 4
+        sprop = &lt;value optimized out&gt;
+#40 0x0099b7e6 in js_Invoke (cx=0xb3846c00, argc=1, vp=0x8883a024, flags=0) at jsinterp.cpp:1368
+        frame = {regs = 0x8883a09c, imacpc = 0x0, slots = 0x8883a030, callobj = 0x0, argsobj = 0, varobj = 0x0, script = 0x927170a0, fun = 0xa2f31b60, thisp = 0xa5725e60, argc = 1, argv = 0x8883a02c, rval = 22, down = 0x0, annotation = 0x0, scopeChain = 0xa5725e60, blockChain = 0x0, sharpDepth = 0, sharpArray = 0x0, flags = 32, dormantNext = 0x0, displaySave = 0x0}
+        argv = 0x8883a02c
+        funobj = &lt;value optimized out&gt;
+        ok = -2004639744
+        clasp = 0xbfc29c10
+        i = &lt;value optimized out&gt;
+        sp = &lt;value optimized out&gt;
+        newvp = &lt;value optimized out&gt;
+        v = -1278843776
+        ops = &lt;value optimized out&gt;
+        hookData = &lt;value optimized out&gt;
+        parent = 0xa5725e60
+        fun = 0x0
+        rootedArgsFlag = 32
+        native = 0
+        script = 0x927170a0
+        nslots = 2290327552
+        hook = &lt;value optimized out&gt;
+#41 0x0099c091 in js_InternalInvoke (cx=0xb3846c00, obj=0xa5725e60, fval=-1278843776, flags=0, argc=1, argv=0x8883a020, rval=0xbfc29da0) at jsinterp.cpp:1423
+        invokevp = &lt;value optimized out&gt;
+        mark = &lt;value optimized out&gt;
+        ok = &lt;value optimized out&gt;
+#42 0x0093f860 in JS_CallFunctionValue (cx=0xb3846c00, obj=0xa5725e60, fval=-1278843776, argc=1, argv=0x8883a020, rval=0xbfc29da0) at jsapi.cpp:5098
+        ok = &lt;value optimized out&gt;
+#43 0x08476c0d in nsJSContext::CallEventHandler (this=0xb3860940, aTarget=0xb09ede20, aScope=0xb385f7c0, aHandler=0xb3c66480, aargv=0x810e8080, arv=0xbfc29fa8) at nsJSEnvironment.cpp:2197
+        argv = 0x8883a020
+        ok = &lt;value optimized out&gt;
+        mark = 0x8883a018
+        argc = 1
+        ar = {mContext = 0xb3846c00, mSaveDepth = 0}
+        rv = 0
+        targetVal = -1519231392
+        tvr = {mContext = 0xb3846c00, mTvr = {down = 0x0, count = 1, u = {value = -1077764692, object = 0xbfc29dac, xml = 0xbfc29dac, trace = 0xbfc29dac, sprop = 0xbfc29dac, weakRoots = 0xbfc29dac, compiler = 0xbfc29dac, script = 0xbfc29dac, array = 0xbfc29dac}}}
+        target = 0xa5725e60
+        rval = 22
+        stack = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb695456c}, &lt;No data fields&gt;}
+        ar = {mContext = 0x810e8080, mSaveDepth = -2129756032}
+#44 0x084a9525 in nsJSEventListener::HandleEvent (this=0xb09eae60, aEvent=0x80eb84cc) at nsJSEventListener.cpp:269
+        rv = 0
+        iargv = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x810e8080}, &lt;No data fields&gt;}
+        eventString = {&lt;nsFixedString&gt; = {&lt;nsString&gt; = {&lt;nsAString_internal&gt; = {mData = 0x8088eaa8, mLength = 9, mFlags = 65541}, &lt;No data fields&gt;}, mFixedCapacity = 63, mFixedBuf = 0xbfc29eb0}, mStorage = {99, 111, 109, 109, 97, 110, 100, 0, 1516, 59, 25632, 44936, 40796, 49090, 61202, 61793, 0, 0, 9, 0, 40796, 49090, 39758, 53, 8192, 46980, 61252, 61793, 1, 0, 1, 0, 21294, 227, 70, 0, 4084, 228, 65368, 58, 14692, 33356, 40732, 49090, 22131, 227, 2, 0, 21294, 227, 4096, 46948, 14692, 33356, 40744, 49090, 8192, 46980, 65524, 58, 40776, 49090, 1, 0}}
+        atomName = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb428e538}, &lt;No data fields&gt;}
+        funcval = {mObject = 0xb3c66480, mContext = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb3860940}, &lt;No data fields&gt;}}
+        handledScriptError = &lt;value optimized out&gt;
+        vrv = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}
+#45 0x08403407 in nsEventListenerManager::HandleEventSubType (this=0xb09eec40, aListenerStruct=0xb09eec64, aListener=0xb09eae60, aDOMEvent=0x80eb84cc, aCurrentTarget=0xb09ede20, aPhaseFlags=2) at nsEventListenerManager.cpp:1041
+        result = 2963205184
+#46 0x0840375e in nsEventListenerManager::HandleEvent (this=0xb09eec40, aPresContext=0xb2f62400, aEvent=0x83a96d40, aDOMEvent=0xbfc2a270, aCurrentTarget=0xb09ede20, aFlags=2, aEventStatus=0xbfc2a274) at nsEventListenerManager.cpp:1147
+        ls = 0xb09eec64
+        useTypeInterface = 0
+        useGenericInterface = 1
+        hasListener = &lt;value optimized out&gt;
+        pusher = {mScx = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb3860940}, &lt;No data fields&gt;}, mScriptIsRunning = 0, mPushedSomething = 1}
+        currentGroup = 0
+        typeData = 0x0
+        dispData = &lt;value optimized out&gt;
+        iter = {&lt;nsAutoTObserverArray&lt;nsListenerStruct, 2u&gt;::ForwardIterator&gt; = {&lt;nsAutoTObserverArray&lt;nsListenerStruct, 2u&gt;::Iterator&gt; = {&lt;nsTObserverArray_base::Iterator_base&gt; = {mPosition = 1, mNext = 0x0}, mArray = @0xb09eec54}, &lt;No data fields&gt;}, mEnd = {&lt;nsAutoTObserverArray&lt;nsListenerStruct, 2u&gt;::Iterator&gt; = {&lt;nsTObserverArray_base::Iterator_base&gt; = {mPosition = 1, mNext = 0xbfc2a138}, mArray = @0xb09eec54}, &lt;No data fields&gt;}}
+#47 0x084112bd in nsEventTargetChainItem::HandleEvent (this=0xb38c1760, aVisitor=..., aFlags=2, aMayHaveNewListenerManagers=0) at nsEventDispatcher.cpp:246
+No locals.
+#48 0x08411432 in nsEventTargetChainItem::HandleEventTargetChain (this=0xb38c17c0, aVisitor=..., aFlags=6, aCallback=0x0, aMayHaveNewListenerManagers=1) at nsEventDispatcher.cpp:332
+        createdELMs = 117507
+        firstTarget = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x99f85250}, &lt;No data fields&gt;}
+        item = 0xb38c1760
+#49 0x08411962 in nsEventDispatcher::Dispatch (aTarget=0x99f85250, aPresContext=0xb2f62400, aEvent=0x83a96d40, aDOMEvent=0x80eb84cc, aEventStatus=0xbfc2a3b8, aCallback=0x0, aTargets=0x0) at nsEventDispatcher.cpp:573
+        postVisitor = {&lt;nsEventChainVisitor&gt; = {mPresContext = 0xb2f62400, mEvent = 0x83a96d40, mDOMEvent = 0x80eb84cc, mEventStatus = nsEventStatus_eIgnore, mItemFlags = 0, mItemData = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}}, &lt;No data fields&gt;}
+        t = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x99f85250}, &lt;No data fields&gt;}
+        topEtci = 0xb38c17c0
+        rv = 0
+        targetEtci = 0xb38c12e0
+        preVisitor = {&lt;nsEventChainVisitor&gt; = {mPresContext = 0xb2f62400, mEvent = 0x83a96d40, mDOMEvent = 0x80eb84cc, mEventStatus = nsEventStatus_eIgnore, mItemFlags = 0, mItemData = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb76c74c0}, &lt;No data fields&gt;}}, mCanHandle = 1 &apos;\001&apos;, mForceContentDispatch = 1 &apos;\001&apos;, mRelatedTargetIsInAnon = 0 &apos;\000&apos;, mOriginalTargetIsInAnon = 0 &apos;\000&apos;, mWantsWillHandleEvent = 0 &apos;\000&apos;, mParentTarget = 0x0, mEventTargetAtParent = 0x0}
+        content = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x99f85250}, &lt;No data fields&gt;}
+        status = &lt;value optimized out&gt;
+        target = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x99f85250}, &lt;No data fields&gt;}
+        kungFuDeathGrip = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb2f62400}, &lt;No data fields&gt;}
+#50 0x08411b91 in nsEventDispatcher::DispatchDOMEvent (aTarget=0x99f85250, aEvent=0x0, aDOMEvent=0x80eb84cc, aPresContext=0xb2f62400, aEventStatus=0xbfc2a3b8) at nsEventDispatcher.cpp:636
+        innerEvent = 0x83a96d40
+        dontResetTrusted = 0
+        privEvt = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x80eb84d4}, &lt;No data fields&gt;}
+#51 0x082aa15c in PresShell::HandleDOMEventWithTarget (this=0xb6998da0, aTargetContent=0x99f85250, aEvent=0x80eb84cc, aStatus=0xbfc2a3b8) at nsPresShell.cpp:6590
+        container = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb4e4fac4}, &lt;No data fields&gt;}
+#52 0x083ab268 in nsContentUtils::DispatchXULCommand (aTarget=0x99f85250, aTrusted=1, aSourceEvent=0x0, aShell=0xb6998da0, aCtrl=0, aAlt=0, aShift=0, aMeta=0) at nsContentUtils.cpp:5150
+        status = nsEventStatus_eIgnore
+        kungFuDeathGrip = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb6998da0}, &lt;No data fields&gt;}
+        docEvent = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb384a8a4}, &lt;No data fields&gt;}
+        xulCommand = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x80eb8510}, &lt;No data fields&gt;}
+        pEvent = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x80eb84d4}, &lt;No data fields&gt;}
+        rv = 0
+        doc = 0x85e34ca
+        event = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x80eb84cc}, &lt;No data fields&gt;}
+        view = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb76c750c}, &lt;No data fields&gt;}
+        target = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x3538e3}, &lt;No data fields&gt;}
+        dummy = -2147418113
+#53 0x0839dc49 in nsXULMenuCommandEvent::Run (this=0x842f9340) at nsXULPopupManager.cpp:2120
+        popupFrame = 0x6
+        shell = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb6998da0}, &lt;No data fields&gt;}
+        kungFuDeathGrip = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb2fa6b80}, &lt;No data fields&gt;}
+        pm = 0xb42be300
+        popup = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x94b45760}, &lt;No data fields&gt;}
+        menuFrame = &lt;value optimized out&gt;
+#54 0x00386676 in nsThread::ProcessNextEvent (this=0xb76c04c0, mayWait=1, result=0xbfc2a4bc) at nsThread.cpp:527
+        event = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x842f9340}, &lt;No data fields&gt;}
+        notifyGlobalObserver = 1
+        obs = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb6908104}, &lt;No data fields&gt;}
+        rv = 136645617
+#55 0x00353942 in NS_ProcessNextEvent_P (thread=0x0, mayWait=1) at nsThreadUtils.cpp:250
+        val = 1
+#56 0x08250dde in nsBaseAppShell::Run (this=0xb6908100) at nsBaseAppShell.cpp:177
+        thread = 0xb76c04c0
+#57 0x087b1f50 in nsAppStartup::Run (this=0xb4f3d880) at nsAppStartup.cpp:183
+        rv = &lt;value optimized out&gt;
+#58 0x0807cdf9 in XRE_main (argc=1, argv=0xbfc2aa34, aAppData=0xb760e3c0) at nsAppRunner.cpp:3483
+        remoteService = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb387c4c0}, &lt;No data fields&gt;}
+        appStartup = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb4f3d880}, &lt;No data fields&gt;}
+        shuttingDown = 0
+        cmdLine = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb4221460}, &lt;No data fields&gt;}
+        workingDir = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb424fb80}, &lt;No data fields&gt;}
+        xpcom = {mServiceManager = 0xb76ec104}
+        desktopStartupIDEnv = &lt;value optimized out&gt;
+        profLD = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620e00}, &lt;No data fields&gt;}
+        dirProvider = {&lt;nsIDirectoryServiceProvider2&gt; = {&lt;nsIDirectoryServiceProvider&gt; = {&lt;nsISupports&gt; = {_vptr.nsISupports = 0x8a51438}, &lt;No data fields&gt;}, &lt;No data fields&gt;}, &lt;nsIProfileStartup&gt; = {&lt;nsISupports&gt; = {_vptr.nsISupports = 0x8a5145c}, &lt;No data fields&gt;}, mAppProvider = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0x0}, &lt;No data fields&gt;}, mGREDir = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620200}, &lt;No data fields&gt;}, mXULAppDir = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620100}, &lt;No data fields&gt;}, mProfileDir = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620d80}, &lt;No data fields&gt;}, mProfileLocalDir = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620e00}, &lt;No data fields&gt;}, mProfileNotified = 1 &apos;\001&apos;, mExtensionsLoaded = 1 &apos;\001&apos;, mAppBundleDirectories = {&lt;nsCOMArray_base&gt; = {mArray = {mImpl = 0x0}}, &lt;No data fields&gt;}, mExtensionDirectories = {&lt;nsCOMArray_base&gt; = {mArray = {mImpl = 0xb76c0600}}, &lt;No data fields&gt;}, mThemeDirectories = {&lt;nsCOMArray_base&gt; = {mArray = {mImpl = 0xb76bea00}}, &lt;No data fields&gt;}}
+        desktopStartupIDPtr = &lt;value optimized out&gt;
+        nativeApp = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7603e60}, &lt;No data fields&gt;}
+        startOffline = 141470229
+        profileName = {&lt;nsFixedCString&gt; = {&lt;nsCString&gt; = {&lt;nsACString_internal&gt; = {mData = 0xb76a8b88 &quot;default&quot;, mLength = 7, mFlags = 65541}, &lt;No data fields&gt;}, mFixedCapacity = 63, mFixedBuf = 0xbfc2a868 &quot;&quot;}, mStorage = &quot;\000\250¿\364\377:\000\242\343`\267\364\377:\000\270\250¿=at\000\b\001b\267\364\377:\000ب¿\202\270\067\000)at\000\364\377:\000Ȩ¿\350\322\067\000\b\001b\267\360\343`\267&quot;}
+        upgraded = -1282947904
+        versionOK = &lt;value optimized out&gt;
+        appInitiatedRestart = &lt;value optimized out&gt;
+        desktopStartupID = {&lt;nsFixedCString&gt; = {&lt;nsCString&gt; = {&lt;nsACString_internal&gt; = {mData = 0xbfc2a8bc &quot;gnome-panel-3956-pc-thunderbird-41_TIME1109483533&quot;, mLength = 49, mFlags = 65553}, &lt;No data fields&gt;}, mFixedCapacity = 63, mFixedBuf = 0xbfc2a8bc &quot;gnome-panel-3956-pc-thunderbird-41_TIME1109483533&quot;}, mStorage = &quot;gnome-panel-3956-pc-thunderbird-41_TIME1109483533\000\a\b\262\343`\267L\251¿\030\251¿&quot;}
+        display_name = &lt;value optimized out&gt;
+        xremotearg = &lt;value optimized out&gt;
+        canRun = 1
+        profileLock = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb76be610}, &lt;No data fields&gt;}
+        profD = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620d80}, &lt;No data fields&gt;}
+        version = {&lt;nsFixedCString&gt; = {&lt;nsCString&gt; = {&lt;nsACString_internal&gt; = {mData = 0xbfc2a814 &quot;3.1.8_20110223075314/20110223075314&quot;, mLength = 35, mFlags = 65553}, &lt;No data fields&gt;}, mFixedCapacity = 63, mFixedBuf = 0xbfc2a814 &quot;3.1.8_20110223075314/20110223075314&quot;}, mStorage = &quot;3.1.8_20110223075314/20110223075314\000X\250¿mat\000\b\001b\267\364\377:\000x\250¿\350\322\067\000Yat&quot;}
+        needsRestart = 0
+        display = 0xb7663140
+        osABI = {&lt;nsCString&gt; = {&lt;nsACString_internal&gt; = {mData = 0x8a508c3 &quot;Linux_x86-gcc3&quot;, mLength = 14, mFlags = 1}, &lt;No data fields&gt;}, &lt;No data fields&gt;}
+        rv = 0
+        gtkModules = &lt;value optimized out&gt;
+        appData = {&lt;nsXREAppData&gt; = {size = 56, directory = 0xb7620100, vendor = 0x0, name = 0xb7602210 &quot;Thunderbird&quot;, version = 0xb76030a0 &quot;3.1.8&quot;, buildID = 0xb7602220 &quot;20110223075314&quot;, ID = 0xb7611100 &quot;{3550f703-e582-4d05-9a08-453d09bdfdc6}&quot;, copyright = 0x0, flags = 6, xreDirectory = 0xb7620200, minVersion = 0xb7602230 &quot;1.9.2.14&quot;, maxVersion = 0xb7602240 &quot;1.9.2.14&quot;, crashReporterURL = 0xb7611130 &quot;https://crash-reports.mozilla.com/submit&quot;, profile = 0x0}, &lt;No data fields&gt;}
+        localIniFile = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620180}, &lt;No data fields&gt;}
+        parser = {mSections = {&lt;nsBaseHashtable&lt;nsDepCharHashKey, nsAutoPtr&lt;nsINIParser_internal::INIValue&gt;, nsINIParser_internal::INIValue*&gt;&gt; = {&lt;nsTHashtable&lt;nsBaseHashtableET&lt;nsDepCharHashKey, nsAutoPtr&lt;nsINIParser_internal::INIValue&gt; &gt; &gt;&gt; = {mTable = {ops = 0x3b02f0, data = 0x0, hashShift = 28, maxAlphaFrac = 192 &apos;\300&apos;, minAlphaFrac = 64 &apos;@&apos;, entrySize = 12, entryCount = 1, removedCount = 0, generation = 0, entryStore = 0xb762b0c0 &quot;&quot;}}, &lt;No data fields&gt;}, &lt;No data fields&gt;}, mFileContents = {mRawPtr = 0xb760e400 &quot;[Build&quot;}}
+        ar = &lt;value optimized out&gt;
+        override = 0x0
+        iniFile = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620180}, &lt;No data fields&gt;}
+        i = &lt;value optimized out&gt;
+#59 0x08078b90 in main (argc=1, argv=0xbfc2aa34) at nsMailApp.cpp:101
+        rv = 0
+        appData = 0xb760e3c0
+        appini = {&lt;nsCOMPtr_base&gt; = {mRawPtr = 0xb7620080}, &lt;No data fields&gt;}
+        result = &lt;value optimized out&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389997</commentid>
+            <who name="Joshua Cranmer [:jcranmer]">Pidgeot18</who>
+            <bug_when>2011-04-04 05:35:37 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 547454 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647873</bug_id>
+          
+          <creation_ts>2011-04-05 11:46:00 -0700</creation_ts>
+          <short_desc>Un-disabling addon version with admin control panel broken</short_desc>
+          <delta_ts>2011-04-06 11:29:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Admin/Editor Tools</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          <bug_file_loc>https://addons.mozilla.org/en-US/admin/addons</bug_file_loc>
+          <status_whiteboard>[required amo-editors]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>6.0.6</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andrew Williamson">evil.jeff</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jorge</cc>
+          <qa_contact>admin-tools</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391404</commentid>
+            <who name="Andrew Williamson">evil.jeff</who>
+            <bug_when>2011-04-05 11:46:40 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+If I try to enable an addon with the admin control panel then the status changes on the admin control panel page, but doesn&apos;t change on the review page (meaning the version can&apos;t then be approved, etc).  The following day the version status was reset back to disabled.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Find an addon with a disabled version. (e.g. https://addons.mozilla.org/en-US/firefox/admin/addons/status/10433)
+2. change the status of the disabled version to &apos;awaiting preliminary review&apos;
+3. go to the review page associated with that version.
+Actual Results:  
+review page status says &apos;disabled by mozilla&apos; and submitting the form throws the normal error.
+
+Expected Results:  
+review page status says &apos;awaiting review&apos; (or whatever the wording is); I&apos;m able to approve/prelim/deny the version.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392681</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-06 11:15:32 -0700</bug_when>
+            <thetext>Has this happened to you more than once?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392733</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-06 11:29:25 -0700</bug_when>
+            <thetext>I just checked the review page for this add-on, and the status is correctly set to Pending Full Review. It could be that there&apos;s a delay from Admin changes to review pages, but everything appears to be working normally for now.
+
+If the problem occurs again, or it takes more than an hour to update on review pages, please reopen this bug.
+
+WFM</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

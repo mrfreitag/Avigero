@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648433</bug_id>
+          
+          <creation_ts>2011-04-07 17:19:00 -0700</creation_ts>
+          <short_desc>Investigate performance of multi-process HTTP code</short_desc>
+          <delta_ts>2011-04-08 09:31:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Networking: HTTP</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jduell.mcbugs</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>mark.finkle</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>mcmanus</cc>
+    
+    <cc>pavlov</cc>
+          <qa_contact>networking.http</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395535</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-07 17:19:51 -0700</bug_when>
+            <thetext>AFAIK no one has even rough data for network performance in- vs. out-of-process.  Let&apos;s fix that.  Here are some relatively simple experiments
+ - run tp4, say, under a whole-system profiler.  See if netwerk/ or ipc/glue shows up in either process.
+ - create a huge (MBs) file.  Make test that requests file over (quiet) Wifi using a sync XHR and then estimates throughput.  Run page in remote=true and remote=false, compare throughput estimates.
+ - create a huge synthetic page, say full of text, then load it while running a whole-system profiler.  See if netwerk/ or ipc/glue shows up in either process.
+
+The &quot;worst&quot; device on which to test necko would probably be an n900, which has low-ish memory bandwidth and only one core.  We should also check the n900 measurements against those on, say, a multi-core desktop.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

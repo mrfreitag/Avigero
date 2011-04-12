@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647888</bug_id>
+          
+          <creation_ts>2011-04-05 13:42:00 -0700</creation_ts>
+          <short_desc>MyMSN homepage loads, but content functions are disabled.</short_desc>
+          <delta_ts>2011-04-07 17:23:58 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://mymsn.com</bug_file_loc>
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>429507</blocked>
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Bob">rcassj</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>alice0775</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>cdleary</cc>
+    
+    <cc>fmdevelopertim</cc>
+    
+    <cc>fullmetaljacket.xp+bugmail</cc>
+    
+    <cc>jwalden+bmo</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391502</commentid>
+            <who name="Bob">rcassj</who>
+            <bug_when>2011-04-05 13:42:37 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I upgraded to Firefox 4.0. Now my homepage @ My MSN displays, but my customized segments of the page have no content. The ability to add new content is non responsive as well as the menu feature of each content box. My sports scores, stock to watch, Denver Post newspaper headlines and movie theater listing are missing or nonfunctional. The original My MSN page is there but I have no control of the page.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Click internet access.
+2.
+3.
+Actual Results:  
+I click on my Firefox internet icon. The My MSN home page loads, but all control functions of the page are inoperable. Clicking on add content, content menu features are dead and do not function. Some content boxes do have items displayed such as AP News Headlines and clicking on a specific story does open the article but other content boxes such as The Denver Post Newspaper Headlines are there but no headlines appear. In addition the menu button for that box does&apos;t respond to a mouse click.
+
+Expected Results:  
+Nothing!
+
+There should be the ability to access and costomize each homepage content box.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391532</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-05 14:10:07 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392300</commentid>
+            <who name="Bob">rcassj</who>
+            <bug_when>2011-04-06 08:19:48 -0700</bug_when>
+            <thetext>I tried both safe mode and new profile and I have the same problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392301</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-06 08:20:35 -0700</bug_when>
+            <thetext>I can confirm that clicking &quot;+Add a Page&quot;, &quot;Customize&quot;, &quot;Add Content&quot; at the top or &quot;Menu&quot; on any of the modules at http://my.msn.com/default.aspx has no effect on Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre ID:20110406030427</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393658</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-06 17:21:07 -0700</bug_when>
+            <thetext>Does it work if you spoof the user agent? Any errors in the error console?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393839</commentid>
+            <who name="Bob">rcassj</who>
+            <bug_when>2011-04-06 20:16:14 -0700</bug_when>
+            <thetext>Tim, I have no idea what you are talking about in your two questions. You are beyond my knowledge level. Sorry!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393882</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-06 21:26:15 -0700</bug_when>
+            <thetext>Confirmed on
+http://hg.mozilla.org/mozilla-central/rev/385684ad7eed
+Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre ID:20110406030427
+
+Regression window(m-c hourly):
+Works:
+http://hg.mozilla.org/mozilla-central/rev/a4bcb8a00451
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100828 Firefox/4.0b5pre ID:20100828082303
+Fails:
+http://hg.mozilla.org/mozilla-central/rev/ef3410122ad9
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100828 Firefox/4.0b5pre ID:20100828085356
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=a4bcb8a00451&amp;tochange=ef3410122ad9
+
+Regression window(TM nightly):
+Works:
+http://hg.mozilla.org/tracemonkey/rev/f84b470314a8
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100811 Minefield/4.0b4pre ID:20100811105635
+Fails:
+http://hg.mozilla.org/tracemonkey/rev/ab1c626399bb
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100812 Minefield/4.0b4pre ID:20100812043145
+Pushlog:
+http://hg.mozilla.org/tracemonkey/pushloghtml?fromchange=f84b470314a8&amp;tochange=ab1c626399bb
+Suspected bug:
+Bug 564953 - (PortYarr) JM: Port YARR!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393911</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-06 22:00:40 -0700</bug_when>
+            <thetext>Sorry complicated regression window:
+There are 2 regression window.
+
+#1 regression window(m-c hourly):
+Works:
+http://hg.mozilla.org/mozilla-central/rev/0ee09dea0911
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100813 Minefield/4.0b4pre ID:20100813140349
+Fails(first broken):
+http://hg.mozilla.org/mozilla-central/rev/fc6783c960ca
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100813 Minefield/4.0b4pre ID:20100813142423
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=0ee09dea0911&amp;tochange=fc6783c960ca
+
+Fixied window(m-c hourly)
+Fails:
+http://hg.mozilla.org/mozilla-central/rev/2f01056be931
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100825 Minefield/4.0b5pre ID:20100825101431
+Fixed(Working again):
+http://hg.mozilla.org/mozilla-central/rev/0aefd9d484f1
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100825 Minefield/4.0b5pre ID:20100825120025
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=2f01056be931&amp;tochange=0aefd9d484f1
+
+#2 Regression window(m-c hourly):
+Works:
+http://hg.mozilla.org/mozilla-central/rev/a4bcb8a00451
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100828 Firefox/4.0b5pre ID:20100828082303
+Fails(broken again):
+http://hg.mozilla.org/mozilla-central/rev/ef3410122ad9
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100828 Firefox/4.0b5pre ID:20100828085356
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=a4bcb8a00451&amp;tochange=ef3410122ad9
+
+
+
+#1 Regression window(TM nightly):
+Works:
+http://hg.mozilla.org/tracemonkey/rev/f84b470314a8
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100811 Minefield/4.0b4pre ID:20100811105635
+Fails(first broken):
+http://hg.mozilla.org/tracemonkey/rev/ab1c626399bb
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100812 Minefield/4.0b4pre ID:20100812043145
+Pushlog:
+http://hg.mozilla.org/tracemonkey/pushloghtml?fromchange=f84b470314a8&amp;tochange=ab1c626399bb
+Suspected bug:
+Bug 564953 - (PortYarr) JM: Port YARR!
+
+
+Fixied window(TM nightly)
+Fails:
+http://hg.mozilla.org/tracemonkey/rev/fa851447f195
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100824 Minefield/4.0b5pre ID:20100824043743
+Fixed(Working again):
+http://hg.mozilla.org/tracemonkey/rev/b6179390c115
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100825 Minefield/4.0b5pre ID:20100825043936
+Pushlog:
+http://hg.mozilla.org/tracemonkey/pushloghtml?fromchange=fa851447f195&amp;tochange=b6179390c115
+
+#2 Regression window(TM nightly):
+Works:
+http://hg.mozilla.org/tracemonkey/rev/b6179390c115
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100825 Minefield/4.0b5pre ID:20100825043936
+Fails(broken again):
+http://hg.mozilla.org/tracemonkey/rev/7680aecfb0c6
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100826 Minefield/4.0b5pre ID:20100826044040
+Pushlog:
+http://hg.mozilla.org/tracemonkey/pushloghtml?fromchange=b6179390c115&amp;tochange=7680aecfb0c6</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394031</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-06 23:44:38 -0700</bug_when>
+            <thetext>In local build(from TM repository)
+build from 5782b1ce64a0 : fails
+build from 364041a19ab1 : works
+build from 25278e8a90c5 : works
+Triggered by:
+5782b1ce64a0	Jeff Walden — Bug 429507 - ES5: Function.prototype.bind. r=brendan</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394036</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 23:48:40 -0700</bug_when>
+            <thetext>Sounds likely that it had a custon bind() with different semantics....</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395553</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-07 17:23:58 -0700</bug_when>
+            <thetext>I also now notice this on Windows7 with Google Chrome 10.0.648.204 and 12.0.729.0 canary build .</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

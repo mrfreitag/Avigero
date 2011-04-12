@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648481</bug_id>
+          
+          <creation_ts>2011-04-07 21:41:00 -0700</creation_ts>
+          <short_desc>Firefox remembers window size, but for the wrong window.</short_desc>
+          <delta_ts>2011-04-07 22:03:35 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Preferences</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Colin Clark">colin.clark.mail</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>preferences</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395924</commentid>
+            <who name="Colin Clark">colin.clark.mail</who>
+            <bug_when>2011-04-07 21:41:30 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Firefox remembers the window size (dimensions and position), and uses that information when starting a new Firefox window instance.
+
+When there are multiple windows open, the window that determines the stored windows dimensions is the window that was instantiated first. Instead, as a user, I expect the most recently resized window to determine the window size of subsequently opened windows.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Execute firefox.exe. A new window is opened. Call this &quot;Window A&quot;.
+2. Execute firefox.exe. A new window is opened. Call this &quot;Window B&quot;.
+3. Execute firefox.exe. A new window is opened. Call this &quot;Window C&quot;.
+4. Uniquely resize the dimensions of Window A.
+5. Uniquely resize the dimensions of Window B.
+6. Uniquely resize the dimensions of Window C.
+7. Execute firefox.exe. A new window is opened, using remembered window dimensions.
+Actual Results:  
+The new window opened in step 7 has the dimensions of Window A, the first window instantiated.
+
+Expected Results:  
+The new window opened in step 7 should have the dimensions of Window C, the most recently resized window, or else use dimensions of the most recently closed window.
+
+This is pretty annoying for a multi monitor setup, where I might have a tiny &quot;thumbnail&quot; window open in the secondary monitor. If the thumbnail window is the first instantiated window, then ALL subsequently instantiated windows will be the goofed up thumbnail size, no matter how many new windows I open, resize, and close. It&apos;s impossible to save new window dimensions until I close the thumbnail window.
+
+IE and Chrome use the last window closed for remembering dimensions. This works much better and more predictably for the user.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395962</commentid>
+            <who name="Colin Clark">colin.clark.mail</who>
+            <bug_when>2011-04-07 22:03:35 -0700</bug_when>
+            <thetext>Never mind. The window remembering behavior is just quite complex. Apparently whether the resized window is still alive matters as well. 
+
+My original steps are probably not reproduceable.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

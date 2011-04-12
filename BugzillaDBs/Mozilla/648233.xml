@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648233</bug_id>
+          
+          <creation_ts>2011-04-07 03:49:00 -0700</creation_ts>
+          <short_desc>Using quote shortcut (ctrl + shift + .) in reply to email often crashes Eudora OSE</short_desc>
+          <delta_ts>2011-04-07 03:49:26 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Penelope</product>
+          <component>Compose Window</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Marijn Kampf">bugzilla.mozilla.org</reporter>
+          <assigned_to name="Matt Dudziak">mozilla-bugs</assigned_to>
+          
+          <qa_contact>compose-window</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394183</commentid>
+            <who name="Marijn Kampf">bugzilla.mozilla.org</who>
+            <bug_when>2011-04-07 03:49:26 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2.10) Gecko/20100914 Firefox/3.6.10 GTB7.1 ( .NET CLR 3.5.30729; .NET4.0E)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.9) Gecko/20100722 Eudora/3.0.4
+
+When I reply to an email I often copy and paste bits into my reply from the original message or other messages. I then quote these using the ctrl + shift + . shortcut to distinguish my text from other peoples texts. 
+
+Eudora OSE often crashes on applying the shortcut.
+
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Reply to message (it seems to occur more often for text only messages).
+2. Select couple of lines from reply and copy it to top of page.
+3. Select pasted lines and press ctrl + shift + .
+4. Sometimes Eudora crashes straight away sometimes it takes a couple of re-quoting the same quoted text.
+Actual Results:  
+Eudora OSE crashed with crash report:
+
+Add-ons: en-GB@dictionaries.addons.mozilla.org:1.19.1,inspector@mozilla.org:2.0.9,{D1D37B8A-4F3C-11DB-8373-B622A1EF5492}:1.0,nl-NL@dictionaries.addons.mozilla.org:3.0.1,{972ce4c6-7e08-4474-a285-3208198ce6fd}:3.0.4
+BuildID: 20100722200145
+CrashTime: 1302172474
+InstallTime: 1284968723
+ProductName: Eudora OSE
+SecondsSinceLastCrash: 427
+StartupTime: 1302172050
+Theme: classic/1.0
+Throttleable: 1
+URL: 
+Vendor: 
+Version: 3.0.4
+
+This report also contains technical information about the state of the application when it crashed.
+
+Expected Results:  
+Quoted text not a crash report
+
+Don&apos;t know whether it will matter, but I&apos;ve setup my replies in Account Settings &gt; Composition &amp; Addressing to:
+checked &quot;compose messages in HTML format&quot;
+checked &quot;automatically quote the original message when replying&quot;
+then &quot;start my reply above the quote.&quot;
+place signature &quot;below the quote (recommended)&quot;
+checked &quot;include signature for replies&quot;
+unchecked &quot;include signature for forwards&quot;
+
+Qualcomm&apos;s Eudora used to have the opposite short cut ctrl + shift + , to unquote a quoted text, but this doesn&apos;t seem to work at all any more.
+
+Any additional questions please let me know!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

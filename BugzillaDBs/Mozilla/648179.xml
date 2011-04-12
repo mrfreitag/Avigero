@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648179</bug_id>
+          
+          <creation_ts>2011-04-06 17:41:00 -0700</creation_ts>
+          <short_desc>unable to connect to any of the Internet streams I normally used after upgrading to Firefox 4.0</short_desc>
+          <delta_ts>2011-04-06 17:41:10 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://http://streamingradioguide.com/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Beverly Caron">abcaron</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393717</commentid>
+            <who name="Beverly Caron">abcaron</who>
+            <bug_when>2011-04-06 17:41:10 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.18) Gecko/20110319 Firefox/3.5.18 (.NET CLR 3.5.30729)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.18) Gecko/20110319 Firefox/3.5.18 (.NET CLR 3.5.30729)
+
+There were absolutely no other problems but I was unwilling to search for other solutions in order to keep using 4.0 and I most definitely will NEVER use IE, I hate it as I do most of Microsoft&apos;s products. I uninstalled and am now running 3.5.18 with no problems at all. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.connect to site,
+2.select music station..........I tried several, easy listening, nostalgia and a couple others
+3.attempt to connect with the stream
+Actual Results:  
+Go to the site 
+select a music category
+attempt to connect to the stream player
+
+Expected Results:  
+absolutely nothing
+
+with the prior versions of Firefox a pop-up stream player would load, buffer for a few seconds and then begin to play. In order to use this site and some others which also did not work, I had to uninstall 4.0 and reinstall an earlier version.
+
+I AM NOT anxious about this problem, I am perfectly happy with the prior version of Firefox. Just thought you should know.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

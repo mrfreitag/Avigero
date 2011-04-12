@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647984</bug_id>
+          
+          <creation_ts>2011-04-06 05:56:00 -0700</creation_ts>
+          <short_desc>Maemo permaorange in content/media/test/crashtests/495794-1.html | load failed: timed out waiting for reftest-wait to be removed</short_desc>
+          <delta_ts>2011-04-11 16:49:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Video/Audio</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Maemo</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>doug.turner</cc>
+    
+    <cc>jmaher</cc>
+    
+    <cc>jones.chris.g</cc>
+    
+    <cc>kinetik</cc>
+          <qa_contact>video.audio</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392189</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-06 05:56:24 -0700</bug_when>
+            <thetext>Since I don&apos;t really watch mobile tests, dunno if this is a regression, or an always-has-been. You can see from bug 573634 when I started misstarring the runs on the TraceMonkey nightlies, but I couldn&apos;t tell you whether I ignored it before then, or they didn&apos;t run before then.
+
+http://tinderbox.mozilla.org/showlog.cgi?log=TraceMonkey/1302088733.1302090750.8095.gz
+n900-gtk tracemonkey unit crashtest on 2011/04/06 04:18:53 
+
+REFTEST TEST-UNEXPECTED-FAIL | file:///builds/fennec/reftest/tests/content/media/test/crashtests/495794-1.html | load failed: timed out waiting for reftest-wait to be removed
+REFTEST INFO | Saved log: START file:///builds/fennec/reftest/tests/content/media/test/crashtests/495794-1.html
+REFTEST INFO | Saved log: [CONTENT] OnDocumentLoad triggering WaitForTestEnd
+REFTEST INFO | Saved log: [CONTENT] WaitForTestEnd: Adding listeners
+REFTEST INFO | Saved log: Initializing canvas snapshot
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: STATE_WAITING_TO_FIRE_INVALIDATE_EVENT
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: dispatching MozReftestInvalidate
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: STATE_WAITING_FOR_REFTEST_WAIT_REMOVAL
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: waiting for reftest-wait to be removed
+REFTEST INFO | Saved log: [CONTENT] AfterPaintListener in file:///builds/fennec/reftest/tests/content/media/test/crashtests/495794-1.html
+REFTEST INFO | Saved log: Updating canvas for invalidation
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: STATE_WAITING_FOR_REFTEST_WAIT_REMOVAL
+REFTEST INFO | Saved log: [CONTENT] MakeProgress: waiting for reftest-wait to be removed
+REFTEST INFO | Loading a blank page</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392197</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-06 06:07:21 -0700</bug_when>
+            <thetext>Oh, and according to m.d.planning, the Mobile tests may start reporting to mozilla-central today, in which case this and one other permaorange will result in Maemo crashtests being hidden, so we might want to hit it with a quick skip-if(browserIsRemote) hammer and then consider whether that&apos;s actually the problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392258</commentid>
+            <who name="Joel Maher (:jmaher)">jmaher</who>
+            <bug_when>2011-04-06 07:38:41 -0700</bug_when>
+            <thetext>bug 637660 disabled two tests for Android including this one:
+http://hg.mozilla.org/mozilla-central/rev/2269cb1136f9
+
+We can broaden the scope of the skip-if, but we really need to find the root cause.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392631</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-06 11:03:03 -0700</bug_when>
+            <thetext>My guess would be a problem with the onended event.  This test isn&apos;t failing on desktop CIPC so this might be a device-lib-specific issue.  Another possibility is that this test is just running too slowly on device.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402014</commentid>
+            <who name="TinderboxPushlog Robot">tbplbot</who>
+            <bug_when>2011-04-11 16:01:49 -0700</bug_when>
+            <thetext>bill%wg9s.com
+http://tinderbox.mozilla.org/showlog.cgi?log=Mobile/1302552234.1302553881.27206.gz
+n900-gtk mozilla-central unit crashtest on 2011/04/11 13:03:54
+
+REFTEST TEST-UNEXPECTED-FAIL | file:///builds/fennec/reftest/tests/content/media/test/crashtests/495794-1.html | load failed: timed out waiting for reftest-wait to be removed
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | file:///builds/fennec/reftest/tests/content/media/test/crashtests/495794-1.html | load failed: timed out waiting for reftest-wait to be removed
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402017</commentid>
+            <who name="TinderboxPushlog Robot">tbplbot</who>
+            <bug_when>2011-04-11 16:02:44 -0700</bug_when>
+            <thetext>bill%wg9s.com
+http://tinderbox.mozilla.org/showlog.cgi?log=Mobile/1302558235.1302559881.21755.gz
+n900-gtk mozilla-central unit crashtest on 2011/04/11 14:43:55
+
+REFTEST TEST-UNEXPECTED-FAIL | file:///builds/fennec/reftest/tests/content/media/test/crashtests/495794-1.html | load failed: timed out waiting for reftest-wait to be removed
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | file:///builds/fennec/reftest/tests/content/media/test/crashtests/495794-1.html | load failed: timed out waiting for reftest-wait to be removed
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content
+REFTEST TEST-UNEXPECTED-FAIL | | can&apos;t drawWindow remote content</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402177</commentid>
+            <who name="Joel Maher (:jmaher)">jmaher</who>
+            <bug_when>2011-04-11 16:49:40 -0700</bug_when>
+            <thetext>we should just disable these as the reftest harness will not work on this platform without fixing the harness or figuring out how to adjust the resolution on maemo.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

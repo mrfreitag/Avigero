@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647988</bug_id>
+          
+          <creation_ts>2011-04-06 06:45:00 -0700</creation_ts>
+          <short_desc>Chase down the Android browser-chrome mochitests that are hiding in the Talos tests</short_desc>
+          <delta_ts>2011-04-06 06:45:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Tinderboxpushlog</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Phil Ringnalda (:philor)">philringnalda</assigned_to>
+          
+          <qa_contact>tinderboxpushlog</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392216</commentid>
+              <attachid>524175</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-06 06:45:34 -0700</bug_when>
+            <thetext>Created attachment 524175
+Fix v.1
+
+Remember when I said that &quot;/(a11y|chrome|cold|dirty|dromaeo|scroll|svg|tp4)/.test(name) ? &quot;Talos Performance&quot; :&quot; was both unnecessary and risky? Yeah.
+
+Somebody turned the crank on the Random Test Run Name Generator, and came up with &quot;Android Tegra 250 mozilla-central opt test browser-chrome&quot; as the equivalent of &quot;n900-qt mozilla-central unit browser-chrome&quot; so we&apos;re calling the Android ones Talos.
+
+There currently aren&apos;t any mobile chrome tests running at all, Android ones don&apos;t exist and the Maemo &quot;unit chrome&quot; ones aren&apos;t being run, so I&apos;m not making a stab at predicting what the name of the Android version might or might not be if it ever does exist, but as of 6:41am there aren&apos;t any Talos tests named &quot;browser-chrome&quot; without &quot;talos&quot; in the name, that a browser-chrome without a preceeding unit would accidentally catch.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524175</attachid>
+            <date>2011-04-06 06:45:00 -0700</date>
+            <delta_ts>2011-04-06 06:45:34 -0700</delta_ts>
+            <desc>Fix v.1</desc>
+            <filename>mobile-browser-chrome</filename>
+            <type>text/plain</type>
+            <size>1739</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2pzL0RhdGEuanMgYi9qcy9EYXRhLmpzCi0tLSBhL2pzL0RhdGEuanMKKysr
+IGIvanMvRGF0YS5qcwpAQCAtNDY3LDE3ICs0NjcsMTcgQEAgRGF0YS5wcm90b3R5cGUgPSB7CiAg
+ICAgICAgIC9tYWVtbyAuKiBxdCAuKiBuaWdodGx5L2kudGVzdChuYW1lKSA/ICJNYWVtbyBRdCBO
+aWdodGx5IiA6CiAgICAgICAgIC9uaWdodGx5L2kudGVzdChuYW1lKSA/ICJOaWdodGx5IiA6CiAg
+ICAgICAgIC9zcGlkZXJtb25rZXktZHRyYWNlL2kudGVzdChuYW1lKSA/ICJTcGlkZXJNb25rZXkg
+RFRyYWNlIiA6CiAgICAgICAgIC9zcGlkZXJtb25rZXktbm9tZXRob2RqaXQvaS50ZXN0KG5hbWUp
+ID8gIlNwaWRlck1vbmtleSAtLWRpc2FibGUtbWV0aG9kaml0IiA6CiAgICAgICAgIC9zcGlkZXJt
+b25rZXktbm90cmFjZWppdC9pLnRlc3QobmFtZSkgPyAiU3BpZGVyTW9ua2V5IC0tZGlzYWJsZS10
+cmFjZWppdCIgOgogICAgICAgICAvc3BpZGVybW9ua2V5LXNoYXJrL2kudGVzdChuYW1lKSA/ICJT
+cGlkZXJNb25rZXkgU2hhcmsiIDoKICAgICAgICAgL3NoYXJrL2kudGVzdChuYW1lKSA/ICJTaGFy
+ayBOaWdodGx5IiA6CiAgICAgICAgIC9tb2NoaXRlc3QvaS50ZXN0KG5hbWUpID8gIk1vY2hpdGVz
+dCIgOgotICAgICAgICAvdW5pdCAoYnJvd3Nlci0pP2Nocm9tZS9pLnRlc3QobmFtZSkgPyAiTW9j
+aGl0ZXN0IiA6CisgICAgICAgIC91bml0IGNocm9tZXxicm93c2VyLWNocm9tZS9pLnRlc3QobmFt
+ZSkgPyAiTW9jaGl0ZXN0IiA6CiAgICAgICAgIC9jcmFzaHRlc3QtaXBjLy50ZXN0KG5hbWUpID8g
+IkNyYXNodGVzdC1JUEMiIDoKICAgICAgICAgL2NyYXNodGVzdC9pLnRlc3QobmFtZSkgPyAiQ3Jh
+c2h0ZXN0IiA6CiAgICAgICAgIC9qc3JlZnRlc3QvaS50ZXN0KG5hbWUpID8gIkpTUmVmdGVzdCIg
+OgogICAgICAgICAvcmVmdGVzdC1pcGMvaS50ZXN0KG5hbWUpID8gIlJlZnRlc3QtSVBDIiA6CiAg
+ICAgICAgIC9yZWZ0ZXN0L2kudGVzdChuYW1lKSA/ICJSZWZ0ZXN0IiA6CiAgICAgICAgIC94cGNz
+aGVsbC9pLnRlc3QobmFtZSkgPyAiWFBDU2hlbGxUZXN0IiA6CiAgICAgICAgIC9kZXBlbmQvaS50
+ZXN0KG5hbWUpID8gIkJ1aWxkIiA6CiAgICAgICAgIC8obGludXh8bWFlbW8gLiopIHF0L2kudGVz
+dChuYW1lKSA/ICJRdCBCdWlsZCIgOgpkaWZmIC0tZ2l0IGEvanMvVXNlckludGVyZmFjZS5qcyBi
+L2pzL1VzZXJJbnRlcmZhY2UuanMKLS0tIGEvanMvVXNlckludGVyZmFjZS5qcworKysgYi9qcy9V
+c2VySW50ZXJmYWNlLmpzCkBAIC03MzcsMTcgKzczNywxNyBAQCB2YXIgVXNlckludGVyZmFjZSA9
+IHsKICAgICAgIG1hdGNoWzFdICs9ICJxIjsKIAogICAgIGlmIChtYXRjaCkKICAgICAgIHJldHVy
+biBtYXRjaFsxXTsKIAogICAgIGlmIChtYWNoaW5lLm5hbWUubWF0Y2goL3VuaXQgY2hyb21lLykp
+CiAgICAgICByZXR1cm4gImMiOwogCi0gICAgaWYgKG1hY2hpbmUubmFtZS5tYXRjaCgvdW5pdCBi
+cm93c2VyXC1jaHJvbWUvKSkKKyAgICBpZiAobWFjaGluZS5uYW1lLm1hdGNoKC9icm93c2VyXC1j
+aHJvbWUvKSkKICAgICAgIHJldHVybiAiYi1jIjsKIAogICAgIHJldHVybiAiIjsKICAgfSwKIAog
+ICBfbWFjaGluZVJlc3VsdExpbms6IGZ1bmN0aW9uIFVzZXJJbnRlcmZhY2VfX21hY2hpbmVSZXN1
+bHRMaW5rKG1hY2hpbmVSZXN1bHQsIG9ubHlOdW1iZXIpIHsKICAgICB2YXIgbWFjaGluZSA9IG1h
+Y2hpbmVSZXN1bHQubWFjaGluZTsKICAgICAvKgo=
+</data>
+<flag name="review"
+          id="437893"
+          type_id="4"
+          status="?"
+          setter="philringnalda"
+          requestee="mstange"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

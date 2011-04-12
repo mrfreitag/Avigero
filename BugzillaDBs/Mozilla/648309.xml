@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648309</bug_id>
+          
+          <creation_ts>2011-04-07 10:56:00 -0700</creation_ts>
+          <short_desc>Study Request - App Tabs</short_desc>
+          <delta_ts>2011-04-11 14:36:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Labs</product>
+          <component>Test Pilot Data Requests</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>P1</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jinghua zhang">jzhang</reporter>
+          <assigned_to name="Christopher Jung">cjung</assigned_to>
+          <cc>cjung</cc>
+    
+    <cc>jdicarlo</cc>
+    
+    <cc>jzhang</cc>
+    
+    <cc>ragavan.bugs</cc>
+          <qa_contact>test-pilot-requests</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394715</commentid>
+            <who name="Jinghua zhang">jzhang</who>
+            <bug_when>2011-04-07 10:56:00 -0700</bug_when>
+            <thetext>For the apps project, Ragavan is interested to know some very basic data on App Tab usage and adoption:
+
+* How popular is the App Tab feature (how many users have App Tabs)?
+* What&apos;s the typical number of App Tabs open?
+* What are the most common sites open in App Tabs?
+
+We don&apos;t have data for the last question, but we may have data for the first two questions.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395671</commentid>
+            <who name="Christopher Jung">cjung</who>
+            <bug_when>2011-04-07 18:58:31 -0700</bug_when>
+            <thetext>Question 1: How popular is the App Tab feature (how many users have App Tabs)?
+Only 2.5% of users (27149/1073369) used this feature at least once over the course of the week long study.
+
+Question 2: What&apos;s the typical number of App Tabs open
+Of those 27149 users who used App Tabs at least once, the median number of app tabs open is .7146; this means that even for users of this feature, the use is very infrequent (they do not use even a single App tab in the majority of their sessions).
+
+We recorded the number of app tabs on startup, but this is fine b/c app tabs are persistent whether or not a user has session restore turned on (as far as I know, app tabs are not persistent only when a user clears history - Bug 620697).
+
+The point is, only a small % of users use app tabs, and even these users don&apos;t use app tabs in the majority of their sessions.
+
+Another way to answer Question 2 is from the perspective of sessions (rather than users). For example, we can determine the avg/median number of app tabs for only those sessions where there is at least one app tab. This may be more of what you were looking for, so just let me know if you want me to look into that or anything else on this topic (if you could provide some context, that would assist in the direction of the analysis).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395714</commentid>
+            <who name="Christopher Jung">cjung</who>
+            <bug_when>2011-04-07 19:22:52 -0700</bug_when>
+            <thetext>Oh I also should have mentioned that this data is from a study that ran during the beta program (first released October 7, but continued for a ~1.5 months), before much of the publicity about the new features (I assume).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397119</commentid>
+            <who name="Jinghua zhang">jzhang</who>
+            <bug_when>2011-04-08 11:50:13 -0700</bug_when>
+            <thetext>To Ragavan, this data is 4-5 months old; we may need to run a new study to give you a better picture on app tab usage if it is important to you, including the last question on what apps people use.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401158</commentid>
+            <who name="Ragavan S [:rags]">ragavan.bugs</who>
+            <bug_when>2011-04-11 12:09:25 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; To Ragavan, this data is 4-5 months old; we may need to run a new study to give
+&gt; you a better picture on app tab usage if it is important to you, including the
+&gt; last question on what apps people use.
+
+First off, thanks for digging this up. Even if old, it&apos;s helpful. 
+
+I do want to do a new study for app tabs. How do we kick that off? File a new bug? What&apos;s the earliest we can do one?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401489</commentid>
+            <who name="Jinghua zhang">jzhang</who>
+            <bug_when>2011-04-11 13:55:39 -0700</bug_when>
+            <thetext>You don&apos;t have to open a new bug, we can continue it here with a new title.  Please help me answer following questions:
+
+Data on request:
+* How popular is the App Tab feature (e.g. how many users have App Tabs)?
+q1:Do you care if the feature is measured at the startup time only (meaning restored), or you also want to track the apps have been edited (pinned and unpinned) during browsing?
+
+* What&apos;s the typical number of App Tabs open? 
+q2: When you say &quot;typical&quot;, do you mean the average number?  What about these long tails?
+q3:Would it be more helpful for you to understand the app usage landscape if we give you a couple of numbers with tech-level breakdowns? or other breakdowns?
+* What are the most common sites open in App Tabs?
+q4: Any particular sites you want to track?
+q5: To protect user privacy, will it be good enough to only give you domain-level URLs instead of full URLs? 
+
+Data source:
+q6:Do you have any particular needs on whom the data should come from, e.g US/Germany only? Or other categories?
+
+Study schedule:
+- Jono is pretty swamped this week and he will be on vacation next week. So the earliest time we could start to work on that is during April 25th - 29th.
+- I assume this study doesn&apos;t need to run for a week if you only care the restored app tabs.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401699</commentid>
+            <who name="Ragavan S [:rags]">ragavan.bugs</who>
+            <bug_when>2011-04-11 14:36:25 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; You don&apos;t have to open a new bug, we can continue it here with a new title. 
+&gt; Please help me answer following questions:
+&gt; 
+&gt; Data on request:
+&gt; * How popular is the App Tab feature (e.g. how many users have App Tabs)?
+&gt; q1:Do you care if the feature is measured at the startup time only (meaning
+&gt; restored), or you also want to track the apps have been edited (pinned and
+&gt; unpinned) during browsing?
+
+Startup time only is good for now.
+
+
+&gt; 
+&gt; * What&apos;s the typical number of App Tabs open? 
+&gt; q2: When you say &quot;typical&quot;, do you mean the average number?  What about these
+&gt; long tails?
+
+The outliers who have a bunch of App Tabs open are not my target. I&apos;d like to know how many users use App Tabs as part of their daily browsing experience and how many App Tabs they have open. 
+
+
+&gt; q3:Would it be more helpful for you to understand the app usage landscape if we
+&gt; give you a couple of numbers with tech-level breakdowns? or other breakdowns?
+
+Does the number of App Tabs open have any relationship to the number of other tabs you have?
+
+&gt; * What are the most common sites open in App Tabs?
+&gt; q4: Any particular sites you want to track?
+
+Not really, I just want to learn.
+
+&gt; q5: To protect user privacy, will it be good enough to only give you
+&gt; domain-level URLs instead of full URLs? 
+&gt; 
+
+That&apos;s fine. For eg. translate.google.com, docs.google.com will be fine.
+
+&gt; Data source:
+&gt; q6:Do you have any particular needs on whom the data should come from, e.g
+&gt; US/Germany only? Or other categories?
+
+Let&apos;s just do for everybody.
+
+
+&gt; 
+&gt; Study schedule:
+&gt; - Jono is pretty swamped this week and he will be on vacation next week. So the
+&gt; earliest time we could start to work on that is during April 25th - 29th.
+&gt; - I assume this study doesn&apos;t need to run for a week if you only care the
+&gt; restored app tabs.
+
+Sounds good!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

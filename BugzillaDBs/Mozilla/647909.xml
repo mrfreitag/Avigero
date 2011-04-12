@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647909</bug_id>
+          
+          <creation_ts>2011-04-05 16:23:00 -0700</creation_ts>
+          <short_desc>Add &quot;Open in New Window&quot; to context menu for selected text</short_desc>
+          <delta_ts>2011-04-05 17:44:50 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Menus</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          <bug_file_loc>http://news.cnet.com/8301-13506_3-20049631-17.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="John Van Essen">vanes002</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>kliu</cc>
+          <qa_contact>menus</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391658</commentid>
+            <who name="John Van Essen">vanes002</who>
+            <bug_when>2011-04-05 16:23:06 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+After selecting text in a displayed page, the current context-sensitive right-button menu includes a &quot;Search Google for &apos;selected text&apos;&quot; option.  Very handy.  It would also be handy to have a &quot;Open Link in New Window&quot; option if the selected text begins with &quot;http://&quot; or &quot;www.&quot;.  Many sites do not convert URLs into links and it would be convenient to have this shortcut, eliminating the copy&apos;n&apos;paste into the address bar.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to CNET April Fool&apos;s page
+2. Choose a URL in a comment and select the text
+3. Right-click on the mouse
+Actual Results:  
+No option to Open Link in New Window
+
+
+Expected Results:  
+I&apos;d like to see a Open Link In New Window option.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391723</commentid>
+            <who name="Kai Liu">kliu</who>
+            <bug_when>2011-04-05 17:35:01 -0700</bug_when>
+            <thetext>This feature was added for Firefox 4; see bug 454518 and bug 515512.
+
+If I select this text...
+example.org/foobar
+
+I see Open Link, Open Link in New Tab, and Open Link in New Window in my context menu.  The heuristic used to determine whether to interpret text as a link is rather conservative, so that might be why you are not seeing it for some URLs.  If there is a specific case where it is not interpreting text as a link and you think it should, please specify that.
+
+(Also, a shameless plug: there is an addon, QuickDrag, that lets you do this with a drag gesture instead of using the context menu, and its heuristics are much less conservative than the ones used for the Firefox context menu.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391737</commentid>
+            <who name="John Van Essen">vanes002</who>
+            <bug_when>2011-04-05 17:44:50 -0700</bug_when>
+            <thetext>I just installed FF4 on my iMac and didn&apos;t think to check it there before submitting (I&apos;ve been using FF3 on my Windows PC).  Sorry to have wasted your time.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

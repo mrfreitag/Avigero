@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647928</bug_id>
+          <alias>SM2.1b3</alias>
+          <creation_ts>2011-04-05 21:38:00 -0700</creation_ts>
+          <short_desc>Tracking bug for build and release of SeaMonkey 2.1 Beta 3</short_desc>
+          <delta_ts>2011-04-09 11:58:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Release Engineering</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          <bug_file_loc>https://wiki.mozilla.org/SeaMonkey:Release_Process:2.1b3</bug_file_loc>
+          
+          
+          <priority>P1</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647932</dependson>
+    
+    <dependson>647934</dependson>
+    
+    <dependson>647637</dependson>
+    
+    <dependson>647930</dependson>
+    
+    <dependson>647935</dependson>
+    
+    <dependson>647936</dependson>
+    
+    <dependson>647937</dependson>
+    
+    <dependson>648174</dependson>
+    
+    <dependson>648474</dependson>
+    
+    <dependson>648775</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Justin Wood (:Callek)">bugspam.Callek</assigned_to>
+          <cc>antoine.mechelynck</cc>
+    
+    <cc>bugspam.Callek</cc>
+    
+    <cc>bugzilla.spam2</cc>
+    
+    <cc>daveryeo</cc>
+    
+    <cc>dominique</cc>
+    
+    <cc>iann_bugzilla</cc>
+    
+    <cc>jh</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>misak.bugzilla</cc>
+    
+    <cc>pcvrcek</cc>
+    
+    <cc>rsx11m.pub</cc>
+    
+    <cc>stefanh</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>release</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>b3+</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391863</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-05 21:38:52 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #631278 +++
+
+2.1b3 will be feature and string freeze.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391896</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-05 22:15:15 -0700</bug_when>
+            <thetext>Pushed http://hg.mozilla.org/build/buildbot-configs/pushloghtml?fromchange=912ae2b49222&amp;tochange=5bf7ed30d958 to make this happen</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393643</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-06 17:17:23 -0700</bug_when>
+            <thetext>Please file a bug on me to get 2.1 and probably 2.1.* added to AMO so people can set that in their add-ons.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393671</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-06 17:28:52 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Please file a bug on me to get 2.1 and probably 2.1.* added to AMO so people
+&gt; can set that in their add-ons.
+
+Bug 648174</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394029</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-06 23:43:45 -0700</bug_when>
+            <thetext>Performed much of the ramp-up to release as I feel I could.
+
+The website changes can go live as of ~4 hours from now... (or later)
+
+I&apos;ll push the updates live and do the announcement when I get up.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394051</commentid>
+            <who name="Jens Hatlak (:InvisibleSmiley)">jh</who>
+            <bug_when>2011-04-07 00:11:52 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; The website changes can go live as of ~4 hours from now... (or later)
+
+FYI: I most probably won&apos;t be able to get to this until ~9 hours from now the earliest. I suggest to do the website changes and announcement in sync so that it doesn&apos;t lead to too much confusion (but the updates can probably be decoupled from that).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395901</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-07 21:25:52 -0700</bug_when>
+            <thetext>Snippets Pushed Live, announcement out; this is released; We still have those few dep bugs; and I didn&apos;t get a build out to our virus-scan-vendor contact yet; but I&apos;ll do that part soon [days].</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396117</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-08 00:23:37 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; Snippets Pushed Live, announcement out; this is released; We still have those
+&gt; few dep bugs; and I didn&apos;t get a build out to our virus-scan-vendor contact
+&gt; yet; but I&apos;ll do that part soon [days].
+
+Snippets turned off, and doing a build 2. What I pushed live reports as &quot;2.1b3pre&quot; sadly. I&apos;ll provide more details later.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396420</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-08 07:31:25 -0700</bug_when>
+            <thetext>Just checked application.ini of the Linux build2, didn&apos;t quite work either:
+
+Version=2.1b3pre
+BuildID=20110407235042</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

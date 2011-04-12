@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647657</bug_id>
+          
+          <creation_ts>2011-04-04 02:02:00 -0700</creation_ts>
+          <short_desc>TI: Crash [@ JSObject::getParent] in testcase involving Function and Array</short_desc>
+          <delta_ts>2011-04-06 12:55:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          <keywords>crash, regression, testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>349611</blocked>
+    
+    <blocked>619415</blocked>
+    
+    <blocked>647424</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Gary Kwong [:nth10sd]">gary</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>fullmetaljacket.xp+bugmail</cc>
+    
+    <cc>jandemooij</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389908</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 02:02:19 -0700</bug_when>
+            <thetext>Function(&quot;var{}=Array()&quot;)()
+
+crashes js opt and debug shell on JM changeset a58525f1f4be with -m, -a and -d on Windows 7.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389912</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 02:12:57 -0700</bug_when>
+            <thetext>Top 5 lines of backtrace:
+
+#0  0x0805a314 in JSObject::getParent (this=0x0) at /home/fuzz1/Desktop/jsfunfuzz-dbg-32-jm-65060-a58525f1f4be/compilePath/jsobj.h:731
+#1  0x08161663 in JSObject::getGlobal (this=0x0) at /home/fuzz1/Desktop/jsfunfuzz-dbg-32-jm-65060-a58525f1f4be/compilePath/jsobj.cpp:6693
+#2  0x0815b2ad in js_GetClassObject (cx=0x84e62a0, obj=0x0, key=JSProto_Array, objp=0xffff45c8) at /home/fuzz1/Desktop/jsfunfuzz-dbg-32-jm-65060-a58525f1f4be/compilePath/jsobj.cpp:4347
+#3  0x082d2353 in js::mjit::Compiler::callArrayBuiltin (this=0xffff8e54, argc=0, callingNew=false) at /home/fuzz1/Desktop/jsfunfuzz-dbg-32-jm-65060-a58525f1f4be/compilePath/methodjit/Compiler.cpp:3627
+#4  0x082d0c1f in js::mjit::Compiler::inlineCallHelper (this=0xffff8e54, callImmArgc=0, callingNew=false)
+    at /home/fuzz1/Desktop/jsfunfuzz-dbg-32-jm-65060-a58525f1f4be/compilePath/methodjit/Compiler.cpp:3267</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389918</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 02:33:00 -0700</bug_when>
+            <thetext>autoBisect shows this is probably related to the following changeset:
+
+The first bad revision is:
+changeset:   65054:42f282c4922c
+user:        Brian Hackett
+date:        Sun Apr 03 14:37:50 2011 -0700
+summary:     [INFER] Don&apos;t discard JIT code for the topmost frame while recompiling, bug 647424.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390186</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-04 08:33:28 -0700</bug_when>
+            <thetext>Crashes near js_GetClassObject in opt shell.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392993</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 12:55:37 -0700</bug_when>
+            <thetext>The recent callArrayBuiltin optimization should only be used in compileAndGo scripts, as it is baking in the script&apos;s Array.prototype object.
+
+http://hg.mozilla.org/projects/jaegermonkey/rev/dc3bb73615dd</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

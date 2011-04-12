@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648507</bug_id>
+          
+          <creation_ts>2011-04-08 03:17:00 -0700</creation_ts>
+          <short_desc>DEBUG builds fail on platform w/o JIT support</short_desc>
+          <delta_ts>2011-04-08 11:25:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>2.0 Branch</version>
+          <rep_platform>Sun</rep_platform>
+          <op_sys>NetBSD</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>637437</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Martin Husemann">martin</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>dmandelin</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396242</commentid>
+              <attachid>524604</attachid>
+            <who name="Martin Husemann">martin</who>
+            <bug_when>2011-04-08 03:17:27 -0700</bug_when>
+            <thetext>Created attachment 524604
+Fix ifdef inconsistency
+
+Simple ifdef error prevents DEBUG builds on platforms without METHODJIT</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396998</commentid>
+            <who name="David Mandelin">dmandelin</who>
+            <bug_when>2011-04-08 11:25:31 -0700</bug_when>
+            <thetext>IIUC this was recently fixed in bug 637437.
+
+*** This bug has been marked as a duplicate of bug 637437 ***</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524604</attachid>
+            <date>2011-04-08 03:17:00 -0700</date>
+            <delta_ts>2011-04-08 03:17:27 -0700</delta_ts>
+            <desc>Fix ifdef inconsistency</desc>
+            <filename>js-src-jsdbgapi.cpp.patch</filename>
+            <type>text/plain</type>
+            <size>572</size>
+            <attacher>martin</attacher>
+            
+              <data encoding="base64">IyBGaXhlcyBhIERFQlVHIGJ1aWxkIG9uIHBsYXRmb3JtcyB3L28gSklUCgotLS0ganMvc3JjL2pz
+ZGJnYXBpLmNwcC5vcmlnCTIwMTEtMDMtMTkgMDA6MzM6NTAuMDAwMDAwMDAwICswMTAwCisrKyBq
+cy9zcmMvanNkYmdhcGkuY3BwCTIwMTEtMDQtMDggMTI6MDY6MTQuMDAwMDAwMDAwICswMjAwCkBA
+IC0xMjcsOSArMTI3LDExIEBACiAgICAgSlNDb250ZXh0ICppdGVyID0gTlVMTDsKICAgICBKU0Nv
+bnRleHQgKmljeDsKICAgICB3aGlsZSAoKGljeCA9IEpTX0NvbnRleHRJdGVyYXRvcihjb21wLT5y
+dCwgJml0ZXIpKSkgewotI2lmZGVmIEpTX1RIUkVBRFNBRkUKKyNpZmRlZiBKU19NRVRIT0RKSVQK
+KyMgaWZkZWYgSlNfVEhSRUFEU0FGRQogICAgICAgICBpZiAoSlNfR2V0Q29udGV4dFRocmVhZChp
+Y3gpICE9IGN1cnJlbnRUaHJlYWRJZCkKICAgICAgICAgICAgIGNvbnRpbnVlOworIyBlbmRpZgog
+I2VuZGlmCiAgICAgICAgIGZvciAoQWxsRnJhbWVzSXRlciBpKGljeCk7ICFpLmRvbmUoKTsgKytp
+KSB7CiAgICAgICAgICAgICBKU1NjcmlwdCAqc2NyaXB0ID0gaS5mcCgpLT5tYXliZVNjcmlwdCgp
+Owo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

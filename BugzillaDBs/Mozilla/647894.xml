@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647894</bug_id>
+          
+          <creation_ts>2011-04-05 14:25:00 -0700</creation_ts>
+          <short_desc>i don&apos;t like yahoo popping up to search</short_desc>
+          <delta_ts>2011-04-05 21:05:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="herbert gaiter">herbertgaiter</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+    
+    <cc>tyler.downer</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391548</commentid>
+            <who name="herbert gaiter">herbertgaiter</who>
+            <bug_when>2011-04-05 14:25:06 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+yahoo pops up and slows my search, google or bing will be running and yahoo will pop up and go in another search or I&apos;ll be in googles bing will jump in, but it&apos;s yahoo that is pi-sing me off, I&apos;ve tried to remove it, it off the toolbar and still pop&apos;s up. can you help me get this fixed. thank you
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391773</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 18:40:19 -0700</bug_when>
+            <thetext>Do you have some kind of Yahoo! toolbar installed?  (Use Add/Remove Programs in the Windows Control Panel and check if you have something with Yahoo in the name.)
+
+Which Firefox extensions do you have? (Copy the contents from Extensions at about:support and post it here.)
+
+If you make a new profile and then search Google or Bing, do you still have problems with Yahoo pop-ups then?
+https://support.mozilla.com/en-US/kb/Basic%20Troubleshooting#w_8-make-a-new-profile</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

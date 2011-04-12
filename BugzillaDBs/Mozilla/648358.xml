@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648358</bug_id>
+          
+          <creation_ts>2011-04-07 13:56:00 -0700</creation_ts>
+          <short_desc>uploading the same file to different sites requires too many steps NOW &amp;  directional search arrows lock</short_desc>
+          <delta_ts>2011-04-09 17:13:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>methane</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395065</commentid>
+            <who name="">methane</who>
+            <bug_when>2011-04-07 13:56:36 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+
+
+I was getting irritated about uploading files to various sites using Firefox 4.0
+
+
+To upload the same file to different sites the following annoyances occurred
+
+Ok I would have to search and find the file for the first site
+With Firefox 3.6 (and I just confirmed with both IE and Safari 05) I didn&apos;t have to search for it (I would simply click browse on the 2nd, 3rd, 4th site etc and there it would be to insert)
+
+Also with Firefox 4.0 once I had found the location of the file, if I used the directional arrows to find the specific file they would lock and skip through the files at a high rate of speed.  No so for IE,  Safari 05 and Firefox 3.6 (just confirmed it).
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Attempt to upload a file from My Documents, Desktop or My Computer and one has to go through the whole search to find the file for the first site and the same for all other sites that file would be uploaded to simultaeously.  This was not the case for Firefox 3.6, IE or Safari 05 for windows.
+2. Once one has located the file&apos;s site or general location, then attempting to find the specific file via the directional arrows would cause the arrows to lock and move through all of the files fast and uncontrollably until left clicked and held cursor was lifted. Clicking on open space of the screen where the files were placed would alleviated BUT attempting to use the directional arrows again would reproduce the annoyance.  This occurred in both directions whether searching for the file in either either the left or right direction.
+3.
+Actual Results:  
+Open the sites on different tabs where the file is to be uploaded.  Go to first upload site and browse for file location. Usually this takes a lot of clicks. Now with Firefox 3.6 or IE or Safari 05 for windows when one goes to the second site and clicks browse the exact site of the file with the file sitting on it appears.
+This would also occur for 3rd site to upload to, the 4th site, 5th, 6th etc. Once at the site on which the file resides (the list of files in which the file resides is before one&apos;s eyes) attempting to access the file itself results in the directional arrows locking (in both directions whether moving through the files either left or right)and moving rapidly until one moves the cursor from the directional arrow.  Clicking a blank space between the rows of files will stop it for one fast click but holding down a directional arrow with the cursor reinstitutes the rapid uncontrolled flicking through the rows of files.  
+
+IMPORTANT - The performance of the slider bar if used to search for the file is not affected, it performs as it always did and should have performed. SO IT&apos;S NOT AT ISSUE ! ! !
+
+
+Expected Results:  
+You had it exactly correct or perfect on Firefox 3.6    Go try it for yourself.
+
+One could go to site one &amp; click browse for the file, then click through several steps to find it and then open it on the site. Then to open the same file for site two one would click browse and it would simply appear on a popup screen for one to open onto site two.  And so on and so on for site three, four, five etc.
+
+When searching for the specific file once one had arrived at the list in which it resided (for ex. My documents, downloads), one would simply use the directional arrows to find it (or perhaps the slider bar).
+
+
+ Play around you&apos;ll readily see what I&apos;m talking about.  I&apos;m sure other folks have reported it also.   The hardest to do in these situations is to know what to call it.  I still don&apos;t know what to call it.  I only know how to describe it.
+
+With your folks expertise I&apos;m sure they&apos;ll get it. With the amount of work you must have done with 4.0 it&apos;s probably just 
+
+about:buildconfig
+
+about:buildconfig
+Source
+
+Built from http://hg.mozilla.org/releases/mozilla-2.0/rev/6be9e31d01b4
+Build platform
+target
+i686-pc-mingw32
+Build tools
+Compiler 	Version 	Compiler flags
+d;D:\mozilla-build\msys\mozilla-build\python25\python2.5.exe -O e;D:\mozilla-build\msys\builds\moz2_slave\rel-2.0-w32-bld\build\build\cl.py cl 	14.00.50727.762 	-TC -nologo -W3 -Gy -Fdgenerated.pdb -DNDEBUG -DTRIMMED -Zi -Zi -UDEBUG -DNDEBUG -GL -wd4624 -wd4952 -O1
+d;D:\mozilla-build\msys\mozilla-build\python25\python2.5.exe -O e;D:\mozilla-build\msys\builds\moz2_slave\rel-2.0-w32-bld\build\build\cl.py cl 	14.00.50727.762 	-GR- -TP -nologo -Zc:wchar_t- -W3 -Gy -Fdgenerated.pdb -wd4800 -DNDEBUG -DTRIMMED -Zi -Zi -UDEBUG -DNDEBUG -GL -wd4624 -wd4952 -O1
+Configure arguments
+
+--enable-application=browser --enable-update-channel=release --enable-update-packaging --enable-jemalloc --enable-tests --enable-official-branding</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395073</commentid>
+            <who name="">methane</who>
+            <bug_when>2011-04-07 14:03:26 -0700</bug_when>
+            <thetext>
+Thanks Guys you&apos;re the unsung heroes in this hassle.  When you get this back to the way it was yours will be the simplest compared to IE &amp; Safari 05</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

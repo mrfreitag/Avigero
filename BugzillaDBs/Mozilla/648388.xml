@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648388</bug_id>
+          
+          <creation_ts>2011-04-07 15:49:00 -0700</creation_ts>
+          <short_desc>ajax accordions don&apos;t open.</short_desc>
+          <delta_ts>2011-04-08 00:19:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.itchihuahuaii.edu.mx/Informacion/Departamentos/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="LocoJet">luisbaray</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>fmdevelopertim</cc>
+    
+    <cc>jbecerra</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395306</commentid>
+            <who name="LocoJet">luisbaray</who>
+            <bug_when>2011-04-07 15:49:21 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I&apos;m a webmaster who tryes to get people to Firefox. My web design was Firefox based, but after installing Firefox 4.0 my site&apos;s accordions stop working. ¿What can I do? ¿Tell my clients to change to IE? Obviously not. I&apos;d prefer to keep using Mozilla Firefox, the best.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open http://www.itchihuahuaii.edu.mx/Informacion/Departamentos/
+2. Try to open one pane
+3. ¡Nothing happens!
+Actual Results:  
+1. Open http://www.itchihuahuaii.edu.mx/Informacion/Departamentos/
+2. Try to open one pane
+3. ¡Nothing happens!
+
+Expected Results:  
+No panes open. 
+
+Default theme.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395756</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-07 19:54:34 -0700</bug_when>
+            <thetext>Please see the following errors from the error console:
+
+Error: Sys.ArgumentTypeException: Object of type &apos;Sys.Extended.UI.AccordionBehavior&apos; cannot be converted to type &apos;Sys.IDisposable&apos;.
+Parameter name: object
+Source File: http://www.itchihuahuaii.edu.mx/ScriptResource.axd?d=LWW6fbc-QNgTlkHU5BxoAaRpJFqQtUjEwtwY__7e6ybuKMk6YyY32bLlFsnU6wrc1Zdwu7BzoNBF5vuSpbBAmMq6KzPJppllGWFaCVb9EbRdkeE6C884McbzynupfISCWUw4hzaD6WBSvCa8b6rS7Q2&amp;t=ffffffffbd2983fc
+Line: 5924
+
+Error: The attribute &apos;onAuthenticated&apos; is an event handler but the supplied value is not a function
+Source File: http://js.wlxrs.com/~Live.SiteContent.Messenger/~3.50.57270/~/~/~/~/Microsoft.Live.Messenger.UI.Tags.js
+Line: 1</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396107</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-08 00:19:22 -0700</bug_when>
+            <thetext>Regression Range : 
+Works:
+Mozilla/5.0 (Windows NT 6.1; rv:2.0b7pre) Gecko/20100917 Firefox/4.0b7pre
+Fails:
+Mozilla/5.0 (Windows NT 6.1; rv:2.0b7pre) Gecko/20100918 Firefox/4.0b7pre
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=268ef4ccb5ff&amp;tochange=fc8d8dfee20f</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

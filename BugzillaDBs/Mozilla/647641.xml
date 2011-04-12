@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647641</bug_id>
+          
+          <creation_ts>2011-04-03 21:02:00 -0700</creation_ts>
+          <short_desc>The multiple-backspace button is missing in Firefox 4.</short_desc>
+          <delta_ts>2011-04-03 22:29:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Toolbars</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>606888</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>spmcgarvey</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>toolbars</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389747</commentid>
+            <who name="">spmcgarvey</who>
+            <bug_when>2011-04-03 21:02:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Perhaps one of my most used and most valuable buttons is the multi-backspace button. You know, the one right beside the forward key that gives you a drop-down list of the last 10 or so pages you visited? Great for getting out of page loops where pressing backspace once navigates you to the same page. Every browser has this button. Every browser except the new Firefox 4 of course. Until this is fixed, it&apos;s IE9 time for me (unless I can somehow downgrade back to 3.6).
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Look up at the main Firefox toolbar on any webpage.
+2.Try to hit the multi-backspace key. 
+3.Fail miserably as you realize it isn&apos;t there anymore.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389785</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 22:08:46 -0700</bug_when>
+            <thetext>you mean the list that you get with a right click on the (back) button or a long left click ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389797</commentid>
+            <who name="">spmcgarvey</who>
+            <bug_when>2011-04-03 22:21:05 -0700</bug_when>
+            <thetext>Yes, that one. Do you have any idea how completely unintuitive that is? I understand you all like to hop on this less-buttons fad (maybe Apple started it and you&apos;re trying to be copiers??). But whatever. It&apos;s annoying and frustrating to users. Would it really kill you to have kept the button?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389806</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 22:29:25 -0700</bug_when>
+            <thetext>I&apos;m only a bug triager and no developer or UI designer...
+
+*** This bug has been marked as a duplicate of bug 606888 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

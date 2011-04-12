@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648517</bug_id>
+          
+          <creation_ts>2011-04-08 05:32:00 -0700</creation_ts>
+          <short_desc>Allow per-tab private browsing</short_desc>
+          <delta_ts>2011-04-09 11:44:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Private Browsing</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Carlo Alberto Ferraris">bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jo.hermans</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>private.browsing</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396299</commentid>
+            <who name="Carlo Alberto Ferraris">bugzilla</who>
+            <bug_when>2011-04-08 05:32:10 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Allow having mixed pb and non-pb tabs opened at the same time. Pages opened manually would inherit the current pb mode the browser is in. Pages opened by following links or by javascript would inherit the pb mode of the parent page.
+
+This would then also allow fancy things like per-domain pb and so on.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396300</commentid>
+            <who name="Carlo Alberto Ferraris">bugzilla</who>
+            <bug_when>2011-04-08 05:33:25 -0700</bug_when>
+            <thetext>Forgot to mention: this is probably related to bug #436344.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396320</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-08 06:11:21 -0700</bug_when>
+            <thetext>Private browsing per window is bug 463027 - the bug will help to indicate which one is using private browsing or not. Doing it per tab might be more difficult.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398514</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-09 11:44:46 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Private browsing per window is bug 463027 - the bug will help to indicate which
+&gt; one is using private browsing or not. Doing it per tab might be more difficult.
+
+I wanted to say &quot;which window is using private browsing not not&quot;.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

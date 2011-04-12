@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648436</bug_id>
+          
+          <creation_ts>2011-04-07 17:25:00 -0700</creation_ts>
+          <short_desc>New Component for ReMo website bugs</short_desc>
+          <delta_ts>2011-04-11 09:36:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Bugzilla: Keywords &amp; Components</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Austin King [:ozten]">ozten.bugs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dkl</cc>
+    
+    <cc>glob</cc>
+    
+    <cc>mozillamarcia.knous</cc>
+    
+    <cc>pierros</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>wquiviger</cc>
+          <qa_contact>bmo-kw-comp</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395565</commentid>
+            <who name="Austin King [:ozten]">ozten.bugs</who>
+            <bug_when>2011-04-07 17:25:44 -0700</bug_when>
+            <thetext>To the &quot;Mozilla Reps&quot; Product, please add a &quot;Website&quot; component.
+
+This product/component will be used to track defects with the reps.mozilla.org website.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396547</commentid>
+            <who name="David Lawrence [:dkl]">dkl</who>
+            <bug_when>2011-04-08 08:55:33 -0700</bug_when>
+            <thetext>Done</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396579</commentid>
+            <who name="Austin King [:ozten]">ozten.bugs</who>
+            <bug_when>2011-04-08 09:23:44 -0700</bug_when>
+            <thetext>Thanks!
+
+When  I go to file a bug, I don&apos;t see &quot;Mozilla Reps&quot; from the enter bugs for or the change several bugs flow.
+
+If this product is a hidden one, can we remove the &quot;Websites&quot; component and create
+product=Websites component=reps.mozilla.org
+
+Sorry for the trouble and thanks for your help.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396612</commentid>
+            <who name="David Lawrence [:dkl]">dkl</who>
+            <bug_when>2011-04-08 09:38:49 -0700</bug_when>
+            <thetext>Yes the product is a private one at the moment.
+
+Pierros, can you comment on the above question?
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396622</commentid>
+            <who name="Austin King [:ozten]">ozten.bugs</who>
+            <bug_when>2011-04-08 09:42:16 -0700</bug_when>
+            <thetext>It makes sense for  &quot;Mozilla Reps&quot; to remain private. Automated systems file bugs there.
+
+It was my mistake to put websites under there (didn&apos;t know private products were possible).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397336</commentid>
+            <who name="David Lawrence [:dkl]">dkl</who>
+            <bug_when>2011-04-08 13:25:42 -0700</bug_when>
+            <thetext>Should I remove the Website component before any bugs are associated with it and add the component to Websites?
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397813</commentid>
+            <who name="Pierros Papadeas">pierros</who>
+            <bug_when>2011-04-08 16:13:50 -0700</bug_when>
+            <thetext>Remove the component and add a new component under mozilla.org product with the name : reps.mozilla.org (or Mozilla Reps).
+
+That should be used to track any issues and development of Mozilla Reps website
+
+Unfortunately bugzilla does not offers us control over visibility per component so we need to go this way to resolve the issue.
+
+Thanks!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400410</commentid>
+            <who name="Austin King [:ozten]">ozten.bugs</who>
+            <bug_when>2011-04-11 08:27:46 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Should I remove the Website component before any bugs are associated with it
+and add the component to Websites?
+
+Yes, please.
+
+(In reply to comment #6)
+&gt; Remove the component and add a new component under mozilla.org product with the
+name : reps.mozilla.org (or Mozilla Reps).
+
+No, please use the &quot;Websites&quot; product, not the &quot;mozilla.org&quot; product.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400560</commentid>
+            <who name="Reed Loden [:reed] (very busy)">reed</who>
+            <bug_when>2011-04-11 09:36:19 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; Unfortunately bugzilla does not offers us control over visibility per component
+&gt; so we need to go this way to resolve the issue.
+
+Sure it does, especially with the use of the custom create form.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

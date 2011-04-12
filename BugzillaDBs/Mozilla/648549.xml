@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648549</bug_id>
+          
+          <creation_ts>2011-04-08 09:47:00 -0700</creation_ts>
+          <short_desc>Reviews with multiple OS files always show all files pending full review</short_desc>
+          <delta_ts>2011-04-11 13:13:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Admin/Editor Tools</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.mozilla.org/en-US/editors/review/770966?num=6</bug_file_loc>
+          <status_whiteboard>[required amo-editors]</status_whiteboard>
+          <keywords>regression</keywords>
+          <priority>P1</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>6.0.6</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andrew Williamson">evil.jeff</reporter>
+          <assigned_to name="Gregory Koberger (:gkoberger)">gkoberger</assigned_to>
+          <cc>clouserw</cc>
+    
+    <cc>jorge</cc>
+          <qa_contact>admin-tools</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396639</commentid>
+            <who name="Andrew Williamson">evil.jeff</who>
+            <bug_when>2011-04-08 09:47:38 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+If an addon version has multiple xpis/jars uploaded to support multiple OSs and one has already been approved/rejected the review page still shows all files as pending review.
+This can lead to a waste of time attempting to review for an OS thats already been approved.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to a review page for an addon with 2 or more supported Operating Systems
+2. approve 1 file, leaving the others
+3. go back to the review page
+Actual Results:  
+both files still show as pending review
+
+Expected Results:  
+the file you approved earlier now shows &apos;fully reviewed&apos; or &apos;preliminary reviewed&apos;, the other(s) show pending review.
+
+the review history log shows correctly, and the admin control panel confirms approval.
+
+Worked in Remora, doesn&apos;t in Zamboni.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

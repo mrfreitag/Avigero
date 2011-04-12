@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647668</bug_id>
+          
+          <creation_ts>2011-04-04 05:04:00 -0700</creation_ts>
+          <short_desc>Form Trouble</short_desc>
+          <delta_ts>2011-04-08 09:53:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>https://vppergamino.pergamino.gov.ar/consultaPartida.do?tipobjet=1&amp;codservi=16&amp;consulta=1</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Mauricio Pérez">mauricio_perez</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389976</commentid>
+            <who name="Mauricio Pérez">mauricio_perez</who>
+            <bug_when>2011-04-04 05:04:57 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+With Firefox 4 this page does not works... works on chrome, internet explorer, etc, but not in Firefox 4, firefix 3 worked fine allways.
+Server gives this exception.
+
+java.util.NoSuchElementException
+        at java.util.StringTokenizer.nextToken(StringTokenizer.java:332)
+        at infoweb.controller.actions.DeudaPartidaAction.execute(DeudaPartidaAction.java:136)
+        at org.apache.struts.action.RequestProcessor.processActionPerform(RequestProcessor.java:484)
+        at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:274)
+        at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1482)
+        at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:525)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+        at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:679)
+        at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:461)
+        at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:399)
+        at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+        at org.apache.struts.action.RequestProcessor.doForward(RequestProcessor.java:1069)
+        at org.apache.struts.action.RequestProcessor.processForwardConfig(RequestProcessor.java:455)
+        at org.apache.struts.action.RequestProcessor.process(RequestProcessor.java:279)
+        at org.apache.struts.action.ActionServlet.process(ActionServlet.java:1482)
+        at org.apache.struts.action.ActionServlet.doPost(ActionServlet.java:525)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:647)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:213)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:172)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+        at org.apache.coyote.ajp.AjpAprProcessor.process(AjpAprProcessor.java:444)
+        at org.apache.coyote.ajp.AjpAprProtocol$AjpConnectionHandler.process(AjpAprProtocol.java:472)
+        at org.apache.tomcat.util.net.AprEndpoint$Worker.run(AprEndpoint.java:1286)
+        at java.lang.Thread.run(Thread.java:619)
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Enter in that address
+2. On the text field put an object number, as example 1555
+3. Press Aceptar
+Actual Results:  
+La operacion no pudo realizarse. Por favor intente nuevamente mas tarde... 
+
+And a server exception
+
+Expected Results:  
+A grid on data</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389979</commentid>
+            <who name="Mauricio Pérez">mauricio_perez</who>
+            <bug_when>2011-04-04 05:06:44 -0700</bug_when>
+            <thetext>One of the addresses is
+https://vppergamino.pergamino.gov.ar/consultaPartida.do?tipobjet=1&amp;codservi=16&amp;consulta=1
+or
+https://vppergamino.pergamino.gov.ar/consultaPartida.do?tipobjet=1&amp;codservi=16&amp;consulta=2
+
+In fact our application does not works on Firefox 4</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393068</commentid>
+            <who name="Daniel Veditz">dveditz</who>
+            <bug_when>2011-04-06 13:32:41 -0700</bug_when>
+            <thetext>That&apos;s a Java error. What version of Java is it? Is your application making unwarranted assumptions about the DOM content? Given a &quot;NoSuchElementException&quot; it could be something like that.
+
+We don&apos;t have access to your Java source so it&apos;ll be a lot easier for you to debug on your end and tell us what is different from what was expected.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394223</commentid>
+            <who name="Mauricio Pérez">mauricio_perez</who>
+            <bug_when>2011-04-07 05:06:03 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; That&apos;s a Java error. What version of Java is it? Is your application making
+&gt; unwarranted assumptions about the DOM content? Given a &quot;NoSuchElementException&quot;
+&gt; it could be something like that.
+&gt; 
+&gt; We don&apos;t have access to your Java source so it&apos;ll be a lot easier for you to
+&gt; debug on your end and tell us what is different from what was expected.
+
+I don&apos;t think that it could be our application since it is working on Chrome and IE and was working on Firefox 3.6 too.
+I&apos;ll attach some screen shots so anyone can see what is expected to do.
+
+Chrome
+http://postimage.org/image/wvqs9kqs/
+
+IE
+http://postimage.org/image/wvvqvm84/
+
+Firefox 4
+http://postimage.org/image/wvu3c9qc/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394239</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 05:23:02 -0700</bug_when>
+            <thetext>Reproducible on:
+Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+
+Unclear whether it&apos;s a tech evangelism or not. Remaining Unconfirmed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395212</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-07 15:04:36 -0700</bug_when>
+            <thetext>Error Console Output:
+Error: focusControl is undefined
+Source file: https://vppergamino.pergamino.gov.ar/consultaPartida.do?tipobjet=1&amp;codservi=16&amp;consulta=1
+Line: 453
+
+Both URLs from Comment 1 fail to work on Google Chrome 12 like on Firefox 4.
+
+(In reply to comment #3)
+&gt; I don&apos;t think that it could be our application since it is working on Chrome
+&gt; and IE and was working on Firefox 3.6 too.
+
+That&apos;s not an Argument always since there could be e.g. Spec Changes or Dependencies on how older Gecko Versions work what are not valid anymore etc. ...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396301</commentid>
+            <who name="Mauricio Pérez">mauricio_perez</who>
+            <bug_when>2011-04-08 05:34:46 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Error Console Output:
+&gt; Error: focusControl is undefined
+&gt; Source file:
+&gt; https://vppergamino.pergamino.gov.ar/consultaPartida.do?tipobjet=1&amp;codservi=16&amp;consulta=1
+&gt; Line: 453
+&gt; 
+&gt; Both URLs from Comment 1 fail to work on Google Chrome 12 like on Firefox 4.
+&gt; 
+&gt; (In reply to comment #3)
+&gt; &gt; I don&apos;t think that it could be our application since it is working on Chrome
+&gt; &gt; and IE and was working on Firefox 3.6 too.
+&gt; 
+&gt; That&apos;s not an Argument always since there could be e.g. Spec Changes or
+&gt; Dependencies on how older Gecko Versions work what are not valid anymore etc.
+&gt; ...
+
+Maybe is geko (or not), this is working on Firefox 4 running on Windows 7, that&apos;s a reason to think that it could be something about Firefox 4/Chrome 12 running on Windows XP... Chrome 10 worked fine on Windows XP until updated to Chrome 12</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396403</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-08 07:19:17 -0700</bug_when>
+            <thetext>In reply to Comment 6
+
+The website does not display correctly in both 3.6 and 4.0 regardless of the OS. Still considering this bug as tech evangelism; IMO it&apos;s not actually a Firefox bug but a compatibility issue with the website.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396663</commentid>
+            <who name="Mauricio Pérez">mauricio_perez</who>
+            <bug_when>2011-04-08 09:53:36 -0700</bug_when>
+            <thetext>(In reply to comment #7)
+&gt; In reply to Comment 6
+&gt; 
+&gt; The website does not display correctly in both 3.6 and 4.0 regardless of the
+&gt; OS. Still considering this bug as tech evangelism; IMO it&apos;s not actually a
+&gt; Firefox bug but a compatibility issue with the website.
+
+That&apos;s not right, Firefox 3.6 worked correctly in any OS as Chrome 10. Firefox 4 and Chrome 12 FAILS on this page.
+Opera 11, IE 7/8 and Safari 5 still works fine. So, where is the trouble? Firefox? Gecko?
+If this were not a bug, but only a compatibility issue, we lost compatibility after Google and Mozilla upgraded their software, and this is not a bug?
+I&apos;ve posted this situation with the Chrome development team, lets wait and see what they think</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

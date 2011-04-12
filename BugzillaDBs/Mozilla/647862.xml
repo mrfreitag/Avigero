@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647862</bug_id>
+          
+          <creation_ts>2011-04-05 11:14:00 -0700</creation_ts>
+          <short_desc>Why play page should be linked from all mobile landing pages</short_desc>
+          <delta_ts>2011-04-11 09:32:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>1.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Guillaume Lecollinet">guillaume</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391364</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:14:49 -0700</bug_when>
+            <thetext>Opening this bug per TBG&apos;s request to include a link to the &quot;Why play&quot; page (I suppose this is the &quot;What is Firefox Spark?&quot; page) in all mobile landing pages (iPhone, non-Firefox, non-Android).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391366</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:15:38 -0700</bug_when>
+            <thetext>Design specs can be found here:http://staging.barbariangroup.com/1903/deliverables/NON_FF_SITE_v7.psd.zip</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395175</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-07 14:50:36 -0700</bug_when>
+            <thetext>Fixed by this commit:
+https://github.com/mozilla/spark/commit/13ea6993d3b35c33cacaa23a73780aae79cb36ab</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400546</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-11 09:32:48 -0700</bug_when>
+            <thetext>verified fixed https://spark.allizom.org/en-US/m/home using iPhone 4</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

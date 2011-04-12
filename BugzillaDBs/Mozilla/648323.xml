@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648323</bug_id>
+          
+          <creation_ts>2011-04-07 12:04:00 -0700</creation_ts>
+          <short_desc>crashplan server &quot;License limit reached&quot; on mtv1</short_desc>
+          <delta_ts>2011-04-08 10:39:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian Warner [:warner :bwarner]">warner-bugzilla</reporter>
+          <assigned_to name="Guillermo Huerta">ghuerta</assigned_to>
+          <cc>ghuerta</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394826</commentid>
+            <who name="Brian Warner [:warner :bwarner]">warner-bugzilla</who>
+            <bug_when>2011-04-07 12:04:42 -0700</bug_when>
+            <thetext>I walked through the CrashPlan setup instrutions on https://intranet.mozilla.org/CrashPlan , but after I got the client installed and configured (pointing at crashplan.mtv1.mozilla.com), the client shows an error:
+
+ Unable to back up: License limit reached.
+
+I imagine we need to buy more licenses, or something.
+
+thanks!
+ -Brian</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394971</commentid>
+            <who name="Guillermo Huerta">ghuerta</who>
+            <bug_when>2011-04-07 13:15:47 -0700</bug_when>
+            <thetext>I&apos;ve contacted crashplan and will let you know when we get this running.  Do you need an external harddrive to use in the meantime?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396840</commentid>
+            <who name="Brian Warner [:warner :bwarner]">warner-bugzilla</who>
+            <bug_when>2011-04-08 10:39:39 -0700</bug_when>
+            <thetext>naw, that&apos;s ok, I can wait for the new licenses. thanks!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

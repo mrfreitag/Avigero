@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647929</bug_id>
+          
+          <creation_ts>2011-04-05 21:43:00 -0700</creation_ts>
+          <short_desc>Loss of &quot;reload&quot; button functionality over an unspecified period of time</short_desc>
+          <delta_ts>2011-04-05 23:01:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://any.URL</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>gav8</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>srinivas</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391871</commentid>
+            <who name="">gav8</who>
+            <bug_when>2011-04-05 21:43:01 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+Since upgrading to 3.6.16, I&apos;ve noticed that after an unspecified period of time -- for the sake of argument, let&apos;s say 15 minutes -- Firefox fails to attempt to reload a web-page when I click my Reload button under the tab I currently have active.
+
+It doesn&apos;t matter the website or what scripts are running on it.
+
+For the sake of argument, let&apos;s say I have two tabs open -- one was open for 15 minutes, and the other was open for 5.  I can continually refresh a page under the tab that was open for 5 minutes, however when I attempt to refresh the page that open under a tab that was open for 15 minutes, Firefox makes no attempt to do so.  It&apos;s as though the button functionality while the 15 minute old tab ceases, although, within the tab itself, the hyperlinks on the page still function.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.  Open a new tab &amp; website
+2.  Wait ~15 minutes
+3.  Click the reload button (it won&apos;t try to reload)
+Actual Results:  
+Nothing.  I had to close the tab and re-open the website in a new tab.
+
+Expected Results:  
+Refreshed the web-page as expected.
+
+Nothing more than that.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391937</commentid>
+            <who name="Srinivas">srinivas</who>
+            <bug_when>2011-04-05 23:01:44 -0700</bug_when>
+            <thetext>Tested with 3.6.16 and latest 4.2a1 pre:
+Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre
+
+Works fine for me. Able to reload the tab which is opened for almost 20 minutes.
+Please try if you can reproduce it:
+
+1.in safe mode. 
+https://support.mozilla.com/en-US/kb/Safe+Mode
+
+2.or by creating a new profile
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile.
+
+Please update if you still able to reproduce this issue.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

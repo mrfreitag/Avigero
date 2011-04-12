@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647634</bug_id>
+          
+          <creation_ts>2011-04-03 19:56:00 -0700</creation_ts>
+          <short_desc>Add Webtrends tracking to the MarkUp Website</short_desc>
+          <delta_ts>2011-04-06 17:35:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>markup.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>634488</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>628811</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Forrest">lforrest</reporter>
+          <assigned_to name="Mike Alexis">malexis</assigned_to>
+          <cc>fwenzel</cc>
+    
+    <cc>stephen.donner</cc>
+          <qa_contact>markup-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389708</commentid>
+            <who name="Laura Forrest">lforrest</who>
+            <bug_when>2011-04-03 19:56:27 -0700</bug_when>
+            <thetext>Please add Webtrends tracking to the MarkUp Website.
+
+Instructions: 
+
+1. Track the new domain by following these instructions:
+https://intranet.mozilla.org/Webanalytics#Track_a_New_Domain
+
+2. Append this parameter to the end of ANY URL linking from this microsite to
+mozilla.com: WT.mc_id=markup&amp;WT.mc_ev=click</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393692</commentid>
+            <who name="Fred Wenzel [:wenzel]">fwenzel</who>
+            <bug_when>2011-04-06 17:33:52 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 634488 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393700</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-06 17:35:20 -0700</bug_when>
+            <thetext>Verified duplicate</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647617</bug_id>
+          
+          <creation_ts>2011-04-03 17:12:00 -0700</creation_ts>
+          <short_desc>hm-node54.scl2 down</short_desc>
+          <delta_ts>2011-04-07 16:21:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phong Tran [:phong]">phong</reporter>
+          <assigned_to name="Ben Kero">bkero</assigned_to>
+          <cc>bkero</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="colo-trip"
+          id="438173"
+          type_id="377"
+          status="+"
+          setter="bkero"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5389589</commentid>
+            <who name="Phong Tran [:phong]">phong</who>
+            <bug_when>2011-04-03 17:12:39 -0700</bug_when>
+            <thetext>hm-node54.scl2 is DOWN: PING CRITICAL - Packet loss = 100%</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395384</commentid>
+            <who name="Ben Kero">bkero</who>
+            <bug_when>2011-04-07 16:18:53 -0700</bug_when>
+            <thetext>No matter which options I force IPMI to apply to the server, the server will blank screen once it gets done POSTing.
+
+I think it&apos;ll need a datacentre trip to investigate in person.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395394</commentid>
+            <who name="Ben Kero">bkero</who>
+            <bug_when>2011-04-07 16:21:38 -0700</bug_when>
+            <thetext>JV is arranging a tour of scl2, I&apos;m going to try to bring this machine online and get it squared.  He he leaves without me I&apos;ll have to have someone else go to the datacentre, I&apos;ll update the ticket if that is the case.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

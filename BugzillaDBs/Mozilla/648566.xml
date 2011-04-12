@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648566</bug_id>
+          
+          <creation_ts>2011-04-08 10:18:00 -0700</creation_ts>
+          <short_desc>Cannot sort bookmarks within tag on bookmarks toolbar. Items sorted arbitrarily.</short_desc>
+          <delta_ts>2011-04-08 10:18:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Tom">tomsk2</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396750</commentid>
+            <who name="Tom">tomsk2</who>
+            <bug_when>2011-04-08 10:18:59 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+It would be great if we could sort bookmarks within the same tag how we like, e.g. by dragging and dropping into a new order, or alphabetically or whatever. At the moment they are sorted completely arbitrarily, which is confusing. They&apos;re not sorted by name, url, date added, last visited or anything!
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Tag a bunch of bookmarks with the same tag
+2. Put tag on bookmarks toolbar, or just go into places library and select that tag
+Actual Results:  
+Items not ordered in any sensible way! Reordering them in the places library does not sort them permanently - the way they are sorted in the drop down menu on the bookmarks toolbar is unchanged. Also, drag and drop duplicates the tag rather than reordering them.
+
+Expected Results:  
+Items should be sorted in a sensible way by default, e.g. alphabetically. It should be possible to rearrange them by dragging and dropping. Reordering them in the places library should permanently sort them so that they appear in that order on the bookmarks toolbar drop down.
+
+This is with FF4, I don&apos;t know if it happened with FF3, I didn&apos;t use tags much back then.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

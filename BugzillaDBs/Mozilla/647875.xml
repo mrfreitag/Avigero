@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647875</bug_id>
+          
+          <creation_ts>2011-04-05 12:23:00 -0700</creation_ts>
+          <short_desc>[SeaMonkey] mochitest-chrome: reenable test_crash_submit.xul</short_desc>
+          <delta_ts>2011-04-06 18:26:10 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Breakpad Integration</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://mxr.mozilla.org/mozilla-central/source/modules/plugin/test/mochitest/test_crash_submit.xul</bug_file_loc>
+          <status_whiteboard>[qaw: comment 1]</status_whiteboard>
+          <keywords>qawanted</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>604129</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Serge Gautherie (:sgautherie)">sgautherie.bz</reporter>
+          <assigned_to name="Serge Gautherie (:sgautherie)">sgautherie.bz</assigned_to>
+          <cc>joshmoz</cc>
+          <qa_contact>breakpad.integration</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>?</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391432</commentid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-05 12:23:05 -0700</bug_when>
+            <thetext>Bug 604129 comment 2:
+{
+Serge Gautherie (:sgautherie)      2010-10-29 01:17:03 PDT
+
+I assume this depends on bug 601493.
+}
+
+That bug is fixed. It&apos;s time to check how this test behaves (now).
+
+***
+
+[Mozilla/5.0 (Windows NT 5.0; rv:2.0pre) Gecko/20110330 Firefox/4.0pre] (O-1301536603)
+[Mozilla/5.0 (Windows NT 5.0; rv:2.0b13pre) Gecko/20110301 Firefox/4.0b13pre SeaMonkey/2.1b3pre]
+[Mozilla/5.0 (Windows NT 5.0; rv:2.0pre) Gecko/20110331 Firefox/4.0pre SeaMonkey/2.1b3pre]
+[Mozilla/5.0 (Windows NT 5.0; rv:2.0pre) Gecko/20110403 Firefox/4.0pre SeaMonkey/2.1b3pre]
+{
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/chrome/modules/plugin/test/test_crash_submit.xul | Exited with code -1073741819 during test run
+}
+
+Ftr, this test (now) crashes the test suite on my Windows 2000 :-/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391444</commentid>
+              <attachid>524080</attachid>
+            <who name="Serge Gautherie (:sgautherie)">sgautherie.bz</who>
+            <bug_when>2011-04-05 12:34:14 -0700</bug_when>
+            <thetext>Created attachment 524080
+(Av1) Remove bug 604129 workaround
+
+Callek, I&apos;m looking for someone to confirm whether SeaMonkey passes this test currently.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392377</commentid>
+              <attachid>524080</attachid>
+            <who name="Josh Aas (Mozilla Corporation)">joshmoz</who>
+            <bug_when>2011-04-06 09:21:09 -0700</bug_when>
+            <thetext>Comment on attachment 524080
+(Av1) Remove bug 604129 workaround
+
+If it passes I&apos;m fine with this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393784</commentid>
+              <attachid>524080</attachid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-06 18:26:10 -0700</bug_when>
+            <thetext>Comment on attachment 524080
+(Av1) Remove bug 604129 workaround
+
+I won&apos;t be able to test locally for at least 2 weeks; I think we can just go ahead and get this landed, and move on. I think it should work fine now.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524080</attachid>
+            <date>2011-04-05 12:34:00 -0700</date>
+            <delta_ts>2011-04-06 18:26:10 -0700</delta_ts>
+            <desc>(Av1) Remove bug 604129 workaround</desc>
+            <filename>647875-Av1_reenable.diff</filename>
+            <type>text/plain</type>
+            <size>1291</size>
+            <attacher>sgautherie.bz</attacher>
+            
+              <data encoding="base64">RnJvbTogU2VyZ2UgR2F1dGhlcmllIDxzZ2F1dGhlcmllLmJ6QGZyZWUuZnI+CgpCdWcgNjQ3ODc1
+IC0gW1NlYU1vbmtleV0gbW9jaGl0ZXN0LWNocm9tZTogcmVlbmFibGUgdGVzdF9jcmFzaF9zdWJt
+aXQueHVsOwooQXYxKSBSZW1vdmUgYnVnIDYwNDEyOSB3b3JrYXJvdW5kLgoKZGlmZiAtLWdpdCBh
+L21vZHVsZXMvcGx1Z2luL3Rlc3QvbW9jaGl0ZXN0L3Rlc3RfY3Jhc2hfc3VibWl0Lnh1bCBiL21v
+ZHVsZXMvcGx1Z2luL3Rlc3QvbW9jaGl0ZXN0L3Rlc3RfY3Jhc2hfc3VibWl0Lnh1bAotLS0gYS9t
+b2R1bGVzL3BsdWdpbi90ZXN0L21vY2hpdGVzdC90ZXN0X2NyYXNoX3N1Ym1pdC54dWwKKysrIGIv
+bW9kdWxlcy9wbHVnaW4vdGVzdC9tb2NoaXRlc3QvdGVzdF9jcmFzaF9zdWJtaXQueHVsCkBAIC04
+OCwyMiArODgsMTYgQEAgZnVuY3Rpb24gb25QbHVnaW5DcmFzaGVkKGFFdmVudCkgewogCiAgIGxl
+dCBwbGVhc2VMaW5rID0gZG9jdW1lbnQuZ2V0QW5vbnltb3VzRWxlbWVudEJ5QXR0cmlidXRlKAog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFFdmVudC50YXJnZXQsICJjbGFzcyIsICJwbGVh
+c2VTdWJtaXRMaW5rIik7CiAgIC8vIHRyeSB0byBzdWJtaXQgdGhpcyByZXBvcnQKICAgc2VuZE1v
+dXNlRXZlbnQoe3R5cGU6J2NsaWNrJ30sIHBsZWFzZUxpbmssIHdpbmRvdyk7CiB9CiAKIGZ1bmN0
+aW9uIHJ1blRlc3RzKCkgewotICBpZiAobmF2aWdhdG9yLnVzZXJBZ2VudC5tYXRjaCgvIFNlYU1v
+bmtleVwvLykpIHsKLSAgICB0b2RvKGZhbHNlLCAiU2tpcHBpbmcgdGhpcyB0ZXN0IG9uIFNlYW1v
+bmtleSBmdGIuIChCdWcgNjA0MTI5KSIpOwotICAgIFNpbXBsZVRlc3QuZmluaXNoKCk7Ci0gICAg
+cmV0dXJuOwotICB9Ci0KICAgaWYgKCFTaW1wbGVUZXN0LnRlc3RQbHVnaW5Jc09PUCgpKSB7CiAg
+ICAgdG9kbyhmYWxzZSwgIlNraXBwaW5nIHRoaXMgdGVzdCB3aGVuIHRlc3QgcGx1Z2luIGlzIG5v
+dCBPT1AuIik7CiAgICAgU2ltcGxlVGVzdC5maW5pc2goKTsKICAgICByZXR1cm47CiAgIH0KIAog
+ICAvLyB0aGUgdGVzdCBoYXJuZXNzIHdpbGwgaGF2ZSBzZXQgTU9aX0NSQVNIUkVQT1JURVJfTk9f
+UkVQT1JULAogICAvLyBlbnN1cmUgdGhhdCB3ZSBjYW4gY2hhbmdlIHRoZSBzZXR0aW5nIGFuZCBo
+YXZlIG91ciBtaW5pZHVtcHMKQEAgLTEyNSw5ICsxMTksOCBAQCBmdW5jdGlvbiBydW5UZXN0cygp
+IHsKICAgdHJ5IHsKICAgICBwbHVnaW5FbGVtZW50LmNyYXNoKCk7CiAgIH0gY2F0Y2ggKGUpIHsK
+ICAgfQogfQogXV0+CiA8L3NjcmlwdD4KIDwvd2luZG93PgotCg==
+</data>
+<flag name="review"
+          id="437802"
+          type_id="4"
+          status="+"
+          setter="joshmoz"
+    />
+    <flag name="feedback"
+          id="437803"
+          type_id="607"
+          status="+"
+          setter="bugspam.Callek"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648001</bug_id>
+          
+          <creation_ts>2011-04-06 08:39:00 -0700</creation_ts>
+          <short_desc>Set up Snippets Service for Aurora channel</short_desc>
+          <delta_ts>2011-04-06 13:32:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>646236</blocked>
+    
+    <blocked>646880</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Mesa">lmesa</reporter>
+          <assigned_to name="l.m.orchard [:lorchard]">lorchard</assigned_to>
+          <cc>clegnitto</cc>
+    
+    <cc>deinspanjer</cc>
+    
+    <cc>dewmigg</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>morgamic</cc>
+    
+    <cc>nrthomas</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>rhelmer</cc>
+    
+    <cc>robert.bugzilla</cc>
+    
+    <cc>sayrer</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392319</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 08:39:34 -0700</bug_when>
+            <thetext>Laura, we need to set up a snippets service to be able to set up snippets for the aurora channel. 
+
+Beta is set up, and nightly doesn&apos;t need one.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392379</commentid>
+            <who name="l.m.orchard [:lorchard]">lorchard</who>
+            <bug_when>2011-04-06 09:21:34 -0700</bug_when>
+            <thetext>We don&apos;t need a new service. We just need to know how the aurora channel is identified in builds, and we can target snippets to that using the existing service.
+
+Different snippets are served up based on the parameters laid out here:
+
+https://wiki.mozilla.org/Firefox/Projects/Firefox_Start#Dynamic_Content_Delivery
+
+It looks like &quot;channel&quot; is included there, so the main thing is to find out how the different channels identify themselves. Is there someone who knows the answer to that? (Not me.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392388</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 09:24:27 -0700</bug_when>
+            <thetext>Adding Christian and Rob Strong and Sayre--they should be able to help.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392776</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-06 11:36:54 -0700</bug_when>
+            <thetext>cc&apos;ing Daniel from metrics so he has a heads up that there will be new channels.
+
+Some background, the client sends the channel as part of the update url and this will still be the case for the new channels. AUS2 will need to know about these channels and send the appropriate update snippet for the channel. The appropriate people have been cc&apos;d.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392798</commentid>
+            <who name="l.m.orchard [:lorchard]">lorchard</who>
+            <bug_when>2011-04-06 11:44:24 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; cc&apos;ing Daniel from metrics so he has a heads up that there will be new
+&gt; channels.
+&gt; 
+&gt; Some background, the client sends the channel as part of the update url and
+&gt; this will still be the case for the new channels. AUS2 will need to know about
+&gt; these channels and send the appropriate update snippet for the channel. The
+&gt; appropriate people have been cc&apos;d.
+
+That sounds like maybe info for a different bug (eg. something related to AUS2?) This bug is about the service that supplies content for the about:home page in the space below the Google search box.
+
+The main bit of info needed for this bug is... what will the aurora channel be called?  &quot;aurora&quot; rather than &quot;default&quot;?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392799</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-06 11:45:04 -0700</bug_when>
+            <thetext>Is this bug about the update service or the text that appears on about:home ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392803</commentid>
+            <who name="l.m.orchard [:lorchard]">lorchard</who>
+            <bug_when>2011-04-06 11:46:13 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Is this bug about the update service or the text that appears on about:home ?
+
+The text that appears on about:home.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392805</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-06 11:46:40 -0700</bug_when>
+            <thetext>Sorry about that... AUS2 advertised update snippets for each channel and I didn&apos;t realize about:home also had snippets based on update channels.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392809</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-06 11:47:34 -0700</bug_when>
+            <thetext>OK. We&apos;re expecting the channel to be &quot;aurora&quot; at this point.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393015</commentid>
+            <who name="l.m.orchard [:lorchard]">lorchard</who>
+            <bug_when>2011-04-06 13:09:51 -0700</bug_when>
+            <thetext>So, if it&apos;s &quot;aurora&quot; as the channel, this bug is probably good to be marked closed / invalid.
+
+Are there any snippets ready to go, targeted at aurora? Probably worth another separate bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393067</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 13:32:06 -0700</bug_when>
+            <thetext>(In reply to comment #9)
+&gt; So, if it&apos;s &quot;aurora&quot; as the channel, this bug is probably good to be marked
+&gt; closed / invalid.
+&gt; 
+&gt; Are there any snippets ready to go, targeted at aurora? Probably worth another
+&gt; separate bug.
+
+No, currently there are none, but when we do, we&apos;ll file another bug. Closing the bug.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

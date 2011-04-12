@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647787</bug_id>
+          
+          <creation_ts>2011-04-05 01:47:00 -0700</creation_ts>
+          <short_desc>When starting Thunderbird: Cannot connect to server, the connection was refused</short_desc>
+          <delta_ts>2011-04-05 01:53:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>aziz.beukers</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390916</commentid>
+            <who name="">aziz.beukers</who>
+            <bug_when>2011-04-05 01:47:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; nl; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15
+Build Identifier: 
+
+No problems with servers. Did not change password. Have tried to set a new account but the same problem prevails. Tried with outlook, no problems there (I prefer to use thunderbird).
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Open thunderbird
+2.Message:  Cannot connect to server, the connection was refused
+3.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390919</commentid>
+            <who name="">aziz.beukers</who>
+            <bug_when>2011-04-05 01:53:02 -0700</bug_when>
+            <thetext>In error console I receive the following message:
+Error: this._mostRecentActivityForFolder[aFolder.URI] is undefined
+Source File: file:///C:/Program%20Files%20(x86)/Mozilla%20Thunderbird/modules/activity/pop3Download.js
+Line: 127</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

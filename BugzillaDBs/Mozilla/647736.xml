@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647736</bug_id>
+          
+          <creation_ts>2011-04-04 14:04:00 -0700</creation_ts>
+          <short_desc>Sometimes won&apos;t connect to Google.com</short_desc>
+          <delta_ts>2011-04-06 08:11:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://google.com</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="bikash">s_bikash</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+    
+    <cc>tyler.downer</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390451</commentid>
+            <who name="bikash">s_bikash</who>
+            <bug_when>2011-04-04 14:04:00 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: 
+
+crashes when open
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1.type www.google.com
+2.press Enter
+3.display &quot;&quot;Sorry not conected
+Actual Results:  
+does not display
+
+Expected Results:  
+should display  Google page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390709</commentid>
+            <who name="Tyler Downer [Triage] (do not e-mail) [Away]">tyler.downer</who>
+            <bug_when>2011-04-04 18:24:25 -0700</bug_when>
+            <thetext>That isn&apos;t a crash. Can you open up other sites? Are all websites down? Is a firewall blocking Firefox?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392290</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-06 08:11:38 -0700</bug_when>
+            <thetext>Can you load www.google.com on other browser(s)?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

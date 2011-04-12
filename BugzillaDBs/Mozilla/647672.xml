@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647672</bug_id>
+          
+          <creation_ts>2011-04-04 06:15:00 -0700</creation_ts>
+          <short_desc>Some time the Graphics stop works while Browsing web sites</short_desc>
+          <delta_ts>2011-04-07 03:20:13 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="ayrton_liu">liu_xuxue</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>liu_xuxue</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390037</commentid>
+            <who name="ayrton_liu">liu_xuxue</who>
+            <bug_when>2011-04-04 06:15:28 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+While browsing web sites ,the Graphics stop work suddenly.
+The former version didn`t have this situation.
+Add to say, using other Browser does`t has this situation.
+I `m not sure it whether it was caused by firefox, but every time it happens i was browsing web site with firefox 4.0
+
+ATI Mobility Radeon HD 3400 Series  
+- &lt;Event xmlns=&quot;http://schemas.microsoft.com/win/2004/08/events/event&quot;&gt;
+- &lt;System&gt;
+  &lt;Provider Name=&quot;Display&quot; /&gt; 
+  &lt;EventID Qualifiers=&quot;0&quot;&gt;4101&lt;/EventID&gt; 
+  &lt;Level&gt;3&lt;/Level&gt; 
+  &lt;Task&gt;0&lt;/Task&gt; 
+  &lt;Keywords&gt;0x80000000000000&lt;/Keywords&gt; 
+  &lt;TimeCreated SystemTime=&quot;2011-04-04T12:48:19.000000000Z&quot; /&gt; 
+  &lt;EventRecordID&gt;36402&lt;/EventRecordID&gt; 
+  &lt;Channel&gt;System&lt;/Channel&gt; 
+  &lt;Computer&gt;liuxx-PC&lt;/Computer&gt; 
+  &lt;Security /&gt; 
+  &lt;/System&gt;
+- &lt;EventData&gt;
+  &lt;Data&gt;amdkmdap&lt;/Data&gt; 
+  &lt;Data /&gt; 
+  &lt;/EventData&gt;
+  &lt;/Event&gt;
+
+Reproducible: Didn&apos;t try</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390218</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-04 09:13:31 -0700</bug_when>
+            <thetext>Is your Issue reproducible when you disable the Hardware Acceleration and restart Firefox?
+If yes, please post the Content of the Graphics Section you can get via &quot;about:support&quot; after you re-enabled Hardware Acceleration.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390765</commentid>
+            <who name="ayrton_liu">liu_xuxue</who>
+            <bug_when>2011-04-04 20:34:01 -0700</bug_when>
+            <thetext> Hardware Acceleration is not supported by my PC</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390843</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-04 23:04:33 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+So what does the Graphics Section look like?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391018</commentid>
+            <who name="ayrton_liu">liu_xuxue</who>
+            <bug_when>2011-04-05 05:05:12 -0700</bug_when>
+            <thetext>ATI Mobility Radeon HD 3400 Series  
+I can do nothing but wait, then a few seconds later, it`s ok.
+note: this happaned when i opened about 6 websites(not everytimes i did this).
+Maybe it`s due to  my Graphics Section. But every time it occurred, i was browsing
+websites with firefox, with IE this did not happend.I don`t kown why ,and puzzled.
+I have been using firefox about four years. And if it can start up faster, it 
+would be perfect.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391284</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-05 10:06:51 -0700</bug_when>
+            <thetext>Errmm, please post the Graphics Information you can get via &quot;about:support&quot; or alternatively choosing &quot;Help&quot;/&quot;Troubleshooting Information&quot; with enabled Hardware Acceleration.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394174</commentid>
+            <who name="ayrton_liu">liu_xuxue</who>
+            <bug_when>2011-04-07 03:20:13 -0700</bug_when>
+            <thetext>AdapterDeviceID: 95c4
+AdapterVendorID: 1002
+Add-ons: addon-notification@mozillaonline.com:0.3,anticontainer@downthemall.net:0.9.5,cehomepage@mozillaonline.com:0.8,cpmanager@mozillaonline.com:0.5,elemhidehelper@adblockplus.org:1.1.1,fontsetter@mozillaonline.com:0.3,livemargins@mozillaonline.com:4.0,personas@christopher.beard:1.6.2,quicklaunch@mozillaonline.com:0.4,safeflag@mozillaonline.com:0.3,tabimprovelite@mozillaonline.com:0.5,zoompanel@mozillaonline.com:0.6,{DDC359D1-844A-42a7-9AA1-88A850A938A8}:2.0.2,easelink@ashi.cn:1.0.2.3,ireader@samabox.com:1.0.6,{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}:1.3.5,{b9db16a4-6edc-47ec-a1f4-b86292ed211d}:4.8.6,firegestures@xuldev.org:1.6.3,{972ce4c6-7e08-4474-a285-3208198ce6fd}:4.0
+AvailableVirtualMemory: 1426563072
+BuildID: 20110318052756
+CrashTime: 1302171452
+EMCheckCompatibility: true
+FramePoisonBase: 00000000f0de0000
+FramePoisonSize: 65536
+InstallTime: 1300877328
+Notes: AdapterVendorID: 1002, AdapterDeviceID: 95c4, AdapterDriverVersion: 8.752.4.0
+D2D? D2D+
+DWrite? DWrite+
+D3D10 Layers? D3D10 Layers+
+
+ProductName: Firefox
+ReleaseChannel: release
+SecondsSinceLastCrash: 1291511
+StartupTime: 1302170587
+SystemMemoryUsePercentage: 53
+Theme: classic/1.0
+Throttleable: 1
+TotalVirtualMemory: 2147352576
+URL: about:blank
+Vendor: Mozilla
+Version: 4.0
+Winsock_LSP: MSAFD Tcpip [TCP/IP] : 2 : 1 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD Tcpip [UDP/IP] : 2 : 2 :  
+ MSAFD Tcpip [RAW/IP] : 2 : 3 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD Tcpip [TCP/IPv6] : 2 : 1 :  
+ MSAFD Tcpip [UDP/IPv6] : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD Tcpip [RAW/IPv6] : 2 : 3 :  
+ RSVP TCPv6 服务提供商 : 2 : 1 : %SystemRoot%\system32\mswsock.dll 
+ RSVP TCP 服务提供商 : 2 : 1 :  
+ RSVP UDPv6 服务提供商 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ RSVP UDP 服务提供商 : 2 : 2 :  
+ MSAFD RfComm [Bluetooth] : 2 : 1 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{8094674B-C593-4F01-8B34-72246AE8A86D}] SEQPACKET 16 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{8094674B-C593-4F01-8B34-72246AE8A86D}] DATAGRAM 16 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{C28EC4FF-2853-40CA-BB2B-055EA232CDF8}] SEQPACKET 3 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{C28EC4FF-2853-40CA-BB2B-055EA232CDF8}] DATAGRAM 3 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{00132EC4-FB24-476D-B710-164430172AB5}] SEQPACKET 1 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{00132EC4-FB24-476D-B710-164430172AB5}] DATAGRAM 1 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{8166D1DB-B2F7-4C49-A521-73B83A5DEED1}] SEQPACKET 21 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip_{8166D1DB-B2F7-4C49-A521-73B83A5DEED1}] DATAGRAM 21 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{59213F8B-40F4-4840-9251-2673161ED608}] SEQPACKET 27 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{59213F8B-40F4-4840-9251-2673161ED608}] DATAGRAM 27 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{5D59FEDE-513F-4E4F-954B-E539B5A2F504}] SEQPACKET 26 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{5D59FEDE-513F-4E4F-954B-E539B5A2F504}] DATAGRAM 26 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{F655CD73-97F5-4E97-94A5-C81EB1E0F817}] SEQPACKET 5 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{F655CD73-97F5-4E97-94A5-C81EB1E0F817}] DATAGRAM 5 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{D2FADD3A-1729-4021-A4BA-9614AC0B51E2}] SEQPACKET 24 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{D2FADD3A-1729-4021-A4BA-9614AC0B51E2}] DATAGRAM 24 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{0D1183E7-406C-4AF0-A22B-A1FF6197279F}] SEQPACKET 23 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{0D1183E7-406C-4AF0-A22B-A1FF6197279F}] DATAGRAM 23 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{1114BE5B-534A-4E0B-A681-1D7ECE17E2A2}] SEQPACKET 25 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{1114BE5B-534A-4E0B-A681-1D7ECE17E2A2}] DATAGRAM 25 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{3A9E891B-FF63-4E78-9308-42EB5BEC8083}] SEQPACKET 10 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{3A9E891B-FF63-4E78-9308-42EB5BEC8083}] DATAGRAM 10 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{DCCE8963-1064-4286-9706-995E8A5D6F73}] SEQPACKET 22 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{DCCE8963-1064-4286-9706-995E8A5D6F73}] DATAGRAM 22 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{0DEAB104-B7C6-4D00-AEE7-96E79EFC3C2B}] SEQPACKET 0 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{0DEAB104-B7C6-4D00-AEE7-96E79EFC3C2B}] DATAGRAM 0 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{51E45606-E931-4A3F-BE56-A99148B9B104}] SEQPACKET 6 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{51E45606-E931-4A3F-BE56-A99148B9B104}] DATAGRAM 6 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{457408B4-4F05-4756-9EA6-C7CF386EB3A0}] SEQPACKET 9 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{457408B4-4F05-4756-9EA6-C7CF386EB3A0}] DATAGRAM 9 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{06FA3D46-3F51-4AF9-BB9F-E419FEC2B41D}] SEQPACKET 11 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{06FA3D46-3F51-4AF9-BB9F-E419FEC2B41D}] DATAGRAM 11 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{294B4BD7-0BAB-4F36-A6E7-CF88AC13DE6F}] SEQPACKET 19 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{294B4BD7-0BAB-4F36-A6E7-CF88AC13DE6F}] DATAGRAM 19 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{CFFA0BCD-876A-40F1-B084-E799C4BF115F}] SEQPACKET 18 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{CFFA0BCD-876A-40F1-B084-E799C4BF115F}] DATAGRAM 18 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{719E4C68-C974-4B33-9E99-551F297FAFFC}] SEQPACKET 17 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{719E4C68-C974-4B33-9E99-551F297FAFFC}] DATAGRAM 17 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{8094674B-C593-4F01-8B34-72246AE8A86D}] SEQPACKET 15 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{8094674B-C593-4F01-8B34-72246AE8A86D}] DATAGRAM 15 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{8A93CB20-C0E6-4913-BB87-5184A36E88AD}] SEQPACKET 14 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{8A93CB20-C0E6-4913-BB87-5184A36E88AD}] DATAGRAM 14 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{576E04FF-EDB2-4F7D-9F9B-02B3F78FC1F6}] SEQPACKET 13 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{576E04FF-EDB2-4F7D-9F9B-02B3F78FC1F6}] DATAGRAM 13 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{4BF69D1F-9FB5-466A-AC6E-539E4C3F6809}] SEQPACKET 12 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{4BF69D1F-9FB5-466A-AC6E-539E4C3F6809}] DATAGRAM 12 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{B79303F7-C8D5-4476-90B7-C36502E0905E}] SEQPACKET 8 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{B79303F7-C8D5-4476-90B7-C36502E0905E}] DATAGRAM 8 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{5B5C8A86-0E7C-48DD-B913-0AE080305312}] SEQPACKET 7 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{5B5C8A86-0E7C-48DD-B913-0AE080305312}] DATAGRAM 7 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{C28EC4FF-2853-40CA-BB2B-055EA232CDF8}] SEQPACKET 4 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{C28EC4FF-2853-40CA-BB2B-055EA232CDF8}] DATAGRAM 4 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{00132EC4-FB24-476D-B710-164430172AB5}] SEQPACKET 2 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{00132EC4-FB24-476D-B710-164430172AB5}] DATAGRAM 2 : 2 : 2 : %SystemRoot%\system32\mswsock.dll 
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{8166D1DB-B2F7-4C49-A521-73B83A5DEED1}] SEQPACKET 20 : 2 : 5 :  
+ MSAFD NetBIOS [\Device\NetBT_Tcpip6_{8166D1DB-B2F7-4C49-A521-73B83A5DEED1}] DATAGRAM 20 : 2 : 2 : %SystemRoot%\system32\mswsock.dll
+
+此报告同时包含了应用程序崩溃时状态的技术信息。</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

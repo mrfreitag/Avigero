@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647944</bug_id>
+          
+          <creation_ts>2011-04-05 23:30:00 -0700</creation_ts>
+          <short_desc>user management required</short_desc>
+          <delta_ts>2011-04-05 23:31:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Localizations</product>
+          <component>as / Assamese</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Amitakhya Phukan">aphukan.mozilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aphukan.mozilla</cc>
+          <qa_contact>assamese.as</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391970</commentid>
+            <who name="Amitakhya Phukan">aphukan.mozilla</who>
+            <bug_when>2011-04-05 23:30:33 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686 (x86_64); en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.84 Safari/534.13
+Build Identifier: 
+
+I need to know how I can add a user to the Assamese team in the mozilla wiki page for Assamese. Also, I would like to change my username and password for my login. I would also like to know if there are any advanced features in the wiki page from where in I can allot commit access to team members.
+
+Reproducible: Always</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

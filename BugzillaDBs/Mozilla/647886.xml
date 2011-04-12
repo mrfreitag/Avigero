@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647886</bug_id>
+          
+          <creation_ts>2011-04-05 13:37:00 -0700</creation_ts>
+          <short_desc>Pulling down Back/Forward menu requires an unnecessary delay</short_desc>
+          <delta_ts>2011-04-05 23:01:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Toolbars</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[parity-Chrome]</status_whiteboard>
+          <keywords>ux-efficiency</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>582485</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="David Regev">david.regev</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dao</cc>
+    
+    <cc>dugar.siddhartha</cc>
+    
+    <cc>wulf.bugmail</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>toolbars</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391497</commentid>
+            <who name="David Regev">david.regev</who>
+            <bug_when>2011-04-05 13:37:16 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+(Continued from bug 582485 comment #38)
+
+If you want to bring up the Back/Forward menu (without right-clicking), you must click and hold. The hold is required in order to differentiate between going Back/Forward immediately and bringing up the menu. Thus, if you want to go back to a specific page, you must click, hold until the menu pops up, drag down/up to the desired history item, and release. The problem is that the hold is unnecessary if you’re going to be pulling down/up this menu. If you click on the Back button and then drag it down, there is no ambiguity: you can only possibly want to see the history menu.
+
+Thus, the proposed solution is to remove the need for holding when pulling up/down the Back/Forward menu and show it the menu immediately.
+
+Fixing this bug will also remove the regression introduced by removing the Back/Forward dropdown (bug 582485): it’s no longer possible to bring up the Back/Forward menu quickly.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Click down on Back button.
+2. Don’t wait!
+2. Drag down.
+Actual Results:  
+Nothing.
+
+Expected Results:  
+Back/Forward menu appears.
+
+The proposed solution is already implemented by Google Chrome.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

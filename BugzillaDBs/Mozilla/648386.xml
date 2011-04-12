@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648386</bug_id>
+          
+          <creation_ts>2011-04-07 15:43:00 -0700</creation_ts>
+          <short_desc>Design &quot;Sign in&quot; button for Web pages</short_desc>
+          <delta_ts>2011-04-08 00:08:05 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Marketing</product>
+          <component>Design</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dan Mills [:thunder]">thunder</reporter>
+          <assigned_to name="Tara">tshahian</assigned_to>
+          <cc>jslater</cc>
+    
+    <cc>samuel.sidler</cc>
+    
+    <cc>smartell</cc>
+          <qa_contact>design</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395292</commentid>
+            <who name="Dan Mills [:thunder]">thunder</who>
+            <bug_when>2011-04-07 15:43:19 -0700</bug_when>
+            <thetext>We need some buttons that we can ask sites to use to sign in using verified email (Firefox ID).
+
+As inspiration/examples, here are the Facebook and Twitter ones:
+
+http://developers.facebook.com/docs/reference/plugins/login/
+http://dev.twitter.com/pages/sign_in_with_twitter</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395877</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-07 21:13:14 -0700</bug_when>
+            <thetext>Thanks Dan. Can you remind me again when this should be due?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396024</commentid>
+            <who name="Dan Mills [:thunder]">thunder</who>
+            <bug_when>2011-04-07 22:55:09 -0700</bug_when>
+            <thetext>It would be great to have some preliminary design(s) for the alpha release mid-next week, I plan to blog about it and could include something there.
+
+We can keep changing the design until later in the process, though I&apos;d want us to have this settled before we go beta (in about 4-6 weeks).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

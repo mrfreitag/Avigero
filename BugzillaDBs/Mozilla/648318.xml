@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648318</bug_id>
+          
+          <creation_ts>2011-04-07 11:25:00 -0700</creation_ts>
+          <short_desc>update won&apos;t load. stuck in infinite loop</short_desc>
+          <delta_ts>2011-04-07 14:12:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Application Update</component>
+          <version>1.9.2 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Randaii">vidaddict</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+          <qa_contact>application.update</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394763</commentid>
+            <who name="Randaii">vidaddict</who>
+            <bug_when>2011-04-07 11:25:44 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13
+Build Identifier: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13
+
+using macbook with 10.6.7. update gets stuck, does not time out. no other effects noted
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.click update when request pops up on desktop
+2.
+3.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395103</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-07 14:12:02 -0700</bug_when>
+            <thetext>Which update are you trying to install? Can you manually download the full installer and do the install?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

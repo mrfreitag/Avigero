@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648383</bug_id>
+          
+          <creation_ts>2011-04-07 15:36:00 -0700</creation_ts>
+          <short_desc>{inc} Page doesn&apos;t automatically reflow with specific floating DIV configuration [quirks]</short_desc>
+          <delta_ts>2011-04-09 15:50:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Layout: Floats</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian Oraas">boraas</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>layout.floats</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395266</commentid>
+            <who name="Brian Oraas">boraas</who>
+            <bug_when>2011-04-07 15:36:27 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 MixpoPublisher/1.0.0.16336
+Build Identifier: 3.6 and 4.0
+
+I have a specific page layout involving floating DIVs and nested DIVs. I want to adjust the height of one of the DIVs. When I increase the height, the page content below the DIV shifts down, as expected. When I decrease the height, the lower content does not move back up. The lower content seems to &quot;lock&quot; in its lowest position. So, any time I make the height of my resizing DIV larger than it has been before, the lower content notices and shifts down correctly. But changing the height of my resizing DIV to any smaller height has no effect on the lower content, even increasing and decreasing within that previous maximum.
+
+The page layout can be fixed by resizing the browser window -- this causes the layout engine to move the lower content to where I expected it to be. So the layout engine knows where to put the lower content, it just didn&apos;t think it needed to move when I adjusted the height.
+
+Reproducible: Always
+
+Steps to Reproduce:
+Render the following HTML in Firefox:
+
+&lt;html&gt;
+&lt;body style=&quot;height:250px&quot;&gt;
+	&lt;div style=&quot;float:left&quot;&gt;First float&lt;/div&gt;
+	&lt;div id=&quot;resizeMe&quot; style=&quot;float:left;width:100%&quot;&gt;Second float&lt;/div&gt;
+	&lt;div&gt;
+		&lt;div style=&quot;float:left;margin-top:1&quot;&gt;Third float&lt;/div&gt;
+	&lt;/div&gt;
+&lt;script&gt;
+setInterval(function(){
+	var resizeMe = document.getElementById(&quot;resizeMe&quot;);
+	if (!resizeMe.style.height || resizeMe.style.height == &quot;auto&quot;) {
+		resizeMe.style.height = &quot;100px&quot;;
+	} else {
+		resizeMe.style.height = &quot;auto&quot;;
+	}
+}, 1000);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt; 
+
+Actual Results:  
+The &quot;Third float&quot; moves down, but does not move up on its own. If I resize the browser window, the float does move to where it should be at that moment.
+
+Expected Results:  
+I expect to see the &quot;Third float&quot; move up and down on its own, every second. It does this is all versions of IE, Chrome, and Safari that I have tried. It does this is no version of Firefox that I have tried.
+
+I guess this is related to the incremental reflow engine, and I notice there are a few other bugs logged against it with the {inc} tag, so I have added that here too. Perhaps this is similar to 308733, which also involves floating DIVs. But the test cases appear somewhat different, so it seems good to have an additional test case, if the underlying bug is attempted to be fixed.
+
+Unfortunately, I cannot redesign my page layout to avoid this -- it is someone else&apos;s layout, and I just want to adjust the height of this 1 DIV and have the &quot;right thing&quot; happen around that. I am working around this problem by forcing the browser to reflow around my DIV by removing and reapplying its float style. I am using the following code for that, after every time I resize the DIV.
+
+var oldFloat = resizeMe.style.cssFloat;
+resizeMe.style.cssFloat = &quot;none&quot;;
+// looking up offsetLeft forces the reflow to happen... otherwise it gets optimized out
+var test = resizeMe.offsetLeft;
+resizeMe.style.cssFloat = oldFloat;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395851</commentid>
+              <attachid>524564</attachid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 20:58:31 -0700</bug_when>
+            <thetext>Created attachment 524564
+The testcase</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395855</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 21:00:23 -0700</bug_when>
+            <thetext>I lowered the interval to 100ms to make it slightly clearer.
+
+This looks like a quirks-only problem; if I put the page in standards mode there is no issue.  Brian, I&apos;m not sure whether that&apos;s an option for you; if it is, it would perform a lot better than the workaround you used.  And thank you very much for the testcase!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397862</commentid>
+            <who name="Brian Oraas">boraas</who>
+            <bug_when>2011-04-08 16:56:58 -0700</bug_when>
+            <thetext>Thanks for the quick investigation!
+Yes, I see that when I add the following DOCTYPE:
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+
+to my testcase, the problem goes away. However, I originally discovered the problem on a page using that DOCTYPE! I then deleted as much as possible from that page in order to create the smallest test case that still showed the problem. As part of that, I deleted the DOCTYPE, which seemed OK at the time, since it didn&apos;t change the behavior I was analyzing. Now I realize that was a mistake, since my final test case does have different behavior with and without that DOCTYPE. I should repeat that process, and keep the DOCTYPE this time!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398678</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-09 15:50:25 -0700</bug_when>
+            <thetext>Brian, if you&apos;re willing to do that, it would be very helpful.  Thanks for minimizing the testcases!</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524564</attachid>
+            <date>2011-04-07 20:58:00 -0700</date>
+            <delta_ts>2011-04-07 20:58:31 -0700</delta_ts>
+            <desc>The testcase</desc>
+            <filename>test.html</filename>
+            <type>text/html</type>
+            <size>1029</size>
+            <attacher>bzbarsky</attacher>
+            
+              <data encoding="base64">PCFET0NUWVBFIGh0bWw+CjxzY3JpcHQ+CiAgZnVuY3Rpb24gZ2VuZXJhdGVPYmplY3RUcmVlKGRl
+cHRoLCBicmFuY2hGYWN0b3IpIHsKICAgIHZhciB4aHIgPSBuZXcgWE1MSHR0cFJlcXVlc3QoKTsK
+ICAgIHhoci5vcGVuKCJHRVQiLCAidGVzdC5qcyIsIGZhbHNlKTsKICAgIHhoci5zZW5kKCk7CiAg
+ICByZXR1cm4gSlNPTi5wYXJzZSh4aHIucmVzcG9uc2VUZXh0KTsKCiAgLyp2YXIgbyA9IG5ldyBP
+YmplY3QoKTsKCiAgICBmb3IgKHZhciBrID0gMDsgayA8IDIwOyArK2spIHsKICAgICAgb1sicHJv
+cCIgKyBrXSA9IGsgLyAxMDsKICAgIH0KCiAgICBpZiAoZGVwdGggPT0gMSkgcmV0dXJuIG87Cgog
+ICAgZm9yICh2YXIgaSA9IDA7IGkgPCBicmFuY2hGYWN0b3I7ICsraSkgewogICAgICBvW2ldID0g
+Z2VuZXJhdGVPYmplY3RUcmVlKGRlcHRoLTEsIGJyYW5jaEZhY3Rvcik7CiAgICB9CiAgICByZXR1
+cm4gbzsqLwogIH0KCiAgdmFyIG9ialRyZWUgPSBnZW5lcmF0ZU9iamVjdFRyZWUoNywgNyk7CiAg
+dmFyIHdvcmtlciA9IG5ldyBXb3JrZXIoJ3Rlc3QuanMnKTsKLy8gICAgICAgICAgICAgICAgICAg
+ICAgICBzdGFydFByb2ZpbGluZygpOwogIHZhciB3b3JrZXJTdGFydCA9IG5ldyBEYXRlKCk7ICAg
+ICAgICAgICAgICAgIAogIHdvcmtlci5wb3N0TWVzc2FnZShvYmpUcmVlKTsKICB2YXIgd29ya2Vy
+RW5kID0gbmV3IERhdGUoKTsKLy8gICAgICAgICAgICAgICAgICAgICAgICBzdG9wUHJvZmlsaW5n
+KCk7CgovLyAgICAgICAgICAgICAgICAgICAgICAgIHN0YXJ0UHJvZmlsaW5nKCk7CiAgdmFyIEpT
+T05zdGFydCA9IG5ldyBEYXRlKCk7CiAgdmFyIGpzb24gPSBKU09OLnN0cmluZ2lmeShvYmpUcmVl
+KTsgICAgICAgICAgICAgICAgICAgICAgIAogIHZhciBKU09OZW5kID0gbmV3IERhdGUoKTsKLy8g
+ICAgICAgICAgICAgICAgICAgICAgICBzdG9wUHJvZmlsaW5nKCk7CgogIGFsZXJ0KCh3b3JrZXJF
+bmQgLSB3b3JrZXJTdGFydCkgKyAiICIgKyAoSlNPTmVuZCAtIEpTT05zdGFydCkpOwo8L3Njcmlw
+dD4K
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

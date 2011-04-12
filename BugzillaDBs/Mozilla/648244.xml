@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648244</bug_id>
+          
+          <creation_ts>2011-04-07 05:37:00 -0700</creation_ts>
+          <short_desc>Infinite loop on tabs.onActivate if accessing windows.activeWindow (new window)</short_desc>
+          <delta_ts>2011-04-07 05:57:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Add-on SDK</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          <see_also>https://bugzilla.mozilla.org/show_bug.cgi?id=641396</see_also>
+    
+    <see_also>https://bugzilla.mozilla.org/show_bug.cgi?id=648241</see_also>
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Nicolas Côté-Nolin">nicolas.cotenolin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394259</commentid>
+            <who name="Nicolas Côté-Nolin">nicolas.cotenolin</who>
+            <bug_when>2011-04-07 05:37:08 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.151 Safari/534.16
+Build Identifier: addon-sdk-1.0b4
+
+Accessing the windows.activeWindow in the tabs.onActivate event refire the onActivate event which create an infinite loop when opening a new window.
+
+Reproducible: Always
+
+Steps to Reproduce:
+const tabs = require(&quot;tabs&quot;), 
+    windows = require(&quot;windows&quot;).browserWindows; 
+
+tabs.on(&apos;activate&apos;, function(tab) { 
+   console.log(&apos;Tab activated!&apos;);
+   console.log(windows.activeWindow.title); 
+});
+
+Open a new tab : no problem, event not refired.
+Open a new window : infinite loop created.
+Actual Results:  
+Infinite loop is created.
+
+Expected Results:  
+Accessing the windows.activeWindow property probably shouldn&apos;t fire the tabs.onActivate event.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

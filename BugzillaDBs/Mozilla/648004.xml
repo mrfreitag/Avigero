@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648004</bug_id>
+          
+          <creation_ts>2011-04-06 08:52:00 -0700</creation_ts>
+          <short_desc>TI+JM: crash [@JSString::isLinear]</short_desc>
+          <delta_ts>2011-04-06 12:54:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to name="Jan de Mooij">jandemooij</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>gary</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392334</commentid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-06 08:52:57 -0700</bug_when>
+            <thetext>--
+var x = eval(&quot;gc(); 30&quot;);
+x.toString();
+isNaN(x);
+--
+Crashes at revision 7928f2dc3d4d with -n -m -a.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392546</commentid>
+              <attachid>524211</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-06 10:33:58 -0700</bug_when>
+            <thetext>Created attachment 524211
+Patch
+
+In ic::CallProp, js_GetClassPrototype could trigger a recompilation and pic-&gt;atom became invalid.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392565</commentid>
+              <attachid>524215</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-06 10:40:22 -0700</bug_when>
+            <thetext>Created attachment 524215
+Patch</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392579</commentid>
+              <attachid>524215</attachid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 10:47:32 -0700</bug_when>
+            <thetext>Comment on attachment 524215
+Patch
+
+Erk. Really need to do a thorough review of MonoIC.cpp and PolyIC.cpp one of these days and kill these bugs.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392991</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 12:54:37 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/projects/jaegermonkey/rev/98d28777528b</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524211</attachid>
+            <date>2011-04-06 10:33:00 -0700</date>
+            <delta_ts>2011-04-06 10:40:22 -0700</delta_ts>
+            <desc>Patch</desc>
+            <filename>callprop.patch</filename>
+            <type>text/plain</type>
+            <size>1717</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEphbiBkZSBNb29paiA8amFuZGVtb29pakBnbWFp
+bC5jb20+CiMgUGFyZW50IDc5MjhmMmRjM2Q0ZGVmNjUyMjUxNGVjOTBkMGFhZjdmMTdjOTQ3NGUK
+W0lORkVSXSBBdm9pZCBhY2Nlc3NpbmcgQ2FsbFByb3AgSUMgYWZ0ZXIgcmVjb21waWxhdGlvbiwg
+YnVnIDY0ODAwNC4gcj1iaGFja2V0dAoKZGlmZiAtLWdpdCBhL2pzL3NyYy9qaXQtdGVzdC90ZXN0
+cy9qYWVnZXIvYnVnNjQ4MDA0LmpzIGIvanMvc3JjL2ppdC10ZXN0L3Rlc3RzL2phZWdlci9idWc2
+NDgwMDQuanMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKLS0tIC9kZXYvbnVsbAorKysgYi9qcy9zcmMv
+aml0LXRlc3QvdGVzdHMvamFlZ2VyL2J1ZzY0ODAwNC5qcwpAQCAtMCwwICsxLDQgQEAKK3ZhciB4
+ID0gZXZhbCgiZ2MoKTsgMzAiKTsKK3ZhciB5ID0geC50b1N0cmluZygpOworaXNOYU4oeCk7Cith
+c3NlcnRFcSh5LCAiMzAiKTsKZGlmZiAtLWdpdCBhL2pzL3NyYy9tZXRob2RqaXQvUG9seUlDLmNw
+cCBiL2pzL3NyYy9tZXRob2RqaXQvUG9seUlDLmNwcAotLS0gYS9qcy9zcmMvbWV0aG9kaml0L1Bv
+bHlJQy5jcHAKKysrIGIvanMvc3JjL21ldGhvZGppdC9Qb2x5SUMuY3BwCkBAIC0xODc2LDE2ICsx
+ODc2LDE5IEBAIGljOjpDYWxsUHJvcChWTUZyYW1lICZmLCBpYzo6UElDSW5mbyAqcGkKICAgICBK
+U0ZyYW1lUmVncyAmcmVncyA9IGYucmVnczsKIAogICAgIEpTU2NyaXB0ICpzY3JpcHQgPSBmLmZw
+KCktPnNjcmlwdCgpOwogICAgIFJlY29tcGlsYXRpb25Nb25pdG9yIG1vbml0b3IoY3gpOwogCiAg
+ICAgVmFsdWUgbHZhbDsKICAgICBsdmFsID0gcmVncy5zcFstMV07CiAKKyAgICAvLyBTYXZlIHBp
+Yy0+YXRvbSBpbiBjYXNlIGpzX0dldENsYXNzUHJvdG90eXBlIHRyaWdnZXJzIGEgcmVjb21waWxh
+dGlvbi4KKyAgICBqc2lkIGlkID0gQVRPTV9UT19KU0lEKHBpYy0+YXRvbSk7CisKICAgICBWYWx1
+ZSBvYmp2OwogICAgIGlmIChsdmFsLmlzT2JqZWN0KCkpIHsKICAgICAgICAgb2JqdiA9IGx2YWw7
+CiAgICAgfSBlbHNlIHsKICAgICAgICAgSlNQcm90b0tleSBwcm90b0tleTsKICAgICAgICAgaWYg
+KGx2YWwuaXNTdHJpbmcoKSkgewogICAgICAgICAgICAgcHJvdG9LZXkgPSBKU1Byb3RvX1N0cmlu
+ZzsKICAgICAgICAgfSBlbHNlIGlmIChsdmFsLmlzTnVtYmVyKCkpIHsKQEAgLTE4OTgsMTggKzE5
+MDEsMTYgQEAgaWM6OkNhbGxQcm9wKFZNRnJhbWUgJmYsIGljOjpQSUNJbmZvICpwaQogICAgICAg
+ICAgICAgVEhST1coKTsKICAgICAgICAgfQogICAgICAgICBKU09iamVjdCAqcG9iajsKICAgICAg
+ICAgaWYgKCFqc19HZXRDbGFzc1Byb3RvdHlwZShjeCwgTlVMTCwgcHJvdG9LZXksICZwb2JqKSkK
+ICAgICAgICAgICAgIFRIUk9XKCk7CiAgICAgICAgIG9ianYuc2V0T2JqZWN0KCpwb2JqKTsKICAg
+ICB9CiAKLSAgICBqc2lkIGlkID0gQVRPTV9UT19KU0lEKHBpYy0+YXRvbSk7Ci0KICAgICBKU09i
+amVjdCAqYW9iaiA9IGpzX0dldFByb3RvSWZEZW5zZUFycmF5KCZvYmp2LnRvT2JqZWN0KCkpOwog
+ICAgIFZhbHVlIHJ2YWw7CiAKICAgICBQcm9wZXJ0eUNhY2hlRW50cnkgKmVudHJ5OwogICAgIEpT
+T2JqZWN0ICpvYmoyOwogICAgIEpTQXRvbSAqYXRvbTsKICAgICBKU19QUk9QRVJUWV9DQUNIRShj
+eCkudGVzdChjeCwgZi5wYygpLCBhb2JqLCBvYmoyLCBlbnRyeSwgYXRvbSk7CiAgICAgaWYgKCFh
+dG9tKSB7Cg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524215</attachid>
+            <date>2011-04-06 10:40:00 -0700</date>
+            <delta_ts>2011-04-06 10:47:32 -0700</delta_ts>
+            <desc>Patch</desc>
+            <filename>callprop.patch</filename>
+            <type>text/plain</type>
+            <size>1716</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEphbiBkZSBNb29paiA8amFuZGVtb29pakBnbWFp
+bC5jb20+CiMgUGFyZW50IDc5MjhmMmRjM2Q0ZGVmNjUyMjUxNGVjOTBkMGFhZjdmMTdjOTQ3NGUK
+W0lORkVSXSBBdm9pZCBhY2Nlc3NpbmcgQ2FsbFByb3AgSUMgYWZ0ZXIgcmVjb21waWxhdGlvbiwg
+YnVnIDY0ODAwNC4gcj1iaGFja2V0dAoKZGlmZiAtLWdpdCBhL2pzL3NyYy9qaXQtdGVzdC90ZXN0
+cy9qYWVnZXIvYnVnNjQ4MDA0LmpzIGIvanMvc3JjL2ppdC10ZXN0L3Rlc3RzL2phZWdlci9idWc2
+NDgwMDQuanMKbmV3IGZpbGUgbW9kZSAxMDA2NDQKLS0tIC9kZXYvbnVsbAorKysgYi9qcy9zcmMv
+aml0LXRlc3QvdGVzdHMvamFlZ2VyL2J1ZzY0ODAwNC5qcwpAQCAtMCwwICsxLDQgQEAKK3ZhciB4
+ID0gZXZhbCgiZ2MoKTsgMzAiKTsKK3ZhciB5ID0geC50b1N0cmluZygpOworaXNOYU4oeCk7Cith
+c3NlcnRFcSh5LCAiMzAiKTsKZGlmZiAtLWdpdCBhL2pzL3NyYy9tZXRob2RqaXQvUG9seUlDLmNw
+cCBiL2pzL3NyYy9tZXRob2RqaXQvUG9seUlDLmNwcAotLS0gYS9qcy9zcmMvbWV0aG9kaml0L1Bv
+bHlJQy5jcHAKKysrIGIvanMvc3JjL21ldGhvZGppdC9Qb2x5SUMuY3BwCkBAIC0xODc2LDE2ICsx
+ODc2LDE5IEBAIGljOjpDYWxsUHJvcChWTUZyYW1lICZmLCBpYzo6UElDSW5mbyAqcGkKICAgICBK
+U0ZyYW1lUmVncyAmcmVncyA9IGYucmVnczsKIAogICAgIEpTU2NyaXB0ICpzY3JpcHQgPSBmLmZw
+KCktPnNjcmlwdCgpOwogICAgIFJlY29tcGlsYXRpb25Nb25pdG9yIG1vbml0b3IoY3gpOwogCiAg
+ICAgVmFsdWUgbHZhbDsKICAgICBsdmFsID0gcmVncy5zcFstMV07CiAKKyAgICAvLyBEbyB0aGlz
+IGZpcnN0IGluIGNhc2UganNfR2V0Q2xhc3NQcm90b3R5cGUgdHJpZ2dlcnMgYSByZWNvbXBpbGF0
+aW9uLgorICAgIGpzaWQgaWQgPSBBVE9NX1RPX0pTSUQocGljLT5hdG9tKTsKKwogICAgIFZhbHVl
+IG9ianY7CiAgICAgaWYgKGx2YWwuaXNPYmplY3QoKSkgewogICAgICAgICBvYmp2ID0gbHZhbDsK
+ICAgICB9IGVsc2UgewogICAgICAgICBKU1Byb3RvS2V5IHByb3RvS2V5OwogICAgICAgICBpZiAo
+bHZhbC5pc1N0cmluZygpKSB7CiAgICAgICAgICAgICBwcm90b0tleSA9IEpTUHJvdG9fU3RyaW5n
+OwogICAgICAgICB9IGVsc2UgaWYgKGx2YWwuaXNOdW1iZXIoKSkgewpAQCAtMTg5OCwxOCArMTkw
+MSwxNiBAQCBpYzo6Q2FsbFByb3AoVk1GcmFtZSAmZiwgaWM6OlBJQ0luZm8gKnBpCiAgICAgICAg
+ICAgICBUSFJPVygpOwogICAgICAgICB9CiAgICAgICAgIEpTT2JqZWN0ICpwb2JqOwogICAgICAg
+ICBpZiAoIWpzX0dldENsYXNzUHJvdG90eXBlKGN4LCBOVUxMLCBwcm90b0tleSwgJnBvYmopKQog
+ICAgICAgICAgICAgVEhST1coKTsKICAgICAgICAgb2Jqdi5zZXRPYmplY3QoKnBvYmopOwogICAg
+IH0KIAotICAgIGpzaWQgaWQgPSBBVE9NX1RPX0pTSUQocGljLT5hdG9tKTsKLQogICAgIEpTT2Jq
+ZWN0ICphb2JqID0ganNfR2V0UHJvdG9JZkRlbnNlQXJyYXkoJm9ianYudG9PYmplY3QoKSk7CiAg
+ICAgVmFsdWUgcnZhbDsKIAogICAgIFByb3BlcnR5Q2FjaGVFbnRyeSAqZW50cnk7CiAgICAgSlNP
+YmplY3QgKm9iajI7CiAgICAgSlNBdG9tICphdG9tOwogICAgIEpTX1BST1BFUlRZX0NBQ0hFKGN4
+KS50ZXN0KGN4LCBmLnBjKCksIGFvYmosIG9iajIsIGVudHJ5LCBhdG9tKTsKICAgICBpZiAoIWF0
+b20pIHsK
+</data>
+<flag name="review"
+          id="437920"
+          type_id="4"
+          status="+"
+          setter="bhackett1024"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

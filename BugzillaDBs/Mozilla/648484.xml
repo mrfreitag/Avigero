@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648484</bug_id>
+          
+          <creation_ts>2011-04-07 21:51:00 -0700</creation_ts>
+          <short_desc>Cross-process rendering with d2d/d3d10</short_desc>
+          <delta_ts>2011-04-11 15:34:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>641681</blocked>
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</reporter>
+          <assigned_to name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</assigned_to>
+          <cc>bas.schouten</cc>
+    
+    <cc>jmuizelaar</cc>
+    
+    <cc>joe</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>roc</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395935</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-07 21:51:30 -0700</bug_when>
+            <thetext>One option we have is to add d3d10 --&gt; d3d10 forwarding.  This doesn&apos;t seem particularly difficult, but requires a fair amount of new, dead-end code (to be obsoleted by NGFX).  Another option is to forward basic-layers+d2d, but that has unknown perf impact on, e.g., drawImage demos.
+
+Bas proposes instead handing the content process an iframe-sized texture, like a window back buffer, to which the content process would composite its layers as we do in the current single-process world.  (Details TBD.)  This ought to be considerably simpler than full shadow-layer support.  To ramp up multi-process on win7, this proposal sounds awfully appealing.  Here are some goals on the radar screen that would force us to implement full shadow-layer support
+ - async scrolling.  Awaiting feedback from UX/UI folk.
+ - DirectVideo.  Bug 598868.
+ - compositor-driven layer animation
+
+We might get NGFX before any of the above.  SO, another very attractive feature of the &quot;window buffer&quot; proposal is that in that case, we would only throw away a small amount of code.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401931</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-11 15:34:36 -0700</bug_when>
+            <thetext>Might need to bail, will get as far as I can.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

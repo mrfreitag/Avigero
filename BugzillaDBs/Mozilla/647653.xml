@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647653</bug_id>
+          
+          <creation_ts>2011-04-04 00:51:00 -0700</creation_ts>
+          <short_desc>It should be possible to create nsIDOMBlob in JavaScript XPCOM components</short_desc>
+          <delta_ts>2011-04-05 23:34:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>XPCOM</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>607114</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Jan Gerber">j</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>jonas</cc>
+    
+    <cc>khuey</cc>
+          <qa_contact>xpcom</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389876</commentid>
+            <who name="Jan Gerber">j</who>
+            <bug_when>2011-04-04 00:51:51 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+It would be nice to be able to return nsIDOMBlob objects or implement nsIDOMBlob inside a custom xpcom element for an extension to make files/data available inside the DOM. i.e. like this:
+ f = Cc[&quot;@mozilla.org/file/local;1&quot;].createInstance(Ci.nsILocalFile);
+ f.initWithPath(..);
+ f.QueryInterface(Ci.nsIDOMBlob)
+
+Right now there is no way to create an nsIDOMBlob from an nsILocalFile.
+Trying to implement a Javascript XPCOM element with nsIDOMBlob interface was also seams to be impossbile since i.e nsIPartialFileInputStream is not abailable:
+
+ Cc[&quot;@mozilla.org/network/partial-file-input-stream;1&quot;]
+   .createInstance(Ci.nsIPartialFileInputStream);
+
+Its is also not quite clear how one could add a moz-filedata: url to implement
+getInternalUrl in Kavascript.
+
+
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391597</commentid>
+            <who name="Jan Gerber">j</who>
+            <bug_when>2011-04-05 15:15:03 -0700</bug_when>
+            <thetext>ongoing attempt to implement nsIDOMBlob in a JavaScript component,
+it does not seam to call my getInternalUrl function. 
+[Exception... &quot;Component returned failure code: 0x804b000a (NS_ERROR_MALFORMED_URI) [nsIDOMFileReader.readAsBinaryString]&quot; nsresult: &quot;0x804b000a (NS_ERROR_MALFORMED_URI)&quot;]
+
+even if getInternalUrl would be called, it does not seam to be possible to add url to 
+nsFileDataProtocolHandler from Javascript,
+namely calling:
+ nsFileDataProtocolHandler::AddFileDataEntry(url, this, aPrincipal);</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391599</commentid>
+              <attachid>524096</attachid>
+            <who name="Jan Gerber">j</who>
+            <bug_when>2011-04-05 15:16:01 -0700</bug_when>
+            <thetext>Created attachment 524096
+An attempt to support nsIDOMBlob in an extension</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391891</commentid>
+            <who name="Jonas Sicking (:sicking)">jonas</who>
+            <bug_when>2011-04-05 22:09:00 -0700</bug_when>
+            <thetext>Is this a dupe of bug 607114?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391974</commentid>
+            <who name="Kyle Huey [:khuey]">khuey</who>
+            <bug_when>2011-04-05 23:34:56 -0700</bug_when>
+            <thetext>Yes, accept Bug 607114 would have nicer syntax :-)
+
+*** This bug has been marked as a duplicate of bug 607114 ***</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524096</attachid>
+            <date>2011-04-05 15:16:00 -0700</date>
+            <delta_ts>2011-04-05 15:16:01 -0700</delta_ts>
+            <desc>An attempt to support nsIDOMBlob in an extension</desc>
+            <filename>FirefoggBlob.js</filename>
+            <type>application/x-javascript</type>
+            <size>4561</size>
+            <attacher>j</attacher>
+            
+              <data encoding="base64">Ly8tKi0gY29kaW5nOiB1dGYtOCAtKi0KLy8gdmk6c2k6ZXQ6c3c9MjpzdHM9Mjp0cz0yCi8qCiAg
+RmlyZWZvZ2cgLSB2aWRlbyBlbmNvZGluZyBhbmQgdXBsb2FkaW5nIGZvciBGaXJlZm94CiAgICAg
+IGh0dHA6Ly9maXJlZm9nZy5vcmcvCiAgICAgICAgICAgICAyMDA4LTIwMTEgLSBHUEwgMy4wCiAq
+LwoKQ29tcG9uZW50cy51dGlscy5pbXBvcnQoInJlc291cmNlOi8vZ3JlL21vZHVsZXMvWFBDT01V
+dGlscy5qc20iKTsKQ29tcG9uZW50cy51dGlscy5pbXBvcnQoInJlc291cmNlOi8vZmlyZWZvZ2cv
+dXRpbHMuanNtIik7Cgpjb25zdCBDYyA9IENvbXBvbmVudHMuY2xhc3NlczsKY29uc3QgQ2kgPSBD
+b21wb25lbnRzLmludGVyZmFjZXM7CgpmdW5jdGlvbiBGaXJlZm9nZ0Jsb2IoKSB7Cn0KCkZpcmVm
+b2dnQmxvYi5wcm90b3R5cGUgPQp7CiAgY2xhc3NEZXNjcmlwdGlvbjogIkZpcmVmb2dnIEJsb2Ig
+SW50ZXJmYWNlIiwKICBjbGFzc0lEOiBDb21wb25lbnRzLklEKCJiZjViYzIzNi01ZTBiLTExZTAt
+YTQxYi0wMDIyNDExZWQzNDYiKSwKICBjb250cmFjdElEOiAiQGZpcmVmb2dnLm9yZy9ibG9iOzEi
+LAogIFF1ZXJ5SW50ZXJmYWNlOiBYUENPTVV0aWxzLmdlbmVyYXRlUUkoW0NpLm5zSUZpcmVmb2dn
+QmxvYiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDaS5uc0lET01C
+bG9iLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENpLm5zSVN1cHBv
+cnRzLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENpLm5zSVNlY3Vy
+aXR5Q2hlY2tlZENvbXBvbmVudCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBDaS5uc0lDbGFzc0luZm8KICBdKSwKICBfeHBjb21fZmFjdG9yeSA6IHsKICAgIGNyZWF0
+ZUluc3RhbmNlOiBmdW5jdGlvbiAob3V0ZXIsIGlpZCkgewogICAgICBpZiAob3V0ZXIgIT0gbnVs
+bCkKICAgICAgICB0aHJvdyBDb21wb25lbnRzLnJlc3VsdHMuTlNfRVJST1JfTk9fQUdHUkVHQVRJ
+T047CgogICAgICBpZiAoIWlpZC5lcXVhbHMoQ2kubnNJRE9NQmxvYikgJiYKICAgICAgICAgICFp
+aWQuZXF1YWxzKENpLm5zSUNsYXNzSW5mbykgJiYKICAgICAgICAgICFpaWQuZXF1YWxzKENpLm5z
+SVNlY3VyaXR5Q2hlY2tlZENvbXBvbmVudCkgJiYKICAgICAgICAgICFpaWQuZXF1YWxzKENpLm5z
+SVN1cHBvcnRzV2Vha1JlZmVyZW5jZSkgJiYKICAgICAgICAgICFpaWQuZXF1YWxzKENpLm5zSVN1
+cHBvcnRzKSAmJgogICAgICAgICAgIWlpZC5lcXVhbHMoQ2kubnNJRmlyZWZvZ2dCbG9iKSApCiAg
+ICAgICAgdGhyb3cgQ29tcG9uZW50cy5yZXN1bHRzLk5TX0VSUk9SX05PX0lOVEVSRkFDRTsKCiAg
+ICAgIHJldHVybiAobmV3IEZpcmVmb2dnQmxvYigpKS5RdWVyeUludGVyZmFjZShpaWQpOwogICAg
+fQogIH0sCiAgLyogbnNJQ2xhc3NJbmZvICovCiAgZmxhZ3M6IENpLm5zSUNsYXNzSW5mby5ET01f
+T0JKRUNULAogIGltcGxlbWVudGF0aW9uTGFuZ3VhZ2U6IENpLm5zSVByb2dyYW1taW5nTGFuZ3Vh
+Z2UuSkFWQVNDUklQVCwKICBnZXRJbnRlcmZhY2VzOiBmdW5jdGlvbiBnZXRJbnRlcmZhY2VzKGFD
+b3VudCkgewogICAgdmFyIGludGVyZmFjZXMgPSBbCiAgICAgIENpLm5zSUNsYXNzSW5mbywKICAg
+ICAgQ2kubnNJU2VjdXJpdHlDaGVja2VkQ29tcG9uZW50LAogICAgICBDaS5uc0lTdXBwb3J0c1dl
+YWtSZWZlcmVuY2UsCiAgICAgIENpLm5zSURPTUJsb2IKICAgIF07CiAgICBhQ291bnQudmFsdWUg
+PSBpbnRlcmZhY2VzLmxlbmd0aDsKICAgIHJldHVybiBpbnRlcmZhY2VzOwogIH0sCiAgZ2V0SGVs
+cGVyRm9yTGFuZ3VhZ2U6IGZ1bmN0aW9uIGdldEhlbHBlckZvckxhbmd1YWdlKGFMYW5ndWFnZSkg
+ewogICAgcmV0dXJuIG51bGw7CiAgfSwKICAvKiBuc0lTZWN1cml0eUNoZWNrZWRDb21wb25lbnQg
+Ki8KICBjYW5DYWxsTWV0aG9kOiBmdW5jdGlvbiBjYW5DYWxsTWV0aG9kKGlpZCwgbWV0aG9kTmFt
+ZSkgewogICAgQ29tcG9uZW50cy51dGlscy5yZXBvcnRFcnJvcihtZXRob2ROYW1lKTsKICAgIHJl
+dHVybiAiQWxsQWNjZXNzIjsKICB9LAogIGNhbkNyZWF0ZVdyYXBwZXI6IGZ1bmN0aW9uIGNhbkNy
+ZWF0ZVdyYXBwZXIoaWlkKSB7CiAgICByZXR1cm4gIkFsbEFjY2VzcyI7CiAgfSwKICBjYW5HZXRQ
+cm9wZXJ0eTogZnVuY3Rpb24gY2FuR2V0UHJvcGVydHkoaWlkLCBwcm9wZXJ0eU5hbWUpIHsKICAg
+IENvbXBvbmVudHMudXRpbHMucmVwb3J0RXJyb3IocHJvcGVydHlOYW1lKTsKICAgIHJldHVybiAi
+QWxsQWNjZXNzIjsKICB9LAogIGNhblNldFByb3BlcnR5OiBmdW5jdGlvbiBjYW5TZXRQcm9wZXJ0
+eShpaWQsIHByb3BlcnR5TmFtZSkgewogICAgQ29tcG9uZW50cy51dGlscy5yZXBvcnRFcnJvcihw
+cm9wZXJ0eU5hbWUpOwogICAgcmV0dXJuICJOb0FjY2VzcyI7CiAgfSwKICAvKiBuc0lET01CbG9i
+ICovCiAgc2l6ZTogMCwKICB0eXBlOiAiIiwKICBzbGljZTogZnVuY3Rpb24oc3RhcnQsIGxlbmd0
+aCwgY29udGVudFR5cGUpIHsKICAgIGlmKCFjb250ZW50VHlwZSkKICAgICAgY29udGVudFR5cGUg
+PSB0aGlzLnR5cGU7CiAgICB2YXIgc2xpY2UgPSBDY1siQGZpcmVmb2dnLm9yZy9ibG9iOzEiXS5j
+cmVhdGVJbnN0YW5jZShDaS5uc0lGaXJlZm9nZ0Jsb2IpOwogICAgc2xpY2UuaW5pdFdpdGhQYXRo
+KHRoaXMucGF0aCwgY29udGVudFR5cGUsIHN0YXJ0LCBsZW5ndGgpOwogICAgcmV0dXJuIHNsaWNl
+OwogIH0sCiAgaW50ZXJuYWxTdHJlYW06IG51bGwsCiAgZ2V0SW50ZXJuYWxVcmw6IGZ1bmN0aW9u
+KHByaW5jaXBhbCkgewogICAgZHVtcCgnZ2V0SW50ZXJuYWxVcmxcbicpOwogICAgdmFyIHV1aWRH
+ZW5lcmF0b3IgPSBDY1siQG1vemlsbGEub3JnL3V1aWQtZ2VuZXJhdG9yOzEiXQogICAgICAgICAg
+ICAgICAgICAgICAgICAgIC5nZXRTZXJ2aWNlKENpLm5zSVVVSURHZW5lcmF0b3IpOwogICAgdmFy
+IGlkID0gJycgKyB1dWlkR2VuZXJhdG9yLmdlbmVyYXRlVVVJRCgpOwogICAgdmFyIHVybCA9ICdt
+b3otZmlsZWRhdGE6JyArIGlkLnN1YnN0cigxLCBpZC5sZW5ndGgtMik7CiAgICAvKgogICAgRklY
+TUU6IHRoaXMgbmVlZHMgSmF2YVNjcmlwdCBlcXVpdmFsZW50CiAgICBuc0ZpbGVEYXRhUHJvdG9j
+b2xIYW5kbGVyOjpBZGRGaWxlRGF0YUVudHJ5KHVybCwgdGhpcywKICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYVByaW5jaXBhbCk7CiAgICAqLwogICAgdmFy
+IHVybEhhbmRsZXIgPSBDY1siQG1vemlsbGEub3JnL2ZpeG1lOzEiXQogICAgICAgICAgICAgICAg
+ICAgIC5nZXRTZXJ2aWNlKENpLm5zRmlsZURhdGFQcm90b2NvbEhhbmRsZXIpOwogICAgdXJsSGFu
+ZGxlci5BZGRGaWxlRGF0YUVudHJ5KHVybCwgdGhpcywgcHJpbmNpcGFsKTsKICAgIHJldHVybiB1
+cmw7CiAgfSwKICAvKiBuc0lGaXJlZm9nZ0Jsb2IgKi8KICBpbml0V2l0aFBhdGg6IGZ1bmN0aW9u
+KHBhdGgsIHR5cGUsIHN0YXJ0LCBsZW5ndGgpIHsKICAgIHZhciBmaWxlID0gQ2NbIkBtb3ppbGxh
+Lm9yZy9maWxlL2xvY2FsOzEiXQogICAgICAgICAgICAgICAgIC5jcmVhdGVJbnN0YW5jZShDaS5u
+c0lMb2NhbEZpbGUpOwogICAgZmlsZS5pbml0V2l0aFBhdGgocGF0aCk7CiAgICB0aGlzLnBhdGgg
+PSBwYXRoOwogICAgaWYoIXR5cGUpIHsKICAgICAgdGhpcy50eXBlID0gInZpZGVvL29nZyI7CiAg
+ICAgIHRyeSB7CiAgICAgICAgdmFyIG1pbWVTZXJ2aWNlID0gQ2NbIkBtb3ppbGxhLm9yZy9taW1l
+OzEiXQogICAgICAgICAgICAgICAgICAgICAgICAgICAgLmNyZWF0ZUluc3RhbmNlKENpLm5zSU1J
+TUVTZXJ2aWNlKTsKICAgICAgICB0aGlzLnR5cGUgPSBtaW1lU2VydmljZS5nZXRUeXBlRnJvbUZp
+bGUoZmlsZSk7CiAgICAgIH0gY2F0Y2goZSkgeyB9CiAgICB9IGVsc2UgewogICAgICB0aGlzLnR5
+cGUgPSB0eXBlOwogICAgfQogICAgaWYobGVuZ3RoID4gMCkgewogICAgICB0aGlzLmludGVybmFs
+U3RyZWFtID0gQ2NbIkBtb3ppbGxhLm9yZy9uZXR3b3JrL3BhcnRpYWwtZmlsZS1pbnB1dC1zdHJl
+YW07MSJdCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC5jcmVhdGVJbnN0YW5jZShDaS5u
+c0lQYXJ0aWFsRmlsZUlucHV0U3RyZWFtKTsKICAgICAgdGhpcy5pbnRlcm5hbFN0cmVhbS5pbml0
+KGZpbGUsIHN0YXJ0LCBsZW5ndGgsIDB4MDEsIDA2NDQsIDB4MDQpOwogICAgICB0aGlzLnNpemUg
+PSBsZW5ndGg7CiAgICB9IGVsc2UgeyAgICAKICAgICAgdGhpcy5pbnRlcm5hbFN0cmVhbSA9IENj
+WyJAbW96aWxsYS5vcmcvbmV0d29yay9maWxlLWlucHV0LXN0cmVhbTsxIl0KICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgLmNyZWF0ZUluc3RhbmNlKENpLm5zSUZpbGVJbnB1dFN0cmVhbSk7
+CiAgICAgIHRoaXMuaW50ZXJuYWxTdHJlYW0uaW5pdChmaWxlLCAweDAxLCAwNjQ0LCAweDA0KTsK
+ICAgICAgdGhpcy5zaXplID0gZmlsZS5maWxlU2l6ZTsKICAgIH0KICB9Cn0gCgp2YXIgTlNHZXRG
+YWN0b3J5ID0gWFBDT01VdGlscy5nZW5lcmF0ZU5TR2V0RmFjdG9yeShbRmlyZWZvZ2dCbG9iXSk7
+Cg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

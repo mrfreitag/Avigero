@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648343</bug_id>
+          
+          <creation_ts>2011-04-07 13:12:00 -0700</creation_ts>
+          <short_desc>New developer MacBook for jorendorff</short_desc>
+          <delta_ts>2011-04-11 00:19:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jason Orendorff">jorendorff</reporter>
+          <assigned_to>desktop-support</assigned_to>
+          <cc>bugzilla</cc>
+    
+    <cc>ebalangue</cc>
+    
+    <cc>hhall</cc>
+    
+    <cc>sayrer</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="order-this"
+          id="438145"
+          type_id="707"
+          status="+"
+          setter="ebalangue"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5394966</commentid>
+            <who name="Jason Orendorff">jorendorff</who>
+            <bug_when>2011-04-07 13:12:06 -0700</bug_when>
+            <thetext>This one I&apos;m filing this on is three years old now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395099</commentid>
+            <who name="Jason Orendorff">jorendorff</who>
+            <bug_when>2011-04-07 14:11:03 -0700</bug_when>
+            <thetext>A MacBook Air is slightly preferred but honestly anything is going to be, literally, many many times faster than what I have now.
+
+I work remotely but I&apos;m in MV all this week and next week.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395122</commentid>
+            <who name="Robert Sayre">sayrer</who>
+            <bug_when>2011-04-07 14:22:57 -0700</bug_when>
+            <thetext>approved</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396764</commentid>
+            <who name="Hilary Hall [:hillzy]">hhall</who>
+            <bug_when>2011-04-08 10:22:57 -0700</bug_when>
+            <thetext>Hey Jason,
+
+I&apos;m not sure what your requirements are, but we have several 15&quot; and a couple 13&quot; MBPs on hand.  Let me know if those are suitable, or stop by 2nd floor IT, and we can discuss.
+
+Thanks!
+
+Hilary</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399934</commentid>
+            <who name="Jason Orendorff">jorendorff</who>
+            <bug_when>2011-04-11 00:19:19 -0700</bug_when>
+            <thetext>Thanks. I&apos;ll come by on Thursday or Friday--I&apos;m in Santa Cruz at the platform work week until then.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

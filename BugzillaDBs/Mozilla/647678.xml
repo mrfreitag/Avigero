@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647678</bug_id>
+          
+          <creation_ts>2011-04-04 07:12:00 -0700</creation_ts>
+          <short_desc>Add Rapid-Release channels to product-details library</short_desc>
+          <delta_ts>2011-04-11 18:02:50 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>Firefox 5</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www-trunk.stage.mozilla.com/en-US/firefox/future-releases/</bug_file_loc>
+          
+          
+          <priority>P1</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>2.0</target_milestone>
+          
+          <blocked>646236</blocked>
+    
+    <blocked>646870</blocked>
+    
+    <blocked>647627</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Steven Garrity">steven</reporter>
+          <assigned_to name="Anthony Ricaud (:rik)">anthony</assigned_to>
+          <cc>anthony</cc>
+    
+    <cc>catlee</cc>
+    
+    <cc>clegnitto</cc>
+    
+    <cc>fwenzel</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>gjimenez</cc>
+    
+    <cc>jlong</cc>
+    
+    <cc>joduinn</cc>
+    
+    <cc>kohei.yoshino.bugs</cc>
+    
+    <cc>laura</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>pascalc</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>release</cc>
+    
+    <cc>sabret00the</cc>
+    
+    <cc>sayrer</cc>
+    
+    <cc>smooney</cc>
+    
+    <cc>tshahian</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390099</commentid>
+            <who name="Steven Garrity">steven</who>
+            <bug_when>2011-04-04 07:12:55 -0700</bug_when>
+            <thetext>The tracking for the new Firefox 5/next rapid-release channels is Bug 646236.
+
+The product details library can produce a final-release or beta button right now, but it will also need to be able to produce download buttons for the &quot;Aurora&quot; build channel too.
+
+Assigning to morgamic in hopes that he can reassign to the appropriate person.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392337</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 08:55:14 -0700</bug_when>
+            <thetext>Hey Mike--
+
+This is going to go live Tuesday of next week, so just want to make sure this is something we can get resolved by then.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392531</commentid>
+            <who name="Michael Morgan [:morgamic]">morgamic</who>
+            <bug_when>2011-04-06 10:26:25 -0700</bug_when>
+            <thetext>James or Fred - need help with this.  Looks like we add another array value in every product array to cover the new channels.  Could just add an &quot;aurora&quot; element.
+
+If you can think of a better way to restructure this, we can talk about it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392543</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 10:32:24 -0700</bug_when>
+            <thetext>Adding Christian, Rob and Sheila--
+
+Christian had said he had a solution, so giving him the floor here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392575</commentid>
+            <who name="Fred Wenzel [:wenzel]">fwenzel</who>
+            <bug_when>2011-04-06 10:46:26 -0700</bug_when>
+            <thetext>It&apos;s a little bigger scope than this bug, but Laura (Thomson) and I are also interested in making a product-details API that can be fed by buildbot and can in turn be queried for Mozilla-relevant build info, rather than updating PHP files by hand.
+
+CCed.
+
+Legneato: Let us know if/when you want to chat about this.
+
+For this bug, please share what you want to do, and we can make it happen and let it show up in the JSON files as well.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392745</commentid>
+            <who name="James Long (:jlongster)">jlong</who>
+            <bug_when>2011-04-06 11:32:44 -0700</bug_when>
+            <thetext>+1 for comment 4. But if this needs to be done by next Tuesday, we need an intermediate solution.
+
+What is the end goal we need here? Does it really need to be in product-details? Or do we just need one download button on the new page that lists the different channels?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392791</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 11:40:05 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; +1 for comment 4. But if this needs to be done by next Tuesday, we need an
+&gt; intermediate solution.
+&gt; 
+&gt; What is the end goal we need here? Does it really need to be in
+&gt; product-details? Or do we just need one download button on the new page that
+&gt; lists the different channels?
+Our main question her is that we&apos;ll have 3 download buttons on this one page--one for aurora, one for beta and the one for final which is fx 4. 
+
+My understanding is that the download details for each build will change every 6 weeks. For now, we need a solution for tuesday for Aurora, and we use what we have for fx 4. I just want to make sure we think this through for the long term.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392868</commentid>
+            <who name="James Long (:jlongster)">jlong</who>
+            <bug_when>2011-04-06 12:00:07 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; My understanding is that the download details for each build will change every
+&gt; 6 weeks. For now, we need a solution for tuesday for Aurora, and we use what we
+&gt; have for fx 4. I just want to make sure we think this through for the long
+&gt; term.
+
+Ok, sounds good. Let&apos;s definitely work towards a separate service. fwiw, we are planning to remove filesizes from the download buttons (bug 645457) which should simplify things. For Tuesday, it&apos;d be nice to avoid filesizes and then it would be easy to hack an Aurora download button.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392893</commentid>
+            <who name="Steven Garrity">steven</who>
+            <bug_when>2011-04-06 12:06:29 -0700</bug_when>
+            <thetext>(In reply to comment #7)
+&gt; fwiw, we are planning to remove filesizes from the download buttons
+&gt; (bug 645457) which should simplify things. For Tuesday, it&apos;d be nice
+&gt; to avoid filesizes and then it would be easy to hack an Aurora
+&gt; download button.
+
+We&apos;re actually not showing file sizes on mozilla.com download buttons unless you have Javascript turned off. It&apos;s weird, but this was because it was quick/easy to remove the file size in the mozilla.com code, but the NOSCRIPT block comes from product-details, to which I don&apos;t have commit access.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392904</commentid>
+            <who name="James Long (:jlongster)">jlong</who>
+            <bug_when>2011-04-06 12:10:29 -0700</bug_when>
+            <thetext>(In reply to comment #8)
+&gt; We&apos;re actually not showing file sizes on mozilla.com download buttons unless
+&gt; you have Javascript turned off. It&apos;s weird, but this was because it was
+&gt; quick/easy to remove the file size in the mozilla.com code, but the NOSCRIPT
+&gt; block comes from product-details, to which I don&apos;t have commit access.
+
+Oh cool! That should simplify things a bit. I&apos;ll poke around the code and figure out how to add Aurora for now, and that will get me familiar with everything and I can help abstract it away as a service soon.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393142</commentid>
+            <who name="Christian Legnitto [:LegNeato]">clegnitto</who>
+            <bug_when>2011-04-06 13:57:12 -0700</bug_when>
+            <thetext>Ok, my &quot;solution&quot; was that we could hardcode it on the channel page for now...it&apos;s not like this button is going to be reused a bunch of places.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394650</commentid>
+            <who name="Steven Garrity">steven</who>
+            <bug_when>2011-04-07 10:21:52 -0700</bug_when>
+            <thetext>(In reply to comment #10)
+&gt; Ok, my &quot;solution&quot; was that we could hardcode it on the channel page for
+&gt; now...it&apos;s not like this button is going to be reused a bunch of places.
+
+Yeah, we can hard-code for now. We will have to do OS detection though.
+
+What about the Beta download button on /firefox/all-beta.html - can we re-use that?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395582</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-07 18:01:42 -0700</bug_when>
+            <thetext>Adding release engineering to help us figure this out.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395590</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-07 18:04:33 -0700</bug_when>
+            <thetext>Builds are going to live here, if that helps: http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395606</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-07 18:13:18 -0700</bug_when>
+            <thetext>Does that mean that the links are not going through bouncer? No alias for the builds?
+
+Currently a typical link generated by product-details is like that:
+
+http://download.mozilla.org/?product=firefox-4.0&amp;os=linux&amp;lang=fy-NL
+
+We would need some way to build links that are always valid, would it be possible to have something like:
+
+http://download.mozilla.org/?product=firefox-aurora&amp;os=linux&amp;lang=fy-NL
+
+That would help a lot, especially if we need working links in a few days from now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395608</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-07 18:14:37 -0700</bug_when>
+            <thetext>(In reply to comment #14)
+&gt; Does that mean that the links are not going through bouncer? No alias for the
+&gt; builds?
+&gt; 
+&gt; Currently a typical link generated by product-details is like that:
+&gt; 
+&gt; http://download.mozilla.org/?product=firefox-4.0&amp;os=linux&amp;lang=fy-NL
+&gt; 
+&gt; We would need some way to build links that are always valid, would it be
+&gt; possible to have something like:
+&gt; 
+&gt; http://download.mozilla.org/?product=firefox-aurora&amp;os=linux&amp;lang=fy-NL
+&gt; 
+&gt; That would help a lot, especially if we need working links in a few days from
+&gt; now.
+
+Aurora builds will not be going through bouncer.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395624</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-07 18:24:51 -0700</bug_when>
+            <thetext>so what will be the url scheme for aurora builds?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395632</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-07 18:31:32 -0700</bug_when>
+            <thetext>(In reply to comment #16)
+&gt; so what will be the url scheme for aurora builds?
+
+E.g.
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/firefox-5.0a2.en-US.win32.installer.exe
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/firefox-5.0a2.en-US.linux-i686.tar.bz2
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/firefox-5.0a2.en-US.linux-x86_64.tar.bz2
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-mozilla-aurora/firefox-5.0a2.en-US.mac.dmg</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395721</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-07 19:27:32 -0700</bug_when>
+            <thetext>These urls should help us updating the library, thanks. We will keep this bug open until we have the library properly updated for the new channels.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396452</commentid>
+            <who name="Steven Garrity">steven</who>
+            <bug_when>2011-04-08 07:46:48 -0700</bug_when>
+            <thetext>We can use the same JS we use for the normal download buttons to detect windows/mac/linux. What about i686 vs. x86_64 for Linux? I presume we just default to i686 and include a link for &quot;Other platforms&quot; to the dir on ftp.mozilla.org?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398419</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-09 09:27:29 -0700</bug_when>
+            <thetext>r87129 has the required changes to p-d</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398424</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-09 09:33:22 -0700</bug_when>
+            <thetext>r87130 has the changes needed for locales</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398428</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-09 09:35:59 -0700</bug_when>
+            <thetext>r87131 has changes in download.old.js needed for the box on the en-US page
+
+Anthony will work on updating the functions in this file for aurora</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401424</commentid>
+            <who name="Anthony Ricaud (:rik)">anthony</who>
+            <bug_when>2011-04-11 13:38:54 -0700</bug_when>
+            <thetext>r87148 in product-details and r87149 in moz.com.
+
+The download button is there but it&apos;s only serving en-US. I&apos;ll work on giving the right locale now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401429</commentid>
+            <who name="Anthony Ricaud (:rik)">anthony</who>
+            <bug_when>2011-04-11 13:40:30 -0700</bug_when>
+            <thetext>Sorry, it&apos;s not r87149 but r87150.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402423</commentid>
+            <who name="James Long (:jlongster)">jlong</who>
+            <bug_when>2011-04-11 17:56:36 -0700</bug_when>
+            <thetext>Rik&apos;s been doing great work on this, so assigning to him.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

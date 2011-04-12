@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647590</bug_id>
+          
+          <creation_ts>2011-04-03 11:51:00 -0700</creation_ts>
+          <short_desc>Crash when sending e-mail with big attachment</short_desc>
+          <delta_ts>2011-04-04 09:54:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Mail Window Front End</component>
+          <version>3.1</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter>u22404</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>front-end</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389332</commentid>
+            <who name="">u22404</who>
+            <bug_when>2011-04-03 11:51:49 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; de; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+I want to send an e-mail, with a big attachment (few MB).
+After some percent uploaded the GUI stops running: TB stops working (0% in task manager) -&gt; crashed. Only possible to close TB when quitting process.
+Happened with 7 jpeg files (each 500 kB) (same prob with second try; worked at third try) and a 4 MB &quot;docx&quot; (not finished yet after some trys, allways crashed).
+
+The mail got lost when TB crashes (not saved at drafts or sent).
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Start Thunderbird
+2. New mail
+3. Add receiver (&quot;To:&quot;)
+4. Add subject
+6. Add attachment
+7. Send
+Actual Results:  
+Thunderbird crashes.
+
+Expected Results:  
+Send the mail and store at &quot;sent&quot; and do not crash.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389343</commentid>
+            <who name="">u22404</who>
+            <bug_when>2011-04-03 12:07:18 -0700</bug_when>
+            <thetext>When trying to close Thunderbird by clicking &quot;x&quot;, the Windows 7 option dialog to &quot;recover or close or end&quot; task opens. I choose &quot;recover&quot;. TB stops sending mail and does not crash! I see the mail editing window with attachment and text. So the mail got not lost.
+Then a dialog popup opens with text like this: &quot;Error sending mail. Mail-Server does not answer ... incoming data timeout - closing connection ... Please retry.&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389355</commentid>
+            <who name="">u22404</who>
+            <bug_when>2011-04-03 12:29:52 -0700</bug_when>
+            <thetext>Reboot Windows, started TB, send mail with big attachment, first try: worked fine.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390260</commentid>
+            <who name="">u22404</who>
+            <bug_when>2011-04-04 09:54:59 -0700</bug_when>
+            <thetext>Today the recipient told me, he received two mails, both with same attachment (he received second mail 20 minutes after the first one). But I definitely only sent one mail without error report or crash. This bug is very annoying.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

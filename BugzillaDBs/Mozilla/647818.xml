@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647818</bug_id>
+          
+          <creation_ts>2011-04-05 07:29:00 -0700</creation_ts>
+          <short_desc>&quot;Reload all tabs&quot; should not reload the App tabs</short_desc>
+          <delta_ts>2011-04-10 05:24:45 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>4.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>uiwanted</keywords>
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter>daniele.pignedoli</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dugar.siddhartha</cc>
+    
+    <cc>faaborg</cc>
+    
+    <cc>hskupin</cc>
+    
+    <cc>kwierso</cc>
+    
+    <cc>margaret.leibovic</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391124</commentid>
+            <who name="">daniele.pignedoli</who>
+            <bug_when>2011-04-05 07:29:00 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Using firefox both for surfing and to develop web apps, i usually have a panorama section with mail and search engines, and another one with developments sites.
+
+The problem comes when i have to reload all the tabs in development section, becose the applications tabs (that are shared between all the panorama sections) get refreshed too.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Pin few tabs as &quot;application tabs&quot;
+2.Open some other &quot;normal&quot; tabs
+3.Right-click on a &quot;normal&quot; tab, then click &quot;refresh all tabs&quot;
+Actual Results:  
+All the tabs get refreshed.
+
+Expected Results:  
+Only the normal tabs should get refreshed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391342</commentid>
+            <who name="sdrocking">dugar.siddhartha</who>
+            <bug_when>2011-04-05 10:54:17 -0700</bug_when>
+            <thetext>For consistency they should.
+Try https://addons.mozilla.org/en-US/firefox/addon/reload-non-pinned-tabs/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391468</commentid>
+            <who name="">daniele.pignedoli</who>
+            <bug_when>2011-04-05 12:59:28 -0700</bug_when>
+            <thetext>@sdrocking: thanks, that addon solve my problem; even if i think this should be a default options of FF instead that an external addons.
+
+Marked as resolved, invalid.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391918</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-05 22:42:09 -0700</bug_when>
+            <thetext>This bug is not invalid. At least not as long we haven&apos;t made a decision how Firefox should behave. Asking for feedback from UX.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398901</commentid>
+            <who name="Wes Kocher (:KWierso)">kwierso</who>
+            <bug_when>2011-04-09 21:00:04 -0700</bug_when>
+            <thetext>If anything, maybe a keyboard modifier? (eg, &quot;hold shift when you click reload all tabs will exclude pinned tabs&quot;)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399150</commentid>
+            <who name="">daniele.pignedoli</who>
+            <bug_when>2011-04-10 05:24:45 -0700</bug_when>
+            <thetext>A keyboard shortcuts is a great idea!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

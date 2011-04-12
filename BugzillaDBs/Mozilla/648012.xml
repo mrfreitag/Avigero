@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648012</bug_id>
+          
+          <creation_ts>2011-04-06 09:32:00 -0700</creation_ts>
+          <short_desc>panning does not work over a &lt;code&gt; section in a page with frames</short_desc>
+          <delta_ts>2011-04-07 10:44:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>Panning/Zooming</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://developer.android.com/resources/tutorials/views/hello-tablelayout.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>644629</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mikhail Sobolev">mss</reporter>
+          <assigned_to name="Benjamin Stover (:stechz)">ben</assigned_to>
+          <cc>ben</cc>
+    
+    <cc>romaxa</cc>
+    
+    <cc>tanya.meshkova</cc>
+          <qa_contact>pan-zoom</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392405</commentid>
+            <who name="Mikhail Sobolev">mss</who>
+            <bug_when>2011-04-06 09:32:37 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.16) Gecko/20110323 Ubuntu/10.10 (maverick) Firefox/3.6.16
+Build Identifier: Android; Linux armv7l; rc:2.1; Gecko/20110318 Firefox/4.0b13pre Fennec/4.0
+
+While browsing the page above I found that while swiping the finger of the code examples, panning does not work.  When swiping next to the code example, panning works as expected.
+
+The behaviour is the same in both portrait and landscape orientation.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. open http://developer.android.com/resources/tutorials/views/hello-tablelayout.html
+2. swipe on the code example in the right bottom frame
+
+Actual Results:  
+While swiping down, address bar appears.
+
+While swiping up -- if address bar is present, it&apos;s removed; if it&apos;s not nothing happens
+
+Expected Results:  
+The frame is scrolled up/down.
+
+HW: HTC Incredible S S710e
+OS: Android 2.2.1</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394367</commentid>
+            <who name="Oleg Romashin (:romaxa)">romaxa</who>
+            <bug_when>2011-04-07 07:30:30 -0700</bug_when>
+            <thetext>This is related to bug 605618, IIRC that bug has fixed scrollable iframes, but not scrollable DIV... 
+make sense to create simple scrollable DIV testcase.
+Not sure if we have similar bug already.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394436</commentid>
+            <who name="Oleg Romashin (:romaxa)">romaxa</who>
+            <bug_when>2011-04-07 08:22:48 -0700</bug_when>
+            <thetext>Also right/left scrolling is possible in Desktop Firefox (make window narrow click on text code and press left/right arrow keys)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394443</commentid>
+            <who name="Oleg Romashin (:romaxa)">romaxa</who>
+            <bug_when>2011-04-07 08:26:52 -0700</bug_when>
+            <thetext>I think we should detect somehow that PRE scrollable content is not scrollable up/down and jump to upper scrollable view which supposed to scroll scrollable DIV (which contain PRE and other elements..)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394692</commentid>
+            <who name="Benjamin Stover (:stechz)">ben</who>
+            <bug_when>2011-04-07 10:44:36 -0700</bug_when>
+            <thetext>I have a div scrolling test in 644629. After it lands and if this is still an issue, we can add a test and fix here.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648453</bug_id>
+          
+          <creation_ts>2011-04-07 19:53:00 -0700</creation_ts>
+          <short_desc>No indicator for Private mode</short_desc>
+          <delta_ts>2011-04-08 22:07:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Private Browsing</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>any</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Ed Hume">ehume</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+          <qa_contact>private.browsing</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395752</commentid>
+            <who name="Ed Hume">ehume</who>
+            <bug_when>2011-04-07 19:53:16 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+If we old-fashioned users eschew the Dreck button in the upper left corner, there is precisely zero indication when we are in Private mode. In the past, a theme developer could use something like this to indicate private mode:
+
+/* PrivateMode URLbar background */
+
+[browsingmode=private] #urlbar {
+  background: #FFD5EA;
+}
+
+Now, of course, that code no longer works.
+
+Request you put back this capacity so we themers can indicate private mode.
+
+Oh, and just in case you might care about your default theme: some indicator other than a change in the Dreck button that a user is in private mode. For those who use the default theme and use the menu bar, they can&apos;t be sure when they are in private mode.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Check the Menu Bar box, so the menu bar is present
+2. Go into Private mode
+
+Actual Results:  
+No indication of private mode.
+
+Expected Results:  
+Some indicator that a user is in private mode.
+
+Firefox 3.6.16 is still available here:
+
+http://releases.mozilla.org/pub/mozilla.org/firefox/releases/3.6.16/win32/
+
+It&apos;s a nice workaround for this bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395870</commentid>
+            <who name="Ed Hume">ehume</who>
+            <bug_when>2011-04-07 21:09:00 -0700</bug_when>
+            <thetext>A colleague suggested something for third party themes. So 
+
+#main-window[privatebrowsingmode] #urlbar {
+  background: #FFD5EA;
+}
+
+works. I&apos;m sure I can boil it down. 
+
+This is excellent. So only a single issue remains:
+
+Using the default them and enabling the menu bar leaves users with no indication that they are in private browsing mode.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396671</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-08 09:56:15 -0700</bug_when>
+            <thetext>With the menu bar visible I see that the window title reads &quot;Firefox(Private Browsing)&quot;, does that solve your bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397892</commentid>
+            <who name="Ed Hume">ehume</who>
+            <bug_when>2011-04-08 17:36:44 -0700</bug_when>
+            <thetext>Nice thought, but the warning is not pervasive enough, not graphic enough. That&apos;s why I turn the url and searchbar pink in my themes, to keep reminding people what mode they&apos;re in.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398043</commentid>
+            <who name="sdrocking">dugar.siddhartha</who>
+            <bug_when>2011-04-08 21:24:16 -0700</bug_when>
+            <thetext>Bug 588655 is already fixed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398056</commentid>
+            <who name="Ed Hume">ehume</who>
+            <bug_when>2011-04-08 22:07:44 -0700</bug_when>
+            <thetext>This bug has a wider scope than 588655. That changes the color of the, er, &quot;Firefox&quot; button. This bug is about showing a Private Mode indicator when the Menu bar is visible and the all-the-menus-crammed-in-one-spot button is not visible.
+
+In any case, simply adding the following code to the default theme will fix the problem:
+
+#main-window[privatebrowsingmode] #urlbar,
+#main-window[privatebrowsingmode] .searchbar-textbox {
+  background: #FFD5EA;
+}</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

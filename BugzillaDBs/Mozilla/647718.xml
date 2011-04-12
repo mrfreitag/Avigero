@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647718</bug_id>
+          
+          <creation_ts>2011-04-04 11:19:00 -0700</creation_ts>
+          <short_desc>PKIX_ILLEGALCHARACTERINESCAPEDASCII with non-us locale</short_desc>
+          <delta_ts>2011-04-05 14:59:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>3.12.10</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to>nobody</assigned_to>
+          <cc>alvolkov.bgs</cc>
+    
+    <cc>bsmith</cc>
+    
+    <cc>rrelyea</cc>
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390336</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 11:19:11 -0700</bug_when>
+            <thetext>I&apos;m on a libPKIX debugging journey.
+I try to switch PSM to use the new PKIX verify API.
+
+While searching for a site with a real simple cert, I found www.cacert.org (that site&apos;s doesn&apos;t have any AIA pointer).
+
+So, in my test profile, I imported the root from www.cacert.org, imported and marked as trust.
+
+PKIX returns an error when verifying the server cert:
+PKIX_ILLEGALCHARACTERINESCAPEDASCII</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390337</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 11:19:53 -0700</bug_when>
+            <thetext>Breakpoint 2, CERT_PKIXVerifyCert (cert=0xa3a30810, usages=1, paramsIn=0xa5683ec0, paramsOut=0xa54fec94, wincx=0xa56cd0e8) at certvfypkix.c:2318
+2318        if (error != NULL) {
+(gdb) print error
+$1 = (PKIX_Error *) 0xa3ae79a0
+(gdb) print *error
+$2 = {errCode = PKIX_BUILDINITIATEBUILDCHAINFAILED, errClass = PKIX_BUILD_ERROR, plErr = 0, cause = 0xa3ae7960, info = 0x0}
+(gdb) print *error-&gt;cause
+$3 = {errCode = PKIX_UNABLETOBUILDCHAIN, errClass = PKIX_BUILD_ERROR, plErr = 0, cause = 0xa3ae7d60, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause
+$4 = {errCode = PKIX_FORWARDBUILDERSTATEDUMPSTATEFAILED, errClass = PKIX_BUILD_ERROR, plErr = 0, cause = 0xa3ae7d20, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause
+$5 = {errCode = PKIX_OBJECTTOSTRINGFAILED, errClass = PKIX_FORWARDBUILDERSTATE_ERROR, plErr = 0, cause = 0xa3ae7ce0, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$6 = {errCode = PKIX_OBJECTSPECIFICFUNCTIONFAILED, errClass = PKIX_OBJECT_ERROR, plErr = 0, cause = 0xa3ae7ca0, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$7 = {errCode = PKIX_OBJECTTOSTRINGFAILED, errClass = PKIX_FORWARDBUILDERSTATE_ERROR, plErr = 0, cause = 0xa3ae7c60, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$8 = {errCode = PKIX_OBJECTSPECIFICFUNCTIONFAILED, errClass = PKIX_OBJECT_ERROR, plErr = 0, cause = 0xa3ae7c20, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$9 = {errCode = PKIX_LISTTOSTRINGHELPERFAILED, errClass = PKIX_LIST_ERROR, plErr = 0, cause = 0xa3ae7be0, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$10 = {errCode = PKIX_LISTTOSTRINGHELPERFAILED, errClass = PKIX_LIST_ERROR, plErr = 0, cause = 0xa3ae7ba0, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$11 = {errCode = PKIX_OBJECTTOSTRINGFAILED, errClass = PKIX_LIST_ERROR, plErr = 0, cause = 0xa3ae7b60, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$12 = {errCode = PKIX_OBJECTSPECIFICFUNCTIONFAILED, errClass = PKIX_OBJECT_ERROR, plErr = 0, cause = 0xa3ae7b20, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$13 = {errCode = PKIX_CERTTOSTRINGHELPERFAILED, errClass = PKIX_CERT_ERROR, plErr = 0, cause = 0xa3ae7ae0, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$14 = {errCode = PKIX_DATETOSTRINGHELPERFAILED, errClass = PKIX_CERT_ERROR, plErr = 0, cause = 0xa3ae7aa0, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$15 = {errCode = PKIX_STRINGCREATEFAILED, errClass = PKIX_DATE_ERROR, plErr = 0, cause = 0xa3ae7a60, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$16 = {errCode = PKIX_ESCASCIITOUTF16FAILED, errClass = PKIX_STRING_ERROR, plErr = 0, cause = 0xa3ae7a20, info = 0x0}
+(gdb) print *error-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause-&gt;cause
+$17 = {errCode = PKIX_ILLEGALCHARACTERINESCAPEDASCII, errClass = PKIX_STRING_ERROR, plErr = 4294959109, cause = 0x0, info = 0x0}</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390715</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 18:40:27 -0700</bug_when>
+            <thetext>I get the same problem when conecting to paypal.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390720</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 18:47:22 -0700</bug_when>
+            <thetext>Looks like libPKIX is unable to deal with international characters?
+
+My computer uses the german locale and settings. See date parameter in first line.
+
+
+#0  pkix_EscASCII_to_UTF16 (escAsciiString=0xa3cd8b80 &quot;Mo Mär 22, 2010&quot;, escAsciiLen=16, debug=0, pDest=0xa2a1c960, pLength=0xa2a1c964, plContext=0xa2a1c310) at pkix_pl_common.c:820
+#1  0x039fe5c3 in PKIX_PL_String_Create (fmtIndicator=0, stringRep=0xa3c66d00, stringLen=0, pString=0xa56fe3c4, plContext=0xa2a1c310) at pkix_pl_string.c:346
+#2  0x039e117f in pkix_pl_Date_ToString_Helper (nssTime=0xa3c128c4, pString=0xa56fe3c4, plContext=0xa2a1c310) at pkix_pl_date.c:183
+#3  0x039ccbe4 in pkix_pl_Cert_ToString_Helper (cert=0xa3dcf050, partialString=0, pString=0xa56fe498, plContext=0xa2a1c310) at pkix_pl_cert.c:963
+#4  0x039cef6a in pkix_pl_Cert_ToString (object=0xa3dcf050, pString=0xa56fe4fc, plContext=0xa2a1c310) at pkix_pl_cert.c:1228
+#5  0x039f9f2d in PKIX_PL_Object_ToString (object=0xa3dcf050, pString=0xa56fe65c, plContext=0xa2a1c310) at pkix_pl_object.c:1267
+#6  0x039a9d90 in pkix_ForwardBuilderState_ToString (object=0xa6d248a0, pString=0xa56fe70c, plContext=0xa2a1c310) at pkix_build.c:484
+#7  0x039f9f2d in PKIX_PL_Object_ToString (object=0xa6d248a0, pString=0xa56fe7ac, plContext=0xa2a1c310) at pkix_pl_object.c:1267
+#8  0x039aab85 in pkix_ForwardBuilderState_DumpState (state=0xa6d248a0, plContext=0xa2a1c310) at pkix_build.c:635
+#9  0x039b015a in pkix_BuildForwardDepthFirstSearch (pNBIOContext=0xa56fe9d0, state=0xa6d248a0, pValResult=0xa56fe980, plContext=0xa2a1c310) at pkix_build.c:2350</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391328</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-05 10:37:00 -0700</bug_when>
+            <thetext>Only seen with PKIX debugging output enabled.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

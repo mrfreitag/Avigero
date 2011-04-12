@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647822</bug_id>
+          
+          <creation_ts>2011-04-05 08:07:00 -0700</creation_ts>
+          <short_desc>No way to enter a 12-digit code from a new Firefox into an authenticated Home</short_desc>
+          <delta_ts>2011-04-05 08:07:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Services</product>
+          <component>Firefox Home</component>
+          <version>unspecified</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Will Thompson">will</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>firefox-home</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391173</commentid>
+            <who name="Will Thompson">will</who>
+            <bug_when>2011-04-05 08:07:25 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux x86_64; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: Unknown, not shown in UI
+
+If a sync account is configured in Firefox Home on an iPhone, and the user wishes to configure Sync in the desktop version of Firefox on a new computer, they cannot enter the 12-digit code into their iPhone: they must either enter it into an already-configured desktop Firefox, or know the username, password and sync key.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Configure Firefox Sync on one computer;
+2. Set up Firefox Home to work with that Sync account;
+3. Open Firefox on a second computer;
+4. Choose Set Up Sync…;
+5. Choose “I already have a Firefox Sync account [Connect]”;
+6. See 12-character code displayed on second computer;
+7. Open Firefox Home on iPhone and search for a way to enter this code.
+Actual Results:  
+There is no way to configure sync without having physical access to a computer (not iPhone) with the account already configured (or knowing the username, password, and sync key by heart).
+
+Expected Results:  
+I expected to be able to enter the 12-digit code on my iPhone, and have working sync between the phone and both of my computers.
+
+This hit me because I configured Sync on my home computer and my iPhone, and then tried to configure Sync on my work computer, while not at home. Happily, my work computer is a laptop so I can take it home, but were they both desktops I&apos;d have to transfer my account, password and sync key from home to work by email or on a USB stick. The 12-digit code experience was such a relief when configuring Sync on my iPhone; it&apos;d be nice if the phone were all I had to take with me to a new computer to configure sync on that computer.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

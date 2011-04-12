@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647581</bug_id>
+          
+          <creation_ts>2011-04-03 11:00:00 -0700</creation_ts>
+          <short_desc>[traceback] KeyError: u&apos;apps&apos;</short_desc>
+          <delta_ts>2011-04-03 11:00:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Localization</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.mozilla.org/vi/firefox/performance/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Stephen Donner [:stephend]">stephen.donner</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>l10n</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389291</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-03 11:00:56 -0700</bug_when>
+            <thetext>https://addons.mozilla.org/vi/firefox/performance/ is bombing out:
+
+Traceback (most recent call last):
+
+  File &quot;/data/amo_python/www/prod/zamboni/vendor/src/django/django/core/handlers/base.py&quot;, line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File &quot;/data/amo_python/www/prod/zamboni/vendor/src/django/django/views/decorators/cache.py&quot;, line 66, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+
+  File &quot;/data/amo_python/www/prod/zamboni/apps/perf/views.py&quot;, line 19, in index
+    dict(addons=addons))
+
+  File &quot;/data/amo_python/www/prod/zamboni/vendor/src/jingo/jingo/__init__.py&quot;, line 78, in render
+    rendered = render_to_string(request, template, context)
+
+  File &quot;/data/amo_python/www/prod/zamboni/vendor/src/jingo/jingo/__init__.py&quot;, line 96, in render_to_string
+    return template.render(**get_context())
+
+  File &quot;/usr/lib/python2.6/site-packages/jinja2/environment.py&quot;, line 891, in render
+    return self.environment.handle_exception(exc_info, True)
+
+  File &quot;/data/amo_python/www/prod/zamboni/apps/perf/templates/perf/index.html&quot;, line 5, in top-level template code
+    {% set app = APP.pretty %}
+
+  File &quot;/data/amo_python/www/prod/zamboni/templates/base.html&quot;, line 99, in top-level template code
+    {% block main_content %}
+
+  File &quot;/data/amo_python/www/prod/zamboni/templates/base.html&quot;, line 104, in block &quot;main_content&quot;
+    {% block content %}{% endblock %}
+
+  File &quot;/data/amo_python/www/prod/zamboni/apps/perf/templates/perf/index.html&quot;, line 19, in block &quot;content&quot;
+    &lt;p&gt;{% trans %}
+
+  File &quot;/usr/lib/python2.6/site-packages/jinja2/_markupsafe/__init__.py&quot;, line 98, in __mod__
+    return self.__class__(unicode.__mod__(self, arg))
+
+  File &quot;/usr/lib/python2.6/site-packages/jinja2/_markupsafe/__init__.py&quot;, line 212, in &lt;lambda&gt;
+    __getitem__ = lambda s, x: _MarkupEscapeHelper(s.obj[x])
+
+KeyError: u&apos;apps&apos;</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648046</bug_id>
+          
+          <creation_ts>2011-04-06 11:14:00 -0700</creation_ts>
+          <short_desc>Mark the active tab in windows that are not on the current desktop as inactive</short_desc>
+          <delta_ts>2011-04-10 05:27:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Boris Zbarsky (:bz)">bzbarsky</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>acelists</cc>
+    
+    <cc>gavin.sharp</cc>
+    
+    <cc>joshmoz</cc>
+    
+    <cc>karlt</cc>
+    
+    <cc>matafagafo</cc>
+    
+    <cc>smichaud</cc>
+    
+    <cc>tnikkel</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392677</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 11:14:13 -0700</bug_when>
+            <thetext>We do all sorts of aggressive throttling for background tabs, but we define &quot;background&quot; as &quot;not currently selected in the tabbrowser&quot;.  We should consider extending this definition to all tabs in windows that are not on the current desktop (e.g. with Spaces on Mac or multiple desktops under Linux WMs).
+
+Detecting this condition might be complicated, though.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

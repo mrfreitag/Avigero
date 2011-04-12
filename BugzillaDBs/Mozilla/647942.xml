@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647942</bug_id>
+          
+          <creation_ts>2011-04-05 23:20:00 -0700</creation_ts>
+          <short_desc>[D3D9] Occasional full system restart with HW acceleration turned on</short_desc>
+          <delta_ts>2011-04-08 02:15:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>2.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Lebar [:jlebar]">justin.lebar+bug</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bas.schouten</cc>
+    
+    <cc>bjacob</cc>
+    
+    <cc>justin.lebar+bug</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391961</commentid>
+            <who name="Justin Lebar [:jlebar]">justin.lebar+bug</who>
+            <bug_when>2011-04-05 23:20:10 -0700</bug_when>
+            <thetext>My brother experienced full system restarts in FF4.  When he disabled hardware acceleration (it was on by default), the problem stopped.
+
+He&apos;s running Windows, but I don&apos;t know if it&apos;s XP or 7.  I&apos;ll comment here as soon as he gets back to me.
+
+Here&apos;s his about:support graphics section, apparently after he disabled hw acceleration (linebreaks hopefully added in the right places):
+
+Adapter 
+  Description  NVIDIA GeForce 7600 GT
+  Vendor ID10de
+  Device ID0391
+Adapter
+  RAM Unknown
+Adapter
+  Drivers nv4_dispDriver Version6.14.12.6099
+  Driver Date10-16-2010
+Direct2D Enabled false
+DirectWrite Enabled false (0.0.0.0, font cache n/a)
+WebGL Renderer Google Inc. -- ANGLE -- OpenGL ES 2.0 (ANGLE 0.0.0.541)
+GPU Accelerated Windows 0/2</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392282</commentid>
+            <who name="Justin Lebar [:jlebar]">justin.lebar+bug</who>
+            <bug_when>2011-04-06 07:52:26 -0700</bug_when>
+            <thetext>He&apos;s running XP.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392409</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-06 09:33:21 -0700</bug_when>
+            <thetext>Has he opened certain Sites?
+Would a Driver Update help?
+http://www.nvidia.com/object/winxp-266.58-whql-driver.html</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392415</commentid>
+            <who name="Justin Lebar [:jlebar]">justin.lebar+bug</who>
+            <bug_when>2011-04-06 09:35:40 -0700</bug_when>
+            <thetext>A driver update probably would help, but I don&apos;t want him to do that until we figure out whether we want to blacklist the current driver.
+
+He said it was reproducible logging into blogger.com, but was happening elsewhere too.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395072</commentid>
+            <who name="Benoit Jacob [:bjacob]">bjacob</who>
+            <bug_when>2011-04-07 14:00:56 -0700</bug_when>
+            <thetext>If we want to make progress on this one, the only way forward that I can see is to run this in some sort of DirectX debugger that would log all the DirectX calls to disk, so that information would survive the crash.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395497</commentid>
+            <who name="Bas Schouten (:bas)">bas.schouten</who>
+            <bug_when>2011-04-07 17:01:33 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; If we want to make progress on this one, the only way forward that I can see is
+&gt; to run this in some sort of DirectX debugger that would log all the DirectX
+&gt; calls to disk, so that information would survive the crash.
+
+Even then that&apos;s unlikely to be helpful. We should never be able to trigger this so likely it&apos;s just invalid driver behavior leading to this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395518</commentid>
+            <who name="Benoit Jacob [:bjacob]">bjacob</who>
+            <bug_when>2011-04-07 17:11:47 -0700</bug_when>
+            <thetext>Sure, but it could still be interesting to know what is triggering this driver bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396204</commentid>
+            <who name="timeless">timeless</who>
+            <bug_when>2011-04-08 02:15:41 -0700</bug_when>
+            <thetext>http://msdn.microsoft.com/en-us/library/bb173355%28v=vs.85%29.aspx sounds like it could be fun.
+
+OTOH you might actually want to try to hook OutputDebugString (depends.exe does) with the debug version of directx:
+http://msdn.microsoft.com/en-us/library/ee416587%28v=vs.85%29.aspx</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

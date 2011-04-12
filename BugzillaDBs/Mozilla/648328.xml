@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648328</bug_id>
+          
+          <creation_ts>2011-04-07 12:22:00 -0700</creation_ts>
+          <short_desc>crash minuter happens report</short_desc>
+          <delta_ts>2011-04-08 07:46:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>stackwanted</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="resprom">respromges321</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bclary</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394852</commentid>
+            <who name="resprom">respromges321</who>
+            <bug_when>2011-04-07 12:22:12 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+this crash happens every 10-15 minutes
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.open mozila firefox
+2.surfing in internet
+3.mozila crash</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394912</commentid>
+            <who name="Bob Clary [:bc:]">bclary</who>
+            <bug_when>2011-04-07 12:52:06 -0700</bug_when>
+            <thetext>Not security sensitive.
+
+There is not enough information to help us diagnose the situation. Please go to the menu Help -&gt; Troubleshooting Information, copy the contents using the copy to clipboard button and paste it here.
+
+Also, when you crash, please submit any crash reports then type about:crashes into the url bar and copy the links to the crash reports and paste them here.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647995</bug_id>
+          
+          <creation_ts>2011-04-06 07:40:00 -0700</creation_ts>
+          <short_desc>hgweb&apos;s bug number detector is over-sensitive, highlights changeset prefixes</short_desc>
+          <delta_ts>2011-04-06 09:40:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Hg: Customizations</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jesse Ruderman">jruderman</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>philringnalda</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>hg.customizations</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392261</commentid>
+            <who name="Jesse Ruderman">jruderman</who>
+            <bug_when>2011-04-06 07:40:08 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/25a266b7d18e
+&quot;Back out bug 643291 (264508dc959b) on suspicion of causing Tp regressions.&quot;
+&quot;264508&quot; gets linkified as a bug number, confusing me and my scripts.
+
+Maybe hgweb should ignore &quot;bug numbers&quot; that are followed by alphabetic chars.
+
+Better yet, detect runs of 12 hex chars as a changeset ID ;)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392421</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-06 09:40:42 -0700</bug_when>
+            <thetext>I thought this was already filed, but apparently not. Yeah, might be nicer to auto-linkify changesets first, and then only linkify bugs afterwards.
+
+I think we&apos;re always going to have some false positives, because we don&apos;t have a consistent way to present bug numbers in checkin comments. People use all kinds of variants like &quot;bug xxx&quot;, &quot;b=xxx&quot;, plain bug numbers.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

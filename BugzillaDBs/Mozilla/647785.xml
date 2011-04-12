@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647785</bug_id>
+          
+          <creation_ts>2011-04-05 01:09:00 -0700</creation_ts>
+          <short_desc>TI+JM: Assertion failure: Call site vanished., at ../methodjit/Retcon.cpp:112</short_desc>
+          <delta_ts>2011-04-05 14:08:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to name="Jan de Mooij">jandemooij</assigned_to>
+          <cc>adrake</cc>
+    
+    <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>gary</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390904</commentid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-05 01:09:19 -0700</bug_when>
+            <thetext>-!Int32Array(5)
+
+Asserts with -n -m -a at revision 013df702176d.
+
+The type of Int32Array(5) is missing. The neg operation then causes a recompilation (int -&gt; double) and this time both JSOP_NOT and JSOP_NEG are constant folded and there&apos;s nowhere to rejoin.
+
+The problem seems to be with JSOP_NOT pushing a constant &apos;false&apos; based on known types.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390990</commentid>
+              <attachid>524048</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-05 04:16:39 -0700</bug_when>
+            <thetext>Created attachment 524048
+Patch</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391001</commentid>
+              <attachid>524049</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-05 04:30:38 -0700</bug_when>
+            <thetext>Created attachment 524049
+Patch</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391526</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-05 14:07:51 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/projects/jaegermonkey/rev/83c58db6e590</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524048</attachid>
+            <date>2011-04-05 04:16:00 -0700</date>
+            <delta_ts>2011-04-05 04:30:38 -0700</delta_ts>
+            <desc>Patch</desc>
+            <filename>not.patch</filename>
+            <type>text/plain</type>
+            <size>1273</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEphbiBkZSBNb29paiA8amFuZGVtb29pakBnbWFp
+bC5jb20+CiMgUGFyZW50IDAxM2RmNzAyMTc2ZDA5YTYyMDZiMWRiMDhhNGFiODkzZmZjY2M2NjcK
+W0lORkVSXSBEb24ndCBsZXQga25vd24gdHlwZXMgaW5mbHVlbmNlIHdoZXRoZXIganNvcF9ub3Qg
+cHVzaGVzIGEgY29uc3RhbnQgdmFsdWUsIGJ1ZyA2NDM3MzMuIHI9YmhhY2tldHQKCmRpZmYgLS1n
+aXQgYS9qcy9zcmMvaml0LXRlc3QvdGVzdHMvamFlZ2VyL2J1ZzY0Nzc4NS5qcyBiL2pzL3NyYy9q
+aXQtdGVzdC90ZXN0cy9qYWVnZXIvYnVnNjQ3Nzg1LmpzCm5ldyBmaWxlIG1vZGUgMTAwNjQ0Ci0t
+LSAvZGV2L251bGwKKysrIGIvanMvc3JjL2ppdC10ZXN0L3Rlc3RzL2phZWdlci9idWc2NDc3ODUu
+anMKQEAgLTAsMCArMSw0IEBACithc3NlcnRFcSgtKCFJbnQzMkFycmF5KDUpKSwgLTApOworYXNz
+ZXJ0RXEoLSghTWF0aCksIC0wKTsKK2Fzc2VydEVxKC0oIXt9KSwgLTApOworYXNzZXJ0RXEoLSgh
+W10pLCAtMCk7CmRpZmYgLS1naXQgYS9qcy9zcmMvbWV0aG9kaml0L0Zhc3RPcHMuY3BwIGIvanMv
+c3JjL21ldGhvZGppdC9GYXN0T3BzLmNwcAotLS0gYS9qcy9zcmMvbWV0aG9kaml0L0Zhc3RPcHMu
+Y3BwCisrKyBiL2pzL3NyYy9tZXRob2RqaXQvRmFzdE9wcy5jcHAKQEAgLTYxMiwxOCArNjEyLDIx
+IEBAIG1qaXQ6OkNvbXBpbGVyOjpqc29wX25vdCgpCiAKICAgICAgICAgICAgIGZyYW1lLnBvcCgp
+OwogICAgICAgICAgICAgZnJhbWUucHVzaFR5cGVkUGF5bG9hZChKU1ZBTF9UWVBFX0JPT0xFQU4s
+IHJlZyk7CiAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICB9CiAKICAgICAgICAgICBjYXNl
+IEpTVkFMX1RZUEVfT0JKRUNUOgogICAgICAgICAgIHsKKyAgICAgICAgICAgIFJlZ2lzdGVySUQg
+cmVnID0gZnJhbWUuYWxsb2NSZWcoKTsKKyAgICAgICAgICAgIG1hc20ubW92ZShJbW0zMigwKSwg
+cmVnKTsKKwogICAgICAgICAgICAgZnJhbWUucG9wKCk7Ci0gICAgICAgICAgICBmcmFtZS5wdXNo
+KEJvb2xlYW5WYWx1ZShmYWxzZSkpOworICAgICAgICAgICAgZnJhbWUucHVzaFR5cGVkUGF5bG9h
+ZChKU1ZBTF9UWVBFX0JPT0xFQU4sIHJlZyk7CiAgICAgICAgICAgICBicmVhazsKICAgICAgICAg
+ICB9CiAKICAgICAgICAgICBkZWZhdWx0OgogICAgICAgICAgIHsKICAgICAgICAgICAgIHByZXBh
+cmVTdHViQ2FsbChVc2VzKDEpKTsKICAgICAgICAgICAgIElOTElORV9TVFVCQ0FMTChzdHViczo6
+VmFsdWVUb0Jvb2xlYW4pOwogCg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524049</attachid>
+            <date>2011-04-05 04:30:00 -0700</date>
+            <delta_ts>2011-04-05 13:28:13 -0700</delta_ts>
+            <desc>Patch</desc>
+            <filename>not.patch</filename>
+            <type>text/plain</type>
+            <size>1273</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEphbiBkZSBNb29paiA8amFuZGVtb29pakBnbWFp
+bC5jb20+CiMgUGFyZW50IDAxM2RmNzAyMTc2ZDA5YTYyMDZiMWRiMDhhNGFiODkzZmZjY2M2NjcK
+W0lORkVSXSBEb24ndCBsZXQga25vd24gdHlwZXMgaW5mbHVlbmNlIHdoZXRoZXIganNvcF9ub3Qg
+cHVzaGVzIGEgY29uc3RhbnQgdmFsdWUsIGJ1ZyA2NDc3ODUuIHI9YmhhY2tldHQKCmRpZmYgLS1n
+aXQgYS9qcy9zcmMvaml0LXRlc3QvdGVzdHMvamFlZ2VyL2J1ZzY0Nzc4NS5qcyBiL2pzL3NyYy9q
+aXQtdGVzdC90ZXN0cy9qYWVnZXIvYnVnNjQ3Nzg1LmpzCm5ldyBmaWxlIG1vZGUgMTAwNjQ0Ci0t
+LSAvZGV2L251bGwKKysrIGIvanMvc3JjL2ppdC10ZXN0L3Rlc3RzL2phZWdlci9idWc2NDc3ODUu
+anMKQEAgLTAsMCArMSw0IEBACithc3NlcnRFcSgtKCFJbnQzMkFycmF5KDUpKSwgLTApOworYXNz
+ZXJ0RXEoLSghTWF0aCksIC0wKTsKK2Fzc2VydEVxKC0oIXt9KSwgLTApOworYXNzZXJ0RXEoLSgh
+W10pLCAtMCk7CmRpZmYgLS1naXQgYS9qcy9zcmMvbWV0aG9kaml0L0Zhc3RPcHMuY3BwIGIvanMv
+c3JjL21ldGhvZGppdC9GYXN0T3BzLmNwcAotLS0gYS9qcy9zcmMvbWV0aG9kaml0L0Zhc3RPcHMu
+Y3BwCisrKyBiL2pzL3NyYy9tZXRob2RqaXQvRmFzdE9wcy5jcHAKQEAgLTYxMiwxOCArNjEyLDIx
+IEBAIG1qaXQ6OkNvbXBpbGVyOjpqc29wX25vdCgpCiAKICAgICAgICAgICAgIGZyYW1lLnBvcCgp
+OwogICAgICAgICAgICAgZnJhbWUucHVzaFR5cGVkUGF5bG9hZChKU1ZBTF9UWVBFX0JPT0xFQU4s
+IHJlZyk7CiAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICB9CiAKICAgICAgICAgICBjYXNl
+IEpTVkFMX1RZUEVfT0JKRUNUOgogICAgICAgICAgIHsKKyAgICAgICAgICAgIFJlZ2lzdGVySUQg
+cmVnID0gZnJhbWUuYWxsb2NSZWcoKTsKKyAgICAgICAgICAgIG1hc20ubW92ZShJbW0zMigwKSwg
+cmVnKTsKKwogICAgICAgICAgICAgZnJhbWUucG9wKCk7Ci0gICAgICAgICAgICBmcmFtZS5wdXNo
+KEJvb2xlYW5WYWx1ZShmYWxzZSkpOworICAgICAgICAgICAgZnJhbWUucHVzaFR5cGVkUGF5bG9h
+ZChKU1ZBTF9UWVBFX0JPT0xFQU4sIHJlZyk7CiAgICAgICAgICAgICBicmVhazsKICAgICAgICAg
+ICB9CiAKICAgICAgICAgICBkZWZhdWx0OgogICAgICAgICAgIHsKICAgICAgICAgICAgIHByZXBh
+cmVTdHViQ2FsbChVc2VzKDEpKTsKICAgICAgICAgICAgIElOTElORV9TVFVCQ0FMTChzdHViczo6
+VmFsdWVUb0Jvb2xlYW4pOwogCg==
+</data>
+<flag name="review"
+          id="437782"
+          type_id="4"
+          status="+"
+          setter="bhackett1024"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

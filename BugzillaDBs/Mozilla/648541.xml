@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648541</bug_id>
+          
+          <creation_ts>2011-04-08 08:34:00 -0700</creation_ts>
+          <short_desc>Commit Access (Level 1) for Ed Morley</short_desc>
+          <delta_ts>2011-04-11 00:07:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Repository Account Requests</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>ssh-key,voucher,form</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ed Morley">bmo</reporter>
+          <assigned_to name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>ehsan</cc>
+    
+    <cc>pbiggar</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>repo-acct-req</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396518</commentid>
+              <attachid>524632</attachid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-08 08:34:18 -0700</bug_when>
+            <thetext>Created attachment 524632
+SSH Key
+
+Requesting level 1 for hg try server access, so I can test my patch in bug 648508 and subsequent [good first bug]s without having to bother others to push to try.
+
+For login email, please use bmo at edmorley dot co dot uk (sorry for obfuscation, currently spam free on this domain so a little paranoid!).
+
+SSH pub key attached.
+
+Will email scan of committer&apos;s agreement shortly / find someone to vouch.
+
+Thanks!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396532</commentid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-08 08:46:12 -0700</bug_when>
+            <thetext>Scanned committer&apos;s agreement emailed to Erica.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397113</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-08 11:49:08 -0700</bug_when>
+            <thetext>I&apos;ll vouch for him (if that&apos;s even needed! :-) )</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397697</commentid>
+            <who name="Erica McClure">emcclure</who>
+            <bug_when>2011-04-08 15:24:59 -0700</bug_when>
+            <thetext>I have received Ed&apos;s Committer&apos;s Agreement.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397731</commentid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-08 15:40:26 -0700</bug_when>
+            <thetext>Thanks Erica.
+
+This request is ready for consideration.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524632</attachid>
+            <date>2011-04-08 08:34:00 -0700</date>
+            <delta_ts>2011-04-08 08:34:18 -0700</delta_ts>
+            <desc>SSH Key</desc>
+            <filename>id_rsa.pub</filename>
+            <type>text/plain</type>
+            <size>482</size>
+            <attacher>bmo</attacher>
+            
+              <data encoding="base64">LS0tLSBCRUdJTiBTU0gyIFBVQkxJQyBLRVkgLS0tLQpDb21tZW50OiAiRWQgTW9ybGV5IDxibW9A
+ZWRtb3JsZXkuY28udWs+IgpBQUFBQjNOemFDMXljMkVBQUFBQkpRQUFBUUVBcFFmWS9NN0FaSElh
+RjQ2UEw1Mmp5Z2ppQU1VcWI5SFUvemNHCllOdWdFby9IN3pnUzVDK0ZmVytuM2Y4VjJvclVEbzVv
+dkhJR0gvcnNrZGVtSTM2c3BncGg4Y3pBSnZLdWlyTkcKM2ZsbTIycmFrdHltZnFFRVJsV0lnMUx0
+RnkvSUxIaWNHZXYxaDRGc1hUbXY0UzVJUms3ajlUQjV5bWZEaXo3ZwpsZmozQ2tTS2hleldqY1NM
+aWxZckJjWk03VWlJRDg3VENoS2hTTVp6Vk8xU2xpbzFOd3MzWG9UZS9KK2h1a3FGCjVFalZscEpu
+dnE5cWdES2h5bzB0S2I3WUtNOXF3dGdaTnF4S1VxVzZPcENuZ3FmRnpkcWRxVXk1WGtnOHlMdDYK
+MUMzL3VVL3ZNNDVZMGZOYm1OY3h3Q2pmd21vVEQ1ZlV3UGxVMUhXelJ3OElSVFhxcXc9PQotLS0t
+IEVORCBTU0gyIFBVQkxJQyBLRVkgLS0tLQo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

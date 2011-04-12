@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647596</bug_id>
+          
+          <creation_ts>2011-04-03 12:50:00 -0700</creation_ts>
+          <short_desc>Lower Case &quot;o&quot;s in VZ Wireless Statement downloaded via FF 4.0 Cannot be Saved</short_desc>
+          <delta_ts>2011-04-03 14:30:12 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.verizonwireless.com/b2c/myaccount/selfserve.jsp</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Tom Panfil">tapsbugs+bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389365</commentid>
+            <who name="Tom Panfil">tapsbugs+bugzilla</who>
+            <bug_when>2011-04-03 12:50:04 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Accessing my monthly statement from Verizon Wireless via Firefox 4.0 using the &quot;View, Print and Pay My Bill&quot; link, then selecting &quot;Print&quot; causes the Verizon site to generate a .pdf of the statement.  If I select &quot;Save&quot; the statement is placed into my Downloads Folder.  Double Clicking on it causes it to open using Mac&apos;s Preview.  It is correct at that point.  If I then save it to my MacBook Pro it is immediately rendered in Preview displaying the file name I used, but with blank spaces in place of all of the lower case &quot;o&quot; characters. This has been confirmed by another Mac user relative to his Verizon Wireless Statements.
+**
+If instead I access the Verizon site via Safari Version 5.0.2 (6533.18.5) the statement is rendered correctly in Safari, and the .pdf can be saved to my Mac&apos;s local file system from Safari.  When the version of the .pdf saved by Safari is subsequently opened, it is rendered correctly, including all of its lower case &quot;o&quot; characters.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Some Bugzilla team member who uses a Verizon Cell phone should access his monthly statement via Firefox 4.0 on a Mac by starting at the URL provided above.
+2. Under &quot;My Bill&quot; he should click on &quot;View, Print and Pay My Bill&quot;
+3. At the next page presented he should &quot;Sign In to My Verizon&quot; by entering Cell Phone Number and Password, then selecting &quot;Sign In&quot;
+4. Billing Statement page is then shown.  Select &quot;Print Bill&quot;
+5. A pop-up dialog box then appears, labeled &quot;Opening Statement.pdf&quot;  Per the dialog box: &quot;You have chosen to open   statement.pdf  which is a: Portable Document Format from: https://ebillpay.verizonwireless.com&quot;
+6. Select the Radio Button labeled &quot;Save File&quot;, then click &quot;OK&quot;.
+7. The Downloads window will be presented, with the gererated statement as the latest download.  In my latest test case it is:   statement(3).pdf   89.2 KB -- verizon wireless.com
+8. Double click on the statement.pdf entry in the Downloads window.  
+9. The statement opens in Preview, and is rendered correctly.
+10. In Preview, select File-&gt;Save-As and save the .pdf of the statement somewhere in the user&apos;s Documents Folder with an identifiable name.
+11. Use Finder to find the saved statement in the User&apos;s Documents Folder and double click on it.
+12. The .pdf of the statement will open in &quot;Preview&quot; 
+13. Inspect the statement and observe that a space is rendered in place of each lower case &quot;o&quot;
+Actual Results:  
+Each instance of a lower case &quot;o&quot; is rendered as a space when the saved copy of the .pdf is opened via Preview.  If the saved statement is opened with Acrobat Reader 9.4.3 instead, the same problem occurs, lower case &quot;o&quot; characters are not rendered.
+Canned .pdf documents, however, such as specification sheets downloaded via Firefox 4.0 from commercial sites, do not exhibit the problem.
+
+Expected Results:  
+The same, since this always happens.  Better would be to render the lower case &quot;o&quot; characters where they should occur.
+
+My Mac&apos;s &quot;Preview&quot; is Version 5.0.2 (504)
+This behavior was the same before and after updating a Firefox Extension, the SnagIt Autoscrolling Helper on my Mac, from Ver. 1.0 to 1.1
+The only other Firefox Extension I have on my Mac is Garmin Communicator 2.9.3
+Firefox Appearance:  Default 4.0
+Firefox Plugins on my Mac:
+* Garmin Communicator Plug-in Version 2.9.3.0  2.9.3.0 Release
+* Google Earth Plug-in 5.2
+* iPhotoPhotocast 7.0
+* Java Plug-In 2 for NPAPI Browers 13.3.0
+* QuickTime Plug-In 7.6.6  7.6.6
+* Shockwave Flash 10.2.152.33</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648448</bug_id>
+          
+          <creation_ts>2011-04-07 19:32:00 -0700</creation_ts>
+          <short_desc>bugzilla attachments aren&apos;t loading (63.245.209.86 isn&apos;t responding to &apos;curl&apos;)</short_desc>
+          <delta_ts>2011-04-07 19:38:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>648447</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Daniel Holbert [:dholbert]">dholbert</reporter>
+          <assigned_to>server-ops</assigned_to>
+          
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395726</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 19:32:56 -0700</bug_when>
+            <thetext>Bugzilla attachments aren&apos;t loading right now:
+&gt;[dholbert@azure:~]$ curl -v https://bug453407.bugzilla.mozilla.org/attachment.cgi?id=524558
+&gt;* About to connect() to bug453407.bugzilla.mozilla.org port 443 (#0)
+&gt;*   Trying 63.245.209.86... Connection timed out
+&gt;* couldn&apos;t connect to host
+&gt;* Closing connection #0
+&gt;curl: (7) couldn&apos;t connect to host
+
+It&apos;s not just me -- others in IRC are reporting the same problem.
+
+I filed Bug 648447 this as well, in component Bugzilla|Attachments, but I figured I&apos;d file an IT bug too, in case it&apos;s an IT issue.  (Being able to load bugzilla attachments is pretty important, so the sooner this is fixed the better)
+
+Feel free to close either this bug or the other one (whichever one is in the wrong component).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395727</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 19:34:09 -0700</bug_when>
+            <thetext>63.245.209.86 does respond to ping requests, as well as to &apos;telnet  63.245.209.86 80&apos;, so that&apos;s a good sign.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395732</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 19:38:04 -0700</bug_when>
+            <thetext>ah good, justdave &amp; dmoore are on top of it on the other bug.  Duping this one to the other one, since it looks like that&apos;s where this&apos;ll be fixed
+
+*** This bug has been marked as a duplicate of bug 648447 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

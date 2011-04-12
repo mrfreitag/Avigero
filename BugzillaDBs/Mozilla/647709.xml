@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647709</bug_id>
+          
+          <creation_ts>2011-04-04 10:28:00 -0700</creation_ts>
+          <short_desc>IPv6 URL with embedded hex ASCII codes not correctly decoded</short_desc>
+          <delta_ts>2011-04-05 04:30:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://timchappell.plus.com/timswiki/index.php5/IPv6</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>webmaster</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>VYV03354</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390288</commentid>
+            <who name="">webmaster</who>
+            <bug_when>2011-04-04 10:28:42 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+If I embed an IPv6 URL within an HTML link using ASCII hexadecimal representation for the [, ] and : characters then whilst the link shown at the bottom of the page suggests the browser will follow the link correctly once I actually click on the link it fails to use the correct host. It reports a server not found error. If I enter the URL directly then the browser opens the page.
+
+
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Browse to the above link
+2. Click on the Port Scanner link
+3.
+Actual Results:  
+Server not found.
+
+Expected Results:  
+Should have decode the URL as:
+
+http://[2a01:348:6:4be::2]/ipv6tcptest/index.php
+
+
+To follow the link you need to have a globally unqiue IPv6 address, however I&apos;m sure you can build a suitable example.
+
+My mediawiki entry which causes the problem is:
+
+[http://%5B2a01%3A348%3A6%3A4be%3A%3A2%5D/ipv6tcptest/index.php Port Scanner] 
+
+I can provide additional info if required - would be useful to get it fixed before IPv6 day!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390292</commentid>
+            <who name="">webmaster</who>
+            <bug_when>2011-04-04 10:33:21 -0700</bug_when>
+            <thetext>Same link works correctly with Google Chrome and Apple Safari.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390302</commentid>
+            <who name="Masatoshi Kimura [:emk]">VYV03354</who>
+            <bug_when>2011-04-04 10:44:00 -0700</bug_when>
+            <thetext>It doesn&apos;t work with IE9 either.
+IIRC, &quot;[&quot; and &quot;:&quot; should not be percent encoded in the IP-literal production because those characters are in the &quot;reserved&quot; set.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391002</commentid>
+            <who name="">webmaster</who>
+            <bug_when>2011-04-05 04:30:41 -0700</bug_when>
+            <thetext>RFC3986 certainly defines &quot;[&quot;, &quot;]&quot; and &quot;:&quot; in the gen-delims set of reserved characters. In section 2.4 it states
+
+   When a URI is dereferenced, the components and subcomponents
+   significant to the scheme-specific dereferencing process (if any)
+   must be parsed and separated before the percent-encoded octets within
+   those components can be safely decoded, as otherwise the data may be
+   mistaken for component delimiters.
+
+*If* I interpret this correctly then since all the %encoding is within the same component (the hier-part, ultimately the authority) then this would be ok, since parsing/separation would occur using the normal &quot;//&quot; and &quot;/&quot; delimiters at which point the %decoding can be applied to the resulting components which would result in the authority being the required IP-literal?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

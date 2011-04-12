@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648411</bug_id>
+          
+          <creation_ts>2011-04-07 16:32:00 -0700</creation_ts>
+          <short_desc>about:memory doesn&apos;t account for large amounts of memory</short_desc>
+          <delta_ts>2011-04-07 18:13:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>563700</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>633653</dependson>
+    
+    <dependson>638549</dependson>
+          <blocked>640791</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Nicholas Nethercote [:njn]">nnethercote</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bmo</cc>
+    
+    <cc>jmuizelaar</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>vladimir</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395422</commentid>
+            <who name="Nicholas Nethercote [:njn]">nnethercote</who>
+            <bug_when>2011-04-07 16:32:43 -0700</bug_when>
+            <thetext>about:memory doesn&apos;t account for large amounts of memory.  For example, after applying the patch in bug 633653, the &quot;heap-used/other&quot; number is usually the biggest entry in the &quot;heap-used&quot; tree.  (The &quot;mapped/other&quot; number in the &quot;mapped&quot; tree is also usually the biggest, though that&apos;s less important because most of it is code and data segments and thread stacks, which aren&apos;t really candidates for reduction.)
+
+This bug is for tracking improvements in the memory reporting coverage.  Massif will be a useful tool for identifying where the unaccounted-for memory is going.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395433</commentid>
+            <who name="Ed Morley">bmo</who>
+            <bug_when>2011-04-07 16:36:14 -0700</bug_when>
+            <thetext>Are the dependants of bug 563700 the kind of candidates you had in mind?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395604</commentid>
+            <who name="Nicholas Nethercote [:njn]">nnethercote</who>
+            <bug_when>2011-04-07 18:13:02 -0700</bug_when>
+            <thetext>Oh wow, I didn&apos;t know about that bug.  Thanks!
+
+*** This bug has been marked as a duplicate of bug 563700 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648222</bug_id>
+          
+          <creation_ts>2011-04-07 01:14:00 -0700</creation_ts>
+          <short_desc>Talos needs to enforce browser shutdown when testing add-on performance</short_desc>
+          <delta_ts>2011-04-11 16:45:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Talos</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>599169</blocked>
+    
+    <blocked>648784</blocked>
+          <votes>3</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wladimir Palant">trev.moz</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>anodelman</cc>
+    
+    <cc>bmo</cc>
+    
+    <cc>bzcc</cc>
+    
+    <cc>clouserw</cc>
+    
+    <cc>ctalbert</cc>
+    
+    <cc>erikvvold</cc>
+    
+    <cc>fligtar</cc>
+    
+    <cc>harshid</cc>
+    
+    <cc>jorge</cc>
+          <qa_contact>talos</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394115</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-07 01:14:22 -0700</bug_when>
+            <thetext>I looked at the raw testing results for Adblock Plus and realized that they are completely bogus. Reason is the first-run page that Adblock Plus opens during profile initialization. That page has a beforeunload handler - so if it managed to load and initialize it will prevent the browser from closing. Whether this page loads before browser shutdown is triggered is really a matter of luck - in the latest round of tests Adblock Plus testing crashed on OS X and Leopard but not Windows 7 and Windows XP.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398274</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-09 05:12:07 -0700</bug_when>
+            <thetext>It seems that other than Adblock Plus also NoScript, Web of Trust and BetterPrivacy are affected.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401041</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 11:37:21 -0700</bug_when>
+            <thetext>I&apos;m not sure of a way to get around this without some means of disabling your first run page... talos needs to be able to close the browser reliably to continue testing.
+
+Do you track fist load in some way that we could bluff it?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401343</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-11 13:16:30 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Do you track fist load in some way that we could bluff it?
+
+Add-ons normally track the first run page using a preference. They usually have a boolean preference, but in the case of ABP, it&apos;s using pref &quot;extensions.adblockplus.currentVersion&quot;, which is set to the version number. It was set to &quot;1.3.6&quot; on my last test.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401368</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-11 13:23:17 -0700</bug_when>
+            <thetext>Adding a preference will do - but there are three more extensions where the first browser start times out (NoScript, BetterPrivacy, ImTranslator). Does Talos simply close the first-run page to quit the browser? That page can get chrome privileges, then it should be able to use nsIAppStartup.quit(eForceQuit).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401488</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 13:55:32 -0700</bug_when>
+            <thetext>goQuitApplication is used to shut down the browser after onload is fired.
+
+We can kill the browser from the outside, the problem being that talos considers a browser that fails to close itself as frozen and thus busted.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401517</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 14:00:14 -0700</bug_when>
+            <thetext>If each of those addons could provide the pref/setting that they use to indicate that this is not first run it would be simple enough to place that in the talos configuration.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401529</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-11 14:03:13 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; If each of those addons could provide the pref/setting that they use to
+&gt; indicate that this is not first run it would be simple enough to place that in
+&gt; the talos configuration.
+
+What will the generic long term solution be?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401540</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 14:07:35 -0700</bug_when>
+            <thetext>Either we add each pref as a one off until we have a full list, or we create some sort of disable_addon_first_run that addon authors are encouraged to comply with.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401548</commentid>
+            <who name="Justin Scott [:fligtar]">fligtar</who>
+            <bug_when>2011-04-11 14:08:39 -0700</bug_when>
+            <thetext>(In reply to comment #8)
+&gt; Either we add each pref as a one off until we have a full list, or we create
+&gt; some sort of disable_addon_first_run that addon authors are encouraged to
+&gt; comply with.
+
+that&apos;s bug 459965</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401581</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-11 14:14:56 -0700</bug_when>
+            <thetext>NoScript opens a first-run page on every update so you would need to adjust the value of that pref with each new version (not practicable) or add some more complicated logic (ugly).
+
+I think the problem with goQuitApplication() is that it asks nicely first (via canQuitApplication()). This might be a good idea when testing the browser - but with add-ons I don&apos;t think that we want to ask nicely. It should ignore the result from quit-application-requested notification and quit nevertheless.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402159</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 16:45:02 -0700</bug_when>
+            <thetext>If we force quit out of the first run, will it then assume that every subsequent opening of the browser is first run?  I&apos;d prefer not to have force quit as part of the standard for talos for all browser closing, if it just for the first initialization run then an argument could be made that it is part of the initial configuration stage.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

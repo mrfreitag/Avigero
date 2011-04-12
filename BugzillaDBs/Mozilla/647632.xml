@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647632</bug_id>
+          
+          <creation_ts>2011-04-03 19:28:00 -0700</creation_ts>
+          <short_desc>Time Zone selection confusing and unintuitive</short_desc>
+          <delta_ts>2011-04-10 06:28:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Calendar</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>296007</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Steve Castellotti">sc</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>lapsap7+mz</cc>
+    
+    <cc>pde</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389691</commentid>
+            <who name="Steve Castellotti">sc</who>
+            <bug_when>2011-04-03 19:28:47 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.15) Gecko/20110307 Fedora/3.1.9-0.39.b3pre.fc14 Lightning/1.0b2 Thunderbird/3.1.9
+
+The time zone selection feature when editing or creating a new event is very confusing and frustrating to use. There are too many options, and one can&apos;t simply select a time zone by official name (or GST offset), they need to know the name of another major city in the specific time zone they want.
+
+For example, if I am creating an event for a flight from San Francisco to Minneapolis and want to set the arrival time for that time zone, I click on the time zone for the end of the event. The default is whatever my default calendar time zone has been set to (as opposed to the system&apos;s time zone, its not clear why there is a difference), which is fine - in this case Los Angeles (as opposed to &quot;Pacific Standard Time&quot;).
+
+Now I have to scroll through a list of continents, countries, and cities which is very long and difficult to navigate quickly. The list starts at the first entry, not my default time zone, so I have to scroll several pages until I find the general region I am looking for. Worse, the list is not comprehensive, so &quot;Minneapolis&quot; is not listed. That means I need to find another city in the list which is in the same time zone as Minneapolis. If I happen to know Minneapolis is in the &quot;Central Time Zone&quot; that is of no use because the name of the time zone is not an option. After looking at the name of every city in America I might guess that Chicago is in the same time zone as Minneapolis, but maybe I&apos;m not sure without checking Google.
+
+Why can&apos;t the timezone selection be more suitable widget or more simplified list, allowing you to start with your current (system) time zone, scroll through up or down one time zone at a time, and use official names?
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399176</commentid>
+            <who name="Philipp Kewisch [:Fallen]">philipp</who>
+            <bug_when>2011-04-10 06:23:26 -0700</bug_when>
+            <thetext>Confirmed, there are a few duplicates though. Using this one as the new bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399179</commentid>
+            <who name="Philipp Kewisch [:Fallen]">philipp</who>
+            <bug_when>2011-04-10 06:24:07 -0700</bug_when>
+            <thetext>*** Bug 618578 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399181</commentid>
+            <who name="Philipp Kewisch [:Fallen]">philipp</who>
+            <bug_when>2011-04-10 06:24:53 -0700</bug_when>
+            <thetext>*** Bug 224905 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399182</commentid>
+            <who name="Philipp Kewisch [:Fallen]">philipp</who>
+            <bug_when>2011-04-10 06:26:11 -0700</bug_when>
+            <thetext>bug 224905 suggests using a cascaded picker for the continents. This is a start, and the bug contains a bit of further information.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399186</commentid>
+            <who name="Philipp Kewisch [:Fallen]">philipp</who>
+            <bug_when>2011-04-10 06:28:57 -0700</bug_when>
+            <thetext>I&apos;m not marking bug 296007 duplicate of this one since it contains patches, but it should be looked at when fixing this bug.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

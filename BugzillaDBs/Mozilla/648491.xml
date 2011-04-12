@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648491</bug_id>
+          
+          <creation_ts>2011-04-08 00:04:00 -0700</creation_ts>
+          <short_desc>Update or remove the tables at intl/unicharutil/tables/</short_desc>
+          <delta_ts>2011-04-08 00:16:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Serializers</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Henri Sivonen (:hsivonen)">hsivonen</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fred.wang</cc>
+          <qa_contact>dom-to-text</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396094</commentid>
+            <who name="Henri Sivonen (:hsivonen)">hsivonen</who>
+            <bug_when>2011-04-08 00:04:51 -0700</bug_when>
+            <thetext>As of bug 603716, we have up-to-date named character reference mappings both for parsing HTML and for parsing XHTML. However, it seems that the serializers in configurations that aren&apos;t exposed to the Web use tables from intl/unicharutil/tables/. Those tables don&apos;t appear to be up-to-date.
+
+Please update the tables or remove the capabilities that use the outdated entity mappings.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

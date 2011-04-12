@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647977</bug_id>
+          
+          <creation_ts>2011-04-06 05:03:00 -0700</creation_ts>
+          <short_desc>showItemProperties failed to show Bookmark properties</short_desc>
+          <delta_ts>2011-04-09 17:13:21 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>3.6 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Stephane BERTIN">stiffux</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mak77</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392145</commentid>
+            <who name="Stephane BERTIN">stiffux</who>
+            <bug_when>2011-04-06 05:03:04 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Firefox/3.5 and 3.6
+
+When the function &apos;PlacesUIUtils.showItemProperties(ItemId,&quot;bookmark&quot;)&apos; is called the following error occures :
+
+&quot;Error: uncaught exception: [Exception... &quot;Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsINavBookmarksService.getItemTitle]&quot;  nsresult: &quot;0x80070057 (NS_ERROR_ILLEGAL_VALUE)&quot;  location: &quot;JS frame :: chrome://browser/content/places/editBookmarkOverlay.js :: EIO__appendFolderItemToMenuList :: line 299&quot;  data: no]&quot;
+
+The bookmark properties windows opened but each field is empty. Only Dialog title is shown.
+
+I reproduced this error with Firefox 3.5 and 3.6.16. With firefox 3.0 it works.
+
+With Fx4.0 this function is deprecated and replaced by PlacesUIUtils.showBookmarkDialog which works as expected.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392752</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 11:33:47 -0700</bug_when>
+            <thetext>can I see the params you use when invoking showBookmarkDialog? there should be no difference since showItemProperties internally just calls showBookmarkDialog (In previous versions too, for sure 3.6, most likely 3.5 too).
+From what the error tells me it is trying to append a not existing folder to the recent folders list, so would be interesting to understand where that folder comes from.
+Is this an add-on you are working on?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396287</commentid>
+            <who name="Stephane BERTIN">stiffux</who>
+            <bug_when>2011-04-08 05:00:47 -0700</bug_when>
+            <thetext>The code is in addon bookmarkdd v1.0.4 available from http://bookmarkdd.mozdev.org.
+It is in ManageDuplicates.js script.
+
+The call to &apos;PlacesUIUtils.showItemProperties(ItemId,&quot;bookmark&quot;)&apos; works with Fx 3.0 not with 3.5 and 3.6.
+And version (not yet released) with PlacesUIUtils.showBookmarkDialog for Fx4 work.
+
+Effectively, there is no difference between 4.0 and 3.6 between showItemProperties and showBookmarkDialog.
+
+Difference come from &apos;bookmarkProperties.js&apos; between 3.0 and 3.6. It seems that in 3.0 by default action to edit a bookmark hide the folder menu not with version in 3.6.
+But in my point of view, it should not procude this error because it should find bookmark parent folder.
+
+[...]
+
+After reading your post again, I tried to add a new bookmark to change recent folders list.
+Then there is the same error in console but the bookmark properties window has changed. It is not with empty fields but except for title bar the size of window is null and it is impossible to resize it.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648504</bug_id>
+          
+          <creation_ts>2011-04-08 02:42:00 -0700</creation_ts>
+          <short_desc>Alt-key access to pull-down Menu Bar menus does not work in full-screen mode</short_desc>
+          <delta_ts>2011-04-08 07:05:45 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Keyboard Navigation</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Andrew B">mozbug</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>george.carstoiu</cc>
+          <qa_contact>keyboard.navigation</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396219</commentid>
+            <who name="Andrew B">mozbug</who>
+            <bug_when>2011-04-08 02:42:56 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0b13pre) Gecko/20110322 Firefox/4.0b13pre Firefox/4.0b13pre
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0b13pre) Gecko/20110322 Firefox/4.0b13pre Firefox/4.0b13pre
+
+When running FF4 in full-screen mode ( using F11 ), the Alt-key access to the Menu Bar menus does not work.
+
+e.g. when in standard display mode, Alt-F opens the File menu.  When in full-screen mode the keystroke does nothing but remove focus from the window, requiring a mouse-click or ESCAPE before any further actions can be performed.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Put browser into full-screen mode
+2. Press Alt+F to access File menu
+Actual Results:  
+No menu appears and focus is lost.
+
+Expected Results:  
+Menu will appear as summoned.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396339</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-08 06:33:34 -0700</bug_when>
+            <thetext>Feel free to reopen if you consider that I am wrong.
+
+*** This bug has been marked as a duplicate of bug 575755 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396374</commentid>
+            <who name="Andrew B">mozbug</who>
+            <bug_when>2011-04-08 07:03:31 -0700</bug_when>
+            <thetext>Hi George,
+
+I did see 575755 during research but it is specifically about mouse navigation on MacOS, whereas this one is about keyboard access.
+
+I&apos;ll re-open this one as I now have some more info to add.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396381</commentid>
+            <who name="Andrew B">mozbug</who>
+            <bug_when>2011-04-08 07:05:45 -0700</bug_when>
+            <thetext>Additional info:
+
+When using the Alt-key combo in full-screen, the menu is actually being activated from the keyboard but remains invisible.
+
+For example, when selecting the Bookmarks menu using Alt+B, I can use the down-arrow key to move through the invisible menu and pressing Enter selects a Bookmark.  Similarly with the other menu options on the Menu Bar.
+
+So the menu is actually being activated, just not displayed.  Odd.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

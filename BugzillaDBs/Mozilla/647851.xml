@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647851</bug_id>
+          
+          <creation_ts>2011-04-05 10:32:00 -0700</creation_ts>
+          <short_desc>Add *additional* SSH public key for account zackw@panix.com</short_desc>
+          <delta_ts>2011-04-06 14:20:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Repository Account Requests</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Zack Weinberg (:zwol)">zackw</reporter>
+          <assigned_to name="Justin Lazaro [:jlazaro]">jlazaro</assigned_to>
+          <cc>jlazaro</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>repo-acct-req</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391324</commentid>
+              <attachid>524075</attachid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-05 10:32:54 -0700</bug_when>
+            <thetext>Created attachment 524075
+new *additional* pubkey for zackw@panix.com
+
+Is it possible to add an *additional* SSH public key to my existing LDAP account?  (I prefer to generate distinct secret keys for each of my computers.)  If so, please add the attached key to zackw@panix.com.  If this cannot be done without losing the existing key, please do nothing.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392963</commentid>
+            <who name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</who>
+            <bug_when>2011-04-06 12:43:16 -0700</bug_when>
+            <thetext>Over to server ops to see if this is possible.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393128</commentid>
+            <who name="Justin Lazaro [:jlazaro]">jlazaro</who>
+            <bug_when>2011-04-06 13:51:52 -0700</bug_when>
+            <thetext>Second SSH key added</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393202</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-06 14:20:51 -0700</bug_when>
+            <thetext>Key is usable.  Thanks.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524075</attachid>
+            <date>2011-04-05 10:32:00 -0700</date>
+            <delta_ts>2011-04-06 13:51:19 -0700</delta_ts>
+            <desc>new *additional* pubkey for zackw@panix.com</desc>
+            <filename>id_rsa.pub</filename>
+            <type>text/plain</type>
+            <size>400</size>
+            <attacher>zackw</attacher>
+            
+              <data encoding="base64">c3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBQkl3QUFBUUVBMkd2K3VvOHdIVVM2SnhQWXNZR1Vt
+bXg2VHdrZEgwWGQ2YkdkcTBCVW9rRjhvcUQzSW5ycWtkNmZQRkQwY2VpanFnNFhjbnJFRW5CZXph
+Qmpvb3hZMUVrUVdSN1YwZ2pBYVJnRHJ2TUhCalg1SDNtWDJoVExqcnpHRHBWd2FSd3JkQWc3akpj
+VTBoc1lCdzVLM0FOWjN0M2FSVWRqaXdjQ0R2TzByVnU3UTlSTm9FY1VQNGF6ZHRDMWk3Rk1MYnV4
+YVN0MGV3OHJiNjlNVG1Va2pZbUMrNzUrL0M1RlBsbS9YQjlxMmJXZjJEOTZJKzBTRTlMWkJaMEFK
+ZDlBWktDYTBmSHQxc0NpRmdNaFFqSHlRb2pBdTF4NXdDTDR6TDhXNUNNSnJSQ29veTVwdDh5alhM
+bEREbzV0dzJEcTlGZ3RDeXN5QjFFbGlEc2grLzdub2pJMUh3PT0gemFja0BhcmRzbGV5LmxvY2Fs
+Cg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

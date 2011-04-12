@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648087</bug_id>
+          
+          <creation_ts>2011-04-06 12:44:00 -0700</creation_ts>
+          <short_desc>Support channel changing</short_desc>
+          <delta_ts>2011-04-11 13:06:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>AUS</product>
+          <component>API</component>
+          <version>3.0</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>morgamic</cc>
+    
+    <cc>nrthomas</cc>
+    
+    <cc>rhelmer</cc>
+          <qa_contact>api</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392967</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-06 12:44:13 -0700</bug_when>
+            <thetext>The basic approach suggested is the client will have a new param in the url when changing the channel so existing release / nightly process doesn&apos;t need to be changed. When this param exists the value will be the name of the channel to change to and the update snippet should point to the latest update for that channel. Ideally the snippet will only contain a complete update but I will most likely add code to the client to only download complete updates when performing a channel change. Another suggestion I think would be good is to have a well known location for each channels change channel update snippet. We&apos;ve had requests from sysadmins for the ability to query for the latest official release which doing this would provide.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401263</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-11 12:55:02 -0700</bug_when>
+            <thetext>I went with the following for the new param when changing the channel where the value equals the new channel
+newchannel=channelname
+
+so changing from aurora to release would be
+newchannel=release</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401300</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-11 13:06:02 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; I went with the following for the new param when changing the channel where the
+&gt; value equals the new channel
+&gt; newchannel=channelname
+&gt; 
+&gt; so changing from aurora to release would be
+&gt; newchannel=release
+
+Is this a query parameter, or another value on the request path?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401304</commentid>
+            <who name="Robert Strong [:rstrong] (do not email)">robert.bugzilla</who>
+            <bug_when>2011-04-11 13:06:59 -0700</bug_when>
+            <thetext>Query per the discussions last week.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

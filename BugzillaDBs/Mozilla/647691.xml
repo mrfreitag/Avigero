@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647691</bug_id>
+          
+          <creation_ts>2011-04-04 09:15:00 -0700</creation_ts>
+          <short_desc>WMV video files have become invisible in Firefox !</short_desc>
+          <delta_ts>2011-04-04 09:40:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="alertcom@buildagain.com">alertcom</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390220</commentid>
+            <who name="alertcom@buildagain.com">alertcom</who>
+            <bug_when>2011-04-04 09:15:05 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+
+In the latest version of Firefox the ability to display .WMV files has been deleted. Please put it back. (I know .SWF files are an alternative but conversion software has to be purchased at around $39)
+
+As the most comprehensive browser around this is a bad step backwards!
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390252</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 09:40:46 -0700</bug_when>
+            <thetext>Playing wmv files witrks without problems for me using FF4 on win7 and the wmp plugin from http://www.interoperabilitybridges.com/windows-media-player-firefox-plugin-download</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

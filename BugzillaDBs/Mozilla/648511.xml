@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648511</bug_id>
+          
+          <creation_ts>2011-04-08 04:12:00 -0700</creation_ts>
+          <short_desc>Firefox 4.0&apos;s PDF plugin scan doesn&apos;t find full Acrobat installation</short_desc>
+          <delta_ts>2011-04-09 08:37:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          <blocked>634819</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dave Huang">khym</reporter>
+          <assigned_to name="Benjamin Smedberg  [:bsmedberg]">benjamin</assigned_to>
+          <cc>benjamin</cc>
+    
+    <cc>djcater+bugzilla</cc>
+    
+    <cc>ehsan</cc>
+    
+    <cc>jmathies</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>?</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396265</commentid>
+            <who name="Dave Huang">khym</who>
+            <bug_when>2011-04-08 04:12:03 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Firefox is supposed to scan for Acrobat&apos;s installation directory if plugin.scan.Acrobat is set, but Firefox 4.0 doesn&apos;t find the &quot;full&quot; Acrobat&apos;s directory; it only finds the free Adobe Reader&apos;s install directory.
+
+The problem seems to have been introduced in changeset 62841:04527f9407f9 for Bug 634819 - Use the nsIWindowsRegKey APIs instead of direct Win32 API calls. Prior to the change, it was looking for Acrobat&apos;s installation dir by first checking the HKLM\software\Adobe\Acrobat Reader registry key, then if that wasn&apos;t found, HKLM\software\Adobe\Adobe Acrobat. However, after the change, it first checks HKLM\software\Adobe\Acrobat Reader, then falls back to HKLM\software\Adobe\Adobe Reader.
+
+Note the incorrect &quot;Adobe Reader&quot; vs. the correct &quot;Adobe Acrobat&quot;.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Install Adobe Acrobat Standard (9.0 in my case). Do not install Adobe Reader
+2. Install Firefox 4.0
+3. Go to about:plugins
+Actual Results:  
+PDF plugin isn&apos;t listed in about:plugins
+
+Expected Results:  
+Expected PDF plugin to be listed in about:plugins</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396273</commentid>
+              <attachid>524606</attachid>
+            <who name="Dave Huang">khym</who>
+            <bug_when>2011-04-08 04:24:49 -0700</bug_when>
+            <thetext>Created attachment 524606
+Correct registry path for Adobe Acrobat
+
+Should be trivial, but here&apos;s a patch anyway :)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398335</commentid>
+            <who name="Daniel Cater">djcater+bugzilla</who>
+            <bug_when>2011-04-09 07:30:23 -0700</bug_when>
+            <thetext>This landed as http://hg.mozilla.org/mozilla-central/rev/851fc65d2f55</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524606</attachid>
+            <date>2011-04-08 04:24:00 -0700</date>
+            <delta_ts>2011-04-09 08:37:39 -0700</delta_ts>
+            <desc>Correct registry path for Adobe Acrobat</desc>
+            <filename>acrobat.diff</filename>
+            <type>text/plain</type>
+            <size>973</size>
+            <attacher>khym</attacher>
+            
+              <data encoding="base64">LS0tIG1vZHVsZXMvcGx1Z2luL2Jhc2Uvc3JjL25zUGx1Z2luRGlyU2VydmljZVByb3ZpZGVyLmNw
+cC5vcmlnCTIwMTEtMDQtMDggMDY6MTQ6MjUuMDAwMDAwMDAwIC0wNTAwCisrKyBtb2R1bGVzL3Bs
+dWdpbi9iYXNlL3NyYy9uc1BsdWdpbkRpclNlcnZpY2VQcm92aWRlci5jcHAJMjAxMS0wNC0wOCAw
+NjoxNToxOS4wMDAwMDAwMDAgLTA1MDAKQEAgLTQ2NSwxNyArNDY1LDE3IEBAIG5zUGx1Z2luRGly
+U2VydmljZVByb3ZpZGVyOjpHZXRGaWxlKGNvbnMKIAogICAgIG5zQXV0b1N0cmluZyBuZXdlc3RQ
+YXRoOwogCiAgICAgcnYgPSByZWdLZXktPk9wZW4obnNJV2luZG93c1JlZ0tleTo6Uk9PVF9LRVlf
+TE9DQUxfTUFDSElORSwKICAgICAgICAgICAgICAgICAgICAgICBOU19MSVRFUkFMX1NUUklORygi
+c29mdHdhcmVcXEFkb2JlXFxBY3JvYmF0IFJlYWRlciIpLAogICAgICAgICAgICAgICAgICAgICAg
+IG5zSVdpbmRvd3NSZWdLZXk6OkFDQ0VTU19SRUFEKTsKICAgICBpZiAoTlNfRkFJTEVEKHJ2KSkg
+ewogICAgICAgcnYgPSByZWdLZXktPk9wZW4obnNJV2luZG93c1JlZ0tleTo6Uk9PVF9LRVlfTE9D
+QUxfTUFDSElORSwKLSAgICAgICAgICAgICAgICAgICAgICAgIE5TX0xJVEVSQUxfU1RSSU5HKCJz
+b2Z0d2FyZVxcQWRvYmVcXEFkb2JlIFJlYWRlciIpLAorICAgICAgICAgICAgICAgICAgICAgICAg
+TlNfTElURVJBTF9TVFJJTkcoInNvZnR3YXJlXFxBZG9iZVxcQWRvYmUgQWNyb2JhdCIpLAogICAg
+ICAgICAgICAgICAgICAgICAgICAgbnNJV2luZG93c1JlZ0tleTo6QUNDRVNTX1JFQUQpOwogICAg
+ICAgaWYgKE5TX0ZBSUxFRChydikpIHsKICAgICAgICAgcmV0dXJuIE5TX0VSUk9SX0ZBSUxVUkU7
+CiAgICAgICB9CiAgICAgfQogCiAgICAgLy8gV2UgbXVzdCBlbnVtZXJhdGUgdGhyb3VnaCB0aGUg
+a2V5cyBiZWNhdXNlIHdoYXQgaWYgdGhlcmUgaXMKICAgICAvLyBtb3JlIHRoYW4gb25lIHZlcnNp
+b24/Cg==
+</data>
+<flag name="review"
+          id="438286"
+          type_id="4"
+          status="+"
+          setter="benjamin"
+    />
+    <flag name="approval2.0"
+          id="438419"
+          type_id="647"
+          status="?"
+          setter="benjamin"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

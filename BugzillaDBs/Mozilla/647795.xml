@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647795</bug_id>
+          
+          <creation_ts>2011-04-05 03:54:00 -0700</creation_ts>
+          <short_desc>Freezing version 4.0</short_desc>
+          <delta_ts>2011-04-06 00:13:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Robert">chaver4u</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390977</commentid>
+            <who name="Robert">chaver4u</who>
+            <bug_when>2011-04-05 03:54:37 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Ever since Firefox upgraded to version 4.0 I have (too!!) frequent instances that Firefox freezes. Either when opening a new page or refreshing a page. What is worse even is that when Firefox is open and it freezes just like that, my whole computer freezes.
+I HAVE NEVER HAD THIS.
+Is there a way back to version 3 that never gave me these problems????????????!!!!!!!!!!
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391325</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-05 10:33:17 -0700</bug_when>
+            <thetext>&gt;my whole computer freezes.
+
+That can not be fixed by firefox because firefox can not freeze the whole OS.
+It can only trigger a bug in either the os, the hardware or most likely in one of your drivers.
+
+Please upgrade your graphic card driver and if that doesn&apos;t help deactivate the hardware acceleration in tools/options/advanced/general
+FF3 is available here http://www.mozilla.com/firefox/all-older.html</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391477</commentid>
+            <who name="Robert">chaver4u</who>
+            <bug_when>2011-04-05 13:16:34 -0700</bug_when>
+            <thetext>This is the typical non-answer of most software developers: &quot;It&apos;s never us, it&apos;s them.&quot;
+
+The problem is clear: Firefox 4.0 freezes frequently. ONLY FIREFOX. I haven&apos;t had this problem (freezing software) since 2002. Let alone that my whole computer froze...after Firefox froze (though I must admit, this only happened twice after I had left my computer alone and apparently Firefox froze again).
+
+If your &quot;solutions&quot; are to &quot;upgrade my graphic card driver&quot; and &quot;to deactivate the hardware acceleration&quot; (whatever that is), then if those were the &quot;problems&quot;, this freezing would occur much more often with other programs as well.  Anyway, my Mac&apos;s OS and software are up-to-date.
+
+Maybe have a serious look at Firefox 4.0.....???????</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391553</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-05 14:35:26 -0700</bug_when>
+            <thetext>&gt; What is worse even is that when Firefox is open and it freezes just like that, my whole computer freezes.
+
+isn&apos;t equal to 
+&gt;The problem is clear: Firefox 4.0 freezes frequently. ONLY FIREFOX
+Your comment#0 suggests that you always get a system freeze. 
+
+&gt;this freezing would occur much more often with other programs as
+well.
+No, that&apos;s not correct for many different reasons.
+
+Please try http://support.mozilla.com/en-US/kb/Safe+Mode
+We would need a stacktrace from GDB but I don&apos;t know how to do that on OS X</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391947</commentid>
+            <who name="Robert">chaver4u</who>
+            <bug_when>2011-04-05 23:11:45 -0700</bug_when>
+            <thetext>Let me be even clearer.
+Firefox 4 is the ONLY program that freezes.
+Not one single program causes a freeze, also not Safari.
+Also Firefox 3 never froze.
+I now counted it: Firefox 4 freezes 3 out of 5 times I open the program.
+Firefox 4 ALWAYS freezes if I open more than 4-5 tabs.
+
+The two times my Mac froze was when (frozen) Firefox 4 was in front and I left my computer (not aware that Firefox was frozen again).
+I haven&apos;t had my Mac freeze on me since 2002.
+
+I have tried the safe mode already and managed to open more than 10 tabs without a problem. After quitting and reopening Firefox 4 froze again after opening a 4th tab.
+
+So your opinion is that, even though my Mac nor any other program causes any freezes, after upgrading to Firefox 4 and Firefox 4 freezing very frequently, it&apos;s not Firefox 4 but my computer that causes the problem? What is the logic?
+
+No clue what a stacktrace and GDB mean.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391978</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-05 23:38:58 -0700</bug_when>
+            <thetext>It&apos;s a system problem if the whole system freezes.
+I posted you the safemode link if only Firefox freezes which is either a Firefox bug, an extension bug or a plugin bug.
+The safemode helps with freezes caused by extensions</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391990</commentid>
+            <who name="Robert">chaver4u</who>
+            <bug_when>2011-04-05 23:54:49 -0700</bug_when>
+            <thetext>You don&apos;t seem to read or to be willing to understand what I write.
+It is FIREFOX 4 that freezes, NOT my computer....which ONLY happened when I left my computer unattended whilst Firefox was frozen.........
+
+I wrote that I use the safemode to start Firefox with add-ons disabled and I wrote what happens !!!
+Note that you cannot RESTART Firefox if it is frozen....logical, I would think.
+
+So, can you read what I wrote?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392007</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-06 00:13:46 -0700</bug_when>
+            <thetext>No, you don&apos;t seem to understand.
+You have posted that your system freezes in comment#0. That&apos;s the reason why I marked the report invalid. After that you changed or corrected the first statement to &quot;only Firefox freezes&quot;. My response in comment#3 was that I told you that you should try the safemode. You answered that you already tried that (comment#4) and you asked me about my opinion if I mean that this is not Firefox fault. I tried to explain my past answers with comment#5: system freeze=system problem and if only a Firefox problem the safemode helps to eliminate one reason of a firefox freeze.
+
+The only thing that can be done now is to attach a debugger to the frozen Firefox process but I don&apos;t have a guide for that. Someone else have to help now.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

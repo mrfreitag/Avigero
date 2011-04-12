@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648560</bug_id>
+          
+          <creation_ts>2011-04-08 10:08:00 -0700</creation_ts>
+          <short_desc>contentWindow object enumeration fails</short_desc>
+          <delta_ts>2011-04-09 11:32:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>XPConnect</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="John J. Barton">johnjbarton</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>gal</cc>
+    
+    <cc>martijn.martijn</cc>
+    
+    <cc>mrbkap</cc>
+    
+    <cc>odvarko</cc>
+    
+    <cc>sroussey</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>xpconnect</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396720</commentid>
+              <attachid>524648</attachid>
+            <who name="John J. Barton">johnjbarton</who>
+            <bug_when>2011-04-08 10:08:43 -0700</bug_when>
+            <thetext>Created attachment 524648
+html file with iframe and script to be run in chrome URL
+
+1. add the attached .html file to any extension content/ directory, eg firebug.
+2. open chrome://theExtension/content/firebugWrapperexample.html
+3. you should see an exception from line 11</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396727</commentid>
+            <who name="John J. Barton">johnjbarton</who>
+            <bug_when>2011-04-08 10:10:45 -0700</bug_when>
+            <thetext>See also
+http://groups.google.com/group/mozilla.dev.platform/browse_thread/thread/0d3e55f6edcb3a6d#</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396801</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 10:32:19 -0700</bug_when>
+            <thetext>Blake, Andreas, can you take a look at this please?</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524648</attachid>
+            <date>2011-04-08 10:08:00 -0700</date>
+            <delta_ts>2011-04-08 10:08:43 -0700</delta_ts>
+            <desc>html file with iframe and script to be run in chrome URL</desc>
+            <filename>firebugWrapperexample.html</filename>
+            <type>text/html</type>
+            <size>1203</size>
+            <attacher>johnjbarton</attacher>
+            
+              <data encoding="base64">PCFET0NUWVBFIEhUTUwgUFVCTElDICItLy9XM0MvL0RURCBIVE1MIDQuMDEgVHJhbnNpdGlvbmFs
+Ly9FTiINCiAgICAgICAgImh0dHA6Ly93d3cudzMub3JnL1RSL2h0bWw0L2xvb3NlLmR0ZCI+DQo8
+aHRtbD4NCjxoZWFkPjx0aXRsZT5GaXJlYnVnIFdyYXBwZXIgRXhhbXBsZTwvdGl0bGU+DQogICAg
+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPg0KICAgICAgICB3aW5kb3cub25sb2FkID0g
+ZnVuY3Rpb24oKSB7DQogICAgICAgICAgICB2YXIgY3cgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJ
+ZCgiaWZyYW1lYSIpLmNvbnRlbnRXaW5kb3c7DQogICAgICAgICAgICB2YXIgY3dzID0gY3cudG9T
+dHJpbmcoKTsNCiAgICAgICAgICAgIHZhciBjd3UgPSBjdy53cmFwcGVkSlNPYmplY3Q7DQogICAg
+ICAgICAgICB2YXIgcHJvcHMgPSBbXTsNCiAgICAgICAgICAgIGZvciAodmFyIHAgaW4gY3cpDQog
+ICAgICAgICAgICAgICAgcHJvcHMucHVzaChwKTsNCg0KICAgICAgICAgICAgdmFyIGN3dXMgPSBj
+d3UudG9TdHJpbmcoKTsNCiAgICAgICAgICAgIGN3LmEgPSAiYSI7DQogICAgICAgICAgICB2YXIg
+Y3dhID0gY3cuYTsNCiAgICAgICAgICAgIHZhciBjd3VhID0gY3d1LmE7DQoNCiAgICAgICAgICAg
+IGN3Lm9iaiA9IHsgZXhhbXBsZTogImV4YW1wbGUifTsNCiAgICAgICAgICAgIHZhciBjd29iaiA9
+IGN3Lm9iajsgICAgLy8gY3dvYmogaXMgZXhhbXBsZSBvYmplY3QNCg0KICAgICAgICAgICAgLy8J
+ImN3Lm9iaiIgaW4gY29uc29sZSBvciBhZGQgdG8gd2F0Y2gNCg0KICAgICAgICAgICAgdmFyIGN3
+b2JqMiA9IGN3Lm9iajsgICAgLy8gY3dvYmoyIGlzIHVuZGVmaW5lZCwgc2hvdWxkIGJlIGV4YW1w
+bGUgb2JqZWN0DQogICAgICAgICAgICB2YXIgY3dvYmozID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5
+SWQoImlmcmFtZWEiKS5jb250ZW50V2luZG93Lm9iajsgLy8gY3dvYmoyIGlzIHVuZGVmaW5lZCwg
+c2hvdWxkIGJlIGV4YW1wbGUgb2JqZWN0DQoNCiAgICAgICAgICAgIHZhciBib2IgPSAiaXMgeW91
+ciB1bmNsZSI7DQogICAgICAgIH0NCiAgICA8L3NjcmlwdD4NCjwvaGVhZD4NCjxib2R5Pg0KPGRp
+diBpZD0iZGl2YSI+c29tZSB0ZXh0PC9kaXY+DQo8aWZyYW1lIGlkPSJpZnJhbWVhIiBzcmM9Imh0
+dHA6Ly93d3cuZ29vZ2xlLmNvbS9tb3ZpZXM/aGw9ZW4mZHE9bW92aWVzIi8+DQo8L2JvZHk+DQo8
+L2h0bWw+
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

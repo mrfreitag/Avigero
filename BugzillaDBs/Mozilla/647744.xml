@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647744</bug_id>
+          
+          <creation_ts>2011-04-04 14:57:00 -0700</creation_ts>
+          <short_desc>Firefox does not render correctly images with alpha channel</short_desc>
+          <delta_ts>2011-04-10 17:04:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>ImageLib</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          <bug_file_loc>http://www.relaxianos.org</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>erasmo.marin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>karlt</cc>
+          <qa_contact>imagelib</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390520</commentid>
+            <who name="">erasmo.marin</who>
+            <bug_when>2011-04-04 14:57:09 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Firefox does not render correctly images with alpha channel, I have chromium and Midori installed and I dont have this problem.
+
+It happened after I installed the privative driver for my ATI radeon HD3200 video card on Linux, but I&apos;m not sure it is related to that.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Install Ubuntu based distribution
+2.Install Firefox.
+3.Install ATI Radeon HD3200 privative drivers
+4.Enter a webpage with pngs with alpha channel.
+Actual Results:  
+Images are not render correctly, the alpha channel looks dark.
+
+Expected Results:  
+The image should be rendered normally.
+
+All the images on my website www.relaxianos.org were created with gimp.
+
+Here a screenshot of the problem: (firefox 4 vs chromium)
+
+http://i56.tinypic.com/28srd6x.jpg</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390570</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 15:40:29 -0700</bug_when>
+            <thetext>&gt; but I&apos;m not sure it is related to that.
+
+I&apos;d expect it is...  Perhaps a Render bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399547</commentid>
+            <who name="">erasmo.marin</who>
+            <bug_when>2011-04-10 14:41:01 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; &gt; but I&apos;m not sure it is related to that.
+&gt; 
+&gt; I&apos;d expect it is...  Perhaps a Render bug?
+
+I updated X and radeon drivers from a ppa, not official packages, and its working now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399634</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-10 16:05:02 -0700</bug_when>
+            <thetext>Sounds like a bug to report to your distribution.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399683</commentid>
+            <who name="">erasmo.marin</who>
+            <bug_when>2011-04-10 17:04:54 -0700</bug_when>
+            <thetext>im going to</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648067</bug_id>
+          
+          <creation_ts>2011-04-06 11:55:00 -0700</creation_ts>
+          <short_desc>Set up aurora as a nightly update channel in AUS</short_desc>
+          <delta_ts>2011-04-08 11:24:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[aus]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>648592</dependson>
+          <blocked>648066</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Chris AtLee [:catlee]">catlee</reporter>
+          <assigned_to name="Chris AtLee [:catlee]">catlee</assigned_to>
+          <cc>armenzg</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392846</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-06 11:55:55 -0700</bug_when>
+            <thetext></thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393269</commentid>
+              <attachid>524270</attachid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-06 14:39:16 -0700</bug_when>
+            <thetext>Created attachment 524270
+updates for aurora</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394624</commentid>
+              <attachid>524270</attachid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-07 10:03:50 -0700</bug_when>
+            <thetext>Comment on attachment 524270
+updates for aurora
+
+lgtm.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395402</commentid>
+              <attachid>524270</attachid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-07 16:24:03 -0700</bug_when>
+            <thetext>Comment on attachment 524270
+updates for aurora
+
+Checking in config-dist.php;
+/cvsroot/mozilla/webtools/aus/xml/inc/config-dist.php,v  &lt;--  config-dist.php
+new revision: 1.127; previous revision: 1.126
+done</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524270</attachid>
+            <date>2011-04-06 14:39:00 -0700</date>
+            <delta_ts>2011-04-07 16:24:03 -0700</delta_ts>
+            <desc>updates for aurora</desc>
+            <filename>aurora-aus.patch</filename>
+            <type>text/plain</type>
+            <size>1971</size>
+            <attacher>catlee</attacher>
+            
+              <data encoding="base64">SW5kZXg6IGNvbmZpZy1kaXN0LnBocAo9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09ClJDUyBmaWxlOiAvY3Zzcm9vdC9tb3pp
+bGxhL3dlYnRvb2xzL2F1cy94bWwvaW5jL2NvbmZpZy1kaXN0LnBocCx2CnJldHJpZXZpbmcgcmV2
+aXNpb24gMS4xMjUKZGlmZiAtdSAtOCAtcjEuMTI1IGNvbmZpZy1kaXN0LnBocAotLS0gY29uZmln
+LWRpc3QucGhwCTIzIE1hciAyMDExIDIyOjQwOjIwIC0wMDAwCTEuMTI1CisrKyBjb25maWctZGlz
+dC5waHAJNiBBcHIgMjAxMSAyMTozODoxNyAtMDAwMApAQCAtMTE3LDM5ICsxMTcsMzkgQEAKIAog
+Ly8gVGhlc2UgYXJlIGNoYW5uZWxzIHRoYXQgaGF2ZSBhY2Nlc3MgdG8gbmlnaHRseSB1cGRhdGVz
+LgogLy8gQWxsIG90aGVyIGNoYW5uZWxzIG9ubHkgaGF2ZSBhY2Nlc3MgdG8gdGhlIE9WRVJSSURF
+X0RJUiBmb3IgdXBkYXRlIGluZm8uCiAkbmlnaHRseUNoYW5uZWxzID0gYXJyYXkoCiAgICAgJ25p
+Z2h0bHknLAogICAgICduaWdodGx5LXRyYWNlbW9ua2V5JywKICAgICAnbmlnaHRseS1lbGVjdHJv
+bHlzaXMnLAogICAgICduaWdodGx5LW1vemlsbGEtMi4xJywKKyAgICAnYXVyb3JhJywKICk7CiAK
+IC8vIFRoaXMgaGFzaCBkZWZpbmVzIHRoZSBwcm9kdWN0LT52ZXJzaW9uLT5wYXRjaCByZWxhdGlv
+bnNoaXBzIGZvciBuaWdodGxpZXMKIC8vIEl0IGRldGVybWluZXMgd2hpY2ggcGF0Y2hlcyBhcmUg
+YXNzb2NpYXRlZCB0byB3aGljaCBpbmNvbWluZyBjbGllbnQgdmVyc2lvbnMuCiAvLyBAdG9kbyBy
+ZXBsYWNlIHRoaXMgd2l0aCBhIGJldHRlciBkYXRhc291cmNlIHRoYXQgY2FuIGJlIGVhc2lseSBt
+YW5hZ2VkIHZpYSBhIEdVSS4KICRwcm9kdWN0QnJhbmNoVmVyc2lvbnMgPSBhcnJheSgKICAgICAn
+RmlyZWZveCcgICAgID0+ICBhcnJheSgKICAgICAgICAgJzMuNSonICAgID0+ICdtb3ppbGxhLTEu
+OS4xJywKICAgICAgICAgJzMuNionICAgID0+ICdtb3ppbGxhLTEuOS4yJywKICAgICAgICAgJzMu
+NyonICAgID0+IGFycmF5KAogICAgICAgICAgICAnbmlnaHRseScgICAgICAgICAgICAgICAgID0+
+ICdtb3ppbGxhLWNlbnRyYWwnLAotICAgICAgICAgICAnbmlnaHRseS10cmFjZW1vbmtleScgICAg
+ID0+ICd0cmFjZW1vbmtleScsCi0gICAgICAgICAgICduaWdodGx5LWVsZWN0cm9seXNpcycgICAg
+PT4gJ2VsZWN0cm9seXNpcycKICAgICAgICAgKSwKICAgICAgICAgJzQuMConICAgID0+IGFycmF5
+KAogICAgICAgICAgICAnbmlnaHRseScgICAgICAgICAgICAgICAgID0+ICdtb3ppbGxhLWNlbnRy
+YWwnLAotICAgICAgICAgICAnbmlnaHRseS10cmFjZW1vbmtleScgICAgID0+ICd0cmFjZW1vbmtl
+eScsCi0gICAgICAgICAgICduaWdodGx5LWVsZWN0cm9seXNpcycgICAgPT4gJ2VsZWN0cm9seXNp
+cycKICAgICAgICAgKSwKICAgICAgICAgJzQuMionICAgID0+IGFycmF5KAogICAgICAgICAgICAn
+bmlnaHRseScgICAgICAgICAgICAgICAgID0+ICdtb3ppbGxhLWNlbnRyYWwnLAorICAgICAgICAp
+LAorICAgICAgICAnKicgICAgICAgPT4gYXJyYXkoCiAgICAgICAgICAgICduaWdodGx5LXRyYWNl
+bW9ua2V5JyAgICAgPT4gJ3RyYWNlbW9ua2V5JywKLSAgICAgICAgICAgJ25pZ2h0bHktZWxlY3Ry
+b2x5c2lzJyAgICA9PiAnZWxlY3Ryb2x5c2lzJworICAgICAgICAgICAnbmlnaHRseS1lbGVjdHJv
+bHlzaXMnICAgID0+ICdlbGVjdHJvbHlzaXMnLAorICAgICAgICAgICAnYXVyb3JhJyAgICAgICAg
+ICAgICAgICAgID0+ICdhdXJvcmEnCiAgICAgICAgICkKICAgICApLAogICAgICdUaHVuZGVyYmly
+ZCcgPT4gIGFycmF5KAogICAgICAgICAnMS41LjAuKicgPT4gICcxLjUuMC54JywKICAgICAgICAg
+JzIuMConICAgID0+ICAnMi4wJywKICAgICAgICAgJzMuMConICAgID0+ICAndHJ1bmsnCiAgICAg
+KSwKICAgICAnU3VuYmlyZCcgICAgID0+ICBhcnJheSgK
+</data>
+<flag name="review"
+          id="437956"
+          type_id="4"
+          status="+"
+          setter="nrthomas"
+    />
+    <flag name="checked-in"
+          id="438174"
+          type_id="481"
+          status="+"
+          setter="nrthomas"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

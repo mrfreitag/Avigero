@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647646</bug_id>
+          
+          <creation_ts>2011-04-03 22:21:00 -0700</creation_ts>
+          <short_desc>Windows is not working properly</short_desc>
+          <delta_ts>2011-04-04 15:27:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Find Backend</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="vikash kumar">vikash_32</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>find-backend</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389798</commentid>
+            <who name="vikash kumar">vikash_32</who>
+            <bug_when>2011-04-03 22:21:29 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.13 (KHTML, like Gecko) Chrome/9.0.597.84 Safari/534.13
+Build Identifier: mozilla/6.0
+
+Once I click on Windows button , there is no action
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Go to URL
+2.
+3.
+Actual Results:  
+flkg
+
+Expected Results:  
+fg
+
+df</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390559</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 15:27:31 -0700</bug_when>
+            <thetext>This is not a security bug, and this is a live database.  Please use http://landfill.bugzilla.org for games.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647945</bug_id>
+          
+          <creation_ts>2011-04-05 23:36:00 -0700</creation_ts>
+          <short_desc>Scrolling framerate can reach unreasonable levels and should be throttled</short_desc>
+          <delta_ts>2011-04-07 15:47:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Kris">drspock5</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bas.schouten</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>roc</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391976</commentid>
+            <who name="Kris">drspock5</who>
+            <bug_when>2011-04-05 23:36:06 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When scrolling on webpages, Firefox 4 (with HW acceleration enabled) causes my graphics card clocks to go from &quot;2D low power&quot; levels (150/300MHz core/mem) to &quot;3D performance&quot; levels (725/1000MHz). The effect tends to persist for a couple of seconds after scrolling stops.
+Scrolling text boxes also cause the effect.
+Turning off smooth scrolling doesnt appear to make a difference.
+
+General page interactions etc in the browser can cause very brief (&lt;1s) clock frequency spikes to something in-between (Ive observed 400/900 and 550/900 clocks, 3D low power I think its called), which I dont really consider an issue.
+
+I used Techpowerup&apos;s GPU-z tool to monitor GPU clock frequencies, and Beepa FRAPS to display an FPS overlay on the firefox window (use the &quot;monitor aero desktop&quot; setting in fraps).
+
+Most interactions with web pages, the FPS stays below 20, and clocks stay at the 2D low level. When scrolling, reported FPS often goes above 100, up to 200 FPS on my machine. This seems to indicated that scrolling will try and get the maximum FPS it can from the GPU.
+Is there any reason not to cap it at the monitor refresh rate instead (vsync?), thus maybe preventing the need to go to 3D performance mode?
+This is particularly of concern on laptops where increased GPU clock frequencies (and thus power consumption) will negatively affect battery life, although OS power profiles may prohibit use of 3D perf mode when on battery.
+
+I also noticed that when a flash video (youtube) is playing, that the clocks go to 3D low power mode, and scrolling whilst the video is playing will not raise the clocks to 3D perf mode.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Start Firefox 4 (with HW accel.)
+2. Start GPU-z and Fraps (enable &apos;monitor aero desktop&apos;)
+3. Navigate to any long page in Firefox, scroll up/down etc.
+4. Observe FPS overlay from Fraps and GPU clocks in GPU-z
+Actual Results:  
+FPS often goes over 100
+GPU clocks up to its maximum speed
+
+Expected Results:  
+Not cause the GPU to go to full speed/3D perf clocks (3D low power would be acceptable though)
+FPS while scrolling capped to refresh rate(??)
+
+My relevant system specs:
+Win 7 Pro x64
+ATI Radeon HD 5850 graphics card, Catalyst 11.3 drivers.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395301</commentid>
+            <who name="Robert O&apos;Callahan (:roc) (Mozilla Corporation)">roc</who>
+            <bug_when>2011-04-07 15:47:08 -0700</bug_when>
+            <thetext>Yes, we should cap the FPS. However, using the GPU to accelerate scrolling in general is a feature, not a bug.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647752</bug_id>
+          
+          <creation_ts>2011-04-04 17:10:00 -0700</creation_ts>
+          <short_desc>Development Channel needs a toggle OFF</short_desc>
+          <delta_ts>2011-04-11 20:01:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Developer Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>617654</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>4.x (triaged)</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="patrickjdempsey">pjdkrunkt</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>davemgarrett</cc>
+    
+    <cc>jorge</cc>
+          <qa_contact>developers</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390668</commentid>
+            <who name="patrickjdempsey">pjdkrunkt</who>
+            <bug_when>2011-04-04 17:10:49 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: 
+
+The Development Channel section of the addon page needs to be able to be easily hidden.  The way that the review process works means that it&apos;s highly likely that at any given time the Public version of an addon may actually be more current than the Development version.  For example:
+
+1. An addon is actively developed in the Development Channel.
+2. The author believes that the addon is ready for Public and uploads a version based on the development version for review.
+3a. The author or users discover a problem in the review-ready version before the review (this may actually happen several times in quick succession as different bug reports come in).
+3b. Addon fails the review.
+4. The author fixes the problems and uploads another review-ready version.
+5. The Development version is now several stages behind the Public version.
+
+I don&apos;t think it would really be necessary to have the Development Channel hidden automatically, but giving us a simple check-box to temporarily hide it while we are not using the Development Channel would be great.  
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392670</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-06 11:12:02 -0700</bug_when>
+            <thetext>This feature used to be present in the Dev Tools, but it was dropped. I don&apos;t remember the reason behind it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402661</commentid>
+            <who name="Dave Garrett">davemgarrett</who>
+            <bug_when>2011-04-11 20:01:56 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 617654 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

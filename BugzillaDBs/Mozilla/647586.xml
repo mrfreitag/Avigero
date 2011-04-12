@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647586</bug_id>
+          
+          <creation_ts>2011-04-03 11:23:00 -0700</creation_ts>
+          <short_desc>Feedback not accepted</short_desc>
+          <delta_ts>2011-04-03 11:23:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Input</component>
+          <version>Trunk</version>
+          <rep_platform>PowerPC</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://input.mozilla.com/en-US/release/feedback#rate</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Praveen">praveenwinsall</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>input</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389306</commentid>
+            <who name="Praveen">praveenwinsall</who>
+            <bug_when>2011-04-03 11:23:20 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+Whenevr i try to submit a feebback i get this:
+
+I actually checked the cookies and no such problems found.
+
+
+CSRF Protection Error
+
+There was an error verifying your CSRF token. Your request could not be processed. We apologize for the inconvenience!
+
+The most likely cause of this error is that your browser is set up not to accept cookies from us. Please follow these instructions to enable cookies in Firefox, then try again.
+
+If the problem persists, please file a bug. Thanks!
+
+
+Reproducible: Always</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

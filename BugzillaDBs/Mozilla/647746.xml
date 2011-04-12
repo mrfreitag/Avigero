@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647746</bug_id>
+          
+          <creation_ts>2011-04-04 15:08:00 -0700</creation_ts>
+          <short_desc>expired mozilla/security/nss/tests/libpkix/certs/PayPalEE.cert</short_desc>
+          <delta_ts>2011-04-04 16:50:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Test</component>
+          <version>3.12.9</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to name="Kai Engert (:kaie)">kaie</assigned_to>
+          <cc>eddy_nigg</cc>
+          <qa_contact>test</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390534</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 15:08:28 -0700</bug_when>
+            <thetext>the PayPalEE.cert has expired on April 1.
+
+We must update it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390539</commentid>
+            <who name="Eddy Nigg (StartCom)">eddy_nigg</who>
+            <bug_when>2011-04-04 15:12:56 -0700</bug_when>
+            <thetext>What is this certificate about?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390543</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 15:15:51 -0700</bug_when>
+            <thetext>Checked in to trunk.
+
+Will wait for trunk to turn green. If yes, I&apos;ll land on branch, too.
+
+
+Checking in PayPalEE.cert;
+/cvsroot/mozilla/security/nss/tests/libpkix/certs/PayPalEE.cert,v  &lt;-- 
+PayPalEE.cert
+new revision: 1.6; previous revision: 1.5
+done</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390546</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 15:16:49 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; What is this certificate about?
+
+Eddy, this is simply a copy of the server cert used by paypal.com, which is being used in the automated test suite, I believe for some EV veriviciation testing.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390638</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 16:50:14 -0700</bug_when>
+            <thetext>checked in to 3.12 branch
+
+Checking in PayPalEE.cert;
+/cvsroot/mozilla/security/nss/tests/libpkix/certs/PayPalEE.cert,v  &lt;--  PayPalEE.cert
+new revision: 1.4.2.2; previous revision: 1.4.2.1
+done</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

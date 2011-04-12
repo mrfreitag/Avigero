@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647764</bug_id>
+          
+          <creation_ts>2011-04-04 19:32:00 -0700</creation_ts>
+          <short_desc>Change custom field &quot;Macaw&quot; to &quot;Macaw+&quot; to match other possible blocking values</short_desc>
+          <delta_ts>2011-04-06 15:20:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Bugzilla: Other b.m.o Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Nochum Sossonko [:Natch]">highmind63</reporter>
+          <assigned_to name="David Lawrence [:dkl]">dkl</assigned_to>
+          <cc>dkl</cc>
+    
+    <cc>glob</cc>
+    
+    <cc>highmind63</cc>
+    
+    <cc>justdave</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>other-bmo-issues</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390742</commentid>
+            <who name="Nochum Sossonko [:Natch]">highmind63</who>
+            <bug_when>2011-04-04 19:32:59 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #627198 +++
+
+Blocking values for flags always contain a &quot;+&quot; in them to indicate blocking+. This is the only one (that I know of) that doesn&apos;t. Can that be changed please? Will help with searching...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393340</commentid>
+            <who name="David Lawrence [:dkl]">dkl</who>
+            <bug_when>2011-04-06 15:13:39 -0700</bug_when>
+            <thetext>Which custom field is the macaw value? I don&apos;t see it with a quick look.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393347</commentid>
+            <who name="byron jones [:glob]">glob</who>
+            <bug_when>2011-04-06 15:15:47 -0700</bug_when>
+            <thetext>blocking2.0 field</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393360</commentid>
+            <who name="David Lawrence [:dkl]">dkl</who>
+            <bug_when>2011-04-06 15:20:22 -0700</bug_when>
+            <thetext>Done</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

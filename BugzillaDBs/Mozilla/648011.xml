@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648011</bug_id>
+          
+          <creation_ts>2011-04-06 09:29:00 -0700</creation_ts>
+          <short_desc>Update About:Home logos for NIghtly and Aurora Release Channels</short_desc>
+          <delta_ts>2011-04-11 19:45:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          <status_whiteboard>[about-home]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>Firefox4.2</target_milestone>
+          <dependson>646889</dependson>
+    
+    <dependson>648368</dependson>
+          <blocked>646236</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Mesa">lmesa</reporter>
+          <assigned_to name="Gavin Sharp">gavin.sharp</assigned_to>
+          <cc>clegnitto</cc>
+    
+    <cc>gavin.sharp</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>gjimenez</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>mak77</cc>
+    
+    <cc>sayrer</cc>
+    
+    <cc>smooney</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="in-testsuite"
+          id="438780"
+          type_id="37"
+          status="-"
+          setter="gavin.sharp"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5392400</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 09:29:48 -0700</bug_when>
+            <thetext>Please update the logos on About:Home for Nightly and Aurora with the logos found here: 646889</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392810</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-06 11:47:58 -0700</bug_when>
+            <thetext>about:home takes logos from the branding package, should automatically gather it when the product is packaged.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394515</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-07 09:15:21 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; about:home takes logos from the branding package, should automatically gather
+&gt; it when the product is packaged.
+
+So, does this mean I can close the bug? Sounds like it, but just want to make sure.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394584</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-07 09:43:50 -0700</bug_when>
+            <thetext>if you want to track it, just to be sure the branding folders will be correctly updated it&apos;s fine to have it open, doubt there will be anything to do here otherwise.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401028</commentid>
+            <who name="Gavin Sharp">gavin.sharp</who>
+            <bug_when>2011-04-11 11:33:02 -0700</bug_when>
+            <thetext>My patch in bug 648368 takes care of this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402635</commentid>
+            <who name="Gavin Sharp">gavin.sharp</who>
+            <bug_when>2011-04-11 19:45:46 -0700</bug_when>
+            <thetext>Fixed by bug 648368.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

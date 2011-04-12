@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648218</bug_id>
+          
+          <creation_ts>2011-04-07 00:32:00 -0700</creation_ts>
+          <short_desc>(Re-)Add browser.tabs.tabMinWidth and browser.tabs.tabMaxWidth to about:config options</short_desc>
+          <delta_ts>2011-04-10 03:37:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>4.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>15</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Adam Purkrt">adam</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>anthony.ajw</cc>
+    
+    <cc>BernesB</cc>
+    
+    <cc>breaux</cc>
+    
+    <cc>error401</cc>
+    
+    <cc>fabricio</cc>
+    
+    <cc>kbrosnan</cc>
+    
+    <cc>Ken</cc>
+    
+    <cc>kiwiplant</cc>
+    
+    <cc>LeiraHoward</cc>
+    
+    <cc>lucasbfr.bugzilla.mozilla</cc>
+    
+    <cc>mgueury</cc>
+    
+    <cc>wtyzuk</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394070</commentid>
+            <who name="Adam Purkrt">adam</who>
+            <bug_when>2011-04-07 00:32:50 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Recently, browser.tabs.tabMinWidth and browser.tabs.tabMaxWidth have been removed from about:config options, see
+
+https://bugzilla.mozilla.org/show_bug.cgi?id=574654
+
+I would like to kindly ask to revert this change, i.e. to reintroduce these two options.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open &quot;about:config&quot;
+Actual Results:  
+browser.tabs.tabMinWidth and browser.tabs.tabMaxWidth are gone
+
+Expected Results:  
+browser.tabs.tabMinWidth and browser.tabs.tabMaxWidth should be there
+
+Given the amount of people who expressed their (negative) opinions regarding the removal of these options
+
+https://bugzilla.mozilla.org/show_bug.cgi?id=574654
+
+and given the fact that more than one of those complainers registered on mozilla.org just to complain about this, it is obviously much missed feature.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394076</commentid>
+            <who name="Keenan">error401</who>
+            <bug_when>2011-04-07 00:38:15 -0700</bug_when>
+            <thetext>I&apos;m in definite agreement, though I&apos;d go even further and suggest that tab scrolling should be disable-able in the UI. It makes the browser pretty much unusable if you use more than the small number of massively wide tabs Firefox will allow with the default configuration.
+
+Either way, the current situation is very inconvenient and that should be rectified.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394144</commentid>
+            <who name="lucasbfr">lucasbfr.bugzilla.mozilla</who>
+            <bug_when>2011-04-07 02:05:55 -0700</bug_when>
+            <thetext>I&apos;m not sure this is the best way to go (I understand the developpers concerns about this configuration). 
+
+HOWEVER, this shows the tab bar is in dire need of improvement, and that the default tab min width needs to be set to something WAY smaller than 140px. 40 px maybe?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394264</commentid>
+            <who name="">LeiraHoward</who>
+            <bug_when>2011-04-07 05:49:06 -0700</bug_when>
+            <thetext>I would agree that there needs to be something added here, please consider adding an option in Tools -&gt; Options -&gt; Tabs to say &quot;Disable Tab Scrolling&quot; (Or &quot;Infinitely shrink tabs&quot; .... whatever works).
+
+I think that it would be best for most users if they did not have to change any settings in &quot;about:config&quot; to get the desired result (no tab scrolling, tabs shrink instead).
+
+Failing that, either re-adding &quot;browser.tabs.minWidth&quot; or adding another pref that specifically makes the tabs shrink infinitely (&quot;browser.tabs.shrinkInfinitely&quot; ?) would be an acceptable alternative.
+
+As others have noted in the comments in bug 574654, there have been thousands of people who have downloaded the add-on to change this feature, so it is obviously something widely needed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394276</commentid>
+            <who name="Anthony Williams">anthony.ajw</who>
+            <bug_when>2011-04-07 05:55:07 -0700</bug_when>
+            <thetext>Yes, please add this back; when I evaluated FF4 beta, this was one of the most annoying changes. I frequently have many tabs open, with a min width just big enough for the favicon and the close icon. The FF4 tab width is HUGE by comparison.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394282</commentid>
+            <who name="Bill Tyzuk">wtyzuk</who>
+            <bug_when>2011-04-07 06:02:34 -0700</bug_when>
+            <thetext>Yes and set maxwidth is very useful as well as a large width puts the close tab button in the same place on the right no matter how many tabs are open.  Makes it very convenient to work a set of tabs from right to left.   
+
+This may seem small but my arm learns where controls are.  Moving the &quot;open in new tab&quot; to above &quot;open in new window&quot; is a total PITA for me and has required major retraining of my arm!  I can sort of understand why it was done so no complaint but that is another issue ;-&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394387</commentid>
+            <who name="Fabricio Campos Zuardi">fabricio</who>
+            <bug_when>2011-04-07 07:45:31 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; I&apos;m not sure this is the best way to go (I understand the developpers concerns
+&gt; about this configuration). 
+&gt; 
+&gt; HOWEVER, this shows the tab bar is in dire need of improvement, and that the
+&gt; default tab min width needs to be set to something WAY smaller than 140px. 40
+&gt; px maybe?
+
+That request (better default tab minimum) is bug 597564</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394402</commentid>
+            <who name="lucasbfr">lucasbfr.bugzilla.mozilla</who>
+            <bug_when>2011-04-07 07:59:41 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; That request (better default tab minimum) is bug 597564
+
+Thanks a lot. I have commented there.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394407</commentid>
+            <who name="Dão Gottwald">dao</who>
+            <bug_when>2011-04-07 08:02:56 -0700</bug_when>
+            <thetext>This seems to have been filed in response to bug 574654 comment 92 but summarized wrongly.
+
+Adjusting the summary accordingly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394424</commentid>
+            <who name="Adam Purkrt">adam</who>
+            <bug_when>2011-04-07 08:15:37 -0700</bug_when>
+            <thetext>Putting original title (summary) back. This is intended to be primarily a bug about bringing rowser.tabs.tabMinWidth and browser.tabs.tabMaxWidth back - see the description.
+
+&quot;Add hidden pref for disabling tab scrolling&quot; should be imo filed as another bug (I&apos;m not going to do so, since it&apos;s not essential for me).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394434</commentid>
+            <who name="Fabricio Campos Zuardi">fabricio</who>
+            <bug_when>2011-04-07 08:22:18 -0700</bug_when>
+            <thetext>also, having browser.tabs.tabMinWidth and browser.tabs.tabMaxWidth in the summary helps people find it in the search</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394437</commentid>
+            <who name="Fabricio Campos Zuardi">fabricio</who>
+            <bug_when>2011-04-07 08:23:05 -0700</bug_when>
+            <thetext>wow, RESOLVED WONTFIX already! that was fast...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394455</commentid>
+            <who name="kiwiplant">kiwiplant</who>
+            <bug_when>2011-04-07 08:35:45 -0700</bug_when>
+            <thetext>Comment 9 summary about just adding tabMinWidth and tabMaxWidth back matches
+what I&apos;m thinking too.  I actually like the scroll.  Scroll is something very
+useful that Chrome does not have.
+
+http://aakash.doesthings.com/2011/03/30/firefox-input-user-feedback-as-a-strategy-for-product-development/
+
+The width plugin for now seems to work ok, but what happens when it is no
+longer supported. Just another plugin to worry about breaking in future
+versions of Firefox. It was better when easy to change in Firefox config. If
+the plugin can change it, why not in about:config?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394607</commentid>
+            <who name="KLB">Ken</who>
+            <bug_when>2011-04-07 09:51:25 -0700</bug_when>
+            <thetext>These were two really nice options that harmed nothing. Removing them was a REALLY BAD idea! In my case, removing these two preferences broke a feature in the companion extension I maintain for my theme and I now have to program back in these settings that users of my theme and extension combo have come to appreciate.
+
+Did someone really have the users desires/interests in mind when they removed this or did they go, &quot;hey I don&apos;t use this preference so no one else needs it either&quot;.  Seriously, removing these two configuration options was a worse idea than removing the status bar, which was a really bad idea.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396243</commentid>
+            <who name="Virtual_ManPL">BernesB</who>
+            <bug_when>2011-04-08 03:20:03 -0700</bug_when>
+            <thetext>Guys just vote for bug #597564 (Default minimum tab width should be smaller (to prevent tabscroll))
+
+It&apos;s better reduce minimum tab width than supporting readding removed setting from about:config.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399117</commentid>
+            <who name="Adam Purkrt">adam</who>
+            <bug_when>2011-04-10 03:37:39 -0700</bug_when>
+            <thetext>For those who doesn&apos;t know (I didn&apos;t) location of userChrome.css:
+
+win7:
+c:\Users\[username]\AppData\Roaming\Mozilla\Firefox\Profiles\[profilename].default\chrome\userChrome.css
+
+winXP: c:\Documents and Settings\[username]\Application
+Data\Mozilla\Firefox\Profiles\[profilename].default\chrome\userChrome.css
+
+(create the chrome directory &amp; userChrome.css file if it doesn&apos;t exist)
+
+put this into userChrome.css - tailor 250px &amp; 100px to your liking
+
+.tabbrowser-tab:not([pinned]) {
+  max-width: 250px !important;
+  min-width: 100px !important;
+}
+
+.tabbrowser-tab:not([fadein]) {
+ max-width: 1px !important; min-width: 1px !important;
+ max-width: 1px; min-width: 1px;
+}
+
+
+and - voila!
+
+I have to admit that I&apos;m actually beginning to understand the developers&apos;
+rationale behind this change.
+
+Still, userChrome.css is IMO anything but easily accessible, so I just filed a
+request for enhancement (bug #648838) to add &quot;about:userchrome&quot; - which would basically open
+a large &lt;textarea&gt; with the content of the file + save/restart firefox buttons</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

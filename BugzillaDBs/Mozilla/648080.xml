@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648080</bug_id>
+          
+          <creation_ts>2011-04-06 12:14:00 -0700</creation_ts>
+          <short_desc>Camino 2.1a2pre and 2.1a1 topcrash reports haven&apos;t been generated for several days</short_desc>
+          <delta_ts>2011-04-06 12:14:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Socorro</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://crash-stats.mozilla.com/topcrasher/byversion/Camino/2.1a2pre/14</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Smokey Ardisson (offline for a while; no bugmail - do not email)">alqahira</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>laura</cc>
+          <qa_contact>socorro</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392912</commentid>
+            <who name="Smokey Ardisson (offline for a while; no bugmail - do not email)">alqahira</who>
+            <bug_when>2011-04-06 12:14:38 -0700</bug_when>
+            <thetext>The Camino 2.1a2pre topcrash report hasn&apos;t been updated* since 02-Apr, despite it not expiring until 17-Apr in Branch Data Sources.  In addition, the report for 2.1a1 hasn&apos;t been updated since 03-Apr.
+
+Other active reports (2.0.6/2.0.7) seem to be being updated OK (2.0.7pre/2.0.8pre don&apos;t have any results, which is to be expected, since we prompt these users to upgrade to 2.1a1).
+
+* By which I mean the info text at the top of the report today (06-Apr) reads: &quot;Top 4 Crashing Signatures. 2011-03-19 07:00:00 through 2011-04-02 07:00:00. The report covers 100.00% of all 4 crashes during this period.&quot;  Normally, for active reports, the date range is updated each day; for reports that have expired, the date range freezes to the relevant dates on the report&apos;s expiration day.
+
+This is a problem since 2.1a1/2.1a2pre are our active milestone/development nightlies, and we can&apos;t tell what&apos;s happening wrt crashes.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

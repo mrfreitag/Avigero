@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648069</bug_id>
+          
+          <creation_ts>2011-04-06 11:59:00 -0700</creation_ts>
+          <short_desc>Graphic update to footer: adding &quot;f&quot; and &quot;t&quot;</short_desc>
+          <delta_ts>2011-04-07 11:48:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Marketing</product>
+          <component>Design</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>630638</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Winston Bowden">wbowden</reporter>
+          <assigned_to name="Tara">tshahian</assigned_to>
+          <cc>jlong</cc>
+    
+    <cc>jslater</cc>
+    
+    <cc>ltom</cc>
+    
+    <cc>smartell</cc>
+          <qa_contact>design</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392866</commentid>
+            <who name="Winston Bowden">wbowden</who>
+            <bug_when>2011-04-06 11:59:43 -0700</bug_when>
+            <thetext>Hi Tara - can you review the current state of the email signup inside the footer and make sure this is working for you from a design stand point?  We&apos;re trying to roll this out next week.  On staging:
+
+Located at http://www-trunk.stage.mozilla.com/en-US/firefox/fx/ 
+
+Also for your reference - the bug where the html work is being tracked - https://bugzilla.mozilla.org/show_bug.cgi?id=630638</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393077</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 13:36:08 -0700</bug_when>
+            <thetext>Looks good on my end... is this just a review bug or did you need additional assets made here?
+
+Is there a reason why we&apos;ve lost the FB and Twitter icons in the footer next to &quot;more ways to connect&quot;?  It looks a bit empty in that space without them, that&apos;s why I&apos;m asking.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393490</commentid>
+            <who name="Winston Bowden">wbowden</who>
+            <bug_when>2011-04-06 16:11:15 -0700</bug_when>
+            <thetext>Good question.  We removed the twitter/facebook links to give additional weight to the email opt-in.  
+
+This doesn&apos;t address your concern about space - but I do think we need to add facebook / twitter icons inside inside the bubbles above &quot;more ways to connect&quot;.  That would be an additional asset.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393519</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 16:30:23 -0700</bug_when>
+            <thetext>Thanks Winston, perhaps you&apos;ve thought of this already... but If you&apos;re trying to give more weight to the email section, why not expand that piece into the now empty space so it&apos;s more visible?  Or, move it all the way to the left, and put &quot;more ways to connect&quot; on the right.  It just feels a little odd the way the content is placed right now with a big gap in the middle. My 2 cents.  
+
+I&apos;ll ask Lee to add an &quot;f&quot; and &quot;t&quot; into the bubbles, that&apos;s no problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393683</commentid>
+              <attachid>524314</attachid>
+            <who name="Lee Tom">ltom</who>
+            <bug_when>2011-04-06 17:31:56 -0700</bug_when>
+            <thetext>Created attachment 524314
+social networking FT icon
+
+How&apos;s this, guys?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393702</commentid>
+            <who name="Winston Bowden">wbowden</who>
+            <bug_when>2011-04-06 17:36:13 -0700</bug_when>
+            <thetext>Regarding comment 3 - 
+
+Actually, I love option 2 - putting the email to the left and moving social
+pieces to the right.
+
+So we&apos;d have:
+
+- email sign up on left
+- Let&apos;s be friends, facebook, twitter to the right
+
+And I still think we can get rid of the More ways to connect.  It&apos;s just
+linking them to a separate page with our opt-in CTAs.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394719</commentid>
+            <who name="Winston Bowden">wbowden</who>
+            <bug_when>2011-04-07 10:59:24 -0700</bug_when>
+            <thetext>hey - closing this out.  We&apos;re going to add the individual icons in to balance the space out.  
+
+Thanks guys!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394724</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-07 11:04:19 -0700</bug_when>
+            <thetext>Ok.  so, just so I&apos;m clear, are you going to have &quot;f&quot; and &quot;t&quot; in the chat bubbles AND include the facebook and twitter icons?  isn&apos;t that a bit much / redundant ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394739</commentid>
+            <who name="Winston Bowden">wbowden</who>
+            <bug_when>2011-04-07 11:10:46 -0700</bug_when>
+            <thetext>No - sorry.  No f / t icons in bubbles.  We won&apos;t use the graphic that Lee created.  Sorry Lee!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394786</commentid>
+            <who name="Lee Tom">ltom</who>
+            <bug_when>2011-04-07 11:36:39 -0700</bug_when>
+            <thetext>w h a t . . ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394795</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-07 11:43:13 -0700</bug_when>
+            <thetext>Dude.  Winston!   You owe Lee a cup of coffee.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394797</commentid>
+            <who name="Winston Bowden">wbowden</who>
+            <bug_when>2011-04-07 11:45:24 -0700</bug_when>
+            <thetext>I now fear for my safety.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394798</commentid>
+            <who name="Lee Tom">ltom</who>
+            <bug_when>2011-04-07 11:46:59 -0700</bug_when>
+            <thetext>...only if I&apos;m feeling decaffeinated.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394805</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-07 11:48:29 -0700</bug_when>
+            <thetext>I think this gives us one free pass.  Next bug you file, we reserve the right to decline.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524314</attachid>
+            <date>2011-04-06 17:31:00 -0700</date>
+            <delta_ts>2011-04-06 17:31:56 -0700</delta_ts>
+            <desc>social networking FT icon</desc>
+            <filename>social_ft_icon.png</filename>
+            <type>image/png</type>
+            <size>7093</size>
+            <attacher>ltom</attacher>
+            
+              <data encoding="base64">iVBORw0KGgoAAAANSUhEUgAAAF8AAAA7CAYAAAAdKVa5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAX
+SGlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHja1VlXVJRLs63vm29mYJgh55wzkrPknHMUJec8
+JEVFREQBBUFBBERBBJGggpIMJAERAxgwExSUJKKCIKhzH/Sc89/wP9y17svdD7322lW9q+qpV3cD
+8Cz6x8VFocwA0TGJVGcLY2FPL29h4itAgBmYQAN0/AMT4owcHW3h3+LbGCAAAI8V/OPiouB/B5ag
+4IRAAMQRAAKCEgKjAZCrAKhxYBw1EQC3DgAjKYlxiQDYHQBgp3p6eQNgrwGAPfQ3XwYA9gBPL28A
+PAYA7FRXZxMAPDcAHdnfnxoKQBEHAOHkwNBEAIopAIE1Jig8BoDNE4CgHxjmHwTAUwIA8tHRsUEA
+PLcBQDrgX3xC/5NnwN+e/v6hf/PfswAAAJ1peEJclP8u+L9GdFTSXzVYAYAcE2VvCwCcADAb5G9q
+AwD8APArLsrR9ncOwhsc4+byh8vHBNg7/OH6IVRz5997Ece4RGNnAOAGQELiEh1d/+hpqWEm9gBA
+BkBOBCeY/eVzNsLf2hEAGAGQZmqSsxsAiAMg3QnJLmYAwAyATKeGuXr8yVkJCjb9o6NoSLi51R/O
+Gp5o5QoA7ACoaGSsjfPvWqgG2EAUBEMSUCEYYkABbMEETP+sChAC/kCFZAiGBIiE90CFaLCBWIiC
+WKCC8J88k/+mmIM/UCEUgv+LozAEQiwk/V3zL/Ufh3AIgti/df8/MSoEQ4JveMY/Ff7VLwpigapU
+rzSn9OOvOCaJqWDqmDGmh+lj2iCMcWK8oICpYVqYEWaA6WLqmDaYwzRQIfSvHn3DM6jRzSHJJbG7
+dNzD/swQ8PcE7jANVAj/Hyf60/uDxbbFvzuExOCdiQAAJrFxu6jhoWGJwkZxcVHB8sJWMYFb5IVV
+lJSV4f8TPL28hX+zr86AAADC+fAfLfgVgI45AH31P1rYMEBDPQBv5T+atBIADxNA02xgEjX5t4YB
+AOCBBEzADjwgCGIgDQqgAhqgC4ZgBtbgAK7gBTsgEMIgGqiQAntgP2RBLhyDIiiFM3AOLkAjNEMb
+3IAeGIBhGIGn8AomYQYWYBm+wSaCIESEgrAhPIgQIoHIISqIFqKPmCG2iDPihfghoUgMkoTsQQ4g
+uUghUopUInXIFaQD6UGGkFHkBTKFzCFfkA0Uh5JRdlQAlUQVUS3UCLVBXdHtaCgaj6aimWgeWoJW
+oQ1oK9qDDqNP0Ul0AV3FAY4Bx4kTwSngtHAmOAecNy4ER8Wl4XJwxbgqXBOuEzeIe4ybxC3ivmME
+jA0TxhQwXcwSc8MCsXgsDTuClWIXsFbsNvYYm8KWsV94Cp4fL4fXwVvhPfGh+BR8Fr4YX4O/hu/H
+P8XP4L8RCAROghRBk2BJ8CJEEHYTjhBOEy4RugmjhHeEVSKRyEOUI+oRHYj+xERiFvEUsYHYRXxE
+nCGu0zHQCdGp0JnTedPF0GXQFdNdpLtF94juA90mPTO9BL0OvQN9EP0u+nz6avpO+of0M/SbJBaS
+FEmP5EqKIO0nlZCaSP2k16SvDAwMogzaDE4M4QzpDCUMlxnuMEwxfCezkmXJJmQfchI5j1xL7ia/
+IH+lUCiSFEOKNyWRkkepo/RRxinrjGyMWxitGIMY9zGWMbYyPmJcYqJnkmAyYtrBlMpUzNTC9JBp
+kZmeWZLZhNmfOY25jLmD+RnzKgsbizKLA0s0yxGWiyxDLLOsRFZJVjPWINZM1nOsfazv2HBsYmwm
+bIFsB9iq2frZZtgJ7FLsVuwR7LnsjewP2Jc5WDnUONw5dnKUcdzkmOTEcUpyWnFGceZzNnOOcW5w
+CXAZcQVzZXM1cT3iWuPm4zbkDubO4b7E/ZR7g0eYx4wnkqeAp43nDS/GK8vrxJvCW8Hbz7vIx86n
+yxfIl8PXzPeSH+WX5Xfm381/jv8e/6qAoICFQJzAKYE+gUVBTkFDwQjBE4K3BOeE2IT0hcKFTgh1
+Cc0LcwgbCUcJlwjfFl4W4RexFEkSqRR5ILIpKiXqJpohekn0jRhJTEssROyEWK/YsriQuJ34HvF6
+8ZcS9BJaEmESJyUGJdYkpSQ9JA9JtknOSnFLWUmlStVLvZamSBtIx0tXST+RIchoyUTKnJYZkUVl
+1WXDZMtkH8qhchpy4XKn5Ubl8fLa8jHyVfLPFMgKRgrJCvUKU1s4t9huydjStmVJUVzRW7FAcVDx
+l5K6UpRStdIrZVZla+UM5U7lLyqyKoEqZSpPVCmq5qr7VNtVP6vJqQWrVag9V2dTt1M/pN6r/lND
+U4Oq0aQxpymu6adZrvlMi13LUeuI1h1tvLax9j7tG9rfdTR0EnWadT7pKuhG6l7Und0qtTV4a/XW
+d3qiev56lXqT+sL6fvpn9ScNRAz8DaoM3hqKGQYZ1hh+MJIxijBqMFoyVjKmGl8zXjPRMdlr0m2K
+M7UwzTF9YMZq5mZWajZuLmoeal5vvmyhbrHbotsSb2ljWWD5zErAKtCqzmrZWtN6r/VtG7KNi02p
+zVtbWVuqbacdamdtd9zutb2EfYx9mwM4WDkcd3jjKOUY73jdieDk6FTm9N5Z2XmP86ALm4uvy0WX
+b67Grvmur9yk3ZLcet2Z3H3c69zXPEw9Cj0mPRU993oOe/F6hXu1exO93b1rvFe3mW0r2jbjo+6T
+5TO2XWr7zu1DO3h3RO246cvk6+/b4of38/C76PfD38G/yn81wCqgPGA50CTwZOBCkGHQiaC5YL3g
+wuAPIXohhSGzoXqhx0PnwgzCisMWw03CS8M/R1hGnIlYi3SIrI2kRXlEXYqmi/aL7ohhjYmMuR0r
+GLszdjROLi4rbjJeJ74ofplqQ61JQBK2J7QnsifGJd5Lkk46mDSVrJ9clrye4p7SspNlZ8zOe7tk
+d2Xv+pBqnnp+N7Y7cHfvHpE9+/dM7TXaW5mGpAWk9e4T25e5bybdIv3CftL+yP33M5QyCjNWDngc
+6MwUyEzPfHfQ4mB9FmMWNevZId1DZw5jh8MPP8hWzT6V/SsnKOdurlJuce6PI4FH7h5VPlpylJYX
+kvcgXyO/4hjhWMyxsQKDgguFLIWphe+O2x1vPSF8IufESpFv0VCxWvGZk6STSScnS2xL2k+Jnzp2
+6kdpWOnTMuOyS+X85dnla6eDTj+qMKxoOiNwJvfMxtnws88rLSpbqySris8RziWfe1/tXj14Xut8
+XQ1vTW7Nz9qY2skLzhdu12nW1V3kv5hfj9Yn1c81+DSMNJo2tjcpNFVe4ryUexkuJ12ev+J3ZazZ
+prm3Raul6arE1fJrbNdyWpHWXa3LbWFtk+1e7aMd1h29nbqd165vuV57Q+RG2U2Om/m3SLcyb9G6
+UrtWu+O6F3tCe971+va+6vPse3Lb6faDfpv+OwPmA32DRoNdd/Tu3BjSGeq4q3W3bVhjuPWe+r1r
+99XvX3ug8aD1oebD9hHtkc7RraO3Hhk86nls+njgidWT4af2T0fH3MaeP/N5Nvk86Pnsi6gXn18m
+v9x8lf4a/zrnDfOb4nH+8aoJmYlLkxqTN6dMp+69dXn76l3gu4XphOkfM5nvKe+LPwh9qJtVmb0x
+Zz43Mr9tfmYhbmFzMesjy8fyJemlq58MP91b9lye+Uz9TPty5CvP19oVtZXeVcfV8W/R3zbXctZ5
+1i981/o+uOGx8WEz5QfxR8lPmZ+dv2x+vaZF02hx/lR/AADAAQAaEgLwpRaA4gXANgJA6v59p/gD
+HAKAAgAGzCANNrAb2hEUcUGuoPxoAY4DdwXzw4viVwhjxLt0Y/RrDELkCEovkzhzKasYWwOHAecK
+dxmvIz9F4L5QjoibGJ/4K8lz0kGyEnLjCocVhZSuqFioTqgnajJondVR1+3WM9cfMXQxGjGxMe0x
+V7Ios8JZh9j02XHZxzq0O2HOti75rg/dWT2cPQ97dXuv+ohst92R5Fvsd8P/TSASJBKsH+IRGh2W
+FV4ecSmyJ+ph9ETMUux6PEolJ/AkSiSpJOunWO302hWeGrnbfA/fnk97B9Kq9u1J996vlcF7AA7M
+Zo4e7M66cqjmcEV2ac7J3NIjZUer8hrzO44NFjwtnDn+9cRq0Xzxy5P3S3pOXSttLrtc3ni6qeLK
+mWtnb1T2Vg2dG60eOz9e87527sLHui8XV+tXGr40fmr6epnpilKzfUvk1QPXKlpb24bbX3UsdG7e
+oL/JcUu4S6ZbpUe/17rP83ZIf/JA9mDFnatDw3e7hqvupd/3eaD1kO3h0kj/aOmj+MdmTzifzD29
+Ppb3LOC52gv8i2cvG16lv3Z7Iz+OjT+d2D0pNNk9FfSW/u3ld9umidPNM/7vmd7f+BAxyz07OJc4
+Lzx/dyFlUWzx3sekJYGl3k+Ry+zL7Z99PtO+VH+1/vp5pXBVefXhtx3f5tY81nrXedf91mvWF78n
+bPBtNv0So9EAAANWkAdnyII7CAcSiNxCpdBKnBSuDfPDC+PnCbeJV+na6e+T5snClDDGPmYxlqNs
+dOw5nAJc13m28+H46wU9hBlFesT2SMhIjksXyqrK1SswbYlUHFJWUMlXXVX30ujSEtXepzOxVV+v
+VP+boZNRjfGGqZVZiflbSymrWOt6mzk7MfttDgWOg06bLtKurm7p7uc8Bjzfe+O2ifrobvfakeB7
+2K/cvymgJ/Bx0LvgzyG0MMZw/gjpSLUoo2jnmODYxLjs+FJqc8Jw4mhSa3JhSuROy13SqXSp87vv
+77mytywtc19M+rb91hk6B+QzBQ+yZhGzfhz6cnghezrnTe7TI/eP9uV15l88VlaQV7j/eNKJmKLQ
+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
+MIy/AwBy9f2a1gzGhwAAAABJRU5ErkJggg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

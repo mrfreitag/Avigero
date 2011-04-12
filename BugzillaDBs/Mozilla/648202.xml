@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648202</bug_id>
+          
+          <creation_ts>2011-04-06 21:30:00 -0700</creation_ts>
+          <short_desc>Fix the polling for comm-2.0, to poll against mozilla-2.0 release branch</short_desc>
+          <delta_ts>2011-04-07 13:15:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Release Engineering</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Justin Wood (:Callek)">bugspam.Callek</assigned_to>
+          <cc>bugzilla</cc>
+    
+    <cc>catlee</cc>
+    
+    <cc>dominique</cc>
+    
+    <cc>gozer</cc>
+    
+    <cc>john.hopkins</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>sgautherie.bz</cc>
+          <qa_contact>release</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393889</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-06 21:30:52 -0700</bug_when>
+            <thetext>The comm-2.0 based pollers seem to be polling against the trunk, and not the release/mozilla-2.0 based setup (Noticed by failures caused from mozilla-revisions in trunk not 2.0)
+
+Also of note in the investigation is that we are generating two changesources that are interesting to our comm-2.0 builder for comm-central, per checkin.
+
+CC-ing catlee incase he has any ideas at hand, especially after my HgPoller changes.
+
+Of note is that I only have reconfigured since applying my change there, have not shutdown/restarted the master.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393902</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-06 21:51:17 -0700</bug_when>
+            <thetext>Ok actually it is not the HgPoller that is the issue, and sadly this was the case for a while (just didn&apos;t catch it because our automation used to always update to default)
+
+http://mxr.mozilla.org/build/source/buildbotcustom/misc.py?mark=1744-1744,1752-1752#1736
+
+This is a problem because for both our comm-2.0 and comm-central-trunk builds, this actually points to the same place.
+
+catlee, how do you feel about s/branch=config[&apos;repo_name&apos;]/branch=name/ here and in generateBranchObjects. (For poller and Scheduler)
+
+I feel it is more correct, unless there is some trick about the branch format I don&apos;t recognize, or some reason that would cause undesirable affects. (It is times like this I wish SeaMonkey had a staging environment I could test these theories/assumptions)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393961</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-06 22:29:02 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Ok actually it is not the HgPoller that is the issue, and sadly this was the
+&gt; case for a while (just didn&apos;t catch it because our automation used to always
+&gt; update to default)
+&gt; 
+&gt; http://mxr.mozilla.org/build/source/buildbotcustom/misc.py?mark=1744-1744,1752-1752#1736
+&gt; 
+&gt; This is a problem because for both our comm-2.0 and comm-central-trunk builds,
+&gt; this actually points to the same place.
+&gt; 
+&gt; catlee, how do you feel about s/branch=config[&apos;repo_name&apos;]/branch=name/ here
+&gt; and in generateBranchObjects. (For poller and Scheduler)
+
+We have some cases where name != repo_name, so this won&apos;t work in general.
+
+Why does this help your case here?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394000</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-06 23:10:53 -0700</bug_when>
+            <thetext>well, we have pushlogoverride for HgPoller, which is what we use. But the issue stems from repo_name being used twice for separate |name| branches.
+
+we have config[&apos;comm-2.0&apos;]            with repo comm-central
+we have config[&apos;comm-central-trunk&apos;]  with repo comm-central
+
+Such that it then notifies the scheduler with |repo_name| and thats where the problem starts, since we also have it with {mozilla-2.0,mozilla-central} for the respective configs.
+
+Which means that a mozilla-central change, gets sent to the scheduler for comm-2.0 due to this. And I wonder if there is a way I can fix this without diverging us from the m-c based generate* here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394969</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-07 13:15:14 -0700</bug_when>
+            <thetext>Note that you IIRC need to do a buildbot restart to make pollers update for such a branch change (or at least I remember that has been the case some time ago). Did we already have a buildbot restart since we introduced a comm-2.0 that should correctly track mozilla-2.0?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647773</bug_id>
+          
+          <creation_ts>2011-04-04 22:31:00 -0700</creation_ts>
+          <short_desc>Java presentation of anti-spam words on whitehouse.gov broken</short_desc>
+          <delta_ts>2011-04-05 10:00:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="jnewlin@cox.net">jnewlin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+    
+    <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390813</commentid>
+            <who name="jnewlin@cox.net">jnewlin</who>
+            <bug_when>2011-04-04 22:31:48 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 GTB7.1
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 GTB7.1
+
+Go to www.whitehouse.gov. Click on the &quot;Contact Us&quot; link in the upper right hand corner of the page. That link takes you to a page that presents a form for leaving a message for the President. At the bottom of the page the last step before submitting the message is to type in two words displayed in Java. Those words do not appear. THEY DO APPEAR IN IE 9 AND CHROME!! So don&apos;t dismiss this as a Java problem. It&apos;s a FF bug for sure.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Access www.whitehouse.gov
+2. Click on the Contact us link in the upper right hand corner.
+3. Scroll down to the bottom of the page where it says &quot;Please enter the phrase..&quot;
+Actual Results:  
+The phrase is not displayed in FireFox but it is displayed in Chrome and IE.
+
+Expected Results:  
+See the two word phrase so one can type them in and complete sending the message.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390852</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 23:24:38 -0700</bug_when>
+            <thetext>I can not see any Java there, but I see a ReCAPTCHA in JavaScript, which is something completely different. The two words are displayed as a jpeg image.
+
+I am unable to reproduce the bug. It just works for me with clean profiles and:
+
+Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre
+Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Mozilla/5.0 (X11; Linux i686 on x86_64; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre
+Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390854</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 23:26:23 -0700</bug_when>
+            <thetext>Make a new profile and check if you still have the problem.
+http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391272</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-05 10:00:19 -0700</bug_when>
+            <thetext>WFM as well on Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre ID:20110404030429</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

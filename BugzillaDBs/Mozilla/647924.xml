@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647924</bug_id>
+          
+          <creation_ts>2011-04-05 20:20:00 -0700</creation_ts>
+          <short_desc>libPKIX unnecessarily re-downloads CRLs</short_desc>
+          <delta_ts>2011-04-05 20:20:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>3.12.9</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>479393</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to>nobody</assigned_to>
+          <cc>alvolkov.bgs</cc>
+    
+    <cc>bsmith</cc>
+    
+    <cc>rrelyea</cc>
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391821</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-05 20:20:07 -0700</bug_when>
+            <thetext>libPKIX unnecessarily re-downloads CRLs
+
+Using the patches to enable libPKIX based verification in PSM, 
+having OCSP disabled, 
+having CRL downloading enabled, 
+and strictly requiring any fresh revocation information, 
+I saw the following:
+
+===&gt; downloading http://crl.geotrust.com/crls/gtglobal.crl
+===&gt; downloading http://gtssl-crl.geotrust.com/crls/gtssl.crl
+===&gt; downloading http://crl.geotrust.com/crls/secureca.crl
+===&gt; downloading http://gtssldv-crl.geotrust.com/crls/gtssldv.crl
+===&gt; downloading http://crl.comodo.net/AddTrustExternalCARoot.crl
+===&gt; downloading http://crl.comodoca.com/AddTrustExternalCARoot.crl
+===&gt; downloading http://crl.comodo.net/UTN-USERFirst-Hardware.crl
+===&gt; downloading http://crl.comodoca.com/UTN-USERFirst-Hardware.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodo.net/PositiveSSLCA.crl
+===&gt; downloading http://crl.comodoca.com/PositiveSSLCA.crl</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

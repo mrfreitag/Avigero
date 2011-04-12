@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648557</bug_id>
+          
+          <creation_ts>2011-04-08 10:03:00 -0700</creation_ts>
+          <short_desc>Hardware Request: Apple Magic Trackpad for Jonathan Watt</short_desc>
+          <delta_ts>2011-04-08 11:28:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jonathan Watt (:jwatt)">jwatt</reporter>
+          <assigned_to name="Julius Berry [:b-man]">jberry</assigned_to>
+          <cc>jberry</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396699</commentid>
+            <who name="Jonathan Watt (:jwatt)">jwatt</who>
+            <bug_when>2011-04-08 10:03:58 -0700</bug_when>
+            <thetext>May I have a Magic Trackpad please?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396761</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 10:21:28 -0700</bug_when>
+            <thetext>Where in the building are you located?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396770</commentid>
+            <who name="Jonathan Watt (:jwatt)">jwatt</who>
+            <bug_when>2011-04-08 10:24:35 -0700</bug_when>
+            <thetext>I&apos;m not based in Mountain View, so currently I&apos;m moving around from conference room to conference room. I can come and collect it from wherever though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396780</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 10:27:52 -0700</bug_when>
+            <thetext>Great. Whenever you want to stop by it&apos;s here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397010</commentid>
+            <who name="Julius Berry [:b-man]">jberry</who>
+            <bug_when>2011-04-08 11:28:23 -0700</bug_when>
+            <thetext>Jonathan came by and picked up Trackpad.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

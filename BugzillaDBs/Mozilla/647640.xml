@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647640</bug_id>
+          
+          <creation_ts>2011-04-03 20:59:00 -0700</creation_ts>
+          <short_desc>Having &gt;20 addons enabled causes hanging when opening extensions under Add-on Manager</short_desc>
+          <delta_ts>2011-04-03 22:30:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Add-ons Manager</component>
+          <version>2.0 Branch</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>637286</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Alexander">keller</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+    
+    <cc>matti</cc>
+          <qa_contact>add-ons.manager</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389743</commentid>
+            <who name="Alexander">keller</who>
+            <bug_when>2011-04-03 20:59:26 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110321 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110321 Firefox/4.0
+
+I restarted FireFox numerous times and it was only after I restarted in safe mode and disabled all add-ons was I able to isolate the problem of it being onlt if there are 20 enabled.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Pick any 20 add-ons
+2. Add them to FireFox
+   My list:
+      Adblock Plus
+      Adblock Plus Pop-up Addon
+      Tabmix Plus
+      Add to Search Bar
+      ColorZilla
+      Menu Editor
+      HackBar
+      Firegesture
+      Console2
+      NoScript
+      Tamper Data
+      BetterPrivacy
+      Omnibar
+      Vacuum Places Improved
+      Multi Links
+      Ressurect Pages
+      Screengrab
+      Beef Taco
+      Download Statusbar
+      Greasemonkey
+      IdentFavIcon
+      iMacros for Firefox
+      Organize Status bar
+      StumbleUpon
+      Video Download Helper
+      Modify Headers
+      Cookieculler
+      LocationBar2
+      Web Developer
+      Flagfox
+      Live IP Address
+3. Tools -&gt; Add-ons -&gt; Extensions
+Actual Results:  
+Gray area looking like it has yet to draw to the screen the extensions menu and then a total failure of Firefox causing it to end up hanging/freezing.
+
+Expected Results:  
+Loaded the extensions menu as normal.
+
+OS : Arch i646
+Theme : Both Default &amp; Abstract Black (Persona)
+Windows Manager : Xorg running Musca
+Build : Straight from distro&apos;s main repos</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389751</commentid>
+            <who name="Alexander">keller</who>
+            <bug_when>2011-04-03 21:07:02 -0700</bug_when>
+            <thetext>I&apos;m sorry. It&apos;s when there are &gt;20 extensions enabled.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389782</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 22:04:29 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 637286 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

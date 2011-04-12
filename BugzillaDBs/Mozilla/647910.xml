@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647910</bug_id>
+          
+          <creation_ts>2011-04-05 16:24:00 -0700</creation_ts>
+          <short_desc>Firefox-4.0 compile fails on using &quot;--enable-javaxpcom&quot;</short_desc>
+          <delta_ts>2011-04-05 17:28:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>612873</dup_id>
+          
+          <bug_file_loc>N/A</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Alex">alupu</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>rjohnson19</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391660</commentid>
+            <who name="Alex">alupu</who>
+            <bug_when>2011-04-05 16:24:50 -0700</bug_when>
+            <thetext>User-Agent:       Opera/9.80 (X11; Linux i686; U; en) Presto/2.7.62 Version/11.01
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+ERRORS
+
+c++ -o nsJavaXPTCStub.o -c  -fvisibility=hidden -DMOZILLA_INTERNAL_API -D_IMPL_NS_COM -DEXPORT_XPT_API -DEXPORT_XPTC_API -D_IMPL_NS_GFX -D_IMPL_NS_WIDGET -DIMPL_XREAPI -DIMPL_NS_NET -DIMPL_THEBES  -DSTATIC_EXPORTABLE_JS_API -DOSTYPE=\&quot;Linux2.6.37\&quot; -DOSARCH=Linux -I&quot;/opt/jdk/include&quot; -I&quot;/opt/jdk/include&quot;/linux -I/usr/src/mozilla-2.0/extensions/java/xpcom/src -I. -I../../../../dist/include -I../../../../dist/include/nsprpub  -I/usr/include/nspr -I/usr/include/nss       -fPIC  -frtti -fno-exceptions -Wall -Wpointer-arith -Woverloaded-virtual -Wsynth -Wno-ctor-dtor-privacy -Wno-non-virtual-dtor -Wcast-align -Wno-invalid-offsetof -Wno-variadic-macros -pedantic -Wno-long-long -fno-strict-aliasing -fshort-wchar -pthread -pipe  -DNDEBUG -DTRIMMED -Os -freorder-blocks -fomit-frame-pointer -finline-limit=50   -DMOZILLA_CLIENT -include ../../../../mozilla-config.h /usr/src/mozilla-2.0/extensions/java/xpcom/src/nsJavaXPTCStub.cpp
+
+/usr/src/mozilla-2.0/extensions/java/xpcom/src/nsJavaInterfaces.cpp: In function &apos;nsresult InitEmbedding_Impl(JNIEnv*, _jobject*, _jobject*, _jobject*)&apos;:
+
+/usr/src/mozilla-2.0/extensions/java/xpcom/src/nsJavaInterfaces.cpp:95: error: &apos;XRE_InitEmbedding&apos; was not declared in this scope
+
+/usr/src/mozilla-2.0/extensions/java/xpcom/src/nsJavaInterfaces.cpp: In function &apos;_jobject* Java_org_mozilla_xpcom_internal_XPCOMImpl_getComponentManager(JNIEnv*, _jobject*)&apos;:
+
+/usr/src/mozilla-2.0/extensions/java/xpcom/src/nsJavaInterfaces.cpp:238: error: incomplete type &apos;nsIComponentManager&apos; used in nested name specifier
+
+/usr/src/mozilla-2.0/extensions/java/xpcom/src/nsJavaInterfaces.cpp:238: error: expected primary-expression before &apos;int&apos;
+
+/usr/src/mozilla-2.0/extensions/java/xpcom/src/nsJavaInterfaces.cpp:238: error: expected `)&apos; before &apos;int&apos;
+
+make[4]: *** [nsJavaInterfaces.o] Error 1
+make[4]: *** Waiting for unfinished jobs....
+make[4]: Leaving directory `/usr/src/firefox-build/extensions/java/xpcom/src&apos;
+make[3]: *** [libs_tier_platform] Error 2
+make[3]: Leaving directory `/usr/src/firefox-build&apos;
+make[2]: *** [tier_platform] Error 2
+make[2]: Leaving directory `/usr/src/firefox-build&apos;
+make[1]: *** [default] Error 2
+make[1]: Leaving directory `/usr/src/firefox-build&apos;
+make: *** [build] Error 2
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.  make -f client.mk build
+2.
+3.
+Actual Results:  
+See &quot;Details&quot; above 
+
+Expected Results:  
+For the compile (make build) to work.
+
+FIXES (temporary, workarounds?)
+
+[]$ diff nsJavaInterfaces.cpp-original nsJavaInterfaces.cpp-fix
+49a50
+&gt; #include &quot;nsIComponentManager.h&quot;
+95c96,97
+&lt;   return XRE_InitEmbedding(libXULDir, appDir, provider, nsnull, 0);
+---
+&gt; // return XRE_InitEmbedding(libXULDir, appDir, provider, nsnull, 0);
+&gt;    return XRE_InitEmbedding2((nsILocalFile*) aLibXULDirectory,
+&gt;    (nsILocalFile*) aAppDirectory, (nsIDirectoryServiceProvider*)
+&gt;    aAppDirProvider);
+
+------
+
+1. For the line 238 error
+
+ Added &apos;.../nsIComponentManager.h&apos; into
+    &apos;.../mozilla-2.0/extensions/java/xpcom/src/&apos;
+
+Comment:  seems pretty straightforward.
+(based on &quot;the more the merrier&quot; principle.)
+
+2. For the line 95 error
+
+Comments:
+- This is tricky.  Ugly casts.
+  I&apos;m not sure if the result is in the spirit of what
+  the author(s) intended (even if in a more elegant way).
+
+- I haven&apos;t been able to find an XRE_InitEmbedding (without the &quot;2&quot;)
+  function defined anywhere.  (There&apos;s a lot of talk about it, but
+  like I said, no definition.)
+
+Whatever the case might be, once with these &quot;fixes&quot; in place,
+Firefox-4.0 compiles to a successful completion.
+
+REFERENCES
+(B)LFS i686-pc-linux-gnu 2.6.37.3
+ gcc-4.1.2
+ JDK-1.6.0_24  (jdk-6u24)
+ Xorg-7.6
+ glib-2.28.4
+ gtk+-2.24.3  (with DJ Lucas &quot;icons&quot; patch - See Bug 640850)
+ sqlite-3.7.5
+ nspr-4.8.7
+ nss-3.12.9
+ libpng-1.5.1 +apng
+ cairo-1.10.2 +tee
+ firefox-4.0.source.tar.bz2   MD5sum: 3468a2c463b4fc2788ba621e4b511c30
+ (with &apos;nsPNGDecoder.cpp&apos; patch - See Bug 645519)
+------------------------------------------------------------------------
+&apos;.mozconfig&apos;
+
+. $topsrcdir/browser/config/mozconfig
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/../firefox-build
+mk_add_options MOZ_MAKE_FLAGS=&quot;-j4&quot;
+ac_add_options --prefix=/usr
+#
+ac_add_options --disable-accessibility
+ac_add_options --disable-auto-deps
+ac_add_options --disable-crashreporter
+ac_add_options --disable-dbm
+ac_add_options --disable-gnomevfs
+ac_add_options --disable-installer
+ac_add_options --disable-tests
+ac_add_options --disable-updater
+ac_add_options --enable-cpp-rtti
+ac_add_options --enable-default-toolkit=cairo-gtk2
+ac_add_options --enable-image-decoders=all
+ac_add_options --enable-image-encoders=all
+ac_add_options --enable-jemalloc
+ac_add_options --enable-official-branding
+ac_add_options --enable-optimize
+ac_add_options --enable-places
+ac_add_options --enable-safe-browsing
+ac_add_options --enable-strip
+ac_add_options --enable-system-cairo
+ac_add_options --enable-system-lcms
+ac_add_options --enable-system-sqlite
+ac_add_options --enable-valgrind
+ac_add_options --enable-libxul
+ac_add_options --with-java-bin-path=/opt/jdk/bin
+ac_add_options --with-java-include-path=/opt/jdk/include
+ac_add_options --with-pthreads
+ac_add_options --with-qtdir=/opt/qt
+ac_add_options --with-system-bz2
+ac_add_options --with-system-jpeg
+ac_add_options --with-system-libxul
+ac_add_options --with-system-nspr
+ac_add_options --with-system-nss
+ac_add_options --with-system-png
+ac_add_options --with-system-zlib
+ac_add_options --with-x
+ac_add_options --enable-javaxpcom</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391718</commentid>
+            <who name="Bobby Johnson [:rjohnson19]">rjohnson19</who>
+            <bug_when>2011-04-05 17:28:57 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 612873 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

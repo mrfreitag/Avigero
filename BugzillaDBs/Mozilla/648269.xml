@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648269</bug_id>
+          
+          <creation_ts>2011-04-07 08:12:00 -0700</creation_ts>
+          <short_desc>Unified Folders view cannot be threaded</short_desc>
+          <delta_ts>2011-04-11 07:12:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Folder and Message Lists</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Bernd Wechner">bernd</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bienvenu</cc>
+    
+    <cc>ludovic</cc>
+          <qa_contact>folders-message-lists</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394418</commentid>
+            <who name="Bernd Wechner">bernd</who>
+            <bug_when>2011-04-07 08:12:31 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+Threading rocks. Unified folders rock. Never the twain shall meet? 
+
+It would be very nice if the Unified FOlders view could be threaded!
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. View your inbox in the Unified Folders view (Click Inbox at top or the unified inbox)
+2. Try and thread the messages 
+
+Actual Results:  
+Can&apos;t do it. WMesages don&apos;t thread. 
+
+Expected Results:  
+Threaded messages.
+
+Maybe not a bug, so much as a feature request. Couldn&apos;t find it filed already. Searched on &quot;unified folders threaded&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399970</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-11 01:09:32 -0700</bug_when>
+            <thetext>WFM with Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0.1pre) Gecko/20110410 Thunderbird/3.3a4pre.
+
+Anything in Tools -&gt; Error console ?
+
+Does it work if you start Thunderbird in -safe-mode (see http://support.mozillamessaging.com/en-US/kb/Safe+Mode) ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400007</commentid>
+            <who name="Bernd Wechner">bernd</who>
+            <bug_when>2011-04-11 01:52:22 -0700</bug_when>
+            <thetext>No errors and doesn&apos;t work in safe mode. Doesn&apos;t surprise me. Doesn&apos;t have the hallmarks of a local bug, more of a simple lack of implementation. That is I assumed, threading simply hasn&apos;t been implemented in the unified folders view ...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400012</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-11 01:59:12 -0700</bug_when>
+            <thetext>WFM : means that it works for me ... So I&apos;m wondering why it doesn&apos;t work on your machine/setup.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400067</commentid>
+            <who name="Bernd Wechner">bernd</who>
+            <bug_when>2011-04-11 03:47:21 -0700</bug_when>
+            <thetext>Oh, sorry I didn&apos;t get the TLA. A true surprise ... I wonder if you have a screen grab of the whole thing so we can be sure we&apos;re talking about the same view? Find it hard to understand why it would work on one machine and not the other. Threadeding works fine in any otehr view, just not unified folders. Well it works in the unified folders view if I look at a single mailbox under inbox, but not the unified inbox!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400283</commentid>
+            <who name="David :Bienvenu">bienvenu</who>
+            <bug_when>2011-04-11 07:12:29 -0700</bug_when>
+            <thetext>There&apos;s a fair amount of code dedicated to implementing threading in unified folders. You could look at other unified folders (e.g., sent, or trash) and see if threading works there.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

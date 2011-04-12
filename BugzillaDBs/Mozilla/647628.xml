@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647628</bug_id>
+          
+          <creation_ts>2011-04-03 19:01:00 -0700</creation_ts>
+          <short_desc>Remove SKIP_POP_AFTER_SET</short_desc>
+          <delta_ts>2011-04-06 10:43:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647620</blocked>
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian Hackett">bhackett1024</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>brendan</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>dmandelin</cc>
+    
+    <cc>luke</cc>
+    
+    <cc>nnethercote</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389675</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-03 19:01:43 -0700</bug_when>
+            <thetext>This is an interpreter optimization that allows it to skip POP opcodes instead of pushing a value and then immediately popping it.  This optimization really isn&apos;t necessary in the presence of JITs, and seems to make trace recording and other interpreter instrumentation more complicated, judging from the (scary) code snippet below from LeaveTree.
+
+            /*
+             * JSOP_SETELEM can be coalesced with a JSOP_POP in the interpeter.
+             * Since this doesn&apos;t re-enter the recorder, the post-state snapshot
+             * is invalid. Fix it up here.
+             */
+            if (op == JSOP_SETELEM &amp;&amp; JSOp(regs-&gt;pc[JSOP_SETELEM_LENGTH]) == JSOP_POP) {
+                regs-&gt;sp -= js_CodeSpec[JSOP_SETELEM].nuses;
+                regs-&gt;sp += js_CodeSpec[JSOP_SETELEM].ndefs;
+                regs-&gt;pc += JSOP_SETELEM_LENGTH;
+                op = JSOP_POP;
+            }</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389748</commentid>
+            <who name="Luke Wagner [:luke]">luke</who>
+            <bug_when>2011-04-03 21:02:48 -0700</bug_when>
+            <thetext>Yeah, opcode fusing has been no end of troubles in the tracer.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

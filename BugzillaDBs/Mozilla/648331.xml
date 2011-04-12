@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648331</bug_id>
+          
+          <creation_ts>2011-04-07 12:39:00 -0700</creation_ts>
+          <short_desc>Remove list item bullet size quirk</short_desc>
+          <delta_ts>2011-04-07 14:18:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Layout</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://lists.whatwg.org/htdig.cgi/whatwg-whatwg.org/2011-April/031158.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>97351</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ms2ger">Ms2ger</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>jackalmage</cc>
+    
+    <cc>lachlan.hunt</cc>
+          <qa_contact>layout</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394879</commentid>
+            <who name="Ms2ger">Ms2ger</who>
+            <bug_when>2011-04-07 12:39:38 -0700</bug_when>
+            <thetext>As mentioned in $URL, WebKit doesn&apos;t have this quirk, which suggests that it isn&apos;t necessary. Note that the test case in bug 97351 comment 0 is fixed by the new HTML parser, which produces this DOM tree:
+
+ul
+  font color=&quot;red&quot; size=&quot;30pt&quot;
+  li
+    font color=&quot;red&quot; size=&quot;30pt&quot;
+      This text should be ...
+
+If nobody objects, I can fix. (&lt;http://mxr.mozilla.org/mozilla-central/source/layout/style/quirk.css#74&gt;)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

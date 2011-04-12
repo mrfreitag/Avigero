@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647738</bug_id>
+          
+          <creation_ts>2011-04-04 14:17:00 -0700</creation_ts>
+          <short_desc>Apply downloaded Update now trying to upload to older version....</short_desc>
+          <delta_ts>2011-04-06 09:00:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>3.6 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ian Graham">ian.graham</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+    
+    <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390469</commentid>
+            <who name="Ian Graham">ian.graham</who>
+            <bug_when>2011-04-04 14:17:02 -0700</bug_when>
+            <thetext>Help -&gt; About Firefox Firefox says I am at version 3.6.15. I also see the Help menu option Help -&gt;Apply Downloaded Update Now .... But when I try to apply the update, the resulting popup window says it wants to update to Firefox 3.6.10. Needless to say, the update doesn&apos;t work. And I can&apos;t make the &quot;Apply Downloaded... menu go away.
+
+Is there any way to &apos;clear&apos; the update so I can properly auto-update to 4.0?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390589</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 15:55:21 -0700</bug_when>
+            <thetext>Ian, take a look at this support ticket:
+http://support.mozilla.com/en-US/questions/762619
+
+I think that solution will solve your problem as well.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391743</commentid>
+            <who name="Ian Graham">ian.graham</who>
+            <bug_when>2011-04-05 17:50:37 -0700</bug_when>
+            <thetext>Yes, that did the trick. Seemed some weird situation where one account thought I had the old update, while admin was &apos;clear&apos; and could update straight to 4.0, and fix things up for all profiles.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392235</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-06 07:03:53 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Yes, that did the trick. Seemed some weird situation where one account thought
+&gt; I had the old update, while admin was &apos;clear&apos; and could update straight to 4.0,
+&gt; and fix things up for all profiles.
+
+Can you mark this RESOLVED WORKSFORME please?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392342</commentid>
+            <who name="Ian Graham">ian.graham</who>
+            <bug_when>2011-04-06 09:00:34 -0700</bug_when>
+            <thetext>I don&apos;t know that a workaround counts as a resolved defect ;-) I would say this is still a bug, but that it has a low priority for repair. I have set importance to minor.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

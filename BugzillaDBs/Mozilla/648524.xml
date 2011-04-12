@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648524</bug_id>
+          
+          <creation_ts>2011-04-08 07:04:00 -0700</creation_ts>
+          <short_desc>Constantly crashes after about 15 seconds.</short_desc>
+          <delta_ts>2011-04-08 07:24:50 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Camino</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Al Feldzamen">alfeld</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>cl-bugs-new2</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396379</commentid>
+            <who name="Al Feldzamen">alfeld</who>
+            <bug_when>2011-04-08 07:04:52 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-us) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27
+Build Identifier: Camino 2.0.7
+
+Crashes no matter what website I am on.  Too bad because Camino was my favorite browser, so now I have to use Firefox, Chrome, or Safari. I am using a Macbook Pro OS 10.6.7
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Turn on computer
+2.Open Camino  --  goes to CNN.com
+3. Crashes</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396405</commentid>
+            <who name="Chris Lawson">cl-bugs-new2</who>
+            <bug_when>2011-04-08 07:21:36 -0700</bug_when>
+            <thetext>This is probably bug 645767. Please see bug 645923 comment 11 for how to fix it on your end.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648210</bug_id>
+          
+          <creation_ts>2011-04-06 22:53:00 -0700</creation_ts>
+          <short_desc>css :hover cuts off during mouse drag across element break at lower z level</short_desc>
+          <delta_ts>2011-04-07 10:34:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mubulaw.com/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter>cwbussard</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alice0775</cc>
+    
+    <cc>aravind</cc>
+    
+    <cc>jbecerra</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393982</commentid>
+            <who name="">cwbussard</who>
+            <bug_when>2011-04-06 22:53:26 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+As best I can tell, css :hover is resetting from true to false when I move the mouse across the edge between two elements that exist at a lower z level. I suspect that some kind of interaction between different positioning types is a factor. A major problem for pure CSS menus. This problem is new to FF4.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Goto http://www.mubulaw.com/
+2.Hover over one of the &quot;practice areas&quot; or &quot;about us&quot; menus.
+3.Move the mouse very slowly through the menu options and watch :hover cut out as you cross the edge between the elements beneath the menu. 
+Actual Results:  
+Menu vanishes abruptly despite hover.
+
+Expected Results:  
+Menu does not vanish until mouse is removed from menu.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394022</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-06 23:39:17 -0700</bug_when>
+            <thetext>Good nightly - Mozilla/5.0 (Windows NT 5.1; rv:2.0b9pre) Gecko/20110105
+Firefox/4.0b9pre
+
+Bad nightly - Mozilla/5.0 (Windows NT 5.1; rv:2.0b9pre) Gecko/20110106
+Firefox/4.0b9pre
+
+Pushlog -
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=d2bd42931b03&amp;tochange=c6e65b6259db
+
+Looks like regression from bug 615794</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394103</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-07 01:05:15 -0700</bug_when>
+            <thetext>Looks like Bug 646757</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394672</commentid>
+            <who name="">cwbussard</who>
+            <bug_when>2011-04-07 10:34:28 -0700</bug_when>
+            <thetext>Thank you to Alice and aravindm. Yes, it does look like Bug 646757. I apologize for failing to find that bug via search.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

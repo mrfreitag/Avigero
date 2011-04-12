@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648078</bug_id>
+          
+          <creation_ts>2011-04-06 12:11:00 -0700</creation_ts>
+          <short_desc>funkload breaks &quot;make build&quot;</short_desc>
+          <delta_ts>2011-04-06 12:11:33 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Services</product>
+          <component>Server: Identity</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Rob Miller">rmiller</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>identity-server</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392907</commentid>
+            <who name="Rob Miller">rmiller</who>
+            <bug_when>2011-04-06 12:11:33 -0700</bug_when>
+            <thetext>The funkload package apparently tries to import ez_setup.py w/o actually including it.  Here&apos;s the traceback:
+
+bin/easy_install Funkload
+install_dir /Users/rob/venv/server-identity/lib/python2.7/site-packages/
+Searching for Funkload
+Reading http://pypi.python.org/simple/Funkload/
+Reading http://funkload.nuxeo.org/
+Best match: funkload 1.15.0
+Downloading http://pypi.python.org/packages/source/f/funkload/funkload-1.15.0.tar.gz#md5=22748ba0b19907314b888ab4476eaf98
+Processing funkload-1.15.0.tar.gz
+Running funkload-1.15.0/setup.py -q bdist_egg --dist-dir /var/folders/Yu/YuJ3Jx+HEVq8QNoeOZVryk+++TI/-Tmp-/easy_install-e8UZw8/funkload-1.15.0/egg-dist-tmp-jHSxaX
+Traceback (most recent call last):
+  File &quot;bin/easy_install&quot;, line 9, in &lt;module&gt;
+    load_entry_point(&apos;distribute==0.6.14&apos;, &apos;console_scripts&apos;, &apos;easy_install&apos;)()
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 1855, in main
+    with_ei_usage(lambda:
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 1836, in with_ei_usage
+    return f()
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 1859, in &lt;lambda&gt;
+    distclass=DistributionWithoutHelpCommands, **kw
+  File &quot;/opt/python/parts/opt/lib/python2.7/distutils/core.py&quot;, line 152, in setup
+    dist.run_commands()
+  File &quot;/opt/python/parts/opt/lib/python2.7/distutils/dist.py&quot;, line 953, in run_commands
+    self.run_command(cmd)
+  File &quot;/opt/python/parts/opt/lib/python2.7/distutils/dist.py&quot;, line 972, in run_command
+    cmd_obj.run()
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 342, in run
+    self.easy_install(spec, not self.no_deps)
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 582, in easy_install
+    return self.install_item(spec, dist.location, tmpdir, deps)
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 612, in install_item
+    dists = self.install_eggs(spec, download, tmpdir)
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 802, in install_eggs
+    return self.build_and_install(setup_script, setup_base)
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 1079, in build_and_install
+    self.run_setup(setup_script, setup_base, args)
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/command/easy_install.py&quot;, line 1068, in run_setup
+    run_setup(setup_script, args)
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/sandbox.py&quot;, line 29, in run_setup
+    lambda: execfile(
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/sandbox.py&quot;, line 70, in run
+    return func()
+  File &quot;/Users/rob/venv/server-identity/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/setuptools/sandbox.py&quot;, line 31, in &lt;lambda&gt;
+    {&apos;__file__&apos;:setup_script, &apos;__name__&apos;:&apos;__main__&apos;}
+  File &quot;setup.py&quot;, line 24, in &lt;module&gt;
+    # either the GNU General Public License Version 2 or later (the &quot;GPL&quot;), or
+ImportError: No module named ez_setup</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

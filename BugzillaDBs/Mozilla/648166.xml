@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648166</bug_id>
+          
+          <creation_ts>2011-04-06 17:02:00 -0700</creation_ts>
+          <short_desc>Update launches Fennec Nightly and Firefox release</short_desc>
+          <delta_ts>2011-04-07 08:32:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>540007</dup_id>
+          
+          
+          
+          
+          <priority>P4</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Naoki Hirata :nhirata">nhirata.bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mark.finkle</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393595</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-06 17:02:44 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Android; Linux armv71; rv2.2a1pre) Gecko/20110405 Firefox/4.2a1pre Fennec/4.1a1pre
+Device: Droid 2 
+OS: Android 2.2
+
+1. install yesterday&apos;s nightly and install the Firefox for android from the market
+2. launch only the nightly (verify that only fennec nightly is launched)
+3. update the nightly and restart when asked via the notification
+4. check the processes to see which version(s) are active
+
+Expected: Only the nightly
+Actual: both the nightly and the Firefox for android from the market are started.
+
+Note:
+1. I was wondering why I was checkerboarding so much, part of the reason it turns out is because Firefox release was started as well.
+2. I&apos;m not sure how many people would be running both on the same device.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393725</commentid>
+            <who name="Mark Finkle (:mfinkle)">mark.finkle</who>
+            <bug_when>2011-04-06 17:43:43 -0700</bug_when>
+            <thetext>How are you checking in step 4?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394451</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-07 08:32:19 -0700</bug_when>
+            <thetext>through the use of ddms.  I&apos;m closing this out as a dup of bug 540007
+
+*** This bug has been marked as a duplicate of bug 540007 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

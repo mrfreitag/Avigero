@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648178</bug_id>
+          
+          <creation_ts>2011-04-06 17:40:00 -0700</creation_ts>
+          <short_desc>install-module.pl should check if a compiler is available, and fail with a clear error if one is not</short_desc>
+          <delta_ts>2011-04-07 16:32:43 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>Installation &amp; Upgrading</component>
+          <version>4.0</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>Bugzilla 4.0</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="byron jones [:glob]">glob</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">installation</assigned_to>
+          <cc>mkanat</cc>
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393713</commentid>
+            <who name="byron jones [:glob]">glob</who>
+            <bug_when>2011-04-06 17:40:22 -0700</bug_when>
+            <thetext>install-module.pl should check if a compiler is available, and fail with a clear error if one is not.
+
+while cpan itself will fail if a compiler is missing, the error message is not clear, and is hidden in a torrent of text.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395421</commentid>
+            <who name="Max Kanat-Alexander">mkanat</who>
+            <bug_when>2011-04-07 16:32:43 -0700</bug_when>
+            <thetext>Yes, however, it should only do this when you attempt to install something where the module of its dependencies need a compiler. It&apos;s very common to just install CGI.pm with install-module, and that does not need a compiler and shouldn&apos;t require one.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

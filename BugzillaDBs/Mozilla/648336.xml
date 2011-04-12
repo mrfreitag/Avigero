@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648336</bug_id>
+          
+          <creation_ts>2011-04-07 12:54:00 -0700</creation_ts>
+          <short_desc>Please order optibay kit</short_desc>
+          <delta_ts>2011-04-07 13:25:55 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[On order]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Zandr Milewski (:zandr)">zandr</reporter>
+          <assigned_to>desktop-support</assigned_to>
+          <cc>ghuerta</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="order-this"
+          id="438128"
+          type_id="707"
+          status="-"
+          setter="ghuerta"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5394918</commentid>
+            <who name="Zandr Milewski (:zandr)">zandr</who>
+            <bug_when>2011-04-07 12:54:00 -0700</bug_when>
+            <thetext>I&apos;d like to do the optibay thing... SSDs are wonderful, but small, so some cheap additional storage would be nice.
+
+http://store.mcetech.com/Merchant2/merchant.mvc?Screen=PROD&amp;Product_Code=OBSXGB-UNB&amp;Category_Code=STORHDOPTIBAY is the right thing. Please order a 750GB 7200RPM kit for me, with the external enclosure for the optical drive. (This is for a 17&quot; unibody, if it matters.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394964</commentid>
+            <who name="Guillermo Huerta">ghuerta</who>
+            <bug_when>2011-04-07 13:11:49 -0700</bug_when>
+            <thetext>Do you want to send it to them or install here?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394968</commentid>
+            <who name="Zandr Milewski (:zandr)">zandr</who>
+            <bug_when>2011-04-07 13:13:52 -0700</bug_when>
+            <thetext>I&apos;ll install it myself, that&apos;s not a big deal on these machines.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394989</commentid>
+            <who name="Guillermo Huerta">ghuerta</who>
+            <bug_when>2011-04-07 13:25:55 -0700</bug_when>
+            <thetext>Ordered, should be here on Monday.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

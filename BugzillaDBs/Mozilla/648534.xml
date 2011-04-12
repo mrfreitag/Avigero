@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648534</bug_id>
+          
+          <creation_ts>2011-04-08 07:52:00 -0700</creation_ts>
+          <short_desc>Make UX/Site optimizations to MarkUP</short_desc>
+          <delta_ts>2011-04-08 16:48:12 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>markup.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>628811</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Mesa">lmesa</reporter>
+          <assigned_to name="Adam Miller">adam</assigned_to>
+          <cc>chandler</cc>
+    
+    <cc>claudia</cc>
+    
+    <cc>fwenzel</cc>
+    
+    <cc>m8ttyb</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+          <qa_contact>markup-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396466</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-08 07:52:25 -0700</bug_when>
+            <thetext>Per email we will:
+
+1. Shorten intro copy
+2. Add tool tio to the MarkUP pen
+3. Make the animated &quot;x&quot; fade in instead of animated.
+4. Tool tip changes after clicking to begin mark, telling user about the limited ink. 
+5. Add submission confirmation
+6. General loading copy for site
+7. Cut down initial load time, so need to cache the initial marks used in the introduction. 
+a. If we can&apos;t do this, we will remove initial fly-by of Marks in the introduction</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397854</commentid>
+            <who name="Adam Miller">adam</who>
+            <bug_when>2011-04-08 16:48:12 -0700</bug_when>
+            <thetext>So this is all resolved as of 7pm EST. I addressed this in several commits today, the final being: https://github.com/mozilla/markup/commit/135b0253685a4e2b96818fb661c06cb6302ea3f8
+
+Number 7 is referring to server side caching of the translated marks that are loaded for the intro. The request made to get those marks should be fully cached as a static file on the server and never hit the database. We&apos;ve been assuming all along that this would be in place on the server, but if that&apos;s not the case, we need to know so we can remove that dependency.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

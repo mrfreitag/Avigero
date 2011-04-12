@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647828</bug_id>
+          
+          <creation_ts>2011-04-05 08:47:00 -0700</creation_ts>
+          <short_desc>Unexpected behavior of Paste into new message</short_desc>
+          <delta_ts>2011-04-07 05:23:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>329482</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Russ Ranshaw">home.rr</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>ulysse</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391198</commentid>
+            <who name="Russ Ranshaw">home.rr</who>
+            <bug_when>2011-04-05 08:47:23 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 ( .NET CLR 3.5.30729)
+Build Identifier: 3.1.9
+
+Insertion cursor does not move to the window in which the mouse pointeris located when doing r-click -&gt; Paste.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.  Copy some text to clipboard, source not critical
+2.  Open a new message in Thunderbird
+3.  Place mouse pointer inside the compose window
+4.  r-click the mouse, select Paste
+
+Actual Results:  
+Text is pasted into the To: line
+
+Expected Results:  
+Focus should move to the compose pane and the text inserted there
+
+Not sure what version first had this problem, but it is solid.
+
+In order to get the expected result, it is first necessary to l-click before doing the r-click -&gt; Paste 
+
+This is a departure from Thunderbird version 2, at least.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391314</commentid>
+            <who name="(:Aureliano Buendía)">ulysse</who>
+            <bug_when>2011-04-05 10:23:21 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 474730 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391316</commentid>
+            <who name="(:Aureliano Buendía)">ulysse</who>
+            <bug_when>2011-04-05 10:24:00 -0700</bug_when>
+            <thetext>sorry for the mystake
+
+*** This bug has been marked as a duplicate of bug 329482 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394240</commentid>
+            <who name="Russ Ranshaw">home.rr</who>
+            <bug_when>2011-04-07 05:23:51 -0700</bug_when>
+            <thetext>I do not believe this is a duplicate of bug 329482 because it has nothing to do with timing.
+
+It has to do with the fact that after the compose window opens (wait an hour if you wish), then put the mouse pointer into the compose window and paste something, it ends up in the To: field, NOT in the compose window.  In previous releases, the insertion point was properly moved into the compose window before the paste operation.
+
+No arguments about &quot;proper progression&quot; please.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

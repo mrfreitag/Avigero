@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647741</bug_id>
+          
+          <creation_ts>2011-04-04 14:46:00 -0700</creation_ts>
+          <short_desc>It&apos;s hard to navigate among installed extensions, as their file-(or folder-) name may be just a GUID</short_desc>
+          <delta_ts>2011-04-08 13:21:15 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Add-ons Manager</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Asa DotzHEBElermanberger">a4010956</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>antoine.mechelynck</cc>
+    
+    <cc>dtownsend</cc>
+    
+    <cc>hskupin</cc>
+    
+    <cc>iDrugoy</cc>
+    
+    <cc>jorge</cc>
+          <qa_contact>add-ons.manager</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390507</commentid>
+            <who name="Asa DotzHEBElermanberger">a4010956</who>
+            <bug_when>2011-04-04 14:46:06 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre
+Build Identifier: 
+
+And extensions&apos; developers are not going to change their extensions&apos; file names from GUID names into readable as it will break the updates for the old branch.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393583</commentid>
+            <who name="Asa DotzHEBElermanberger">a4010956</who>
+            <bug_when>2011-04-06 16:58:46 -0700</bug_when>
+            <thetext>Currently none of the extensions&apos; developers agree to change those names as that would mean a total breaking of updates, as thousands/millions of users would be affected.
+
+I suggest to change the mechanics of how the filename (or folder&apos;s name) of the installed extension should get defined.
+Every extension has it&apos;s GUID, but why using it as a filename?
+Why not make the name of the file get formed by the formulae: &quot;extension_name@extension_website.xpi&quot;. In case there is no website stored in the extension - then use developer_name.
+
+Why the hell it was once decided to use extensions&apos; GUIDs as filenames at all?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393620</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-06 17:10:56 -0700</bug_when>
+            <thetext>GUIDs are used for folders because it ensures the folder name will be unique, and doesn&apos;t require to add a bunch of code in case there are name collisions.
+
+I&apos;m removing all dependencies you introduced because they are not real. Please don&apos;t spam other bugs to bring attention to your own.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394179</commentid>
+            <who name="Asa DotzHEBElermanberger">a4010956</who>
+            <bug_when>2011-04-07 03:36:56 -0700</bug_when>
+            <thetext>Ok, sorry for bugspam.
+But can&apos;t you make folder&apos;s name at least like &quot;extension_name@GUID&quot;?
+Then it will be both unique and recognizable.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394180</commentid>
+            <who name="Asa DotzHEBElermanberger">a4010956</who>
+            <bug_when>2011-04-07 03:37:47 -0700</bug_when>
+            <thetext>And ofc. I mean to use this format only for the extensions that currently have GUID as their folder name.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394781</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-07 11:32:18 -0700</bug_when>
+            <thetext>Why is it important that you can find the installed extension&apos;s files?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394897</commentid>
+            <who name="Tony Mechelynck (rarely reads bugmail)">antoine.mechelynck</who>
+            <bug_when>2011-04-07 12:47:34 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+Changing the ID of existing extensions would break extension upgrade (the new version would not be recognised as &quot;the same extension&quot; as the old one) so doing it that way is a no-no. But I agree that there is a need for a &quot;human-friendly&quot; access to addons, and to more info about addons than what can ATM be found in the addons manager:
+
+(In reply to comment #5)
+&gt; Why is it important that you can find the installed extension&apos;s files?
+
+One possible reason might be to find out the minVersion and maxVersion of which application(s) an installed extension supports, e.g. by looking into the install.rdf.
+
+Having some more info in the addons manager (e.g.: extension ID, minVersion, maxVersion), while it might be all gibberish and gobbledygook to the newbie, would actually be a plus to the technically-minded user. Maybe the solution would be to hide that info by default (to avoid frightening the newbie) but revealing it via a preference (to make the geek happier).
+
+As a workaround to this problem, I have created by hand, for my own use, a text file in two columns, containing on each line one GUID and the corresponding addon&apos;s name, sorted casefolded by GUID (for my installed addons only, including the disabled ones). It begins like this:
+
+jid0-Yia1AkUofBLANOmOYle1V8n713I@jetpack Facebook Acquaintances
+pdmts@caligonstudios.com               Preserve Download Modification Times
+tito@bug554615                         Error Console Message Remover
+{0538E3E3-7E9B-4d49-8831-A227C80A7AD3} Forecastfox Weather
+{08ab63e1-c4bc-4fb7-a0b2-55373b596eb7} Minimeter
+{1018e4d6-728f-4b20-ad56-37578a4de76b} Flagfox
+{11483926-db67-4190-91b1-ef20fcec5f33} FxIF
+{1280606b-2510-4fe0-97ef-9b5a22eafe80} Console2
+{15a7ef52-8a77-426e-9e17-e21af257d7c8} abcTajpu
+
+etc.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395022</commentid>
+            <who name="Asa DotzHEBElermanberger">a4010956</who>
+            <bug_when>2011-04-07 13:39:14 -0700</bug_when>
+            <thetext>It is also important when trying to modify an unavailable (dead) extension, which you can&apos;t download from anywhere, but you still have it installed.
+Or trying to take a look at the code of the installed extension: I know you can just go to AMO and download a new copy of it, but that takes more time than just opening profiles folder and navigating to &quot;extensions&quot; sub-folder.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395189</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-07 14:56:01 -0700</bug_when>
+            <thetext>Browsing directly to the installed extensions is not something we really want to spend time supporting (in fact in Firefox 4 most extensions will not even be extracted making this even harder). Using something other than the GUID would complicate the code more than I&apos;d like to support the cases mentioned. The only time I have thought this useful would be for sys-admins wanting to manually install extensions without needing to look up the ID but even then I don&apos;t think it is worth the time.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395496</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 17:01:19 -0700</bug_when>
+            <thetext>I agree with Dave. The number of users who really would like to dive into the profile&apos;s extension folder is kinda low. An extension could add all those missing pieces for techie users and could navigate them to the appropriate folder, similar what we do in the about:support page for the profile folder.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395586</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-07 18:03:18 -0700</bug_when>
+            <thetext>I&apos;d add that there have been extensions in the past (MRTech&apos;s Toolkit IIRC) which added something to the context menu in the add-ons manager to get directly to an add-ons files.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395593</commentid>
+            <who name="Asa DotzHEBElermanberger">a4010956</who>
+            <bug_when>2011-04-07 18:08:29 -0700</bug_when>
+            <thetext>(In reply to comment #8)
+&gt; Browsing directly to the installed extensions is not something we really want
+&gt; to spend time supporting (in fact in Firefox 4 most extensions will not even be
+&gt; extracted making this even harder). Using something other than the GUID would
+&gt; complicate the code more than I&apos;d like to support the cases mentioned. The only
+&gt; time I have thought this useful would be for sys-admins wanting to manually
+&gt; install extensions without needing to look up the ID but even then I don&apos;t
+&gt; think it is worth the time.
+
+Don&apos;t tell me about the lack of time. There are bugs that live for decades and you successfully ignore them, so just don&apos;t tell me about time.
+It&apos;s just laziness, as your not going to add what you personally don&apos;t need. OK.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395622</commentid>
+            <who name="Tony Mechelynck (rarely reads bugmail)">antoine.mechelynck</who>
+            <bug_when>2011-04-07 18:23:40 -0700</bug_when>
+            <thetext>(In reply to comment #11)
+[...]
+&gt; Don&apos;t tell me about the lack of time. There are bugs that live for decades and
+&gt; you successfully ignore them, so just don&apos;t tell me about time.
+&gt; It&apos;s just laziness, as your not going to add what you personally don&apos;t need.
+&gt; OK.
+
+That kind of talk is the exact wrong way to get what you want.
+
+Anyway, there already is a correspondence list between Extension IDs (in either GUID or email-like form) and extension titles on the about:support pages. Maybe it isn&apos;t sorted exactly the way you&apos;d like them, and indeed it isn&apos;t on the addon manager page, but it&apos;s better than nothing.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396254</commentid>
+            <who name="Asa DotzHEBElermanberger">a4010956</who>
+            <bug_when>2011-04-08 03:49:23 -0700</bug_when>
+            <thetext>(In reply to comment #12)
+&gt; That kind of talk is the exact wrong way to get what you want.
+
+The bug is already &quot;verified wontfix&quot;, so I won&apos;t get what I want anyway.
+
+&gt; Anyway, there already is a correspondence list between Extension IDs (in either
+&gt; GUID or email-like form) and extension titles on the about:support pages. Maybe
+&gt; it isn&apos;t sorted exactly the way you&apos;d like them, and indeed it isn&apos;t on the
+&gt; addon manager page, but it&apos;s better than nothing.
+
+That&apos;s stupid and useless, as this requires Firefox to be run, and I can&apos;t do any changes to the installed extension&apos;s file as long as Firefox is running.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397315</commentid>
+            <who name="Tony Mechelynck (rarely reads bugmail)">antoine.mechelynck</who>
+            <bug_when>2011-04-08 13:21:15 -0700</bug_when>
+            <thetext>(In reply to comment #13)
+&gt; (In reply to comment #12)
+&gt; &gt; Anyway, there already is a correspondence list between Extension IDs (in either
+&gt; &gt; GUID or email-like form) and extension titles on the about:support pages. Maybe
+&gt; &gt; it isn&apos;t sorted exactly the way you&apos;d like them, and indeed it isn&apos;t on the
+&gt; &gt; addon manager page, but it&apos;s better than nothing.
+&gt; 
+&gt; That&apos;s stupid and useless, as this requires Firefox to be run, and I can&apos;t do
+&gt; any changes to the installed extension&apos;s file as long as Firefox is running.
+
+It isn&apos;t as stupid as that: you can copy that page to the clipboard (by means of a prominent button at its top) then save it to a file which will remain even with the browser closed, and which you can manipulate at will using the substitute and sort functions provided by any _good_ text editor.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

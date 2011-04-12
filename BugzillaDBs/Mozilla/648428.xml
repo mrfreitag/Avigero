@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648428</bug_id>
+          
+          <creation_ts>2011-04-07 16:59:00 -0700</creation_ts>
+          <short_desc>Update Twitter and Facebook share text</short_desc>
+          <delta_ts>2011-04-08 10:20:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647730</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="William Reynolds [:williamr]">williamr</reporter>
+          <assigned_to name="Craig Cook">craigcook.bugz</assigned_to>
+          <cc>mozbugs.retornam</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395491</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-07 16:59:24 -0700</bug_when>
+            <thetext>Filing this as mentioned in bug 647730 comment 32.
+
+Craig, please update the text that is shared when someone clicks on the Twitter and Facebook buttons.
+
+Tweet text:
+Discover the awesome. I did! Upgrade to Firefox 4 today! http://mzl.la/i85nib
+#fx4
+
+Facebook text:
+Discover the awesome. I did! Upgrade to Firefox 4 today! http://mzl.la/i85nib</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395506</commentid>
+            <who name="Craig Cook">craigcook.bugz</who>
+            <bug_when>2011-04-07 17:04:17 -0700</bug_when>
+            <thetext>Facebook&apos;s sharer API only has parameters for URL and title, and doesn&apos;t offer a way to pass in a comment. And in this case they&apos;re even overriding the title because the page we&apos;re linking to has its own title and description already. 
+
+Looks like it&apos;ll be up to the user to add a comment of their own when they share the link. I haven&apos;t found any way around it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395542</commentid>
+            <who name="Craig Cook">craigcook.bugz</who>
+            <bug_when>2011-04-07 17:21:11 -0700</bug_when>
+            <thetext>Updated the twitter text in r87091 but I don&apos;t think we can do anything for Facebook.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395587</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-07 18:03:49 -0700</bug_when>
+            <thetext>Thanks Craig and understand the Facebook issue. Twitter text VERIFIED fixed on stage.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396754</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-08 10:20:18 -0700</bug_when>
+            <thetext>qa-verified-trunk https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

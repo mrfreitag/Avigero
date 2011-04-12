@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647595</bug_id>
+          
+          <creation_ts>2011-04-03 12:42:00 -0700</creation_ts>
+          <short_desc>Intermittent &quot;initialization timed out&quot; running ts_places_generated_med on WinXP</short_desc>
+          <delta_ts>2011-04-09 08:56:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Talos</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jfkthame</cc>
+          <qa_contact>talos</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389363</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-03 12:42:22 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug 567401 +++
+
+http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1301835810.1301838027.20879.gz
+Rev3 WINNT 5.1 mozilla-central talos dirty on 2011/04/03 06:03:30 
+s: talos-r3-xp-022
+
+Running test ts_places_generated_med: 
+		Started Sun, 03 Apr 2011 06:20:18
+NOISE: __metrics	Screen width/height:1280/1024
+NOISE: 	colorDepth:24
+NOISE: 	Browser inner width/height: 1016/651
+NOISE: __metrics
+Failed ts_places_generated_med: 
+		Stopped Sun, 03 Apr 2011 06:40:21
+FAIL: Busted: ts_places_generated_med
+FAIL: initialization timed out</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396397</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-08 07:14:59 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=TraceMonkey/1302269700.1302271906.20644.gz</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398398</commentid>
+            <who name="Jonathan Kew">jfkthame</who>
+            <bug_when>2011-04-09 08:56:31 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=Cedar/1302342865.1302345113.4757.gz</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

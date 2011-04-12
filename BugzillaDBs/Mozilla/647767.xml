@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647767</bug_id>
+          
+          <creation_ts>2011-04-04 20:04:00 -0700</creation_ts>
+          <short_desc>Browser not known</short_desc>
+          <delta_ts>2011-04-05 19:35:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          <bug_file_loc>http://www.walmart.com/mp3 downloads</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>kb7kr</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390753</commentid>
+            <who name="">kb7kr</who>
+            <bug_when>2011-04-04 20:04:35 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+After installing newest version Walmart mp3 download page does not recognize browser.  Worked fine with 3.5 and IE.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.try to log into mp3 downloads on walmart.com
+2.
+3.
+Actual Results:  
+Error message
+
+Expected Results:  
+open mp3 downloads</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390763</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 20:24:03 -0700</bug_when>
+            <thetext>&gt;Error message
+What is the error message ?
+
+&gt;After installing newest version Walmart mp3 download page does not recognize
+browser.
+
+And why would that be a browser bug and not a walmart website bug ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391797</commentid>
+            <who name="">kb7kr</who>
+            <bug_when>2011-04-05 19:24:52 -0700</bug_when>
+            <thetext>It now appears that the problem is actually Walmart&apos;s problem.  The music download site does not recognize Firefox 4 or IE 9. So this is not a bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391802</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-05 19:35:08 -0700</bug_when>
+            <thetext>marking invalid
+I would move this to TE but the reporter already contacted the website owner</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

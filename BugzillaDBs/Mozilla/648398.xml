@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648398</bug_id>
+          
+          <creation_ts>2011-04-07 16:05:00 -0700</creation_ts>
+          <short_desc>Search keywords (smart keywords?) should not be bookmarks</short_desc>
+          <delta_ts>2011-04-08 09:26:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Steve Fink [:sfink]">sphink</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mak77</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395347</commentid>
+            <who name="Steve Fink [:sfink]">sphink</who>
+            <bug_when>2011-04-07 16:05:15 -0700</bug_when>
+            <thetext>I have recently stumbled across the search keyword feature, and I love it. But the management UI just feels weird. I don&apos;t understand why they&apos;re associated with bookmarks at all. I can see that they&apos;re sort of bookmark-like, but I really think of them as associated with the location bar, not any of the bookmark UI elements.
+
+If I wanted to delete one of them, would I delete the bookmark? I&apos;m not sure whether to expect that to work or not.
+
+I use the bookmarks toolbar for *all* of my bookmarks, and had forgotten that anything else existed. I suppose if I ever went to the Bookmarks menu then I might feel differently?
+
+I&apos;m not sure where I would expect search keywords to be manipulated within the UI, but my first guess would be preferences.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396584</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-08 09:26:53 -0700</bug_when>
+            <thetext>Yes, keywords are a sort of annotation on a bookmark, since they have both the use of being quick-search-shortcuts or aliases for a uri.
+To remove to keyword you remove the bookmark it&apos;s associated to or remove the keyword property from the bookmark (notice the same keyword can be associated to multiple bookmarks since locationbar allows to select the keyword to use after typing it)
+The UI is probably confusing, most likely the initial decision to do so was to simplify internal management, ideally they should not be managed this way, and should be invisible to bookmarks lists, but that&apos;s a low priority right now.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

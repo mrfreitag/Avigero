@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647689</bug_id>
+          
+          <creation_ts>2011-04-04 09:00:00 -0700</creation_ts>
+          <short_desc>A &quot;message date received&quot; value is incorrect</short_desc>
+          <delta_ts>2011-04-08 02:40:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>MailNews: Message Display</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Peter Slacik">peter.c.slacik</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>peter.c.slacik</cc>
+          <qa_contact>message-display</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390206</commentid>
+            <who name="Peter Slacik">peter.c.slacik</who>
+            <bug_when>2011-04-04 09:00:15 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.18) Gecko/20110320 SeaMonkey/2.0.13
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.18) Gecko/20110320 SeaMonkey/2.0.13
+
+Whatever value was meant to show up as &quot;Date received&quot; for an incoming e-mail message, the value displayed is always effectively &quot;Date sent&quot;. No matter whether there were some delivery problems or delayn en-route...
+
+Should it be the time the email client picked the message from server, or when the last-in-chain server received the message, or even something else?
+
+I&apos;ve one email contact person, who&apos;s local computer&apos;s time is off by approx. 22 minutes to future. Already for years... I&apos;m receiving these e-mails in few seconds, thus their &quot;time sent&quot; is always off by this offset. An example from 15 minutes ago (all IPs (irrelevant) are modified, some IDs stripped):
+
+Delivered-To: my.self@gmail.com
+Received: by 10.22.136.91 with SMTP id ....;
+        Mon, 4 Apr 2011 08:22:16 -0700 (PDT)
+Received: by 10.240.12.134 with SMTP id ......;
+        Mon, 04 Apr 2011 08:22:15 -0700 (PDT)
+Return-Path: &lt;him.self@his.domain&gt;
+Received: from smtp.domain.com (smtp.domain.com [207.189.121.194])
+        by mx.google.com with ESMTPS id .....41.2011.04.04.08.22.13
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Mon, 04 Apr 2011 08:22:14 -0700 (PDT)
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.domain.com (Postfix) with ESMTP id ......
+	for &lt;my.self@gmail.com&gt;; Mon,  4 Apr 2011 17:22:13 +0200 (CEST)
+Received: from theserver (dsl-static-35.221-3-158.adomain.com [212.5.201.43])
+	by smtp.adomain.com (Postfix) with ESMTPA id ......
+	for &lt;peter.slacik@gmail.com&gt;; Mon,  4 Apr 2011 17:22:08 +0200 (CEST)
+Received: from localhost ([127.0.0.1])
+	by theserver
+	for my.self@gmail.com;
+	Mon, 4 Apr 2011 17:22:06 +0200
+From: Him Self &lt;him.self@his.domain&gt;
+To: &quot;&apos;My Self&apos;&quot; &lt;my.self@gmail.com&gt;
+Subject: Message subject
+Date: Mon, 4 Apr 2011 17:55:47 +0200
+
+
+Reproducible: Always
+
+Actual Results:  
+As can be seen on this example, the message was sent on Mon, 4 Apr 2011 17:55:47 +0200 (17:55 my local time). I&apos;ve received the notification about storing the message into my Inbox in a few seconds. At the same moment, it was just 17:22 my local time.
+
+Expected Results:  
+I&apos;m expecting seeing &quot;17:22 my local time&quot; as the value for &quot;Date received&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392164</commentid>
+            <who name="Philip Chee">philip.chee</who>
+            <bug_when>2011-04-06 05:23:53 -0700</bug_when>
+            <thetext>Go to about:config
+Filter for:
+mailnews.use_received_date
+Is it set to true or false?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396216</commentid>
+            <who name="Peter Slacik">peter.c.slacik</who>
+            <bug_when>2011-04-08 02:37:00 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Go to about:config / mailnews.use_received_date
+&gt; Is it set to true or false?
+It was set to false. But even after setting it to true, the behavior does not change: received-time is still the exact copy of sent-time.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396217</commentid>
+            <who name="Peter Slacik">peter.c.slacik</who>
+            <bug_when>2011-04-08 02:40:06 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; (In reply to comment #1)
+&gt; &gt; Go to about:config / mailnews.use_received_date
+&gt; &gt; Is it set to true or false?
+&gt; It was set to false. But even after setting it to true, the behavior does not
+&gt; change: received-time is still the exact copy of sent-time.
+Just to add: even received-time of the newly coming messages.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

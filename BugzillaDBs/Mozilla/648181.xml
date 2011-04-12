@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648181</bug_id>
+          
+          <creation_ts>2011-04-06 17:47:00 -0700</creation_ts>
+          <short_desc>My laptop isn&apos;t receiving a valid ipv6 address</short_desc>
+          <delta_ts>2011-04-07 14:20:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          <bug_file_loc>http://ipv6.google.com</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Daniel Holbert [:dholbert]">dholbert</reporter>
+          <assigned_to>desktop-support</assigned_to>
+          <cc>dmoore</cc>
+    
+    <cc>jlazaro</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393734</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 17:47:10 -0700</bug_when>
+            <thetext>Spinning this off of Bug 648020 comment 7.  Derek says in IRC:
+&gt; It looks like your laptop isn&apos;t receiving a (valid) IPv6 address.
+&gt; Your distro might have IPv6 autoconfiguration disabled by default
+
+This may be a config issue on my machine, but I&apos;m tentatively filing a bug to track it anyway. (if nothing else, as a place to direct others with the same problem, once we&apos;ve got it figured out)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393737</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 17:48:04 -0700</bug_when>
+            <thetext>(Running Ubuntu 10.10 x86_64, btw.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395118</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 14:20:46 -0700</bug_when>
+            <thetext>I just tested using an Ubuntu Live CD environment, and http://ipv6.google.com &amp; http://test-ipv6.com work fine, so I&apos;m pretty sure this is just a config issue on my machine.
+
+Resolving as INVALID, since it seems to be a local config issue on my end.
+
+I&apos;ll be blowing this install away with Ubuntu 11.04 pretty soon anyway, so I probably won&apos;t dig much further on this.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

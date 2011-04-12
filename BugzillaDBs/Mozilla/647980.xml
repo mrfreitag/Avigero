@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647980</bug_id>
+          
+          <creation_ts>2011-04-06 05:26:00 -0700</creation_ts>
+          <short_desc>Implementation of Product.update webservice</short_desc>
+          <delta_ts>2011-04-08 09:06:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>WebService</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>Bugzilla 4.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Julien Heyman">jheyman</reporter>
+          <assigned_to name="Julien Heyman">jheyman</assigned_to>
+          <cc>mkanat</cc>
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392166</commentid>
+            <who name="Julien Heyman">jheyman</who>
+            <bug_when>2011-04-06 05:26:20 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 4.0
+
+Implementation of Product.update webservice
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392172</commentid>
+              <attachid>524168</attachid>
+            <who name="Julien Heyman">jheyman</who>
+            <bug_when>2011-04-06 05:32:11 -0700</bug_when>
+            <thetext>Created attachment 524168
+Implement the Product.update webservice v1
+
+Hi!
+
+The first version of my patch.
+
+This patch can be apply after the patch in https://bugzilla.mozilla.org/show_bug.cgi?id=469193
+
+Thanks to review it when you can.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392601</commentid>
+              <attachid>524168</attachid>
+            <who name="Max Kanat-Alexander">mkanat</who>
+            <bug_when>2011-04-06 10:56:00 -0700</bug_when>
+            <thetext>Comment on attachment 524168
+Implement the Product.update webservice v1
+
+This needs to be able to update multiple products. So it should take both an &quot;ids&quot; and a &quot;names&quot; argument, like other functions in the WebService do.
+
+Also, don&apos;t call individual set_ functions, use set_all. (See editproducts.cgi.)
+
+For the Errors section, you can just say:
+
+The same as L&lt;/create&gt;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392602</commentid>
+            <who name="Max Kanat-Alexander">mkanat</who>
+            <bug_when>2011-04-06 10:56:23 -0700</bug_when>
+            <thetext>Oh, and thank you for the patch and thank you for working on this, by the way! :-)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396558</commentid>
+              <attachid>524634</attachid>
+            <who name="Julien Heyman">jheyman</who>
+            <bug_when>2011-04-08 09:06:08 -0700</bug_when>
+            <thetext>Created attachment 524634
+Implement the Product.update webservice v2
+
+New version ;-)
+
+Thanks for review.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524168</attachid>
+            <date>2011-04-06 05:32:00 -0700</date>
+            <delta_ts>2011-04-08 09:06:08 -0700</delta_ts>
+            <desc>Implement the Product.update webservice v1</desc>
+            <filename>patch.diff</filename>
+            <type>text/plain</type>
+            <size>2284</size>
+            <attacher>jheyman</attacher>
+            
+              <data encoding="base64">PT09IG1vZGlmaWVkIGZpbGUgJ0J1Z3ppbGxhL1dlYlNlcnZpY2UvUHJvZHVjdC5wbScKLS0tIEJ1
+Z3ppbGxhL1dlYlNlcnZpY2UvUHJvZHVjdC5wbQkyMDExLTA0LTA2IDA5OjQyOjQ1ICswMDAwCisr
+KyBCdWd6aWxsYS9XZWJTZXJ2aWNlL1Byb2R1Y3QucG0JMjAxMS0wNC0wNiAxMjoxMjo1NSArMDAw
+MApAQCAtMTA0LDYgKzEwNCwyNSBAQAogICAgIHJldHVybiB7IGlkID0+ICRzZWxmLT50eXBlKCdp
+bnQnLCAkcHJvZHVjdC0+aWQpIH07CiB9CiAKK3N1YiB1cGRhdGUgeworICAgIG15ICgkc2VsZiwg
+JHBhcmFtcykgPSBAXzsKKworICAgIEJ1Z3ppbGxhLT5sb2dpbihMT0dJTl9SRVFVSVJFRCk7Cisg
+ICAgQnVnemlsbGEtPnVzZXItPmluX2dyb3VwKCdlZGl0Y29tcG9uZW50cycpCisgICAgICAgIHx8
+IFRocm93VXNlckVycm9yKCJhdXRoX2ZhaWx1cmUiLCB7IGdyb3VwICA9PiAiZWRpdGNvbXBvbmVu
+dHMiLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhY3Rpb24g
+PT4gImVkaXQiLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBv
+YmplY3QgPT4gInByb2R1Y3RzIn0pOworCisgICAgbXkgJHByb2R1Y3QgPSBCdWd6aWxsYTo6UHJv
+ZHVjdC0+bmV3KCRwYXJhbXMtPntpZH0pOworICAgICRwcm9kdWN0LT5zZXRfbmFtZSgkcGFyYW1z
+LT57bmFtZX0pIGlmIGRlZmluZWQgJHBhcmFtcy0+e25hbWV9OworICAgICRwcm9kdWN0LT5zZXRf
+ZGVzY3JpcHRpb24oJHBhcmFtcy0+e2Rlc2NyaXB0aW9ufSkgaWYgZGVmaW5lZCAkcGFyYW1zLT57
+ZGVzY3JpcHRpb259OworICAgICRwcm9kdWN0LT5zZXRfaXNfYWN0aXZlKCRwYXJhbXMtPntpc19v
+cGVufSkgaWYgZGVmaW5lZCAkcGFyYW1zLT57aXNfb3Blbn07CisgICAgJHByb2R1Y3QtPnNldF9h
+bGxvd3NfdW5jb25maXJtZWQoJHBhcmFtcy0+e2hhc191bmNvbmZpcm1lZH0pIGlmIGRlZmluZWQg
+JHBhcmFtcy0+e2hhc191bmNvbmZpcm1lZH07CisgICAgbXkgJHJlc3VsdCA9ICRwcm9kdWN0LT51
+cGRhdGUoKTsKKworICAgIHJldHVybiB7IGNoYW5nZXMgPT4gJHJlc3VsdCB9OworfQorCiAxOwog
+CiBfX0VORF9fCkBAIC0yMjQsNyArMjQzLDcgQEAKIAogPWJhY2sKIAotPWhlYWQxIFByb2R1Y3Qg
+Q3JlYXRpb24KKz1oZWFkMSBQcm9kdWN0IENyZWF0aW9uIGFuZCBVcGRhdGUKIAogPWhlYWQyIGNy
+ZWF0ZQogCkBAIC0zMTIsNCArMzMxLDY2IEBACiAKID1iYWNrCiAKKz1oZWFkMiB1cGRhdGUKKwor
+QjxFWFBFUklNRU5UQUw+CisKKz1vdmVyCisKKz1pdGVtIEI8RGVzY3JpcHRpb24+CisKK1RoaXMg
+YWxsb3dzIHlvdSB0byB1cGRhdGUgYSBwcm9kdWN0IGluIEJ1Z3ppbGxhLgorCis9aXRlbSBCPFBh
+cmFtcz4KKworU29tZSBwYXJhbXMgbXVzdCBiZSBzZXQsIG9yIGFuIGVycm9yIHdpbGwgYmUgdGhy
+b3duLiBUaGVzZSBwYXJhbXMgYXJlIG1hcmtlZCBSZXF1aXJlZC4KKworPW92ZXIKKworPWl0ZW0g
+QzxpZD4KKworQjxSZXF1aXJlZD4gQzxpbnQ+IFRoZSBpZCBvZiB0aGUgcHJvZHVjdCB3b3VsZCBi
+ZSB1cGRhdGVkLgorCis9aXRlbSBDPG5hbWU+CisKK0M8c3RyaW5nPiBUaGUgbmV3IG5hbWUgb2Yg
+dGhlIHByb2R1Y3QuCisKKz1pdGVtIEM8ZGVzY3JpcHRpb24+CisKK0M8c3RyaW5nPiBBIG5ldyBk
+ZXNjcmlwdGlvbiBmb3IgdGhpcyBwcm9kdWN0LiBBbGxvd3Mgc29tZSBzaW1wbGUgSFRNTC4KKwor
+PWl0ZW0gQzxoYXNfdW5jb25maXJtZWQ+CisKK0M8Ym9vbGVhbj4gVGhlIG5ldyB2YWx1ZSB0byBz
+ZXQgYWxsb3dzIHVuY29uZmlybWVkIGJ1Z3MgaW4gdGhlIHByb2R1Y3QuCisKKz1pdGVtIEM8aXNf
+b3Blbj4KKworQzxib29sZWFuPiBTZXQgaWYgcHJvZHVjdCBpcyBhY3RpdmUuCisKKz1iYWNrCisK
+Kz1pdGVtIEI8UmV0dXJucz4KKworQSBoYXNoIHdpdGggYWxsIGVsZW1lbnQgY2hhbmdlZCBpbiB0
+aGUgcHJvZHVjdC4KKworPWl0ZW0gQjxFcnJvcnM+CisKKz1vdmVyCisKKz1pdGVtIDcwMCAoUHJv
+ZHVjdCBibGFuayBuYW1lKQorCitZb3UgbXVzdCBzcGVjaWZ5IGEgbm9uIGJsYW5rIG5hbWUgZm9y
+IHRoaXMgcHJvZHVjdC4KKworPWl0ZW0gNzAxIChQcm9kdWN0IG5hbWUgdG9vIGxvbmcpCisKK1lv
+dSBkaWRuJ3Qgc3BlY2lmeSBhIHRvbyBsb25nIG5hbWUgZm9yIHRoaXMgcHJvZHVjdC4KKworPWl0
+ZW0gNzAzIChQcm9kdWN0IG11c3QgaGF2ZSBkZXNjcmlwdGlvbikKKworWW91IG11c3Qgc3BlY2lm
+eSBhIGRlc2NyaXB0aW9uIGZvciB0aGlzIHByb2R1Y3QuCisKKz1iYWNrCisKKz1iYWNrCisKID1j
+dXQKCg==
+</data>
+<flag name="review"
+          id="437888"
+          type_id="7"
+          status="-"
+          setter="mkanat"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524634</attachid>
+            <date>2011-04-08 09:06:00 -0700</date>
+            <delta_ts>2011-04-08 09:06:08 -0700</delta_ts>
+            <desc>Implement the Product.update webservice v2</desc>
+            <filename>patch.diff</filename>
+            <type>text/plain</type>
+            <size>2841</size>
+            <attacher>jheyman</attacher>
+            
+              <data encoding="base64">PT09IG1vZGlmaWVkIGZpbGUgJ0J1Z3ppbGxhL1dlYlNlcnZpY2UvUHJvZHVjdC5wbScKLS0tIEJ1
+Z3ppbGxhL1dlYlNlcnZpY2UvUHJvZHVjdC5wbQkyMDExLTA0LTA3IDIzOjM2OjAyICswMDAwCisr
+KyBCdWd6aWxsYS9XZWJTZXJ2aWNlL1Byb2R1Y3QucG0JMjAxMS0wNC0wOCAxNjowMjoxNCArMDAw
+MApAQCAtMTA0LDYgKzEwNCw0OSBAQAogICAgIHJldHVybiB7IGlkID0+ICRzZWxmLT50eXBlKCdp
+bnQnLCAkcHJvZHVjdC0+aWQpIH07CiB9CiAKK3N1YiB1cGRhdGUgeworICAgIG15ICgkc2VsZiwg
+JHBhcmFtcykgPSBAXzsKKworICAgIEJ1Z3ppbGxhLT5sb2dpbihMT0dJTl9SRVFVSVJFRCk7Cisg
+ICAgQnVnemlsbGEtPnVzZXItPmluX2dyb3VwKCdlZGl0Y29tcG9uZW50cycpCisgICAgICAgIHx8
+IFRocm93VXNlckVycm9yKCJhdXRoX2ZhaWx1cmUiLCB7IGdyb3VwICA9PiAiZWRpdGNvbXBvbmVu
+dHMiLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhY3Rpb24g
+PT4gImVkaXQiLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBv
+YmplY3QgPT4gInByb2R1Y3RzIn0pOworCisgICAgZGVmaW5lZCgkcGFyYW1zLT57bmFtZXN9KSB8
+fCBkZWZpbmVkKCRwYXJhbXMtPntpZHN9KQorICAgICAgICB8fCBUaHJvd0NvZGVFcnJvcigncGFy
+YW1zX3JlcXVpcmVkJywgCisgICAgICAgICAgICAgICB7IGZ1bmN0aW9uID0+ICdQcm9kdWN0LnVw
+ZGF0ZScsIHBhcmFtcyA9PiBbJ2lkcycsICduYW1lcyddIH0pOworCisKKyAgICBteSBAcHJvZHVj
+dF9vYmplY3RzOworICAgIEBwcm9kdWN0X29iamVjdHMgPSBtYXAgeyBCdWd6aWxsYTo6UHJvZHVj
+dC0+Y2hlY2soJF8pIH0gQHsgJHBhcmFtcy0+e25hbWVzfSB9IGlmICRwYXJhbXMtPntuYW1lc307
+CisKKyAgICBteSAkcHJvZHVjdHNfYnlfaWRzOworICAgICRwcm9kdWN0c19ieV9pZHMgPSBCdWd6
+aWxsYTo6UHJvZHVjdC0+bmV3X2Zyb21fbGlzdCgkcGFyYW1zLT57aWRzfSkgaWYgJHBhcmFtcy0+
+e2lkc307CisKKyAgICAjIHN0YXJ0IGZpbHRlcmluZyB0byByZW1vdmUgZHVwbGljYXRlIHByb2R1
+Y3RzIGlkcworICAgIG15ICV1bmlxdWVfcHJvZHVjdHM7IAorICAgIG1hcCB7ICR1bmlxdWVfcHJv
+ZHVjdHN7JF8tPmlkfSA9ICRfIH0gQHByb2R1Y3Rfb2JqZWN0czsKKyAgICBAcHJvZHVjdF9vYmpl
+Y3RzID0gdmFsdWVzICV1bmlxdWVfcHJvZHVjdHM7CisgICAgZm9yZWFjaCBteSAkb2JqIChAJHBy
+b2R1Y3RzX2J5X2lkcyl7CisgICAgICAgIHB1c2ggKEBwcm9kdWN0X29iamVjdHMsICRvYmopIGlm
+ICEkdW5pcXVlX3Byb2R1Y3RzeyRvYmotPmlkfTsKKyAgICB9CisKKyAgICBteSAlY2hhbmdlczsK
+KworICAgIG15ICV2YWx1ZXMgPSAlJHBhcmFtczsKKyAgICBkZWxldGUgJHZhbHVlc3tuYW1lc307
+CisgICAgZGVsZXRlICR2YWx1ZXN7aWRzfTsKKworCisgICAgZm9yZWFjaCBteSAkcHJvZHVjdCAo
+QHByb2R1Y3Rfb2JqZWN0cykgeworICAgICAgICAkcHJvZHVjdC0+c2V0X2FsbChcJXZhbHVlcyk7
+CisgICAgICAgICRjaGFuZ2VzeyRwcm9kdWN0LT5pZH0gPSAkcHJvZHVjdC0+dXBkYXRlKCk7Cisg
+ICAgfQorICAgICAgICAgICAgCisgICAgcmV0dXJuIHsgY2hhbmdlcyA9PiBcJWNoYW5nZXMgfTsK
+K30KKwogMTsKIAogX19FTkRfXwpAQCAtMjI0LDcgKzI2Nyw3IEBACiAKID1iYWNrCiAKLT1oZWFk
+MSBQcm9kdWN0IENyZWF0aW9uCis9aGVhZDEgUHJvZHVjdCBDcmVhdGlvbiBhbmQgVXBkYXRlCiAK
+ID1oZWFkMiBjcmVhdGUKIApAQCAtMzE4LDQgKzM2MSw2MCBAQAogCiA9YmFjawogCis9aGVhZDIg
+dXBkYXRlCisKK0I8RVhQRVJJTUVOVEFMPgorCis9b3ZlcgorCis9aXRlbSBCPERlc2NyaXB0aW9u
+PgorCitUaGlzIGFsbG93cyB5b3UgdG8gdXBkYXRlIGEgcHJvZHVjdCBpbiBCdWd6aWxsYS4KKwor
+PWl0ZW0gQjxQYXJhbXM+CisKK0F0IGxlYXN0IG9uZSBvZiBwYXJhbXMgbXVzdCBiZSBzZXQsIG9y
+IGFuIGVycm9yIHdpbGwgYmUgdGhyb3duLgorVGhlc2UgcGFyYW1zIGFyZSBtYXJrZWQgUmVxdWly
+ZWQuCisKKz1vdmVyCisKKz1pdGVtIEM8aWRzPgorCitCPFJlcXVpcmVkPiBDPGFycmF5PiBDb250
+YWluIGlkcyBvZiBwcm9kdWN0cyB0byB1cGRhdGUuCisKKz1pdGVtIEM8bmFtZXM+CisKK0I8UmVx
+dWlyZWQ+IEM8YXJyYXk+IENvbnRhaW4gbmFtZXMgb2YgcHJvZHVjdHMgdG8gdXBkYXRlLgorCis9
+aXRlbSBDPG5hbWU+CisKK0M8c3RyaW5nPiBBIG5ldyBuYW1lIGZvciBwcm9kdWN0cy4KKworPWl0
+ZW0gQzxkZXNjcmlwdGlvbj4KKworQzxzdHJpbmc+IEEgbmV3IGRlc2NyaXB0aW9uIGZvciBwcm9k
+dWN0cy4KKworPWl0ZW0gQzxhbGxvd191bmNvbmZpcm1lZD4KKworQzxib29sZWFuPiBBbGxvdyB0
+aGUgVU5DT05GSVJNRUQgc3RhdHVzIHRvIGJlIHNldCBvbiBidWdzIGluIHByb2R1Y3RzLgorCis9
+aXRlbSBDPGlzX2FjdGl2ZT4KKworQzxib29sZWFuPiBUcnVlIGlmIHRoZSBwcm9kdWN0IGlzIGN1
+cnJlbnRseSBhbGxvd2luZyBidWdzIHRvIGJlIGVudGVyZWQKK2ludG8gcHJvZHVjdHMuCisKKz1i
+YWNrCisKKz1pdGVtIEI8UmV0dXJucz4KKworQSBoYXNoIHdpdGggaXRlbSBDPGNoYW5nZXM+LCBj
+b250YWluaW5nIGFsbCBDPGlkcz4gZm9yIHByb2R1Y3RzIHVwZGF0ZWQuCitFYWNoIEM8aWQ+IGlz
+IGEgaGFzaCwgY29udGFpbmluZyBvbmUgaGFzaCBieSBlbGVtZW50IHVwZGF0ZWQgCitjb250YWlu
+aW5nIG5ldyBhbmQgb2xkIHZhbHVlcyBmb3IgdGhpcyBlbGVtZW50LgorCis9aXRlbSBCPEVycm9y
+cz4KKworVGhlIHNhbWUgYXMgTDwvY3JlYXRlPi4KKworPWJhY2sKKwogPWN1dAoK
+</data>
+<flag name="review"
+          id="438257"
+          type_id="7"
+          status="?"
+          setter="jheyman"
+          requestee="mkanat"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

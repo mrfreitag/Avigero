@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648554</bug_id>
+          
+          <creation_ts>2011-04-08 09:53:00 -0700</creation_ts>
+          <short_desc>Fx4 upgrade INFLUENCER campaign - font dont render correctly in Chrome</short_desc>
+          <delta_ts>2011-04-11 12:41:17 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.0</target_milestone>
+          
+          <blocked>647730</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jane Finette">jfinette</reporter>
+          <assigned_to name="Craig Cook">craigcook.bugz</assigned_to>
+          <cc>lforrest</cc>
+    
+    <cc>malexis</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396664</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-08 09:53:45 -0700</bug_when>
+            <thetext>Tried the stage page in Chrome and see the fonts dont appear to have the right size and font family. 
+
+https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/
+
+Here&apos;s how it should appear:
+http://mozilla.seanmartell.com/engagement/influencer.png
+
+
+Craig - this is similar to what is happening on the facebook tab. Please can you help fix this there as well? The bug for that is bug 648396</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396665</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-08 09:54:31 -0700</bug_when>
+            <thetext>Scratch the bug number above it should be: bug 648395</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397800</commentid>
+            <who name="Craig Cook">craigcook.bugz</who>
+            <bug_when>2011-04-08 16:08:07 -0700</bug_when>
+            <thetext>While Webkit has recently added WOFF support, older versions of Chrome and Safari may still require a TrueType fallback. Luckily League Gothic is available in TrueType so I&apos;ve added it in r87119.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401238</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-11 12:41:17 -0700</bug_when>
+            <thetext>qa-verified-trunk https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647856</bug_id>
+          
+          <creation_ts>2011-04-05 11:02:00 -0700</creation_ts>
+          <short_desc>Dashboard page enhancements</short_desc>
+          <delta_ts>2011-04-08 08:56:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          <status_whiteboard>[l10n impact]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>1.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Guillaume Lecollinet">guillaume</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391353</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:02:09 -0700</bug_when>
+            <thetext>Opening this bug per TBG&apos;s request to add enhancements to the dashboard page when users have just created their account and not yet earned any badges.
+
+Design specification for these enhancements can be found here: http://staging.barbariangroup.com/1903/deliverables/nonMobile_dashboard_NEWUSER.zip</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396304</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-08 05:42:21 -0700</bug_when>
+            <thetext>Adding l10n impact to the whiteboard since this bug implies the creation of new strings.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396548</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-08 08:56:06 -0700</bug_when>
+            <thetext>Fixed in this commit:
+https://github.com/mozilla/spark/commit/ec2b4956bb860486d691878b7872b1289a56db1a
+
+l10n notice: 1 new string was created.
+&quot;You don&apos;t have any badges yet. Check out the challenge list below to start earning badges.&quot;</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

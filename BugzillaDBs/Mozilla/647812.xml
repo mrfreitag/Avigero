@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647812</bug_id>
+          
+          <creation_ts>2011-04-05 06:10:00 -0700</creation_ts>
+          <short_desc>Modification failed errors for calendar entry updates or reminder handling.</short_desc>
+          <delta_ts>2011-04-05 06:10:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>bud.anderson</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391068</commentid>
+            <who name="">bud.anderson</who>
+            <bug_when>2011-04-05 06:10:19 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.1.3) Gecko/20090824 Firefox/3.5.3 ( .NET CLR 3.5.30729)
+Build Identifier: Mozilla Thunderbird version 3.1.9
+
+A calendar scheduled event built by me started issuing reminders after the event was over and I had dismissed it.  I clicked on &quot;dismiss&quot; and got error message &quot;modification failed while writing to the calendar bud.anderson.  Additional information: code 400 bad request bad format FAKEID&quot;.  I was finally able to delete the event and rebuild it, but the reminders from multiple events are stacking up and I cannot dismiss or snooze them.  I get the same error every 15 minutes or so while Thunderbird is active.  I can close the windows and defer the messages for 15 minutes, but snooze and dismiss don&apos;t work.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. start Thunderbird
+2. snooze/dismiss reminder for events appears
+3. buttons for snooze and dismiss result in error described above
+Actual Results:  
+error message modification failed  
+An error occurred when writing to the calendar bud.anderson!
+Error code: MODIFICATION_FAILED
+===400 bad request===
+Bad format: FAKEID
+
+Expected Results:  
+Clicking on snooze should let me defer the reminder for 5 min to some number of hours.  Clicking on dismiss should get rid of the reminder for that specific event.
+
+This is becoming a productivity issue for me, and this is an application I use to manage my Beehive email account.  Our help desk isn&apos;t very supportive on this product, so I&apos;m asking you guys first in hope that there is something I couldn&apos;t see in the search of existing problems on this site.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

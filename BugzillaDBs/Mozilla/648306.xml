@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648306</bug_id>
+          
+          <creation_ts>2011-04-07 10:48:00 -0700</creation_ts>
+          <short_desc>buildslave monitor thread gets wedged on long running clientproxy sessions</short_desc>
+          <delta_ts>2011-04-07 17:06:33 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mike Taylor [:bear]">bear</reporter>
+          <assigned_to name="Mike Taylor [:bear]">bear</assigned_to>
+          <cc>aki</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394703</commentid>
+            <who name="Mike Taylor [:bear]">bear</who>
+            <bug_when>2011-04-07 10:48:19 -0700</bug_when>
+            <thetext>The thread that is responsible for monitoring if/how the buildslave instance is running and communicating that to the main tegra monitoring thread is dieing and i&apos;m not seeing/catching that event properly.
+
+The two choices are to 1) finish making cp a complete multi-threaded app or 2) refactor it back to a single threaded app with a monster state machine
+
+After looking at how much &quot;inside info&quot; is needed to manage and restart the Tegra pool, i&apos;ve decided to refactor back to a basic single process app and comment the hell out of the state machine :). This is possible now because the SUTAgent has gotten a *lot* better and stable so I don&apos;t need the fancy stuff.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

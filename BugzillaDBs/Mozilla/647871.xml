@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647871</bug_id>
+          
+          <creation_ts>2011-04-05 11:41:00 -0700</creation_ts>
+          <short_desc>Attachment reminder keywords incorrectly triggers for certain pdf links</short_desc>
+          <delta_ts>2011-04-06 09:39:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Message Compose Window</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>527018</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jason">jason</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>rsx11m.pub</cc>
+          <qa_contact>message-compose</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391398</commentid>
+            <who name="Jason">jason</who>
+            <bug_when>2011-04-05 11:41:15 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 (.NET CLR 3.5.30729)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+The Attachment reminder gets triggered for pdf links that (possibly among other things) contain a number before the extension.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+Typing this incorrectly triggers it:
+
+http://blah.com/blah1.pdf 
+
+Even though this does not:
+
+http://blah.com/blah.pdf
+Actual Results:  
+popup for attachment reminder
+
+Expected Results:  
+no popup</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392419</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-06 09:39:00 -0700</bug_when>
+            <thetext>Confirmed on both current 3.1.9 release and 3.3a4pre trunk builds. Apparently
+the number before the &quot;.pdf&quot; which triggers the attachment reminder makes a difference, though according to bug 492555 should be treated equal. Similar to bug 635993, this looks like a potential regression from bug 527018.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

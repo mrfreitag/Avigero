@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647803</bug_id>
+          
+          <creation_ts>2011-04-05 04:17:00 -0700</creation_ts>
+          <short_desc>Page load hangs until mouse moves!</short_desc>
+          <delta_ts>2011-04-10 01:04:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.youtube.com/watch?v=Ii70lBsOemI</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Ash Connell">deminetix</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390993</commentid>
+            <who name="Ash Connell">deminetix</who>
+            <bug_when>2011-04-05 04:17:24 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I made a quick video showing what happens
+
+&lt;object width=&quot;425&quot; height=&quot;344&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/Ii70lBsOemI?hl=en&amp;fs=1&quot;&gt;&lt;/param&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot;&gt;&lt;/param&gt;&lt;param name=&quot;allowscriptaccess&quot; value=&quot;always&quot;&gt;&lt;/param&gt;&lt;embed src=&quot;http://www.youtube.com/v/Ii70lBsOemI?hl=en&amp;fs=1&quot; type=&quot;application/x-shockwave-flash&quot; allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; width=&quot;425&quot; height=&quot;344&quot;&gt;&lt;/embed&gt;&lt;/object&gt;
+
+Reproducible: Sometimes</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391406</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 11:47:48 -0700</bug_when>
+            <thetext>Thanks for an illustrative video.
+
+I&apos;ve found two links that describe a somewhat similar phenomena, but unfortunately none of them give a solution or root cause:
+http://support.mozilla.com/en-US/questions/800858
+Bug 589466 - Firefox only executes when receiving mouse/keyboard input.sd 
+
+Do you have some kind of battery saving/hibernation/sleep mode etc enabled, and if so what happens if you turn it off?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399061</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-10 01:04:41 -0700</bug_when>
+            <thetext>Adding a link to a bug with some similarities:
+Bug 648831 - Pages stop loading unless there is mouse/keyboard input after downloading many files or uploading many files.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

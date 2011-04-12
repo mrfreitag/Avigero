@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647638</bug_id>
+          
+          <creation_ts>2011-04-03 20:48:00 -0700</creation_ts>
+          <short_desc>page cannot cancel backspace navigation</short_desc>
+          <delta_ts>2011-04-03 20:48:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Keyboard Navigation</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://mountaincat.org/backspace-cancel-test.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="JKL">landijk-user</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>keyboard.navigation</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389740</commentid>
+            <who name="JKL">landijk-user</who>
+            <bug_when>2011-04-03 20:48:20 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.28 Safari/534.24
+Build Identifier: 
+
+The subject of backspace-key-as-navigation has been controversial for some time, and this bug report is not an attempt to rehash all of those issues. This bug report is aimed very narrowly at one specific problem- Firefox does not allow the page to catch and cancel the backspace navigation event.
+
+Here are the facts as I understand them:
+
+IE, Chrome, and Safari on Windows allow the page to cancel backspace navigation.
+
+Firefox and Opera on Windows do not allow the page to cancel it.
+
+The backspace navigation behavior is system-dependent, and does not happen at all on Firefox or Chrome on Linux.
+
+Of course there are many different versions of each browser and OS platform. For reference, there is a test page at
+
+http://mountaincat.org/backspace-cancel-test.html
+
+The page uses the &quot;return false&quot; convention for canceling events. It does not appear that preventDefault() is effective in canceling the event either however.
+
+For AJAX-based Web applications and business applications which are heavy on text input, it is easy to make a mistake and hit backspace when a textual input element is not focused, especially while tabbing through the interface. For these types of applications the advantage of quick navigation is outweighed by the disadvantage of losing state.
+
+The question of whether one key should either delete a single character from an input field or replace the page with an entirely different page, depending only on focus state, is a question that greatly depends on the page in question, and therefore the page should be able to help the browser honor the user&apos;s intentions.
+
+
+Reproducible: Always</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647948</bug_id>
+          
+          <creation_ts>2011-04-06 00:07:00 -0700</creation_ts>
+          <short_desc>Put RSS button into to the URL bar when placed next to it</short_desc>
+          <delta_ts>2011-04-06 13:57:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Toolbars</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>uiwanted</keywords>
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="sdrocking">dugar.siddhartha</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>toolbars</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392000</commentid>
+            <who name="sdrocking">dugar.siddhartha</who>
+            <bug_when>2011-04-06 00:07:03 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre
+
+Presently when Reload and Stop buttons are placed next to the urlbar they are joined to it. This behavior should be used for the RSS button as well.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393143</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-06 13:57:48 -0700</bug_when>
+            <thetext>(In reply to comment #0)
+&gt; Presently when Reload and Stop buttons are placed next to the urlbar they are
+&gt; joined to it. This behavior should be used for the RSS button as well.
+
++1</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

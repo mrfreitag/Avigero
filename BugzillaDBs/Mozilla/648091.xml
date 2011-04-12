@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648091</bug_id>
+          
+          <creation_ts>2011-04-06 12:59:00 -0700</creation_ts>
+          <short_desc>deploy pipelining pretest server to operate at scale</short_desc>
+          <delta_ts>2011-04-07 15:10:50 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>Other</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>603505</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Christopher Blizzard (:blizzard)">blizzard</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>honzab.moz</cc>
+    
+    <cc>mcmanus</cc>
+          <qa_contact>other</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393004</commentid>
+            <who name="Christopher Blizzard (:blizzard)">blizzard</who>
+            <bug_when>2011-04-06 12:59:47 -0700</bug_when>
+            <thetext>As part of the work to enable HTTP pipelining by default, we need a server set up so that Firefox instances can connect to it to check if a transparent proxy is mucking with requests.
+
+For an example implementation that Pat McManus wrote to test the client side code see bug 603505.  We aren&apos;t required to use this code by any stretch, but if we do use it we should audit it.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

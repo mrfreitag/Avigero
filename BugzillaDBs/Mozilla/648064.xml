@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648064</bug_id>
+          
+          <creation_ts>2011-04-06 11:51:00 -0700</creation_ts>
+          <short_desc>Application cache should not bother user</short_desc>
+          <delta_ts>2011-04-07 02:46:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Networking: Cache</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Benjamin Stover (:stechz)">ben</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>ben</cc>
+    
+    <cc>bent.mozilla</cc>
+    
+    <cc>blizzard</cc>
+    
+    <cc>dcamp</cc>
+    
+    <cc>joe</cc>
+    
+    <cc>public</cc>
+          <qa_contact>networking.cache</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392828</commentid>
+            <who name="Benjamin Stover (:stechz)">ben</who>
+            <bug_when>2011-04-06 11:51:26 -0700</bug_when>
+            <thetext>Assuming that we should be much more aggressive about caching and we want to give web developers the power to have pages load fast, we should stop asking for the user&apos;s permission to use the application cache. Appcache allows for a model where the developer can immediately show content without touching the network, asking questions about whether the content is fresh later.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

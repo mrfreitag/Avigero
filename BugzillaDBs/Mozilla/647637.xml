@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647637</bug_id>
+          
+          <creation_ts>2011-04-03 20:28:00 -0700</creation_ts>
+          <short_desc>Perform l10n signoffs for SeaMonkey 2.1b3</short_desc>
+          <delta_ts>2011-04-06 18:47:04 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Project Organization</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>seamonkey2.1b3</target_milestone>
+          
+          <blocked>647928</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Robert Kaiser">kairo</assigned_to>
+          <cc>akalla</cc>
+    
+    <cc>dominique</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>l10n</cc>
+    
+    <cc>prometeo.bugs</cc>
+          <qa_contact>organization</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>b3+</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389729</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-03 20:28:32 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #631291 +++
+
+We are about to spin a new comm-2.0 build, and once again need the l10n signoffs performed.
+
+If any locales are added/removed we also need to update shipped-locales in comm-central
+
+I&apos;m still a bit blind on the l10n side of the release management here.
+
+I do notice that https://l10n-stage-sj.mozilla.org/shipping/l10n-changesets?ms=sea2.1b3 is a 404, so not sure specifically what needs to be done on this end or by whom, but Filing now so we can be sure it is done, and ready to go for a spin by midnight (EDT) [9pm Monday PDT]</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390689</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-04 17:50:08 -0700</bug_when>
+            <thetext>I probably do need to do the sign-offs, as Adrian doesn&apos;t have access to do that on the dashboard right now - I don&apos;t know if I still get around to doing that today, though, I&apos;m still trying to get on top of my unread email...
+
+As for the changesets file not being available - apparently 1) I messed up and never marked Beta 2 as &quot;shipped&quot; on the dashboard, 2) because of that never remembered to ask Pike for creating a Beta 3 milestone there and 3) he probably won&apos;t be fast to react because he&apos;s out partying in Las Vegas until some time tomorrow. Still, Axel, when you&apos;re reading this, could you do it?
+
+We really need to go through me doing sign-offs for Beta 3, though, as we probably have some locales being completely broken by the Chatzilla changes which we can&apos;t merge. Sorry, I should have checked that before. :(</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391746</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-05 17:53:31 -0700</bug_when>
+            <thetext>I can sign off those locales with those versions for 2.1b3 at this moment:
+
+be 0436e4c78cbc
+cs 29d9c7653a4c
+de 9928e131e3eb
+es-AR 7260c60dba44
+es-ES d32c6c3794a4
+fi 8aa5d2d14768
+fr 8b23fb1e2008
+lt 87e6b3f0d6cd
+nb-NO 7e218bee5533
+nl 67c0d6bf75f5
+pl ee36c1b741d9
+pt-PT 1d845feb5201
+ru 16416eec73c1
+sk 85172039be85
+sv-SE f9fa76a38aa3
+
+
+Italian can&apos;t be signed off at this moment because ChatZilla brokenness causes builds to go green. Others have not requested a sign-off on l10n-mozilla-2.0 yet.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391769</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-05 18:33:34 -0700</bug_when>
+            <thetext>OK, we agreed to go with this set, CCing prometeo so he knows we unfortunately need to exclude Italian for this beta - there&apos;s still enough time to jump on the RC/final train, of course.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391883</commentid>
+            <who name="Axel Hecht [:Pike]">l10n</who>
+            <bug_when>2011-04-05 21:56:55 -0700</bug_when>
+            <thetext>I&apos;d suggest renaming beta 2 to beta 3, and then hit the ship-it button on that for the b3 status. Recreating correct data for b2 is gonna be hard, I&apos;d rather just leave it non-existant in that case.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391908</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-05 22:31:19 -0700</bug_when>
+            <thetext>If that has to be done from your end [the rename] consider it ok from me to do that. Thank You.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392486</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-06 10:07:14 -0700</bug_when>
+            <thetext>KaiRo, we do have a slight issue.
+
+Not all of your signed off locales passed :( [due to cZ changes]
+
+Failed locales:
+
+* nb-NO
+* fi
+* sv-SE
+
+I do not think I am going to be respinning for these, but want your ok that losing these locales (+ `it`) is ok for b3.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392536</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-06 10:28:33 -0700</bug_when>
+            <thetext>I think those are still signed off with changesets from before that cZ checkin, and I only checked new signoff requests for problems, of which &quot;it&quot; was one.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392538</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-06 10:29:12 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; I&apos;d suggest renaming beta 2 to beta 3, and then hit the ship-it button on that
+&gt; for the b3 status. Recreating correct data for b2 is gonna be hard, I&apos;d rather
+&gt; just leave it non-existant in that case.
+
+Axel, yes, that sounds good, let&apos;s go with it.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

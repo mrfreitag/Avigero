@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648049</bug_id>
+          
+          <creation_ts>2011-04-06 11:22:00 -0700</creation_ts>
+          <short_desc>Compilation error in js shells on TM</short_desc>
+          <delta_ts>2011-04-08 04:29:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Gary Kwong [:nth10sd]">gary</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>brendan</cc>
+    
+    <cc>dmandelin</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>jwalden+bmo</cc>
+    
+    <cc>mh+mozilla</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392708</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-06 11:22:43 -0700</bug_when>
+            <thetext>Setting the appropriate env variables,
+
+sh ../configure --target=i386-apple-darwin8.0.0 --disable-optimize --enable-debug --enable-methodjit --disable-tests --with-ccache --enable-type-inference
+
+make -j3 -s
+
+causes an error:
+
+i686-apple-darwin10-g++-4.2.1: ../editline/libeditline.a: No such file or directory
+
+The first bad revision is:
+changeset:   64224:300e998d0291
+parent:      64223:53ab33f0fd8c
+parent:      63591:e6c5a67da7ae
+user:        Chris Leary
+date:        Tue Mar 29 09:05:25 2011 -0700
+summary:     Merge mozilla-central to tracemonkey.
+
+I need sleep at 2.30am so unfortunately no time to get a regressing changeset, but cc&apos;in Mike in case it&apos;s bug 584474.
+
+Thanks to Waldo and Ted for being giving ideas on IRC.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396275</commentid>
+            <who name="Gary Kwong [:nth10sd]">gary</who>
+            <bug_when>2011-04-08 04:29:37 -0700</bug_when>
+            <thetext>I blew my repo away and redid the TM repository till rev 1a6fd2901325 and the problem disappeared.
+
+I have absolutely no idea why this occurred. -&gt; WFM</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

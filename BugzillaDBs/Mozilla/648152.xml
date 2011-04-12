@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648152</bug_id>
+          
+          <creation_ts>2011-04-06 16:00:00 -0700</creation_ts>
+          <short_desc>Add &quot;automatically redirect&quot; to &quot;after changing a bug&quot; settings</short_desc>
+          <delta_ts>2011-04-06 17:56:13 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>Creating/Changing Bugs</component>
+          <version>4.0</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>577720</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="David Marshall">dmarshal</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">create-and-change</assigned_to>
+          
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393457</commentid>
+            <who name="David Marshall">dmarshal</who>
+            <bug_when>2011-04-06 16:00:13 -0700</bug_when>
+            <thetext>With the changing of the seasons comes a new round of unhappy Bugzilla users who want to know why the output of process_bug.cgi isn&apos;t a 302 to the corresponding show_bug.cgi page.  We tell them that doing so would lose the information that is available only from process_bug.cgi.
+
+I have pointed them to bug 427913 and to bug 365078.
+
+Now I am wondering whether my opinion of the importance of the output of process_bug.cgi should trump the desire of those who want to be automatically redirected.
+
+So, I am suggesting adding &apos;redirect_to_updated_bug&apos; to the settings for &apos;post_bug_submit_action&apos;.  If the update to a single bug is successful, then the response is a 303 to show_bug.cgi.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393487</commentid>
+            <who name="Frédéric Buclin">LpSolit</who>
+            <bug_when>2011-04-06 16:10:22 -0700</bug_when>
+            <thetext>IMO, that&apos;s a dupe of bug 577720.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393493</commentid>
+            <who name="Frédéric Buclin">LpSolit</who>
+            <bug_when>2011-04-06 16:11:47 -0700</bug_when>
+            <thetext>With bug 577720, we don&apos;t need an addl. user pref.
+
+*** This bug has been marked as a duplicate of bug 577720 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393756</commentid>
+            <who name="David Marshall">dmarshal</who>
+            <bug_when>2011-04-06 17:56:13 -0700</bug_when>
+            <thetext>I won&apos;t reopen this, but I don&apos;t agree that it&apos;s a duplicate.  The fix for bug 577720 requires the use of a browser that respects history.replaceState().  Even then, the current capability doesn&apos;t change the POSTness to GETness, so reloading the page is misleading.
+
+I readily admit that this is a superfluous capability (as is, for that matter, the fix for bug 577720).  I don&apos;t like it, and I wouldn&apos;t expect to use it, but I have users who don&apos;t like the advice we give them to just explicitly reload the page if it matters to them.  Some of those users don&apos;t use modern browsers.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

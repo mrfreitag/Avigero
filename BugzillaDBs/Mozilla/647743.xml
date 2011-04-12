@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647743</bug_id>
+          
+          <creation_ts>2011-04-04 14:51:00 -0700</creation_ts>
+          <short_desc>Firefox 4.0 crashes while trying to load the &quot;Bill Pay&quot; page at ingdirect.com</short_desc>
+          <delta_ts>2011-04-11 09:23:50 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>https://secure.ingdirect.com/myaccount/INGDirect/bill_pay.vm</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Jordan Hazen">jnh</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390514</commentid>
+            <who name="Jordan Hazen">jnh</who>
+            <bug_when>2011-04-04 14:51:14 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110324 Firefox/4.0
+
+After logging in to https://ingdirect.com/, attempting to visit
+
+ Make Payments -&gt; Bill Pay
+
+causes the browser to crash with this error:
+
+firefox: malloc.c:4471: _int_malloc: Assertion `(bck-&gt;bk-&gt;size &amp; 0x4) == 0&apos; failed.
+
+Disabling all extensions and plugins made no difference, nor did creating a fresh Profile and using this to visit the problem site, so it appears to be a glitch in the browser itself.  Also, previous versions of Firefox, including 3.5.x, 3.6.x are able to render the Bill Pay page without crashing.
+
+Reproducing this bug will require an account at ING Direct, since the problem page can only be reached after logging into their secure account area.
+ 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Visit https://ingdirect.com/
+2. Log in with a valid ING user ID and passcode
+3. When the main page appears, click &quot;Make Payments&quot; tab at the top
+4. Click on the Bill Pay option on the subsequent page
+
+(site displays &quot;Hang on while we grab your bill pay information&quot;, with a spinner graphic; browser crashes a few seconds later)
+Actual Results:  
+Firefox crashes, losing all open windows and tabs.  If launched from the command line, this error appears--
+
+firefox: malloc.c:4471: _int_malloc: Assertion `(bck-&gt;bk-&gt;size &amp; 0x4) == 0&apos; failed.
+
+Expected Results:  
+Load &amp; display ING&apos;s Bill Page page.
+
+Default theme.  No extensions or plugins. x86 Linux (32-bit).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390523</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 15:01:23 -0700</bug_when>
+            <thetext>Please provide a backtrace. For Mozilla binary builds you can post a crash DI from the integrated crash reporter. USe the laternative ways with GDB and debug symbols if you use a build from somewhere else.
+https://developer.mozilla.org/en/How_to_get_a_stacktrace_for_a_bug_report</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390855</commentid>
+            <who name="Jordan Hazen">jnh</who>
+            <bug_when>2011-04-04 23:28:14 -0700</bug_when>
+            <thetext>The requested backtrace is below.  I at first tried rebuilding firefox &amp; xulrunner with debugging options enabled (setting Gentoo USE=&quot;debug&quot;, which adds &quot;-DDEBUG -D_DEBUG -DTRACING -g&quot; to the compile options)-- however, the resulting Firefox no longer crashed on the problematic ingdirect.com page!  It would instead print the following Javascript errors to its spawning terminal, but correctly render the page:
+
+JavaScript error: https://billpay.ingdirect.com/rxp3/wps?rq=ov&amp;sp=12404&amp;osn=&amp;oss
+=cfcabe523f4db51fce27f3e63d1dd235a581d5de9d41a0207dad3216abd299eb, line 6664: Pe
+rmission denied to access property &apos;ckfrRXPTimer&apos;
+JavaScript error: https://billpay.ingdirect.com/rxp3/build/static/generic/checkf
+reeui_builds/builds/PaymentCenter.js?cfwver=02072011, line 20: Permission denied
+ to access property &apos;ckfrRXPTimer&apos;
+
+I then rebuilt firefox *without* the debugging options (this brought the crash back), and ran it inside gdb to get a backtrace:
+
+[New process 3057]
+firefox: malloc.c:4631: _int_malloc: Assertion `(unsigned long)(size) &gt;= (unsigned long)(nb)&apos; failed.
+
+Program received signal SIGABRT, Aborted.
+0xffffe424 in __kernel_vsyscall ()
+(gdb) bt
+#0  0xffffe424 in __kernel_vsyscall ()
+#1  0xb7d001c1 in _IO_file_finish () from /lib/libc.so.6
+#2  0xbf862eac in ?? ()
+#3  0xbf862eb4 in ?? ()
+#4  0xb7d01923 in ?? () from /lib/libc.so.6
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+(gdb) quit</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400524</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-11 09:23:50 -0700</bug_when>
+            <thetext>Can you please try it in the Firefox safemode:
+http://support.mozilla.com/en-US/kb/Safe+Mode
+
+The goal of this is not to test without extensions, it&apos;s a test without JIT</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

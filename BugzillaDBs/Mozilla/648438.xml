@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648438</bug_id>
+          
+          <creation_ts>2011-04-07 18:12:00 -0700</creation_ts>
+          <short_desc>TM: Assertion failure: !cx-&gt;regs-&gt;fp-&gt;hasImacropc(), at ./jscntxtinlines.h:424</short_desc>
+          <delta_ts>2011-04-08 15:01:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>assertion, testcase</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Christian Holler">decoder-mozilla</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>dmandelin</cc>
+    
+    <cc>gary</cc>
+    
+    <cc>jandemooij</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="wanted-fennec1.0"
+          id="438200"
+          type_id="422"
+          status="?"
+          setter="decoder-mozilla"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5395603</commentid>
+            <who name="Christian Holler">decoder-mozilla</who>
+            <bug_when>2011-04-07 18:12:02 -0700</bug_when>
+            <thetext>The following code asserts TM revision 5550f333d8c8 when run with -j -m (tested on 64 bit):
+
+test();
+function test()
+{
+  var code = &quot;&quot;, obj = {};
+  for(var i = 0; i &lt; 0x10000; i++) {
+      if(i == 10242) {
+        return test.call(obj, obj);
+      } else {
+        code += &quot;void &apos;x&quot; + i + &quot;&apos;;\n&quot;;
+      }
+  } 
+}</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

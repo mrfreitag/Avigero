@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648128</bug_id>
+          
+          <creation_ts>2011-04-06 14:55:00 -0700</creation_ts>
+          <short_desc>[traceback] OperationalError: (1054, &quot;Unknown column &apos;perf_osversions.name&apos; in &apos;field list&apos;&quot;)</short_desc>
+          <delta_ts>2011-04-06 22:31:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Public Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          <bug_file_loc>https://addons.allizom.org/en-US/firefox/performance/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Stephen Donner [:stephend]">stephen.donner</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>clouserw</cc>
+    
+    <cc>jbalogh</cc>
+          <qa_contact>web-ui</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393302</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-06 14:55:12 -0700</bug_when>
+            <thetext>Not sure if this is an IT or code thing, on https://addons.allizom.org/en-US/firefox/performance/:
+
+Traceback (most recent call last):
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/core/handlers/base.py&quot;, line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/views/decorators/cache.py&quot;, line 66, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+
+  File &quot;/data/amo_python/www/preview/zamboni/apps/perf/views.py&quot;, line 23, in index
+    for p in PerformanceOSVersion.uncached.all())
+
+  File &quot;/data/amo_python/www/preview/zamboni/apps/perf/views.py&quot;, line 22, in &lt;genexpr&gt;
+    platforms = dict((unicode(p), p.id)
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/db/models/query.py&quot;, line 107, in _result_iter
+    self._fill_cache()
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/db/models/query.py&quot;, line 772, in _fill_cache
+    self._result_cache.append(self._iter.next())
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/db/models/query.py&quot;, line 273, in iterator
+    for row in compiler.results_iter():
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/db/models/sql/compiler.py&quot;, line 680, in results_iter
+    for rows in self.execute_sql(MULTI):
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/db/models/sql/compiler.py&quot;, line 735, in execute_sql
+    cursor.execute(sql, params)
+
+  File &quot;/data/amo_python/www/preview/zamboni/vendor/src/django/django/db/backends/mysql/base.py&quot;, line 86, in execute
+    return self.cursor.execute(query, args)
+
+  File &quot;/usr/lib/python2.6/site-packages/MySQLdb/cursors.py&quot;, line 173, in execute
+    self.errorhandler(self, exc, value)
+
+  File &quot;/usr/lib/python2.6/site-packages/MySQLdb/connections.py&quot;, line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+
+OperationalError: (1054, &quot;Unknown column &apos;perf_osversions.name&apos; in &apos;field list&apos;&quot;)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393925</commentid>
+            <who name="Wil Clouser [:clouserw]">clouserw</who>
+            <bug_when>2011-04-06 22:11:48 -0700</bug_when>
+            <thetext>works for me?  Was this mid-update or can you still reproduce?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393965</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-06 22:31:22 -0700</bug_when>
+            <thetext>WFM, verified.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

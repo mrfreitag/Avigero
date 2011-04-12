@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647611</bug_id>
+          
+          <creation_ts>2011-04-03 16:27:00 -0700</creation_ts>
+          <short_desc>parameters cert and paramsIn for function CERT_PKIXVerifyCert should be const*</short_desc>
+          <delta_ts>2011-04-06 17:21:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to>nobody</assigned_to>
+          <cc>alvolkov.bgs</cc>
+    
+    <cc>bsmith</cc>
+    
+    <cc>rrelyea</cc>
+    
+    <cc>wtc</cc>
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389546</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-03 16:27:25 -0700</bug_when>
+            <thetext>In my opinion CERT_PKIXVerifyCert
+should declare its input parameters as const.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393657</commentid>
+            <who name="Wan-Teh Chang">wtc</who>
+            <bug_when>2011-04-06 17:21:03 -0700</bug_when>
+            <thetext>Yes, we should do that, especially CERTValInParam *paramsIn.
+
+Note that the pointer members in CERTValParamInValue are
+already declared as const.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

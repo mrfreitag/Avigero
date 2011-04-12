@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648227</bug_id>
+          
+          <creation_ts>2011-04-07 01:55:00 -0700</creation_ts>
+          <short_desc>It is not a crash but important extension which in my opinion will be very important to improve Firefox</short_desc>
+          <delta_ts>2011-04-08 02:00:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Editor</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Stefan">steeve-p</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>kbrosnan</cc>
+    
+    <cc>matspal</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>editor</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394143</commentid>
+            <who name="Stefan">steeve-p</who>
+            <bug_when>2011-04-07 01:55:45 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I come from Poland and I am a programist. I understand Bugzilla is a site to report bugs and I am sorry I boder you but I couldnt find any other way to send you any information with my advise. I am sure you have a lot of specialist who may have better concepts for Firefox on future but I hope it is good to try.
+
+So what is on my mind? During last few years when I was working as web developer I&apos;ve meet with significant problem around rich-text-widget.
+
+When developers create advanced pages they have to programm widgets or use already prepared widgets like TinyMCE.
+The problem is it is a lot of work to create this kind of program or very expensive to buy ready to use widgets.
+I think this kind of widget should be build in the browser. To use it developer should write special HTML mark (exp. &lt;richtext&gt;&lt;/richtext&gt;) and use fully functional rich textbox.
+
+Advantages?
+- More users using your browser (especially developers, admins, moderators, redactors).
+- You will be the first who will introduce very importand extension in next generation of browsers.
+- Most of technologies need few years to become a standard. But maybe in next few years other browsers will fallow your way.
+Disadvantage?
+- Incompatible with W3C.
+- At the beginning it will be working on your browser only.
+
+Why I think it is worth to do even this 2 disadvantages?
+Advanced pages are made of 2 parts - frontend and backand. Frontend is this part of web site avalable for whole of the world. Backend is a place to manage the frontend. Many users use different browsers so thats why frontend should be working the same on all browsers. But it doesn&apos;t have to be like this with backend. Backend is a manager avalable just for a group of users like developers, admins, moderators etc. And this part of web site can have a requirement to use a special browser like Firefox. I think a lot of users will choose youre browser instead of others because of this feature.
+This widget will make life easier for developers and can become a standart of HTML in the future.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394207</commentid>
+            <who name="Philip Chee">philip.chee</who>
+            <bug_when>2011-04-07 04:38:37 -0700</bug_when>
+            <thetext>Isn&apos;t FCKEditor free and open source?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394447</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-07 08:30:23 -0700</bug_when>
+            <thetext>Stefan, thanks for sharing your thoughts on this subject.
+I think you&apos;ll find this interesting:
+http://ehsanakhgari.org/blog/2010-03-08/thoughts-future-web-based-html-editors</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395100</commentid>
+            <who name="Kevin Brosnan">kbrosnan</who>
+            <bug_when>2011-04-07 14:11:10 -0700</bug_when>
+            <thetext>Newsgroups are the place to be discussing things like these. https://lists.mozilla.org
+
+https://developer.mozilla.org/en/midas is an older project that implements this in Firefox</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396104</commentid>
+            <who name="Stefan">steeve-p</who>
+            <bug_when>2011-04-08 00:16:59 -0700</bug_when>
+            <thetext>Thx everyone for help. I will try with the https://lists.mozilla.org</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

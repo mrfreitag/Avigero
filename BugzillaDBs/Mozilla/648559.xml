@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648559</bug_id>
+          
+          <creation_ts>2011-04-08 10:06:00 -0700</creation_ts>
+          <short_desc>[input-stage][input] remove ENFORCE_USER_AGENT from settings_local</short_desc>
+          <delta_ts>2011-04-11 17:14:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Web Content Push</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>648401</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dave Dash [:davedash]">dd</reporter>
+          <assigned_to name="Jeremy Orem [oremj@mozilla.com]">jeremy.orem+bugs</assigned_to>
+          <cc>bkero</cc>
+    
+    <cc>fwenzel</cc>
+    
+    <cc>m8ttyb</cc>
+    
+    <cc>mozaakash</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396706</commentid>
+            <who name="Dave Dash [:davedash]">dd</who>
+            <bug_when>2011-04-08 10:06:01 -0700</bug_when>
+            <thetext>Is ENFORCE_USER_AGENT set in settings_local or settings.py in stage?
+
+settings_local shouldn&apos;t override this setting in either prod or stage.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400517</commentid>
+            <who name="Fred Wenzel [:wenzel]">fwenzel</who>
+            <bug_when>2011-04-11 09:20:15 -0700</bug_when>
+            <thetext>Please fix this this morning, as it&apos;s blocking QA from testing, and by extension tomorrow&apos;s release.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400556</commentid>
+            <who name="Jeremy Orem [oremj@mozilla.com]">jeremy.orem+bugs</who>
+            <bug_when>2011-04-11 09:35:05 -0700</bug_when>
+            <thetext>[input-stage][input] &lt;- does that mean just stage or prod and stage?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400569</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-11 09:38:49 -0700</bug_when>
+            <thetext>Just stage for now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400754</commentid>
+            <who name="Dave Dash [:davedash]">dd</who>
+            <bug_when>2011-04-11 10:21:17 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; [input-stage][input] &lt;- does that mean just stage or prod and stage?
+
+oremj, in relation to prod - just make sure that settings_local isn&apos;t overriding it.  I&apos;m not sure that it is on either stage or prod, but I&apos;d like to know.
+
+-d</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400773</commentid>
+            <who name="Jeremy Orem [oremj@mozilla.com]">jeremy.orem+bugs</who>
+            <bug_when>2011-04-11 10:25:56 -0700</bug_when>
+            <thetext>It was overriding in stage, but not in prod.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402290</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-11 17:14:38 -0700</bug_when>
+            <thetext>QA Verified ... thx</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

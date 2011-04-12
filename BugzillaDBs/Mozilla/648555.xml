@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648555</bug_id>
+          
+          <creation_ts>2011-04-08 09:57:00 -0700</creation_ts>
+          <short_desc>Multistate flags for tracking Firefox 5 and Firefox 6</short_desc>
+          <delta_ts>2011-04-11 14:08:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Bugzilla: Keywords &amp; Components</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Benjamin Smedberg  [:bsmedberg]">benjamin</reporter>
+          <assigned_to name="byron jones [:glob]">glob</assigned_to>
+          <cc>clegnitto</cc>
+    
+    <cc>dkl</cc>
+    
+    <cc>dugar.siddhartha</cc>
+    
+    <cc>glob</cc>
+    
+    <cc>justdave</cc>
+    
+    <cc>mbeltzner</cc>
+    
+    <cc>mozillamarcia.knous</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>sabret00the</cc>
+    
+    <cc>smooney</cc>
+          <qa_contact>bmo-kw-comp</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396674</commentid>
+            <who name="Benjamin Smedberg  [:bsmedberg]">benjamin</who>
+            <bug_when>2011-04-08 09:57:02 -0700</bug_when>
+            <thetext>Per newsgroup discussion, we would like to have the following flags for tracking Firefox 5 and 6. This needs to happen by Tuesday, although earlier would be better.
+
+tracking-firefox5:
+  &quot;?&quot; - set by anyone with editbugs
+  &quot;+&quot; - set by release drivers (the people who can currently set blocking2.0)
+  &quot;-&quot; - set by release drivers
+
+status-firefox5: all values settable by anyone with editbugs
+  &quot;unaffected&quot;
+  &quot;affected&quot;
+  &quot;fixed&quot;
+
+Then we&apos;ll also need tracking-firefox6, with the same values as tracking-firefox5. We do not need status-firefox6 yet. But we will need a new set of flags every six weeks.
+
+I&apos;m not sure who can do this: it&apos;s something that legneato or smooney should probably be able to do.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396741</commentid>
+              <attachid>524656</attachid>
+            <who name="byron jones [:glob]">glob</who>
+            <bug_when>2011-04-08 10:16:09 -0700</bug_when>
+            <thetext>Created attachment 524656
+patch for bmo 3.6
+
+patch for bmo 3.6.
+
+note these changes only need to be made once, future tracking flags won&apos;t require code changes unless the governance rules are changed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396795</commentid>
+            <who name="Gervase Markham [:gerv]">gerv</who>
+            <bug_when>2011-04-08 10:30:44 -0700</bug_when>
+            <thetext>Unless I&apos;ve got two ideas confused, there seems to still be discussion about this in the newsgroup... Sheila Mooney has proposed an alternative. And I think we should be reclaiming &quot;Version&quot; and &quot;Target Milestone&quot;. 
+
+Do we need to wait for this to shake out?
+
+Gerv</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396798</commentid>
+              <attachid>524656</attachid>
+            <who name="David Lawrence [:dkl]">dkl</who>
+            <bug_when>2011-04-08 10:31:37 -0700</bug_when>
+            <thetext>Comment on attachment 524656
+patch for bmo 3.6
+
+Looks proper to me as long as you have tested it :) r=dkl</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396878</commentid>
+            <who name="Benjamin Smedberg  [:bsmedberg]">benjamin</who>
+            <bug_when>2011-04-08 10:49:48 -0700</bug_when>
+            <thetext>This is the alternative which Sheila posted, and which we have decided to do since there were no objections in the newsgroup and we need these for Tuesday.
+
+The version and TM fields cannot solve the set of use cases we need to track.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397031</commentid>
+            <who name="byron jones [:glob]">glob</who>
+            <bug_when>2011-04-08 11:32:13 -0700</bug_when>
+            <thetext>justdave, i&apos;ve committed the changes to 3.6 and shifted the staging tag.  can you please create the 3 custom fields on staging and update.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397428</commentid>
+              <attachid>524727</attachid>
+            <who name="byron jones [:glob]">glob</who>
+            <bug_when>2011-04-08 13:59:36 -0700</bug_when>
+            <thetext>Created attachment 524727
+patch for bmo 4.0
+
+bmo 4.0 patch; i&apos;ll wait for sanity checks to complete on 3.6 before requesting a review.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401550</commentid>
+            <who name="Sheila Mooney">smooney</who>
+            <bug_when>2011-04-11 14:08:57 -0700</bug_when>
+            <thetext>When do we think this will be completed? Any chance it can be wrapped up today? Our plan is to move to Aurora tomorrow so we will want these flags in place when we start logging bugs.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524656</attachid>
+            <date>2011-04-08 10:16:00 -0700</date>
+            <delta_ts>2011-04-08 12:14:34 -0700</delta_ts>
+            <desc>patch for bmo 3.6</desc>
+            <filename>648555_1.patch</filename>
+            <type>text/plain</type>
+            <size>5479</size>
+            <attacher>glob</attacher>
+            
+              <data encoding="base64">PT09IG1vZGlmaWVkIGZpbGUgJ0J1Z3ppbGxhL0J1Zy5wbScKLS0tIEJ1Z3ppbGxhL0J1Zy5wbQky
+MDEwLTExLTAzIDAyOjE0OjU4ICswMDAwCisrKyBCdWd6aWxsYS9CdWcucG0JMjAxMS0wNC0wOCAx
+NzoxMDowNSArMDAwMApAQCAtMzUwOCwxNCArMzUwOCwxNCBAQAogICAgICAgICB9CiAgICAgfQog
+Ci0gICAgIyBPbmx5IHVzZXJzIGluIHRoZSBhcHByb3ByaWF0ZSBkcml2ZXJzIGdyb3VwIGNhbiBj
+aGFuZ2UgdGhlIGNmX2Jsb2NraW5nXyogZmllbGRzLgotICAgIGlmICgkZmllbGQgPX4gL15jZl9i
+bG9ja2luZ18vKSB7CisgICAgIyBPbmx5IHVzZXJzIGluIHRoZSBhcHByb3ByaWF0ZSBkcml2ZXJz
+IGdyb3VwIGNhbiBjaGFuZ2UgdGhlIGJsb2NraW5nL3RyYWNraW5nIGZpZWxkcy4KKyAgICBpZiAo
+JGZpZWxkID1+IC9eY2ZfYmxvY2tpbmdfLyB8fCAkZmllbGQgPX4gL15jZl90cmFja2luZ18vKSB7
+CiAgICAgICAgIHVubGVzcyAoJG5ld3ZhbHVlIGVxICctLS0nIHx8ICRuZXd2YWx1ZSBlcSAnPycg
+fHwgKCRvbGR2YWx1ZSBlcSAnMCcgJiYgJG5ld3ZhbHVlIGVxICcxJykpIHsKICAgICAgICAgICAg
+IG15ICRkcml2ZXJzX2dyb3VwOwogICAgICAgICAgICAgaWYgKCRmaWVsZCBlcSAnY2ZfYmxvY2tp
+bmdfZmVubmVjJykgewogICAgICAgICAgICAgICAgICRkcml2ZXJzX2dyb3VwID0gJ2Zlbm5lYy1k
+cml2ZXJzJzsKICAgICAgICAgICAgIH0KLSAgICAgICAgICAgIGVsc2lmICgkZmllbGQgZXEgJ2Nm
+X2Jsb2NraW5nXzIwJykgeworICAgICAgICAgICAgZWxzaWYgKCRmaWVsZCBlcSAnY2ZfYmxvY2tp
+bmdfMjAnIHx8ICRmaWVsZCA9fiAvXmNmX3RyYWNraW5nX2ZpcmVmb3gvKSB7CiAgICAgICAgICAg
+ICAgICAgJGRyaXZlcnNfZ3JvdXAgPSAnbW96aWxsYS1uZXh0LWRyaXZlcnMnOwogICAgICAgICAg
+ICAgfQogICAgICAgICAgICAgZWxzaWYgKCRmaWVsZCA9fiAvXmNmX2Jsb2NraW5nX3RodW5kZXJi
+aXJkLykgewoKPT09IG1vZGlmaWVkIGZpbGUgJ3RlbXBsYXRlL2VuL2RlZmF1bHQvYnVnL2NyZWF0
+ZS9jcmVhdGUuaHRtbC50bXBsJwotLS0gdGVtcGxhdGUvZW4vZGVmYXVsdC9idWcvY3JlYXRlL2Ny
+ZWF0ZS5odG1sLnRtcGwJMjAxMS0wMy0yMiAwNToyNjoxNSArMDAwMAorKysgdGVtcGxhdGUvZW4v
+ZGVmYXVsdC9idWcvY3JlYXRlL2NyZWF0ZS5odG1sLnRtcGwJMjAxMS0wNC0wOCAxNzoxMDozNCAr
+MDAwMApAQCAtNTA0LDcgKzUwNCw3IEBACiAgICAgICAgWyUgTkVYVCBVTkxFU1MgcHJvZHVjdC5u
+YW1lID09ICJDb21wb3NlciIgT1IgcHJvZHVjdC5uYW1lID09ICJNYWlsTmV3cyBDb3JlIiBPUgog
+ICAgICAgICAgICAgICAgICAgICAgIHByb2R1Y3QubmFtZSA9PSAiTW96aWxsYSBMb2NhbGl6YXRp
+b25zIiBPUiBwcm9kdWN0Lm5hbWUgPT0gIk90aGVyIEFwcGxpY2F0aW9ucyIgT1IKICAgICAgICAg
+ICAgICAgICAgICAgICBwcm9kdWN0Lm5hbWUgPT0gIlNlYU1vbmtleSIgJV0KLSAgICBbJSBFTFNJ
+RiBmaWVsZC5uYW1lLm1hdGNoKCJeY2ZfYmxvY2tpbmdfIikgT1IgZmllbGQubmFtZS5tYXRjaCgi
+XmNmX3N0YXR1c18iKSAlXQorICAgIFslIEVMU0lGIGZpZWxkLm5hbWUubWF0Y2goIl5jZl9ibG9j
+a2luZ18iKSBPUiBmaWVsZC5uYW1lLm1hdGNoKCJeY2Zfc3RhdHVzXyIpIE9SIGZpZWxkLm5hbWUu
+bWF0Y2goIl5jZl90cmFja2luZ18iKSAlXQogICAgICAgIFslIE5FWFQgVU5MRVNTIHByb2R1Y3Qu
+bmFtZSA9PSAiQVVTIiBPUiBwcm9kdWN0Lm5hbWUgPT0gIkNhbWlubyIgT1IKICAgICAgICAgICAg
+ICAgICAgICAgICBwcm9kdWN0Lm5hbWUgPT0gIkNvcmUgR3JhdmV5YXJkIiBPUiBwcm9kdWN0Lm5h
+bWUgPT0gIkNvcmUiIE9SCiAgICAgICAgICAgICAgICAgICAgICAgcHJvZHVjdC5uYW1lID09ICJE
+aXJlY3RvcnkiIE9SIHByb2R1Y3QubmFtZSA9PSAiRmlyZWZveCIgT1IKCj09PSBtb2RpZmllZCBm
+aWxlICd0ZW1wbGF0ZS9lbi9kZWZhdWx0L2J1Zy9lZGl0Lmh0bWwudG1wbCcKLS0tIHRlbXBsYXRl
+L2VuL2RlZmF1bHQvYnVnL2VkaXQuaHRtbC50bXBsCTIwMTEtMDEtMjQgMjI6Mjg6MzYgKzAwMDAK
+KysrIHRlbXBsYXRlL2VuL2RlZmF1bHQvYnVnL2VkaXQuaHRtbC50bXBsCTIwMTEtMDQtMDggMTc6
+MTE6MDYgKzAwMDAKQEAgLTk1Nyw3ICs5NTcsNyBAQAogICAgICAgIFslIE5FWFQgVU5MRVNTIGJ1
+Zy5wcm9kdWN0ID09ICJDb21wb3NlciIgT1IgYnVnLnByb2R1Y3QgPT0gIk1haWxOZXdzIENvcmUi
+IE9SCiAgICAgICAgICAgICAgICAgICAgICAgYnVnLnByb2R1Y3QgPT0gIk1vemlsbGEgTG9jYWxp
+emF0aW9ucyIgT1IgYnVnLnByb2R1Y3QgPT0gIk90aGVyIEFwcGxpY2F0aW9ucyIgT1IKICAgICAg
+ICAgICAgICAgICAgICAgICBidWcucHJvZHVjdCA9PSAiU2VhTW9ua2V5IiAlXQotICAgIFslIEVM
+U0lGIGZpZWxkLm5hbWUubWF0Y2goIl5jZl9ibG9ja2luZ18iKSBPUiBmaWVsZC5uYW1lLm1hdGNo
+KCJeY2Zfc3RhdHVzXyIpICVdCisgICAgWyUgRUxTSUYgZmllbGQubmFtZS5tYXRjaCgiXmNmX2Js
+b2NraW5nXyIpIE9SIGZpZWxkLm5hbWUubWF0Y2goIl5jZl9zdGF0dXNfIikgT1IgZmllbGQubmFt
+ZS5tYXRjaCgiXmNmX3RyYWNraW5nXyIpICVdCiAgICAgICAgWyUgTkVYVCBVTkxFU1MgYnVnLnBy
+b2R1Y3QgPT0gIkFVUyIgT1IgYnVnLnByb2R1Y3QgPT0gIkNhbWlubyIgT1IKICAgICAgICAgICAg
+ICAgICAgICAgICBidWcucHJvZHVjdCA9PSAiQ29yZSBHcmF2ZXlhcmQiIE9SIGJ1Zy5wcm9kdWN0
+ID09ICJDb3JlIiBPUgogICAgICAgICAgICAgICAgICAgICAgIGJ1Zy5wcm9kdWN0ID09ICJEaXJl
+Y3RvcnkiIE9SIGJ1Zy5wcm9kdWN0ID09ICJGaXJlZm94IiBPUgoKPT09IG1vZGlmaWVkIGZpbGUg
+J3RlbXBsYXRlL2VuL2RlZmF1bHQvYnVnL3Nob3ctbXVsdGlwbGUuaHRtbC50bXBsJwotLS0gdGVt
+cGxhdGUvZW4vZGVmYXVsdC9idWcvc2hvdy1tdWx0aXBsZS5odG1sLnRtcGwJMjAxMS0wMS0yNCAy
+MjoyODozNiArMDAwMAorKysgdGVtcGxhdGUvZW4vZGVmYXVsdC9idWcvc2hvdy1tdWx0aXBsZS5o
+dG1sLnRtcGwJMjAxMS0wNC0wOCAxNzoxMTo0NSArMDAwMApAQCAtMTk0LDcgKzE5NCw3IEBACiAg
+ICAgICAgICAgIFslIE5FWFQgVU5MRVNTIGJ1Zy5wcm9kdWN0ID09ICJDb21wb3NlciIgT1IgYnVn
+LnByb2R1Y3QgPT0gIk1haWxOZXdzIENvcmUiIE9SCiAgICAgICAgICAgICAgICAgICAgICAgICAg
+IGJ1Zy5wcm9kdWN0ID09ICJNb3ppbGxhIExvY2FsaXphdGlvbnMiIE9SIGJ1Zy5wcm9kdWN0ID09
+ICJPdGhlciBBcHBsaWNhdGlvbnMiIE9SCiAgICAgICAgICAgICAgICAgICAgICAgICAgIGJ1Zy5w
+cm9kdWN0ID09ICJTZWFNb25rZXkiICVdCi0gICAgICAgIFslIEVMU0lGIGZpZWxkLm5hbWUubWF0
+Y2goIl5jZl9ibG9ja2luZ18iKSBPUiBmaWVsZC5uYW1lLm1hdGNoKCJeY2Zfc3RhdHVzXyIpICVd
+CisgICAgICAgIFslIEVMU0lGIGZpZWxkLm5hbWUubWF0Y2goIl5jZl9ibG9ja2luZ18iKSBPUiBm
+aWVsZC5uYW1lLm1hdGNoKCJeY2Zfc3RhdHVzXyIpIE9SIGZpZWxkLm5hbWUubWF0Y2goIl5jZl90
+cmFja2luZ18iKSAlXQogICAgICAgICAgICBbJSBORVhUIFVOTEVTUyBidWcucHJvZHVjdCA9PSAi
+QVVTIiBPUiBidWcucHJvZHVjdCA9PSAiQ2FtaW5vIiBPUgogICAgICAgICAgICAgICAgICAgICAg
+ICAgICBidWcucHJvZHVjdCA9PSAiQ29yZSBHcmF2ZXlhcmQiIE9SIGJ1Zy5wcm9kdWN0ID09ICJD
+b3JlIiBPUgogICAgICAgICAgICAgICAgICAgICAgICAgICBidWcucHJvZHVjdCA9PSAiRGlyZWN0
+b3J5IiBPUiBidWcucHJvZHVjdCA9PSAiRmlyZWZveCIgT1IKCj09PSBtb2RpZmllZCBmaWxlICd0
+ZW1wbGF0ZS9lbi9kZWZhdWx0L2J1Zy9zaG93LnhtbC50bXBsJwotLS0gdGVtcGxhdGUvZW4vZGVm
+YXVsdC9idWcvc2hvdy54bWwudG1wbAkyMDExLTAxLTI0IDIyOjI4OjM2ICswMDAwCisrKyB0ZW1w
+bGF0ZS9lbi9kZWZhdWx0L2J1Zy9zaG93LnhtbC50bXBsCTIwMTEtMDQtMDggMTc6MTI6MDUgKzAw
+MDAKQEAgLTE0OSw3ICsxNDksNyBAQAogICAgICAgIFslIE5FWFQgVU5MRVNTIGJ1Zy5wcm9kdWN0
+ID09ICJDb21wb3NlciIgT1IgYnVnLnByb2R1Y3QgPT0gIk1haWxOZXdzIENvcmUiIE9SCiAgICAg
+ICAgICAgICAgICAgICAgICAgYnVnLnByb2R1Y3QgPT0gIk1vemlsbGEgTG9jYWxpemF0aW9ucyIg
+T1IgYnVnLnByb2R1Y3QgPT0gIk90aGVyIEFwcGxpY2F0aW9ucyIgT1IKICAgICAgICAgICAgICAg
+ICAgICAgICBidWcucHJvZHVjdCA9PSAiU2VhTW9ua2V5IiAlXQotICAgIFslIEVMU0lGIGZpZWxk
+Lm1hdGNoKCJeY2ZfYmxvY2tpbmdfIikgT1IgZmllbGQubWF0Y2goIl5jZl9zdGF0dXNfIikgJV0K
+KyAgICBbJSBFTFNJRiBmaWVsZC5tYXRjaCgiXmNmX2Jsb2NraW5nXyIpIE9SIGZpZWxkLm1hdGNo
+KCJeY2Zfc3RhdHVzXyIpIE9SIGZpZWxkLm1hdGNoKCJeY2ZfdHJhY2tpbmdfIikgJV0KICAgICAg
+ICBbJSBORVhUIFVOTEVTUyBidWcucHJvZHVjdCA9PSAiQVVTIiBPUiBidWcucHJvZHVjdCA9PSAi
+Q2FtaW5vIiBPUgogICAgICAgICAgICAgICAgICAgICAgIGJ1Zy5wcm9kdWN0ID09ICJDb3JlIEdy
+YXZleWFyZCIgT1IgYnVnLnByb2R1Y3QgPT0gIkNvcmUiIE9SCiAgICAgICAgICAgICAgICAgICAg
+ICAgYnVnLnByb2R1Y3QgPT0gIkRpcmVjdG9yeSIgT1IgYnVnLnByb2R1Y3QgPT0gIkZpcmVmb3gi
+IE9SCgo9PT0gbW9kaWZpZWQgZmlsZSAndGVtcGxhdGUvZW4vZGVmYXVsdC9saXN0L2VkaXQtbXVs
+dGlwbGUuaHRtbC50bXBsJwotLS0gdGVtcGxhdGUvZW4vZGVmYXVsdC9saXN0L2VkaXQtbXVsdGlw
+bGUuaHRtbC50bXBsCTIwMTEtMDMtMDcgMTY6MjE6MTcgKzAwMDAKKysrIHRlbXBsYXRlL2VuL2Rl
+ZmF1bHQvbGlzdC9lZGl0LW11bHRpcGxlLmh0bWwudG1wbAkyMDExLTA0LTA4IDE3OjEyOjI0ICsw
+MDAwCkBAIC0zMTQsNyArMzE0LDcgQEAKICAgICAgICAgICAgICAgICAgICAgIE9SIG9uZV9wcm9k
+dWN0Lm5hbWUgPT0gIk1vemlsbGEgTG9jYWxpemF0aW9ucyIKICAgICAgICAgICAgICAgICAgICAg
+IE9SIG9uZV9wcm9kdWN0Lm5hbWUgPT0gIk90aGVyIEFwcGxpY2F0aW9ucyIKICAgICAgICAgICAg
+ICAgICAgICAgIE9SIG9uZV9wcm9kdWN0Lm5hbWUgPT0gIlNlYU1vbmtleSIgJV0KLSAgICBbJSBF
+TFNJRiBmaWVsZC5uYW1lLm1hdGNoKCJeY2ZfYmxvY2tpbmdfIikgT1IgZmllbGQubmFtZS5tYXRj
+aCgiXmNmX3N0YXR1c18iKSAlXQorICAgIFslIEVMU0lGIGZpZWxkLm5hbWUubWF0Y2goIl5jZl9i
+bG9ja2luZ18iKSBPUiBmaWVsZC5uYW1lLm1hdGNoKCJeY2Zfc3RhdHVzXyIpIE9SIGZpZWxkLm5h
+bWUubWF0Y2goIl5jZl90cmFja2luZ18iKSAlXQogICAgICAgWyUgTkVYVCBVTkxFU1Mgb25lX3By
+b2R1Y3QuZGVmaW5lZCAlXQogICAgICAgWyUgTkVYVCBVTkxFU1Mgb25lX3Byb2R1Y3QubmFtZSA9
+PSAiQVVTIiAKICAgICAgICAgICAgICAgICAgICAgIE9SIG9uZV9wcm9kdWN0Lm5hbWUgPT0gIkNh
+bWlubyIKCg==
+</data>
+<flag name="review"
+          id="438284"
+          type_id="4"
+          status="+"
+          setter="dkl"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524727</attachid>
+            <date>2011-04-08 13:59:00 -0700</date>
+            <delta_ts>2011-04-08 13:59:36 -0700</delta_ts>
+            <desc>patch for bmo 4.0</desc>
+            <filename>648555_1.patch</filename>
+            <type>text/plain</type>
+            <size>892</size>
+            <attacher>glob</attacher>
+            
+              <data encoding="base64">PT09IG1vZGlmaWVkIGZpbGUgJ2V4dGVuc2lvbnMvQk1PL2xpYi9EYXRhLnBtJwotLS0gZXh0ZW5z
+aW9ucy9CTU8vbGliL0RhdGEucG0JMjAxMS0wMS0zMSAxMTozODoxNSArMDAwMAorKysgZXh0ZW5z
+aW9ucy9CTU8vbGliL0RhdGEucG0JMjAxMS0wNC0wOCAyMDo1NjoxOSArMDAwMApAQCAtNjksNyAr
+NjksNyBAQAogICAgICAgIk90aGVyIEFwcGxpY2F0aW9ucyIgICAgPT4gW10sCiAgICAgICAiU2Vh
+TW9ua2V5IiAgICAgICAgICAgICA9PiBbXSwKICAgICB9LAotICAgcXIvXmNmX2Jsb2NraW5nX3xj
+Zl9zdGF0dXMvID0+IHsKKyAgICBxci9eY2ZfYmxvY2tpbmdffGNmX3RyYWNraW5nX3xjZl9zdGF0
+dXMvID0+IHsKICAgICAgICJhZGRvbnMubW96aWxsYS5vcmciICAgID0+IFtdLAogICAgICAgIkFV
+UyIgICAgICAgICAgICAgICAgICAgPT4gW10sCiAgICAgICAiQ2FtaW5vIiAgICAgICAgICAgICAg
+ICA9PiBbXSwKQEAgLTExMiw2ICsxMTIsNyBAQAogb3VyICRibG9ja2luZ190cnVzdGVkX3NldHRl
+cnMgPSB7CiAgICAgJ2NmX2Jsb2NraW5nX2Zlbm5lYycgICAgICAgICAgPT4gJ2Zlbm5lYy1kcml2
+ZXJzJywKICAgICAnY2ZfYmxvY2tpbmdfMjAnICAgICAgICAgICAgICA9PiAnbW96aWxsYS1uZXh0
+LWRyaXZlcnMnLAorICAgIHFyL15jZl90cmFja2luZ19maXJlZm94LyAgICAgID0+ICdtb3ppbGxh
+LW5leHQtZHJpdmVycycsCiAgICAgcXIvXmNmX2Jsb2NraW5nX3RodW5kZXJiaXJkLyAgPT4gJ3Ro
+dW5kZXJiaXJkLWRyaXZlcnMnLAogICAgIHFyL15jZl9ibG9ja2luZ19zZWFtb25rZXkvICAgID0+
+ICdzZWFtb25rZXktY291bmNpbCcsCiAgICAgJ19kZWZhdWx0JyAgICAgICAgICAgICAgICAgICAg
+PT4gJ21vemlsbGEtc3RhYmxlLWJyYW5jaC1kcml2ZXJzJywKCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

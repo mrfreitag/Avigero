@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648231</bug_id>
+          
+          <creation_ts>2011-04-07 03:10:00 -0700</creation_ts>
+          <short_desc>extensions do not install on FF4 if the Profile is not located at the default location</short_desc>
+          <delta_ts>2011-04-08 11:39:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Installer</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          <bug_file_loc>http://forums.mozillazine.org/viewtopic.php?f=7&amp;t=2150699&amp;p=10645877#p10645877</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="bougain37@laposte.net">bougain37</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+    
+    <cc>kbrosnan</cc>
+          <qa_contact>installer</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394173</commentid>
+            <who name="bougain37@laposte.net">bougain37</who>
+            <bug_when>2011-04-07 03:10:28 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+FF4 installs fine in non-default location:
+profiles.ini in Users/username/AppData/Roaming/Mozilla/Firefox:
+IsRelative=0
+Path=E:\my preferred Firefox Profile location
+
+However, even though the installation process looks fine for extensions, the extensions do not install.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.specify in profiles.ini in Users/username/AppData/Roaming/Mozilla/Firefoxn a non-default location for FF Profile
+2.install FF4
+3.(try to) install an extension, for example UnMHT
+Actual Results:  
+extension is not visible in any way
+
+Expected Results:  
+extension installed and operational
+
+see thread
+
+http://forums.mozillazine.org/viewtopic.php?f=7&amp;t=2150699&amp;p=10645877#p10645877</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394281</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 06:01:46 -0700</bug_when>
+            <thetext>Works for me on an x86 version of Win7:  
+Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I created a firefox in a non-default profile location (my documents) using the firefox profile manager (choosing a custom location -&gt; Run-&gt; &quot;C:\Program Files\Mozilla Firefox\firefox.exe&quot; -profilemanager) and deleting all other profiles in the appdata folder
+
+The extension UnMHT and other top extensions were successfully installed in the non-default profile folder and were running normally.
+
+Remaining Unconfirmed. If you still see the issue please leave a comment.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394339</commentid>
+            <who name="bougain37@laposte.net">bougain37</who>
+            <bug_when>2011-04-07 07:03:51 -0700</bug_when>
+            <thetext>I hadn&apos;t used the profile manager, I used the modifies profiles.ini that has served me well during all the different Firefox 3 versions.
+
+You can close the bug report, as it does work with the profile manager, and I did successfully use a work-around.
+
+FF 4 and its extensions are running fine and to my satisfaction.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394346</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 07:08:35 -0700</bug_when>
+            <thetext>Marking as Resolved WorksForMe as per Comment 2.
+
+Thanks.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

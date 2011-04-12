@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647727</bug_id>
+          
+          <creation_ts>2011-04-04 13:05:00 -0700</creation_ts>
+          <short_desc>setTimeout not working after and alert in evalInSandbox</short_desc>
+          <delta_ts>2011-04-04 13:05:58 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Crossrider">bugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390392</commentid>
+            <who name="Crossrider">bugzilla</who>
+            <bug_when>2011-04-04 13:05:58 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: Firefox 4.0
+
+We have a simple evalInSandbox code with alert and then immediately the setTimeout (or setInterval) function, which has a simple alert inside it too.
+
+The first alert executes, but then the alert in the setTimeout itself does not.
+If we run the setTimeout on its own without the alert it works:
+
+WORKING CODE EXAMPLE:
+----
+setTimeout(function() { alert(&apos;timeout&apos;) },2000);
+----
+
+NOT WORKING EXAMPLE:
+----
+alert(&quot;start&quot;);
+setTimeout(function() { alert(&apos;timeout&apos;) },2000);
+-----
+
+After it stops working, even if you run the code without the alert, the setTimeout alert will not run.
+ONLY restarting Firefox make it work again, but only when there is no alert prior to the seTimeout (or setInterval)
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.create an xpi with the which runs the above code with evalInSandbox.
+2.see that it does work without alert
+3.add the alert -- see that timeout is not executing
+4. try again without alert - this time the timeout its not working
+5. restart firefox
+6. see how it works again, but not with the alert prior to the setTimeout.
+
+repeat.
+Actual Results:  
+setTimetout and setInterval not working after alert in evalInSandbox
+
+Expected Results:  
+setTimeout and setInterval should work even after alert in evalInSandbox
+
+the new alert design is not cool and sometime simply hangs.. but that&apos;s a whole different issue..</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

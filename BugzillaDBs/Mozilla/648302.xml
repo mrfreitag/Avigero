@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648302</bug_id>
+          
+          <creation_ts>2011-04-07 10:11:00 -0700</creation_ts>
+          <short_desc>You can&apos;t change your location if you accidentally choose the wrong one</short_desc>
+          <delta_ts>2011-04-07 10:44:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>Firefox 4</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>647057</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>1.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Caitlin Looney">clooney</reporter>
+          <assigned_to name="Franck Lecollinet">franck.bugzilla</assigned_to>
+          <cc>stephen.donner</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394635</commentid>
+            <who name="Caitlin Looney">clooney</who>
+            <bug_when>2011-04-07 10:11:59 -0700</bug_when>
+            <thetext>Once you choose your location in the location fallback, you can&apos;t change it. I understand why you can&apos;t change it, but you&apos;re stuck if you accidentally select the wrong location. Can this be fixed, or is this something to be explained in a FAQ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394675</commentid>
+            <who name="Caitlin Looney">clooney</who>
+            <bug_when>2011-04-07 10:35:52 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 647057 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394693</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-07 10:44:54 -0700</bug_when>
+            <thetext>Verified duplicate</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648095</bug_id>
+          
+          <creation_ts>2011-04-06 13:26:00 -0700</creation_ts>
+          <short_desc>Control-B stopped working on Google Docs; opens bookmarks panel instead</short_desc>
+          <delta_ts>2011-04-06 13:28:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Keyboard Navigation</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Alon Zakai (:azakai)">azakai</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>keyboard.navigation</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393054</commentid>
+            <who name="Alon Zakai (:azakai)">azakai</who>
+            <bug_when>2011-04-06 13:26:13 -0700</bug_when>
+            <thetext>Control-B used to be used in Google Docs (for example, in the presentation editor) to mark text as bold, but in FF4 the bookmarks panel is opened instead.
+
+Control-B still works ok in Chrome (so the feature hasn&apos;t been dropped - it just stopped working in FF4).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393060</commentid>
+            <who name="Alon Zakai (:azakai)">azakai</who>
+            <bug_when>2011-04-06 13:28:46 -0700</bug_when>
+            <thetext>Works ok in FF4 on OS X. So this is apparently a Linux issue.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

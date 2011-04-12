@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648503</bug_id>
+          
+          <creation_ts>2011-04-08 02:33:00 -0700</creation_ts>
+          <short_desc>AddressBook in Thunderbird might fail to add contact</short_desc>
+          <delta_ts>2011-04-08 02:33:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Glenn Sommer">gsommer</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396212</commentid>
+            <who name="Glenn Sommer">gsommer</who>
+            <bug_when>2011-04-08 02:33:48 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.15) Gecko/20110307 Mandriva/3.1.9-0.1mdv2010.2 (2010.2) Lightning/1.0b2 Thunderbird/3.1.9
+
+The AddressBook in Thunderbird will fail to add more then one contact, if LC_CTYPE and LC_TIME locales does not match encoding.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Adjust your locale settings to: LC_CTYPE=da_DK.UTF-8 LC_TIME=da_DK, and start thunderbird (All other locales set to POSIX)
+2. add one contact to the addressbook (notice the datepicker for birthday)
+3. try to add another contact to the addressbook (notice the datepicker is not broken)
+
+Actual Results:  
+The 2nd contact does not get addeed.
+
+Expected Results:  
+datepicker should work, and contact should get added
+
+When for example using &quot;LC_CTYPE=da_DK.UTF-8 LC_TIME=da_DK&quot;, the datepicker will change to a hour:minute:sec picker on the 2nd try (When trying to add a contact to the addressbook)
+The error-console will report:
+Error: aDatepicker.yearField is undefined
+Source File: chrome://messenger/content/addressbook/abCardOverlay.js
+Line: 786</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

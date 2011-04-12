@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647926</bug_id>
+          
+          <creation_ts>2011-04-05 20:46:00 -0700</creation_ts>
+          <short_desc>SM 2.1bx crash [@nsHtml5TreeBuilder]</short_desc>
+          <delta_ts>2011-04-08 00:37:27 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>HTML: Parser</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="NoOp">glgxg</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>barrygilmour</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>hsivonen</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>philip.chee</cc>
+          <qa_contact>parser</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391836</commentid>
+            <who name="NoOp">glgxg</who>
+            <bug_when>2011-04-05 20:46:09 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0b11) Gecko/20110209 Firefox/4.0b11 SeaMonkey/2.1b2
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0b11) Gecko/20110209 Firefox/4.0b11 SeaMonkey/2.1b2
+
+Build identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0b11)
+Gecko/20110209 Firefox/4.0b11 SeaMonkey/2.1b2
+
+Yesterday I forwarded a news.mozilla.support.seamonkey message to myself
+(Message-ID: &lt;oO-dnSG81M5ZSwvQnZ2dnUVZ_vydnZ2d@mozilla.org&gt; - Subject:
+view headers all option - 04/02/2011 12:57 AM, Stanimir Stamenkov) as an
+attachment. Opened the forwarded email and double-clicked the .eml
+attachment:
+
+Content-Type: message/rfc822;
+ name=&quot;Re: view headers all option.eml&quot;
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename=&quot;Re: view headers all option.eml&quot;
+
+Crashed SM. Send the crash report, reopened SM, repeated, crash. Both
+crashes are:
+
+&lt;https://crash-stats.mozilla.com/report/index/bp-cd4fcdb1-fd1b-4430-9d36-91fe32110404&gt;
+[SeaMonkey 2.1b2 Crash Report [@ nsHtml5TreeBuilder::currentNode ] ]
+
+&lt;https://crash-stats.mozilla.com/report/index/bp-0d0fc3fe-8ec8-430d-bf7b-9c86b2110404&gt;
+[SeaMonkey 2.1b2 Crash Report [@ nsHtml5TreeBuilder::isInForeign ]]
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. mozilla.support.seamonkey
+Open thread: view headers all option (03/29/2011 - Rick Merrill)
+Click on the last msg in that thread: 04/02/2011 12:57 AM, Stanimir
+Stamenkov - Message-ID: &lt;oO-dnSG81M5ZSwvQnZ2dnUVZ_vydnZ2d@mozilla.org&gt;
+
+2. Forward Stanimir&apos;s message as an attachement (Forward|Attachment).
+
+3. Open the forwarded email &amp; click on the attachment icon (right side
+of Subject: header etc). You&apos;ll see:
+Attachments:
+  Re: view header...on.eml (1.4 KB)
+double-click &apos;Re: view header...on.eml (1.4 KB)&apos;
+Actual Results:  
+Crashes. 
+See the thread in mozilla.dev.apps.seamonkey 
+Subject: SM 2.1 crashes - nsHtml5TreeBuilder 
+Date: Tue, 05 Apr 2011 08:27:14 -0700
+for additional details.
+
+Expected Results:  
+Opened the .eml in a separate window (as does SeaMonkey 2.0.13).
+
+Additional crash reports:
+&lt;https://crash-stats.mozilla.com/report/index/bp-6917e205-0640-49fb-8502-ed1742110405&gt;
+&lt;https://crash-stats.mozilla.com/report/index/d2ccab95-cf10-4f76-a181-24ee02110405&gt;
+&lt;https://crash-stats.mozilla.com/report/index/bp-efde20bb-df29-4764-a6c5-255d02110405&gt;
+&lt;https://crash-stats.mozilla.com/report/index/1a2931ca-3a3d-4795-80a0-9340f2110405&gt;
+&lt;https://crash-stats.mozilla.com/report/index/1a2931ca-3a3d-4795-80a0-9340f2110405&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391867</commentid>
+            <who name="Barry Edwin GIlmour">barrygilmour</who>
+            <bug_when>2011-04-05 21:40:31 -0700</bug_when>
+            <thetext>Crash Report as per above, but instead of forwarding it out and back, I only saved the message to Drafts-folder and attempted to open draft-Attachment-eml:
+
+&lt;https://crash-stats.mozilla.com/report/index/bp-9b6b990c-aac1-407b-a2f9-be5762110405&gt;
+
+Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110331 Firefox/4.2a1pre SeaMonkey/2.2a1pre ID:20110331193613</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391921</commentid>
+            <who name="Henri Sivonen (:hsivonen)">hsivonen</who>
+            <bug_when>2011-04-05 22:50:20 -0700</bug_when>
+            <thetext>I can&apos;t find the message in Google group search by message id. Could you please attach the HTML markup in the crashing message here?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391964</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 23:24:14 -0700</bug_when>
+            <thetext>My money is on the EML-to-HTML converter doing something that the HTML5 parser doesn&apos;t expect, not on the HTML markup being anything particularly interested...
+
+NoOP, can you just attach the .eml file in question here?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392324</commentid>
+              <attachid>524191</attachid>
+            <who name="NoOp">glgxg</who>
+            <bug_when>2011-04-06 08:45:08 -0700</bug_when>
+            <thetext>Created attachment 524191
+.eml attachment for crash testing.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395800</commentid>
+            <who name="Barry Edwin GIlmour">barrygilmour</who>
+            <bug_when>2011-04-07 20:13:22 -0700</bug_when>
+            <thetext>Repeated by duplicating NoOp&apos;s test, and actually  forwarded newsgroup-message with eml as Attachment, which also crashed instantly when opening eml-Attachment in SM-2.2a1pre, and got the same crash signatures:-
+&lt;https://crash-stats.mozilla.com/report/index/bp-c9d7cbb5-bcf0-40ec-854d-1c7032110405&gt;
+
+The faulty mechanism appears to be unique to the browser&apos;s capacity to display the eml-Attachment from within the message.
+
+This is not an insurmountable-problem for me personally, as image and eml Attachments are automatically displayed within the message-pane (below the message), but that ability does seem to prove that the messaging window/pane part of SeaMonkey is not having problems converting and correctly displaying the eml-attachment from within the message.
+
+Nor does SeaMonkey have a problem saving the eml-Attachment as an eml-local-file, and then correctly opening and displaying the file in SeaMonkey&apos;s browser-window.
+
+The problem is only when trying to open inside the browser-window, ~ the eml-attachment from within the actual-message. Then, it&apos;s an instant crash!
+
+Am I right off-track by suggesting that this does not sound like a eml&gt;HTML conversion problem, but rather a faulty instruction or path that has gone astray, for this particular operation alone?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396133</commentid>
+            <who name="Henri Sivonen (:hsivonen)">hsivonen</who>
+            <bug_when>2011-04-08 00:37:27 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; The faulty mechanism appears to be unique to the browser&apos;s capacity to display
+&gt; the eml-Attachment from within the message.
+
+Interesting. Could that code path manage to systematically corrupt the tree builder stack memory in the same way every time?
+
+Is there an easy way to dump the HTML that gets fed to the HTML parser when the .eml is converted to HTML?
+
+Does this crash happen in Thunderbird?</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524191</attachid>
+            <date>2011-04-06 08:45:00 -0700</date>
+            <delta_ts>2011-04-06 08:45:08 -0700</delta_ts>
+            <desc>.eml attachment for crash testing.</desc>
+            <filename>Re: view headers all option.eml</filename>
+            <type>message/rfc822</type>
+            <size>3321</size>
+            <attacher>glgxg</attacher>
+            
+              <data encoding="base64">UGF0aDogWGwudGFncy5naWdhbmV3cy5jb20hYm9yZGVyMS5ubnRwLmRjYS5naWdhbmV3cy5jb20h
+bm50cC5naWdhbmV3cy5jb20hbG9jYWwyLm5udHAuZGNhLmdpZ2FuZXdzLmNvbSFubnRwLm1vemls
+bGEub3JnIW5ld3MubW96aWxsYS5vcmcuUE9TVEVEIW5vdC1mb3ItbWFpbApOTlRQLVBvc3Rpbmct
+RGF0ZTogU2F0LCAwMiBBcHIgMjAxMSAwMjo1Njo1MiAtMDUwMApEYXRlOiBTYXQsIDAyIEFwciAy
+MDExIDEwOjU3OjAwICswMzAwCkZyb206IFN0YW5pbWlyIFN0YW1lbmtvdiA8czdhbjEwQG5ldHNj
+YXBlLm5ldD4KVXNlci1BZ2VudDogTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgNi4xOyBXT1c2NDsg
+cnY6Mi4wcHJlKSBHZWNrby8yMDExMDMzMSBTZWFNb25rZXkvMi4xYjNwcmUKTUlNRS1WZXJzaW9u
+OiAxLjAKTmV3c2dyb3VwczogbW96aWxsYS5zdXBwb3J0LnNlYW1vbmtleQpTdWJqZWN0OiBSZTog
+dmlldyBoZWFkZXJzIGFsbCBvcHRpb24KUmVmZXJlbmNlczogPHBkMmRuZmFnaGFVQUlnelFuWjJk
+blVWWl90LWRuWjJkQG1vemlsbGEub3JnPiA8N1kyZG5WQnlacHJaWGd6UW5aMmRuVVZaX3JDZG5a
+MmRAbW96aWxsYS5vcmc+IDxrOWVkblhDSmlLNXpXQXpRbloyZG5VVlpfaC1kbloyZEBtb3ppbGxh
+Lm9yZz4gPDFjU2RuZkhMeDV6dGFRelFuWjJkblVWWl9yLWRuWjJkQG1vemlsbGEub3JnPiA8RHR5
+ZG5jdVpxcktsWUF6UW5aMmRuVVZaX2g2ZG5aMmRAbW96aWxsYS5vcmc+IDxqTzJkblV5YmRidVh5
+Z19RbloyZG5VVlpfb3VkbloyZEBtb3ppbGxhLm9yZz4gPDhyaWRuWmg5RDZ2MERBN1FuWjJkblVW
+Wl92ZWRuWjJkQG1vemlsbGEub3JnPiA8YjlhZG5kRkF1ZjV5TEE3UW5aMmRuVVZaX2dHZG5aMmRA
+bW96aWxsYS5vcmc+CkluLVJlcGx5LVRvOiA8YjlhZG5kRkF1ZjV5TEE3UW5aMmRuVVZaX2dHZG5a
+MmRAbW96aWxsYS5vcmc+ClgtRmFjZTogKT4+Q2h5Rl9IPGIpdX5aamdvLz13YX47PXF5VyUuRlxM
+LmReZktMWzt5XD10WVxdTX0ydChhXjtQS1N9OWd8a0BcdmtBPFAKIFF8ND9rY0o1MjMzNGY6Q2FD
+clFaPV1EfnR4UFBoNlt5e3hIa1orNC9LUEtafnwqSyM/RXFlUDBXXWlVKkxkeS1oeWpoMClONGMu
+STxtKQogS31Hc1VVZTApfjI0WHBgSnQKQ29udGVudC1UeXBlOiB0ZXh0L3BsYWluOyBjaGFyc2V0
+PVVURi04OyBmb3JtYXQ9Zmxvd2VkCkNvbnRlbnQtVHJhbnNmZXItRW5jb2Rpbmc6IDdiaXQKTWVz
+c2FnZS1JRDogPG9PLWRuU0c4MU01WlN3dlFuWjJkblVWWl92eWRuWjJkQG1vemlsbGEub3JnPgpY
+LVVzZW5ldC1Qcm92aWRlcjogaHR0cDovL3d3dy5naWdhbmV3cy5jb20KTk5UUC1Qb3N0aW5nLUhv
+c3Q6IDk1LjQyLjE1LjgKWC1BdXRoZW50aWNhdGVkVXNlcm5hbWU6IE5vQXV0aFVzZXIKWC1UcmFj
+ZTogc3YzLUFBUVpnaUdqSllxVE1rVTM5YzBkL2dXMzJvOW8zVlJPT2pYVU1reXlvalVOa0lLTXBJ
+d21JWDRkWGs1dHNzRUlJK25ZMzErU3BJQXpyYmMhK2h6SjZEbHBYTmNqcFN5bnBiemo0anVCeXVJ
+RGYrQUh2aFF4QUhpSE85OXF5bHlFL0VuYjZBNjdLd1JUNEdLZ2dqSnZDYjRZL0MzcyF3OFlwMmtF
+OApYLUNvbXBsYWludHMtVG86IGFidXNlQG1vemlsbGEub3JnClgtRE1DQS1Db21wbGFpbnRzLVRv
+OiBhYnVzZUBtb3ppbGxhLm9yZwpYLUFidXNlLWFuZC1ETUNBLUluZm86IFBsZWFzZSBiZSBzdXJl
+IHRvIGZvcndhcmQgYSBjb3B5IG9mIEFMTCBoZWFkZXJzClgtQWJ1c2UtYW5kLURNQ0EtSW5mbzog
+T3RoZXJ3aXNlIHdlIHdpbGwgYmUgdW5hYmxlIHRvIHByb2Nlc3MgeW91ciBjb21wbGFpbnQgcHJv
+cGVybHkKWC1Qb3N0ZmlsdGVyOiAxLjMuNDAKQnl0ZXM6IDI4OTYKWC1PcmlnaW5hbC1CeXRlczog
+MjgzNQpYcmVmOiBudW1iZXIubm50cC5kY2EuZ2lnYW5ld3MuY29tIG1vemlsbGEuc3VwcG9ydC5z
+ZWFtb25rZXk6NTk2MDcKClYyVmtMQ0F6TUNCTllYSWdNakF4TVNBeE5UbzBNam8xTkNBdE1EY3dN
+Q3dnTDA1dlQzQXZPZ28rSUU5dUlEQXpMek13THpJdwpNVEVnTURFNk1qUWdVRTBzSUZOMFlXNXBi
+V2x5SUZOMFlXMWxibXR2ZGlCM2NtOTBaVG9LUGdvK1BpQlhhR0YwSjNNZ2QzSnYKYm1jZ2QybDBh
+Q0JHYjNKM1lYSmtJRUZ6SUMwK0lFRjBkR0ZqYUcxbGJuUS9JRlJvYVhNZ2QyRjVJSGx2ZFNkc2JD
+QUtQajRnCmFXNWpiSFZrWlNCbWRXeHNJR2hsWVdSbGNuTWdZVzVrSUdaMWJHd2dZMjl1ZEdWdWRD
+QnBiaUJoWkdScGRHbHZiaTRnV1c5MQpKMnhzSUFvK1BpQmlZWE5wWTJGc2JIa2dabTl5ZDJGeVpD
+QjBhR1VnYjNKcFoybHVZV3dnYldWemMyRm5aU0JwYm5SaFkzUXUKSUFvK0NqNGdWR2hsSUhCeWIy
+SnNaVzBnZDJsMGFDQjBhR0YwSUdseklIUm9aU0JoZEhSaFkyaHRaVzUwSUcxaGVTQmpiMjUwCllX
+bHVJR0VnZG1seWRYTWdZbWx1WVhKNUlBbytJQ2h3WkdZc0lDNWtiMk1nWlhSaktTNGdTV1lnYVc1
+emRHVmhaQ0I1YjNVZwpZMjl3ZVNCMGFHVWdaVzUwYVhKbElHTnZiblJsYm5RZ0tIZHBkR2dnQ2o0
+Z2FHVmhaR1Z5Y3lCaGN5QkpJR0ZrZG1selpXUWcKVW1samF5QjBieUJrYnlrZ1lXNWtJSEJoYzNS
+bElHRnpJR0VnY1hWdmRHRjBhVzl1SUhSb1pTQUtQaUIyYVhKMWN5QmlhVzVoCmNua2dLR2xtSUdG
+dWVTa2dZMkZ1SjNRZ1ltVWdaWGhsWTNWMFpXUXVJRUVnZG1seWRYTWdjMmxuYm1GMGRYSmxJRzFo
+ZVNBSwpQaUJ6ZEdsc2JDQmlaU0J3YVdOclpXUWdkWEFnWW5rZ1lTQnpZMkZ1Ym1WeUxDQmlkWFFn
+YVhRZ2QyOTFiR1FnWW1VZ2FHRnkKYld4bGMzTXVJQW9LU1NCelpXVXVJQ0JJWlhKbEozTWdkMmhs
+Y21VZ2RHaGxJQ0pFWld4bGRHVXZSR1YwWVdOb0lFRjBkR0ZqCmFHMWxiblFpSUcxaGVTQmpiMjFs
+SUdsdUlBcG9ZVzVrZVM0Z0lFVnBkR2hsY2lCdFlXdGxJR0VnWTI5d2VTQnZjaUJ2Y0dWeQpZWFJs
+SUc5dUlIUm9aU0J2Y21sbmFXNWhiQ0FvWkdWd1pXNWtjeUJ2YmlBS2QyaGxkR2hsY2lCdmJtVWdh
+VzUwWlc1a2N5QjAKYnlCclpXVndJSFJvWlNCdmNtbG5hVzVoYkNCcGJuUmhZM1FnWm05eUlITnZi
+V1VnWm5WMGRYSmxJQXB3ZFhKd2IzTmxLU3dnClpHVnNaWFJsSUhSb1pTQjFibmRoYm5SbFpDQmhk
+SFJoWTJodFpXNTBjeXdnZEdobGJpQkdiM0ozWVhKa0lFRnpJQXBCZEhSaApZMmh0Wlc1MExpQWdW
+MmhsYmlCbWIzSjNZWEprYVc1bklIUm9aU0JvWldGa1pYSnpJR0Z6SUdKdlpIa2dZMjl1ZEdWdWRD
+QjAKYUdWNUlHMWhlU0FLWjJWMElIVnVibVZqWlhOellYSjVJRzFoYm1kc1pXUWdZbmtnWVhWMGIy
+MWhkR2xqSUdadmNtMWhkSFJwCmJtY2dkR2hsSUZWQklHUnZaWE1nWm05eUlHSnZaSGtnQ21OdmJu
+UmxiblFzSUhOdklIUm9aU0J3YjJsdWRDQnBjeUIwYnlCaApkbTlwWkNCMGFHRjBMZ29LTFMwZ0Ns
+TjBZVzVwYldseUNnPT0K
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

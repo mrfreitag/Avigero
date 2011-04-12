@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648488</bug_id>
+          
+          <creation_ts>2011-04-07 23:38:00 -0700</creation_ts>
+          <short_desc>Ctrl+W should not be shown as accel if focus is on app tab</short_desc>
+          <delta_ts>2011-04-11 16:54:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>580638</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ginn Chen">ginn.chen</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+    
+    <cc>fullmetaljacket.xp+bugmail</cc>
+    
+    <cc>hskupin</cc>
+    
+    <cc>mano</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396062</commentid>
+            <who name="Ginn Chen">ginn.chen</who>
+            <bug_when>2011-04-07 23:38:01 -0700</bug_when>
+            <thetext>1) Pin a tab as App Tab
+2) Focus the App Tab, press Alt+F
+3) Ctrl+W should not be shown as accel
+
+Mac OS X doesn&apos;t have this problem.
+
+I didn&apos;t try Windows.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396154</commentid>
+            <who name="sdrocking">dugar.siddhartha</who>
+            <bug_when>2011-04-08 01:07:23 -0700</bug_when>
+            <thetext>WFM on Windows</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396324</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-08 06:13:40 -0700</bug_when>
+            <thetext>Unable to reproduce. WFM (no Ctrl-W accelerator) with clean profiles on:
+Mozilla/5.0 (X11; Linux i686 on x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+Mozilla/5.0 (X11; Linux i686 on x86_64; rv:2.2a1pre) Gecko/20110408 Firefox/4.2a1pre
+Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+
+Exactly which Firefox version is this bug about? Or is it some extra conditions that makes the Ctrl-W accelerator show up in the menu?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396542</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-08 08:52:42 -0700</bug_when>
+            <thetext>Ginn, can you please run Firefox in safe mode? I can&apos;t see the shortcut in the file menu with a recent Minefield build on Linux.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399776</commentid>
+            <who name="Ginn Chen">ginn.chen</who>
+            <bug_when>2011-04-10 19:22:13 -0700</bug_when>
+            <thetext>Well, I found it is tricky to reproduce it.
+
+First, you need to focus a normal tab, press alt+F.
+Then, focus an app tab, press alt+F, Ctrl+W will be there.
+If you have never press alt+F with a normal tab, Ctrl+W will not be there for app tab.
+
+Also reproduced the same problem on Windows.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400066</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-11 03:46:48 -0700</bug_when>
+            <thetext>Indeed, it&apos;s tricky to find out how to reproduce it, but here we go:
+
+Steps to Reproduce:
+1. Create a new, clean profile
+2. Start Firefox with the new profile and you will get two tabs
+3. Right-click on left tab and select Pin as App Tab
+4. Left click on the non-app tab
+5. Press Alt-F
+6. Press Esc
+7. Left click on the app tab
+8. Press Alt-F
+
+Actual Results:
+Ctrl-W acceleration is visible in the menu.
+
+Expected Results:
+Ctrl-W acceleration should not be visible in the menu since an app tab is focused.
+
+Reproduced with:
+Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110410 Firefox/4.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401598</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-11 14:17:43 -0700</bug_when>
+            <thetext>Is this a regression from earlier beta builds or does it exist since the landing of app tabs?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402008</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-11 15:56:47 -0700</bug_when>
+            <thetext>Well, previously Ctrl-W indeed was a valid accelerator key for closing an app tab. That was changed between
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011/02/2011-02-08-03-mozilla-central-debug/firefox-4.0b12pre.en-US.debug-linux-x86_64.tar.bz2
+http://hg.mozilla.org/mozilla-central/rev/4c62984f12d1
+
+and
+
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011/02/2011-02-08-03-mozilla-central-debug/firefox-4.0b12pre.en-US.debug-linux-x86_64.tar.bz2
+http://hg.mozilla.org/mozilla-central/rev/0a2e06927c31
+
+The current bug occurred at the same moment.
+
+Thus, the regression range is:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=4c62984f12d1&amp;tochange=0a2e06927c31
+
+One interesting change set in that range deals with bug 580638 - App tab closes with keystroke:
+http://hg.mozilla.org/mozilla-central/rev/88952ceddd05
+
+Excerpt from that change set:
+
+    1.25 +          // We also want to remove the keyboard shortcut from the file menu
+    1.26 +          // when the shortcut is disabled, and bring it back when it&apos;s
+    1.27 +          // renabled.
+    1.28 +          //
+    1.29 +          // Fixing bug 630826 could make that happen automatically.
+    1.30 +          // Fixing bug 630830 could avoid the ugly hack below.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402016</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-11 16:02:12 -0700</bug_when>
+            <thetext>Sorry, did a copy/paste error of the first file above, but the rest is correct as far as I know.
+http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/2011/02/2011-02-07-03-mozilla-central-debug/firefox-4.0b12pre.en-US.debug-linux-x86_64.tar.bz2</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402194</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-11 16:54:11 -0700</bug_when>
+            <thetext>Yeah, seems like to be the only eye-candy change during those builds. Thanks Thomas. CC&apos;ing Mano who wrote the original patch for bug 580638.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

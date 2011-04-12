@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648240</bug_id>
+          
+          <creation_ts>2011-04-07 05:20:00 -0700</creation_ts>
+          <short_desc>One UNEXPECTED-FAILURE in jstestbrowser -- js1_8_1/trace/trace-test.js -- NS_ERROR_DOM_NOT_SUPPORTED_ERR</short_desc>
+          <delta_ts>2011-04-08 13:29:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>1.9.2 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="tompelka@gmail.com">tompelka</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>kbrosnan</cc>
+    
+    <cc>mcepl</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394235</commentid>
+            <who name="tompelka@gmail.com">tompelka</who>
+            <bug_when>2011-04-07 05:20:10 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.15) Gecko/20110318 Red Hat/3.6.15-2.el6_0 Firefox/3.6.15
+Build Identifier: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.15) Gecko/20110318 Red Hat/3.6.15-2.el6_0 Firefox/3.6.15
+
+FAILED! uncaught exception: [Exception... &quot;Operation is not supported&quot;  code: &quot;9&quot; nsresult: &quot;0x80530009 (NS_ERROR_DOM_NOT_SUPPORTED_ERR)&quot;  location: &quot;file:///root/rpmbuild/BUILD/xulrunner-1.9.2.15/mozilla-1.9.2/js/src/tests/js1_8_1/trace/trace-test.js Line: 4280&quot;]
+
+REFTEST TEST-UNEXPECTED-FAIL | file:///root/rpmbuild/BUILD/xulrunner-1.9.2.15/mozilla-1.9.2/js/src/tests/jsreftest.html?test=js1_8_1/trace/trace-test.js | timed out waiting for onload to fire
+REFTEST FINISHED: Slowest test took 160307ms (file:///root/rpmbuild/BUILD/xulrunner-1.9.2.15/mozilla-1.9.2/js/src/tests/jsreftest.html?test=js1_5/Regress/regress-422348.js)
+
+See attached full test output.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. make jstestbrowser
+2.
+3.
+Actual Results:  
+REFTEST INFO | Result summary:
+REFTEST INFO | Successful: 52532 (52532 pass, 0 load only)
+REFTEST INFO | Unexpected: 2 (1 unexpected fail, 0 unexpected pass, 0 unexpected asserts, 0 unexpected fixed asserts, 1 failed load, 0 exception)
+REFTEST INFO | Known problems: 1296 (109 known fail, 0 known asserts, 1040 random, 147 skipped)
+
+Expected Results:  
+REFTEST INFO | Result summary:
+REFTEST INFO | Successful: 52534 (52534 pass, 0 load only)
+REFTEST INFO | Unexpected: 0 (0 unexpected fail, 0 unexpected pass, 0 unexpected asserts, 0 unexpected fixed asserts, 0 failed load, 0 exception)
+REFTEST INFO | Known problems: 1296 (109 known fail, 0 known asserts, 1040 random, 147 skipped)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394244</commentid>
+            <who name="tompelka@gmail.com">tompelka</who>
+            <bug_when>2011-04-07 05:28:41 -0700</bug_when>
+            <thetext>Since the full log is pretty huge see following link (http://disk.jabbim.cz/pele@njs.netlab.cz/jstestbrowser.log) instead of attachment.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

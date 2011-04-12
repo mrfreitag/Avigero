@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647935</bug_id>
+          
+          <creation_ts>2011-04-05 21:58:00 -0700</creation_ts>
+          <short_desc>Add SeaMonkey 2.1b3 and 2.1pre to crash-stats.m.c</short_desc>
+          <delta_ts>2011-04-11 17:20:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Project Organization</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>seamonkey2.1b3</target_milestone>
+          
+          <blocked>647928</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Wood (:Callek)">bugspam.Callek</reporter>
+          <assigned_to name="Robert Kaiser">kairo</assigned_to>
+          <cc>antoine.mechelynck</cc>
+    
+    <cc>dominique</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>organization</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391885</commentid>
+            <who name="Justin Wood (:Callek)">bugspam.Callek</who>
+            <bug_when>2011-04-05 21:58:28 -0700</bug_when>
+            <thetext>+++ This bug was initially created as a clone of Bug #631283 +++
+
+For the 2.1b3 milestone, new versions will be needed to appear on crash-stats.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392084</commentid>
+            <who name="Tony Mechelynck (rarely reads bugmail)">antoine.mechelynck</who>
+            <bug_when>2011-04-06 02:53:00 -0700</bug_when>
+            <thetext>Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110331 Firefox/4.2a1pre SeaMonkey/2.2a1pre ID:20110331193613
+
+Current trunk nightlies of SeaMonkey are now 2.2a1pre. What about *their* crash stats? Or should that be a different bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393547</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-06 16:42:13 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Current trunk nightlies of SeaMonkey are now 2.2a1pre. What about *their* crash
+&gt; stats? Or should that be a different bug?
+
+Have you actually looked at crash.stats.mozilla-com and which versions it lists? IIRC, 2.2a1pre is already available there. ;-)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393894</commentid>
+            <who name="Tony Mechelynck (rarely reads bugmail)">antoine.mechelynck</who>
+            <bug_when>2011-04-06 21:37:17 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; (In reply to comment #1)
+&gt; &gt; Current trunk nightlies of SeaMonkey are now 2.2a1pre. What about *their* crash
+&gt; &gt; stats? Or should that be a different bug?
+&gt; 
+&gt; Have you actually looked at crash.stats.mozilla-com and which versions it
+&gt; lists? IIRC, 2.2a1pre is already available there. ;-)
+
+Sorry, my bad.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402317</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-11 17:20:25 -0700</bug_when>
+            <thetext>done.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647676</bug_id>
+          
+          <creation_ts>2011-04-04 06:57:00 -0700</creation_ts>
+          <short_desc>support uTouch multi-touch interface</short_desc>
+          <delta_ts>2011-04-04 08:06:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>599001</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Koichi Akabe">vbkaisetsu</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jo.hermans</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390076</commentid>
+            <who name="Koichi Akabe">vbkaisetsu</who>
+            <bug_when>2011-04-04 06:57:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Firefox supports multi-touch detection for Windows, but not for Linux.
+Please support uTouch multi-touch interface as well as Windows.
+
+Reproducible: Always
+
+
+
+
+uTouch is multi-touch interface for Ubuntu (or other linux-based OS) developed by Caninical.
+It supports some multi-touch devices (e.g. Apple Magic Trackpad, Synaptics Touchpad, etc) by unified functions.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390157</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-04 08:06:49 -0700</bug_when>
+            <thetext>Please search before you file a bug, this one was easy to find.
+
+*** This bug has been marked as a duplicate of bug 599001 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

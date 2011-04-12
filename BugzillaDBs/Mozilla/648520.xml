@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648520</bug_id>
+          
+          <creation_ts>2011-04-08 06:30:00 -0700</creation_ts>
+          <short_desc>history missing after restart</short_desc>
+          <delta_ts>2011-04-08 12:35:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Bookmarks &amp; History</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>victor50</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mak77</cc>
+          <qa_contact>bookmarks</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396336</commentid>
+            <who name="">victor50</who>
+            <bug_when>2011-04-08 06:30:13 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+After restarting (for instance updating an add-on) or when killing FF, large chunks of history are missing, about 1 day of history before the restart. Putting the machine in sleep-mode might be affecting this. Sometimes also recently added bookmarks from the same period disappear.
+
+Reproducible: Sometimes</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396675</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-08 09:57:03 -0700</bug_when>
+            <thetext>why would you be killing firefox? that can arguably cause a small dataloss, but just the last few minutes, not a full day. If you shutdown the browser usually do you notice the problem?
+Btw, this sounds strange, do you have add-ons interacting with history or bookmarks?
+Where do you miss history, you don&apos;t see it in the menu, or in the sidebar/Library?
+Could you check if you have .corrupt files in your profile folder?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397148</commentid>
+            <who name="">victor50</who>
+            <bug_when>2011-04-08 11:59:30 -0700</bug_when>
+            <thetext>Killing is still sometimes necessary when FF complains it is already running and won&apos;t (re)start. I hardly ever shut down the browser as I put my PC on standby most of the time.
+I miss history in the sidebar as well as in the &quot;view all history&quot; I don&apos;t use the history menu.
+If you mean *.corrupt files: I didn&apos;t find any. 
+
+The first time I noticed this was after I tried to install Quickrestart addon. following the post on https://addons.mozilla.org/nl/firefox/addon/quickrestart/ (I think this was on the same day I installed FF4): 
+
+If you guys wanted it for v4.0 to the following -&gt; download xpi file (with different browser), then OPEN it (don&apos;t extract, just open) with archive extracting software (WinRAR, WinZip, IZArc). There&apos;s a file called install.rdf, double click to open it, find line &quot;&lt;em:maxVersion&gt;&quot; and change value from 3.6.* to 4.*.*. Then close the xpi archive file, it will ask for update the archive with updated install.rdf -&gt; click yes
+
+N2GetherNow op April 1, 2011
+
+ afterwards I wrote: 
+
+Wouldn&apos;t recommend for FF4
+
+If you try the trick described below: I got serious trouble resulting in the menu bar being visible but not usable and finally all my toolbars were blank. On top of that some history was missing and a recent addition to my bookmarks. The restart option is not visible in the mini-menu you get when you turn off the menu-bar so you will have to use the keyboard or add the button. Better wait for a true and tested version wich I hope will come soon.
+
+Victor Onrust op April 2, 2011
+
+After that I disabled it but did not remove it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397200</commentid>
+            <who name="Marco Bonardo [:mak]">mak77</who>
+            <bug_when>2011-04-08 12:29:29 -0700</bug_when>
+            <thetext>forcing compatibility on an add-on can cause a lot of troubles, it&apos;s possible it has somehow corrupted your profile, creating a new profile and exporting old data to it could be the best choice.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397215</commentid>
+            <who name="">victor50</who>
+            <bug_when>2011-04-08 12:35:47 -0700</bug_when>
+            <thetext>I will try and let you know in a few weeks.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

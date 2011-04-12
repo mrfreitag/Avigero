@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648282</bug_id>
+          
+          <creation_ts>2011-04-07 09:03:00 -0700</creation_ts>
+          <short_desc>msaa/nsTextAccessibleWrap::GetCharacterExtents probably doesn&apos;t do what it&apos;s supposed to</short_desc>
+          <delta_ts>2011-04-07 13:11:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Disability Access APIs</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Zack Weinberg (:zwol)">zackw</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>fantasai.bugs</cc>
+    
+    <cc>jamie</cc>
+    
+    <cc>roc</cc>
+          <qa_contact>accessibility-apis</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394493</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 09:03:29 -0700</bug_when>
+            <thetext>From the name, I have the impression that TextAccessibleWrap::GetCharacterExtents is supposed to tell you the bounding rectangle of a chunk of *text*.  However, the MSAA implementation just finds the bounding rectangle of a bunch of *frames* (sp. lineboxes, I think).  This may just be an over-conservative estimate, but it seems like it could be completely wrong.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

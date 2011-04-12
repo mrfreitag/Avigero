@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647655</bug_id>
+          
+          <creation_ts>2011-04-04 01:01:00 -0700</creation_ts>
+          <short_desc>Pinned tabs not restored after starting firefox 4 in private browsing</short_desc>
+          <delta_ts>2011-04-07 13:12:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter>aymonee</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+    
+    <cc>bugcuddler</cc>
+    
+    <cc>bugzilla</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389881</commentid>
+            <who name="">aymonee</who>
+            <bug_when>2011-04-04 01:01:39 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When I start firefox directly in private browsing from the jump list, and then I press ctrl shift P to go back to normal browsing, I lose all the pinned tabs I previously saved.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Open firefox in private mode from the jump list
+2.Go back to normal mode
+
+Actual Results:  
+Pinned tabs are lost.
+
+Expected Results:  
+After switching back from private to normal browsing I do expect the browser to load back my previously pinned tabs.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389914</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-04 02:20:34 -0700</bug_when>
+            <thetext>Works for me on:
+ Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+This is not a bug. Please refer to this article regarding private browsing
+http://support.mozilla.com/en-US/kb/Private%20Browsing
+
+The status of this bug should be changed to resolved.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389927</commentid>
+            <who name="">aymonee</who>
+            <bug_when>2011-04-04 02:55:30 -0700</bug_when>
+            <thetext>I didn&apos;t explain enough or you didn&apos;t understand me.
+
+Let&apos;s say I pin a tab while in normal mode, now if I go in private mode when i switch back in normal mode I get again the pinned tab. I&apos;M NOT PINNING TABS IN PRIVATE MODE.
+This means that if I pin a tab while in normal mode, it hides while in private mode, but it shows again when in normal mode.
+
+Now, what if I pinned a tab and I close the browser.
+
+If I open firefox in normal mode the pinned tabs are there. If I open firefox the pinned tabs are Completly Lost. 
+
+I can close firefox, I can switch back to normal mode or anything, but they are just lost.
+
+This can&apos;t be a normal behaviour.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389928</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 03:02:41 -0700</bug_when>
+            <thetext>aymonee@gmail.com, what if you have both pinned tabs and non-pinned tabs... Do the non-pinned tabs survive your exercises but the pinned tabs disappear? Or does this alleged bug only occur if you have pinned tabs only?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389940</commentid>
+            <who name="">aymonee</who>
+            <bug_when>2011-04-04 04:09:11 -0700</bug_when>
+            <thetext>I can&apos;t have pinned tabs cause I&apos;m using the jump list in the win7 taskbar to open firefox in private mode.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389946</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-04 04:23:49 -0700</bug_when>
+            <thetext>Reproducible on:
+Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+*Note. Bug can be marked as NEW if not a dupe</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389969</commentid>
+            <who name="">aymonee</who>
+            <bug_when>2011-04-04 05:00:22 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; I can&apos;t have pinned tabs cause I&apos;m using the jump list in the win7 taskbar to
+&gt; open firefox in private mode.
+
+In that comment I meant: &apos;I can&apos;t have OPENED tabs&apos;</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

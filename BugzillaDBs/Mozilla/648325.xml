@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648325</bug_id>
+          
+          <creation_ts>2011-04-07 12:12:00 -0700</creation_ts>
+          <short_desc>Try to close window 1 when click on close in window 2 (pop ups the are you sure to close all tabs question)</short_desc>
+          <delta_ts>2011-04-07 13:56:30 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Lito">ralvarezh</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394839</commentid>
+            <who name="Lito">ralvarezh</who>
+            <bug_when>2011-04-07 12:12:49 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Eg&gt;
+when a webpage popups a new window and you close it, it closes, but your original window ask you if you are sure if you want to close your window with many tabs opened.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. open many tabs in a window
+2. open a new window
+3. close the new window
+
+
+Expected Results:  
+just close the window where you click close, not other mozilla windows
+
+windows 7 32bits
+firefox 4.0
+summer mozilla theme
+Plugins:
+Web developer toolbar
+google toolbar
+firebug
+firecookies
+awsome screenshot
+clear cache 1.2
+download helper
+flashbug
+toogle webdeveloper toolbar</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394940</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-07 13:03:12 -0700</bug_when>
+            <thetext>Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I have tried to reproduce this, but I can&apos;t.
+
+How do you close your second window? By pressing Ctrl-W, by left clicking X, by ...?
+
+Are you able to reproduce this bug with a clean profile?
+https://support.mozilla.com/en-US/kb/Basic%20Troubleshooting#w_8-make-a-new-profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394990</commentid>
+            <who name="Lito">ralvarezh</who>
+            <bug_when>2011-04-07 13:26:36 -0700</bug_when>
+            <thetext>It happens by left clicking the X button of my 2nd window, then my 1st window ask me if Im sure to close the window with many tabs(1st. window).
+
+With a clean profile I cannot reproduce this bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395064</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-07 13:56:30 -0700</bug_when>
+            <thetext>OK, then it sounds like an add-on problem.
+
+Try to start your Firefox in Safe Mode and see if that also inhibits the bug: https://support.mozilla.com/en-US/kb/Safe+Mode
+
+If so, then you may start the add-ons one by one until the bug shows up again and you will find the offending add-on.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

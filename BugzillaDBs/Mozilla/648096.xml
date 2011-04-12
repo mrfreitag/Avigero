@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648096</bug_id>
+          
+          <creation_ts>2011-04-06 13:30:00 -0700</creation_ts>
+          <short_desc>UWinnipeg (theory PPM repo) instructions are not necessary with recent ActiveState releases</short_desc>
+          <delta_ts>2011-04-06 13:30:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>Installation &amp; Upgrading</component>
+          <version>4.1.1</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>Bugzilla 4.0</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Max Kanat-Alexander">mkanat</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">installation</assigned_to>
+          <cc>glob</cc>
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393063</commentid>
+            <who name="Max Kanat-Alexander">mkanat</who>
+            <bug_when>2011-04-06 13:30:40 -0700</bug_when>
+            <thetext>At least with ActiveState 5.12, the main ActiveState repo now has all of our optional and required dependencies, so we don&apos;t need the note about adding the uwinnipeg repo anymore.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

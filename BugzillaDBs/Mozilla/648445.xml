@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648445</bug_id>
+          
+          <creation_ts>2011-04-07 19:21:00 -0700</creation_ts>
+          <short_desc>crash while trying to stream an instant netflix movie</short_desc>
+          <delta_ts>2011-04-08 13:26:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Camino</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Adam Reck">areck</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>cl-bugs-new2</cc>
+    
+    <cc>phiw</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395713</commentid>
+            <who name="Adam Reck">areck</who>
+            <bug_when>2011-04-07 19:21:56 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en; rv:1.9.0.19) Gecko/2011032020 Camino/2.0.7 (like Firefox/3.0.19)
+Build Identifier: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en; rv:1.9.0.19) Gecko/2011032020 Camino/2.0.7 (like Firefox/3.0.19)
+
+I&apos;ve tried to watch the same movie 3 times and it keeps crashing on me right when it starts to stream.  It&apos;s not giving me a crash report either.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.go to Netflix.com
+2.click on Arrested Develpment instant watch
+3.tries to stream and crashes</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396132</commentid>
+            <who name="philippe">phiw</who>
+            <bug_when>2011-04-08 00:37:05 -0700</bug_when>
+            <thetext>(In reply to comment #0)
+&gt; It&apos;s not giving me a crash report either.
+
+That is strange. Can you double check by typing &apos;about:crashes&apos; in the location bar? Can you also check if there is any logging in the Console (/utilities/console), or an apple crash log ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396334</commentid>
+            <who name="Chris Lawson">cl-bugs-new2</who>
+            <bug_when>2011-04-08 06:29:11 -0700</bug_when>
+            <thetext>What plug-in is Netflix using for their streaming these days? You should make sure you have the latest version of whatever that plug-in is.
+
+cl</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396409</commentid>
+            <who name="Chris Lawson">cl-bugs-new2</who>
+            <bug_when>2011-04-08 07:24:43 -0700</bug_when>
+            <thetext>Oh, also, this might be a dupe of bug 647365. Adam, please check out that bug and see if the symptoms there match yours.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396447</commentid>
+            <who name="Adam Reck">areck</who>
+            <bug_when>2011-04-08 07:45:46 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; (In reply to comment #0)
+&gt; &gt; It&apos;s not giving me a crash report either.
+&gt; 
+&gt; That is strange. Can you double check by typing &apos;about:crashes&apos; in the location
+&gt; bar? Can you also check if there is any logging in the Console
+&gt; (/utilities/console), or an apple crash log ?
+
+I checked, I don&apos;t have any crash reports filed.  My console log is showing this message:  CMSCreateDataProviderOrGetInfo : Invalid colorspace type  not that computer savvy so don&apos;t know what it means</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396449</commentid>
+            <who name="Adam Reck">areck</who>
+            <bug_when>2011-04-08 07:46:32 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; Oh, also, this might be a dupe of bug 647365. Adam, please check out that bug
+&gt; and see if the symptoms there match yours.
+
+It&apos;s almost the same, but I don&apos;t have to switch to full screen to have it crash.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396473</commentid>
+            <who name="Chris Lawson">cl-bugs-new2</who>
+            <bug_when>2011-04-08 07:56:02 -0700</bug_when>
+            <thetext>Are you running an official build of Camino, downloaded from the site (or via the software update feature in Camino itself), or are you running an optimized build from some third party? The latter might explain the missing crash reports.
+
+You should still be able to retrieve a crash report of some sort via Console.app -- look under FILES -&gt; ~/Library/Logs -&gt; CrashReporter in the sidebar for the most recent crash from Camino (the title will probably start with &quot;Camino_2011-04&quot; if the crash was in the last few days) and then click on it, and copy and paste everything from the main pane of Console into a plain-text file and upload it here using the &quot;Add an attachment&quot; button.
+
+Side note: it&apos;s entirely possible there&apos;s more than one way to trigger the other crash, so this could potentially still be a dupe.
+
+cl</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

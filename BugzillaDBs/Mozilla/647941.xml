@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647941</bug_id>
+          
+          <creation_ts>2011-04-05 23:18:00 -0700</creation_ts>
+          <short_desc>Make stats output directly spreadsheet-pastable output</short_desc>
+          <delta_ts>2011-04-06 20:49:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Camino</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Stuart Morgan">stuart.morgan+bugzilla</reporter>
+          <assigned_to name="Stuart Morgan">stuart.morgan+bugzilla</assigned_to>
+          <cc>alqahira</cc>
+    
+    <cc>stuart.morgan+bugzilla</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391958</commentid>
+            <who name="Stuart Morgan">stuart.morgan+bugzilla</who>
+            <bug_when>2011-04-05 23:18:08 -0700</bug_when>
+            <thetext>Per discussion in bug 637091, the stats script should output data that can be pasted straight into spreadsheets (probably leaving human-readable as an optional output).
+
+I&apos;ll take care of the column reordering discussed in bug 637091 comment 4 and 5 as part of this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392024</commentid>
+            <who name="Stuart Morgan">stuart.morgan+bugzilla</who>
+            <bug_when>2011-04-06 00:37:50 -0700</bug_when>
+            <thetext>Reordering landed as http://hg.mozilla.org/camino/rev/8a5faf7aaea9 and corresponding changes made to the spreadsheet (sadly, the Percents tab got completely screwed up, so I need to fix that)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393141</commentid>
+            <who name="Smokey Ardisson (offline for a while; no bugmail - do not email)">alqahira</who>
+            <bug_when>2011-04-06 13:56:34 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Reordering landed as http://hg.mozilla.org/camino/rev/8a5faf7aaea9 and
+&gt; corresponding changes made to the spreadsheet (sadly, the Percents tab got
+&gt; completely screwed up, so I need to fix that)
+
+Bug 647491 will probably require more munging of that table (and then all the charts), too :(</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393861</commentid>
+              <attachid>524340</attachid>
+            <who name="Stuart Morgan">stuart.morgan+bugzilla</who>
+            <bug_when>2011-04-06 20:46:19 -0700</bug_when>
+            <thetext>Created attachment 524340
+fix
+
+This changes the &apos;counts&apos; command to output lines that are directly paste-able into the spreadsheet. It even outputs the date and the weekday letter columns, so you won&apos;t have to manually fill those down.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393864</commentid>
+            <who name="Stuart Morgan">stuart.morgan+bugzilla</who>
+            <bug_when>2011-04-06 20:47:26 -0700</bug_when>
+            <thetext>Oh, and for languages I decided to punt on finding new languages; I think the best way to handle that is to occasionally run the pretty-print mode that I&apos;m about to make, which will do everything dynamically (since it won&apos;t need to line up with the spreadsheet)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393866</commentid>
+            <who name="Stuart Morgan">stuart.morgan+bugzilla</who>
+            <bug_when>2011-04-06 20:49:02 -0700</bug_when>
+            <thetext>Landed as http://hg.mozilla.org/camino/rev/0aaaf0711258</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524340</attachid>
+            <date>2011-04-06 20:46:00 -0700</date>
+            <delta_ts>2011-04-06 20:46:19 -0700</delta_ts>
+            <desc>fix</desc>
+            <filename>647941.patch</filename>
+            <type>text/plain</type>
+            <size>3281</size>
+            <attacher>stuart.morgan+bugzilla</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3Rvb2xzL3N0YXRzL2dlbmVyYXRlX3VwZGF0ZV9zdGF0aXN0aWNzIGIvdG9v
+bHMvc3RhdHMvZ2VuZXJhdGVfdXBkYXRlX3N0YXRpc3RpY3MKaW5kZXggOThkOWZlNi4uZjU5Njk0
+NyAxMDA3NTUKLS0tIGEvdG9vbHMvc3RhdHMvZ2VuZXJhdGVfdXBkYXRlX3N0YXRpc3RpY3MKKysr
+IGIvdG9vbHMvc3RhdHMvZ2VuZXJhdGVfdXBkYXRlX3N0YXRpc3RpY3MKQEAgLTc3LDYgKzc3LDEz
+IEBAICRieV92ZXJzaW9uX2FuZF9vc19rZXlzID0gWwogICBbJzIuMCcsICRieV9vc19rZXlzWzAu
+Li0yXV0sCiAgIFsnMS42JywgJGJ5X29zX2tleXNdLAogXQorJGJ5X2xhbmd1YWdlX2tleXMgPSBb
+CisgICMgT2ZmaWNpYWwgbGFuZ3VhZ2VzCisgICdkYScsICdkZScsICdlbicsICdlcycsICdmcics
+ICdpdCcsICdqYScsICduYicsICdubCcsICdwbCcsICdydScsICdzbCcsICdzdicsCisgICd0cl9U
+UicsICd6aF9DTicsCisgICMgT3RoZXIgbGFuZ3VhZ2VzIHRoYXQgaGF2ZSBzaG93biB1cCBpbiBw
+aW5ncworICAnZW4tR0InLCAna28nLCAnZmknLCAnemhfVFcnLAorXQogIyBUaGUgbWFqb3IgdmVy
+c2lvbiB0byBwcmludCBsYW5ndWFnZSBjb3VudHMgZm9yCiAkbGFuZ3VhZ2VfY291bnRfdmVyc2lv
+biA9ICIyLjAiCiAKQEAgLTEyNCw4ICsxMzEsNyBAQCBkZWYgaGFuZGxlX2NvbW1hbmRfY291bnRz
+KGFyZ3VtZW50cykKICAgcGluZ3NfYnlfZGF0ZSA9IHBhcnRpdGlvbl9waW5nc19ieV9hdHRyaWJ1
+dGUocGluZ3MsIDpkYXRlX3N0cikKIAogICAoc3RhcnRfZGF0ZS4uZW5kX2RhdGUpLmVhY2ggZG8g
+fGRhdGV8Ci0gICAgcHJpbnRfZGF0ZV9oZWFkaW5nKGRhdGUpCi0gICAgcHJpbnRfc3ByZWFkc2hl
+ZXRfc3RhdHMocGluZ3NfYnlfZGF0ZVtkYXRlLmRhdGVfc3RyXSkKKyAgICBwcmludF9zcHJlYWRz
+aGVldF9jb3VudF9saW5lKGRhdGUsIHBpbmdzX2J5X2RhdGVbZGF0ZS5kYXRlX3N0cl0pCiAgIGVu
+ZAogZW5kCiAKQEAgLTE1NywzOCArMTYzLDM5IEBAIGRlZiBwcmludF90YWJsZV9saW5lKHJvd19s
+YWJlbCwgY2VsbHMpCiAgIHByaW50ICJcbiIKIGVuZAogCi1kZWYgcHJpbnRfc3ByZWFkc2hlZXRf
+c3RhdHMocGluZ3MpCitkZWYgcHJpbnRfc3ByZWFkc2hlZXRfY291bnRfbGluZShkYXRlLCBwaW5n
+cykKICAgYXJjaF9jb3VudCA9IGNvdW50X3BpbmdzX2J5X2F0dHJpYnV0ZShwaW5ncywgOmFyY2gp
+CiAgIHZlcnNpb25fY291bnQgPSBjb3VudF9waW5nc19ieV9hdHRyaWJ1dGUocGluZ3MsIDp2ZXJz
+aW9uKQogICBvc19hbmRfdmVyc2lvbl9jb3VudCA9IGNvdW50X3BpbmdzX2J5X2F0dHJpYnV0ZV9w
+YWlyKHBpbmdzLCA6bWFqb3Jfb3MsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgOm1ham9yX3ZlcnNpb24pCiAgIHZlcnNpb25fbGFuZ19jb3Vu
+dCA9IGNvdW50X3BpbmdzX2J5X2F0dHJpYnV0ZV9wYWlyKHBpbmdzLCA6bWFqb3JfdmVyc2lvbiwK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOmxh
+bmcpCisgIGNlbGxzID0gW10KKyAgY2VsbHMucHVzaCBkYXRlLndlZWtkYXlfbGV0dGVyCisgIGNl
+bGxzLnB1c2ggZGF0ZS5zdHJmdGltZSgiJW0vJWQvJXkiKQogCi0gIHB1dHMgcGluZ3MubGVuZ3Ro
+CisgIGNlbGxzLnB1c2ggcGluZ3MubGVuZ3RoCiAgICRieV9hcmNoX2tleXMuZWFjaCBkbyB8YXJj
+aHwKLSAgICBwcmludF9jb3VudChhcmNoX2NvdW50W2FyY2hdKQorICAgIGNlbGxzLnB1c2ggSW50
+ZWdlcihhcmNoX2NvdW50W2FyY2hdKQogICBlbmQKLSAgcHJpbnRfaGVhZGluZygiQnkgT1MiKQog
+ICAkYnlfb3Nfa2V5cy5lYWNoIGRvIHxvc3wKLSAgICBwcmludF9jb3VudChvc19hbmRfdmVyc2lv
+bl9jb3VudFtvc10udmFsdWVzLnN1bSkKKyAgICBjZWxscy5wdXNoIEludGVnZXIob3NfYW5kX3Zl
+cnNpb25fY291bnRbb3NdLnZhbHVlcy5zdW0pCiAgIGVuZAotICBwcmludF9oZWFkaW5nKCJCeSBW
+ZXJzaW9uIikKICAgJGJ5X3ZlcnNpb25fa2V5cy5lYWNoIGRvIHx2ZXJzaW9ufAotICAgIHByaW50
+X2NvdW50KHZlcnNpb25fY291bnRbdmVyc2lvbl0pCisgICAgY2VsbHMucHVzaCBJbnRlZ2VyKHZl
+cnNpb25fY291bnRbdmVyc2lvbl0pCiAgIGVuZAotICBwcmludF9oZWFkaW5nKCJCeSBWZXJzaW9u
+IGFuZCBPUyIpCiAgICRieV92ZXJzaW9uX2FuZF9vc19rZXlzLmVhY2ggZG8gfGtleXN8CiAgICAg
+bWFqb3JfdmVyc2lvbiA9IGtleXNbMF0KICAgICBrZXlzWzFdLmVhY2ggZG8gfG9zfAotICAgICAg
+cHJpbnRfY291bnQob3NfYW5kX3ZlcnNpb25fY291bnRbb3NdW21ham9yX3ZlcnNpb25dKQorICAg
+ICAgY2VsbHMucHVzaCBJbnRlZ2VyKG9zX2FuZF92ZXJzaW9uX2NvdW50W29zXVttYWpvcl92ZXJz
+aW9uXSkKICAgICBlbmQKICAgZW5kCi0gIHByaW50X2hlYWRpbmcoIiN7JGxhbmd1YWdlX2NvdW50
+X3ZlcnNpb259IGwxMG4iKQogICBsYW5ndWFnZV9jb3VudHMgPSB2ZXJzaW9uX2xhbmdfY291bnRb
+JGxhbmd1YWdlX2NvdW50X3ZlcnNpb25dCi0gIGxhbmd1YWdlX2NvdW50cy5rZXlzLnNvcnQuZWFj
+aCBkbyB8bGFuZ3wKLSAgICBwdXRzICIje2xhbmd1YWdlX2NvdW50c1tsYW5nXX0gbGFuZz0je2xh
+bmd9IgorICAkYnlfbGFuZ3VhZ2Vfa2V5cy5lYWNoIGRvIHxsYW5nfAorICAgIGNlbGxzLnB1c2gg
+SW50ZWdlcihsYW5ndWFnZV9jb3VudHNbbGFuZ10pCiAgIGVuZAorCisgIHB1dHMgY2VsbHMuam9p
+bigiXHQiKQogZW5kCiAKICMgUHJpbnRzIGEgZGF0ZSBoZWFkaW5nCkBAIC0yMDQsMTEgKzIxMSw2
+IEBAIGRlZiBwcmludF9oZWFkaW5nKGhlYWRpbmcpCiAgIHB1dHMgaGVhZGluZwogZW5kCiAKLSMg
+UHJpbnRzIGEgY291bnQsIGhhbmRsaW5nIG5pbCB2YWx1ZXMgY29ycmVjdGx5LgotZGVmIHByaW50
+X2NvdW50KGNvdW50KQotICBwdXRzIGNvdW50IHx8IDAKLWVuZAotCiAjIFJldHVybnMgYSBhcnJh
+eSBvZiBwaW5ncyBleHRyYWN0ZWQgZnJvbSB0aGUgZ2l2ZW4gZmlsZXMsIHdpdGggcGluZ3MgZnJv
+bSBiYWQKICMgSVBzIHJlbW92ZWQuCiBkZWYgbG9hZF9maWx0ZXJlZF9waW5ncyhmaWxlcykKQEAg
+LTI5Nyw2ICsyOTksMTEgQEAgY2xhc3MgRGF0ZQogICBkZWYgZGF0ZV9zdHIKICAgICByZXR1cm4g
+c3RyZnRpbWUoIiVkLyViLyVZIikKICAgZW5kCisKKyAgIyBSZXR1cm5zIHRoZSBmaXJzdCBsZXR0
+ZXIgb2YgdGhlIHdlZWtkYXkKKyAgZGVmIHdlZWtkYXlfbGV0dGVyCisgICAgcmV0dXJuIHN0cmZ0
+aW1lKCIlYSIpWzAuLjBdCisgIGVuZAogZW5kCiAKIAo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

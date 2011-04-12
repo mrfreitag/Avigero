@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647669</bug_id>
+          
+          <creation_ts>2011-04-04 05:28:00 -0700</creation_ts>
+          <short_desc>ocsp error needs to specify the server</short_desc>
+          <delta_ts>2011-04-05 01:35:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Security: UI</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647748</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="timeless">timeless</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact name="ui@security.bugs">ui</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389992</commentid>
+            <who name="timeless">timeless</who>
+            <bug_when>2011-04-04 05:28:44 -0700</bug_when>
+            <thetext>steps:
+1. enable ocsp checking / fail on failure
+2. visit bugs.meego.com
+
+actual results:
+        Secure Connection Failed
+
+          An error occurred during a connection to bugs.meego.com.
+
+The OCSP server experienced an internal error.
+
+(Error code: sec_error_ocsp_server_error)
+
+  The page you are trying to view can not be shown because the authenticity of the received data could not be verified.
+  Please contact the web site owners to inform them of this problem. Alternatively, use the command found in the help menu to report this broken site.
+
+expected results:
+&lt;the ocsp server&gt; needs to indicate the &lt;hostname&gt; of the ocsp server.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

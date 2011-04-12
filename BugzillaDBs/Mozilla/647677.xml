@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647677</bug_id>
+          
+          <creation_ts>2011-04-04 07:12:00 -0700</creation_ts>
+          <short_desc>When I open Firefox while Chatzilla is running, it&apos;s opening my last page visited and not my homepage.</short_desc>
+          <delta_ts>2011-04-04 09:36:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>628043</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Gaël">gginoux22</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fredy</cc>
+    
+    <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390095</commentid>
+            <who name="Gaël">gginoux22</who>
+            <bug_when>2011-04-04 07:12:06 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Hi,
+
+My problem: When I open Firefox while Chatzilla is running, it&apos;s opening my last page visited and not my homepage. When I open Firefox without Chatzilla I have no problem. This problem appears only when Chatzilla is open.
+
+I hope you can help me, despite of my bad english writing.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open Firefox and use it
+2. Open Chatzilla
+3. Close Firefox on a page different of my homepage
+4. Open Firefox
+
+Actual Results:  
+My starting page is my last page visited and not my homepage.
+
+Expected Results:  
+Open my homepage and not the last page visited.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390108</commentid>
+            <who name="tobias">fredy</who>
+            <bug_when>2011-04-04 07:20:48 -0700</bug_when>
+            <thetext>This happens because when an addon has its own window, it prevents firefox from closing and keep at the background the firefox open. So, when you click to open firefox again, you get the background firefox window with the pages that had opened. To close completely firefox you have to exit the addon&apos;s window.
+
+I am not sure, if it is a bug. The same happens with the downloads window of firefox and many other addons.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390117</commentid>
+            <who name="Gaël">gginoux22</who>
+            <bug_when>2011-04-04 07:27:12 -0700</bug_when>
+            <thetext>Thank you for your comment Tobias. I understand better the problem.
+
+So is it possible do avoid this ? I use Chatzilla all day long for discuss, i can&apos;t close and open it fifty times per day.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390147</commentid>
+            <who name="tobias">fredy</who>
+            <bug_when>2011-04-04 07:59:08 -0700</bug_when>
+            <thetext>I don&apos;t know if you can change this :(
+Unfortunately I can&apos;t find any addon or any option at configuration that do what you want to be done.
+I can only suggest you use other irc client but I understand that this is not what you want.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390246</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 09:36:49 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 628043 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

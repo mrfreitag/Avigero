@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647656</bug_id>
+          
+          <creation_ts>2011-04-04 01:51:00 -0700</creation_ts>
+          <short_desc>Notification widget for new add-ons added to collection launches Add-on Manager in a separate dialog (FIREFOX 4)</short_desc>
+          <delta_ts>2011-04-04 07:17:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Collector Extension</component>
+          <version>BW-2.0</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>P1</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>BW-2.0.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dimitri Saltanov">dimsal.public</reporter>
+          <assigned_to name="Brian King (Briks) [:kinger]">briks.si</assigned_to>
+          <cc>briks.si</cc>
+    
+    <cc>dave</cc>
+          <qa_contact>collector-extension</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389904</commentid>
+            <who name="Dimitri Saltanov">dimsal.public</who>
+            <bug_when>2011-04-04 01:51:03 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0 ID:20110318052756
+
+When clicking on the link in screen corner notification about a new addon in a collecyion, AOM opens in a dialog (after some delay, admittedly) and shows discovery pane.
+
+Should instead switch to AOM tab if already present, or open one in an existing browser window, then switch to AOC category and show respective collection.
+
+(I guess this must be some leftover from code for the old toolkit. If that&apos;s the case, new toolkit allows leveraging a &quot;singleton&quot; AOM tab for the whole app using window.BrowserOpenAddonsMgr() call for any non-closing browser window).
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390107</commentid>
+            <who name="Brian King (Briks) [:kinger]">briks.si</who>
+            <bug_when>2011-04-04 07:17:54 -0700</bug_when>
+            <thetext>Fixed, r87021.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

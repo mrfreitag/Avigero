@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647716</bug_id>
+          
+          <creation_ts>2011-04-04 11:13:00 -0700</creation_ts>
+          <short_desc>After closing Firefox, upon reopen, a windows says there is already an instance of Firefox running. Please wait for it to close before starting a new instance.</short_desc>
+          <delta_ts>2011-04-11 15:16:58 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>64bit</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>don_ensley</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390332</commentid>
+            <who name="">don_ensley</who>
+            <bug_when>2011-04-04 11:13:40 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+After closing Firefox, then upon reopening it, a windows pops up and says that I have to wait because there  is already an instance of Firefox running. I have to wait too long after closing Firefox for the process to stop!
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open Firefox. 
+2. Close Firefox.
+3. Immediately reopen Firefox. Observe box saying Firefox is already running.
+Actual Results:  
+You will have to wait at least 15 seconds until you can start a new instance of Firefox and have it open correctly. It should instantly stop.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390803</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-04 22:20:37 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile
+
+Also see -&gt; http://support.mozilla.com/en-US/kb/Firefox+is+already+running+but+is+not+responding</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401767</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-11 14:52:05 -0700</bug_when>
+            <thetext>Any update?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401855</commentid>
+            <who name="">don_ensley</who>
+            <bug_when>2011-04-11 15:14:47 -0700</bug_when>
+            <thetext>Error occurs in both safe mode and not in safe mode for Firefox 4, windows 7, 64-bit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401869</commentid>
+            <who name="">don_ensley</who>
+            <bug_when>2011-04-11 15:16:58 -0700</bug_when>
+            <thetext>For example, IE 9 after shutting down will immediately restart OK, starting a new browser window. Firefox says there is another instance (i.e. as if it does not shut down immediately when the browser window is closed). The instance of Firefox that lingers prevents a new window from immediately being opened.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

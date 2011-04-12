@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648053</bug_id>
+          
+          <creation_ts>2011-04-06 11:29:00 -0700</creation_ts>
+          <short_desc>Always use absolute paths when specifying the source file to the compiler</short_desc>
+          <delta_ts>2011-04-11 18:13:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Build Config</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jonathan Watt (:jwatt)">jwatt</reporter>
+          <assigned_to name="Jonathan Watt (:jwatt)">jwatt</assigned_to>
+          <cc>khuey</cc>
+    
+    <cc>mh+mozilla</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>build-config</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392734</commentid>
+            <who name="Jonathan Watt (:jwatt)">jwatt</who>
+            <bug_when>2011-04-06 11:29:48 -0700</bug_when>
+            <thetext>It would be great if we always used an absolute path when specifying a source file to the compiler.
+
+I&apos;ve been trying to get Eclipse to work better with Mozilla recently. One of the problems is that it&apos;s code intelligence stuff - potentially a great productivity booster - doesn&apos;t work very well. For it to work Eclipse basically needs to know which files are built, and what defines and include paths they&apos;re built with. The preferred way for it to figure this out is by analyzing build log output to see which arguments are passed to the compiler for each compiled source file. One of the problems with Mozilla&apos;s build logs is that many source files are specified to the compiler using just their basename, or just a relative path, and there are a bunch of files being compiled with the same basename which confuses Eclipse. If we always specified the source files using absolute paths then Eclipse would have a fighting chance of figuring out what&apos;s going on (since it knows the root source directory).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402462</commentid>
+              <attachid>525251</attachid>
+            <who name="Jonathan Watt (:jwatt)">jwatt</who>
+            <bug_when>2011-04-11 18:13:06 -0700</bug_when>
+            <thetext>Created attachment 525251
+patch 1
+
+This patch fixes everything (on Mac debug at least) except stuff in the &apos;./security&apos; and &apos;./dbm&apos; directories, and the following three files:
+
+  toolkit/crashreporter/google-breakpad/src/common/md5.c
+  nsprpub/lib/tests/arena.c
+  objdir/dist/private/nss/templates.c
+
+Thanks to khuey for pointing out what to change.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>525251</attachid>
+            <date>2011-04-11 18:13:00 -0700</date>
+            <delta_ts>2011-04-11 18:13:06 -0700</delta_ts>
+            <desc>patch 1</desc>
+            <filename>abspath</filename>
+            <type>text/plain</type>
+            <size>706</size>
+            <attacher>jwatt</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgMmJlYjVkOGQ3YmRlOTFlZDc5NDM1ODdmMWNl
+MWQ1ZDNlOTZlOGNlOApkaWZmIC0tZ2l0IGEvY29uZmlnL3J1bGVzLm1rIGIvY29uZmlnL3J1bGVz
+Lm1rCi0tLSBhL2NvbmZpZy9ydWxlcy5taworKysgYi9jb25maWcvcnVsZXMubWsKQEAgLTc3LDIx
+ICs3NywxNyBAQCBlbmRpZgogCiAjIEVMT0cgcHJpbnRzIG91dCBmYWlsZWQgY29tbWFuZCB3aGVu
+IGJ1aWxkaW5nIHNpbGVudGx5IChnbWFrZSAtcykuCiBpZm5lcSAoLCQoZmluZHN0cmluZyBzLCAk
+KGZpbHRlci1vdXQgLS0lLCAkKE1BS0VGTEFHUykpKSkKICAgRUxPRyA6PSAkKEVYRUMpIHNoICQo
+QlVJTERfVE9PTFMpL3ByaW50LWZhaWxlZC1jb21tYW5kcy5zaAogZWxzZQogICBFTE9HIDo9CiBl
+bmRpZgogCi1pZmVxICgsJChmaWx0ZXItb3V0IFdJTk5UIFdJTkNFLCQoT1NfQVJDSCkpKQogX1ZQ
+QVRIX1NSQ1MgPSAkKGFic3BhdGggJDwpCi1lbHNlCi1fVlBBVEhfU1JDUyA9ICQ8Ci1lbmRpZgog
+CiAjIEFkZCAkKERJU1QpL2xpYiB0byBWUEFUSCBzbyB0aGF0IC1sZm9vIGRlcGVuZGVuY2llcyBh
+cmUgZm9sbG93ZWQKIFZQQVRIICs9ICQoRElTVCkvbGliCiBpZmRlZiBMSUJYVUxfU0RLCiBWUEFU
+SCArPSAkKExJQlhVTF9TREspL2xpYgogZW5kaWYKIAogIyBFWFBBTkRfTElCTkFNRSAtICQoY2Fs
+bCBFWFBBTkRfTElCTkFNRSxmb28pCg==
+</data>
+<flag name="review"
+          id="438749"
+          type_id="4"
+          status="?"
+          setter="jwatt"
+          requestee="ted.mielczarek"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

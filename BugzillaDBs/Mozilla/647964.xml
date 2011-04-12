@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647964</bug_id>
+          
+          <creation_ts>2011-04-06 03:06:00 -0700</creation_ts>
+          <short_desc>Closing main window with other windows opened does not exit thunderbird</short_desc>
+          <delta_ts>2011-04-08 07:56:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="Skippy le Grand Gourou">lecotegougdelaforce</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>rsx11m.pub</cc>
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392092</commentid>
+            <who name="Skippy le Grand Gourou">lecotegougdelaforce</who>
+            <bug_when>2011-04-06 03:06:35 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; fr; rv:1.9.2.16) Gecko/20110322 Fedora/3.6.16-1.fc14 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (X11; U; Linux i686; fr-FR; rv:1.9.2.15) Gecko/20110307 Fedora/3.1.9-0.39.b3pre.fc14 Thunderbird/3.1.9
+
+When exiting thunderbird by clicking on the X of the main window, the application is not actually closed, only the main window is.  That is, if you happen to have a compose window or a message window opened, they won&apos;t close and thunderbird will still be running.
+
+This is quite problematic when you have imap accounts and mails are checked automatically, because if you want to check these accounts from another computer with thunderbird (same settings) new emails won&apos;t appear.
+
+Thunderbird should ask for confirmation to close all windows ; then the user would have the choice to exit anyway, or to cancel and do appropriate action to other windows.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open thunderbird.
+2. Open a new window (be it a message or a compose window).
+3. Click on the X of the main window.
+Actual Results:  
+The main window is closed, but not the other ones.  Thunderbird processes are still running.
+
+Expected Results:  
+Thunderbird should have been completely closed, preferably after having warned the user that there were other windows and asked for confirmation (this should be the default configuration, but could be configurable).
+
+Though addressing a different issue, I find bug 527434 is somehow related.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396451</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-08 07:46:38 -0700</bug_when>
+            <thetext>There is also related bug 479489 on situations where one may be &quot;stuck&quot; with the remaining open window and it may not be possible to re-open the main window. So, the underlying question is what&apos;s the semantics of the [x] button on the window. Usually, one would expect it to close that window but not necessarily all other windows of the application. Thus, to that extent the current behavior appears correct, though something as simple as the the Help &gt; About window left open can prevent the application from quitting completely.
+
+Another interpretation of the [x] button when applied in the main window would be &quot;Exit the Application&quot;, which is desired here. This may catch users by surprise too, e.g., if you have multiple message windows open and suddenly they all would disappear. So, that&apos;s a bit of a mixed bag too.
+
+As a workaround on Linux, you can use Ctrl+Q to be sure that all windows are closed and the application properly terminated.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396477</commentid>
+            <who name="Skippy le Grand Gourou">lecotegougdelaforce</who>
+            <bug_when>2011-04-08 07:56:38 -0700</bug_when>
+            <thetext>I believe usually the &quot;main window&quot; is intended to be the parent of other windows and the user expects the application to close when clicking on its X button.
+
+Anyway, there is a simple solution which should satisfy any user : prompt a popup asking for the wanted behaviour the first time this button is used, and (at least !) use a key in thunderbird configuration to allow users to change this behaviour later.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

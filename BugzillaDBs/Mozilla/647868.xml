@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647868</bug_id>
+          
+          <creation_ts>2011-04-05 11:32:00 -0700</creation_ts>
+          <short_desc>Implement a push mechanism for CA disaster revocation scenario</short_desc>
+          <delta_ts>2011-04-05 23:39:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Security: PSM</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bsmith</cc>
+    
+    <cc>eddy_nigg</cc>
+    
+    <cc>gerv</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>rrelyea</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>psm</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391388</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-05 11:32:51 -0700</bug_when>
+            <thetext>Implement a push mechanism for CA desaster revocation scenario
+
+If we ever again see a CA maximum credible accident,
+we should be prepared to push out revocation information to clients.
+
+Let&apos;s imagine an UltimateSecurityCertificateAuthority (USCA)
+which had a reputation to be unhackable.
+
+But it turns out a hacker (or another bad person)
+finds a way to use the USCA&apos;s root key to create a certificate with the following properties:
+
+- the CA does not contain any pointers to revocation
+  (i.e. no CRL nor OCSP urls)
+
+- the cert is issued directly from the root
+
+This means, clients wouldn&apos;t ask for dynamic revocation information.
+
+IMHO for scenarios like this,
+we (Mozilla software) should support a desaster revocation mechanism,
+sending out a desaster revocation list (DRL).
+
+
+A push mechanism should be used to inform clients dynamically of desaster revocations.
+
+The push could be integrated into the software upgrade mechanism, however, some users disable upgrade checking, because they run Linux or other enterprise upgrade deployments, so the check for desaster revocation would have to happen regardless of update checks.
+
+
+The DRL could be used to:
+- block a specific certificate
+- block a specific intermediate
+- block any certificate of a given distinguished name (DN),
+  being either a builtin-root,
+  or a cert not yet known to the client software
+
+
+In order to get implementation brainstorming started,
+I think the DRL mechanism could work in a way similar to this:
+
+- whenever we ship a new binary software release,
+  it should embed (hardcoded in software) all previously
+  known DRLs
+  (this could be done either using code,
+   or by adding data to the NSS trusted certificates list)
+
+- a client of version X should have to download only
+  the most recent DRL data, which became known after version X
+
+- clients should store the DRL persistently.
+  The only place that is guaranteed to be writable is the
+  profile directory.
+ 
+- client must read from and cache the DRL list 
+  every time they start up
+  In order to minimize the number of disk accesses,
+  I propose that predictable file names are being used.
+
+  For example, Firefox X might always attempt to read a file named
+    X.drl 
+  from the profile directory.
+
+  As soon as the binary is upgraded to Y = (X+1),
+  the software will ignore the existing X.drl files,
+  and search for Y.drl, only
+
+- the standard software upgrade mechanism could retrieve a new X.drl
+  files into the profile directory.
+
+- Even after the Y release is ready,
+  we must continue to produce X.drl for those clients, who can&apos;t yet
+  do a binary upgrade
+
+  The upgrade mechanism could dynamically query with the upgrade server,
+  and the upgrade server could dynamically send out a file
+  that contains the information from X and any newer versions.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391703</commentid>
+            <who name="Eddy Nigg (StartCom)">eddy_nigg</who>
+            <bug_when>2011-04-05 17:05:52 -0700</bug_when>
+            <thetext>I suggest that the DRL file has always the same naming convention, but probably should use an increasing serial number and date-time field.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

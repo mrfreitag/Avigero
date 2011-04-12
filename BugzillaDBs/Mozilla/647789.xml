@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647789</bug_id>
+          
+          <creation_ts>2011-04-05 02:29:00 -0700</creation_ts>
+          <short_desc>Warning to avoid accidental placement of large address books in the To: and Cc: fields</short_desc>
+          <delta_ts>2011-04-05 02:29:21 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Penelope</product>
+          <component>Compose Window</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Kenneth Hartmann">rm6k-htmn</reporter>
+          <assigned_to name="Matt Dudziak">mozilla-bugs</assigned_to>
+          
+          <qa_contact>compose-window</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390938</commentid>
+            <who name="Kenneth Hartmann">rm6k-htmn</who>
+            <bug_when>2011-04-05 02:29:21 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Eudora OSE 1.0
+
+System enhancement, not a bug per se:
+It is easy to accidentally place large address books intended for the Bcc: field into the To: or Cc: field.  When sent out as such many private addresses are revealed and also many messages are rejected by email servers as possible spam.  This human error can be avoided by adding a warning to any message being sent out with more than &quot;X&quot; number of addresses in the To: or Cc: fields.  The system could allow for the user to enter the number of addresses to allow in preferences.  The warning would provide an OK or cancel send option.
+
+Reproducible: Always</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

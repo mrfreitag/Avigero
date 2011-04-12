@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647823</bug_id>
+          
+          <creation_ts>2011-04-05 08:08:00 -0700</creation_ts>
+          <short_desc>history untouched to reflect URLs reloaded via session restore on restart</short_desc>
+          <delta_ts>2011-04-06 05:27:13 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Session Restore</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Felix Miata">mrmazda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>sdwilsh</cc>
+          <qa_contact>session.restore</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391175</commentid>
+            <who name="Felix Miata">mrmazda</who>
+            <bug_when>2011-04-05 08:08:08 -0700</bug_when>
+            <thetext>Mozilla/5.0 (OS/2; Warp 4.5; rv:2.0b13pre) Gecko/20110327 SeaMonkey/2.1b3pre
+Mozilla/5.0 (X11; Linux i686; rv:2.0b11) Gecko/20110209 Firefox/4.0b11 SeaMonkey/2.1b2
+
+To reproduce:
+1-Set restore previous session on startup in prefs
+2-Load multiple URLs in each of multiple tabs
+3-Wait at least 24 hours before closing browser (I typically restart at 6 day intervals on OS/2, two weeks or more on Linux)
+4-Restart browser
+5-Open history and inspect items in the tabs opened on restore
+
+Actual behavior:
+1-Timestamps on restored URLS are at least 24 hours old
+2-Many recently loaded URLs do not top history sorted by last visited descending
+
+Expected behavior:
+1-Timestamps on restored URLs are virtually current
+2-All recently loaded URLs do top history sorted by last visited descending
+
+Comment:
+This behavior allows URLs repeatedly accessed via the restored tabs to eventually expire from history in spite of frequently having been loaded on browser startup.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391926</commentid>
+            <who name="Shawn Wilsher :sdwilsh">sdwilsh</who>
+            <bug_when>2011-04-05 22:53:23 -0700</bug_when>
+            <thetext>I think this is WONTFIX.  Session restore is meant to be loading your previous session, not revisit everything.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391985</commentid>
+            <who name="Felix Miata">mrmazda</who>
+            <bug_when>2011-04-05 23:45:30 -0700</bug_when>
+            <thetext>1-What to you mean by &quot;revisit everything&quot;?
+
+2-The first lines in comment 0 were put there to indicate I was describing SeaMonkey behavior, not Firefox behavior. Note Firefox doesn&apos;t even display timestamps by default, and calls history &quot;Library&quot;, unlike SeaMonkey, which calls History &quot;history&quot;.
+
+3-How can it possibly be OK for pages loaded on sequential starts to be allowed to expire from history just because they were conveniently (re)loaded by having been left loaded on exit? Put another way, what I see in the viewport when my browser is started may or may not be current due to caching, but it&apos;s nevertheless put in the viewport on whatever date I start the browser, not some date days, weeks or even months previously. If history doesn&apos;t reflect that it was put there today, since the browser was opened today, and as opposed to some previous day, week or month, it&apos;s perverting the implication of the &quot;last visited&quot; column heading, and the meaning of the window title &quot;History&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392167</commentid>
+            <who name="Philip Chee">philip.chee</who>
+            <bug_when>2011-04-06 05:27:13 -0700</bug_when>
+            <thetext>Felix. Much of the Session Restore functionality is pretty much identical to that in Firefox. Think of it as a &quot;time machine&quot; for tabs.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

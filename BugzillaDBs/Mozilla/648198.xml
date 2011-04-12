@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648198</bug_id>
+          
+          <creation_ts>2011-04-06 21:20:00 -0700</creation_ts>
+          <short_desc>allow ropes to be n-ary, bring back JSOP_CONCATN</short_desc>
+          <delta_ts>2011-04-07 15:35:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Luke Wagner [:luke]">luke</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>alangpierce</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>dmandelin</cc>
+    
+    <cc>nnethercote</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>smoohta</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393878</commentid>
+            <who name="Luke Wagner [:luke]">luke</who>
+            <bug_when>2011-04-06 21:20:15 -0700</bug_when>
+            <thetext>I was recently looking at some string-creation stats on SS/V8.  For one thing, ropes are winning us big time: most strings created are ropes and most ropes are not flattened.  But we still create a ton of rope nodes.  One way to do better is to allow n-ary rope nodes (instead of current binary), thereby allowing us to use less nodes to describe the same sequence of concats.  Putting these in the FINALIZE_SHORT_STRING arena would let a single rope have up to 12 children.
+
+But when can we make n-ary rope nodes?  One immediate strategy is to bring back JSOP_CONCATN except to have JSOP_CONCATN build a lazy rope instead of doing an eager concat.  (Bug 581747 killed JSOP_CONCATN because the eager concat was sometimes much worse than ropes.)  A later idea is that, with linear inference (which would tell us a string was un-aliased), we could mutate rope nodes in place to append children, rather than creating new nodes.
+
+This bug should also instrument a browser to get some real non-SS/V8 rope-usage measurements.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393880</commentid>
+            <who name="Luke Wagner [:luke]">luke</who>
+            <bug_when>2011-04-06 21:22:29 -0700</bug_when>
+            <thetext>I should mention that several of the string-heavy SS/V8 benchmarks have what seem to be hot JSOP_CONCATN-able expressions.  I need to put back in JSOP_CONCATN to be sure though...</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

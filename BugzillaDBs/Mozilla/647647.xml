@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647647</bug_id>
+          
+          <creation_ts>2011-04-03 22:37:00 -0700</creation_ts>
+          <short_desc>Stop grovelling around in --enable-extensions for things that have been gone for years</short_desc>
+          <delta_ts>2011-04-09 08:00:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Build Config</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          <status_whiteboard>fixed-in-bs</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Phil Ringnalda (:philor)">philringnalda</assigned_to>
+          <cc>mitchell.field</cc>
+          <qa_contact>build-config</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389812</commentid>
+              <attachid>523943</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-03 22:37:01 -0700</bug_when>
+            <thetext>Created attachment 523943
+rm
+
+tridentprofile was a Suite extension to migrate cookies and prefs from IE. Not surprisingly, it didn&apos;t make the move to mozilla-central, so making sure something which will fail out at the existence check is at the end of the list, so it will build after cookie, which hasn&apos;t been an extension for just shy of five years, is pointless even by our standards.
+
+The rest are things that you might have had in your --enable-extensions list in late 2005 or early 2006, and if you did and you left them there, then we&apos;ve been warning you that they are no longer extensions, and not necessarily doing what you wanted, for five years. Time to stop warning, and let the errors as they disappear from extensions/ serve as better warnings.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392649</commentid>
+              <attachid>523943</attachid>
+            <who name="Kyle Huey [:khuey]">khuey</who>
+            <bug_when>2011-04-06 11:08:45 -0700</bug_when>
+            <thetext>Comment on attachment 523943
+rm
+
+r++++++++++++ would review again.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394134</commentid>
+            <who name="Mitchell Field [:Mitch]">mitchell.field</who>
+            <bug_when>2011-04-07 01:39:54 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/projects/build-system/rev/0492a8954c05</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398353</commentid>
+            <who name="Mitchell Field [:Mitch]">mitchell.field</who>
+            <bug_when>2011-04-09 08:00:18 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/0492a8954c05</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>523943</attachid>
+            <date>2011-04-03 22:37:00 -0700</date>
+            <delta_ts>2011-04-06 11:08:45 -0700</delta_ts>
+            <desc>rm</desc>
+            <filename>configure-extension-crap</filename>
+            <type>text/plain</type>
+            <size>3223</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2NvbmZpZ3VyZS5pbiBiL2NvbmZpZ3VyZS5pbgotLS0gYS9jb25maWd1cmUu
+aW4KKysrIGIvY29uZmlndXJlLmluCkBAIC02NTcyLDY0ICs2NTcyLDIyIEBAIGlmIHRlc3QgLW4g
+IiRMSUJYVUxfU0RLX0RJUiIgLWEgYGVjaG8gIiQKICAgICBNT1pfRVhURU5TSU9OUz1gZWNobyAk
+TU9aX0VYVEVOU0lPTlMgfCBzZWQgLWUgJ3N8Z2lvfHwnYAogZmkKIAogaWYgdGVzdCAteiAiJE1P
+Wl9KU0RFQlVHR0VSIiAtYSBgZWNobyAiJE1PWl9FWFRFTlNJT05TIiB8IGdyZXAgLWMgdmVua21h
+bmAgLW5lIDA7IHRoZW4KICAgICBBQ19NU0dfV0FSTihbQ2Fubm90IGJ1aWxkIHZlbmttYW4gd2l0
+aG91dCBKYXZhU2NyaXB0IGRlYnVnIGxpYnJhcnkuIFJlbW92aW5nIHZlbmttYW4gZnJvbSBNT1pf
+RVhURU5TSU9OUy5dKQogICAgIE1PWl9FWFRFTlNJT05TPWBlY2hvICRNT1pfRVhURU5TSU9OUyB8
+IHNlZCAtZSAnc3x2ZW5rbWFufHwnYAogZmkKIAotZG5sIFRoaXMgbWlnaHQgYmUgdGVtcG9yYXJ5
+OiBidWlsZCB0cmlkZW50cHJvZmlsZSBvbmx5IG9uIFdpbmRvd3MKLWlmIHRlc3QgYGVjaG8gIiRN
+T1pfRVhURU5TSU9OUyIgfCBncmVwIC1jIHRyaWRlbnRwcm9maWxlYCAtbmUgMCAmJiB0ZXN0ICIk
+T1NfQVJDSCIgIT0gIldJTk5UIjsgdGhlbgotICAgIEFDX01TR19XQVJOKFt0cmlkZW50cHJvZmls
+ZSBleHRlbnNpb24gd29ya3Mgb25seSBvbiBXaW5kb3dzIGF0IHRoaXMgdGltZS4gUmVtb3Zpbmcg
+dHJpZGVudHByb2ZpbGUgZnJvbSBNT1pfRVhURU5TSU9OUy5dKQotICAgIE1PWl9FWFRFTlNJT05T
+PWBlY2hvICRNT1pfRVhURU5TSU9OUyB8IHNlZCAtZSAnc3x0cmlkZW50cHJvZmlsZXx8J2AKLWZp
+Ci0KLWRubCBjb29raWUgbXVzdCBiZSBidWlsdCBiZWZvcmUgdHJpZGVudHByb2ZpbGUuIHB1dCBp
+dCBhdCBsaXN0J3MgZW5kLgotaWYgdGVzdCBgZWNobyAiJE1PWl9FWFRFTlNJT05TIiB8IGdyZXAg
+LWMgdHJpZGVudHByb2ZpbGVgIC1uZSAwOyB0aGVuCi0gIE1PWl9FWFRFTlNJT05TPWBlY2hvICRN
+T1pfRVhURU5TSU9OUyB8IHNlZCAtZSAnc3x0cmlkZW50cHJvZmlsZXx8J2AKLSAgTU9aX0VYVEVO
+U0lPTlM9IiRNT1pfRVhURU5TSU9OUyB0cmlkZW50cHJvZmlsZSIKLWZpCi0KIGRubCB4Zm9ybXMg
+cmVxdWlyZXMgeHRmCiBpZiB0ZXN0IC16ICIkTU9aX1hURiIgLWEgYGVjaG8gIiRNT1pfRVhURU5T
+SU9OUyIgfCBncmVwIC1jIHhmb3Jtc2AgLW5lIDA7IHRoZW4KICAgICBBQ19NU0dfV0FSTihbQ2Fu
+bm90IGJ1aWxkIFhGb3JtcyB3aXRob3V0IFhURiBzdXBwb3J0LiAgUmVtb3ZpbmcgWEZvcm1zIGZy
+b20gTU9aX0VYVEVOU0lPTlMuXSkKICAgICBNT1pfRVhURU5TSU9OUz1gZWNobyAkTU9aX0VYVEVO
+U0lPTlMgfCBzZWQgLWUgJ3N8eGZvcm1zfHxnJ2AKIGZpCiAKLWlmIHRlc3QgYGVjaG8gIiRNT1pf
+RVhURU5TSU9OUyIgfCBncmVwIC1jIGF1dGhgIC1uZSAwOyB0aGVuCi0gICAgQUNfTVNHX1dBUk4o
+W2F1dGggaXMgbm8gbG9uZ2VyIGFuIGV4dGVuc2lvbiwgdXNlIC0tZGlzYWJsZS1uZWdvdGlhdGVh
+dXRoIHRvIGRpc2FibGUuXSkKLSAgICBNT1pfRVhURU5TSU9OUz1gZWNobyAkTU9aX0VYVEVOU0lP
+TlMgfCBzZWQgLWUgJ3N8YXV0aHx8ZydgCi1maQotCi1pZiB0ZXN0IGBlY2hvICIkTU9aX0VYVEVO
+U0lPTlMiIHwgZ3JlcCAtYyAnY29va2llXHxwZXJtaXNzaW9ucydgIC1uZSAwOyB0aGVuCi0gICAg
+QUNfTVNHX1dBUk4oW2Nvb2tpZSBhbmQgcGVybWlzc2lvbnMgYXJlIG5vIGxvbmdlciBleHRlbnNp
+b25zLCB1c2UgLS1kaXNhYmxlLXBlcm1pc3Npb25zIHRvIGRpc2FibGUuXSkKLSAgICBNT1pfRVhU
+RU5TSU9OUz1gZWNobyAkTU9aX0VYVEVOU0lPTlMgfCBzZWQgLWUgJ3N8Y29va2llfHxnOyBzfHBl
+cm1pc3Npb25zfHxnJ2AKLWZpCi0KLWlmIHRlc3QgYGVjaG8gIiRNT1pfRVhURU5TSU9OUyIgfCBn
+cmVwIC1jIHByZWZgIC1uZSAwOyB0aGVuCi0gICAgQUNfTVNHX1dBUk4oW3ByZWYgaXMgbm8gbG9u
+Z2VyIGFuIGV4dGVuc2lvbiwgdXNlIC0tZGlzYWJsZS1wcmVmLWV4dGVuc2lvbnMgdG8gZGlzYWJs
+ZS5dKQotICAgIE1PWl9FWFRFTlNJT05TPWBlY2hvICRNT1pfRVhURU5TSU9OUyB8IHNlZCAtZSAn
+c3xwcmVmfHxnJ2AKLWZpCi0KLWlmIHRlc3QgYGVjaG8gIiRNT1pfRVhURU5TSU9OUyIgfCBncmVw
+IC1jIHVuaXZlcnNhbGNoYXJkZXRgIC1uZSAwOyB0aGVuCi0gICAgQUNfTVNHX1dBUk4oW3VuaXZl
+cnNhbGNoYXJkZXQgaXMgbm8gbG9uZ2VyIGFuIGV4dGVuc2lvbiwgdXNlIC0tZGlzYWJsZS11bml2
+ZXJzYWxjaGFyZGV0IHRvIGRpc2FibGUuXSkKLSAgICBNT1pfRVhURU5TSU9OUz1gZWNobyAkTU9a
+X0VYVEVOU0lPTlMgfCBzZWQgLWUgJ3N8dW5pdmVyc2FsY2hhcmRldHx8ZydgCi1maQotCi1pZiB0
+ZXN0IGBlY2hvICIkTU9aX0VYVEVOU0lPTlMiIHwgZ3JlcCAtYyBqYXZhYCAtbmUgMDsgdGhlbgot
+ICAgIEFDX01TR19XQVJOKFtqYXZhIGlzIG5vIGxvbmdlciBhbiBleHRlbnNpb24sIHVzZSAtLWVu
+YWJsZS1qYXZheHBjb20gdG8gZW5hYmxlLl0pCi0gICAgTU9aX0VYVEVOU0lPTlM9YGVjaG8gJE1P
+Wl9FWFRFTlNJT05TIHwgc2VkIC1lICdzfGphdmF8fGcnYAotZmkKLQotaWYgdGVzdCBgZWNobyAi
+JE1PWl9FWFRFTlNJT05TIiB8IGdyZXAgLWMgc3BlbGxjaGVja2AgLW5lIDA7IHRoZW4KLSAgICBB
+Q19NU0dfV0FSTihbc3BlbGxjaGVjayBpcyBubyBsb25nZXIgYW4gZXh0ZW5zaW9uLl0pCi0gICAg
+TU9aX0VYVEVOU0lPTlM9YGVjaG8gJE1PWl9FWFRFTlNJT05TIHwgc2VkIC1lICdzfHNwZWxsY2hl
+Y2t8fGcnYAotZmkKLQogZG5sIFJlbW92ZSBkdXBlcwogTU9aX0VYVEVOU0lPTlM9YCR7UEVSTH0g
+JHtzcmNkaXJ9L2J1aWxkL3VuaXgvdW5pcS5wbCAke01PWl9FWFRFTlNJT05TfWAKIAogZG5sIEVu
+c3VyZSBldmVyeSBleHRlbnNpb24gZXhpc3RzLCB0byBhdm9pZCBtb3N0bHktaW5zY3J1dGFibGUg
+ZXJyb3IgbWVzc2FnZXMKIGRubCB3aGVuIHRyeWluZyB0byBidWlsZCBhIG5vbmV4aXN0ZW50IGV4
+dGVuc2lvbi4KIGZvciBleHRlbnNpb24gaW4gJE1PWl9FWFRFTlNJT05TOyBkbwogICAgIGlmIHRl
+c3QgISAtZCAiJHtzcmNkaXJ9L2V4dGVuc2lvbnMvJHtleHRlbnNpb259IjsgdGhlbgogICAgICAg
+ICBBQ19NU0dfRVJST1IoW1VucmVjb2duaXplZCBleHRlbnNpb24gcHJvdmlkZWQgdG8gLS1lbmFi
+bGUtZXh0ZW5zaW9uczogJHtleHRlbnNpb259Ll0pCg==
+</data>
+<flag name="review"
+          id="437716"
+          type_id="4"
+          status="+"
+          setter="khuey"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

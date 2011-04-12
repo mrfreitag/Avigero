@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647682</bug_id>
+          
+          <creation_ts>2011-04-04 07:45:00 -0700</creation_ts>
+          <short_desc>Cutting and pasting of links fails in composer edit pages</short_desc>
+          <delta_ts>2011-04-07 07:45:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>Composer</component>
+          <version>SeaMonkey 2.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>520189</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="René PBA Meijer">mns</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>daniel</cc>
+    
+    <cc>ehsan</cc>
+    
+    <cc>neil</cc>
+          <qa_contact>composer</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390135</commentid>
+            <who name="René PBA Meijer">mns</who>
+            <bug_when>2011-04-04 07:45:17 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; nl-nl) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27
+Build Identifier: 2.0.12 and 2.0.13
+
+I have reported this to the SeaMonkey Council, but they couldn&apos;t reproduce it. Me and a friend of mine on another Mac OSX 10.6.7 mac mini snowleopard, her in the Netherlands  have the same problem with the Dutch version of the program. Cutting and pasting links results in the clipboard not keeping the link.  So when copying texts we have to redo all the links. Therefore we have reverted to version 2.0.11 which works fine on our machine and in our language. Can anybody reproduce and or fix this problem?
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Mac OS 10.6.7 minimac (old version)
+2.Open html page with composer
+3.Trying to cut and paste a link within the same page and between pages, results in failure of clipboard to keep the link. 
+Actual Results:  
+no links in the text pasted
+
+Expected Results:  
+keep the link of the the text pasted
+
+version 10.0.11 works fine, from then on we have this problem</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390170</commentid>
+            <who name="Daniel Glazman">daniel</who>
+            <bug_when>2011-04-04 08:14:07 -0700</bug_when>
+            <thetext>Sure, I can confirm this bug. Same thing happened with BlueGriffon.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394360</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-07 07:24:58 -0700</bug_when>
+            <thetext>Thanks to Daniel I can reproduce this now. What I hadn&apos;t realised was that the target of the link needs to be a local file, or an anchor in a local file (including a relative anchor within the document itself...)
+
+I&apos;m guessing that this is another regression from bug 520189. It might be dependent on bug 606117.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394362</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-07 07:26:11 -0700</bug_when>
+            <thetext>As a workaround you can copy and paste the source of the link, either via the HTML source view (which is easier to copy from) or the Insert HTML dialog (which is easier to paste source with).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394371</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-07 07:32:33 -0700</bug_when>
+            <thetext>And the reason this fails is because pasting doesn&apos;t provide a document to InsertFromTransferable so that it&apos;s always considered to be unsafe. (What do you do when you want to paste a link copied from an external application?)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394386</commentid>
+            <who name="Daniel Glazman">daniel</who>
+            <bug_when>2011-04-07 07:45:08 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; And the reason this fails is because pasting doesn&apos;t provide a document to
+&gt; InsertFromTransferable so that it&apos;s always considered to be unsafe. (What do
+&gt; you do when you want to paste a link copied from an external application?)
+
+yeah... If that bit of code is understandable in the browser, it makes little
+sense in the editor where js and plugins are disabled by default.
+We should check the docshell to see if it&apos;s an editorshell and in that case
+assume the link is always safe. What do you think?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

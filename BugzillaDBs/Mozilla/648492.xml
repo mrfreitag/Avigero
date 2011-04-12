@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648492</bug_id>
+          
+          <creation_ts>2011-04-08 00:09:00 -0700</creation_ts>
+          <short_desc>Target url box colors wrong with light on dark GNOME theme</short_desc>
+          <delta_ts>2011-04-08 12:29:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Theme</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Martijn">mozilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>theme</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396097</commentid>
+            <who name="Martijn">mozilla</who>
+            <bug_when>2011-04-08 00:09:51 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I&apos;m using Ubuntu 10.4 (GNOME). The background color of the target url box in Firefox is taken from the Tooltip Background Color in GNOME appearance (tested this by customizing it), however the text color (dark grey it seems) from the url box is not taken from the Tooltip Text Color in GNOME. This can result in a color mismatch. The colors don&apos;t change when using a different persona.
+
+I can only solve this by editing the tooltip colors in GNOME, but this breaks my theme in other places.
+
+Other tooltips/boxes which you get when hovering over tabs/toolbarbuttons and such, also use this background color, but are readable as they use a different text color. But I noticed these boxes also don&apos;t use the tooltip text color from GNOME, so the chance of unreadable texts with certain themes exists there too.
+
+Martijn
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Select a theme in GNOME with a darkgrey or black tooltip background color
+2.Look at the target URL boxes in Firefox when hovering over a link.
+Actual Results:  
+The target url box background was black, the text dark grey and thus unreadable
+
+Expected Results:  
+Firefox should have taken both the background and the text color from GNOME tooltip colors OR defined both colors itself, thus making the box readable with any theme.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

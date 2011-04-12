@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648133</bug_id>
+          
+          <creation_ts>2011-04-06 15:06:00 -0700</creation_ts>
+          <short_desc>Implement aria-busy</short_desc>
+          <delta_ts>2011-04-06 21:37:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Disability Access APIs</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="David Bolter [:davidb]">bolterbugz</reporter>
+          <assigned_to name="David Bolter [:davidb]">bolterbugz</assigned_to>
+          <cc>jamie</cc>
+          <qa_contact>accessibility-apis</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393326</commentid>
+              <attachid>524280</attachid>
+            <who name="David Bolter [:davidb]">bolterbugz</who>
+            <bug_when>2011-04-06 15:06:19 -0700</bug_when>
+            <thetext>Created attachment 524280
+WIP</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524280</attachid>
+            <date>2011-04-06 15:06:00 -0700</date>
+            <delta_ts>2011-04-06 15:06:19 -0700</delta_ts>
+            <desc>WIP</desc>
+            <filename>aria-busy.diff</filename>
+            <type>text/plain</type>
+            <size>5063</size>
+            <attacher>bolterbugz</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2FjY2Vzc2libGUvc3JjL2Jhc2UvbnNBUklBTWFwLmNwcCBiL2FjY2Vzc2li
+bGUvc3JjL2Jhc2UvbnNBUklBTWFwLmNwcAotLS0gYS9hY2Nlc3NpYmxlL3NyYy9iYXNlL25zQVJJ
+QU1hcC5jcHAKKysrIGIvYWNjZXNzaWJsZS9zcmMvYmFzZS9uc0FSSUFNYXAuY3BwCkBAIC02MDIs
+MTcgKzYwMiwxNyBAQCBuc1N0YXRlTWFwRW50cnkgbnNBUklBTWFwOjpnV0FJU3RhdGVNYXBbCiAg
+IG5zU3RhdGVNYXBFbnRyeSgmbnNBY2Nlc3NpYmlsaXR5QXRvbXM6OmFyaWFfYXV0b2NvbXBsZXRl
+LAogICAgICAgICAgICAgICAgICAgImlubGluZSIsIDAsIG5zSUFjY2Vzc2libGVTdGF0ZXM6OkVY
+VF9TVEFURV9TVVBQT1JUU19BVVRPQ09NUExFVElPTiwKICAgICAgICAgICAgICAgICAgICJsaXN0
+IiwgbnNJQWNjZXNzaWJsZVN0YXRlczo6U1RBVEVfSEFTUE9QVVAsIG5zSUFjY2Vzc2libGVTdGF0
+ZXM6OkVYVF9TVEFURV9TVVBQT1JUU19BVVRPQ09NUExFVElPTiwKICAgICAgICAgICAgICAgICAg
+ICJib3RoIiwgbnNJQWNjZXNzaWJsZVN0YXRlczo6U1RBVEVfSEFTUE9QVVAsIG5zSUFjY2Vzc2li
+bGVTdGF0ZXM6OkVYVF9TVEFURV9TVVBQT1JUU19BVVRPQ09NUExFVElPTiksCiAKICAgLy8gZUFS
+SUFCdXN5CiAgIG5zU3RhdGVNYXBFbnRyeSgmbnNBY2Nlc3NpYmlsaXR5QXRvbXM6OmFyaWFfYnVz
+eSwKICAgICAgICAgICAgICAgICAgICJ0cnVlIiwgbnNJQWNjZXNzaWJsZVN0YXRlczo6U1RBVEVf
+QlVTWSwgMCwKLSAgICAgICAgICAgICAgICAgICJlcnJvciIsIG5zSUFjY2Vzc2libGVTdGF0ZXM6
+OlNUQVRFX0lOVkFMSUQsIDApLAorICAgICAgICAgICAgICAgICAgImVycm9yIiwgbnNJQWNjZXNz
+aWJsZVN0YXRlczo6U1RBVEVfSU5WQUxJRCwgMCksIC8vIHRoaXMgbG9va3Mgd3Jvbmc/IFhYWAog
+CiAgIC8vIGVBUklBQ2hlY2thYmxlQm9vbAogICBuc1N0YXRlTWFwRW50cnkoJm5zQWNjZXNzaWJp
+bGl0eUF0b21zOjphcmlhX2NoZWNrZWQsIGtCb29sVHlwZSwKICAgICAgICAgICAgICAgICAgIG5z
+SUFjY2Vzc2libGVTdGF0ZXM6OlNUQVRFX0NIRUNLQUJMRSwKICAgICAgICAgICAgICAgICAgIG5z
+SUFjY2Vzc2libGVTdGF0ZXM6OlNUQVRFX0NIRUNLRUQsIDAsCiAgICAgICAgICAgICAgICAgICAw
+LCAwLCBQUl9UUlVFKSwKIAogICAvLyBlQVJJQUNoZWNrYWJsZU1peGVkCmRpZmYgLS1naXQgYS9h
+Y2Nlc3NpYmxlL3NyYy9iYXNlL25zRG9jQWNjZXNzaWJsZS5jcHAgYi9hY2Nlc3NpYmxlL3NyYy9i
+YXNlL25zRG9jQWNjZXNzaWJsZS5jcHAKLS0tIGEvYWNjZXNzaWJsZS9zcmMvYmFzZS9uc0RvY0Fj
+Y2Vzc2libGUuY3BwCisrKyBiL2FjY2Vzc2libGUvc3JjL2Jhc2UvbnNEb2NBY2Nlc3NpYmxlLmNw
+cApAQCAtMTE1OCwxNiArMTE1OCwyNSBAQCBuc0RvY0FjY2Vzc2libGU6OkFSSUFBdHRyaWJ1dGVD
+aGFuZ2VkKG5zCiAgIGlmIChhQXR0cmlidXRlID09IG5zQWNjZXNzaWJpbGl0eUF0b21zOjphcmlh
+X2V4cGFuZGVkKSB7CiAgICAgbnNSZWZQdHI8QWNjRXZlbnQ+IGV2ZW50ID0KICAgICAgIG5ldyBB
+Y2NTdGF0ZUNoYW5nZUV2ZW50KGFDb250ZW50LCBuc0lBY2Nlc3NpYmxlU3RhdGVzOjpTVEFURV9F
+WFBBTkRFRCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFBSX0ZBTFNFKTsKICAgICBG
+aXJlRGVsYXllZEFjY2Vzc2libGVFdmVudChldmVudCk7CiAgICAgcmV0dXJuOwogICB9CiAKKyAg
+aWYgKGFBdHRyaWJ1dGUgPT0gbnNBY2Nlc3NpYmlsaXR5QXRvbXM6OmFyaWFfYnVzeSkgeworICAg
+IGlmIChhQ29udGVudCA9PSBnTGFzdEZvY3VzZWROb2RlKSB7CisgICAgICBuc1JlZlB0cjxBY2NF
+dmVudD4gZXZlbnQgPQorICAgICAgICBuZXcgQWNjU3RhdGVDaGFuZ2VFdmVudChhQ29udGVudCwg
+bnNJQWNjZXNzaWJsZVN0YXRlczo6U1RBVEVfQlVTWSwgUFJfRkFMU0UpOworICAgICAgRmlyZURl
+bGF5ZWRBY2Nlc3NpYmxlRXZlbnQoZXZlbnQpOworICAgIH0KKyAgICByZXR1cm47CisgIH0KKwog
+ICBpZiAoIWFDb250ZW50LT5IYXNBdHRyKGtOYW1lU3BhY2VJRF9Ob25lLCBuc0FjY2Vzc2liaWxp
+dHlBdG9tczo6cm9sZSkpIHsKICAgICAvLyBXZSBkb24ndCBjYXJlIGFib3V0IHRoZXNlIG90aGVy
+IEFSSUEgYXR0cmlidXRlIGNoYW5nZXMgdW5sZXNzIHRoZXJlIGlzCiAgICAgLy8gYW4gQVJJQSBy
+b2xlIHNldCBmb3IgdGhlIGVsZW1lbnQKICAgICAvLyBYWFg6IHdlIHNob3VsZCBjaGVjayB0aGUg
+cm9sZSBtYXAgdG8gc2VlIGlmIHRoZSBjaGFuZ2VkIHByb3BlcnR5IGlzCiAgICAgLy8gcmVsZXZh
+bnQgZm9yIHRoYXQgcGFydGljdWxhciByb2xlLgogICAgIHJldHVybjsKICAgfQogCmRpZmYgLS1n
+aXQgYS9hY2Nlc3NpYmxlL3Rlc3RzL21vY2hpdGVzdC9ldmVudHMvdGVzdF9hcmlhX3N0YXRlY2hh
+bmdlLmh0bWwgYi9hY2Nlc3NpYmxlL3Rlc3RzL21vY2hpdGVzdC9ldmVudHMvdGVzdF9hcmlhX3N0
+YXRlY2hhbmdlLmh0bWwKLS0tIGEvYWNjZXNzaWJsZS90ZXN0cy9tb2NoaXRlc3QvZXZlbnRzL3Rl
+c3RfYXJpYV9zdGF0ZWNoYW5nZS5odG1sCisrKyBiL2FjY2Vzc2libGUvdGVzdHMvbW9jaGl0ZXN0
+L2V2ZW50cy90ZXN0X2FyaWFfc3RhdGVjaGFuZ2UuaHRtbApAQCAtMjEsNDUgKzIxLDcxIEBACiAg
+IDxzY3JpcHQgdHlwZT0iYXBwbGljYXRpb24vamF2YXNjcmlwdCI+CiAKIAogICAgIC8qKgogICAg
+ICAqIERvIHRlc3RzLgogICAgICAqLwogICAgIHZhciBnUXVldWUgPSBudWxsOwogCisgICAgLy8g
+RGVidWcgc3R1ZmYuCisgICAgZ0ExMXlFdmVudER1bXBJRCA9ICJldmVudGR1bXAiOworICAgIC8v
+IGdBMTF5RXZlbnREdW1wVG9Db25zb2xlID0gdHJ1ZTsKKwogICAgIGZ1bmN0aW9uIGV4cGFuZE5v
+ZGUoYU5vZGVPcklELCBiRXhwYW5kKQogICAgIHsKICAgICAgIHRoaXMuRE9NTm9kZSA9IGdldE5v
+ZGUoYU5vZGVPcklEKTsKIAogICAgICAgdGhpcy5pbnZva2UgPSBmdW5jdGlvbiBleHBhbmRfaW52
+b2tlKCkgewogICAgICAgICAvLyBOb3RlOiB0aGlzIHNob3VsZCBmaXJlIGFuIEVWRU5UX1NUQVRF
+X0NIQU5HRQogICAgICAgICB0aGlzLkRPTU5vZGUuc2V0QXR0cmlidXRlKCJhcmlhLWV4cGFuZGVk
+IiwgYkV4cGFuZCk7CiAgICAgICB9OwogCiAgICAgICB0aGlzLmNoZWNrID0gZnVuY3Rpb24gZXhw
+YW5kX2NoZWNrKCkgewogICAgICAgICB0ZXN0U3RhdGVzKGFOb2RlT3JJRCwKICAgICAgICAgICAg
+ICAgICAgICBiRXhwYW5kID8gU1RBVEVfRVhQQU5ERUQgOiBTVEFURV9DT0xMQVBTRUQsCiAgICAg
+ICAgICAgICAgICAgICAgRVhUX1NUQVRFX0VYUEFOREFCTEUpOwogICAgICAgfTsKIAotICAgICAg
+dGhpcy5nZXRJRCA9IGZ1bmN0aW9uIGNoYW5nZVZhbHVlX2dldElEKCkgeworICAgICAgdGhpcy5n
+ZXRJRCA9IGZ1bmN0aW9uIGV4cGFuZF9nZXRJRCgpIHsKICAgICAgICAgcmV0dXJuIHByZXR0eU5h
+bWUoYU5vZGVPcklEKSArICIgYXJpYS1leHBhbmRlZCBjaGFuZ2VkIjsKICAgICAgIH07CiAgICAg
+fQogCisgICAgZnVuY3Rpb24gYnVzeWlmeShhTm9kZU9ySUQsIGJCdXN5KQorICAgIHsKKyAgICAg
+IHRoaXMuRE9NTm9kZSA9IGdldE5vZGUoYU5vZGVPcklEKTsKKworICAgICAgdGhpcy5pbnZva2Ug
+PSBmdW5jdGlvbiBidXN5aWZ5X2ludm9rZSgpIHsKKyAgICAgICAgdGhpcy5ET01Ob2RlLnNldEF0
+dHJpYnV0ZSgiYXJpYS1idXN5IiwgYkJ1c3kpOworICAgICAgfTsKKworICAgICAgdGhpcy5jaGVj
+ayA9IGZ1bmN0aW9uIGJ1c3lpZnlfY2hlY2soZXZlbnQpIHsKKyAgICAgICAgdGVzdFN0YXRlcyhh
+Tm9kZU9ySUQsCisgICAgICAgICAgICAgICAgICAgKGJCdXN5ID8gU1RBVEVfQlVTWSA6IDApLCAw
+LAorICAgICAgICAgICAgICAgICAgIChiQnVzeSA/IDAgOiBTVEFURV9CVVNZKSwgMCk7CisgICAg
+ICB9OworCisgICAgICB0aGlzLmdldElEID0gZnVuY3Rpb24gYnVzeWlmeV9nZXRJRCgpIHsKKyAg
+ICAgICAgcmV0dXJuIHByZXR0eU5hbWUoYU5vZGVPcklEKSArICIgYXJpYS1idXN5IGNoYW5nZWQi
+OworICAgICAgfTsKKyAgICB9CisgCiAgICAgZnVuY3Rpb24gZG9UZXN0cygpCiAgICAgewotICAg
+ICAgZ1F1ZXVlID0gbmV3IGV2ZW50UXVldWUobnNJQWNjZXNzaWJsZUV2ZW50LkVWRU5UX1NUQVRF
+X0NIQU5HRSk7CisgICAgICBnUXVldWUgPSBuZXcgZXZlbnRRdWV1ZShFVkVOVF9TVEFURV9DSEFO
+R0UpOwogCiAgICAgICBnUXVldWUucHVzaChuZXcgZXhwYW5kTm9kZSgic2VjdGlvbiIsIHRydWUp
+KTsKICAgICAgIGdRdWV1ZS5wdXNoKG5ldyBleHBhbmROb2RlKCJzZWN0aW9uIiwgZmFsc2UpKTsK
+ICAgICAgIGdRdWV1ZS5wdXNoKG5ldyBleHBhbmROb2RlKCJkaXYiLCB0cnVlKSk7CiAgICAgICBn
+UXVldWUucHVzaChuZXcgZXhwYW5kTm9kZSgiZGl2IiwgZmFsc2UpKTsKIAorICAgICAgZG9jdW1l
+bnQuZ2V0RWxlbWVudEJ5SWQoImFyaWFfZG9jIikuZm9jdXMoKTsKKyAgICAgIGdRdWV1ZS5wdXNo
+KG5ldyBidXN5aWZ5KCJhcmlhX2RvYyIsIHRydWUpKTsKKyAgICAgIGdRdWV1ZS5wdXNoKG5ldyBi
+dXN5aWZ5KCJhcmlhX2RvYyIsIGZhbHNlKSk7CiAgICAgICBnUXVldWUuaW52b2tlKCk7IC8vIFdp
+bGwgY2FsbCBTaW1wbGVUZXN0LmZpbmlzaCgpOwogICAgIH0KIAogICAgIFNpbXBsZVRlc3Qud2Fp
+dEZvckV4cGxpY2l0RmluaXNoKCk7CiAgICAgYWRkQTExeUxvYWRFdmVudChkb1Rlc3RzKTsKICAg
+PC9zY3JpcHQ+CiA8L2hlYWQ+CiAKQEAgLTc2LDEwICsxMDIsMTIgQEAKICAgPHByZSBpZD0idGVz
+dCI+CiAgIDwvcHJlPgogICA8ZGl2IGlkPSJldmVudGR1bXAiPjwvZGl2PgogCiAgIDwhLS0gYXJp
+YS1leHBhbmRlZCAtLT4KICAgPGRpdiBpZD0ic2VjdGlvbiIgcm9sZT0ic2VjdGlvbiIgYXJpYS1l
+eHBhbmRlZD0iZmFsc2UiPmV4cGFuZGFibGUgc2VjdGlvbjwvZGl2PgogICA8ZGl2IGlkPSJkaXYi
+IGFyaWEtZXhwYW5kZWQ9ImZhbHNlIj5leHBhbmRhYmxlIG5hdGl2ZSBkaXY8L2Rpdj4KIAorICA8
+IS0tIGFyaWEtYnVzeSAtLT4KKyAgPGRpdiBpZD0iYXJpYV9kb2MiIHJvbGU9ImRvY3VtZW50IiB0
+YWJpbmRleD0iMCI+QSBkb2N1bWVudDwvZGl2PgogPC9ib2R5PgogPC9odG1sPgo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

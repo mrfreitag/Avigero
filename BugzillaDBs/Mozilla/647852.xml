@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647852</bug_id>
+          
+          <creation_ts>2011-04-05 10:42:00 -0700</creation_ts>
+          <short_desc>Firefox 4 is handling PHP differently</short_desc>
+          <delta_ts>2011-04-11 09:20:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Randy Pelletier">ranpel</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jo.hermans</cc>
+    
+    <cc>ranpel</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391334</commentid>
+            <who name="Randy Pelletier">ranpel</who>
+            <bug_when>2011-04-05 10:42:59 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Since upgrading to FF4 both Firefox &amp; Google Chrome (!?) are failing to handle PHP.  The site is fine in Safari.  Unfortunately the PHP site in question is on a private VPN.  I&apos;m hoping that it&apos;s a simple corruption issue of some local file or another that is somehow, seemingly, shared with Chrome.  Specifically, on this PHP based site, inline address urls are randomly not painting at all - that&apos;s random in that some do and most don&apos;t.  Submit and commit buttons do not work at all.  The site in question has not undergone functional changes in the better part of three years (i.e. apache,php,perl engines).
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. I will try to find an appropriate public PHP site that mimics this behaviour and update appropriately.
+2.
+3.
+Actual Results:  
+The web page, that interacts with, updates and controls a central database for server applications has been rendered ineffectual and all but useless.  
+
+Expected Results:  
+I expect address links to paint and submit buttons to submit form data - no longer functioning on both counts.
+
+Uhm.. not break PHP site?  Perhaps a file list of what could possibly affect PHP sites?  Not sure.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391449</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-05 12:36:42 -0700</bug_when>
+            <thetext>The language which is used on a website, has nothing to do with the browser. That sees only (generated) HTML. This means that there are probably errors in HTML.
+
+If Chrome sees the same error (maybe because they both have a HTML5 parser, but so does Safari), then it&apos;s definitely not a bug in 
+Firefox.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391467</commentid>
+            <who name="Randy Pelletier">ranpel</who>
+            <bug_when>2011-04-05 12:58:45 -0700</bug_when>
+            <thetext>Hi, Yes, only FF and Chrome seem to be affected - Safari *does* work.
+
+The html/php rendering of same has not changed.
+
+I&apos;m not sure, like you, I&apos;d say it was a bug in FF per se but the coincidence with upgrading to 4 would make me think part of the upgrade process resulted in some collateral damage.. somehow.  I&apos;m about to roll back to FF3 to test.
+
+Me thinks the resolved::invalid mark indicates no fault due to upgrade and an upgrade path is a part of the browser and would be a bug if proven no?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391470</commentid>
+            <who name="Randy Pelletier">ranpel</who>
+            <bug_when>2011-04-05 13:05:29 -0700</bug_when>
+            <thetext>Confirmed rollback to FF3 fixed all PHP/html rendering issues.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391475</commentid>
+            <who name="Randy Pelletier">ranpel</who>
+            <bug_when>2011-04-05 13:14:53 -0700</bug_when>
+            <thetext>html5 is highly probably at fault - resetting to resolved:invalid as my Safari is quite old.
+
+Thanks</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391495</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-05 13:36:00 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; html5 is highly probably at fault - resetting to resolved:invalid as my Safari
+&gt; is quite old.
+&gt; 
+&gt; Thanks
+
+Possibly. Note that Safari and Chrome share a large part of code too, since they&apos;re both based on WebKit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395172</commentid>
+            <who name="Randy Pelletier">ranpel</who>
+            <bug_when>2011-04-07 14:50:01 -0700</bug_when>
+            <thetext>http://support.mozilla.com/en-US/questions/797234
+
+I tried to find a dupe bug but this is essentially the problem.  html5 or not something is broken and I&apos;ve been pouring over the html and there are no form error/misconfig issues that I can see.
+
+snippets;
+# BEGIN form test here
+if (isset($_POST[&apos;commit&apos;])) {
+  do_commitaddconsole();
+  print &apos;&lt;center&gt;&lt;hr&gt;&lt;input type=&quot;button&quot; value=&quot;ok&quot; name=&quot;ok&quot; onclick=&quot;parent.parent.GB_hide();&quot;&gt;&lt;/center&gt;&apos;;
+} elseif (!isset($_POST[&apos;submit&apos;])) {
+    if (isset($svcName)) {
+      print &apos;Add Service Console for &lt;b&gt;&apos; .$svcName. &apos;&lt;/b&gt;&lt;hr&gt;&apos;;
+      print &apos;&lt;form method=&quot;POST&quot; action=&quot;&apos;;
+      print $_SERVER[&apos;PHP_SELF&apos;];
+      print &apos;&quot;&gt;&apos;;
+      print &apos;&lt;input type=&quot;hidden&quot; name=&quot;svcName&quot; value=&quot;&apos; .$svcName. &apos;&quot; &gt;&apos;;
+      print &apos;&lt;hr&gt;&apos;;
+      print &apos;Please Enter the Console Address for the Service &lt;b&gt;&apos;.$svcName.&apos;&lt;/b&gt;&lt;br&gt;&apos;;
+    } else {
+      echo &quot;Add Service Console&lt;hr&gt;&quot;;
+      echo &apos;&lt;form method=&quot;POST&quot; action=&quot;&apos;;
+      echo $_SERVER[&apos;PHP_SELF&apos;];
+      echo &apos;&quot;&gt;&apos;;
+      get_svcnamesfordrop();
+      print &apos;&lt;hr&gt;&apos;;
+      print &quot;Please Enter the Service&apos;s Console New URL.&lt;br&gt;&quot;;
+    }
+  print &apos;Console Address:  &lt;INPUT TYPE=&quot;text&quot; NAME=&quot;console&quot; VALUE=&quot;&quot; SIZE=&quot;25&quot; MAXLENGTH=&quot;101&quot;&gt; &apos;;
+  print &apos;&lt;hr&gt;&apos;;
+  do_button(submit);
+  do_button(cancel);
+  print &quot;&lt;/form&gt;&lt;/center&gt;&quot;;
+} else {
+    echo &quot;New Service Console Information: &lt;br&gt;&quot;;
+    echo &quot;&lt;hr&gt;&quot;;
+    echo &quot;Service Name = &quot;.$svcName.&quot;&lt;br&gt;&quot;;
+    echo &quot;Service Console = &quot;.$console.&quot;&lt;br&gt;&quot;;
+    echo &apos;&lt;form method=&quot;POST&quot; action=&quot;&apos;;
+    echo $_SERVER[&apos;PHP_SELF&apos;];
+    echo &apos;?commit=yes&apos;;
+    echo &apos;&quot;&gt;&apos;;
+    print &apos;&lt;input type=&quot;hidden&quot; value=&quot;&apos; .$svcName. &apos;&quot; name=&quot;svcName&quot;&gt;&apos;;
+    print &apos;&lt;input type=&quot;hidden&quot; value=&quot;&apos; .$console. &apos;&quot; name=&quot;console&quot;&gt;&apos;;
+    print &apos;&lt;center&gt;&lt;hr&gt;&apos;;
+    do_button(commit);
+    do_button(cancel);
+    print &quot;&lt;/form&gt;&lt;/center&gt;&quot;;
+}
+function do_button($button) {
+
+  switch ($button) {
+    case &quot;submit&quot;:
+      print &apos;&lt;hr&gt;&lt;center&gt;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/submit_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/submit_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/s
+ubmit_i.png\&apos;&quot; alt=&quot;submit&quot; value=&quot;submit&quot; name=&quot;submit&quot;&gt;&apos;;
+      break;
+    case &quot;submitContinue&quot;:
+      print &apos;&lt;hr&gt;&lt;center&gt;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/submit_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/submit_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/s
+ubmit_i.png\&apos;&quot; alt=&quot;submit&quot; value=&quot;continue&quot; name=&quot;continue&quot;&gt;&apos;;
+      break;
+    case &quot;submitHide&quot;:
+      print &apos;&lt;hr&gt;&lt;center&gt;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/submit_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/submit_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/s
+ubmit_i.png\&apos;&quot; alt=&quot;submit&quot; value=&quot;submit&quot; name=&quot;submit&quot; onclick=&quot;parent.parent.GB_hide();&quot;&gt;&apos;;
+      break;
+    case &quot;cancel&quot;:
+      print &apos;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/cancel_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/cancel_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/cancel_i.png\
+&apos;&quot; alt=&quot;cancel&quot; value=&quot;cancel&quot; name=&quot;cancel&quot; onclick=&quot;parent.parent.GB_hide();&quot;&gt;&apos;;
+      break;
+    case &quot;commit&quot;:
+      print &apos;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/commit_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/commit_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/commit_i.png\
+&apos;&quot; alt=&quot;commit&quot; value=&quot;commit&quot; name=&quot;commit&quot;&gt;&apos;;
+      break;
+    case &quot;continue&quot;:
+      print &apos;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/continue_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/continue_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/continue_
+i.png\&apos;&quot; alt=&quot;continue&quot; value=&quot;continue&quot; name=&quot;continue&quot;&gt;&apos;;
+      break;
+    case &quot;ok&quot;:
+      print &apos;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/ok_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/ok_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/ok_i.png\&apos;&quot; alt=&quot;ok&quot;
+value=&quot;ok&quot; name=&quot;ok&quot; onclick=&quot;parent.parent.GB_hide();&quot;&gt;&apos;;
+      break;
+    case &quot;reset&quot;:
+      print &apos;&lt;input type=&quot;image&quot; src=&quot;/nagios/images/buttons/reset_o.png&quot; onmouseout=&quot;this.src=\&apos;/nagios/images/buttons/reset_o.png\&apos;&quot; onmouseover=&quot;this.src=\&apos;/nagios/images/buttons/reset_i.png\&apos;&quot;v
+alue=&quot;reset&quot; name=&quot;reset&quot; alt=&quot;reset&quot; onclick=&quot;location.href=\&apos;&apos; . $_SERVER[&apos;PHP_SELF&apos;] . &apos;\&apos;&quot; &gt;&apos;;
+      break;
+  }
+}</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395199</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-07 15:00:29 -0700</bug_when>
+            <thetext>Please provide a URL of a website where this is happening. It has NOTHING to do with the PHP code that drives the webserver itself. It&apos;s not even complete.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395279</commentid>
+            <who name="Randy Pelletier">ranpel</who>
+            <bug_when>2011-04-07 15:38:47 -0700</bug_when>
+            <thetext>What I was trying to relay was that perhaps if one were to draw up a simple form, similar to the one I&apos;ve been trying to poke through here that I provided and snipped for you, and to throw it up on a page then one could see.  I provided the code snippet because I assumed that it was not difficult to extract an applicable HTML form from the PHP I provided.  I know it has NOTHING to do with the PHP, it has EVERYTHING to do with the form.
+
+The link provided seemed to have/provide some way of showing duplication of a rather similar report that is being experienced by more folks than me on my internal web page.
+
+again, the code was not meant to be complete, is was meant to show the dressing of a form that fails to do ANYTHING in firefox 4 save reload itself.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400518</commentid>
+            <who name="Randy Pelletier">ranpel</who>
+            <bug_when>2011-04-11 09:20:25 -0700</bug_when>
+            <thetext>
+Form post method where type = image no long posts &quot;submit&quot;.  only image coordinates in submit.[x|y] (submit_[x|y] for PHP $_POST).  Rewrite script tests from  [ if post submit ] to [ if post submit_x ]
+
+Brutal, hardline change.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

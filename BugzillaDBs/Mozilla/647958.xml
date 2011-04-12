@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647958</bug_id>
+          
+          <creation_ts>2011-04-06 02:23:00 -0700</creation_ts>
+          <short_desc>Redirecting forever on twitter.com</short_desc>
+          <delta_ts>2011-04-06 13:07:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Document Navigation</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          <bug_file_loc>http://twitter.com/Piro_or</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Alice0775 White">alice0775</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>docshell</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392068</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-06 02:23:45 -0700</bug_when>
+            <thetext>Build Identifier:
+http://hg.mozilla.org/mozilla-central/rev/385684ad7eed
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre ID:20110405092515
+
+Redirecting forever on twitter.com if I set the following preference
+user_pref(&quot;intl.accept_languages&quot;, &quot;ja,en-us,en&quot;);
+
+This also happens on Firefox3.5.x, 3.6.x and 4.0.
+
+i.e.
+Tools &gt; Options &gt; Content &gt; Languages &gt; Choose
+ Add Japanese[ja] and move up it to top.
+
+
+Reproducible: Always
+
+Steps to Reproduce#1:
+1. Start Minefield with new profile +
+   user_pref(&quot;intl.accept_languages&quot;, &quot;ja,en-us,en&quot;);.
+2. Open URL ( http://twitter.com/Piro_or )
+3. 
+
+Actual Results:
+ Redirecting forever
+
+Expected Results:
+ Page should be loaded properly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392542</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 10:32:18 -0700</bug_when>
+            <thetext>This seems to workforme....  Do I need to restart after changing the pref or something?
+
+Could you post an HTTP log from reproducing the problem?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393010</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-06 13:07:28 -0700</bug_when>
+            <thetext>It was fixed by twitter.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

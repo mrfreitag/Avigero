@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648353</bug_id>
+          
+          <creation_ts>2011-04-07 13:44:00 -0700</creation_ts>
+          <short_desc>when processing a large volume of internal events we spend too much time checking for native events</short_desc>
+          <delta_ts>2011-04-10 09:07:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Event Handling</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andreas Gal :gal">gal</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>ehsan</cc>
+    
+    <cc>enndeakin</cc>
+    
+    <cc>jmathies</cc>
+    
+    <cc>joshmoz</cc>
+    
+    <cc>neil</cc>
+    
+    <cc>Olli.Pettay</cc>
+    
+    <cc>roc</cc>
+    
+    <cc>smichaud</cc>
+          <qa_contact>events</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395043</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-07 13:44:41 -0700</bug_when>
+            <thetext></thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395044</commentid>
+              <attachid>524476</attachid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-07 13:45:06 -0700</bug_when>
+            <thetext>Created attachment 524476
+test case</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395079</commentid>
+              <attachid>524483</attachid>
+            <who name="Olli Pettay [:smaug]">Olli.Pettay</who>
+            <bug_when>2011-04-07 14:05:45 -0700</bug_when>
+            <thetext>Created attachment 524483
+testcase without shark start/stop</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395106</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 14:13:02 -0700</bug_when>
+            <thetext>This is something I see all the time with the mac event loop...  I _think_ we do it to prevent starvation of user events.  But yes, it really hurts us perf-wise.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395303</commentid>
+            <who name="Olli Pettay [:smaug]">Olli.Pettay</who>
+            <bug_when>2011-04-07 15:47:28 -0700</bug_when>
+            <thetext>Based on sysprof, the situation is a bit less bad on linux.
+&quot;Only&quot; 25% is under DoProcessNextNativeEvent, not 50% like on OSX.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395336</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-07 16:00:52 -0700</bug_when>
+            <thetext>Still very lousy if you ask me.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395792</commentid>
+            <who name="Robert O&apos;Callahan (:roc) (Mozilla Corporation)">roc</who>
+            <bug_when>2011-04-07 20:08:24 -0700</bug_when>
+            <thetext>Can we use a timer to control the rate at which we check for native events?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395795</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-07 20:10:40 -0700</bug_when>
+            <thetext>#6 would also help with the couple percent we spend in polling the timer in AppShellBase.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395823</commentid>
+            <who name="Olli Pettay [:smaug]">Olli.Pettay</who>
+            <bug_when>2011-04-07 20:26:21 -0700</bug_when>
+            <thetext>Or could we just change nsBaseAppShell::OnProcessNextEvent a bit
+more, like remove the performance hint.
+I have a patch which seems to work well with the testcase on my linux laptop
+(it cuts 33% of the processing time and UI stays responsive).
+I need to run it through tryserver to see if it regress tp badly.
+I have no idea how well it works on other platforms.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395826</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-07 20:28:39 -0700</bug_when>
+            <thetext>Can you post the patch? I am curious what it looks like.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395888</commentid>
+              <attachid>524569</attachid>
+            <who name="Olli Pettay [:smaug]">Olli.Pettay</who>
+            <bug_when>2011-04-07 21:20:50 -0700</bug_when>
+            <thetext>Created attachment 524569
+wip
+
+So the idea is to process native events a bit less often, but when
+process them, try to process them as many as possible.
+
+The current else{} block in nsBaseAppShell::OnProcessNextEvent where 
+DoProcessNextNativeEvent(PR_FALSE); is called just once doesn&apos;t seem to
+behave too well.
+
+This is all very experimental.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395897</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 21:24:40 -0700</bug_when>
+            <thetext>To prevent starving either user events or web events, don&apos;t we want to process both in small chunks as opposed to big batches?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395903</commentid>
+            <who name="Andreas Gal :gal">gal</who>
+            <bug_when>2011-04-07 21:26:32 -0700</bug_when>
+            <thetext>If we can&apos;t keep up with native events, I think we are kinda screwed anyway. No point in delaying them. No?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395919</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-07 21:39:06 -0700</bug_when>
+            <thetext>I seem to recall there being cases (on Windows?) where we can get as many native events as we ask for...   Maybe during resize event loops?  But I might be misremembering.  It&apos;s been a while, and I was watching from the sidelines.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396150</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-08 01:04:07 -0700</bug_when>
+            <thetext>Resizes and native modal dialogs spin their own event loops. (I don&apos;t know how Gecko events get processed in that model.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396435</commentid>
+            <who name="Jim Mathies [:jimm]">jmathies</who>
+            <bug_when>2011-04-08 07:38:05 -0700</bug_when>
+            <thetext>(In reply to comment #13)
+&gt; I seem to recall there being cases (on Windows?) where we can get as many
+&gt; native events as we ask for...   Maybe during resize event loops?  But I might
+&gt; be misremembering.  It&apos;s been a while, and I was watching from the sidelines.
+
+That was a bit different - in that case Windows internal modal dispatch loops were prioritizing the native msg we post that triggers gecko event processing, starving input events. (Windows and mozilla prioritize differently.) The result was locked up native ui actions like window resize.
+
+http://mxr.mozilla.org/mozilla-central/source/widget/src/windows/nsAppShell.cpp#275</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396529</commentid>
+            <who name="Olli Pettay [:smaug]">Olli.Pettay</who>
+            <bug_when>2011-04-08 08:44:12 -0700</bug_when>
+            <thetext>(In reply to comment #11)
+&gt; To prevent starving either user events or web events, don&apos;t we want to process
+&gt; both in small chunks as opposed to big batches?
+Well, the wip patch makes us process user events in smaller chunks, yet allow
+gecko events to get processes too.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396536</commentid>
+            <who name="Olli Pettay [:smaug]">Olli.Pettay</who>
+            <bug_when>2011-04-08 08:49:17 -0700</bug_when>
+            <thetext>The patch seems to work on tryserver, but it does trigger random oranges quite 
+often.
+I mean such oranges which have been reported already before.
+I would assume in many cases the tests are buggy, or some other code
+has wrong assumptions.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396549</commentid>
+            <who name="Olli Pettay [:smaug]">Olli.Pettay</who>
+            <bug_when>2011-04-08 08:57:46 -0700</bug_when>
+            <thetext>Tryserver builds http://ftp.mozilla.org/pub/mozilla.org/firefox/tryserver-builds/opettay@mozilla.com-2358236b71a7/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397611</commentid>
+            <who name="Jim Mathies [:jimm]">jmathies</who>
+            <bug_when>2011-04-08 14:55:23 -0700</bug_when>
+            <thetext>For windows builds- a little bit of general testing shows everything working as expected. The test case returns 375-&gt;450 both in the try build and the latest nightly.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524476</attachid>
+            <date>2011-04-07 13:45:00 -0700</date>
+            <delta_ts>2011-04-07 13:45:06 -0700</delta_ts>
+            <desc>test case</desc>
+            <filename>postmessage.html</filename>
+            <type>text/html</type>
+            <size>369</size>
+            <attacher>gal</attacher>
+            
+              <data encoding="base64">PGh0bWw+CjxoZWFkPgo8L2hlYWQ+Cjxib2R5Pgo8c2NyaXB0Pgp2YXIgaSA9IDA7CnZhciBzdGFy
+dCA9IERhdGUubm93KCk7CnZhciBudW0gPSAyMDAwMDsKZnVuY3Rpb24gZm9vKCkgewogICAgaWYg
+KGkrKyA8IG51bSkKICAgICAgICB3aW5kb3cucG9zdE1lc3NhZ2UoIiIsICIqIik7CiAgICBlbHNl
+IHsKCXdpbmRvdy5zdG9wUHJvZmlsaW5nKCk7Cgljb25zb2xlLmxvZyhEYXRlLm5vdygpIC0gc3Rh
+cnQpOwogICAgfQp9CndpbmRvdy5hZGRFdmVudExpc3RlbmVyKCJtZXNzYWdlIiwgZm9vLCBmYWxz
+ZSk7CndpbmRvdy5zdGFydFByb2ZpbGluZygpOwp3aW5kb3cucG9zdE1lc3NhZ2UoIiIsICIqIik7
+Cjwvc2NyaXB0Pgo8L2JvZHk+CjwvaHRtbD4K
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524483</attachid>
+            <date>2011-04-07 14:05:00 -0700</date>
+            <delta_ts>2011-04-07 14:05:45 -0700</delta_ts>
+            <desc>testcase without shark start/stop</desc>
+            <filename>postmessage.html</filename>
+            <type>text/html</type>
+            <size>420</size>
+            <attacher>Olli.Pettay</attacher>
+            
+              <data encoding="base64">PGh0bWw+PGhlYWQ+CjxtZXRhIGh0dHAtZXF1aXY9ImNvbnRlbnQtdHlwZSIgY29udGVudD0idGV4
+dC9odG1sOyBjaGFyc2V0PUlTTy04ODU5LTEiPgo8c2NyaXB0Pgp2YXIgaSA9IDA7CnZhciBzdGFy
+dCA9IERhdGUubm93KCk7CnZhciBudW0gPSAyMDAwMDsKZnVuY3Rpb24gZm9vKCkgewogIGlmIChp
+KysgPCBudW0pIHsKICAgIHdpbmRvdy5wb3N0TWVzc2FnZSgiIiwgIioiKTsKICB9IGVsc2UgewoJ
+ICBkb2N1bWVudC5ib2R5LnRleHRDb250ZW50ID0gIlxuIiArIChEYXRlLm5vdygpIC0gc3RhcnQp
+OwogIH0KfQp3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcigibWVzc2FnZSIsIGZvbywgZmFsc2UpOwo8
+L3NjcmlwdD4KCjwvaGVhZD4KPGJvZHkgb25sb2FkPSd3aW5kb3cucG9zdE1lc3NhZ2UoIiIsICIq
+Iik7Jz4KCjwvYm9keT48L2h0bWw+
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524569</attachid>
+            <date>2011-04-07 21:20:00 -0700</date>
+            <delta_ts>2011-04-07 21:20:50 -0700</delta_ts>
+            <desc>wip</desc>
+            <filename>remove_perf_hint.diff</filename>
+            <type>text/plain</type>
+            <size>13975</size>
+            <attacher>Olli.Pettay</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2NvbnRlbnQvYmFzZS9zcmMvbnNDb250ZW50U2luay5jcHAgYi9jb250ZW50
+L2Jhc2Uvc3JjL25zQ29udGVudFNpbmsuY3BwCi0tLSBhL2NvbnRlbnQvYmFzZS9zcmMvbnNDb250
+ZW50U2luay5jcHAKKysrIGIvY29udGVudC9iYXNlL3NyYy9uc0NvbnRlbnRTaW5rLmNwcApAQCAt
+MzA3LDE3ICszMDcsMTYgQEAgbnNDb250ZW50U2luazo6SW5pdChuc0lEb2N1bWVudCogYURvYywK
+ICAgUHJvY2Vzc0hUVFBIZWFkZXJzKGFDaGFubmVsKTsKIAogICBtTm9kZUluZm9NYW5hZ2VyID0g
+YURvYy0+Tm9kZUluZm9NYW5hZ2VyKCk7CiAKICAgbUJhY2tvZmZDb3VudCA9IHNCYWNrb2ZmQ291
+bnQ7CiAKICAgaWYgKHNFbmFibGVQZXJmTW9kZSAhPSAwKSB7CiAgICAgbUR5bmFtaWNMb3dlclZh
+bHVlID0gc0VuYWJsZVBlcmZNb2RlID09IDE7Ci0gICAgRmF2b3JQZXJmb3JtYW5jZUhpbnQoIW1E
+eW5hbWljTG93ZXJWYWx1ZSwgMCk7CiAgIH0KIAogICBtQ2FuSW50ZXJydXB0UGFyc2VyID0gc0Nh
+bkludGVycnVwdFBhcnNlcjsKIAogICByZXR1cm4gTlNfT0s7CiAKIH0KIApAQCAtMTQ0NiwyNSAr
+MTQ0NSwxNiBAQCBuc0NvbnRlbnRTaW5rOjpEaWRQcm9jZXNzQVRva2VuSW1wbCgpCiAgIH0KIAog
+ICByZXR1cm4gTlNfT0s7CiB9CiAKIC8vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogCiB2b2lkCi1uc0NvbnRlbnRT
+aW5rOjpGYXZvclBlcmZvcm1hbmNlSGludChQUkJvb2wgcGVyZk92ZXJTdGFydmF0aW9uLCBQUlVp
+bnQzMiBzdGFydmF0aW9uRGVsYXkpCi17Ci0gIHN0YXRpYyBOU19ERUZJTkVfQ0lEKGtBcHBTaGVs
+bENJRCwgTlNfQVBQU0hFTExfQ0lEKTsKLSAgbnNDT01QdHI8bnNJQXBwU2hlbGw+IGFwcFNoZWxs
+ID0gZG9fR2V0U2VydmljZShrQXBwU2hlbGxDSUQpOwotICBpZiAoYXBwU2hlbGwpCi0gICAgYXBw
+U2hlbGwtPkZhdm9yUGVyZm9ybWFuY2VIaW50KHBlcmZPdmVyU3RhcnZhdGlvbiwgc3RhcnZhdGlv
+bkRlbGF5KTsKLX0KLQotdm9pZAogbnNDb250ZW50U2luazo6QmVnaW5VcGRhdGUobnNJRG9jdW1l
+bnQgKmFEb2N1bWVudCwgbnNVcGRhdGVUeXBlIGFVcGRhdGVUeXBlKQogewogICAvLyBSZW1lbWJl
+ciBuZXN0ZWQgdXBkYXRlcyBmcm9tIHVwZGF0ZXMgdGhhdCB3ZSBzdGFydGVkLgogICBpZiAobUlu
+Tm90aWZpY2F0aW9uID4gMCAmJiBtVXBkYXRlc0luTm90aWZpY2F0aW9uIDwgMikgewogICAgICsr
+bVVwZGF0ZXNJbk5vdGlmaWNhdGlvbjsKICAgfQogCiAgIC8vIElmIHdlJ3JlIGluIGEgc2NyaXB0
+IGFuZCB3ZSBkaWRuJ3QgZG8gdGhlIG5vdGlmaWNhdGlvbiwKQEAgLTE1NDQsMjIgKzE1MzQsMTYg
+QEAgbnNDb250ZW50U2luazo6RHJvcFBhcnNlckFuZFBlcmZIaW50KHZvaQogICAvLyBEbyB0aGlz
+IGhhY2sgdG8gbWFrZSBzdXJlIHRoYXQgdGhlIHBhcnNlcgogICAvLyBkb2Vzbid0IGdldCBkZXN0
+cm95ZWQsIGFjY2lkZW50bHksIGJlZm9yZQogICAvLyB0aGUgY2lyY3VsYXJpdHksIGJldHdlZW4g
+c2luayAmIHBhcnNlciwgaXMKICAgLy8gYWN0dWFsbHkgYnJva2VuLgogICAvLyBEcm9wIG91ciBy
+ZWZlcmVuY2UgdG8gdGhlIHBhcnNlciB0byBnZXQgcmlkIG9mIGEgY2lyY3VsYXIKICAgLy8gcmVm
+ZXJlbmNlLgogICBuc0NPTVB0cjxuc0lQYXJzZXI+IGt1bmdGdURlYXRoR3JpcChtUGFyc2VyLmZv
+cmdldCgpKTsKIAotICBpZiAobUR5bmFtaWNMb3dlclZhbHVlKSB7Ci0gICAgLy8gUmVzZXQgdGhl
+IHBlcmZvcm1hbmNlIGhpbnQgd2hpY2ggd2FzIHNldCB0byBGQUxTRQotICAgIC8vIHdoZW4gbUR5
+bmFtaWNMb3dlclZhbHVlIHdhcyBzZXQuCi0gICAgRmF2b3JQZXJmb3JtYW5jZUhpbnQoUFJfVFJV
+RSwgMCk7Ci0gIH0KLQogICBpZiAobUNhbkludGVycnVwdFBhcnNlcikgewogICAgIG1Eb2N1bWVu
+dC0+VW5ibG9ja09ubG9hZChQUl9UUlVFKTsKICAgfQogfQogCiBQUkJvb2wKIG5zQ29udGVudFNp
+bms6OklzU2NyaXB0RXhlY3V0aW5nSW1wbCgpCiB7CkBAIC0xNTgxLDI0ICsxNTY1LDE5IEBAIG5z
+Q29udGVudFNpbms6OldpbGxQYXJzZUltcGwodm9pZCkKICAgUFJVaW50MzIgY3VycmVudFRpbWUg
+PSBQUl9JbnRlcnZhbFRvTWljcm9zZWNvbmRzKFBSX0ludGVydmFsTm93KCkpOwogCiAgIGlmIChz
+RW5hYmxlUGVyZk1vZGUgPT0gMCkgewogICAgIG5zSVZpZXdNYW5hZ2VyKiB2bSA9IHNoZWxsLT5H
+ZXRWaWV3TWFuYWdlcigpOwogICAgIE5TX0VOU1VSRV9UUlVFKHZtLCBOU19FUlJPUl9GQUlMVVJF
+KTsKICAgICBQUlVpbnQzMiBsYXN0RXZlbnRUaW1lOwogICAgIHZtLT5HZXRMYXN0VXNlckV2ZW50
+VGltZShsYXN0RXZlbnRUaW1lKTsKIAotICAgIFBSQm9vbCBuZXdEeW5Mb3dlciA9CisgICAgbUR5
+bmFtaWNMb3dlclZhbHVlID0KICAgICAgIChjdXJyZW50VGltZSAtIG1CZWdpbkxvYWRUaW1lKSA+
+IFBSVWludDMyKHNJbml0aWFsUGVyZlRpbWUpICYmCiAgICAgICAoY3VycmVudFRpbWUgLSBsYXN0
+RXZlbnRUaW1lKSA8IFBSVWludDMyKHNJbnRlcmFjdGl2ZVRpbWUpOwotICAgIAotICAgIGlmICht
+RHluYW1pY0xvd2VyVmFsdWUgIT0gbmV3RHluTG93ZXIpIHsKLSAgICAgIEZhdm9yUGVyZm9ybWFu
+Y2VIaW50KCFuZXdEeW5Mb3dlciwgMCk7Ci0gICAgICBtRHluYW1pY0xvd2VyVmFsdWUgPSBuZXdE
+eW5Mb3dlcjsKLSAgICB9CiAgIH0KICAgCiAgIG1EZWZsZWN0ZWRDb3VudCA9IDA7CiAgIG1IYXNQ
+ZW5kaW5nRXZlbnQgPSBQUl9GQUxTRTsKIAogICBtQ3VycmVudFBhcnNlRW5kVGltZSA9IGN1cnJl
+bnRUaW1lICsKICAgICAobUR5bmFtaWNMb3dlclZhbHVlID8gc0ludGVyYWN0aXZlUGFyc2VUaW1l
+IDogc1BlcmZQYXJzZVRpbWUpOwogCmRpZmYgLS1naXQgYS9kb2NzaGVsbC9iYXNlL25zRG9jU2hl
+bGwuY3BwIGIvZG9jc2hlbGwvYmFzZS9uc0RvY1NoZWxsLmNwcAotLS0gYS9kb2NzaGVsbC9iYXNl
+L25zRG9jU2hlbGwuY3BwCisrKyBiL2RvY3NoZWxsL2Jhc2UvbnNEb2NTaGVsbC5jcHAKQEAgLTIz
+MCwxOSArMjMwLDE2IEBAIHN0YXRpYyBOU19ERUZJTkVfQ0lEKGtBcHBTaGVsbENJRCwgTlNfQVAK
+ICNpbmNsdWRlICJuc0lDb250ZW50U2VjdXJpdHlQb2xpY3kuaCIKIAogI2lmZGVmIE1PWl9JUEMK
+ICNpbmNsdWRlICJuc1hVTEFwcEFQSS5oIgogI2VuZGlmCiAKIHVzaW5nIG5hbWVzcGFjZSBtb3pp
+bGxhOwogCi0vLyBOdW1iZXIgb2YgZG9jdW1lbnRzIGN1cnJlbnRseSBsb2FkaW5nCi1zdGF0aWMg
+UFJJbnQzMiBnTnVtYmVyT2ZEb2N1bWVudHNMb2FkaW5nID0gMDsKLQogLy8gR2xvYmFsIGNvdW50
+IG9mIGV4aXN0aW5nIGRvY3NoZWxscy4KIHN0YXRpYyBQUkludDMyIGdEb2NTaGVsbENvdW50ID0g
+MDsKIAogLy8gR2xvYmFsIHJlZmVyZW5jZSB0byB0aGUgVVJJIGZpeHVwIHNlcnZpY2UuCiBuc0lV
+UklGaXh1cCAqbnNEb2NTaGVsbDo6c1VSSUZpeHVwID0gMDsKIAogLy8gVHJ1ZSBtZWFucyB3ZSB2
+YWxpZGF0ZSB3aW5kb3cgdGFyZ2V0cyB0byBwcmV2ZW50IGZyYW1lc2V0CiAvLyBzcG9vZmluZy4g
+SW5pdGlhbGl6ZSB0aGlzIHRvIGEgbm9uLWJvbGVhbiB2YWx1ZSBzbyB3ZSBrbm93IHRvIGNoZWNr
+CkBAIC0yNjUsMjQgKzI2MiwxNiBAQCBzdGF0aWMgUFJCb29sIGdWYWxpZGF0ZU9yaWdpbiA9IChQ
+UkJvb2wpCiBzdGF0aWMgUFJMb2dNb2R1bGVJbmZvKiBnRG9jU2hlbGxMb2c7CiAjZW5kaWYKIHN0
+YXRpYyBQUkxvZ01vZHVsZUluZm8qIGdEb2NTaGVsbExlYWtMb2c7CiAjZW5kaWYKIAogY29uc3Qg
+Y2hhciBrQnJhbmRCdW5kbGVVUkxbXSAgICAgID0gImNocm9tZTovL2JyYW5kaW5nL2xvY2FsZS9i
+cmFuZC5wcm9wZXJ0aWVzIjsKIGNvbnN0IGNoYXIga0FwcHN0cmluZ3NCdW5kbGVVUkxbXSA9ICJj
+aHJvbWU6Ly9nbG9iYWwvbG9jYWxlL2FwcHN0cmluZ3MucHJvcGVydGllcyI7CiAKLXN0YXRpYyB2
+b2lkCi1GYXZvclBlcmZvcm1hbmNlSGludChQUkJvb2wgcGVyZk92ZXJTdGFydmF0aW9uLCBQUlVp
+bnQzMiBzdGFydmF0aW9uRGVsYXkpCi17Ci0gICAgbnNDT01QdHI8bnNJQXBwU2hlbGw+IGFwcFNo
+ZWxsID0gZG9fR2V0U2VydmljZShrQXBwU2hlbGxDSUQpOwotICAgIGlmIChhcHBTaGVsbCkKLSAg
+ICAgICAgYXBwU2hlbGwtPkZhdm9yUGVyZm9ybWFuY2VIaW50KHBlcmZPdmVyU3RhcnZhdGlvbiwg
+c3RhcnZhdGlvbkRlbGF5KTsKLX0KLQogLy8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKgogLy8gPGEgcGlu
+Zz4gc3VwcG9ydAogLy8qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKgogCiAjZGVmaW5lIFBSRUZfUElOR1Nf
+RU5BQkxFRCAgICAgICAgICAgImJyb3dzZXIuc2VuZF9waW5ncyIKICNkZWZpbmUgUFJFRl9QSU5H
+U19NQVhfUEVSX0xJTksgICAgICAiYnJvd3Nlci5zZW5kX3BpbmdzLm1heF9wZXJfbGluayIKICNk
+ZWZpbmUgUFJFRl9QSU5HU19SRVFVSVJFX1NBTUVfSE9TVCAiYnJvd3Nlci5zZW5kX3BpbmdzLnJl
+cXVpcmVfc2FtZV9ob3N0IgogCkBAIC02MDgyLDI0ICs2MDcxLDE2IEBAIG5zRG9jU2hlbGw6OkVu
+ZFBhZ2VMb2FkKG5zSVdlYlByb2dyZXNzICoKICAgICAvLyBOb3RpZnkgdGhlIENvbnRlbnRWaWV3
+ZXIgdGhhdCB0aGUgRG9jdW1lbnQgaGFzIGZpbmlzaGVkIGxvYWRpbmcuICBUaGlzCiAgICAgLy8g
+d2lsbCBjYXVzZSBhbnkgT25Mb2FkKC4uLikgYW5kIFBvcFN0YXRlKC4uLikgaGFuZGxlcnMgdG8g
+ZmlyZS4KICAgICBpZiAoIW1FT0RGb3JDdXJyZW50RG9jdW1lbnQgJiYgbUNvbnRlbnRWaWV3ZXIp
+IHsKICAgICAgICAgbUlzRXhlY3V0aW5nT25Mb2FkSGFuZGxlciA9IFBSX1RSVUU7CiAgICAgICAg
+IG1Db250ZW50Vmlld2VyLT5Mb2FkQ29tcGxldGUoYVN0YXR1cyk7CiAgICAgICAgIG1Jc0V4ZWN1
+dGluZ09uTG9hZEhhbmRsZXIgPSBQUl9GQUxTRTsKIAogICAgICAgICBtRU9ERm9yQ3VycmVudERv
+Y3VtZW50ID0gUFJfVFJVRTsKLQotICAgICAgICAvLyBJZiBhbGwgZG9jdW1lbnRzIGhhdmUgY29t
+cGxldGVkIHRoZWlyIGxvYWRpbmcKLSAgICAgICAgLy8gZmF2b3IgbmF0aXZlIGV2ZW50IGRpc3Bh
+dGNoIHByaW9yaXRpZXMKLSAgICAgICAgLy8gb3ZlciBwZXJmb3JtYW5jZQotICAgICAgICBpZiAo
+LS1nTnVtYmVyT2ZEb2N1bWVudHNMb2FkaW5nID09IDApIHsKLSAgICAgICAgICAvLyBIaW50IHRv
+IHVzZSBub3JtYWwgbmF0aXZlIGV2ZW50IGRpc3BhdGNoIHByaW9yaXRpZXMgCi0gICAgICAgICAg
+RmF2b3JQZXJmb3JtYW5jZUhpbnQoUFJfRkFMU0UsIE5TX0VWRU5UX1NUQVJWQVRJT05fREVMQVlf
+SElOVCk7Ci0gICAgICAgIH0KICAgICB9CiAgICAgLyogQ2hlY2sgaWYgdGhlIGh0dHBDaGFubmVs
+IGhhcyBhbnkgY2FjaGUtY29udHJvbCByZWxhdGVkIHJlc3BvbnNlIGhlYWRlcnMsCiAgICAgICog
+bGlrZSBuby1zdG9yZSwgbm8tY2FjaGUuIElmIHNvLCB1cGRhdGUgU0hFbnRyeSBzbyB0aGF0IAog
+ICAgICAqIHdoZW4gYSB1c2VyIGdvZXMgYmFjay9mb3J3YXJkIHRvIHRoaXMgcGFnZSwgd2UgYXBw
+cm9wcmlhdGVseSBkbyAKICAgICAgKiBmb3JtIHZhbHVlIHJlc3RvcmF0aW9uIG9yIGxvYWQgZnJv
+bSBzZXJ2ZXIuCiAgICAgICovCiAgICAgbnNDT01QdHI8bnNJSHR0cENoYW5uZWw+IGh0dHBDaGFu
+bmVsKGRvX1F1ZXJ5SW50ZXJmYWNlKGFDaGFubmVsKSk7CiAgICAgaWYgKCFodHRwQ2hhbm5lbCkg
+Ly8gSHR0cENoYW5uZWwgY291bGQgYmUgaGlkaW5nIHVuZGVybmVhdGggYSBNdWx0aXBhcnQgY2hh
+bm5lbC4gICAgCkBAIC03MTU0LDIyICs3MTM1LDE2IEBAIG5zRG9jU2hlbGw6OlJlc3RvcmVGcm9t
+SGlzdG9yeSgpCiAgICAgLy8gYnV0IHdlIGRvbid0IHdhbnQgdGhlbSB0byBzdGF5IGFyb3VuZCBp
+biBjYXNlIHRoZSBwYWdlIGlzIHJlbG9hZGVkLgogICAgIFNldExheW91dEhpc3RvcnlTdGF0ZShu
+c251bGwpOwogCiAgICAgLy8gVGhpcyBpcyB0aGUgZW5kIG9mIG91ciBFbWJlZCgpIHJlcGxhY2Vt
+ZW50CiAKICAgICBtU2F2aW5nT2xkVmlld2VyID0gUFJfRkFMU0U7CiAgICAgbUVPREZvckN1cnJl
+bnREb2N1bWVudCA9IFBSX0ZBTFNFOwogCi0gICAgLy8gVGVsbCB0aGUgZXZlbnQgbG9vcCB0byBm
+YXZvciBwbGV2ZW50cyBvdmVyIHVzZXIgZXZlbnRzLCBzZWUgY29tbWVudHMKLSAgICAvLyBpbiBD
+cmVhdGVDb250ZW50Vmlld2VyLgotICAgIGlmICgrK2dOdW1iZXJPZkRvY3VtZW50c0xvYWRpbmcg
+PT0gMSkKLSAgICAgICAgRmF2b3JQZXJmb3JtYW5jZUhpbnQoUFJfVFJVRSwgTlNfRVZFTlRfU1RB
+UlZBVElPTl9ERUxBWV9ISU5UKTsKLQotCiAgICAgaWYgKG9sZE1VRFYgJiYgbmV3TVVEVikgewog
+ICAgICAgICBuZXdNVURWLT5TZXRNaW5Gb250U2l6ZShtaW5Gb250U2l6ZSk7CiAgICAgICAgIG5l
+d01VRFYtPlNldFRleHRab29tKHRleHRab29tKTsKICAgICAgICAgbmV3TVVEVi0+U2V0RnVsbFpv
+b20ocGFnZVpvb20pOwogICAgICAgICBuZXdNVURWLT5TZXRBdXRob3JTdHlsZURpc2FibGVkKHN0
+eWxlRGlzYWJsZWQpOwogICAgIH0KIAogICAgIG5zQ09NUHRyPG5zSURvY3VtZW50PiBkb2N1bWVu
+dCA9IGRvX1F1ZXJ5SW50ZXJmYWNlKGRvbURvYyk7CkBAIC03NTE4LDI2ICs3NDkzLDE2IEBAIG5z
+RG9jU2hlbGw6OkNyZWF0ZUNvbnRlbnRWaWV3ZXIoY29uc3QgY2gKICAgICAgICAgaWYgKGRvYykg
+ewogICAgICAgICAgIFBSVWludDMyIHBhcnRJRDsKICAgICAgICAgICBtdWx0aVBhcnRDaGFubmVs
+LT5HZXRQYXJ0SUQoJnBhcnRJRCk7CiAgICAgICAgICAgZG9jLT5TZXRQYXJ0SUQocGFydElEKTsK
+ICAgICAgICAgfQogICAgICAgfQogICAgIH0KIAotICAgIC8vIEdpdmUgaGludCB0byBuYXRpdmUg
+cGxldmVudCBkaXNwYXRjaCBtZWNoYW5pc20uIElmIGEgZG9jdW1lbnQKLSAgICAvLyBpcyBsb2Fk
+aW5nIHRoZSBuYXRpdmUgcGxldmVudCBkaXNwYXRjaCBtZWNoYW5pc20gc2hvdWxkIGZhdm9yCi0g
+ICAgLy8gcGVyZm9ybWFuY2Ugb3ZlciBub3JtYWwgbmF0aXZlIGV2ZW50IGRpc3BhdGNoIHByaW9y
+aXRpZXMuCi0gICAgaWYgKCsrZ051bWJlck9mRG9jdW1lbnRzTG9hZGluZyA9PSAxKSB7Ci0gICAg
+ICAvLyBIaW50IHRvIGZhdm9yIHBlcmZvcm1hbmNlIGZvciB0aGUgcGxldmVudCBub3RpZmljYXRp
+b24gbWVjaGFuaXNtLgotICAgICAgLy8gV2Ugd2FudCB0aGUgcGFnZXMgdG8gbG9hZCBhcyBmYXN0
+IGFzIHBvc3NpYmxlIGV2ZW4gaWYgaXRzIG1lYW5zIAotICAgICAgLy8gbmF0aXZlIG1lc3NhZ2Vz
+IG1pZ2h0IGJlIHN0YXJ2ZWQuCi0gICAgICBGYXZvclBlcmZvcm1hbmNlSGludChQUl9UUlVFLCBO
+U19FVkVOVF9TVEFSVkFUSU9OX0RFTEFZX0hJTlQpOwotICAgIH0KLQogICAgIGlmIChvbkxvY2F0
+aW9uQ2hhbmdlTmVlZGVkKSB7CiAgICAgICBGaXJlT25Mb2NhdGlvbkNoYW5nZSh0aGlzLCByZXF1
+ZXN0LCBtQ3VycmVudFVSSSk7CiAgICAgfQogICAKICAgICByZXR1cm4gTlNfT0s7CiB9CiAKIG5z
+cmVzdWx0CmRpZmYgLS1naXQgYS93aWRnZXQvcHVibGljL25zSUFwcFNoZWxsLmlkbCBiL3dpZGdl
+dC9wdWJsaWMvbnNJQXBwU2hlbGwuaWRsCi0tLSBhL3dpZGdldC9wdWJsaWMvbnNJQXBwU2hlbGwu
+aWRsCisrKyBiL3dpZGdldC9wdWJsaWMvbnNJQXBwU2hlbGwuaWRsCkBAIC0zOSw0OCArMzksMzAg
+QEAKIAogI2luY2x1ZGUgIm5zSVN1cHBvcnRzLmlkbCIKICNpbmNsdWRlICJuc0lSdW5uYWJsZS5p
+ZGwiCiAKIC8qKgogICogSW50ZXJmYWNlIGZvciB0aGUgbmF0aXZlIGV2ZW50IHN5c3RlbSBsYXll
+ci4gIFRoaXMgaW50ZXJmYWNlIGlzIGRlc2lnbmVkCiAgKiB0byBiZSB1c2VkIG9uIHRoZSBtYWlu
+IGFwcGxpY2F0aW9uIHRocmVhZCBvbmx5LgogICovCi1bdXVpZCg0MGJjNjI4MC1hZDgzLTQ3MWUt
+YjE5Ny04MGFiOTBlMjA2NWUpXQorW3V1aWQoZjRhM2NkM2YtOTU2Yi00NzViLTkwZTYtZjAxMjdk
+YjE5NWYyKV0KIGludGVyZmFjZSBuc0lBcHBTaGVsbCA6IG5zSVN1cHBvcnRzCiB7CiAgIC8qKgog
+ICAgKiBFbnRlciBhbiBldmVudCBsb29wLiAgRG9uJ3QgbGVhdmUgdW50aWwgZXhpdCgpIGlzIGNh
+bGxlZC4KICAgICovCiAgIHZvaWQgcnVuKCk7CiAKICAgLyoqCiAgICAqIEV4aXQgdGhlIGhhbmRs
+ZSBldmVudCBsb29wCiAgICAqLwogICB2b2lkIGV4aXQoKTsKIAogICAvKioKLSAgICogR2l2ZSBo
+aW50IHRvIG5hdGl2ZSBldmVudCBxdWV1ZSBub3RpZmljYXRpb24gbWVjaGFuaXNtLiBJZiB0aGUg
+bmF0aXZlCi0gICAqIHBsYXRmb3JtIG5lZWRzIHRvIHRyYWRlb2ZmIHBlcmZvcm1hbmNlIHZzLiBu
+YXRpdmUgZXZlbnQgc3RhcnZhdGlvbiB0aGlzCi0gICAqIGhpbnQgdGVsbHMgdGhlIG5hdGl2ZSBk
+aXNwYXRjaCBjb2RlIHdoaWNoIHRvIGZhdm9yLiAgVGhlIGRlZmF1bHQgaXMgdG8KLSAgICogcHJl
+dmVudCBuYXRpdmUgZXZlbnQgc3RhcnZhdGlvbi4KLSAgICoKLSAgICogQ2FsbHMgdG8gdGhpcyBm
+dW5jdGlvbiBtYXkgYmUgbmVzdGVkLiBXaGVuIHRoZSBudW1iZXIgb2YgY2FsbHMgdGhhdCBwYXNz
+Ci0gICAqIFBSX1RSVUUgaXMgc3VidHJhY3RlZCBmcm9tIHRoZSBudW1iZXIgb2YgY2FsbHMgdGhh
+dCBwYXNzIFBSX0ZBTFNFIGlzCi0gICAqIGdyZWF0ZXIgdGhhbiAwLCBwZXJmb3JtYW5jZSBpcyBn
+aXZlbiBwcmVjZWRlbmNlIG92ZXIgcHJldmVudGluZyBldmVudAotICAgKiBzdGFydmF0aW9uLgot
+ICAgKgotICAgKiBUaGUgc3RhcnZhdGlvbkRlbGF5IGFyZyBpcyBvbmx5IHVzZWQgd2hlbiBmYXZv
+clBlcmZPdmVyU3RhcnZhdGlvbiBpcwotICAgKiBQUl9GQUxTRS4gSXQgaXMgdGhlIGFtb3VudCBv
+ZiB0aW1lIGluIG1pbGxpc2Vjb25kcyB0byB3YWl0IGJlZm9yZSB0aGUKLSAgICogUFJfRkFMU0Ug
+YWN0dWFsbHkgdGFrZXMgZWZmZWN0LgotICAgKi8KLSAgdm9pZCBmYXZvclBlcmZvcm1hbmNlSGlu
+dChpbiBib29sZWFuIGZhdm9yUGVyZk92ZXJTdGFydmF0aW9uLAotICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIGluIHVuc2lnbmVkIGxvbmcgc3RhcnZhdGlvbkRlbGF5KTsKLQotICAvKioKICAg
+ICogU3VzcGVuZHMgdGhlIHVzZSBvZiBhZGRpdGlvbmFsIHBsYXRmb3JtLXNwZWNpZmljIG1ldGhv
+ZHMgKGJlc2lkZXMgdGhlCiAgICAqIG5zSUFwcFNoZWxsLT5ydW4oKSBldmVudCBsb29wKSB0byBy
+dW4gR2Vja28gZXZlbnRzIG9uIHRoZSBtYWluCiAgICAqIGFwcGxpY2F0aW9uIHRocmVhZC4gIFVu
+ZGVyIHNvbWUgY2lyY3Vtc3RhbmNlcyB0aGVzZSAiYWRkaXRpb25hbCBtZXRob2RzIgogICAgKiBj
+YW4gY2F1c2UgR2Vja28gZXZlbnQgaGFuZGxlcnMgdG8gYmUgcmUtZW50ZXJlZCwgc29tZXRpbWVz
+IGxlYWRpbmcgdG8KICAgICogaGFuZ3MgYW5kIGNyYXNoZXMuICBDYWxscyB0byBzdXNwZW5kTmF0
+aXZlKCkgYW5kIHJlc3VtZU5hdGl2ZSgpIG1heSBiZQogICAgKiBuZXN0ZWQuICBPbiBzb21lIHBs
+YXRmb3JtcyAodGhvc2UgdGhhdCBkb24ndCB1c2UgYW55ICJhZGRpdGlvbmFsCiAgICAqIG1ldGhv
+ZHMiKSB0aGlzIHdpbGwgYmUgYSBuby1vcC4gIERvZXMgbm90IChpbiBpdHNlbGYpIHN0b3AgR2Vj
+a28gZXZlbnRzCiAgICAqIGZyb20gYmVpbmcgcHJvY2Vzc2VkIG9uIHRoZSBtYWluIGFwcGxpY2F0
+aW9uIHRocmVhZC4gIEJ1dCBpZiB0aGUKZGlmZiAtLWdpdCBhL3dpZGdldC9zcmMveHB3aWRnZXRz
+L25zQmFzZUFwcFNoZWxsLmNwcCBiL3dpZGdldC9zcmMveHB3aWRnZXRzL25zQmFzZUFwcFNoZWxs
+LmNwcAotLS0gYS93aWRnZXQvc3JjL3hwd2lkZ2V0cy9uc0Jhc2VBcHBTaGVsbC5jcHAKKysrIGIv
+d2lkZ2V0L3NyYy94cHdpZGdldHMvbnNCYXNlQXBwU2hlbGwuY3BwCkBAIC00MiwzMSArNDIsMjkg
+QEAKICNpbmNsdWRlICJuc1NlcnZpY2VNYW5hZ2VyVXRpbHMuaCIKICNpbmNsdWRlICJtb3ppbGxh
+L1NlcnZpY2VzLmgiCiAKICNpZmRlZiBNT1pfSVBDCiAjaW5jbHVkZSAiYmFzZS9tZXNzYWdlX2xv
+b3AuaCIKICNlbmRpZgogCiAvLyBXaGVuIHByb2Nlc3NpbmcgdGhlIG5leHQgdGhyZWFkIGV2ZW50
+LCB0aGUgYXBwc2hlbGwgbWF5IHByb2Nlc3MgbmF0aXZlCi0vLyBldmVudHMgKGlmIG5vdCBpbiBw
+ZXJmb3JtYW5jZSBtb2RlKSwgd2hpY2ggY2FuIHJlc3VsdCBpbiBzdXBwcmVzc2luZyB0aGUKLS8v
+IG5leHQgdGhyZWFkIGV2ZW50IGZvciBhdCBtb3N0IHRoaXMgbWFueSB0aWNrczoKLSNkZWZpbmUg
+VEhSRUFEX0VWRU5UX1NUQVJWQVRJT05fTElNSVQgUFJfTWlsbGlzZWNvbmRzVG9JbnRlcnZhbCgy
+MCkKKy8vIGV2ZW50cywgd2hpY2ggY2FuIHJlc3VsdCBpbiBzdXBwcmVzc2luZyB0aGUgbmV4dCB0
+aHJlYWQgZXZlbnQgZm9yIGF0CisvLyBtb3N0IHRoaXMgbWFueSB0aWNrczoKKyNkZWZpbmUgVEhS
+RUFEX0VWRU5UX1NUQVJWQVRJT05fTElNSVQgUFJfTWlsbGlzZWNvbmRzVG9JbnRlcnZhbCgxMCkK
+IAogTlNfSU1QTF9USFJFQURTQUZFX0lTVVBQT1JUUzMobnNCYXNlQXBwU2hlbGwsIG5zSUFwcFNo
+ZWxsLCBuc0lUaHJlYWRPYnNlcnZlciwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5z
+SU9ic2VydmVyKQogCiBuc0Jhc2VBcHBTaGVsbDo6bnNCYXNlQXBwU2hlbGwoKQogICA6IG1TdXNw
+ZW5kTmF0aXZlQ291bnQoMCkKICAgLCBtRXZlbnRsb29wTmVzdGluZ0xldmVsKDApCiAgICwgbUJs
+b2NrZWRXYWl0KG5zbnVsbCkKICAgLCBtRmF2b3JQZXJmKDApCiAgICwgbU5hdGl2ZUV2ZW50UGVu
+ZGluZygwKQotICAsIG1TdGFydmF0aW9uRGVsYXkoMCkKLSAgLCBtU3dpdGNoVGltZSgwKQogICAs
+IG1MYXN0TmF0aXZlRXZlbnRUaW1lKDApCiAgICwgbUV2ZW50bG9vcE5lc3RpbmdTdGF0ZShlRXZl
+bnRsb29wTm9uZSkKICAgLCBtUnVubmluZyhQUl9GQUxTRSkKICAgLCBtRXhpdGluZyhQUl9GQUxT
+RSkKICAgLCBtQmxvY2tOYXRpdmVFdmVudChQUl9GQUxTRSkKIHsKIH0KIApAQCAtMjA4LDI5ICsy
+MDYsMTYgQEAgbnNCYXNlQXBwU2hlbGw6OkV4aXQodm9pZCkKICAgaWYgKG1SdW5uaW5nICYmICFt
+RXhpdGluZykgewogICAgIE1lc3NhZ2VMb29wOjpjdXJyZW50KCktPlF1aXQoKTsKICAgfQogI2Vu
+ZGlmCiAgIG1FeGl0aW5nID0gUFJfVFJVRTsKICAgcmV0dXJuIE5TX09LOwogfQogCi1OU19JTUVU
+SE9ESU1QCi1uc0Jhc2VBcHBTaGVsbDo6RmF2b3JQZXJmb3JtYW5jZUhpbnQoUFJCb29sIGZhdm9y
+UGVyZk92ZXJTdGFydmF0aW9uLAotICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IFBSVWludDMyIHN0YXJ2YXRpb25EZWxheSkKLXsKLSAgbVN0YXJ2YXRpb25EZWxheSA9IFBSX01p
+bGxpc2Vjb25kc1RvSW50ZXJ2YWwoc3RhcnZhdGlvbkRlbGF5KTsKLSAgaWYgKGZhdm9yUGVyZk92
+ZXJTdGFydmF0aW9uKSB7Ci0gICAgKyttRmF2b3JQZXJmOwotICB9IGVsc2UgewotICAgIC0tbUZh
+dm9yUGVyZjsKLSAgICBtU3dpdGNoVGltZSA9IFBSX0ludGVydmFsTm93KCk7Ci0gIH0KLSAgcmV0
+dXJuIE5TX09LOwotfQogCiBOU19JTUVUSE9ESU1QCiBuc0Jhc2VBcHBTaGVsbDo6U3VzcGVuZE5h
+dGl2ZSgpCiB7CiAgICsrbVN1c3BlbmROYXRpdmVDb3VudDsKICAgcmV0dXJuIE5TX09LOwogfQog
+CkBAIC0zMDEsMzAgKzI4NiwyMyBAQCBuc0Jhc2VBcHBTaGVsbDo6T25Qcm9jZXNzTmV4dEV2ZW50
+KG5zSVRoCiAgIC8vIFdoZW4gbWF5V2FpdCBpcyB0cnVlLCB3ZSBuZWVkIHRvIG1ha2Ugc3VyZSB0
+aGF0IHRoZXJlIGlzIGFuIGV2ZW50IGluIHRoZQogICAvLyB0aHJlYWQncyBldmVudCBxdWV1ZSBi
+ZWZvcmUgd2UgcmV0dXJuLiAgT3RoZXJ3aXNlLCB0aGUgdGhyZWFkIHdpbGwgYmxvY2sKICAgLy8g
+b24gaXRzIGV2ZW50IHF1ZXVlIHdhaXRpbmcgZm9yIGFuIGV2ZW50LgogICBQUkJvb2wgbmVlZEV2
+ZW50ID0gbWF5V2FpdDsKICAgLy8gUmVzZXQgcHJpb3IgdG8gaW52b2tpbmcgRG9Qcm9jZXNzTmV4
+dE5hdGl2ZUV2ZW50IHdoaWNoIG1pZ2h0IGNhdXNlCiAgIC8vIE5hdGl2ZUV2ZW50Q2FsbGJhY2sg
+dG8gcHJvY2VzcyBnZWNrbyBldmVudHMuCiAgIG1Qcm9jZXNzZWRHZWNrb0V2ZW50cyA9IFBSX0ZB
+TFNFOwogCi0gIGlmIChtRmF2b3JQZXJmIDw9IDAgJiYgc3RhcnQgPiBtU3dpdGNoVGltZSArIG1T
+dGFydmF0aW9uRGVsYXkpIHsKLSAgICAvLyBGYXZvciBwZW5kaW5nIG5hdGl2ZSBldmVudHMKKyAg
+aWYgKHN0YXJ0IC0gbUxhc3ROYXRpdmVFdmVudFRpbWUgPiBsaW1pdCkgewogICAgIFBSSW50ZXJ2
+YWxUaW1lIG5vdyA9IHN0YXJ0OwogICAgIFBSQm9vbCBrZWVwR29pbmc7CiAgICAgZG8gewogICAg
+ICAgbUxhc3ROYXRpdmVFdmVudFRpbWUgPSBub3c7CiAgICAgICBrZWVwR29pbmcgPSBEb1Byb2Nl
+c3NOZXh0TmF0aXZlRXZlbnQoUFJfRkFMU0UpOwogICAgIH0gd2hpbGUgKGtlZXBHb2luZyAmJiAo
+KG5vdyA9IFBSX0ludGVydmFsTm93KCkpIC0gc3RhcnQpIDwgbGltaXQpOwotICB9IGVsc2Ugewot
+ICAgIC8vIEF2b2lkIHN0YXJ2aW5nIG5hdGl2ZSBldmVudHMgY29tcGxldGVseSB3aGVuIGluIHBl
+cmZvcm1hbmNlIG1vZGUKLSAgICBpZiAoc3RhcnQgLSBtTGFzdE5hdGl2ZUV2ZW50VGltZSA+IGxp
+bWl0KSB7Ci0gICAgICBtTGFzdE5hdGl2ZUV2ZW50VGltZSA9IHN0YXJ0OwotICAgICAgRG9Qcm9j
+ZXNzTmV4dE5hdGl2ZUV2ZW50KFBSX0ZBTFNFKTsKLSAgICB9CiAgIH0KIAogICB3aGlsZSAoIU5T
+X0hhc1BlbmRpbmdFdmVudHModGhyKSAmJiAhbVByb2Nlc3NlZEdlY2tvRXZlbnRzKSB7CiAgICAg
+Ly8gSWYgd2UgaGF2ZSBiZWVuIGFza2VkIHRvIGV4aXQgZnJvbSBSdW4sIHRoZW4gd2Ugc2hvdWxk
+IG5vdCB3YWl0IGZvcgogICAgIC8vIGV2ZW50cyB0byBwcm9jZXNzLiAgTm90ZSB0aGF0IGFuIGlu
+bmVyIG5lc3RlZCBldmVudCBsb29wIGNhdXNlcwogICAgIC8vICdtYXlXYWl0JyB0byBiZWNvbWUg
+ZmFsc2UgdG9vLCB0aHJvdWdoICdtQmxvY2tlZFdhaXQnLgogICAgIGlmIChtRXhpdGluZykKICAg
+ICAgIG1heVdhaXQgPSBQUl9GQUxTRTsKZGlmZiAtLWdpdCBhL3dpZGdldC9zcmMveHB3aWRnZXRz
+L25zQmFzZUFwcFNoZWxsLmggYi93aWRnZXQvc3JjL3hwd2lkZ2V0cy9uc0Jhc2VBcHBTaGVsbC5o
+Ci0tLSBhL3dpZGdldC9zcmMveHB3aWRnZXRzL25zQmFzZUFwcFNoZWxsLmgKKysrIGIvd2lkZ2V0
+L3NyYy94cHdpZGdldHMvbnNCYXNlQXBwU2hlbGwuaApAQCAtMTE4LDE4ICsxMTgsMTYgQEAgcHJp
+dmF0ZToKICAgICogbUJsb2NrZWRXYWl0IHBvaW50cyBiYWNrIHRvIGEgc2xvdCB0aGF0IGNvbnRy
+b2xzIHRoZSB3YWl0IGxvb3AgaW4KICAgICogYW4gb3V0ZXIgT25Qcm9jZXNzTmV4dEV2ZW50IGlu
+dm9jYXRpb24uICBOZXN0ZWQgY2FsbHMgYWx3YXlzIHNldAogICAgKiBpdCB0byBQUl9GQUxTRSB0
+byB1bmJsb2NrIGFuIG91dGVyIGxvb3AsIHNpbmNlIGFsbCBldmVudHMgbWF5CiAgICAqIGhhdmUg
+YmVlbiBjb25zdW1lZCBieSB0aGUgaW5uZXIgZXZlbnQgbG9vcChzKS4KICAgICovCiAgIFBSQm9v
+bCAqbUJsb2NrZWRXYWl0OwogICBQUkludDMyIG1GYXZvclBlcmY7CiAgIFBSSW50MzIgbU5hdGl2
+ZUV2ZW50UGVuZGluZzsKLSAgUFJJbnRlcnZhbFRpbWUgbVN0YXJ2YXRpb25EZWxheTsKLSAgUFJJ
+bnRlcnZhbFRpbWUgbVN3aXRjaFRpbWU7CiAgIFBSSW50ZXJ2YWxUaW1lIG1MYXN0TmF0aXZlRXZl
+bnRUaW1lOwogICBlbnVtIEV2ZW50bG9vcE5lc3RpbmdTdGF0ZSB7CiAgICAgZUV2ZW50bG9vcE5v
+bmUsICAvLyB0b3AgbGV2ZWwgdGhyZWFkIGV4ZWN1dGlvbgogICAgIGVFdmVudGxvb3BYUENPTSwg
+Ly8gaW5uZXJtb3N0IG5hdGl2ZSBldmVudCBsb29wIGlzIFByb2Nlc3NOZXh0TmF0aXZlRXZlbnQK
+ICAgICBlRXZlbnRsb29wT3RoZXIgIC8vIGlubmVybW9zdCBuYXRpdmUgZXZlbnQgbG9vcCBpcyBh
+IG5hdGl2ZSBsaWJyYXJ5L3BsdWdpbiBldGMKICAgfTsKICAgRXZlbnRsb29wTmVzdGluZ1N0YXRl
+IG1FdmVudGxvb3BOZXN0aW5nU3RhdGU7CiAgIG5zQ09NQXJyYXk8bnNJUnVubmFibGU+IG1TeW5j
+U2VjdGlvbnM7Cg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

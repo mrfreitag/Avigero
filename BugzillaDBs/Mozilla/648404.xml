@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648404</bug_id>
+          
+          <creation_ts>2011-04-07 16:14:00 -0700</creation_ts>
+          <short_desc>Web Hero: Update share file text and links</short_desc>
+          <delta_ts>2011-04-11 08:13:44 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>Facebook</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>https://www.facebook.com/pages/Firefox-4/130379370362344?sk=app_176093342441461</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647629</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="William Reynolds [:williamr]">williamr</reporter>
+          <assigned_to name="William Reynolds [:williamr]">williamr</assigned_to>
+          <cc>m8ttyb</cc>
+          <qa_contact>facebook</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395372</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-07 16:14:29 -0700</bug_when>
+            <thetext>Zach, can you update step #2 in the check list to have the text and links below? We&apos;ll probably have more specific links for the Mac and PC video links in the next hour. I&apos;ll comment in the bug when they&apos;re ready. Thanks!
+
+Send a video that teaches them how to install Firefox 4 on their &lt;a href=&quot;http://www.mozilla.com/en-US/firefox/video/&quot; target=&quot;_top&quot;&gt;Mac&lt;/a&gt; or &lt;a href=&quot;http://www.mozilla.com/en-US/firefox/video/&quot; target=&quot;_top&quot;&gt;PC&lt;/a&gt;. Or send them PDF instructions for &lt;a href=&quot;#&quot; target=&quot;_top&quot; title=&quot;Download this PDF (1MB)&quot;&gt;Mac&lt;/a&gt; or &lt;a href=&quot;#&quot; taret=&quot;_top&quot; title=&quot;Download this PDF (1MB)&quot;&gt;PC&lt;/a&gt;instead.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395379</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-07 16:17:20 -0700</bug_when>
+            <thetext>Correction to comment 0, the PDF links were blank. I&apos;ve added them here.
+
+Send a video that teaches them how to install Firefox 4 on their &lt;a
+href=&quot;http://www.mozilla.com/en-US/firefox/video/&quot; target=&quot;_top&quot;&gt;Mac&lt;/a&gt; or &lt;a
+href=&quot;http://www.mozilla.com/en-US/firefox/video/&quot; target=&quot;_top&quot;&gt;PC&lt;/a&gt;. Or
+send them PDF instructions for &lt;a href=&quot;http://www.mozilla.com/en-US/firefox/webhero/Firefox4_Installation_Guide_MAC.pdf&quot; target=&quot;_top&quot; title=&quot;Download this
+PDF (1MB)&quot;&gt;Mac&lt;/a&gt; or &lt;a href=&quot;http://www.mozilla.com/en-US/firefox/webhero/Firefox4_Installation_Guide_PC.pdf&quot; target=&quot;_top&quot; title=&quot;Download this PDF
+(1MB)&quot;&gt;PC&lt;/a&gt; instead.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395688</commentid>
+            <who name="Zach Allia">allia.z</who>
+            <bug_when>2011-04-07 19:07:30 -0700</bug_when>
+            <thetext>This breaks the layout... this text is too long for the second item</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395735</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-07 19:40:04 -0700</bug_when>
+            <thetext>Give this shorter copy a try. Feel free to ping me on IRC/IM if it&apos;s still too long. Thanks Zach.
+
+Send them a how-to-install video for &lt;a
+href=&quot;http://www.mozilla.com/en-US/firefox/video/&quot; target=&quot;_top&quot;&gt;Mac&lt;/a&gt; or &lt;a
+href=&quot;http://www.mozilla.com/en-US/firefox/video/&quot; target=&quot;_top&quot;&gt;PC&lt;/a&gt;. Or
+show them PDF instructions for &lt;a
+href=&quot;http://www.mozilla.com/en-US/firefox/webhero/Firefox4_Installation_Guide_MAC.pdf&quot;
+target=&quot;_top&quot; title=&quot;Download this
+PDF (1MB)&quot;&gt;Mac&lt;/a&gt; or &lt;a
+href=&quot;http://www.mozilla.com/en-US/firefox/webhero/Firefox4_Installation_Guide_PC.pdf&quot;
+target=&quot;_top&quot; title=&quot;Download this PDF
+(1MB)&quot;&gt;PC&lt;/a&gt;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396033</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-07 23:03:13 -0700</bug_when>
+            <thetext>Updated the copy and links on trunk in r87096
+
+
+Then per bug 647629 comment 10, removed the mention of videos and links
+trunk: r87097</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398721</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-09 16:58:12 -0700</bug_when>
+            <thetext>&lt;a title=&quot;Download this PDF (1.5MB)&quot; target=&quot;_top&quot; href=&quot;http://www.mozilla.com/en-US/firefox/webhero/Firefox4_Installation_Guide_PC.pdf&quot;&gt;PC&lt;/a&gt;
+
+Needs to be changed to 
+
+&lt;a href=&quot;http://www.mozilla.com/en-US/firefox/webhero/Firefox4_Installation_Guide_PC.pdf&quot; target=&quot;_top&quot; title=&quot;Download this PDF (1MB)&quot;&gt;PC&lt;/a&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399927</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-10 23:51:06 -0700</bug_when>
+            <thetext>Comment 5 issue is fixed in r87139.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400382</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-11 08:13:44 -0700</bug_when>
+            <thetext>QA verified.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

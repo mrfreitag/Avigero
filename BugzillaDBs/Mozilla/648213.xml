@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648213</bug_id>
+          
+          <creation_ts>2011-04-06 23:18:00 -0700</creation_ts>
+          <short_desc>XPI files should be repacked with zero compression level upon installation</short_desc>
+          <delta_ts>2011-04-07 12:44:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Add-ons Manager</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://adblockplus.org/blog/some-more-details-on-mozilla-s-add-on-performance-measurements</bug_file_loc>
+          <status_whiteboard>[ts]</status_whiteboard>
+          <keywords>perf</keywords>
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wladimir Palant">trev.moz</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+    
+    <cc>MaierMan</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>mwu</cc>
+    
+    <cc>tglek</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>add-ons.manager</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394009</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-06 23:18:49 -0700</bug_when>
+            <thetext>My test results (see URL) indicate that having an add-on in a single XPI file isn&apos;t always beneficial - at least in case of warm startup on Windows 7 an XPI file packed at maximal compression level degrades startup times. The optimal scenario is an XPI file with zero compression (the long-standing recommendation for JAR files) but add-on authors cannot adopt this approach: the resulting XPI files would be far too large. So ideally the add-on manager would repack XPI files upon installation - even if the source XPI uses maximal compression the installed XPI file could have zero compression and consequently perfect performance.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394547</commentid>
+            <who name="Taras Glek (:taras)">tglek</who>
+            <bug_when>2011-04-07 09:31:19 -0700</bug_when>
+            <thetext>Typically compression is a tradeoff. It makes cold startup faster(less io) and warm startup slower(more cpu usage).
+
+We should indeed consider some clever way to repack addons. A cool way to go would be to rewrite the jar into an optimized one(bug 559961) and use http://code.google.com/p/snappy/ for compression.
+
+An even better approach would be to combine all of the installed addons into such an optimized jar. Then we&apos;ll get awesome IO patterns and low overhead for each installed addon.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

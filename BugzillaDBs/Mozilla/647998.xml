@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647998</bug_id>
+          
+          <creation_ts>2011-04-06 07:50:00 -0700</creation_ts>
+          <short_desc>Should assert when a not-yet-fired nsITimer is GCed</short_desc>
+          <delta_ts>2011-04-08 15:39:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jesse Ruderman">jruderman</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>benjamin</cc>
+    
+    <cc>brendan</cc>
+    
+    <cc>bugmail</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>josh</cc>
+    
+    <cc>jwalden+bmo</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>philringnalda</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392277</commentid>
+            <who name="Jesse Ruderman">jruderman</who>
+            <bug_when>2011-04-06 07:50:59 -0700</bug_when>
+            <thetext>See bug 640629 for the latest round of screw-ups.
+
+I understand that we can&apos;t change the GC behavior of nsITimer right now. Can we at least make it assert-fail, so it doesn&apos;t just make pieces of the browser fail quietly and mysteriously?  At least for one-shot timers?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392350</commentid>
+            <who name="Benjamin Smedberg  [:bsmedberg]">benjamin</who>
+            <bug_when>2011-04-06 09:08:16 -0700</bug_when>
+            <thetext>I&apos;ve never understood why we can&apos;t make timers root themselves while they are pending (and we&apos;re not shutting down)... can we just do that, and perhaps deal with the little bit of leak fallout that might happen?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392378</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 09:21:21 -0700</bug_when>
+            <thetext>That seems fine offhand to me.  Brendan, any reason not to do that?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397729</commentid>
+            <who name="Jesse Ruderman">jruderman</who>
+            <bug_when>2011-04-08 15:39:11 -0700</bug_when>
+            <thetext>Hrm, bug 387341 seems related.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

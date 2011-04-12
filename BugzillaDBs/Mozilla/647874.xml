@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647874</bug_id>
+          
+          <creation_ts>2011-04-05 12:12:00 -0700</creation_ts>
+          <short_desc>When downloading a file and reopening Firefox4 it saves the last page visited and not HomePage</short_desc>
+          <delta_ts>2011-04-05 12:56:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>628043</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>swisson360</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alice0775</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391423</commentid>
+            <who name="">swisson360</who>
+            <bug_when>2011-04-05 12:12:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When downloading a file and closing the application and then Reopening the application it always directing you to the last page viewed instead of HomePage.
+Even if choosing a different URL closing and reeopening it saves the last page.
+
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1) Start Mozilla Firefox4.
+2) Download any file.
+3) Close the application(download process is still on).
+4) Reopen the application.
+5) See that the last viewed page is not HomePage.
+Actual Results:  
+As i have said before the last viewed page was opened.
+
+Expected Results:  
+To have my HomePage opened.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391465</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-05 12:56:41 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 628043 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

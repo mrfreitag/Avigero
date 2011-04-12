@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647826</bug_id>
+          
+          <creation_ts>2011-04-05 08:29:00 -0700</creation_ts>
+          <short_desc>Closing a loading image tab will cancel that image on other tabs</short_desc>
+          <delta_ts>2011-04-05 09:12:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>ImageLib</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>emmbugzilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+          <qa_contact>imagelib</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391190</commentid>
+            <who name="">emmbugzilla</who>
+            <bug_when>2011-04-05 08:29:28 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110403 Firefox/4.2a1pre
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110403 Firefox/4.2a1pre
+
+This is very easy to reproduce if the site in question is slow enough. Example:
+
+Open http://apod.nasa.gov/apod/image/1104/STS134VAB_cooper900.jpg in one tab. While that is loading, open http://apod.nasa.gov/apod/ap110402.html in another tab. The image is contained within the page, and loads in lockstep.
+
+Now close the image before it finishes loading. The load will be canceled, and with it the image will disappear from the HTML page until manual reload.
+
+Note that this doesn&apos;t happen if you open the image itself two times (instead of image+page): the second image will wait until the first one is loaded (instead of loading in lockstep) and if the first one is closed the second one will resume (however it looks like the request is re-initiated, which would be suboptimal).
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391211</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 09:12:00 -0700</bug_when>
+            <thetext>This is a consequence of imagelib coalescing loads and reusing the existing channel for full-page images, which live in a loadgroup that&apos;s not under imagelib&apos;s control.  Closing the tab correctly cancel&apos;s everything in that tab&apos;s loadgroup.
+
+I suppose we could try to not coalesce with full-page images...</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

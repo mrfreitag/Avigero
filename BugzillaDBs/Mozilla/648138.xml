@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648138</bug_id>
+          
+          <creation_ts>2011-04-06 15:21:00 -0700</creation_ts>
+          <short_desc>Preview broken on localized discussion forums</short_desc>
+          <delta_ts>2011-04-07 01:42:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>support.mozilla.com</product>
+          <component>Forum</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.8</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="James Socol [:jsocol, :james]">james</reporter>
+          <assigned_to name="James Socol [:jsocol, :james]">james</assigned_to>
+          <cc>scoobidiver</cc>
+          <qa_contact>forum</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393365</commentid>
+            <who name="James Socol [:jsocol, :james]">james</who>
+            <bug_when>2011-04-06 15:21:31 -0700</bug_when>
+            <thetext>We don&apos;t officially support the discussion forums in other languages, the UI isn&apos;t localized[1], for example. Though at this point I think there&apos;s very little burden left to localizers (most, if not all, of the strings are already localized from other apps). We could revisit that and stop ignoring the forums app.
+
+Before or when we do that we should fix the way previewing posts/replies is broken in non-English.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394137</commentid>
+            <who name="Scoobidiver">scoobidiver</who>
+            <bug_when>2011-04-07 01:42:49 -0700</bug_when>
+            <thetext>I tested it for several locales and the previewing is only broken for fr and pt-BR.
+I have used the French contributor forum for several months and it happened for the first time on April, 1st, may be after the fixing of bug 647240.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

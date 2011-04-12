@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648505</bug_id>
+          
+          <creation_ts>2011-04-08 02:50:00 -0700</creation_ts>
+          <short_desc>prozess resumes after exit  manual kill ...(pid) required</short_desc>
+          <delta_ts>2011-04-10 06:57:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Anton Steiner">anton.steiner</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396220</commentid>
+            <who name="Anton Steiner">anton.steiner</who>
+            <bug_when>2011-04-08 02:50:44 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20110327 Firefox/4.0 Iceweasel/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20110327 Firefox/4.0 Iceweasel/4.0
+
+After exiting firefox resumes the pid im the prozess list und can be exit with a manual kill ...(firefox-pid, before you can do an new start of firefox
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. exit firefox
+2. ps ax | firefox
+3. kill (pid)
+Actual Results:  
+see above
+
+Expected Results:  
+you can start firefox normally
+
+exit normally</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396222</commentid>
+            <who name="Anton Steiner">anton.steiner</who>
+            <bug_when>2011-04-08 02:56:46 -0700</bug_when>
+            <thetext>I have the same behavior on windows 7 on the same machine (acer asus aspire)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397208</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-08 12:32:36 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile
+
+See http://support.mozilla.com/en-US/kb/Firefox%20is%20already%20running%20but%20is%20not%20responding</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399190</commentid>
+            <who name="Anton Steiner">anton.steiner</who>
+            <bug_when>2011-04-10 06:31:31 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Does the issue still occur if you start Firefox in Safe Mode?
+&gt; http://support.mozilla.com/en-US/kb/Safe+Mode
+&gt; 
+&gt; How about with a new, empty profile?
+&gt; http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile
+&gt; 
+&gt; See
+&gt; http://support.mozilla.com/en-US/kb/Firefox%20is%20already%20running%20but%20is%20not%20responding
+
+It occurs with an empty profile, but not in Safe Mode</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399203</commentid>
+            <who name="Anton Steiner">anton.steiner</who>
+            <bug_when>2011-04-10 06:57:01 -0700</bug_when>
+            <thetext>After exitig a ps ax shows:
+3706 ?        Rl     2:34 /usr/lib/iceweasel/firefox-bin
+but no lock file in /var/run, /var/lock and the lock in 
+.mozilla/firefox/xxxxxxx.default/lock -&gt; 127.0.1.1:+3706 disappears</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

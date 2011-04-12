@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647801</bug_id>
+          
+          <creation_ts>2011-04-05 04:17:00 -0700</creation_ts>
+          <short_desc>Home page for English should be /en/, not /en-US/</short_desc>
+          <delta_ts>2011-04-06 11:22:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Mozilla Developer Network</product>
+          <component>Website</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          <bug_file_loc>https://developer.mozilla.org/en-US/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Florent Verschelde">florent</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>lcrouch</cc>
+    
+    <cc>mozbugs.retornam</cc>
+          <qa_contact>website</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390991</commentid>
+            <who name="Florent Verschelde">florent</who>
+            <bug_when>2011-04-05 04:17:02 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+I must say I am utterly puzzled by the way https://developer.mozilla.org/en-US/ and https://developer.mozilla.org/en coexist right now, with newer top-level pages using /en-US/ prefixes and most of the reference docs using /en/ prefixes.
+
+Anyway, I&apos;m arguing the language prefix for the English documentation should be /en/ rather than /en-US/. I don&apos;t think there is any intent to offer a /en-GB/ or some other English localization, or to strictly enforce American English spelling and choice of words.
+
+Furthermore, this change from &quot;en&quot; to &quot;en-US&quot; is inconsistent with what is done for other languages. For instance, there is no https://developer.mozilla.org/fr-FR/, only https://developer.mozilla.org/fr/. This might puzzle tech-savvy users (which abound on developer.mozilla.org).
+
+Finally, this change partly breaks the Accept-Language detection, as described in Bug 647796.
+
+I suspect this might get wontfixed. But still, this &quot;en-US&quot; is the wrong way to go. ;)
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391143</commentid>
+            <who name="Luke Crouch [:groovecoder]">lcrouch</who>
+            <bug_when>2011-04-05 07:47:03 -0700</bug_when>
+            <thetext>&quot;en&quot; is DekiWiki&apos;s English locale namespace, while &quot;en-US&quot; is django&apos;s English locale namespace. Yeah, it&apos;s complicated; we&apos;re moving away from DekiWiki and towards django. It&apos;ll be confusing until we&apos;re done. :(
+
+I can see how &quot;en&quot; might be preferred, but &quot;en-US&quot; is becoming the standard across Mozilla WebDev sites (support.mozilla.com, addons.mozilla.org, drumbeat.org, etc.) We&apos;ll keep bug 647796 for fixing &apos;en&apos; language detection but wontfix this one. Sorry. :(</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

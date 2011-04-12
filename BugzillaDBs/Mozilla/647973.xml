@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647973</bug_id>
+          
+          <creation_ts>2011-04-06 04:41:00 -0700</creation_ts>
+          <short_desc>TI+JM: crash or error &quot;d.getTime is not a function&quot;</short_desc>
+          <delta_ts>2011-04-06 12:58:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>619415</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>gary</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392135</commentid>
+              <attachid>524165</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-06 04:41:02 -0700</bug_when>
+            <thetext>Created attachment 524165
+Testcase
+
+--
+$ ./js -a -n -m test.js
+test.js:6: TypeError: d.getTime is not a function
+--
+If I change Date to Array and getTime to toString, it crashes in mjit generated code.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392137</commentid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-06 04:43:35 -0700</bug_when>
+            <thetext>Both release and debug builds, revision 7928f2dc3d4d.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393000</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 12:58:22 -0700</bug_when>
+            <thetext>When inlining a call, we keep track of the unsynced entries in parent frames in order to remat them on expanding the frame, not on every stub/inline call the inlined frame makes.  The problem is we weren&apos;t filtering which entries to remat based on the parent&apos;s stack pointer, so that some of the entries were pushed for previous calls and overlapped the (already intact) slots of the inlined frames.  &apos;d&apos; here was overwritten with 12, as pushed by the &apos;12 == 12&apos; test in the global&apos;s call to f.
+
+http://hg.mozilla.org/projects/jaegermonkey/rev/b8b674ac06e7</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524165</attachid>
+            <date>2011-04-06 04:41:00 -0700</date>
+            <delta_ts>2011-04-06 04:41:02 -0700</delta_ts>
+            <desc>Testcase</desc>
+            <filename>test.js</filename>
+            <type>application/x-javascript</type>
+            <size>169</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">ZnVuY3Rpb24gZihhMSwgYTIsIGEzLCBhNCkgewp9CmZ1bmN0aW9uIGcoYTEsIGEyKSB7CiAgICB2
+YXIgZCA9IG5ldyBEYXRlKDApOwogICAgZigpOwogICAgZC5nZXRUaW1lKCk7Cn0KZygpOwpnYygp
+OwpmKDIsIDIsIDIsIGYoMiwgMiwgMiwgMTIgPT09IDEyKSk7CmcoZmFsc2UsIGZhbHNlKTsKCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

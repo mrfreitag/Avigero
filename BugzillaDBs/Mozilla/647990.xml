@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647990</bug_id>
+          
+          <creation_ts>2011-04-06 07:17:00 -0700</creation_ts>
+          <short_desc>Several crashtests are still (incorrectly?) marked as skip-if(Android)</short_desc>
+          <delta_ts>2011-04-08 15:35:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Reftest</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>637660</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jesse Ruderman">jruderman</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bhearsum</cc>
+    
+    <cc>blassey.bugs</cc>
+    
+    <cc>ctalbert</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>jmaher</cc>
+    
+    <cc>Ms2ger</cc>
+          <qa_contact>reftest</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392240</commentid>
+            <who name="Jesse Ruderman">jruderman</who>
+            <bug_when>2011-04-06 07:17:40 -0700</bug_when>
+            <thetext>According to bug 637660 comment 12, the crashtests disabled in that bug should have been re-enabled when bug 638844 (dup of bug 638846) was fixed.  But that was mentioned in neither the manifest nor the followup bug, so of course it didn&apos;t happen.
+
+PLEASE annotate manifests with bug numbers whenever you disable tests!  (Reviewers: please enforce this!)  Otherwise, it&apos;s nearly impossible for my automated tools to detect when you forget to re-enable them when the bug is fixed.  I only happened to notice this mistake because I was behind in reading the changelog, and came across both bugs at the same time.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392263</commentid>
+            <who name="Joel Maher (:jmaher)">jmaher</who>
+            <bug_when>2011-04-06 07:40:58 -0700</bug_when>
+            <thetext>these tests were disabled without any bug indicating why they failed.  The Mobile team was busy releasing instead of debugging and they are now working on fixing failed crash/reftests and/or documenting why they are not running.
+
+bug 638844 had nothing to do with fixing the bug, rather turning the tests on.  Probably a mixed up bug or message somewhere.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397720</commentid>
+            <who name="Jesse Ruderman">jruderman</who>
+            <bug_when>2011-04-08 15:35:48 -0700</bug_when>
+            <thetext>Explained to me at the all-hands:
+
+The mobile automated testing team wanted to get the suites green quickly so they could be shown on TBPL and prevent ongoing regressions. They decided to mark tests as skip-if(Android) etc for now and file bugs later.
+
+I hope that happens relatively soon :)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

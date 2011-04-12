@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647721</bug_id>
+          
+          <creation_ts>2011-04-04 11:31:00 -0700</creation_ts>
+          <short_desc>After save commd is the user does not save script times out there seems to be no way other than Force Quit</short_desc>
+          <delta_ts>2011-04-04 13:22:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>476541</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>devsaroops</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390354</commentid>
+            <who name="">devsaroops</who>
+            <bug_when>2011-04-04 11:31:39 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+During a browsing session if I decide to save a page (command-s) and before the Save as dialog comes up if I switch to another app or another page. The script times out. There is no way to get out of the modal dialog box other than Force Quit Mozilla. It is very easy to reproduce.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Open any web page. 
+2.press command-s to bring up sava as modal dialog box
+3.Switch to another app. Stay on that app for a while until script times out.\
+4.Come back to mozilla there should be another dialog box complaining about non-responsive script.
+5.You can neither click OK on the timeout dialog box nor cancel or save the save dialog box.
+6. The only option at this time seems to Force Quit Mozilla and loose all the data on all other open windows.
+
+
+
+Expected Results:  
+Be able to cancel one of the dialog boxes to move on.
+
+Thank you for taking care of this. And all the work you do.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390404</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 13:22:36 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 476541 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

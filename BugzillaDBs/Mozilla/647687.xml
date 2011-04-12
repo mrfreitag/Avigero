@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647687</bug_id>
+          
+          <creation_ts>2011-04-04 08:41:00 -0700</creation_ts>
+          <short_desc>wrong filter area / clipping for stroke, with SVG feOffset</short_desc>
+          <delta_ts>2011-04-09 10:41:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>SVG</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://hoffmann.bplaced.net/svgtest/feoffset01.svg</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>619992</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dr. Olaf Hoffmann">dr.o.hoffmann</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>dholbert</cc>
+    
+    <cc>longsonr</cc>
+          <qa_contact name="General SVG Bugs">general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390193</commentid>
+            <who name="Dr. Olaf Hoffmann">dr.o.hoffmann</who>
+            <bug_when>2011-04-04 08:41:58 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+A wrong filter area is used for the offset, respectively the filtered circle is
+clipped for the blue stroked circle. The red stroked circle behind shows a
+red circle simulating the correct appearence. The blue circle should always cover
+the red one completely.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Use sample given at the URI above
+2. Compare with description within the file, specification, behaviour of the adobe
+plugin or Opera (any version 9 to 11).
+Actual Results:  
+Parts of the red stroked circle become visible, indicating the wrong clipping respectively the wrong filter area for the blue stroked circle.
+
+Expected Results:  
+Blue stroked circle has to cover always completely the red stroked circle.
+
+Similar problems appear quite often with or without animation for many SVG filters. If required, I can provide more samples.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390557</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 15:23:59 -0700</bug_when>
+            <thetext>Daniel, Robert, could you take a look?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397431</commentid>
+              <attachid>524728</attachid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-08 14:00:32 -0700</bug_when>
+            <thetext>Created attachment 524728
+testcase 1 (no red should be visible)
+
+Here&apos;s a reduced testcase.  For correct rendering, no red should be visible.
+
+This testcase contains two circles, one red and one blue, with the exact same filter &amp; position.
+
+The red circle is just painted using &apos;fill&apos;.
+
+The blue circle is a little smaller, but it has a stroke that stretches it out to the same &apos;effective size&apos; as the red circle.  (However, it looks like we&apos;re clipping its stroked region a bit overzealously.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398476</commentid>
+            <who name="Robert Longson">longsonr</who>
+            <bug_when>2011-04-09 10:41:48 -0700</bug_when>
+            <thetext>This is fixed by the patches in bug 619992.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524728</attachid>
+            <date>2011-04-08 14:00:00 -0700</date>
+            <delta_ts>2011-04-08 14:00:32 -0700</delta_ts>
+            <desc>testcase 1 (no red should be visible)</desc>
+            <filename>test.svg</filename>
+            <type>image/svg+xml</type>
+            <size>858</size>
+            <attacher>dholbert</attacher>
+            
+              <data encoding="base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSIgPz4gCjxzdmcgeG1sbnM9
+Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiCiAgICAgeG1sbnM6eGxp
+bms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogIDxkZWZzPgogICAgPGZpbHRlciBp
+ZD0iZjEiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIKICAgICAgICAgICAgeD0iMCIgeT0i
+MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiPgogICAgICA8ZmVPZmZzZXQgaW49IlNvdXJjZUdy
+YXBoaWMiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8IS0tIFRoaXMgbGlnaHRncmF5IHJl
+Y3QgaXMgdGhlIGZpbHRlcidzIGNsaXBwaW5nIHJlY3QsCiAgICAgICBiYXNlZCBvbiBpdHMgd2lk
+dGgvaGVpZ2h0LiAtLT4KICA8cmVjdCBoZWlnaHQ9IjEwMCIgd2lkdGg9IjEwMCIgZmlsbD0ibGln
+aHRncmF5Ii8+CgogIDwhLS0gUkVEIENJUkNMRSBTSE9VTEQgQkUgT0JTQ1VSRUQgQlkgQkxVRSBD
+SVJDTEUuIC0tPgoKICA8IS0tIFJlZCBjaXJjbGU6IDUwcHggcmFkaXVzIG9mIGZpbGwgLS0+CiAg
+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNTAiIHN0cm9rZS13aWR0aD0iMCIKICAgICAgICAg
+IGZpbGw9InJlZCIgc3Ryb2tlPSJyZWQiIGZpbHRlcj0idXJsKCNmMSkiLz4KCiAgPCEtLSBCbHVl
+IGNpcmNsZTogNDBweCByYWRpdXMgb2YgZmlsbCArIGFub3RoZXIgMTBweCBvZiBzdHJva2UgLS0+
+CiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNDAiIHN0cm9rZS13aWR0aD0iMjAiCiAgICAg
+ICAgICAgIGZpbGw9ImJsdWUiIHN0cm9rZT0iYmx1ZSIgZmlsdGVyPSJ1cmwoI2YxKSIvPgo8L3N2
+Zz4K
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

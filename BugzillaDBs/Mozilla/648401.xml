@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648401</bug_id>
+          
+          <creation_ts>2011-04-07 16:06:00 -0700</creation_ts>
+          <short_desc>Collect feedback from all Firefox versions &gt;= 4.0</short_desc>
+          <delta_ts>2011-04-11 14:55:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Input</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          <status_whiteboard>[fx.next]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>3.4</target_milestone>
+          <dependson>648559</dependson>
+          <blocked>647627</blocked>
+    
+    <blocked>648426</blocked>
+    
+    <blocked>648778</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Fred Wenzel [:wenzel]">fwenzel</reporter>
+          <assigned_to name="Dave Dash [:davedash]">dd</assigned_to>
+          <cc>dd</cc>
+    
+    <cc>m8ttyb</cc>
+    
+    <cc>mozaakash</cc>
+          <qa_contact>input</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395352</commentid>
+            <who name="Fred Wenzel [:wenzel]">fwenzel</who>
+            <bug_when>2011-04-07 16:06:50 -0700</bug_when>
+            <thetext>In order to support Firefox&apos;s new release schedule as soon as possible, let&apos;s open up the happy/sad/idea feedback methods for all Firefox users &gt;= 4.0.
+
+Dashboard etc. to follow.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395509</commentid>
+            <who name="Dave Dash [:davedash]">dd</who>
+            <bug_when>2011-04-07 17:05:44 -0700</bug_when>
+            <thetext>master:
+http://github.com/fwenzel/reporter/commit/7abdbcb
+
+prod:
+http://github.com/fwenzel/reporter/commit/87fcb43</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395781</commentid>
+            <who name="Fred Wenzel [:wenzel]">fwenzel</who>
+            <bug_when>2011-04-07 20:03:42 -0700</bug_when>
+            <thetext>Matt: To test this, fake different version numbers of Firefox in your UA and go to input.stage.../feedback. You should be able to leave happy and sad feedback there successfully. We can check the admin pages once you&apos;re done to make sure it made it into the database, but if it gives you the &quot;thank you&quot; page you can assume that worked.
+
+I let aakash/davedash chime in on what actual version numbers to use, but I am thinking 4.0, 5.0a1, 5.0a2 and 5.0 should suffice.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396638</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-08 09:47:37 -0700</bug_when>
+            <thetext>Hmm ... this is what I&apos;m seeing.
+
+4.0
+Visiting /sad/, /happy/, and /idea/ redirects to /feedback/
+
+4.0b12
+/feedback/ doesn&apos;t display - error message &quot;The page isn&apos;t redirecting properly&quot;
+
+5.0a1
+Visiting /sad/, /happy/, and /idea/ redirects to /feedback/
+
+5.0a2
+Visiting /sad/, /happy/, and /idea/ redirects to /feedback/
+5.0
+Visiting /sad/, /happy/, and /idea/ forces a redirect to /feedback/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398493</commentid>
+            <who name="Aakash Desai [:aakashd]">mozaakash</who>
+            <bug_when>2011-04-09 11:21:37 -0700</bug_when>
+            <thetext>I&apos;m seeing the same thing on the mobile submission pages as well.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401444</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-11 13:45:47 -0700</bug_when>
+            <thetext>Desktop Firefox 4.0, 5.0a1, 5.0a2 and 5.0 works fine.
+
+Aakashd - For retesting purposes, what UA strings for fennec were you testing with?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401471</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-11 13:51:36 -0700</bug_when>
+            <thetext>Per a conversation (comment 5).
+
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:2.1) Gecko/20110318 Firefox/4.0b13pre Fennec/4.0 ID:20110318131506</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401783</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-11 14:55:28 -0700</bug_when>
+            <thetext>QA verified fixed.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

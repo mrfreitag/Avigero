@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647704</bug_id>
+          
+          <creation_ts>2011-04-04 10:11:00 -0700</creation_ts>
+          <short_desc>There should be a way to get horizontally-scrollable trees using only XUL</short_desc>
+          <delta_ts>2011-04-08 09:50:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>XP Toolkit/Widgets: XUL</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://tinyvid.tv/show/3h9c0b50vbi1h</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>112832</blocked>
+    
+    <blocked>371592</blocked>
+    
+    <blocked>629327</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Colby Russell :crussell">Sevenspade</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>enndeakin</cc>
+    
+    <cc>faaborg</cc>
+    
+    <cc>neil</cc>
+    
+    <cc>toddw</cc>
+          <qa_contact name="XPToolKit XUL">xptoolkit.xul</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390270</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-04 10:11:53 -0700</bug_when>
+            <thetext>(It occurred to me yesterday that there&apos;s no bug against Gecko for this, only stuff like bug 112832.)
+
+The gist is that it&apos;s not possible to resize tree columns to achieve a horizontally scrollable tree unless the tree consumer writes some JS to handle it; there&apos;s no way to use XUL to specify a tree whose columns behave, e.g., like the GNOME file manager (other system file managers work similarly).
+
+I&apos;m attaching a video to demonstrate how resizing the columns can cause the tree &quot;canvas&quot; to grow outside the contents of the viewport and allow horizontal scrolling.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390278</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-04 10:18:47 -0700</bug_when>
+            <thetext>No attachment, due to file size.  You&apos;ll have to deal with video from a third-party host.
+
+Demonstration of a tree with proper basic support for horizontal scrolling (GNOME file manager)
+http://tinyvid.tv/show/2y2ao3r5hoknv</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390289</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-04 10:30:08 -0700</bug_when>
+            <thetext>Tree with conditional horizontal growth based on a preferred width threshold (GNOME file manager)
+http://tinyvid.tv/show/jlj0plk3owj6
+
+Note how in this demonstration, I am able to resize the Date Modified column to a preferred width smaller than its current effective width.  Even though I&apos;ve resized it (to a point somewhere near the minutes–seconds separator of the timestamp in the first row&apos;s cell), it still has an effective width such that it fills the whole tree viewport.  When I resize the first column to a larger width, it subtracts from the padding provided by the difference between the last column&apos;s preferred width and the effective width, until it reaches the threshold of the preferred width, at which point, it causes the tree to expand outside its viewport and a horizontal scrollbar appears.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390293</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-04 10:33:27 -0700</bug_when>
+            <thetext>The tree frame code can be fixed to handle this, but it&apos;s also doable in XBL by fixing the tree binding.  For the past year, I&apos;ve been sitting on a working prototype that takes the latter approach.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390306</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-04 10:47:22 -0700</bug_when>
+            <thetext>Oh, and to preempt any mentions of bug 112832, that looks like it dealt with adding horizontal scrolling to the tree frame, but it doesn&apos;t deal with stuff like what&apos;s mentioned in comment 2, i.e., expanding the last column to fill the tree viewport.
+
+In fact, when I last looked at it, the current implementation doesn&apos;t have something like what I&apos;ve described as preferred width and effective width.  It&apos;s all the same, and if the computed sum of all treecol widths is less than the tree viewport width, you get a bunch of dead space filling a gap between the last column and the colpicker/vertical scrollbar.
+
+That&apos;s all assuming you&apos;re actually specifying widths on columns.  sdwilsh mentions in bug 348764, comment 5 that even the above completely falls apart when you start considering flex columns (which is just about the only way things are ever specified—nobody hardcodes widths onto their columns, for good reason).
+
+It seems to me that what we need here is a way for XUL authors to
+  a) specify their columns just as they do now using flex, i.e., that achieves
+     widths relative to each other  and columns that flex when the container
+     is resized, and
+  b) add an attribute (hgrow=&quot;true&quot;?) that means, &quot;Hey, allow the tree to
+     behave like this&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390455</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-04 14:08:10 -0700</bug_when>
+            <thetext>That&apos;s not what I see. What I see is a tree with four statically sized columns. You resize the first column and then you resize the third column.
+
+You can do this already without any extra script, however it&apos;s probably under or undocumented. You&apos;ll need to remove all the flex from all of your columns. You may want to set an initial width on your columns (they will default to their label&apos;s width). And you&apos;ll need to set resizeafter=&quot;grow&quot; on all the splitters. And you&apos;ll want to add an extra splitter to the end of the tree columns, so that you&apos;ll always be able to resize the last column.
+
+And I need to fix the Modern theme so that this all displays correctly...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390686</commentid>
+              <attachid>524026</attachid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-04 17:48:54 -0700</bug_when>
+            <thetext>Created attachment 524026
+dead space after the last column
+
+(In reply to comment #5)
+&gt; That&apos;s not what I see. What I see is a tree with four statically sized columns.
+&gt; You resize the first column and then you resize the third column.
+
+In contrast to what?
+
+&gt; You can do this already without any extra script
+
+&gt; And I need to fix the Modern theme so that this all displays correctly...
+
+Classic on GTK2 then, too, because the attachment shows what happens.  Notice that it&apos;s the full column that&apos;s cut; the cell contents get elided, too.  It&apos;s not just a case of the treecol header not extending over all the way.  The prototype I mention in comment 3 messes with column minwidths to achieve the same effect as what can be seen in the two videos.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390944</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-05 02:39:31 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; (In reply to comment #5)
+&gt; &gt; That&apos;s not what I see. What I see is a tree with four statically sized columns.
+&gt; &gt; You resize the first column and then you resize the third column.
+&gt; In contrast to what?
+Well, your comment suggested that you&apos;d resized the fourth column.
+
+&gt; &gt; You can do this already without any extra script
+&gt; &gt; And I need to fix the Modern theme so that this all displays correctly...
+&gt; Classic on GTK2 then, too, because the attachment shows what happens.
+And on Windows too. Probably nobody ever tried the feature out :-(
+
+&gt; Notice that it&apos;s the full column that&apos;s cut; the cell contents get elided, too.
+The ellipsing is expected, at least by comparison with Windows list views, which always ellipse the last column even though &quot;there is space&quot;.
+
+&gt; It&apos;s not just a case of the treecol header not extending over all the way.
+Interesting... I compared with Windows listviews, and they have a &quot;fake&quot; infinitely wide treecol header that takes up any space. This would be almost straightforward to implement in XBL, but a little tweaking is necessary to prevent the fake header from being clickable or draggable, and I can&apos;t see a way to automatically hide the fake header if the existing columns flex.
+
+&gt; The prototype I mention in comment 3 messes with column minwidths to achieve
+&gt; the same effect as what can be seen in the two videos.
+Not sure what minwidths have to do with anything.
+
+(In reply to comment #4)
+&gt; It seems to me that what we need here is a way for XUL authors to
+&gt;   a) specify their columns just as they do now using flex, i.e., that achieves
+&gt;      widths relative to each other and columns that flex when the container
+&gt;      is resized, and
+&gt;   b) add an attribute (hgrow=&quot;true&quot;?) that means, &quot;Hey, allow the tree to
+&gt;      behave like this&quot;.
+Well, the box model can&apos;t really cope with this, since the unbounded resizability conflicts with flexibility.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390963</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-05 03:15:34 -0700</bug_when>
+            <thetext>(In reply to comment #7)
+&gt; (In reply to comment #6)
+&gt; &gt; (In reply to comment #5)
+&gt; &gt; &gt; That&apos;s not what I see. What I see is a tree with four statically sized columns.
+&gt; &gt; &gt; You resize the first column and then you resize the third column.
+&gt; &gt; In contrast to what?
+&gt; Well, your comment suggested that you&apos;d resized the fourth column.
+
+In which video?  In the first one (http://tinyvid.tv/show/2y2ao3r5hoknv), I do resize the first and third.  The fourth one is the Date Modified column, which I mentioned in comment 2, but that was referring the second video I linked (http://tinyvid.tv/show/jlj0plk3owj6), where I demonstrate setting on the fourth column a preferred width smaller than its effective width, and how elastic the layout is when resizing other columns until it reaches that threshold.
+
+&gt; Interesting... I compared with Windows listviews, and they have a &quot;fake&quot;
+&gt; infinitely wide treecol header that takes up any space.
+
+Bug 307062 mentions this, too.  In another related tree bug that I can&apos;t think of at the moment, a comment makes note that we deliberately deviate from some system conventions.  Following the approach taken by the Windows listview seems to me to be one of these cases.  It appears to me to be obviously suboptimal to how the GNOME file manager is shown to behave in this area.
+
+&gt; This would be almost
+&gt; straightforward to implement in XBL, but a little tweaking is necessary to
+&gt; prevent the fake header from being clickable or draggable, and I can&apos;t see a
+&gt; way to automatically hide the fake header if the existing columns flex.
+&gt; 
+&gt; &gt; The prototype I mention in comment 3 messes with column minwidths to achieve
+&gt; &gt; the same effect as what can be seen in the two videos.
+&gt; Not sure what minwidths have to do with anything.
+
+Implementation detail.  It&apos;s just how things work in the prototype I worked up, so that it could cope with things like flex...
+
+&gt; (In reply to comment #4)
+&gt; &gt; It seems to me that what we need here is a way for XUL authors to
+&gt; &gt;   a) specify their columns just as they do now using flex, i.e., that achieves
+&gt; &gt;      widths relative to each other and columns that flex when the container
+&gt; &gt;      is resized, and
+&gt; &gt;   b) add an attribute (hgrow=&quot;true&quot;?) that means, &quot;Hey, allow the tree to
+&gt; &gt;      behave like this&quot;.
+&gt; Well, the box model can&apos;t really cope with this, since the unbounded
+&gt; resizability conflicts with flexibility.
+
+That&apos;s what I mean to say the JS is for.  If you *do* want to achieve these things, it&apos;s certainly possible for tree consumers to get that behavior, but consumers have to do it themselves, rather than it being a feature of vanilla trees.
+
+(hgrowable trees prototyped in an extended tree binding)
+http://tinyvid.tv/show/3h9c0b50vbi1h</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390964</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-05 03:17:12 -0700</bug_when>
+            <thetext>Ah, sorry, I hadn&apos;t noticed that the random URL suffixes were different.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390998</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-05 04:24:39 -0700</bug_when>
+            <thetext>(In reply to comment #8)
+&gt; (http://tinyvid.tv/show/jlj0plk3owj6), where I demonstrate setting on the
+&gt; fourth column a preferred width smaller than its effective width, and how
+&gt; elastic the layout is when resizing other columns until it reaches that
+&gt; threshold.
+...
+&gt; &gt; Not sure what minwidths have to do with anything.
+&gt; Implementation detail.  It&apos;s just how things work in the prototype I worked up,
+&gt; so that it could cope with things like flex...
+Right, so if you only flexed the last visible column, and you set a minimum width, then you could get an effect similar to the above video. But the splitter code wouldn&apos;t understand that and the column wouldn&apos;t be resizable.
+
+&gt; (hgrowable trees prototyped in an extended tree binding)
+&gt; http://tinyvid.tv/show/3h9c0b50vbi1h
+So what happens to the columns if you resize the pane/window? (Or did you size the columns to fit before starting the video?)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391009</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-05 04:48:14 -0700</bug_when>
+            <thetext>(In reply to comment #10)
+&gt; (In reply to comment #8)
+&gt; &gt; (http://tinyvid.tv/show/jlj0plk3owj6), where I demonstrate setting on the
+&gt; &gt; fourth column a preferred width smaller than its effective width, and how
+&gt; &gt; elastic the layout is when resizing other columns until it reaches that
+&gt; &gt; threshold.
+&gt; ...
+&gt; &gt; &gt; Not sure what minwidths have to do with anything.
+&gt; &gt; Implementation detail.  It&apos;s just how things work in the prototype I worked up,
+&gt; &gt; so that it could cope with things like flex...
+&gt; Right, so if you only flexed the last visible column, and you set a minimum
+&gt; width, then you could get an effect similar to the above video.
+
+Yeah.
+
+&gt; But the
+&gt; splitter code wouldn&apos;t understand that and the column wouldn&apos;t be resizable.
+
+Mmm... it does, though.  It&apos;s not shown in the prototype video, but the two aspects demonstrated in the two videos of the GNOME file manager are things that I have working.  There&apos;re a few places where last col stuff needs to be special-cased.
+
+&gt; &gt; (hgrowable trees prototyped in an extended tree binding)
+&gt; &gt; http://tinyvid.tv/show/3h9c0b50vbi1h
+&gt; So what happens to the columns if you resize the pane/window? (Or did you size
+&gt; the columns to fit before starting the video?)
+
+Same thing that happens with a vanilla tree with flex columns.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391022</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-05 05:14:13 -0700</bug_when>
+            <thetext>(In reply to comment #11)
+&gt; &gt; But the
+&gt; &gt; splitter code wouldn&apos;t understand that and the column wouldn&apos;t be resizable.
+&gt; Mmm... it does, though.
+Well, not with the current setup, which is what I was trying it on, and I don&apos;t see offhand how you could change it and still have the last column flexible.
+
+&gt; &gt; &gt; (hgrowable trees prototyped in an extended tree binding)
+&gt; &gt; &gt; http://tinyvid.tv/show/3h9c0b50vbi1h
+&gt; &gt; So what happens to the columns if you resize the pane/window? (Or did you size
+&gt; &gt; the columns to fit before starting the video?)
+&gt; Same thing that happens with a vanilla tree with flex columns.
+Sorry, I don&apos;t understand... a vanilla tree with flex columns won&apos;t scroll, so when you resize the pane all the columns flex to fit.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391042</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-05 05:33:59 -0700</bug_when>
+            <thetext>(In reply to comment #12)
+&gt; (In reply to comment #11)
+&gt; &gt; &gt; But the
+&gt; &gt; &gt; splitter code wouldn&apos;t understand that and the column wouldn&apos;t be resizable.
+&gt; &gt; Mmm... it does, though.
+&gt; Well, not with the current setup, which is what I was trying it on, and I don&apos;t
+&gt; see offhand how you could change it and still have the last column flexible.
+&gt; 
+&gt; &gt; &gt; &gt; (hgrowable trees prototyped in an extended tree binding)
+&gt; &gt; &gt; &gt; http://tinyvid.tv/show/3h9c0b50vbi1h
+&gt; &gt; &gt; So what happens to the columns if you resize the pane/window? (Or did you size
+&gt; &gt; &gt; the columns to fit before starting the video?)
+&gt; &gt; Same thing that happens with a vanilla tree with flex columns.
+&gt; Sorry, I don&apos;t understand... a vanilla tree with flex columns won&apos;t scroll
+
+It will if all the cols have a minwidth set where their sum is greater than the space afforded by the tree.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391051</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-05 05:44:01 -0700</bug_when>
+            <thetext>(In reply to comment #12)
+&gt; (In reply to comment #11)
+&gt; &gt; &gt; But the
+&gt; &gt; &gt; splitter code wouldn&apos;t understand that and the column wouldn&apos;t be resizable.
+&gt; &gt; Mmm... it does, though.
+&gt; Well, not with the current setup, which is what I was trying it on, and I don&apos;t
+&gt; see offhand how you could change it and still have the last column flexible.
+
+When the splitter enters the drag state, the resizing col&apos;s flex is temporarily removed until the drag state ends, then it&apos;s reinstated.  The minwidth is also removed, then readded to be the same as width at the end of the drag.
+
+If the resizing col is the last one, flex gets removed as it does with the other columns, but if during the drag, the width drops below the width required to give the appearance of a completely filled treecols element (i.e., it would leave a gap as in attachment 524026), the flex is readded.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391065</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-05 06:04:18 -0700</bug_when>
+            <thetext>I see how that would work, although it does feel a little hackish to me.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391069</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-05 06:10:43 -0700</bug_when>
+            <thetext>(In reply to comment #11)
+&gt; &gt; &gt; (hgrowable trees prototyped in an extended tree binding)
+&gt; &gt; &gt; http://tinyvid.tv/show/3h9c0b50vbi1h
+&gt; &gt; So what happens to the columns if you resize the pane/window? (Or did you size
+&gt; &gt; the columns to fit before starting the video?)
+&gt; 
+&gt; Same thing that happens with a vanilla tree with flex columns.
+
+Also, I should point out here that this actually *isn&apos;t* the way the GNOME file manager does things.  When you resize the window, the extra space gets added to the first column, and you can&apos;t do anything about it—not even drag its splitter to resize it to be any smaller.
+
+(In reply to comment #15)
+&gt; I see how that would work, although it does feel a little hackish to me.
+
+Agreed, but then lots of other XUL stuff does stuff in ways that add, remove, and alter attributes.  Does it feel that way just because it&apos;s done in XBL which necessitates doing it through adding and removing attributes?  If it were done in the splitter/tree frame code using the same principles, would it be kosher?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391075</commentid>
+            <who name="neil@parkwaycc.co.uk">neil</who>
+            <bug_when>2011-04-05 06:18:56 -0700</bug_when>
+            <thetext>(In reply to comment #16)
+&gt; (In reply to comment #15)
+&gt; &gt; I see how that would work, although it does feel a little hackish to me.
+&gt; Agreed, but then lots of other XUL stuff does stuff in ways that add, remove,
+&gt; and alter attributes.  Does it feel that way just because it&apos;s done in XBL
+&gt; which necessitates doing it through adding and removing attributes?  If it were
+&gt; done in the splitter/tree frame code using the same principles, would it be
+&gt; kosher?
+Well, for instance, you want to be able to say &quot;I want this to be able to flex bigger but not smaller, but I want splitters to be able to shrink it&quot;, which isn&apos;t supported in the current box model.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395967</commentid>
+            <who name="Colby Russell :crussell">Sevenspade</who>
+            <bug_when>2011-04-07 22:11:05 -0700</bug_when>
+            <thetext>Over in bug 197123, comment 8 and bug 197123, comment 14, Enn and faaborg note about trying to get this working.
+
+(In a few hours, I&apos;m submitting this as part of my proposal for GSoC, by the way.)</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524026</attachid>
+            <date>2011-04-04 17:48:00 -0700</date>
+            <delta_ts>2011-04-04 17:48:54 -0700</delta_ts>
+            <desc>dead space after the last column</desc>
+            <filename>badcols.png</filename>
+            <type>image/png</type>
+            <size>9273</size>
+            <attacher>Sevenspade</attacher>
+            
+              <data encoding="base64">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
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

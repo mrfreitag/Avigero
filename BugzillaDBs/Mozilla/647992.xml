@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647992</bug_id>
+          
+          <creation_ts>2011-04-06 07:35:00 -0700</creation_ts>
+          <short_desc>Ошибки с закрепленными закладками</short_desc>
+          <delta_ts>2011-04-09 17:17:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Andry">umnin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392254</commentid>
+            <who name="Andry">umnin</who>
+            <bug_when>2011-04-06 07:35:36 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Нашел небольшую багу(ну как минимум у меня так).
+Закрепляю вкладки, закрываю ФФ. Открываю первую копию ФФ, в ней закрепленные вкладки есть. Открываю вторую копию ФФ, в ней закрепленных вкладок нет. Закрываю ПЕРВУЮ копию открытого ФФ, потом вторую. Отлично. Запускаю опять ФФ и закрепленных вкладок как и не было.
+
+Проблема актуальна, тк обычно при лазанье на сайтах, открывается дополнительные окна ФФ со всякой рекламой. Ну и естественно с начало закрываешь главное окно, а потом остальные. После чего и пропадают вкладки.(
+
+Reproducible: Always
+
+Steps to Reproduce:
+Что бы в каждой копии открытия ФФ были закрепленные вкладки.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392634</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-06 11:03:36 -0700</bug_when>
+            <thetext>The text describes how you will lose your &quot;saved&quot; app tabs if you close your Firefox 4 windows in the wrong order. The window with the app tabs must be closed last. 
+
+Please correct me if my interpretation of the Russian text is wrong.
+
+This bug is probably a duplicate of the following bugs:
+Bug 587400 - Closing a app-tab less window last removes all app tabs 
+Bug 587873 - App tabs should be the same in each window</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

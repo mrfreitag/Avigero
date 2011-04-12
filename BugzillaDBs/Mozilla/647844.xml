@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647844</bug_id>
+          
+          <creation_ts>2011-04-05 10:11:00 -0700</creation_ts>
+          <short_desc>&lt;select disabled=&quot;true&quot;&gt; cannot become enabled via JavaScript</short_desc>
+          <delta_ts>2011-04-06 01:56:10 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>DOM: Core &amp; HTML</component>
+          <version>1.9.1 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Vernon Nemitz">vnemitz</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bzbarsky</cc>
+    
+    <cc>Ms2ger</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391297</commentid>
+            <who name="Vernon Nemitz">vnemitz</who>
+            <bug_when>2011-04-05 10:11:33 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Win95; en-US; rv:1.8.1.22) Gecko/20090605 SeaMonkey/1.1.17
+Build Identifier: SeaMonkey/2.0.11
+
+First, here are 3 other bugs that seem to have problems with the HTML &lt;select&gt; tag and the &quot;disabled&quot; attribute: #346043, #451200, #649779 --though these appear to be mostly about problems with individual options, and not the entire &lt;select&gt; field.
+
+The thing I encountered was pretty concisely described in the Summary.
+
+Reproducible: Always
+
+Steps to Reproduce:
+I wrote code to create a &lt;select&gt; input field in HTML, and disabled it. (&lt;select disabled=&quot;true&quot;&gt; --there was an &lt;option&gt; but I&apos;m talking about the whole control here.)  The user had a choice of input fields, and I used the onload() event handler to run some JavaScript code that would decide which type of input to enable.
+Actual Results:  
+It never worked to enable the &lt;select&gt; field!  Interestingly, if I removed the disabled=&quot;true&quot; HTML attribute, and used JavaScript to disable the input, I could also use JavaScript to re-enable it.  But that is a work-around I shouldn&apos;t have needed to discover.
+
+Expected Results:  
+JavaScript should be able to enable a &lt;select&gt; input that has been disabled via one of its HTML attributes.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391374</commentid>
+            <who name="Philip Chee">philip.chee</who>
+            <bug_when>2011-04-05 11:22:17 -0700</bug_when>
+            <thetext>Post a minimal javascript test case here. Did you use element.removeAttribute(&quot;disabled&quot;)? that should work.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391427</commentid>
+            <who name="Ms2ger">Ms2ger</who>
+            <bug_when>2011-04-05 12:16:30 -0700</bug_when>
+            <thetext>I hope you didn&apos;t use setAttribute(&quot;disabled&quot;, false) or some such, because that would be wrong. See &lt;http://www.whatwg.org/html/#boolean-attributes&gt;. Note that &lt;select disabled=true&gt; is wrong as well, see the specification. Correct ways to enable it would be
+
+select.disabled = false
+select.removeAttribute(&quot;disabled&quot;)
+
+Both wfm on Fx4.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391571</commentid>
+            <who name="Vernon Nemitz">vnemitz</who>
+            <bug_when>2011-04-05 14:54:56 -0700</bug_when>
+            <thetext>I posted two bugs today, but somehow the first one (this one) failed to properly specify that I found the problem I described in SeaMonkey, not FireFox.  Version 2.0.11, on WinXP, to be a little more precise --on a different computer than this one, where I&apos;m using 1.1.17 on Win95A.  I was doing some development work on the other machine, and the integrated debugger is handy (the somewhat recent version of FireFox I have on that machine didn&apos;t come with a debugger).
+
+Anyway, I see that the current stable version of SeaMonkey is now 2.0.13 as I write this, and perhaps this bug was fixed along the way.  But it wouldn&apos;t hurt for someone else to test SM and not FF for this bug, just to be sure.
+
+Finally, I used
+ select.disabled = false
+in my JavaScript code to try to enable the select control.  Do note that in the original post I stated I was able to both disable and enable the control using JavaScript (meaning I know the correct code to use) --PROVIDED the HTML did NOT include the &quot;disabled&quot; attribute.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391585</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 15:06:08 -0700</bug_when>
+            <thetext>&gt; Finally, I used  select.disabled = false
+
+This works fine for me.  Can you please attach your HTML showing the problem?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391638</commentid>
+            <who name="Vernon Nemitz">vnemitz</who>
+            <bug_when>2011-04-05 15:52:21 -0700</bug_when>
+            <thetext>I give up.  All I can say is that this issue (AND the issue in Bug #647855 ) bedeviled me for several hours this morning (every single page load attempt), and when I finally found a workaround for one and the bad ID for the other, I figured the logical thing to do was report them.  Now, of course, after doing several hours of other things, including coding, I can&apos;t make either one happen.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392059</commentid>
+            <who name="Ms2ger">Ms2ger</who>
+            <bug_when>2011-04-06 01:56:10 -0700</bug_when>
+            <thetext>Note that Seamonkey 2.0 uses Gecko 1.9.2, whereas Gecko 2.0 is used in Seamonkey 2.1. (Aren&apos;t version number fun?)
+
+In any case, thanks for your bug report and I&apos;m glad your problem was solved.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

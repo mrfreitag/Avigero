@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647820</bug_id>
+          
+          <creation_ts>2011-04-05 07:46:00 -0700</creation_ts>
+          <short_desc>Don&apos;t use -mno-cygwin on mingw compilation</short_desc>
+          <delta_ts>2011-04-11 05:34:11 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Build Config</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[checkin: comment 5]</status_whiteboard>
+          <keywords>checkin-needed</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jacek Caban">jacek</reporter>
+          <assigned_to name="Jacek Caban">jacek</assigned_to>
+          
+          <qa_contact>build-config</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391142</commentid>
+            <who name="Jacek Caban">jacek</who>
+            <bug_when>2011-04-05 07:46:45 -0700</bug_when>
+            <thetext>This option has been deprecated for a while and now is completely removed in GCC 4.6 (causing compilation errors on an attempt to use it). What we really want is -mwindows.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391148</commentid>
+              <attachid>524060</attachid>
+            <who name="Jacek Caban">jacek</who>
+            <bug_when>2011-04-05 07:49:25 -0700</bug_when>
+            <thetext>Created attachment 524060
+fix v1.0 (m-c part)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391151</commentid>
+              <attachid>524062</attachid>
+            <who name="Jacek Caban">jacek</who>
+            <bug_when>2011-04-05 07:50:10 -0700</bug_when>
+            <thetext>Created attachment 524062
+fix v1.0 (NSS part)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391153</commentid>
+              <attachid>524063</attachid>
+            <who name="Jacek Caban">jacek</who>
+            <bug_when>2011-04-05 07:50:54 -0700</bug_when>
+            <thetext>Created attachment 524063
+fix v1.0 (nspr part)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397013</commentid>
+              <attachid>524062</attachid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-08 11:29:28 -0700</bug_when>
+            <thetext>Comment on attachment 524062
+fix v1.0 (NSS part)
+
+I&apos;m not an NSS peer, I can&apos;t review this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400133</commentid>
+            <who name="Jacek Caban">jacek</who>
+            <bug_when>2011-04-11 05:34:11 -0700</bug_when>
+            <thetext>Thanks for reviews!
+
+I&apos;ve pushed m-c part:
+http://hg.mozilla.org/projects/build-system/rev/dd0f92e2ea92
+
+I&apos;m setting checkin-needed for nspr part, because AFAIU it requires special privileges.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524060</attachid>
+            <date>2011-04-05 07:49:00 -0700</date>
+            <delta_ts>2011-04-08 11:30:03 -0700</delta_ts>
+            <desc>fix v1.0 (m-c part)</desc>
+            <filename>patch.diff</filename>
+            <type>text/plain</type>
+            <size>4223</size>
+            <attacher>jacek</attacher>
+            
+              <data encoding="base64">RnJvbSBiZjUyZTkwZTdkNDIyOWM0MGEzZDVkNzNjM2NhZjI0ZTJmZWM1YTAyIE1vbiBTZXAgMTcg
+MDA6MDA6MDAgMjAwMQpGcm9tOiBKYWNlayBDYWJhbiA8amFjZWtAY29kZXdlYXZlcnMuY29tPgpE
+YXRlOiBUdWUsIDUgQXByIDIwMTEgMTY6MDA6MjkgKzAwMDAKU3ViamVjdDogQnVnIDY0NzgyMCAt
+IERvbid0IHVzZSAtbW5vLWN5Z3dpbiBvbiBtaW5ndyBjb21waWxhdGlvbiAobS1jIHBhcnQpCgoK
+ZGlmZiAtLWdpdCBhL2NvbmZpZ3VyZS5pbiBiL2NvbmZpZ3VyZS5pbgppbmRleCA3OTRjZTI3Li5k
+ODQ0MDc4IDEwMDY0NAotLS0gYS9jb25maWd1cmUuaW4KKysrIGIvY29uZmlndXJlLmluCkBAIC0x
+OTI3LDE3ICsxOTI3LDE3IEBAIGRubCA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PQogY2FzZSAiJGhvc3QiIGluCiAqbWluZ3cqfCp3aW5jZXwq
+d2lubW8pCiAgICAgaWYgdGVzdCAtbiAiJF9XSU4zMl9NU1ZDIjsgdGhlbgogICAgICAgICBIT1NU
+X0FSPWxpYgogICAgICAgICBIT1NUX0FSX0ZMQUdTPSctTk9MT0dPIC1PVVQ6IiRAIicKICAgICAg
+ICAgSE9TVF9DRkxBR1M9IiRIT1NUX0NGTEFHUyAtVEMgLW5vbG9nbyAtRmRcJChIT1NUX1BEQkZJ
+TEUpIgogICAgICAgICBIT1NUX1JBTkxJQj0nZWNobyByYW5saWInCiAgICAgZWxzZQotICAgICAg
+ICBIT1NUX0NGTEFHUz0iJEhPU1RfQ0ZMQUdTIC1tbm8tY3lnd2luIgorICAgICAgICBIT1NUX0NG
+TEFHUz0iJEhPU1RfQ0ZMQUdTIC1td2luZG93cyIKICAgICBmaQogICAgIEhPU1RfQ0ZMQUdTPSIk
+SE9TVF9DRkxBR1MgLURYUF9XSU4zMiAtRFhQX1dJTiAtRFdJTjMyIC1EX1dJTjMyIC1ETk9fWDEx
+IC1EX0NSVF9TRUNVUkVfTk9fV0FSTklOR1MiCiAgICAgSE9TVF9OU1BSX01EQ1BVQ0ZHPSdcIm1k
+L193aW5udC5jZmdcIicKICAgICBIT1NUX09QVElNSVpFX0ZMQUdTPSIke0hPU1RfT1BUSU1JWkVf
+RkxBR1M9LU8yfSIKICAgICBIT1NUX0JJTl9TVUZGSVg9LmV4ZQogICAgIGNhc2UgIiRob3N0IiBp
+bgogICAgICptaW5ndyopCiAgICAgICAgIFBFUkw9Ii9iaW4vc2ggJHtfdG9wc3JjZGlyfS9idWls
+ZC9tc3lzLXBlcmwtd3JhcHBlciIKQEAgLTIzODMsMTkgKzIzODMsMTkgQEAgaWE2NCotaHB1eCop
+CiAgICAgRFNPX0NGTEFHUz0KICAgICBEU09fUElDX0NGTEFHUz0KICAgICBETExfU1VGRklYPS5k
+bGwKICAgICBSQz1yYy5leGUKICAgICAjIGNlcnRhaW4gdmVyc2lvbnMgb2YgY3lnd2luJ3MgbWFr
+ZWRlcGVuZCBiYXJmIG9uIHRoZSAKICAgICAjICNpbmNsdWRlIDxzdHJpbmc+IHZzIC1JLi9kaXN0
+L2luY2x1ZGUvc3RyaW5nIGlzc3VlIHNvIGRvbid0IHVzZSBpdAogICAgIFNZU1RFTV9NQUtFREVQ
+RU5EPQogICAgIGlmIHRlc3QgLW4gIiRHTlVfQ0MiOyB0aGVuCi0gICAgICAgIENDPSIkQ0MgLW1u
+by1jeWd3aW4iCi0gICAgICAgIENYWD0iJENYWCAtbW5vLWN5Z3dpbiIKLSAgICAgICAgQ1BQPSIk
+Q1BQIC1tbm8tY3lnd2luIgorICAgICAgICBDQz0iJENDIC1td2luZG93cyIKKyAgICAgICAgQ1hY
+PSIkQ1hYIC1td2luZG93cyIKKyAgICAgICAgQ1BQPSIkQ1BQIC1td2luZG93cyIKICAgICAgICAg
+Q0ZMQUdTPSIkQ0ZMQUdTIC1tbXMtYml0ZmllbGRzIgogICAgICAgICBDWFhGTEFHUz0iJENYWEZM
+QUdTIC1tbXMtYml0ZmllbGRzIgogICAgICAgICBEU09fTERPUFRTPSctc2hhcmVkJwogICAgICAg
+ICBNS1NITElCPSckKENYWCkgJChEU09fTERPUFRTKSAtbyAkQCcKICAgICAgICAgTUtDU0hMSUI9
+JyQoQ0MpICQoRFNPX0xET1BUUykgLW8gJEAnCiAgICAgICAgIFJDPSckKFdJTkRSRVMpJwogICAg
+ICAgICAjIFVzZSB0ZW1wIGZpbGUgZm9yIHdpbmRyZXMgKGJ1ZyAyMTMyODEpCiAgICAgICAgIFJD
+RkxBR1M9Jy1PIGNvZmYgLS11c2UtdGVtcC1maWxlJwpkaWZmIC0tZ2l0IGEvanMvc3JjL2NvbmZp
+Z3VyZS5pbiBiL2pzL3NyYy9jb25maWd1cmUuaW4KaW5kZXggZDBiNzIzZC4uMTM0MmMwOCAxMDA2
+NDQKLS0tIGEvanMvc3JjL2NvbmZpZ3VyZS5pbgorKysgYi9qcy9zcmMvY29uZmlndXJlLmluCkBA
+IC0xODE4LDE3ICsxODE4LDE3IEBAIGNhc2UgIiRob3N0IiBpbgogICAgICMgd2UgbmVlZCBQeXRo
+b24gMi41IG9uIFdpbmRvd3MKICAgICBQWVRIT05fVkVSU0lPTj0yLjUKICAgICBpZiB0ZXN0IC1u
+ICIkX1dJTjMyX01TVkMiOyB0aGVuCiAgICAgICAgIEhPU1RfQVI9bGliCiAgICAgICAgIEhPU1Rf
+QVJfRkxBR1M9Jy1OT0xPR08gLU9VVDoiJEAiJwogICAgICAgICBIT1NUX0NGTEFHUz0iJEhPU1Rf
+Q0ZMQUdTIC1UQyAtbm9sb2dvIC1GZFwkKEhPU1RfUERCRklMRSkiCiAgICAgICAgIEhPU1RfUkFO
+TElCPSdlY2hvIHJhbmxpYicKICAgICBlbHNlCi0gICAgICAgIEhPU1RfQ0ZMQUdTPSIkSE9TVF9D
+RkxBR1MgLW1uby1jeWd3aW4iCisgICAgICAgIEhPU1RfQ0ZMQUdTPSIkSE9TVF9DRkxBR1MgLW13
+aW5kb3dzIgogICAgIGZpCiAgICAgSE9TVF9DRkxBR1M9IiRIT1NUX0NGTEFHUyAtRFhQX1dJTjMy
+IC1EWFBfV0lOIC1EV0lOMzIgLURfV0lOMzIgLUROT19YMTEgLURfQ1JUX1NFQ1VSRV9OT19XQVJO
+SU5HUyIKICAgICBIT1NUX05TUFJfTURDUFVDRkc9J1wibWQvX3dpbm50LmNmZ1wiJwogICAgIEhP
+U1RfT1BUSU1JWkVfRkxBR1M9IiR7SE9TVF9PUFRJTUlaRV9GTEFHUz0tTzJ9IgogICAgIEhPU1Rf
+QklOX1NVRkZJWD0uZXhlCiAgICAgY2FzZSAiJGhvc3QiIGluCiAgICAgKm1pbmd3KikKICAgICAg
+ICAgUEVSTD0iL2Jpbi9zaCAke190b3BzcmNkaXJ9L2J1aWxkL21zeXMtcGVybC13cmFwcGVyIgpA
+QCAtMjI4NSwxOSArMjI4NSwxOSBAQCBpYTY0Ki1ocHV4KikKICAgICBEU09fQ0ZMQUdTPQogICAg
+IERTT19QSUNfQ0ZMQUdTPQogICAgIERMTF9TVUZGSVg9LmRsbAogICAgIFJDPXJjLmV4ZQogICAg
+ICMgY2VydGFpbiB2ZXJzaW9ucyBvZiBjeWd3aW4ncyBtYWtlZGVwZW5kIGJhcmYgb24gdGhlIAog
+ICAgICMgI2luY2x1ZGUgPHN0cmluZz4gdnMgLUkuL2Rpc3QvaW5jbHVkZS9zdHJpbmcgaXNzdWUg
+c28gZG9uJ3QgdXNlIGl0CiAgICAgU1lTVEVNX01BS0VERVBFTkQ9CiAgICAgaWYgdGVzdCAtbiAi
+JEdOVV9DQyI7IHRoZW4KLSAgICAgICAgQ0M9IiRDQyAtbW5vLWN5Z3dpbiIKLSAgICAgICAgQ1hY
+PSIkQ1hYIC1tbm8tY3lnd2luIgotICAgICAgICBDUFA9IiRDUFAgLW1uby1jeWd3aW4iCisgICAg
+ICAgIENDPSIkQ0MgLW13aW5kb3dzIgorICAgICAgICBDWFg9IiRDWFggLW13aW5kb3dzIgorICAg
+ICAgICBDUFA9IiRDUFAgLW13aW5kb3dzIgogICAgICAgICBDRkxBR1M9IiRDRkxBR1MgLW1tcy1i
+aXRmaWVsZHMiCiAgICAgICAgIENYWEZMQUdTPSIkQ1hYRkxBR1MgLW1tcy1iaXRmaWVsZHMiCiAg
+ICAgICAgIERTT19MRE9QVFM9Jy1zaGFyZWQnCiAgICAgICAgIE1LU0hMSUI9JyQoQ1hYKSAkKERT
+T19MRE9QVFMpIC1vICRAJwogICAgICAgICBNS0NTSExJQj0nJChDQykgJChEU09fTERPUFRTKSAt
+byAkQCcKICAgICAgICAgUkM9JyQoV0lORFJFUyknCiAgICAgICAgICMgVXNlIHRlbXAgZmlsZSBm
+b3Igd2luZHJlcyAoYnVnIDIxMzI4MSkKICAgICAgICAgUkNGTEFHUz0nLU8gY29mZiAtLXVzZS10
+ZW1wLWZpbGUnCmRpZmYgLS1naXQgYS9uZXR3ZXJrL3N0cmVhbWNvbnYvdGVzdC9NYWtlZmlsZS5p
+biBiL25ldHdlcmsvc3RyZWFtY29udi90ZXN0L01ha2VmaWxlLmluCmluZGV4IDdkNTc4NzguLmI2
+MWYzOWUgMTAwNjQ0Ci0tLSBhL25ldHdlcmsvc3RyZWFtY29udi90ZXN0L01ha2VmaWxlLmluCisr
+KyBiL25ldHdlcmsvc3RyZWFtY29udi90ZXN0L01ha2VmaWxlLmluCkBAIC01NSwxNyArNTUsMjEg
+QEAgTElCUwkJPSBcCiAJCSQoRElTVCkvbGliLyQoTElCX1BSRUZJWCl4cGNvbWdsdWVfcy4kKExJ
+Ql9TVUZGSVgpIFwKIAkJJChYUENPTV9MSUJTKSBcCiAJCSQoTlNQUl9MSUJTKSBcCiAJCSQoTlVM
+TCkKIAogaW5jbHVkZSAkKHRvcHNyY2RpcikvY29uZmlnL3J1bGVzLm1rCiAKIGlmZXEgKCQoT1Nf
+QVJDSCksV0lOTlQpCitpZmRlZiBHTlVfQ1hYCitMREZMQUdTCQkrPSAtbWNvbnNvbGUKK2Vsc2UK
+IExERkxBR1MJCSs9IC1TVUJTWVNURU06Q09OU09MRQorZW5kaWYKIGlmZGVmIE1PWl9OT19ERUJV
+R19SVEwKIERFRklORVMJCSs9IC1NT1pfTk9fREVCVUdfUlRMCiBlbmRpZgogaWZkZWYgTkdQUkVG
+UwogREVGSU5FUwkJKz0gLUROR1BSRUZTCiBlbmRpZgogZW5kaWYgIyBXSU5OVAogCi0tIAoxLjcu
+NC4xCgo=
+</data>
+<flag name="review"
+          id="437790"
+          type_id="4"
+          status="+"
+          setter="ted.mielczarek"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524062</attachid>
+            <date>2011-04-05 07:50:00 -0700</date>
+            <delta_ts>2011-04-08 11:29:28 -0700</delta_ts>
+            <desc>fix v1.0 (NSS part)</desc>
+            <filename>patch.diff</filename>
+            <type>text/plain</type>
+            <size>1282</size>
+            <attacher>jacek</attacher>
+            
+              <data encoding="base64">RnJvbSBkZWVhZDA1MjhhZTlmY2UwNDU1ZTM1YjcxZWI5MzBhZWFkOGI2OTlmIE1vbiBTZXAgMTcg
+MDA6MDA6MDAgMjAwMQpGcm9tOiBKYWNlayBDYWJhbiA8amFjZWtAY29kZXdlYXZlcnMuY29tPgpE
+YXRlOiBUdWUsIDUgQXByIDIwMTEgMTY6MDA6MDggKzAwMDAKU3ViamVjdDogQnVnIDY0NzgyMCAt
+IERvbid0IHVzZSAtbW5vLWN5Z3dpbiBvbiBtaW5ndyBjb21waWxhdGlvbiAoTlNTIHBhcnQpCgoK
+ZGlmZiAtLWdpdCBhL3NlY3VyaXR5L2NvcmVjb25mL1dJTjMyLm1rIGIvc2VjdXJpdHkvY29yZWNv
+bmYvV0lOMzIubWsKaW5kZXggNmY4ODAxNi4uOTdlNTk4NSAxMDA2NDQKLS0tIGEvc2VjdXJpdHkv
+Y29yZWNvbmYvV0lOMzIubWsKKysrIGIvc2VjdXJpdHkvY29yZWNvbmYvV0lOMzIubWsKQEAgLTEx
+OSwxOSArMTE5LDE5IEBAIGVsc2UKIExJQl9TVUZGSVggICA9IGxpYgogZW5kaWYKIERMTF9TVUZG
+SVggICA9IGRsbAogCiBpZmRlZiBOU19VU0VfR0NDCiAgICAgIyBUaGUgLW1ub3AtZnVuLWRsbGlt
+cG9ydCBmbGFnIGFsbG93cyB1cyB0byBhdm9pZCBhIGRyYXdiYWNrIG9mCiAgICAgIyB0aGUgZGxs
+aW1wb3J0IGF0dHJpYnV0ZSB0aGF0IGEgcG9pbnRlciB0byBhIGZ1bmN0aW9uIG1hcmtlZCBhcwog
+ICAgICMgZGxsaW1wb3J0IGNhbm5vdCBiZSB1c2VkIGFzIGFzIGEgY29uc3RhbnQgYWRkcmVzcy4K
+LSAgICBPU19DRkxBR1MgKz0gLW1uby1jeWd3aW4gLW1tcy1iaXRmaWVsZHMgLW1ub3AtZnVuLWRs
+bGltcG9ydAorICAgIE9TX0NGTEFHUyArPSAtbXdpbmRvd3MgLW1tcy1iaXRmaWVsZHMgLW1ub3At
+ZnVuLWRsbGltcG9ydAogICAgIF9HRU5fSU1QT1JUX0xJQj0tV2wsLS1vdXQtaW1wbGliLCQoSU1Q
+T1JUX0xJQlJBUlkpCi0gICAgRExMRkxBR1MgICs9IC1tbm8tY3lnd2luIC1vICRAIC1zaGFyZWQg
+LVdsLC0tZXhwb3J0LWFsbC1zeW1ib2xzICQoaWYgJChJTVBPUlRfTElCUkFSWSksJChfR0VOX0lN
+UE9SVF9MSUIpKQorICAgIERMTEZMQUdTICArPSAtbXdpbmRvd3MgLW8gJEAgLXNoYXJlZCAtV2ws
+LS1leHBvcnQtYWxsLXN5bWJvbHMgJChpZiAkKElNUE9SVF9MSUJSQVJZKSwkKF9HRU5fSU1QT1JU
+X0xJQikpCiAgICAgaWZkZWYgQlVJTERfT1BUCiAJaWZlcSAoMTEsJChBTExPV19PUFRfQ09ERV9T
+SVpFKSQoT1BUX0NPREVfU0laRSkpCiAJCU9QVElNSVpFUiArPSAtT3MKIAllbHNlCiAJCU9QVElN
+SVpFUiArPSAtTzIKIAllbmRpZgogCURFRklORVMgICAgKz0gLVVERUJVRyAtVV9ERUJVRyAtRE5E
+RUJVRwogICAgIGVsc2UKLS0gCjEuNy40LjEKCg==
+</data>
+<flag name="review"
+          id="437792"
+          type_id="4"
+          status="?"
+          setter="jacek"
+          requestee="bsmith"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524063</attachid>
+            <date>2011-04-05 07:50:00 -0700</date>
+            <delta_ts>2011-04-08 11:29:45 -0700</delta_ts>
+            <desc>fix v1.0 (nspr part)</desc>
+            <filename>patch.diff</filename>
+            <type>text/plain</type>
+            <size>1799</size>
+            <attacher>jacek</attacher>
+            
+              <data encoding="base64">RnJvbSAzY2U4YzExNDU4NTlmYjUxMmU2MTE0OWEyZDI3MjE1MzhmOTRiZWFkIE1vbiBTZXAgMTcg
+MDA6MDA6MDAgMjAwMQpGcm9tOiBKYWNlayBDYWJhbiA8amFjZWtAY29kZXdlYXZlcnMuY29tPgpE
+YXRlOiBUdWUsIDUgQXByIDIwMTEgMTU6NTk6NDUgKzAwMDAKU3ViamVjdDogQnVnIDY0NzgyMCAt
+IERvbid0IHVzZSAtbW5vLWN5Z3dpbiBvbiBtaW5ndyBjb21waWxhdGlvbiAobnNwcnB1YiBwYXJ0
+KQoKCmRpZmYgLS1naXQgYS9uc3BycHViL2NvbmZpZ3VyZSBiL25zcHJwdWIvY29uZmlndXJlCmlu
+ZGV4IGQ2ZmYzNmYuLmM1MGY1MWEgMTAwNzU1Ci0tLSBhL25zcHJwdWIvY29uZmlndXJlCisrKyBi
+L25zcHJwdWIvY29uZmlndXJlCkBAIC00MjAxLDE4ICs0MjAxLDE4IEBAIEVPRgogICAgIGNhdCA+
+PiBjb25mZGVmcy5oIDw8XEVPRgogI2RlZmluZSBXSU4zMiAxCiBFT0YKIAogICAgIFBSX01EX0FS
+Q0hfRElSPXdpbmRvd3MKICAgICBSRVNPTFZFX0xJTktfU1lNQk9MUz0xCiAKICAgICBpZiB0ZXN0
+IC1uICIkR05VX0NDIjsgdGhlbgotICAgICAgICBDQz0iJENDIC1tbm8tY3lnd2luIgotICAgICAg
+ICBDWFg9IiRDWFggLW1uby1jeWd3aW4iCisgICAgICAgIENDPSIkQ0MgLW13aW5kb3dzIgorICAg
+ICAgICBDWFg9IiRDWFggLW13aW5kb3dzIgogICAgICAgICBETExfU1VGRklYPWRsbAogICAgICAg
+ICBNS1NITElCPSckKENDKSAtc2hhcmVkIC1XbCwtLWV4cG9ydC1hbGwtc3ltYm9scyAtV2wsLS1v
+dXQtaW1wbGliIC1XbCwkKElNUE9SVF9MSUJSQVJZKSAkKERMTEJBU0UpIC1vICQoc3Vic3QgJChP
+QkpESVIpLywsJChTSEFSRURfTElCUkFSWSkpJwogICAgICAgICBSQz0kV0lORFJFUwogICAgICAg
+ICAjIFVzZSB0ZW1wIGZpbGUgZm9yIHdpbmRyZXMgKGJ1ZyAyMTMyODEpCiAgICAgICAgIFJDRkxB
+R1M9Jy1PIGNvZmYgLS11c2UtdGVtcC1maWxlJwogICAgIGVsc2UKICAgICAgICAgQ0M9Y2wKICAg
+ICAgICAgQ1hYPWNsCmRpZmYgLS1naXQgYS9uc3BycHViL2NvbmZpZ3VyZS5pbiBiL25zcHJwdWIv
+Y29uZmlndXJlLmluCmluZGV4IGJkNTAyYzguLjA3ZGZiMmMgMTAwNjQ0Ci0tLSBhL25zcHJwdWIv
+Y29uZmlndXJlLmluCisrKyBiL25zcHJwdWIvY29uZmlndXJlLmluCkBAIC0xNjY0LDE4ICsxNjY0
+LDE4IEBAIGFybS1hbmRyb2lkLWVhYmkpCiAKICotbWluZ3cqfCotY3lnd2luKnwqLW1zdmMqfCot
+bWtzKikKICAgICBBQ19ERUZJTkUoWFBfUEMpCiAgICAgQUNfREVGSU5FKFdJTjMyKQogICAgIFBS
+X01EX0FSQ0hfRElSPXdpbmRvd3MKICAgICBSRVNPTFZFX0xJTktfU1lNQk9MUz0xCiAKICAgICBp
+ZiB0ZXN0IC1uICIkR05VX0NDIjsgdGhlbgotICAgICAgICBDQz0iJENDIC1tbm8tY3lnd2luIgot
+ICAgICAgICBDWFg9IiRDWFggLW1uby1jeWd3aW4iCisgICAgICAgIENDPSIkQ0MgLW13aW5kb3dz
+IgorICAgICAgICBDWFg9IiRDWFggLW13aW5kb3dzIgogICAgICAgICBETExfU1VGRklYPWRsbAog
+ICAgICAgICBNS1NITElCPSckKENDKSAtc2hhcmVkIC1XbCwtLWV4cG9ydC1hbGwtc3ltYm9scyAt
+V2wsLS1vdXQtaW1wbGliIC1XbCwkKElNUE9SVF9MSUJSQVJZKSAkKERMTEJBU0UpIC1vICQoc3Vi
+c3QgJChPQkpESVIpLywsJChTSEFSRURfTElCUkFSWSkpJwogICAgICAgICBSQz0kV0lORFJFUwog
+ICAgICAgICAjIFVzZSB0ZW1wIGZpbGUgZm9yIHdpbmRyZXMgKGJ1ZyAyMTMyODEpCiAgICAgICAg
+IFJDRkxBR1M9Jy1PIGNvZmYgLS11c2UtdGVtcC1maWxlJwogICAgIGVsc2UKICAgICAgICAgQ0M9
+Y2wKICAgICAgICAgQ1hYPWNsCi0tIAoxLjcuNC4xCgo=
+</data>
+<flag name="review"
+          id="437794"
+          type_id="4"
+          status="+"
+          setter="ted.mielczarek"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

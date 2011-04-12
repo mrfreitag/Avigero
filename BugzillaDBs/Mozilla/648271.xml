@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648271</bug_id>
+          
+          <creation_ts>2011-04-07 08:19:00 -0700</creation_ts>
+          <short_desc>msaa/nsTextAccessibleWrap::get_fontFamily probably doesn&apos;t do what it&apos;s supposed to</short_desc>
+          <delta_ts>2011-04-11 01:08:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Disability Access APIs</component>
+          <version>Trunk</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Zack Weinberg (:zwol)">zackw</reporter>
+          <assigned_to name="Zack Weinberg (:zwol)">zackw</assigned_to>
+          <cc>jamie</cc>
+    
+    <cc>jdaggett</cc>
+    
+    <cc>jfkthame</cc>
+    
+    <cc>marco.zehe</cc>
+    
+    <cc>surkov.alexander</cc>
+          <qa_contact>accessibility-apis</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394429</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 08:19:01 -0700</bug_when>
+            <thetext>msaa&apos;s implementation of nsTextAccessibleWrap::get_fontFamily is using a gfx API (nsIDeviceContext::FirstExistingFont) that hasn&apos;t done anything particularly useful in some time (it doesn&apos;t bother to check whether the font really exists, so you just get the first font in the font stack from the style system).  This is the last use of this API in the tree.  There are better alternatives, but to fix it properly, I need to know what this function is *supposed* to do.  It appears to me that it&apos;s being called by an accessibility program external to Firefox, so we can&apos;t just delete it, but I have no idea what those programs expect.  There is no analogous function in the Mac or ATK accessibility back ends.
+
+Incidentally, ::GetCharacterExtents in the same file is *also* probably not doing what it&apos;s supposed to do, although for entirely different reasons.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394449</commentid>
+            <who name="alexander surkov">surkov.alexander</who>
+            <bug_when>2011-04-07 08:30:33 -0700</bug_when>
+            <thetext>ISimpleDOMText is old interface, though maintained. This API has restriction and we can&apos;t implement it correctly. The fontFamily method problem is this method is called for whole text node but the node can have several font-families used. Perhaps it should return the first used font-family if we can&apos;t detect the &quot;primary&quot; font-family.
+
+The similar problem exists in nsHyperTextAccessible::GetTextAttributes in font-family case, though it doesn&apos;t have restrictions as get_fontFamily has. There we can do correct things I think since it returns range within the node where font-family is constant.
+
+Can you suggest API that we should rely on?
+
+And could you file a bug for GetCharacterExtents problem?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394495</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 09:04:04 -0700</bug_when>
+            <thetext>I&apos;m not sure exactly how to do it, but I&apos;m pretty sure there *is* a better way.  cc:ing the font guys.
+
+I don&apos;t see any font-related code in nsHyperTextAccessible::GetTextAttributes...?
+
+Filed bug 648282 on GetCharacterExtents.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394512</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 09:13:45 -0700</bug_when>
+            <thetext>Poking around a little more, I think code similar to what&apos;s in nsFontWeightTextAttr::GetFontWeight should do the job -- although I&apos;m not sure why that function is doing lookups into gfx while all the other nsFont*TextAttr getters are content to believe what the style system tells them.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394543</commentid>
+            <who name="alexander surkov">surkov.alexander</who>
+            <bug_when>2011-04-07 09:29:46 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; I&apos;m not sure exactly how to do it, but I&apos;m pretty sure there *is* a better way.
+&gt;  cc:ing the font guys.
+&gt; 
+&gt; I don&apos;t see any font-related code in
+&gt; nsHyperTextAccessible::GetTextAttributes...?
+
+It&apos;s based on CSS font-family what&apos;s wrong (nsTextAttrs.cpp).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394646</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 10:18:42 -0700</bug_when>
+            <thetext>Please tell me what all this stuff is SUPPOSED to do.  Specifically: my immediate inclination upon reading nsTextAttrs.cpp is to make it rely *more* on nsCSSTextAttr -- rip out the special cases for font-size, font-weight, background color -- rather than *less* -- don&apos;t bother calling down to gfx at all, just take everything from the style system -- but you&apos;re telling me this is wrong.  Okay.  What&apos;s *right*?  If implementation limits were completely irrelevant, what would the externally visible semantics of these functions be?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395273</commentid>
+              <attachid>524512</attachid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-07 15:37:38 -0700</bug_when>
+            <thetext>Created attachment 524512
+patch
+
+I think this is probably the right change, at least short term.  Note: not yet even compiled (will push to try shortly), and I have no way of testing anything MSAA-related.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398749</commentid>
+            <who name="alexander surkov">surkov.alexander</who>
+            <bug_when>2011-04-09 17:23:22 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; Created attachment 524512 [details]
+&gt; patch
+&gt; 
+&gt; I think this is probably the right change, at least short term.  Note: not yet
+&gt; even compiled (will push to try shortly), and I have no way of testing anything
+&gt; MSAA-related.
+
+I don&apos;t have any tools that allow to test ISimpleDOM interfaces, though I could send a build to developers who use these interfaces to check if everything is ok. Perhaps Marco is aware how to test this method though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398752</commentid>
+              <attachid>524512</attachid>
+            <who name="alexander surkov">surkov.alexander</who>
+            <bug_when>2011-04-09 17:24:36 -0700</bug_when>
+            <thetext>Comment on attachment 524512
+patch
+
+
+&gt;+  const nsStyleFont *styleFont = frame-&gt;GetStyleFont();
+
+nit: please do const nsStyleFont* styleFont, instead const nsStyleFont *styleFont</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398769</commentid>
+            <who name="alexander surkov">surkov.alexander</who>
+            <bug_when>2011-04-09 17:41:09 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Please tell me what all this stuff is SUPPOSED to do.  Specifically: my
+&gt; immediate inclination upon reading nsTextAttrs.cpp is to make it rely *more* on
+&gt; nsCSSTextAttr -- rip out the special cases for font-size, font-weight,
+&gt; background color -- rather than *less* -- don&apos;t bother calling down to gfx at
+&gt; all, just take everything from the style system -- but you&apos;re telling me this
+&gt; is wrong.
+
+We used style system to get text attributes as a first implementation of this method. When we realized the style system doesn&apos;t provide us what we need then we started to introduce specific classes.
+
+&gt;  Okay.  What&apos;s *right*?  If implementation limits were completely
+&gt; irrelevant, what would the externally visible semantics of these functions be?
+
+If I get the following scenario is possible:
+&lt;p&gt;FontFamily1FontFamily2&lt;/p&gt; so there&apos;s single text node and two font families are used for it.
+
+When you request text attributes at 0 offset then we should return a range [0, 11) (for string FontFamily1), when you request them at 11 offset then we should return a range [11, 22) (for string FontFamily2). If text attributes computation is CSS based then we can get font family for whole text node only and will return [0, 22) range, that&apos;s incorrect.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399309</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-10 09:42:14 -0700</bug_when>
+            <thetext>(In reply to comment #8)
+&gt; Comment on attachment 524512 [details]
+&gt; patch
+&gt; 
+&gt; 
+&gt; &gt;+  const nsStyleFont *styleFont = frame-&gt;GetStyleFont();
+&gt; 
+&gt; nit: please do const nsStyleFont* styleFont, instead const nsStyleFont
+&gt; *styleFont
+
+OK, but as a matter of fact that variable is unused, so instead I just deleted the line.  I did fix the position of the star on another variable in the same function, though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399320</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-10 09:50:47 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/f7d8fe104567</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399322</commentid>
+            <who name="Zack Weinberg (:zwol)">zackw</who>
+            <bug_when>2011-04-10 09:52:57 -0700</bug_when>
+            <thetext>(In reply to comment #9)
+&gt; If I get the following scenario is possible:
+&gt; &lt;p&gt;FontFamily1FontFamily2&lt;/p&gt; so there&apos;s single text node and two font families
+&gt; are used for it.
+&gt; 
+&gt; When you request text attributes at 0 offset then we should return a range [0,
+&gt; 11) (for string FontFamily1), when you request them at 11 offset then we should
+&gt; return a range [11, 22) (for string FontFamily2). If text attributes
+&gt; computation is CSS based then we can get font family for whole text node only
+&gt; and will return [0, 22) range, that&apos;s incorrect.
+
+Ok, I get it now.  I don&apos;t know if the right hooks exist to do this, though -- you&apos;d need information that may be being thrown away after painting.  nsTextFrameThebes is largely a mystery to me.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524512</attachid>
+            <date>2011-04-07 15:37:00 -0700</date>
+            <delta_ts>2011-04-09 17:24:36 -0700</delta_ts>
+            <desc>patch</desc>
+            <filename>648271-remove-last-firstexistingfont-use.diff</filename>
+            <type>text/plain</type>
+            <size>3301</size>
+            <attacher>zackw</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgMWRhOTlmZWNiNzdjYmNkOWQ0OTYzYjY1NGMy
+MjVkMjIyMzFlY2Q1MwojIFVzZXIgWmFjayBXZWluYmVyZyA8emFja3dAcGFuaXguY29tPgpCdWcg
+NjQ4MjcxOiBkb24ndCB1c2UgbnNJRGV2aWNlQ29udGV4dDo6Rmlyc3RFeGlzdGluZ0ZvbnQgaW4g
+bXNhYS9uc1RleHRBY2Nlc3NpYmxlV3JhcC5jcHAuCgpkaWZmIC0tZ2l0IGEvYWNjZXNzaWJsZS9z
+cmMvbXNhYS9uc1RleHRBY2Nlc3NpYmxlV3JhcC5jcHAgYi9hY2Nlc3NpYmxlL3NyYy9tc2FhL25z
+VGV4dEFjY2Vzc2libGVXcmFwLmNwcAotLS0gYS9hY2Nlc3NpYmxlL3NyYy9tc2FhL25zVGV4dEFj
+Y2Vzc2libGVXcmFwLmNwcAorKysgYi9hY2Nlc3NpYmxlL3NyYy9tc2FhL25zVGV4dEFjY2Vzc2li
+bGVXcmFwLmNwcApAQCAtMzgsMjMgKzM4LDI1IEBACiAKIC8vIE5PVEU6IGFscGhhYmV0aWNhbGx5
+IG9yZGVyZWQKICNpbmNsdWRlICJuc1RleHRBY2Nlc3NpYmxlV3JhcC5oIgogI2luY2x1ZGUgIklT
+aW1wbGVET01UZXh0X2kuYyIKIAogI2luY2x1ZGUgIm5zQ29yZVV0aWxzLmgiCiAjaW5jbHVkZSAi
+bnNEb2NBY2Nlc3NpYmxlLmgiCiAKLSNpbmNsdWRlICJuc0lGb250TWV0cmljcy5oIgorI2luY2x1
+ZGUgIm5zSVRoZWJlc0ZvbnRNZXRyaWNzLmgiCiAjaW5jbHVkZSAibnNJRnJhbWUuaCIKICNpbmNs
+dWRlICJuc1ByZXNDb250ZXh0LmgiCiAjaW5jbHVkZSAibnNJUHJlc1NoZWxsLmgiCiAjaW5jbHVk
+ZSAibnNJUmVuZGVyaW5nQ29udGV4dC5oIgogI2luY2x1ZGUgIm5zSUNvbXBvbmVudE1hbmFnZXIu
+aCIKIAorI2luY2x1ZGUgImdmeEZvbnQuaCIKKwogLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8v
+Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8KIC8v
+IG5zVGV4dEFjY2Vzc2libGVXcmFwIEFjY2Vzc2libGUKIC8vLy8vLy8vLy8vLy8vLy8vLy8vLy8v
+Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8v
+CiAKIG5zVGV4dEFjY2Vzc2libGVXcmFwOjoKICAgbnNUZXh0QWNjZXNzaWJsZVdyYXAobnNJQ29u
+dGVudCAqYUNvbnRlbnQsIG5zSVdlYWtSZWZlcmVuY2UgKmFTaGVsbCkgOgogICBuc1RleHRBY2Nl
+c3NpYmxlKGFDb250ZW50LCBhU2hlbGwpCiB7CkBAIC0yNDksNTIgKzI1MSwzNSBAQCBuc3Jlc3Vs
+dCBuc1RleHRBY2Nlc3NpYmxlV3JhcDo6R2V0Q2hhcmFjCiAKIFNURE1FVEhPRElNUCBuc1RleHRB
+Y2Nlc3NpYmxlV3JhcDo6Z2V0X2ZvbnRGYW1pbHkoCiAgICAgLyogW3JldHZhbF1bb3V0XSAqLyBC
+U1RSIF9fUlBDX0ZBUiAqYUZvbnRGYW1pbHkpCiB7CiBfX3RyeSB7CiAgICphRm9udEZhbWlseSA9
+IE5VTEw7CiAKICAgbnNJRnJhbWUgKmZyYW1lID0gR2V0RnJhbWUoKTsKLSAgbnNDT01QdHI8bnNJ
+UHJlc1NoZWxsPiBwcmVzU2hlbGwgPSBHZXRQcmVzU2hlbGwoKTsKLSAgaWYgKCFmcmFtZSB8fCAh
+cHJlc1NoZWxsIHx8ICFwcmVzU2hlbGwtPkdldFByZXNDb250ZXh0KCkpIHsKKyAgaWYgKCFmcmFt
+ZSkgewogICAgIHJldHVybiBFX0ZBSUw7CiAgIH0KLQotICBuc0NPTVB0cjxuc0lSZW5kZXJpbmdD
+b250ZXh0PiByYyA9IHByZXNTaGVsbC0+R2V0UmVmZXJlbmNlUmVuZGVyaW5nQ29udGV4dCgpOwot
+ICBpZiAoIXJjKSB7Ci0gICAgcmV0dXJuIEVfRkFJTDsKLSAgfQotCi0gIGNvbnN0IG5zU3R5bGVG
+b250ICpmb250ID0gZnJhbWUtPkdldFN0eWxlRm9udCgpOwotCi0gIGNvbnN0IG5zU3R5bGVWaXNp
+YmlsaXR5ICp2aXNpYmlsaXR5ID0gZnJhbWUtPkdldFN0eWxlVmlzaWJpbGl0eSgpOwotCi0gIGlm
+IChOU19GQUlMRUQocmMtPlNldEZvbnQoZm9udC0+bUZvbnQsIHZpc2liaWxpdHktPm1MYW5ndWFn
+ZSwKLSAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmVzU2hlbGwtPkdldFByZXNDb250ZXh0
+KCktPkdldFVzZXJGb250U2V0KCkpKSkgewotICAgIHJldHVybiBFX0ZBSUw7Ci0gIH0KLQotICBu
+c0NPTVB0cjxuc0lEZXZpY2VDb250ZXh0PiBkZXZpY2VDb250ZXh0OwotICByYy0+R2V0RGV2aWNl
+Q29udGV4dCgqZ2V0dGVyX0FkZFJlZnMoZGV2aWNlQ29udGV4dCkpOwotICBpZiAoIWRldmljZUNv
+bnRleHQpIHsKLSAgICByZXR1cm4gRV9GQUlMOwotICB9CisgIGNvbnN0IG5zU3R5bGVGb250ICpz
+dHlsZUZvbnQgPSBmcmFtZS0+R2V0U3R5bGVGb250KCk7CiAKICAgbnNDT01QdHI8bnNJRm9udE1l
+dHJpY3M+IGZtOwotICByYy0+R2V0Rm9udE1ldHJpY3MoKmdldHRlcl9BZGRSZWZzKGZtKSk7Ci0g
+IGlmICghZm0pIHsKLSAgICByZXR1cm4gRV9GQUlMOwotICB9CisgIGFGcmFtZS0+UHJlc0NvbnRl
+eHQoKS0+RGV2aWNlQ29udGV4dCgpLT4KKyAgICBHZXRNZXRyaWNzRm9yKGZyYW1lLT5HZXRTdHls
+ZUZvbnQoKS0+bUZvbnQsCisgICAgICAgICAgICAgICAgICBmcmFtZS0+R2V0U3R5bGVWaXNpYmls
+aXR5KCktPm1MYW5ndWFnZSwKKyAgICAgICAgICAgICAgICAgIGZyYW1lLT5QcmVzQ29udGV4dCgp
+LT5HZXRVc2VyRm9udFNldCgpLAorICAgICAgICAgICAgICAgICAgKmdldHRlcl9BZGRSZWZzKGZt
+KSk7CiAKLSAgbnNBdXRvU3RyaW5nIGZvbnRGYW1pbHk7Ci0gIGRldmljZUNvbnRleHQtPkZpcnN0
+RXhpc3RpbmdGb250KGZtLT5Gb250KCksIGZvbnRGYW1pbHkpOwotICBpZiAoZm9udEZhbWlseS5J
+c0VtcHR5KCkpCisgIG5zQ09NUHRyPG5zSVRoZWJlc0ZvbnRNZXRyaWNzPiB0Zm0gPSBkb19RdWVy
+eUludGVyZmFjZShmbSk7CisgIGNvbnN0IG5zU3RyaW5nJiBuYW1lID0gdGZtLT5HZXRUaGViZXNG
+b250R3JvdXAoKS0+R2V0Rm9udEF0KDApLT5HZXROYW1lKCk7CisKKyAgaWYgKG5hbWUuSXNFbXB0
+eSgpKQogICAgIHJldHVybiBTX0ZBTFNFOwogCi0gICphRm9udEZhbWlseSA9IDo6U3lzQWxsb2NT
+dHJpbmdMZW4oZm9udEZhbWlseS5nZXQoKSwgZm9udEZhbWlseS5MZW5ndGgoKSk7CisgICphRm9u
+dEZhbWlseSA9IDo6U3lzQWxsb2NTdHJpbmdMZW4obmFtZS5nZXQoKSwgbmFtZS5MZW5ndGgoKSk7
+CiAgIGlmICghKmFGb250RmFtaWx5KQogICAgIHJldHVybiBFX09VVE9GTUVNT1JZOwogCi19IF9f
+ZXhjZXB0KEZpbHRlckExMXlFeGNlcHRpb25zKDo6R2V0RXhjZXB0aW9uQ29kZSgpLCBHZXRFeGNl
+cHRpb25JbmZvcm1hdGlvbigpKSkgeyB9Cit9IF9fZXhjZXB0KEZpbHRlckExMXlFeGNlcHRpb25z
+KDo6R2V0RXhjZXB0aW9uQ29kZSgpLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBH
+ZXRFeGNlcHRpb25JbmZvcm1hdGlvbigpKSkgeyB9CiAKICAgcmV0dXJuIFNfT0s7CiB9Cg==
+</data>
+<flag name="review"
+          id="438160"
+          type_id="4"
+          status="+"
+          setter="surkov.alexander"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

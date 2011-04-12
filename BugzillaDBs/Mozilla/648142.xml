@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648142</bug_id>
+          
+          <creation_ts>2011-04-06 15:28:00 -0700</creation_ts>
+          <short_desc>crash when opening composer page, crash when opening several web pages</short_desc>
+          <delta_ts>2011-04-10 06:14:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>SeaMonkey</product>
+          <component>General</component>
+          <version>SeaMonkey 2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.discoveryyoga.com</bug_file_loc>
+          
+          
+          <priority>P1</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Deva Parnell">devagenie</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>stefanh</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393384</commentid>
+            <who name="Deva Parnell">devagenie</who>
+            <bug_when>2011-04-06 15:28:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-us) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27
+Build Identifier: SeaMonkey 2.0.13 for Mac OS X, English (22 MB) 
+
+crash if I open composer page
+crash if I open various other pages with browser
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. go to any web page and try to open composer page
+2. go to http://www.pryt.com/PhotoArchive/about_photos.html 
+3.
+
+
+Expected Results:  
+crash
+
+not crash</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399171</commentid>
+            <who name="Stefan (:stefanh)">stefanh</who>
+            <bug_when>2011-04-10 06:14:24 -0700</bug_when>
+            <thetext>Do you have any crash incident ID? You can find the ID&apos;s if you type about:crashes in the address bar and hit enter. Please include the ID/ID&apos;s in a comment in this bug report.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

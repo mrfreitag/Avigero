@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647938</bug_id>
+          
+          <creation_ts>2011-04-05 22:57:00 -0700</creation_ts>
+          <short_desc>Intermittent test_service_login.js | test failed (with xpcshell return code: -2147483645)</short_desc>
+          <delta_ts>2011-04-05 22:57:21 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Services</product>
+          <component>Firefox Sync: Backend</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://tinderbox.mozilla.org/showlog.cgi?log=Cedar/1302042073.1302044358.5207.gz&amp;fulltext=1#err0</bug_file_loc>
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Henri Sivonen (:hsivonen)">hsivonen</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>sync-backend</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391929</commentid>
+            <who name="Henri Sivonen (:hsivonen)">hsivonen</who>
+            <bug_when>2011-04-05 22:57:21 -0700</bug_when>
+            <thetext>Also seen in bug 647104 comment 1.
+
+TEST-INFO | C:\talos-slave\test\build\xpcshell\tests\services\sync\tests\unit\test_service_login.js | running test ...
+TEST-UNEXPECTED-FAIL | C:\talos-slave\test\build\xpcshell\tests\services\sync\tests\unit\test_service_login.js | test failed (with xpcshell return code: -2147483645), see following log:
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+### XPCOM_MEM_LEAK_LOG defined -- logging leaks to c:\docume~1\cltbld\locals~1\temp\tmpfmwx2l\runxpcshelltests_leaks.log
+pldhash: for the table at address 04D5EC68, the given entrySize of 48 probably favors chaining over double hashing.
+nsNativeModuleLoader::LoadModule(&quot;C:\talos-slave\test\build\firefox\components\xpcomsample.dll&quot;) - load FAILED, rv: 80520012, error:
+	&lt;unknown; can&apos;t get error from NSPR&gt;
+WARNING: This method is lossy. Use GetCanonicalPath !: file e:/builds/moz2_slave/ced-w32-dbg/build/xpcom/io/nsLocalFileWin.cpp, line 2985
+pldhash: for the table at address 05F525C4, the given entrySize of 80 definitely favors chaining over double hashing.
+pldhash: for the table at address 05FE3EA4, the given entrySize of 52 probably favors chaining over double hashing.
+Setting the identity for passphrase
+TEST-INFO | (xpcshell/head.js) | test 1 pending
+The right bits are set when we&apos;re offline.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 30] 0 == 0
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 31] false == false
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 32] error.login.reason.network == error.login.reason.network
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 33] 0 == 0
+TEST-INFO | (xpcshell/head.js) | test 2 pending
+Force the initial state.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 60] success.status_ok == success.status_ok
+Try logging in. It won&apos;t work because we&apos;re not configured yet.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 64] service.client_not_configured == service.client_not_configured
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 65] error.login.reason.no_username == error.login.reason.no_username
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 66] false == false
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 67] false == false
+Try again with username and password set.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 73] service.client_not_configured == service.client_not_configured
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 74] error.login.reason.no_synckey == error.login.reason.no_synckey
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 75] false == false
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 76] false == false
+Success if passphrase is set.
+pldhash: for the table at address 04D62C80, the given entrySize of 56 probably favors chaining over double hashing.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 81] success.status_ok == success.status_ok
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 82] success.login == success.login
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 83] true == true
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 84] true == true
+We can also pass username, password and passphrase to login().
+1302042875018	Service.Main	DEBUG	Clearing sync triggers.
+1302042875021	Service.Main	DEBUG	Exception: Application is offline, login should not be called No traceback available
+1302042875024	Service.Main	DEBUG	Clearing sync triggers.
+1302042875056	Service.Main	DEBUG	Exception: aborting login, client not configured No traceback available
+1302042875061	Service.Main	DEBUG	Caching URLs under storage user base: http://localhost:8080/1.0/johndoe/
+1302042875947	Service.Main	DEBUG	Exception: aborting login, client not configured No traceback available
+1302042875954	Service.Main	INFO	Logging in user johndoe
+1302042876324	Net.Resource	DEBUG	GET success 200 http://localhost:8080/1.0/johndoe/info/collections
+1302042876325	Service.Main	DEBUG	Fetching global metadata record
+1302042876356	Net.Resource	DEBUG	GET fail 404 http://localhost:8080/1.0/johndoe/storage/meta/global
+1302042876357	Service.Main	DEBUG	Weave Version: 1.7 Local Storage: 5 Remote Storage: 
+1302042876357	Service.Main	INFO	One of: no meta, no meta storageVersion, or no meta syncID. Fresh start needed.
+1302042876358	Service.Main	INFO	No metadata record, server wipe needed
+1302042876358	Service.Main	INFO	Wiping server data
+1302042876359	Service.Main	INFO	Fresh start. Resetting client and considering key upgrade.
+1302042876362	Service.Main	INFO	Service reset.
+1302042876363	Engine.Clients	DEBUG	Resetting clients last sync time
+1302042876365	Engine.Bookmarks	DEBUG	Resetting bookmarks last sync time
+1302042876367	Engine.Forms	DEBUG	Resetting forms last sync time
+1302042876369	Engine.History	DEBUG	Resetting history last sync time
+1302042876371	Engine.Passwords	DEBUG	Resetting passwords last sync time
+1302042876375	Engine.Prefs	DEBUG	Resetting prefs last sync time
+1302042876377	Engine.Tabs	DEBUG	Resetting tabs last sync time
+1302042876379	CollectionKeys	INFO	Clearing CollectionKeys...
+1302042876398	Service.Main	INFO	Upgrading sync key...
+1302042876398	Service.Main	INFO	Saving upgraded sync key...
+1302042876799	Service.Main	INFO	Done saving.
+1302042876800	Service.Main	DEBUG	New metadata record: {&quot;syncID&quot;:&quot;1yse2qfbiJtt&quot;,&quot;storageVersion&quot;:5}
+1302042876803	Net.Resource	DEBUG	PUT Length: 78
+1302042876940	Net.Resource	DEBUG	PUT success 200 http://localhost:8080/1.0/johndoe/storage/meta/global
+1302042876975	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/johndoe/storage/clients
+1302042877013	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/johndoe/storage/bookmarks
+1302042877054	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/johndoe/storage/forms
+1302042877091	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/johndoe/storage/history
+1302042877131	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/johndoe/storage/passwords
+1302042877167	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/johndoe/storage/prefs
+1302042877206	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/johndoe/storage/tabs
+1302042877207	Service.Main	INFO	Generating new keys....
+1302042877208	BulkKeyBundle	INFO	BulkKeyBundle being created for [default]
+1302042877213	Service.Main	INFO	Encrypting new key bundle. Modified time is 1302042877.21
+1302042877227	Service.Main	INFO	Uploading...
+1302042877229	Net.Resource	DEBUG	PUT Length: 402
+1302042877260	Net.Resource	DEBUG	PUT success 200 http://localhost:8080/1.0/johndoe/storage/crypto/keys
+1302042877261	Service.Main	INFO	Got status 200
+1302042877262	Service.Main	INFO	Metadata record not found, server was wiped to ensure consistency.
+1302042877271	Service.Main	DEBUG	Caching URLs under storage user base: http://localhost:8080/1.0/janedoe/
+1302042877274	Service.Main	INFO	Logging in user janedoe
+1302042877311	Net.Resource	DEBUG	GET fail 401 http://localhost:8080/1.0/janedoe/info/collections
+1302042877312	Service.Main	DEBUG	Finding cluster for user janedoe
+1302042877352	Net.Resource	DEBUG	GET fail 404 http://localhost:8080/user/1.0/janedoe/node/weave
+1302042877353	Service.Main	DEBUG	Using serverURL as data cluster (multi-cluster support disabled)
+1302042877353	Service.Main	DEBUG	cluster value = http://TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 88] janedoe == janedoe
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 89] incorrectpassword == incorrectpassword
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 90] bar == bar
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 91] error.login.failed == error.login.failed
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 92] error.login.reason.account == error.login.reason.account
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 93] false == false
+Try again with correct password.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 97] success.status_ok == success.status_ok
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 98] success.login == success.login
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 99] true == true
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 100] true == true
+Calling login() with parameters when the client is unconfigured sends notification.
+pldhash: for the table at address 070B9C0C, the given entrySize of 48 probably favors chaining over double hashing.
+localhost:8080/
+1302042877354	Service.Main	WARN	401: login failed.
+1302042877355	Service.Main	DEBUG	Finding cluster for user janedoe
+1302042877391	Net.Resource	DEBUG	GET fail 404 http://localhost:8080/user/1.0/janedoe/node/weave
+1302042877392	Service.Main	DEBUG	Using serverURL as data cluster (multi-cluster support disabled)
+1302042877392	Service.Main	DEBUG	cluster value = http://localhost:8080/
+1302042877393	Service.Main	DEBUG	Exception: Login failed: error.login.reason.account No traceback available
+1302042877400	Service.Main	DEBUG	Caching URLs under storage user base: http://localhost:8080/1.0/janedoe/
+1302042877402	Service.Main	INFO	Logging in user janedoe
+1302042877437	Net.Resource	DEBUG	GET success 200 http://localhost:8080/1.0/janedoe/info/collections
+1302042877437	Service.Main	DEBUG	Fetching global metadata record
+1302042877471	Net.Resource	DEBUG	GET fail 404 http://localhost:8080/1.0/janedoe/storage/meta/global
+1302042877471	Service.Main	DEBUG	Weave Version: 1.7 Local Storage: 5 Remote Storage: 
+1302042877472	Service.Main	INFO	One of: no meta, no meta storageVersion, or no meta syncID. Fresh start needed.
+1302042877472	Service.Main	INFO	No metadata record, server wipe needed
+1302042877472	Service.Main	INFO	Wiping server data
+1302042877472	Service.Main	INFO	Fresh start. Resetting client and considering key upgrade.
+1302042877472	Service.Main	INFO	Service reset.
+1302042877474	Engine.Clients	DEBUG	Resetting clients last sync time
+1302042877475	Engine.Bookmarks	DEBUG	Resetting bookmarks last sync time
+1302042877477	Engine.Forms	DEBUG	Resetting forms last sync time
+1302042877479	Engine.History	DEBUG	Resetting history last sync time
+1302042877481	Engine.Passwords	DEBUG	Resetting passwords last sync time
+1302042877485	Engine.Prefs	DEBUG	Resetting prefs last sync time
+1302042877486	Engine.Tabs	DEBUG	Resetting tabs last sync time
+1302042877488	CollectionKeys	INFO	Clearing CollectionKeys...
+1302042877506	Service.Main	INFO	Upgrading sync key...
+1302042877506	Service.Main	INFO	Saving upgraded sync key...
+1302042878341	Service.Main	INFO	Done saving.
+1302042878342	Service.Main	DEBUG	New metadata record: {&quot;syncID&quot;:&quot;Wo6qUJw-Q8nb&quot;,&quot;storageVersion&quot;:5}
+1302042878344	Net.Resource	DEBUG	PUT Length: 78
+1302042878442	Net.Resource	DEBUG	PUT success 200 http://localhost:8080/1.0/janedoe/storage/meta/global
+1302042878478	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/janedoe/storage/clients
+1302042878515	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/janedoe/storage/bookmarks
+1302042878555	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/janedoe/storage/forms
+1302042878590	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/janedoe/storage/history
+1302042878629	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/janedoe/storage/passwords
+1302042878665	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/janedoe/storage/prefs
+1302042878703	Net.Resource	DEBUG	DELETE fail 404 http://localhost:8080/1.0/janedoe/storage/tabs
+1302042878704	Service.Main	INFO	Generating new keys....
+1302042878704	BulkKeyBundle	INFO	BulkKeyBundle being created for [default]
+1302042878707	Service.Main	INFO	Encrypting new key bundle. Modified time is 1302042878.71
+1302042878718	Service.Main	INFO	Uploading...
+1302042878720	Net.Resource	DEBUG	PUT Length: 402
+1302042878752	Net.Resource	DEBUG	PUT success 200 http://localhost:8080/1.0/janedoe/storage/crypto/keys
+1302042878752	Service.Main	INFO	Got status 200
+1302042878753	Service.Main	INFO	Metadata record not found, server was wiped to ensure consistency.
+1302042878762	Service.Main	DEBUG	Caching URLs under storage user base: http://localhost:8080/1.0/janedoe/
+1302042879106	Service.Main	INFO	Logging in user janedoe
+1302042879283	Net.Resource	DEBUG	GET success 200 http://localhost:8080/1.0/janedoe/info/collections
+1302042879284	Service.Main	DEBUG	Fetching global metadata record
+1302042879284	Service.Main	DEBUG	Weave Version: 1.7 Local Storage: 5 Remote Storage: 5
+1302042879302	Service.Main	INFO	Upgrading sync key...
+1302042879302	Service.Main	INFO	Saving upgTEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 111] true == true
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 112] success.status_ok == success.status_ok
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 113] success.login == success.login
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 114] true == true
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 115] true == true
+Logout.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 119] false == false
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 120] false == false
+Logging out again won&apos;t do any harm.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 124] false == false
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 125] false == false
+Sync calls login.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 144] true == true
+We&apos;re ready to sync if locked.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 177] true == true
+... and not if not.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 184] false == false
+Old passphrase function is function () ID.get(&quot;WeaveCryptoID&quot;).keyStr
+If master password is canceled, login fails and we report lockage.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 210] false == false
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 211] service.master_password_locked == service.master_password_locked
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 212] error.login.failed == error.login.failed
+Locked? true
+checkSync reports the correct term.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 215] User elected to leave Master Password locked == User elected to leave Master Password locked
+Sync doesn&apos;t proceed and clears triggers if MP is still locked.
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 220] true == true
+TEST-PASS | C:/talos-slave/test/build/xpcshell/tests/services/sync/tests/unit/test_service_login.js | [run_test : 221] false == false
+TEST-INFO | (xpcshell/head.js) | test 2 finished
+TEST-INFO | (xpcshell/head.js) | running event loop
+TEST-INFO | (xpcshell/head.js) | test 1 finished
+TEST-INFO | (xpcshell/head.js) | exiting test
+TEST-PASS | (xpcshell/head.js) | 45 (+ 0) check(s) passed
+raded sync key...
+1302042879316	Service.Main	INFO	Done saving.
+1302042879316	Service.Main	DEBUG	Fetching and verifying -- or generating -- symmetric keys.
+1302042879347	Net.Resource	DEBUG	GET success 200 http://localhost:8080/1.0/janedoe/info/collections
+1302042879348	Service.Main	INFO	Testing info/collections: {}
+1302042879348	CollectionKeys	INFO	Testing for updateNeeded. Last modified: 1302042878.71
+1302042879348	Service.Main	INFO	CollectionKeys reports that a key update is needed.
+1302042879350	Service.Main	INFO	... &apos;crypto&apos; is not a reported collection. Generating new keys.
+1302042879351	Service.Main	INFO	Service reset.
+1302042879356	Engine.Clients	DEBUG	Resetting clients last sync time
+1302042879358	Engine.Bookmarks	DEBUG	Resetting bookmarks last sync time
+1302042879360	Engine.Forms	DEBUG	Resetting forms last sync time
+1302042879361	Engine.History	DEBUG	Resetting history last sync time
+1302042879363	Engine.Passwords	DEBUG	Resetting passwords last sync time
+1302042879364	Engine.Prefs	DEBUG	Resetting prefs last sync time
+1302042879366	Engine.Tabs	DEBUG	Resetting tabs last sync time
+1302042879368	Service.Main	INFO	Generating new keys....
+1302042879368	BulkKeyBundle	INFO	BulkKeyBundle being created for [default]
+1302042879371	Service.Main	INFO	Encrypting new key bundle. Modified time is 1302042879.37
+1302042879381	Service.Main	INFO	Uploading...
+1302042879383	Net.Resource	DEBUG	PUT Length: 402
+1302042879527	Net.Resource	DEBUG	PUT success 200 http://localhost:8080/1.0/janedoe/storage/crypto/keys
+1302042879527	Service.Main	INFO	Got status 200
+1302042879533	Service.Main	INFO	Logging out
+1302042879534	Service.Main	DEBUG	Clearing sync triggers.
+1302042879538	Service.Main	INFO	Starting sync at 2011-04-05 15:34:39
+1302042879541	Service.Main	DEBUG	In sync: should login.
+1302042879541	Service.Main	INFO	In sync().
+1302042879543	Service.Main	DEBUG	Exception: Can&apos;t sync: User is not logged in No traceback available
+1302042879546	Service.Main	DEBUG	Clearing sync triggers.
+1302042879624	Service.Main	INFO	Logging in user janedoe
+1302042879624	Service.Main	DEBUG	Fetching passphrase threw User canceled Master Password entry; assuming master password locked.
+1302042879625	Service.Main	DEBUG	Login failed: service.master_password_locked
+1302042879629	Service.Main	INFO	Starting sync at 2011-04-05 15:34:39
+1302042879629	Service.Main	DEBUG	In sync: should login.
+1302042879633	Service.Main	INFO	Logging in user janedoe
+1302042879633	Service.Main	DEBUG	Fetching passphrase threw User canceled Master Password entry; assuming master password locked.
+1302042879634	Service.Main	DEBUG	Login failed: service.master_password_locked
+1302042879634	Service.Main	DEBUG	Not syncing: login returned false.
+WARNING: nsExceptionService ignoring thread destruction after shutdown: file e:/builds/moz2_slave/ced-w32-dbg/build/xpcom/base/nsExceptionService.cpp, line 197
+###!!! ASSERTION: RECURSION_LEVEL_SAFE_TO_FINISH(table): &apos;RECURSION_LEVEL_SAFE_TO_FINISH(table)&apos;, file e:/builds/moz2_slave/ced-w32-dbg/build/obj-firefox/xpcom/build/pldhash.c, line 406
+nsStringStats
+ =&gt; mAllocCount:           6535
+ =&gt; mReallocCount:          675
+ =&gt; mFreeCount:            6519  --  LEAKED 16 !!!
+ =&gt; mShareCount:           9692
+ =&gt; mAdoptCount:            660
+ =&gt; mAdoptFreeCount:        660
+xul!XRE_GetBinaryPath+0x0000000001817D95
+xul!XRE_GetBinaryPath+0x0000000001817CEB
+xul!XRE_GetBinaryPath+0x0000000001817CAB
+xul!XRE_GetBinaryPath+0x0000000001817C7F
+xul!XRE_GetBinaryPath+0x0000000001815DA0
+xul!XRE_GetBinaryPath+0x0000000001815ACB
+xul!XRE_GetBinaryPath+0x0000000001815A76
+xul!XRE_GetBinaryPath+0x0000000001815C0B
+xul!XRE_GetBinaryPath+0x000000000177E8E7
+xul!XRE_GetBinaryPath+0x000000000177E4A8
+0x000000001000133D
+0x0000000000404EBC
+0x0000000000412D36
+0x0000000000412B8D
+kernel32!RegisterWaitForInputIdle+0x0000000000000049
+###!!! ASSERTION: RECURSION_LEVEL_SAFE_TO_FINISH(table): &apos;RECURSION_LEVEL_SAFE_TO_FINISH(table)&apos;, file e:/builds/moz2_slave/ced-w32-dbg/build/obj-firefox/xpcom/build/pldhash.c, line 406
+&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+PROCESS-CRASH | C:\talos-slave\test\build\xpcshell\tests\services\sync\tests\unit\test_service_login.js | application crashed (minidump found)
+Operating system: Windows NT
+                  5.1.2600 Service Pack 2
+CPU: x86
+     GenuineIntel family 6 model 23 stepping 10
+     2 CPUs
+
+Crash reason:  EXCEPTION_BREAKPOINT
+Crash address: 0x3fe1352
+
+Thread 0 (crashed)
+ 0  mozalloc.dll!mozalloc_abort(char const * const) [mozalloc_abort.cpp:385684ad7eed : 77 + 0x0]
+    eip = 0x03fe1352   esp = 0x0012f8c0   ebp = 0x0012f8c0   ebx = 0x7ffde000
+    esi = 0x0000c000   edi = 0x00ba4bb0   eax = 0x00000000   ecx = 0xaec243b0
+    edx = 0x10313d18   efl = 0x00000216
+    Found by: given as instruction pointer in context
+ 1  xul.dll!Abort [nsDebugImpl.cpp:385684ad7eed : 388 + 0x9]
+    eip = 0x01cfe72d   esp = 0x0012f8c8   ebp = 0x0012f8cc
+    Found by: call frame info
+ 2  xul.dll!NS_DebugBreak_P [nsDebugImpl.cpp:385684ad7eed : 375 + 0xb]
+    eip = 0x01cfe2f8   esp = 0x0012f8d4   ebp = 0x0012fcf0
+    Found by: call frame info
+ 3  xul.dll!PL_DHashTableFinish [pldhash.c:385684ad7eed : 406 + 0x6c]
+    eip = 0x01c63078   esp = 0x0012fcf8   ebp = 0x0012fd20
+    Found by: call frame info
+ 4  xul.dll!nsTHashtable&lt;nsBaseHashtableET&lt;nsIDHashKey,xptiInterfaceEntry *&gt; &gt;::~nsTHashtable&lt;nsBaseHashtableET&lt;nsIDHashKey,xptiInterfaceEntry *&gt; &gt;() [nsTHashtable.h:385684ad7eed : 318 + 0x8]
+    eip = 0x01d13649   esp = 0x0012fd28   ebp = 0x0012fd30
+    Found by: call frame info
+ 5  xul.dll!nsBaseHashtable&lt;nsIDHashKey,xptiInterfaceEntry *,xptiInterfaceEntry *&gt;::~nsBaseHashtable&lt;nsIDHashKey,xptiInterfaceEntry *,xptiInterfaceEntry *&gt;() + 0xe
+    eip = 0x01d1359f   esp = 0x0012fd38   ebp = 0x0012fd3c
+    Found by: call frame info
+ 6  xul.dll!nsDataHashtable&lt;nsIDHashKey,xptiInterfaceEntry *&gt;::~nsDataHashtable&lt;nsIDHashKey,xptiInterfaceEntry *&gt;() + 0xe
+    eip = 0x01d1355f   esp = 0x0012fd44   ebp = 0x0012fd48
+    Found by: call frame info
+ 7  xul.dll!xptiWorkingSet::~xptiWorkingSet() [xptiWorkingSet.cpp:385684ad7eed : 84 + 0x15]
+    eip = 0x01d13533   esp = 0x0012fd50   ebp = 0x0012fd54
+    Found by: call frame info
+ 8  xul.dll!xptiInterfaceInfoManager::~xptiInterfaceInfoManager() [xptiInterfaceInfoManager.cpp:385684ad7eed : 99 + 0x44]
+    eip = 0x01d11654   esp = 0x0012fd5c   ebp = 0x0012fd60
+    Found by: call frame info
+ 9  xul.dll!xptiInterfaceInfoManager::`scalar deleting destructor&apos;(unsigned int) + 0xe
+    eip = 0x01d1137f   esp = 0x0012fd68   ebp = 0x0012fd6c
+    Found by: call frame info
+10  xul.dll!xptiInterfaceInfoManager::Release() [xptiInterfaceInfoManager.cpp:385684ad7eed : 54 + 0x89]
+    eip = 0x01d1132a   esp = 0x0012fd74   ebp = 0x0012fd88
+    Found by: call frame info
+11  xul.dll!xptiInterfaceInfoManager::FreeInterfaceInfoManager() [xptiInterfaceInfoManager.cpp:385684ad7eed : 77 + 0x1b]
+    eip = 0x01d114bf   esp = 0x0012fd90   ebp = 0x0012fd94
+    Found by: call frame info
+12  xul.dll!mozilla::ShutdownXPCOM(nsIServiceManager *) [nsXPComInit.cpp:385684ad7eed : 731 + 0x4]
+    eip = 0x01c7a19b   esp = 0x0012fd9c   ebp = 0x0012fe20
+    Found by: call frame info
+13  xul.dll!NS_ShutdownXPCOM_P [nsXPComInit.cpp:385684ad7eed : 590 + 0x8]
+    eip = 0x01c79d5c   esp = 0x0012fe28   ebp = 0x0012fe2c
+    Found by: call frame info
+14  xpcom.dll!NS_ShutdownXPCOM [nsXPComStub.cpp:385684ad7eed : 167 + 0x9]
+    eip = 0x1000133d   esp = 0x0012fe34   ebp = 0x0012fe38
+    Found by: call frame info
+15  xpcshell.exe!main [xpcshell.cpp:385684ad7eed : 2035 + 0x7]
+    eip = 0x00404ebc   esp = 0x0012fe40   ebp = 0x0012ff68
+    Found by: call frame info
+16  xpcshell.exe!__tmainCRTStartup [crtexe.c : 597 + 0x18]
+    eip = 0x00412d36   esp = 0x0012ff70   ebp = 0x0012ffb8
+    Found by: call frame info
+17  xpcshell.exe!mainCRTStartup [crtexe.c : 413 + 0x4]
+    eip = 0x00412b8d   esp = 0x0012ffc0   ebp = 0x0012ffc0   ebx = 0x0012f4c0
+    Found by: call frame info
+18  kernel32.dll + 0x16d4e
+    eip = 0x7c816d4f   esp = 0x0012ffc8   ebp = 0x0012fff0
+    Found by: call frame info
+
+Thread 1
+ 0  ntdll.dll + 0xeb94
+    eip = 0x7c90eb94   esp = 0x048dfd20   ebp = 0x048dfd4c   ebx = 0x00000000
+    esi = 0x0012f9e4   edi = 0x04020260   eax = 0x0402e000   ecx = 0x04030000
+    edx = 0x00002000   efl = 0x00000246
+    Found by: given as instruction pointer in context
+ 1  xul.dll!base::MessagePumpForIO::GetIOItem(unsigned long,base::MessagePumpForIO::IOItem *) [message_pump_win.cc:385684ad7eed : 528 + 0x24]
+    eip = 0x01dd3fcc   esp = 0x048dfd54   ebp = 0x048dfd74
+    Found by: previous frame&apos;s frame pointer
+ 2  xul.dll!base::MessagePumpForIO::WaitForIOCompletion(unsigned long,base::MessagePumpForIO::IOHandler *) [message_pump_win.cc:385684ad7eed : 499 + 0xf]
+    eip = 0x01dd3e92   esp = 0x048dfd7c   ebp = 0x048dfdac
+    Found by: call frame info
+ 3  xul.dll!base::MessagePumpForIO::WaitForWork() [message_pump_win.cc:385684ad7eed : 492 + 0xd]
+    eip = 0x01dd3e2c   esp = 0x048dfdb4   ebp = 0x048dfdd4
+    Found by: call frame info
+ 4  xul.dll!base::MessagePumpForIO::DoRunLoop() [message_pump_win.cc:385684ad7eed : 477 + 0x7]
+    eip = 0x01dd3d78   esp = 0x048dfddc   ebp = 0x048dfde8
+    Found by: call frame info
+ 5  xul.dll!base::MessagePumpWin::RunWithDispatcher(base::MessagePump::Delegate *,base::MessagePumpWin::Dispatcher *) [message_pump_win.cc:385684ad7eed : 52 + 0xc]
+    eip = 0x01dd2d9f   esp = 0x048dfdf0   ebp = 0x048dfe0c   ebx = 0x0402bfc0
+    Found by: call frame info
+ 6  xul.dll!base::MessagePumpWin::Run(base::MessagePump::Delegate *) [message_pump_win.h:385684ad7eed : 78 + 0x14]
+    eip = 0x01dd2f65   esp = 0x048dfe14   ebp = 0x048dfe20
+    Found by: call frame info
+ 7  xul.dll!MessageLoop::RunInternal() [message_loop.cc:385684ad7eed : 219 + 0x1e]
+    eip = 0x01d46e76   esp = 0x048dfe28   ebp = 0x048dfe44
+    Found by: call frame info
+ 8  xul.dll!MessageLoop::RunHandler() [message_loop.cc:385684ad7eed : 202 + 0x7]
+    eip = 0x01d46d92   esp = 0x048dfe4c   ebp = 0x048dfe7c
+    Found by: call frame info
+ 9  xul.dll!MessageLoop::Run() [message_loop.cc:385684ad7eed : 176 + 0x7]
+    eip = 0x01d46c9d   esp = 0x048dfe84   ebp = 0x048dfe9c   ebx = 0x048dfe88
+    Found by: call frame info
+10  xul.dll!base::Thread::ThreadMain() [thread.cc:385684ad7eed : 156 + 0xa]
+    eip = 0x01d7ba8b   esp = 0x048dfea4   ebp = 0x048dffa8
+    Found by: call frame info
+11  xul.dll!`anonymous namespace&apos;::ThreadFunc(void *) [platform_thread_win.cc:385684ad7eed : 26 + 0xc]
+    eip = 0x01dd7fc7   esp = 0x048dffb0   ebp = 0x048dffb4
+    Found by: call frame info
+12  kernel32.dll + 0xb50a
+    eip = 0x7c80b50b   esp = 0x048dffbc   ebp = 0x048dffec
+    Found by: call frame info
+
+Thread 2
+ 0  ntdll.dll + 0xeb94
+    eip = 0x7c90eb94   esp = 0x0552ff7c   ebp = 0x0552ffb4   ebx = 0xc0000000
+    esi = 0x00000000   edi = 0x71a87558   eax = 0x0552ffa4   ecx = 0x0552ff7c
+    edx = 0x7c90eb94   efl = 0x00000202
+    Found by: given as instruction pointer in context
+ 1  kernel32.dll + 0xb50a
+    eip = 0x7c80b50b   esp = 0x0552ffbc   ebp = 0x0552ffec
+    Found by: previous frame&apos;s frame pointer
+
+Thread 3
+ 0  ntdll.dll + 0xeb94
+    eip = 0x7c90eb94   esp = 0x04adff04   ebp = 0x04adff28   ebx = 0x06e7fc50
+    esi = 0x04adff4c   edi = 0x04d76c30   eax = 0x00000000   ecx = 0x00000000
+    edx = 0x0000014c   efl = 0x00000246
+    Found by: given as instruction pointer in context
+ 1  xul.dll!WalkStackThread [nsStackWalk.cpp:385684ad7eed : 598 + 0xf]
+    eip = 0x01d0abee   esp = 0x04adff30   ebp = 0x04adff6c
+    Found by: previous frame&apos;s frame pointer
+ 2  msvcr80d.dll + 0x48d0
+    eip = 0x102048d1   esp = 0x04adff74   ebp = 0x04adffa8
+    Found by: call frame info
+ 3  msvcr80d.dll + 0x4876
+    eip = 0x10204877   esp = 0x04adffb0   ebp = 0x04adffb4
+    Found by: previous frame&apos;s frame pointer
+ 4  kernel32.dll + 0xb50a
+    eip = 0x7c80b50b   esp = 0x04adffbc   ebp = 0x04adffec
+    Found by: previous frame&apos;s frame pointer
+
+Loaded modules:
+0x00360000 - 0x003aefff  nspr4.dll  4.8.8.0  (main)
+0x003c0000 - 0x003fafff  smime3.dll  3.12.9.0
+0x00400000 - 0x00426fff  xpcshell.exe  2.2.0.4108
+0x00430000 - 0x0361dfff  xul.dll  2.2.0.4108
+0x03620000 - 0x03795fff  mozsqlite3.dll  3.7.5.0
+0x037a0000 - 0x03d4afff  mozjs.dll  ???
+0x03d60000 - 0x03edbfff  nss3.dll  3.12.9.0
+0x03ef0000 - 0x03f1bfff  nssutil3.dll  3.12.9.0
+0x03f30000 - 0x03f3bfff  plc4.dll  4.8.8.0
+0x03f50000 - 0x03f5afff  plds4.dll  4.8.8.0
+0x03f70000 - 0x03fcefff  ssl3.dll  3.12.9.0
+0x03fe0000 - 0x03feafff  mozalloc.dll  2.2.0.4108
+0x05c90000 - 0x05cddfff  softokn3.dll  3.12.9.0
+0x05e00000 - 0x05f11fff  browsercomps.dll  2.2.0.4108
+0x06520000 - 0x06557fff  nssdbm3.dll  3.12.9.0
+0x06560000 - 0x065d9fff  freebl3.dll  3.12.9.0
+0x0ffd0000 - 0x0fff7fff  rsaenh.dll  5.1.2600.2161
+0x10000000 - 0x1000afff  xpcom.dll  2.2.0.4108
+0x10200000 - 0x10320fff  msvcr80d.dll  8.0.50727.762
+0x10480000 - 0x1057dfff  msvcp80d.dll  8.0.50727.762
+0x16080000 - 0x160a4fff  mdnsNSP.dll  1.0.4.12
+0x59a60000 - 0x59b00fff  dbghelp.dll  5.1.2600.2180
+0x5ad70000 - 0x5ada7fff  uxtheme.dll  6.0.2900.2180
+0x5d090000 - 0x5d126fff  comctl32.dll  5.82.2900.2180
+0x629c0000 - 0x629c8fff  lpk.dll  5.1.2600.2180
+0x662b0000 - 0x66307fff  hnetcfg.dll  5.1.2600.2180
+0x693f0000 - 0x693f8fff  feclient.dll  5.1.2600.2180
+0x71a50000 - 0x71a8efff  mswsock.dll  5.1.2600.2180
+0x71a90000 - 0x71a97fff  wshtcpip.dll  5.1.2600.2180
+0x71aa0000 - 0x71aa7fff  ws2help.dll  5.1.2600.2180
+0x71ab0000 - 0x71ac6fff  ws2_32.dll  5.1.2600.2180
+0x71ad0000 - 0x71ad8fff  wsock32.dll  5.1.2600.2180
+0x71b20000 - 0x71b31fff  mpr.dll  5.1.2600.2180
+0x71bf0000 - 0x71c02fff  samlib.dll  5.1.2600.2180
+0x73000000 - 0x73025fff  winspool.drv  5.1.2600.2180
+0x73ce0000 - 0x73d17fff  t2embed.dll  0.2.0.81
+0x73dc0000 - 0x73dc2fff  lz32.dll  5.1.2600.0
+0x74d90000 - 0x74dfafff  usp10.dll  1.420.2600.2180
+0x751d0000 - 0x751edfff  wshbth.dll  5.1.2600.2180
+0x755c0000 - 0x755edfff  MSCTFIME.IME  5.1.2600.2180
+0x76380000 - 0x76384fff  msimg32.dll  5.1.2600.2180
+0x76390000 - 0x763acfff  imm32.dll  5.1.2600.2180
+0x763b0000 - 0x763f8fff  comdlg32.dll  6.0.2900.2180
+0x769c0000 - 0x76a72fff  userenv.dll  5.1.2600.2180
+0x76b40000 - 0x76b6cfff  winmm.dll  5.1.2600.2180
+0x76bf0000 - 0x76bfafff  psapi.dll  5.1.2600.2180
+0x76c30000 - 0x76c5dfff  wintrust.dll  5.131.2600.2180
+0x76c90000 - 0x76cb7fff  imagehlp.dll  5.1.2600.2180
+0x76d60000 - 0x76d78fff  iphlpapi.dll  5.1.2600.2180
+0x76f20000 - 0x76f46fff  dnsapi.dll  5.1.2600.2180
+0x76f60000 - 0x76f8bfff  wldap32.dll  5.1.2600.2180
+0x76fb0000 - 0x76fb7fff  winrnr.dll  5.1.2600.2180
+0x76fc0000 - 0x76fc5fff  rasadhlp.dll  5.1.2600.2180
+0x76fd0000 - 0x7704efff  clbcatq.dll  2001.12.4414.258
+0x77050000 - 0x77114fff  comres.dll  2001.12.4414.258
+0x77120000 - 0x771abfff  oleaut32.dll  5.1.2600.2180
+0x771b0000 - 0x77255fff  wininet.dll  6.0.2900.2180
+0x773d0000 - 0x774d1fff  comctl32.dll  6.0.2900.2180
+0x774e0000 - 0x7761bfff  ole32.dll  5.1.2600.2180
+0x77690000 - 0x776b0fff  ntmarta.dll  5.1.2600.2180
+0x77920000 - 0x77a12fff  setupapi.dll  5.1.2600.2180
+0x77a80000 - 0x77b13fff  crypt32.dll  5.131.2600.2180
+0x77b20000 - 0x77b31fff  msasn1.dll  5.1.2600.2180
+0x77c00000 - 0x77c07fff  version.dll  5.1.2600.2180
+0x77c10000 - 0x77c67fff  msvcrt.dll  7.0.2600.2180
+0x77d40000 - 0x77dcffff  user32.dll  5.1.2600.2180
+0x77dd0000 - 0x77e6afff  advapi32.dll  5.1.2600.2180
+0x77e70000 - 0x77f00fff  rpcrt4.dll  5.1.2600.2180
+0x77f10000 - 0x77f55fff  gdi32.dll  5.1.2600.2180
+0x77f60000 - 0x77fd5fff  shlwapi.dll  6.0.2900.2833
+0x7c800000 - 0x7c8f3fff  kernel32.dll  5.1.2600.2180
+0x7c900000 - 0x7c9affff  ntdll.dll  5.1.2600.2180
+0x7c9c0000 - 0x7d1d3fff  shell32.dll  6.0.2900.2180</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

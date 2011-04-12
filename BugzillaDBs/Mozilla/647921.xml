@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647921</bug_id>
+          
+          <creation_ts>2011-04-05 19:45:00 -0700</creation_ts>
+          <short_desc>New tab won&apos;t open unless right click hyperlink</short_desc>
+          <delta_ts>2011-04-06 09:20:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>644923</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>amiihale</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391807</commentid>
+            <who name="">amiihale</who>
+            <bug_when>2011-04-05 19:45:06 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.16) Gecko/20110319 AskTbF-ET/3.11.3.15590 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.16) Gecko/20110319 AskTbF-ET/3.11.3.15590 Firefox/3.6.16
+
+I can&apos;t force a new tab to open (say, to run a search without leaving the article i&apos;m reading on another tab) by clicking the &quot;+&quot; button or using the menu for new tab. the only way I can get a new tab after the last update is to right click a hyperlink
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.open firefox
+2. attempt to click &quot;+&quot; for new tab
+3. /facepalm :)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391844</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 21:14:10 -0700</bug_when>
+            <thetext>Your User-Agent string says you have Ask Toolbar installed. That causes New Tab-problems with Firefox 3.6.13+ versions according to:
+https://support.mozilla.com/en-US/questions/794912</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391846</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 21:16:13 -0700</bug_when>
+            <thetext>Your user agent string says you have Ask Toolbar installed. That causes problems with Firefox 3.6.13+ versions according to:
+https://support.mozilla.com/en-US/questions/794912</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391877</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 21:52:12 -0700</bug_when>
+            <thetext>This bug is probably a duplicate of bug 644923.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392373</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-06 09:20:39 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 644923 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

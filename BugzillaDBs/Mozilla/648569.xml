@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648569</bug_id>
+          
+          <creation_ts>2011-04-08 10:25:00 -0700</creation_ts>
+          <short_desc>Fx4 upgrade INFLUENCER campaign - add videos to Mozilla Firefox videos page</short_desc>
+          <delta_ts>2011-04-08 10:58:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla.com/en-US/firefox/video/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          <dependson>648572</dependson>
+          <blocked>648575</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jane Finette">jfinette</reporter>
+          <assigned_to name="Laura Forrest">lforrest</assigned_to>
+          <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396773</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-08 10:25:19 -0700</bug_when>
+            <thetext>Please can you help me add these two videos to the Mozilla Firefox Videos&apos;s page. 
+
+here are the links below. 
+
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4Mac.webm
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4PC.webm
+
+
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4Mac.mp4
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4PC.mp4
+
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4Mac.theora.ogv
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4PC.theora.ogv</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396787</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-08 10:29:33 -0700</bug_when>
+            <thetext>Copy for each video. 
+
+Title: Installing Firefox on MAC
+Description: Learn how to install Firefox on your MAC.
+
+
+Title:Installing Firefox on Windows
+Description: Learn how to install Firefox on your Windows machine.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396789</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-08 10:30:01 -0700</bug_when>
+            <thetext>Please add these videos under the Video Gallery -&gt;Firefox Desktop</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

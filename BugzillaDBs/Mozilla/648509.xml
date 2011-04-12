@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648509</bug_id>
+          
+          <creation_ts>2011-04-08 03:50:00 -0700</creation_ts>
+          <short_desc>Firefox Leaks Memory Because of Missing AutoreleasePools</short_desc>
+          <delta_ts>2011-04-08 03:50:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="TGOS">spamcop</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396255</commentid>
+            <who name="TGOS">spamcop</who>
+            <bug_when>2011-04-08 03:50:19 -0700</bug_when>
+            <thetext>Here&apos;s what I got in the console during normal Firefox operation:
+
+2011-04-08 11:43:43	firefox-bin[289]	*** __NSAutoreleaseNoPool(): Object 0x1141a2a90 of class NSCFDictionary autoreleased with no pool in place - just leaking
+2011-04-08 12:36:36	firefox-bin[2757]	*** __NSAutoreleaseNoPool(): Object 0x116d3e6b0 of class NSCFDictionary autoreleased with no pool in place - just leaking
+2011-04-08 12:36:36	[0x0-0x28028].org.mozilla.firefox	2011-04-08 12:36:36.861 firefox-bin[2757:903] *** __NSAutoreleaseNoPool(): Object 0x116d3e6b0 of class NSCFDictionary autoreleased with no pool in place - just leaking
+
+I don&apos;t get these messages all the time, usually only during start-up.
+
+Possibly a duplicate of bug 634702, bug 338041, or bug 577599, however none of these bugs have been recently updated and all refer to older versions, not to the official Fx 4.0 release.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

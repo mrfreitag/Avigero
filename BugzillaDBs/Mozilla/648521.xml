@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648521</bug_id>
+          
+          <creation_ts>2011-04-08 06:49:00 -0700</creation_ts>
+          <short_desc>Page search does not normalize and find decomposed Unicode characters</short_desc>
+          <delta_ts>2011-04-08 06:49:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Jakob Voss">voss</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396357</commentid>
+            <who name="Jakob Voss">voss</who>
+            <bug_when>2011-04-08 06:49:51 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Ubuntu/10.04 Chromium/10.0.648.133 Chrome/10.0.648.133 Safari/534.16
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Several Unicode characters can be represented in two ways: as one precomposed codepoint or as combination of a character with combining characters. The visual display is the same and you can normalization both to one form. But if a page contains both forms, the page search of Firefox does not find both.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open a page with non-normalized Unicode. Here is an example:
+
+&lt;html&gt;&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+combined ü
+&lt;hr&gt;
+u with combining dots: u&amp;#x0308;
+&lt;/body&gt;&lt;/html&gt;
+
+2. Search for a combined character STRG+F, type &quot;ü&quot;
+Actual Results:  
+Only the combined character &quot;ü&quot; is found
+
+Expected Results:  
+Both instances should be found, no matter whether precombined or with combining character in the source document.
+
+You should normalize the page content by Unicode Normalization Form Canonical Composition (NFC).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

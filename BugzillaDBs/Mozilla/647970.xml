@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647970</bug_id>
+          
+          <creation_ts>2011-04-06 04:18:00 -0700</creation_ts>
+          <short_desc>Cannot get rid of the Bing virus !</short_desc>
+          <delta_ts>2011-04-06 13:11:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Preferences</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Badita Florin">baditaflorin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jo.hermans</cc>
+    
+    <cc>zed260</cc>
+          <qa_contact>preferences</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392122</commentid>
+            <who name="Badita Florin">baditaflorin</who>
+            <bug_when>2011-04-06 04:18:35 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Firefox 4 search in bing, and this sucks ! I do not see no settings to correct that in the settings. So it`s like a virus or spam, because we can not get ride of it.
+
+And changing the keyword.URL it`s not a solution , we need something in the settings. Why ?
+
+1 .I do not want to void my warranty 
+
+&quot;This might void your warranty!&quot;
+
+ Changing these advanced settings can be harmful to the stability, security, and performance of this application.You should only continue if you are sure of what your doing.&quot;
+
+&quot;I&apos;ll be careful I promise!&quot;
+
+2 . I will not be careful, and i will be tempted to change other settings, and this will make me a liar .
+
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Clean install firefox 4.
+2. Search using the Left upper bar
+3. And you see the Bing Virus.
+
+
+
+The solution is to go to about:config 
+
+In the Filter box, Type in keyword.URL
+Under Preference Name, keyworld.URL should pop up.  Right-Click it and Select Modify.
+
+Replace the text with the following:
+
+http://www.google.com/webhp?ie=UTF-8&amp;oe=UTF-8.
+
+But this it`s a stupid fix, leaving the normal user affected with this viruses .</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392219</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-06 06:46:20 -0700</bug_when>
+            <thetext>Bing is not the default setting (normally, Google is) - do you have or had an add-on that has installed this ? Msybe the Bind Add-on &lt;https://addons.mozilla.org/en-US/firefox/addon/bing/&gt; ?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

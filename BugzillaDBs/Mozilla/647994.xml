@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647994</bug_id>
+          
+          <creation_ts>2011-04-06 07:38:00 -0700</creation_ts>
+          <short_desc>Yahoo! logo missing in Firefox 4 Yahoo! build</short_desc>
+          <delta_ts>2011-04-07 00:55:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          <bug_file_loc>about:home</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="KNTRO">tskuhn</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+    
+    <cc>andrei.domuta</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392259</commentid>
+            <who name="KNTRO">tskuhn</who>
+            <bug_when>2011-04-06 07:38:45 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+The logo of the Yahoo! search engine is missing at the about:home page, in the Firefox 4 Yahoo! build (which can be downloaded from here: http://downloads.yahoo.com/ar/firefox/ ).
+
+This is the about:home page from regular Firefox 4 (Google logo is OK):
+http://i51.tinypic.com/21d2zqx.png
+
+And this is the about:home page from the Yahoo! build of Firefox 4 (Yahoo! logo is missing):
+http://i56.tinypic.com/357hgd2.png
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Install Firefox 4 and try it
+2.Install Firefox 4 (Yahoo! build)
+3.Create a clean, test profile in order to show the Yahoo!&apos;s original about:home page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392995</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-06 12:56:59 -0700</bug_when>
+            <thetext>Maybe contact Yahoo! at http://help.yahoo.com/l/ar/yahoo/helpcentral/ this is not an issue on Firefox itself, as such, please close this bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394091</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 00:55:24 -0700</bug_when>
+            <thetext>Please refer to the official Firefox builds when reporting a bug (http://www.mozilla.org/)
+
+Marking bug as Invalid as per Comment 1</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

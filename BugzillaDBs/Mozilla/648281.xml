@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648281</bug_id>
+          
+          <creation_ts>2011-04-07 08:55:00 -0700</creation_ts>
+          <short_desc>&quot;Install&quot; buttons in detail-view of collection add-ons don&apos;t work (Firefox 4)</short_desc>
+          <delta_ts>2011-04-08 03:17:26 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Collector Extension</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dimitri Saltanov">dimsal.public</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>briks.si</cc>
+    
+    <cc>dave</cc>
+    
+    <cc>dtownsend</cc>
+    
+    <cc>hskupin</cc>
+          <qa_contact>collector-extension</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394481</commentid>
+            <who name="Dimitri Saltanov">dimsal.public</who>
+            <bug_when>2011-04-07 08:55:12 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+&quot;Install&quot; buttons in detail-view of collection add-ons don&apos;t always launch add-on installation. This happens most of the time for me, although occasionally the it does work.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Double-click add-on in a collection to switch to its detail-view.
+2. Click &quot;Install&quot;
+
+Actual Results:  
+It switches back to the collection view, but add-on does not start to install. Clicking &quot;Install&quot; button on the add-on entry in the list works, however.
+
+Also, switching back and forth between collection view and addon detail view frequently shows warning in error console:
+
+Warning: WARN addons.manager: Exception calling callback: TypeError: gViewController.currentViewObj.getListItemForID is not a function
+Source file: chrome://mozapps/content/extensions/extensions.js
+Line: 957
+
+And when switching manually from detail-view to &quot;Extensions&quot; category selector, this one:
+Warning: WARN addons.manager: Exception calling callback: TypeError: gViewController.currentViewObj.getListItemForID(aAddon.id) is undefined
+Source file: chrome://mozapps/content/extensions/extensions.js
+Line: 957
+
+Though I&apos;m not sure these are directly related to the bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394541</commentid>
+            <who name="Dimitri Saltanov">dimsal.public</who>
+            <bug_when>2011-04-07 09:29:31 -0700</bug_when>
+            <thetext>Follow-up: it seems as though the warnings start to appear regularly for detail-views of any extensions in AOM (not just those from Collector) after the first failure of the &quot;Install&quot; button happens in a Collector add-on. Straight after app restart there are no warnings, even when switching to/from detail-views of Collector add-ons.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395102</commentid>
+            <who name="Brian King (Briks) [:kinger]">briks.si</who>
+            <bug_when>2011-04-07 14:12:01 -0700</bug_when>
+            <thetext>Comment 1 is worrisome, I don&apos;t want Collector to be breaking anything else in the AOM.
+
+cc&apos;ing some folks who may be aware of this issue from before?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395186</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-07 14:53:57 -0700</bug_when>
+            <thetext>Is the code for collector available for me to browse somewhere?
+
+I&apos;m assuming you&apos;re defining a view object of some kind, to support installs it&apos;d have to include a getListItemForID function, see the code at http://mxr.mozilla.org/mozilla-central/source/toolkit/mozapps/extensions/content/extensions.js#949
+
+I don&apos;t know why it&apos;d be affecting the rest of the manager though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396241</commentid>
+            <who name="Dimitri Saltanov">dimsal.public</who>
+            <bug_when>2011-04-08 03:17:26 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Comment 1 is worrisome, I don&apos;t want Collector to be breaking anything else in
+&gt; the AOM.
+
+I don&apos;t see any breakage of functionality in AOM due to these warnings. Moreover, warnings seem to cede once installation of any AOM search result entry is launched from its detail-view (but only till this bug is summoned again in Collector).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

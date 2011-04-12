@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648490</bug_id>
+          
+          <creation_ts>2011-04-08 00:02:00 -0700</creation_ts>
+          <short_desc>I don&apos;t trust stringMemoryUsed</short_desc>
+          <delta_ts>2011-04-08 15:35:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>563700</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Nicholas Nethercote [:njn]">nnethercote</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>luke</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396089</commentid>
+            <who name="Nicholas Nethercote [:njn]">nnethercote</who>
+            <bug_when>2011-04-08 00:02:17 -0700</bug_when>
+            <thetext>JSRuntime::stringMemoryUsed purports to record how much heap memory is used by string chars.  But strings have undergone many upheavals recently and I don&apos;t trust it.  It needs to be audited.
+
+(Actually, it would be better to find all these chars from the actual string headers, which involves scanning the GC heap to find all the strings.  Bug 625305 has some code along those lines.  But there might be some quick fixes in the meantime.)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

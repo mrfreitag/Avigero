@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647959</bug_id>
+          
+          <creation_ts>2011-04-06 02:31:00 -0700</creation_ts>
+          <short_desc>Add Honest Achmed&apos;s root certificate</short_desc>
+          <delta_ts>2011-04-06 02:37:55 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>CA Certificates</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Honest Achmed">honest.achmed</reporter>
+          <assigned_to name="Kathleen Wilson">kwilson</assigned_to>
+          <cc>foxymonkies</cc>
+    
+    <cc>mnordhoff</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>ca-certificates</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392076</commentid>
+            <who name="Honest Achmed">honest.achmed</who>
+            <bug_when>2011-04-06 02:31:02 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: 
+
+This is a request to add the CA root certificate for Honest Achmed&apos;s Used Cars and Certificates.  The requested information as per the CA information checklist is as follows:
+
+1. Name
+
+Honest Achmed&apos;s Used Cars and Certificates
+
+2. Website URL
+
+www.honestachmed.dyndns.org
+
+3. Organizational type
+
+Individual (Achmed, and possibly his cousin Mustafa, who knows a bit about computers).
+
+4. Primary market / customer base
+
+Absolutely anyone who&apos;ll give us money.
+
+5. Impact to Mozilla Users
+
+Achmed&apos;s business plan is to sell a sufficiently large number of certificates as quickly as possible in order to become too big to fail (see &quot;regulatory capture&quot;), at which point most of the rest of this application will become irrelevant.
+
+6. CA Contact Information
+
+achmed@honestachmed.dyndns.org
+
+Technical information about each root certificate
+
+1. Certificate Name
+
+Honest Achmed&apos;s Used Cars and Certificates
+
+2. Certificate Issuer Field
+
+Honest Achmed&apos;s Used Cars and Certificates
+
+3. Certificate Summary
+
+The purpose of this certificate is to allow Honest Achmed to sell bucketloads of other certificates and make a lot of money.
+
+4. Root Certificate URL
+
+www.honestachmed.dyndns.org/cert.der
+
+5. SHA1 fingerprint to 10. Signing key parameters
+
+See the certificates.
+
+11. Test website URL - 14. OCSP (OCSP is required for EV enablement)
+
+https://www.honestachmed.dyndns.org / www.honestachmed.dyndns.org/chain.p7s / www.honestachmed.dyndns.org/crl.der / www.honestachmed.dyndns.org/ocsp.asp
+
+15. Requested Trust Bits
+
+All of them of course.  The more trust bits we get, the more certificates we can sell.
+
+16. SSL Validation Type
+
+All of them.  The more types, the more certificates we can sell.
+
+CA Hierarchy information for each root certificate
+
+1. CA Hierarchy
+
+Honest Achmed plans to authorise certificate issuance by at least, but not limited to, his cousin Osman, his uncles Mehmet and Iskender, and possibly his cousin&apos;s friend Emin.
+
+2. Sub CAs Operated by 3rd Parties
+
+Honest Achmed&apos;s uncles may invite some of their friends to issue certificates as well, in particular their cousins Refik and Abdi or &quot;RA&quot; as they&apos;re known. Honest Achmed&apos;s uncles assure us that their RA can be trusted, apart from that one time when they lent them the keys to the car, but that was a one-off that won&apos;t happen again.
+
+Verification Policies and Practices
+
+1. Documentation: CP, CPS, and Relying Party Agreements
+
+Honest Achmed promises to studiously verify that payment from anyone requesting a certificate clears before issuing it (except for his uncles, who are good for credit).  Achmed guarantees that no certificate will be issued without payment having been received, as per the old latin proverb &quot;nil certificati sine lucre&quot;.
+
+2. Audits
+
+Achmed&apos;s uncles all vouch for the fact that he&apos;s honest.  In any case by the time he&apos;s issued enough certificates he&apos;ll be regarded as too big to fail by the browser vendors, so an expensive audit doesn&apos;t really matter.
+
+3. SSL Verification Procedures
+4. Email Address Verification Procedures
+5. Code Signing Subscriber Verification Procedures
+
+See (1).
+
+Response to Mozilla&apos;s CA Recommended Practices
+
+Honest Achmed promises to abide by these practices.  If he&apos;s found not to abide by them, he&apos;ll claim it was a one-off slip-up in procedures and that policies have been changed to ensure that it doesn&apos;t happen again.  If it does happen again, he&apos;ll blame it on one of his uncles or maybe his cousin, who still owes him some money for getting the car fixed.
+
+Reproducible: Always</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647949</bug_id>
+          
+          <creation_ts>2011-04-06 00:24:00 -0700</creation_ts>
+          <short_desc>PayPal receipts don&apos;t specify an addon</short_desc>
+          <delta_ts>2011-04-06 00:24:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Developer Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dwayne Bailey">dwayne</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>developers</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392014</commentid>
+            <who name="Dwayne Bailey">dwayne</who>
+            <bug_when>2011-04-06 00:24:16 -0700</bug_when>
+            <thetext>For authors of many addons, I have 11 spell checkers, the fact that the email coming from PayPal simply has a generic line doesn&apos;t help auditing the income.
+
+It would be much more useful if the one liner at least mentioned the name of the addon instead of &quot;Contribution for Translate.org.za&quot; if it said &quot;Contribution for Translate.org.za: Afrikaans spell checker&quot; then it would at least be useful.
+
+I see that PayPal has the concept of a &quot;Donation ID&quot; could we not make use of that to make tracking easier?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

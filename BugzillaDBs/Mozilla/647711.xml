@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647711</bug_id>
+          
+          <creation_ts>2011-04-04 10:48:00 -0700</creation_ts>
+          <short_desc>CERT_PKIXVerifyCert, bug in: if (defaultPkixVerifyParamsIn)</short_desc>
+          <delta_ts>2011-04-04 17:42:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>3.12.10</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>481763</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to>nobody</assigned_to>
+          <cc>alvolkov.bgs</cc>
+    
+    <cc>rrelyea</cc>
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390307</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 10:48:07 -0700</bug_when>
+            <thetext>Function CERT_PKIXVerifyCert has a for loop that processes global defaults.
+The loop inside has a bug:
+
+2271                for (j=0; paramsIn[i].type != cert_pi_end; ++j) {
+2272                    if (defaultPkixVerifyParamsIn[i].type == paramsIn[i].type) {
+2273                        skip_default_param = PR_TRUE;
+2274                        break;
+2275                    }
+2276                }
+
+
+Note that &quot;j&quot; is never used inside the loop.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

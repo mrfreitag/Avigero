@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647811</bug_id>
+          
+          <creation_ts>2011-04-05 06:08:00 -0700</creation_ts>
+          <short_desc>No visual GUI indication that the app has indeed started and is currently initializing.</short_desc>
+          <delta_ts>2011-04-05 12:05:43 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Michel Dubuc">michel.dubuc1</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jo.hermans</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391067</commentid>
+            <who name="Michel Dubuc">michel.dubuc1</who>
+            <bug_when>2011-04-05 06:08:19 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Good morning!
+
+One thing that has been annoying me since testing Firefox4 beta&apos;s and then using the release is that when one starts it up in windows, after double clicking on it&apos;s icon on the desktop, it launches but one does not know that it is launching until the main frame window is displayed 30 to 40 seconds later. Thus, I click on the app icon several times not knowing if I double clicked on it properly, or if it even started with the first double click, then I have several instances of the app up a minute later.
+
+What I suggest would be a splash window or something similar displayed right after start-up showing the user that the app has indeed started and is currently initializing. If one examines the M$ Outlook 2010 splash window, it even tells you what exactly it&apos;s initializing in a static text box IE: (Plug-In *PlugInName* 1 of 15 or such).
+
+I do not recall if Firefox under my Ubuntu 10.10 does the same thing but it probably does. 
+
+Thanks again for the great browser, I changed to it from IE8 three to four months ago and it&apos;s the best thing that I did.
+
+My system specs:
+Microsoft WindowsXP Home SP3
+Acer AspireOne D250 2 Gig RAM
+
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391099</commentid>
+            <who name="sdrocking">dugar.siddhartha</who>
+            <bug_when>2011-04-05 07:06:37 -0700</bug_when>
+            <thetext>See Bug 198605</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391192</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-05 08:31:47 -0700</bug_when>
+            <thetext>Splash screens are ... so 90&apos;s. It got removed when Firefox wasn&apos;t even called Firefox yet. The main reason was that it actually slowed down the startup.
+
+Besides, you can&apos;t show the splash screen when the first part of the application is still loading. Modern operating systems often shown an animation (f.u. a bouncing icon) to help here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391419</commentid>
+            <who name="Michel Dubuc">michel.dubuc1</who>
+            <bug_when>2011-04-05 12:05:43 -0700</bug_when>
+            <thetext>
+There are a number of items in Bug 198605 that do relate to my question specially the one pertaining to the Windows wait cursor not activating.
+
+&gt;  Modern operating systems often shown an animation f.u. a bouncing icon) to help here.
+
+I choose to use Safari with my modern operating system, Mac OSX 10.6.x, my concern is the above behavior with Firefox4 under Windows and Linux.
+
+&gt; Splash screens are ... so 90&apos;s. It got removed when Firefox wasn&apos;t even called
+&gt; Firefox yet. The main reason was that it actually slowed down the startup.
+
+Even so, at least it graphically shows that something is happening, besides, mostly all windows apps these days have a splash screen - even more than they used to back in the 90&apos;s. How resource intensive can displaying a bitmap/window be?
+ 
+&gt; Besides, you can&apos;t show the splash screen when the first part of the
+&gt; application is still loading.
+
+I can do it at creation time even before doing anything else using Visual C++ in a Win32 App but there is a good chance that your using something else.
+
+Thank you!
+
+Michel</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

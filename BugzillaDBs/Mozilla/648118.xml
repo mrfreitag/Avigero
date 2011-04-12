@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648118</bug_id>
+          
+          <creation_ts>2011-04-06 14:26:00 -0700</creation_ts>
+          <short_desc>Downloads folder is hard to find on the sdcard</short_desc>
+          <delta_ts>2011-04-06 14:35:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kevin Brosnan">kbrosnan</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>blassey.bugs</cc>
+    
+    <cc>mark.finkle</cc>
+    
+    <cc>wjohnston</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393228</commentid>
+            <who name="Kevin Brosnan">kbrosnan</who>
+            <bug_when>2011-04-06 14:26:12 -0700</bug_when>
+            <thetext>the current path to find a downloaded file on the sdcard is /sdcard/Android/data/org.mozilla.firefox/files/Download on my G2.
+
+It would be nice to use somewhere that the user has a chance of finding. /sdcard/firefoxmobile/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393235</commentid>
+            <who name="Mark Finkle (:mfinkle)">mark.finkle</who>
+            <bug_when>2011-04-06 14:28:19 -0700</bug_when>
+            <thetext>Shouldn&apos;t we be using the exact same download folder as the stock browser?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393252</commentid>
+            <who name="Wesley Johnston (:wesj)">wjohnston</who>
+            <bug_when>2011-04-06 14:35:47 -0700</bug_when>
+            <thetext>On newer versions of Android, we use the system download folder (sdcard/Download I believe, but a vendor could probably move that if they wanted). On 2.1 and earlier versions, we use the data directory for our app:
+
+http://mxr.mozilla.org/mozilla-central/source/embedding/android/GeckoAppShell.java#302
+
+Not sure if we want to change this for those earlier versions or not.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

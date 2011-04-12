@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648311</bug_id>
+          
+          <creation_ts>2011-04-07 11:05:00 -0700</creation_ts>
+          <short_desc>Fennec&apos;s file location changes on update, third party applications forget to use it as default for internet links</short_desc>
+          <delta_ts>2011-04-07 11:05:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Archaeopteryx [:aryx]">archaeopteryx</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394729</commentid>
+            <who name="Archaeopteryx [:aryx]">archaeopteryx</who>
+            <bug_when>2011-04-07 11:05:38 -0700</bug_when>
+            <thetext>Adndroid 2.3.3, Nexus S
+
+Fennec&apos;s file location changes while updating, third party applications forget to use it as default for internet links.
+
+Steps to reproduce:
+1. Tell a third party application to open a web page in a browser.
+2. In the list of available handlers, click to use as default and then Fennec.
+3. Update Fennec.
+4. Repeat 1.
+
+Actual result:
+Get again 2.
+
+Expected result:
+Launch Fennec without user selecting it againas the default browser.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

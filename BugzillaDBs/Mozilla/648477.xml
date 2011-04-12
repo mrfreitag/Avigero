@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648477</bug_id>
+          
+          <creation_ts>2011-04-07 21:34:00 -0700</creation_ts>
+          <short_desc>In case of disabled Tabs on Top,Detaching tab is not performed when I dropped the tab onto the contents area</short_desc>
+          <delta_ts>2011-04-08 07:17:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>130078</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Alice0775 White">alice0775</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+    
+    <cc>jmathies</cc>
+    
+    <cc>roc</cc>
+    
+    <cc>tnikkel</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395907</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-07 21:34:26 -0700</bug_when>
+            <thetext>Build Identifier:
+http://hg.mozilla.org/mozilla-central/rev/385684ad7eed
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110406
+Firefox/4.2a1pre ID:20110406030427
+
+In case of disabled Tabs on Top ,
+Detaching tab is not performed when I drag a tab downward(do not drag horizontally) and dropped the tab onto the contents area.
+And detaching tab is executed suddenly when mouse hover over Status Panel, Addon Bar or FindBar.
+
+
+Reproducible: Always
+
+Steps to Reproduce#1:
+1. Start Minefield with new profile
+2. Un check &quot;Tabs on Top&quot;
+3. Open several tabs
+4. Drag a tab downward (DO NOT DRAG HORIZONTALLY)
+5. Drop the tab on content area
+   -- Detaching tab is not performed.
+6. Mouse hover over Status Panel, addon Bar or FindBar.
+   -- Detaching tab is executed suddenly.
+
+Actual Results:
+ Detaching tab is not performed when I dropped the tab onto the contents area.
+ And detaching tab is executed suddenly when mouse hover over Status Panel, Addon Bar or FindBar.
+
+Expected Results:
+ Detaching tab should be performed after step 5 immediately.
+
+Regression window:
+Works:
+http://hg.mozilla.org/mozilla-central/rev/01fa971e62ee
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100827
+Firefox/4.0b5pre ID:20100827190212
+fails:
+http://hg.mozilla.org/mozilla-central/rev/0886ad6e6aaa
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b5pre) Gecko/20100827
+Firefox/4.0b5pre ID:20100827190555
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=01fa971e62ee&amp;tochange=0886ad6e6aaa
+
+In local build:
+Build from 7804b5cf4313 : fails
+Build from 687b70fea4d0 : fails
+Build from 4722b491cd0d : works
+
+I guess landing of Bug 130078 causes the problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395987</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 22:30:46 -0700</bug_when>
+            <thetext>I&apos;m not able to reproduce this issue with a clean profile and Mozilla/5.0 (Windows NT 5.1; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre or Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Have you already tested with a fresh profile? Not sure if another pref could cause this?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396015</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-07 22:47:54 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; I&apos;m not able to reproduce this issue with a clean profile and Mozilla/5.0
+&gt; (Windows NT 5.1; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre or Mozilla/5.0
+&gt; (Windows NT 6.1; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+&gt; 
+&gt; Have you already tested with a fresh profile? Not sure if another pref could
+&gt; cause this?
+
+I tested Clean profile, just Disabled Tabs on top.
+
+See http://technet.microsoft.com/en-us/library/cc978610.aspx
+it happens if DragHeight was more than 20. (Some mouse utilities change the value)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

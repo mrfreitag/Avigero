@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647749</bug_id>
+          
+          <creation_ts>2011-04-04 16:31:00 -0700</creation_ts>
+          <short_desc>Assertion failure: !(certificateUsage &amp; (certificateUsage - 1)), at pkix_pl_cert.c:3011</short_desc>
+          <delta_ts>2011-04-05 15:00:15 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>3.12.9</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to>nobody</assigned_to>
+          <cc>alvolkov.bgs</cc>
+    
+    <cc>bsmith</cc>
+    
+    <cc>rrelyea</cc>
+    
+    <cc>wtc</cc>
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390612</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 16:31:33 -0700</bug_when>
+            <thetext>My code that queries a builtin CA cert for usages runs into the following assertion:
+
+(PKIX_BuildChain: ( Entering PKIX_BuildChain).
+(pkix_Build_InitiateBuildChain: ( Entering pkix_Build_InitiateBuildChain).
+Assertion failure: !(certificateUsage &amp; (certificateUsage - 1)), at pkix_pl_cert.c:3011</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390613</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 16:32:18 -0700</bug_when>
+            <thetext>... which is a crash</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390618</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 16:34:51 -0700</bug_when>
+            <thetext>#9  0x00129462 in PR_Assert (s=0x385d420 &quot;!(certificateUsage &amp; (certificateUsage - 1))&quot;, file=0x385d1b0 &quot;pkix_pl_cert.c&quot;, ln=3011) at /plaindata/moz/mocent/mozilla/nsprpub/pr/src/io/prlog.c:577
+#10 0x037fadde in PKIX_PL_Cert_VerifyCertAndKeyType (cert=0xa33c0100, isChainCert=0, plContext=0xa330b820) at pkix_pl_cert.c:3011
+#11 0x037a0176 in pkix_CertSelector_DefaultMatch (selector=0xa34c9f60, cert=0xa33c0100, plContext=0xa330b820) at pkix_certselector.c:1332
+#12 0x037da3a3 in pkix_Build_InitiateBuildChain (procParams=0xb3366ab0, pNBIOContext=0xa45fde74, pState=0xa45fde7c, pBuildResult=0xa45fde78, pVerifyNode=0xa45fdee4, plContext=0xa330b820) at pkix_build.c:3364
+#13 0x037dbe23 in PKIX_BuildChain (procParams=0xb3366ab0, pNBIOContext=0xa45fdef0, pState=0xa45fdeec, pBuildResult=0xa45fdef4, pVerifyNode=0xa45fdee4, plContext=0xa330b820) at pkix_build.c:3731
+#14 0x037396fd in CERT_PKIXVerifyCert (cert=0xa1e4b010, usages=1151, paramsIn=0xa4f3bf10, paramsOut=0xa45fdf90, wincx=0x0) at certvfypkix.c:2317
+#15 0x01f1ca3d in nsUsageArrayHelper::GetUsagesArray (this=0xa45fe070, suffix=0x2c966b0 &quot;&quot;, localOnly=0, outArraySize=13, _verified=0xa45fe100, _count=0xa45fe080, outUsages=0xa45fe03c)
+    at /plaindata/moz/mocent/mozilla/security/manager/ssl/src/nsUsageArrayHelper.cpp:224
+#16 0x01eefa2d in nsNSSCertificate::GetUsagesArray (this=0xa1d88680, localOnly=0, _verified=0xa45fe100, _count=0xa45fe0fc, _usages=0xa45fe0f8)
+    at /plaindata/moz/mocent/mozilla/security/manager/ssl/src/nsNSSCertificate.cpp:1443</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390679</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 17:41:07 -0700</bug_when>
+            <thetext>PSM has always been calling CERT_VerifyCertificateNow with a bitmask that includes multiple usages.
+
+It does so to obtain the list of valid usages.
+
+The API&apos;s output parameter of the new CERT_PKIXVerifyCert is designed to return such a list of usages, too.
+
+
+However, the imlementation of libPKIX contains the mentioned assertion, that will abort if more than one usage is being passed.
+
+
+Obviously, the application shouldn&apos;t abort on unexpected input data.
+It currently calls PORT_Assert !!!
+
+Is this maybe an area, where the implementation is incomplete, and the PORT_Assert is some kind of reminder...?
+
+
+Or should the API be used differently?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390711</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 18:26:56 -0700</bug_when>
+            <thetext>oh... SECCertUsage != SECCertificateUsage</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390717</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-04 18:42:36 -0700</bug_when>
+            <thetext>I think this bug is invalid.
+My mistake.
+I used the wrong cert usage constants...</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

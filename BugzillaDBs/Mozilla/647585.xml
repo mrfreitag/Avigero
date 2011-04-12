@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647585</bug_id>
+          
+          <creation_ts>2011-04-03 11:19:00 -0700</creation_ts>
+          <short_desc>Impossible to click on a menu or contextual menu in some conditions</short_desc>
+          <delta_ts>2011-04-07 12:04:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>638386</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>massyas</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+    
+    <cc>george.carstoiu</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389303</commentid>
+            <who name="">massyas</who>
+            <bug_when>2011-04-03 11:19:39 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110310 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110310 Firefox/4.0
+
+In some conditions, it is impossible to click on a menu or a contextual menu.
+When the mouse hovers the menu, it disappears like something is taking the focus or is in front of the menu.
+Once the problem appears, it happens every time on every menu.
+A way to restore a normal behavior can be minimizing the window or unmaximizing/maximizing it or closing firefox and running it again.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.When the problem appears in some particular conditions
+2.Show a menu (right click anywhere, click on File, Edit, View, History....)
+3.Pass the cursor on a menu item to click on it
+Actual Results:  
+The menu disappears when the cursor enters the menu zone and the user cannot click on it.
+
+Expected Results:  
+The menu should stay and the cursor should hover the menu and highlight the menu items.
+
+Tested on a clean firefox 4 profile with no addon.
+Seems to happen more frequently when the menu bar is always shown like on older firefox.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389439</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-03 14:34:35 -0700</bug_when>
+            <thetext>Please provide a site where the issue occurs</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389897</commentid>
+            <who name="">massyas</who>
+            <bug_when>2011-04-04 01:40:39 -0700</bug_when>
+            <thetext>The problem occurs generally when opening a new blank tab but i am still not able to find a scenario to reproduce the issue.
+The other tabs opened are gmail and hotmail.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390750</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-04 19:48:47 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394280</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-07 05:58:59 -0700</bug_when>
+            <thetext>Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Reported can  you please check whether your issue is a dupe of bug 638386?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394284</commentid>
+            <who name="">massyas</who>
+            <bug_when>2011-04-07 06:06:58 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+&gt; 
+&gt; Reported can  you please check whether your issue is a dupe of bug 638386?
+
+Thanks for the info, I will test this tonight. It seems a very similar problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394827</commentid>
+            <who name="">massyas</who>
+            <bug_when>2011-04-07 12:04:48 -0700</bug_when>
+            <thetext>Thanks for the analysis This is a duplicate (In reply to comment #4)
+&gt; Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+&gt; 
+&gt; Reported can  you please check whether your issue is a dupe of bug 638386?
+
+Thanks for the analysis, this is actually a duplicate of bug 638386
+
+*** This bug has been marked as a duplicate of bug 638386 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

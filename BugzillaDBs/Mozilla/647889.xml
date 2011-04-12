@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647889</bug_id>
+          
+          <creation_ts>2011-04-05 13:47:00 -0700</creation_ts>
+          <short_desc>No access to Firefox menus right of Apple menu</short_desc>
+          <delta_ts>2011-04-11 17:26:15 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Menus</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>641597</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="hunt">huntspores</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+          <qa_contact>menus</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391505</commentid>
+            <who name="hunt">huntspores</who>
+            <bug_when>2011-04-05 13:47:48 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Randomlly can&apos;t access Firefox 4 menus right of Apple menu (including Apple menu), need to either close all windows or restart Firefox via Finder click then force quit from the Apple menu. All other parts of Firefox work just fine, even the menu&apos;s on the toolbar.
+
+Reproducible: Couldn&apos;t Reproduce
+
+Steps to Reproduce:
+I wish I could reproduce the effects. It just does it when it wants too, only in Firefox. Looks like a OS X + Firefox issue as everything else in FF works fine. Reinstalling/no add-ons has no change, still randomly occurs. The whole top menu becomes unresponsive. Thanks folks, undoubtedly the best browser in the world and awesomely fast as well.
+
+
+
+Add-on installed. Ad Block Plus, Back To Top, Click&amp;Clean, Close Tab by Double Click, Dictionary Tool Tip, Flagfox, Ghostery, Locator, Make Address Font Bar Size Bigger, New Tab Homepage, NoScript, NoSquint, SmoothWheel, Status-4-Evar, Tab Scope, Theme Font &amp; Size Changer, TinEye Reverse Image Search, WOT, HTTPS Everywhere. 
+
+17&quot; MacBook Pro Quad, 10.6.7
+
+Hardware Overview:
+
+  Model Name:	MacBook Pro
+  Model Identifier:	MacBookPro8,3
+  Processor Name:	Intel Core i7
+  Processor Speed:	2.3 GHz
+  Number of Processors:	1
+  Total Number of Cores:	4
+  L2 Cache (per Core):	256 KB
+  L3 Cache:	8 MB
+  Memory:	4 GB
+  Boot ROM Version:	MBP81.0047.B04
+  SMC Version (system):	1.70f3
+
+
+
+
+
+
+about:buildconfig
+Source
+
+Built from http://hg.mozilla.org/releases/mozilla-2.0/rev/6be9e31d01b4
+Build platform
+target
+i386-apple-darwin10.2.0
+Build tools
+Compiler 	Version 	Compiler flags
+gcc-4.2 -arch i386 	gcc version 4.2.1 (Apple Inc. build 5646) (dot 1) 	-Wall -W -Wno-unused -Wpointer-arith -Wcast-align -W -gdwarf-2 -isysroot /Developer/SDKs/MacOSX10.5.sdk -fno-strict-aliasing -fpascal-strings -fno-common -pthread -DNO_X11 -DNDEBUG -DTRIMMED -gdwarf-2 -O3 -fomit-frame-pointer
+g++-4.2 -arch i386 	gcc version 4.2.1 (Apple Inc. build 5646) (dot 1) 	-fno-rtti -fno-exceptions -Wall -Wpointer-arith -Woverloaded-virtual -Wsynth -Wno-ctor-dtor-privacy -Wno-non-virtual-dtor -Wcast-align -Wno-invalid-offsetof -Wno-variadic-macros -Werror=return-type -gdwarf-2 -isysroot /Developer/SDKs/MacOSX10.5.sdk -fno-strict-aliasing -fpascal-strings -fno-common -fshort-wchar -pthread -DNO_X11 -DNDEBUG -DTRIMMED -gdwarf-2 -O3 -fomit-frame-pointer
+Configure arguments
+
+--target=i386-apple-darwin10.2.0 --with-macos-sdk=/Developer/SDKs/MacOSX10.5.sdk --enable-application=browser --enable-update-channel=release --enable-update-packaging --enable-tests --enable-official-branding --enable-debug-symbols=-gdwarf-2
+Source
+
+Built from http://hg.mozilla.org/releases/mozilla-2.0/rev/6be9e31d01b4
+Build platform
+target
+x86_64-apple-darwin10.2.0
+Build tools
+Compiler 	Version 	Compiler flags
+gcc-4.2 -arch x86_64 	gcc version 4.2.1 (Apple Inc. build 5646) (dot 1) 	-Wall -W -Wno-unused -Wpointer-arith -Wcast-align -W -gdwarf-2 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fno-strict-aliasing -fpascal-strings -fno-common -pthread -DNO_X11 -DNDEBUG -DTRIMMED -gdwarf-2 -O3 -fomit-frame-pointer
+g++-4.2 -arch x86_64 	gcc version 4.2.1 (Apple Inc. build 5646) (dot 1) 	-fno-rtti -fno-exceptions -Wall -Wpointer-arith -Woverloaded-virtual -Wsynth -Wno-ctor-dtor-privacy -Wno-non-virtual-dtor -Wcast-align -Wno-invalid-offsetof -Wno-variadic-macros -Werror=return-type -gdwarf-2 -isysroot /Developer/SDKs/MacOSX10.6.sdk -fno-strict-aliasing -fpascal-strings -fno-common -fshort-wchar -pthread -DNO_X11 -DNDEBUG -DTRIMMED -gdwarf-2 -O3 -fomit-frame-pointer
+Configure arguments
+
+--target=x86_64-apple-darwin10.2.0 --with-macos-sdk=/Developer/SDKs/MacOSX10.6.sdk --enable-application=browser --enable-update-channel=release --enable-update-packaging --enable-tests --enable-official-branding --enable-debug-symbols=-gdwarf-2</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392879</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-06 12:02:34 -0700</bug_when>
+            <thetext>If that happens again, can you please check the Error Console for errors listed? You can open it via Cmd+Shift+E.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398739</commentid>
+            <who name="hunt">huntspores</who>
+            <bug_when>2011-04-09 17:13:16 -0700</bug_when>
+            <thetext>Error occurred again, just Apple to Help menus locked.
+
+Error console activated and ready :)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402335</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-11 17:26:15 -0700</bug_when>
+            <thetext>Actually this is the same issue as reported as bug 641597.
+
+*** This bug has been marked as a duplicate of bug 641597 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

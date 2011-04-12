@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647991</bug_id>
+          
+          <creation_ts>2011-04-06 07:35:00 -0700</creation_ts>
+          <short_desc>TI+JM: Assertion failure: Call site vanished., at ../methodjit/Retcon.cpp:112</short_desc>
+          <delta_ts>2011-04-10 16:16:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>619415</blocked>
+    
+    <blocked>648502</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jan de Mooij">jandemooij</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>bhackett1024</cc>
+    
+    <cc>decoder-mozilla</cc>
+    
+    <cc>emanuel.hoogeveen</cc>
+    
+    <cc>gary</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392253</commentid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-06 07:35:01 -0700</bug_when>
+            <thetext>[&quot;&quot;][NaN] = 2;
+-([][[&quot;&quot;][String] = &quot;&quot;] = null);
+
+This obscure snippet fails with -m -n -a at revision 7928f2dc3d4d:
+
+$ ./js -m -n -a test.js
+Assertion failure: Call site vanished., at ../methodjit/Retcon.cpp:112</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392966</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-06 12:44:05 -0700</bug_when>
+            <thetext>The first times we go through the SETELEM assigning null, we go through an inline stub call and forget the SETELEM is pushing a constant &apos;null&apos;.  Then when recompiling from the Neg we make the SETELEM stub call OOL and get the constant pushed value which we fold in the Neg.
+
+This could be fixed by remembering the constant across the inline stub call, but I think it&apos;s easier and simpler to bite the bullet and allow all constants and copies to be unstable across compilations.  This would free the compiler to make any decision it wants wrt pushing constants and syncing based on the input types, and would require us to emit OOL rejoin paths when folding constants (not a big deal).  (additionally, I don&apos;t think the pushed singletons are stable across compilations, we just haven&apos;t found a fuzz test exposing the problem).
+
+Will fix.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394979</commentid>
+              <attachid>524464</attachid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-07 13:18:07 -0700</bug_when>
+            <thetext>Created attachment 524464
+Another testcase
+
+Here&apos;s another test case. It fails to rejoin after a recompilation triggered by Math.floor(-0).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399640</commentid>
+            <who name="Brian Hackett">bhackett1024</who>
+            <bug_when>2011-04-10 16:16:41 -0700</bug_when>
+            <thetext>This splits things out so that we don&apos;t rejoin at arbitrary call sites but at rejoin sites that have been added to the code, adjust var/stack double types as necessary and jump to the right place.  Normal use is with the REJOIN_SITE or REJOIN_SITE_ANY macros, which define structures that generate the rejoin sites when they are destroyed --- after the fast/stub paths for the op have been generated, and regardless of the path taken through the op.
+
+http://hg.mozilla.org/projects/jaegermonkey/rev/3816e4abb158</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524464</attachid>
+            <date>2011-04-07 13:18:00 -0700</date>
+            <delta_ts>2011-04-07 13:18:07 -0700</delta_ts>
+            <desc>Another testcase</desc>
+            <filename>test.js</filename>
+            <type>application/x-javascript</type>
+            <size>207</size>
+            <attacher>jandemooij</attacher>
+            
+              <data encoding="base64">ZnVuY3Rpb24gZigpIHsKICAgIGZ1bmN0aW9uIGcoKSB7CiAgICAgICAgZXZhbCgiIik7CiAgICAg
+ICAgZ2MoKTsKICAgICAgICBNYXRoLmFicyg0KTsKICAgICAgICBOYU47CiAgICB9CiAgICBnKCk7
+Cn0KZnVuY3Rpb24gaCgpIHsKICAgIHZhciB4LCB5OwogICAgeCA9IE1hdGguZmxvb3IoLTApOwog
+ICAgeSA9IHBhcnNlSW50KCIxIik7Cn0KCmYoKTsKaCgpOwoK
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647688</bug_id>
+          
+          <creation_ts>2011-04-04 08:45:00 -0700</creation_ts>
+          <short_desc>Locks/crashes computer</short_desc>
+          <delta_ts>2011-04-05 10:19:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Extension Compatibility</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>jspamtoss</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>extension.compatibility</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390196</commentid>
+            <who name="">jspamtoss</who>
+            <bug_when>2011-04-04 08:45:04 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+Not any particular website or timing that I can tell - but happens frequently.  Have many tabs open or as few as 5 or 6.  Computer locks up ( nor keyboard or mouse response). have had outlook and/or Excel windows open also but only occurs when using Firefox and only with 4.  Started early to mid last week, power reset only cure, have walked away for up to 20 minutes and still frozen when return.  Last Friday loaded 3.6 and no problems.  Sunday loaded 4 again and within about 1/2 hour system froze; back on 3.6 now since 4 is unusable.
+
+Reproducible: Always
+
+Actual Results:  
+Just happens randomly as few as 10-20 minutes after starting FF4 or as long as several hours.  Computer just locks up (no keyboard or mouse) and I have to &quot;pull the plug&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390223</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-04 09:16:00 -0700</bug_when>
+            <thetext>Is your Issue reproducible without Extensions in Safe-Mode and/or using a new Profile?
+https://support.mozilla.com/en-US/kb/Safe+Mode
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390331</commentid>
+            <who name="">jspamtoss</who>
+            <bug_when>2011-04-04 11:11:21 -0700</bug_when>
+            <thetext>Have not tried that yet, I will reload 4 later today or tomorrow (need to use computer &amp; web/email and cannot have continual power reset interruptions) and see what happens.  I am suspicious of an extension update, but with everything hidden in the background I am unable to even vaguely correlate.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391213</commentid>
+            <who name="">jspamtoss</who>
+            <bug_when>2011-04-05 09:15:27 -0700</bug_when>
+            <thetext>Late afternoon yesterday (Monday) I reloaded ff4 (firefox 4) and opened in safe mode.  Left it running all night and it&apos;s stayed up.  I restarted ff4 with extensions, but disabled a few that I don&apos;t use often.  It is now exhibiting a different problem.  Rather than locking up the computer, FF4 greys out and exhibits the “not responding” notice.  When I look at Sys Internals Process Explorer I can see that ff4’s memory use just keeps steadily climbing.  I’ve watched it for up to 30 to 40 seconds and memory usage just keeps climbing; so I kill ff4 with process explorer before it eats everything and crashes the computer.  Upon restarting ff4 it grey’s out and starts eating memory within a minute or so.  Ff3.6 exhibits neither of these problems.  Also I started using ff4 with RC1 and had no trouble with it.  The problems appeared with either final ff4 or extension updates (again with the hidden update process I don’t know what updated when so I cannot begin to guess what’s going on).  In an attempt to clear out things I uninstalled RC1 and installed release ff4 – and that’s what I’m having the problem with now.  I am going to go back to ff3.6 because ff4 is not usable as it now stands.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391310</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-05 10:19:39 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; I restarted ff4 with
+&gt; extensions, but disabled a few that I don&apos;t use often.
+
+Please disable the Rest and enable them one-by-one to find the causing one. Reports its Name back here and/or the Problem itself to its Author. Thanks.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648370</bug_id>
+          
+          <creation_ts>2011-04-07 14:33:00 -0700</creation_ts>
+          <short_desc>Bad link in footer on mozilla.com</short_desc>
+          <delta_ts>2011-04-11 12:54:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>2.0</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Milos Dinic [:Milos]">bmo</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jlong</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395145</commentid>
+              <attachid>524493</attachid>
+            <who name="Milos Dinic [:Milos]">bmo</who>
+            <bug_when>2011-04-07 14:33:28 -0700</bug_when>
+            <thetext>Created attachment 524493
+Echoing the $lang variable
+
+Hello,
+
+There&apos;s a bad link showing in subfooter, leading to http://my-mozilla.com/%7B$lang%7D/firefox/connect/ . {$lang} is not parsed by php because it&apos;s not in the php block.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396863</commentid>
+            <who name="Laura Forrest">lforrest</who>
+            <bug_when>2011-04-08 10:47:15 -0700</bug_when>
+            <thetext>What text link are your referring to? &quot;More ways to connect&quot; links me to the correct page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397737</commentid>
+            <who name="Milos Dinic [:Milos]">bmo</who>
+            <bug_when>2011-04-08 15:42:45 -0700</bug_when>
+            <thetext>Sorry, that&apos;s on trunk:
+
+http://www-trunk.stage.mozilla.com/en-US/about/</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524493</attachid>
+            <date>2011-04-07 14:33:00 -0700</date>
+            <delta_ts>2011-04-07 14:33:28 -0700</delta_ts>
+            <desc>Echoing the $lang variable</desc>
+            <filename>mozilla.com.micro1.diff</filename>
+            <type>text/plain</type>
+            <size>633</size>
+            <attacher>bmo</attacher>
+            
+              <data encoding="base64">SW5kZXg6IGZvb3Rlci5pbmMucGhwCj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KLS0tIGZvb3Rlci5pbmMucGhwCShyZXZp
+c2lvbiA4NzA3OSkKKysrIGZvb3Rlci5pbmMucGhwCSh3b3JraW5nIGNvcHkpCkBAIC0yMyw3ICsy
+Myw3IEBACiAJCTx1bD4KIAkJCTxsaSBpZD0iZm9vdGVyLWNvbm5lY3QiPgogICAgICAgICAgICAg
+ICAgICAgICAgICAgICA8YSBocmVmPSIveyRsYW5nfS9maXJlZm94L2Nvbm5lY3QvIiAKLSAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgb25jbGljaz0iZGNzTXVsdGlUcmFjaygnRENTLmRjc3Vy
+aScsICcveyRsYW5nfS9maXJlZm94L2Nvbm5lY3QvJywgJ1dULnRpJywgJ0Nvbm5lY3QnKTsiPgor
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbmNsaWNrPSJkY3NNdWx0aVRyYWNrKCdEQ1Mu
+ZGNzdXJpJywgJy88Pz0kbGFuZz8+L2ZpcmVmb3gvY29ubmVjdC8nLCAnV1QudGknLCAnQ29ubmVj
+dCcpOyI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTW9yZSBXYXlzIHRvIENvbm5lY3QK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPgogICAgICAgICAgICAgICAgICAgICAgICAg
+PC9saT4K
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

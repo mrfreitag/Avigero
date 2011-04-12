@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648063</bug_id>
+          
+          <creation_ts>2011-04-06 11:51:00 -0700</creation_ts>
+          <short_desc>Error message persists  after canceling the &apos;Upload a new version&apos; lightbox</short_desc>
+          <delta_ts>2011-04-11 10:09:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Developer Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.allizom.org/en-US/developers/addon/mobile-add-on12345/versions/</bug_file_loc>
+          <status_whiteboard>[dupeme]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>4.x (triaged)</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="krupa raj 82[:krupa]">krupa.mozbugs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>clouserw</cc>
+          <qa_contact>developers</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392826</commentid>
+            <who name="krupa raj 82[:krupa]">krupa.mozbugs</who>
+            <bug_when>2011-04-06 11:51:15 -0700</bug_when>
+            <thetext>steps to reproduce:
+1. Load https://addons.allizom.org/en-US/developers/addon/mobile-add-on12345/versions/
+2. Click &apos;Upload a new version&apos;
+3. Try to upload an existing version(version 0.8)
+4. There is an error message &apos;Version 0.8 already exists&apos;
+5. Click &apos;cancel&apos;
+6. Click &apos;Upload a new version&apos; again.
+
+
+expected behavior:
+error message doesn&apos;t persist after a cancel
+
+observed behavior:
+Error message persists  after canceling  the &apos;Upload a new version&apos; lightbox</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

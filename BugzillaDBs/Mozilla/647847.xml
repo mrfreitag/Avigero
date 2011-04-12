@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647847</bug_id>
+          
+          <creation_ts>2011-04-05 10:18:00 -0700</creation_ts>
+          <short_desc>[[DefaultValue]] implementation not conforming to ES3/ES5</short_desc>
+          <delta_ts>2011-04-05 10:18:45 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Tamarin</product>
+          <component>Virtual Machine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="A. Bargull">andrebargull</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>vm</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391306</commentid>
+            <who name="A. Bargull">andrebargull</who>
+            <bug_when>2011-04-05 10:18:45 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: avmplus shell 1.4 release build cyclone
+
+The [[DefaultValue]] implementation doesn&apos;t seem to be conforming to either ES3 or ES5, this is visible in string concatenation or number addition. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+Execute the following expressions
+1) &quot;&quot; + {toString: function () { return &quot;toString&quot; }}
+2) &quot;&quot; + {valueOf: function () { return &quot;valueOf&quot; }}
+3) &quot;&quot; + {toString: 0, valueOf: function () { return &quot;valueOf&quot; }}
+4) &quot;&quot; + {valueOf: function () { return &quot;valueOf&quot; }, toString: /(?:)/}
+5) 0 + {valueOf: function () { return 2 }}
+6) 0 + {valueOf: 0}
+7) 0 + {valueOf: /(?:)/, toString: function () { return 2 }}
+
+Actual Results:  
+1) &quot;toString&quot;
+2) &quot;[object Object]&quot;
+3) TypeError: Error #1006
+4) &quot;valueOf&quot;
+5) 2
+6) TypeError: Error #1006
+7) 2
+
+
+Expected Results:  
+1) &quot;toString&quot;
+2) &quot;valueOf&quot;
+3) &quot;valueOf&quot;
+4) &quot;valueOf&quot;
+5) 2
+6) &quot;0[object Object]&quot;
+7) 2</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

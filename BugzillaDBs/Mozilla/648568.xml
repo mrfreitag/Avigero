@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648568</bug_id>
+          
+          <creation_ts>2011-04-08 10:23:00 -0700</creation_ts>
+          <short_desc>&lt;script src&gt; before &lt;img&gt; which returns non-image data causes double-download of the non-image data</short_desc>
+          <delta_ts>2011-04-09 04:40:52 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>ImageLib</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>perf</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Nicholas C. Zakas">webkit</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>blizzard</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>joe</cc>
+    
+    <cc>jonas</cc>
+    
+    <cc>mcmanus</cc>
+    
+    <cc>musicisair</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>imagelib</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396767</commentid>
+            <who name="Nicholas C. Zakas">webkit</who>
+            <bug_when>2011-04-08 10:23:54 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+If a page includes an external JavaScript file before an &lt;img&gt; whose src has a non-image content-type, Firefox downloads the &lt;img&gt; src twice. Reproducible in Firefox 3.6 and Firefox 4.
+
+Simple example:
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;   
+&lt;head&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js&amp;3.3.0/build/loader/loader-min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;img src=&quot;http://www.yahoo.com/&quot; width=1 height=1 border=0&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+This also shows the issue:
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;   
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;http://yui.yahooapis.com/combo?3.3.0/build/yui/yui-min.js&amp;3.3.0/build/loader/loader-min.js&quot;&gt;&lt;/script&gt;
+    &lt;img src=&quot;http://www.yahoo.com/&quot; width=1 height=1 border=0&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Include external JS in a page
+2. Include an &lt;img&gt; with a src set to a non-image
+3. Load page and watch HTTP traffic
+Actual Results:  
+&lt;img&gt; src is downloaded twice
+
+Expected Results:  
+&lt;img&gt; src is downloaded once
+
+This is important because a lot of ad-tracking beacons don&apos;t use the image content-type, and this issue can cause double-counting of ads for any page where an external JavaScript is included before the beacon.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396865</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 10:47:40 -0700</bug_when>
+            <thetext>Presumably what happens here is that we kick off the image preload and by the time the real image load starts we&apos;ve detected that the result is not an image (I assume _that_ is what matters, not the content-type; please correct me if I&apos;m wrong), and killed the preload, so we have to make a new request.
+
+It might be nice to cache the &quot;this is not an image&quot; bit in imagelib (by not dropping the imgRequest from the cache just because it&apos;s not an image?).  Would improve performance, I guess.  Joe, what do you think?
+
+&gt; This is important because a lot of ad-tracking beacons don&apos;t use the image
+&gt; content-type, and this issue can cause double-counting of ads for any page
+&gt; where an external JavaScript is included before the beacon.
+
+I don&apos;t think we should be constrained by that broken setup.  If we think we can get a better browsing experience for our users by making two requests for the image (or none!) we should do just that.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396867</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 10:48:06 -0700</bug_when>
+            <thetext>Er, ccing Joe too.  Joe, see comment 1?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397025</commentid>
+            <who name="Nicholas C. Zakas">webkit</who>
+            <bug_when>2011-04-08 11:31:10 -0700</bug_when>
+            <thetext>You could be right. I&apos;ve seen two scenarios:
+
+1. A response that is missing a content-type and doesn&apos;t contain an image
+2. A response that has a non-image content-type and also doesn&apos;t contain an image
+
+I&apos;ve not built out a test to see if an image served with a non-image content-type would cause the issue. 
+
+For some background: the tracking beacons used by ads are frequently included as images in the page because there&apos;s no cross-domain restriction. They sometimes return images (1x1 tracking pixels) but don&apos;t necessarily always return images since the response isn&apos;t necessary to the experience...it&apos;s only necessary that the request reaches the server for tracking.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397050</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 11:35:51 -0700</bug_when>
+            <thetext>&gt; I&apos;ve not built out a test to see if an image served with a non-image
+&gt; content-type would cause the issue. 
+
+OK.  For &lt;img&gt; loads, the Content-Type header is more or less completely ignored, so all that matters is the data that was returned.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397058</commentid>
+            <who name="David Murdoch">musicisair</who>
+            <bug_when>2011-04-08 11:37:41 -0700</bug_when>
+            <thetext>If the prefetched-(non)image&apos;s cache expiration hasn&apos;t expired by the time the
+real &lt;img /&gt; load starts the &quot;image&quot; should probably NOT be downloaded again.
+If it has expired or has no expiration directive the (non)image SHOULD be
+redownloaded; as the contents of the url may have changed in brief interim
+between the prefetch and load-start. Right?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397221</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-08 12:37:39 -0700</bug_when>
+            <thetext>David, once we discover that the data is not an image we close the connection.  So the non-image data never gets cached in its entirety.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

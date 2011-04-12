@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648109</bug_id>
+          
+          <creation_ts>2011-04-06 14:08:00 -0700</creation_ts>
+          <short_desc>preproduction should support a set of &quot;try&quot; repositories</short_desc>
+          <delta_ts>2011-04-06 14:13:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[preproduction]</status_whiteboard>
+          
+          <priority>P5</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ben Hearsum [:bhearsum]">bhearsum</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>rail</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393180</commentid>
+            <who name="Ben Hearsum [:bhearsum]">bhearsum</who>
+            <bug_when>2011-04-06 14:08:52 -0700</bug_when>
+            <thetext>Currently, preproduction manages a pair of build and test masters that track the default branches of buildbot-configs, buildbotcustom, and try. This provides us with continuous integration against the latest landed but not yet in production changes.
+
+In addition to that, it would be *awesome* to have masters that allow for us to &quot;try&quot; type of pushes of buildbot code. This is a bit tricky because in order to fully test a push, many different types of jobs must run, which can take many hours. Detecting pass/fail across everything, and reporting the results to an appropriate place, could be tricky.
+
+One idea of how to do this is:
+- When changes are detected, the main preproduction master creates a new pair of masters in some temporary directory, and queues up some jobs.
+- Slaves are somehow allocated to them.
+- Mail is sent to the pusher, with the URLs of the masters so they can watch for results.
+- As allocated slaves become idle, they somehow get recycled
+- Masters are shut down by hand, when the pusher is finished looking at results
+
+The above plan requires us to have better slave management, probably through slavealloc, more slaves in preproduction, and maybe other things. We may be able to get part of the way there even without those things.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

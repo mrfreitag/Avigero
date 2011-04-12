@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648208</bug_id>
+          
+          <creation_ts>2011-04-06 22:46:00 -0700</creation_ts>
+          <short_desc>Follow up to bug#630209</short_desc>
+          <delta_ts>2011-04-07 04:01:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>OS/2</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>tracemonkey repository</status_whiteboard>
+          <keywords>checkin-needed</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>630209</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dave Yeo">daveryeo</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>dragtext</cc>
+    
+    <cc>mozilla</cc>
+    
+    <cc>nnethercote</cc>
+    
+    <cc>wuno</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393976</commentid>
+            <who name="Dave Yeo">daveryeo</who>
+            <bug_when>2011-04-06 22:46:12 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/c919a7271ac1 broke systems that do not have mmap.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393979</commentid>
+              <attachid>524358</attachid>
+            <who name="Dave Yeo">daveryeo</who>
+            <bug_when>2011-04-06 22:52:33 -0700</bug_when>
+            <thetext>Created attachment 524358
+Fix for build break
+
+Simple fix for build break. Requesting review from Igor as it was his patch that broke non-mmap builds.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394050</commentid>
+            <who name="Nicholas Nethercote [:njn]">nnethercote</who>
+            <bug_when>2011-04-07 00:11:01 -0700</bug_when>
+            <thetext>What systems don&apos;t have mmap?  I&apos;m curious!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394057</commentid>
+            <who name="Peter Weilbacher">mozilla</who>
+            <bug_when>2011-04-07 00:18:04 -0700</bug_when>
+            <thetext>OS/2 is one, according to http://hg.mozilla.org/mozilla-central/annotate/e6b318aca788/js/src/xpconnect/loader/mozJSComponentLoader.cpp#l104 it&apos;s the only one.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524358</attachid>
+            <date>2011-04-06 22:52:00 -0700</date>
+            <delta_ts>2011-04-07 00:32:50 -0700</delta_ts>
+            <desc>Fix for build break</desc>
+            <filename>648208-mozJSComponentLoader.diff</filename>
+            <type>text/plain</type>
+            <size>1017</size>
+            <attacher>daveryeo</attacher>
+            
+              <data encoding="base64">RnJvbTogRGF2ZSBZZW8gPGRhdmVyeWVvQHRlbHVzLm5ldD4KRml4IGJ1aWxkIGJyZWFrIG9uIE9T
+LzIKCmRpZmYgLS1naXQgYS9qcy9zcmMveHBjb25uZWN0L2xvYWRlci9tb3pKU0NvbXBvbmVudExv
+YWRlci5jcHAgYi9qcy9zcmMveHBjb25uZWN0L2xvYWRlci9tb3pKU0NvbXBvbmVudExvYWRlci5j
+cHAKLS0tIGEvanMvc3JjL3hwY29ubmVjdC9sb2FkZXIvbW96SlNDb21wb25lbnRMb2FkZXIuY3Bw
+CisrKyBiL2pzL3NyYy94cGNvbm5lY3QvbG9hZGVyL21vekpTQ29tcG9uZW50TG9hZGVyLmNwcApA
+QCAtMTEyNywxNyArMTEyNywxNyBAQAogCiAgICAgICAgICAgICBGSUxFICpmaWxlSGFuZGxlOwog
+ICAgICAgICAgICAgcnYgPSBhQ29tcG9uZW50RmlsZS0+T3BlbkFOU0lGaWxlRGVzYygiciIsICZm
+aWxlSGFuZGxlKTsKICAgICAgICAgICAgIGlmIChOU19GQUlMRUQocnYpKSB7CiAgICAgICAgICAg
+ICAgICAgSlNfU2V0T3B0aW9ucyhjeCwgb2xkb3B0cyk7CiAgICAgICAgICAgICAgICAgcmV0dXJu
+IE5TX0VSUk9SX0ZJTEVfTk9UX0ZPVU5EOwogICAgICAgICAgICAgfQogCi0gICAgICAgICAgICBz
+Y3JpcHQgPSBKU19Db21waWxlRmlsZUhhbmRsZUZvclByaW5jaXBhbHNWZXJzaW9uKAorICAgICAg
+ICAgICAgc2NyaXB0T2JqID0gSlNfQ29tcGlsZUZpbGVIYW5kbGVGb3JQcmluY2lwYWxzVmVyc2lv
+bigKICAgICAgICAgICAgICAgY3gsIGdsb2JhbCwgbmF0aXZlUGF0aC5nZXQoKSwgZmlsZUhhbmRs
+ZSwganNQcmluY2lwYWxzLCBKU1ZFUlNJT05fTEFURVNUKTsKIAogICAgICAgICAgICAgLyogSlMg
+d2lsbCBjbG9zZSB0aGUgZmlsZWhhbmRsZSBhZnRlciBjb21waWxhdGlvbiBpcyBjb21wbGV0ZS4g
+Ki8KICNlbmRpZiAvKiBIQVZFX1BSX01FTU1BUCAqLwogICAgICAgICB9IGVsc2UgewogICAgICAg
+ICAgICAgbnNDT01QdHI8bnNJSU9TZXJ2aWNlPiBpb1NlcnZpY2UgPSBkb19HZXRJT1NlcnZpY2Uo
+JnJ2KTsKICAgICAgICAgICAgIE5TX0VOU1VSRV9TVUNDRVNTKHJ2LCBydik7CiAK
+</data>
+<flag name="review"
+          id="438010"
+          type_id="4"
+          status="+"
+          setter="igor"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

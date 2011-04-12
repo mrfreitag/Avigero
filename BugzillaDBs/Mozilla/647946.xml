@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647946</bug_id>
+          
+          <creation_ts>2011-04-05 23:40:00 -0700</creation_ts>
+          <short_desc>Page does not load after password entry</short_desc>
+          <delta_ts>2011-04-11 11:17:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://web.de</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Werner">unknu3</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391979</commentid>
+            <who name="Werner">unknu3</who>
+            <bug_when>2011-04-05 23:40:32 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I observed this behavior starting with Firefox 4. Firefox 3.6 was ok.
+Sometimes, it happens, that a page does not load. The load indicator shows, that loading didn&apos;t even start. After cancelling the load and reloading, everything works fine. Seems to be a timing issue.
+Example: Logging in to FreeMail at web.de from my work PC (intranet), which still runs under Win XP. But it also happened at other sites under different conditions. For instance at my home PC under Win Vista.
+Unfortunately, the problem does not always occur.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Type name and password to log in at any site
+2. Press login button
+3. Nothing happens. Page does not load.
+4. Cancel load.
+5. Page reload -&gt; ok
+Actual Results:  
+New page after reload.
+
+Expected Results:  
+New page immediately.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398741</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-09 17:19:39 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400979</commentid>
+            <who name="Werner">unknu3</who>
+            <bug_when>2011-04-11 11:17:24 -0700</bug_when>
+            <thetext>Does the issue still occur if you start Firefox in Safe Mode?
+Yes.
+
+How about with a new, empty profile?
+I found, that there were two installations of Firefox:
+Firefox 3.6 at D:\Program Files\Mozilla Firefox, where I originally installed it
+Firefox 4.0 at C:\Program Files\Mozilla Firefox
+I deinstalled both versions and removed the relicts in program files and installed Firefox 4.0 again. Then I imported my old bookmarks.
+The error occurred again (normal and safe mode).
+
+This was all at my work PC (where the slow intranet could have an effect). I have to watch my PC at home, how it behaves.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

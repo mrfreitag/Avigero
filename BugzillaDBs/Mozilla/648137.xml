@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648137</bug_id>
+          
+          <creation_ts>2011-04-06 15:20:00 -0700</creation_ts>
+          <short_desc>Intermittent timeout in browser/base/content/test/tabview/browser_tabview_bug618816.js | application timed out after 330 seconds with no output</short_desc>
+          <delta_ts>2011-04-08 11:26:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Panorama</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>Firefox4.2</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ehsan Akhgari [:ehsan]">ehsan</reporter>
+          <assigned_to name="Tim Taubert [:ttaubert]">tim.taubert</assigned_to>
+          <cc>ehsan</cc>
+    
+    <cc>tim.taubert</cc>
+          <qa_contact>panorama</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393361</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-06 15:20:22 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=Cedar/1302124218.1302125467.26741.gz
+Rev3 WINNT 5.1 cedar opt test mochitest-other on 2011/04/06 14:10:18
+
+TEST-START | chrome://mochitests/content/browser/browser/base/content/test/tabview/browser_tabview_bug618816.js
+TEST-PASS | chrome://mochitests/content/browser/browser/base/content/test/tabview/browser_tabview_bug618816.js | the whole text is selected
+TEST-PASS | chrome://mochitests/content/browser/browser/base/content/test/tabview/browser_tabview_bug618816.js | the whole text is selected
+TEST-PASS | chrome://mochitests/content/browser/browser/base/content/test/tabview/browser_tabview_bug618816.js | caret is at the rightmost position and no text is selected
+TEST-PASS | chrome://mochitests/content/browser/browser/base/content/test/tabview/browser_tabview_bug618816.js | caret is at the rightmost position and no text is selected
+TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/browser/base/content/test/tabview/browser_tabview_bug618816.js | application timed out after 330 seconds with no output</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393438</commentid>
+              <attachid>524294</attachid>
+            <who name="Tim Taubert [:ttaubert]">tim.taubert</who>
+            <bug_when>2011-04-06 15:48:06 -0700</bug_when>
+            <thetext>Created attachment 524294
+patch v1
+
+* using newWindowWithTabView() to not shift around groups
+* using SimpleTest.waitForFocus() to make sure to have focus before simulating key presses and testing for selection</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393809</commentid>
+              <attachid>524294</attachid>
+            <who name="Raymond Lee">raymond</who>
+            <bug_when>2011-04-06 19:05:47 -0700</bug_when>
+            <thetext>Comment on attachment 524294
+patch v1
+
+Looks good</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394306</commentid>
+              <attachid>524294</attachid>
+            <who name="Tim Taubert [:ttaubert]">tim.taubert</who>
+            <bug_when>2011-04-07 06:24:43 -0700</bug_when>
+            <thetext>Comment on attachment 524294
+patch v1
+
+Passed try:
+
+http://tbpl.mozilla.org/?tree=MozillaTry&amp;pusher=tim.taubert@gmx.de&amp;rev=f5d8526cadd5</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394610</commentid>
+              <attachid>524294</attachid>
+            <who name="Ian Gilman [:iangilman]">ian</who>
+            <bug_when>2011-04-07 09:54:01 -0700</bug_when>
+            <thetext>Comment on attachment 524294
+patch v1
+
+Looks good.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394973</commentid>
+              <attachid>524463</attachid>
+            <who name="Tim Taubert [:ttaubert]">tim.taubert</who>
+            <bug_when>2011-04-07 13:16:32 -0700</bug_when>
+            <thetext>Created attachment 524463
+patch for checkin</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397004</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-08 11:26:28 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/7b80b863974c</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524294</attachid>
+            <date>2011-04-06 15:48:00 -0700</date>
+            <delta_ts>2011-04-07 13:16:32 -0700</delta_ts>
+            <desc>patch v1</desc>
+            <filename>bug-648137-v1.patch</filename>
+            <type>text/plain</type>
+            <size>2068</size>
+            <attacher>tim.taubert</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3QvdGFidmlldy9icm93c2VyX3Rh
+YnZpZXdfYnVnNjE4ODE2LmpzIGIvYnJvd3Nlci9iYXNlL2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jy
+b3dzZXJfdGFidmlld19idWc2MTg4MTYuanMKLS0tIGEvYnJvd3Nlci9iYXNlL2NvbnRlbnQvdGVz
+dC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc2MTg4MTYuanMKKysrIGIvYnJvd3Nlci9iYXNl
+L2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc2MTg4MTYuanMKQEAgLTEs
+NDcgKzEsNDEgQEAKIC8qIEFueSBjb3B5cmlnaHQgaXMgZGVkaWNhdGVkIHRvIHRoZSBQdWJsaWMg
+RG9tYWluLgogICAgaHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcvcHVibGljZG9tYWluL3plcm8v
+MS4wLyAqLwogCiBmdW5jdGlvbiB0ZXN0KCkgewogICBsZXQgY3c7Ci0KLSAgbGV0IGNyZWF0ZUdy
+b3VwSXRlbSA9IGZ1bmN0aW9uICgpIHsKLSAgICBsZXQgYm91bmRzID0gbmV3IGN3LlJlY3QoMjAs
+IDIwLCA0MDAsIDIwMCk7Ci0gICAgbGV0IGdyb3VwSXRlbSA9IG5ldyBjdy5Hcm91cEl0ZW0oW10s
+IHtib3VuZHM6IGJvdW5kcywgaW1tZWRpYXRlbHk6IHRydWV9KTsKLQotICAgIGxldCBncm91cEl0
+ZW1JZCA9IGdyb3VwSXRlbS5pZDsKLSAgICByZWdpc3RlckNsZWFudXBGdW5jdGlvbihmdW5jdGlv
+bigpIHsKLSAgICAgIGxldCBncm91cEl0ZW0gPSBjdy5Hcm91cEl0ZW1zLmdyb3VwSXRlbShncm91
+cEl0ZW1JZCk7Ci0gICAgICBpZiAoZ3JvdXBJdGVtKQotICAgICAgICBncm91cEl0ZW0uY2xvc2Uo
+KTsKLSAgICB9KTsKLQotICAgIHJldHVybiBncm91cEl0ZW07Ci0gIH0KKyAgbGV0IHdpbjsKIAog
+ICBsZXQgdGVzdEZvY3VzVGl0bGUgPSBmdW5jdGlvbiAoKSB7CiAgICAgbGV0IHRpdGxlID0gJ3Rp
+dGxlJzsKLSAgICBsZXQgZ3JvdXBJdGVtID0gY3JlYXRlR3JvdXBJdGVtKCk7CisgICAgbGV0IGdy
+b3VwSXRlbSA9IGN3Lkdyb3VwSXRlbXMuZ3JvdXBJdGVtc1swXTsKICAgICBncm91cEl0ZW0uc2V0
+VGl0bGUodGl0bGUpOwogCiAgICAgbGV0IHRhcmdldCA9IGdyb3VwSXRlbS4kdGl0bGVTaGllbGRb
+MF07CiAgICAgRXZlbnRVdGlscy5zeW50aGVzaXplTW91c2VBdENlbnRlcih0YXJnZXQsIHt9LCBj
+dyk7CiAKICAgICBsZXQgaW5wdXQgPSBncm91cEl0ZW0uJHRpdGxlWzBdOwogICAgIGlzKGlucHV0
+LnNlbGVjdGlvblN0YXJ0LCAwLCAndGhlIHdob2xlIHRleHQgaXMgc2VsZWN0ZWQnKTsKICAgICBp
+cyhpbnB1dC5zZWxlY3Rpb25FbmQsIHRpdGxlLmxlbmd0aCwgJ3RoZSB3aG9sZSB0ZXh0IGlzIHNl
+bGVjdGVkJyk7CiAKICAgICBFdmVudFV0aWxzLnN5bnRoZXNpemVNb3VzZUF0Q2VudGVyKGlucHV0
+LCB7fSwgY3cpOwogICAgIGlzKGlucHV0LnNlbGVjdGlvblN0YXJ0LCB0aXRsZS5sZW5ndGgsICdj
+YXJldCBpcyBhdCB0aGUgcmlnaHRtb3N0IHBvc2l0aW9uIGFuZCBubyB0ZXh0IGlzIHNlbGVjdGVk
+Jyk7CiAgICAgaXMoaW5wdXQuc2VsZWN0aW9uRW5kLCB0aXRsZS5sZW5ndGgsICdjYXJldCBpcyBh
+dCB0aGUgcmlnaHRtb3N0IHBvc2l0aW9uIGFuZCBubyB0ZXh0IGlzIHNlbGVjdGVkJyk7CiAKLSAg
+ICBncm91cEl0ZW0uY2xvc2UoKTsKLSAgICBoaWRlVGFiVmlldyhmaW5pc2gpOworICAgIHdpbi5j
+bG9zZSgpOworICAgIGZpbmlzaCgpOwogICB9CiAKICAgd2FpdEZvckV4cGxpY2l0RmluaXNoKCk7
+CiAKLSAgc2hvd1RhYlZpZXcoZnVuY3Rpb24gKCkgewotICAgIGN3ID0gVGFiVmlldy5nZXRDb250
+ZW50V2luZG93KCk7Ci0gICAgdGVzdEZvY3VzVGl0bGUoKTsKKyAgbmV3V2luZG93V2l0aFRhYlZp
+ZXcoZnVuY3Rpb24gKHR2d2luKSB7CisgICAgd2luID0gdHZ3aW47CisKKyAgICByZWdpc3RlckNs
+ZWFudXBGdW5jdGlvbihmdW5jdGlvbiAoKSB7CisgICAgICBpZiAoIXdpbi5jbG9zZWQpCisgICAg
+ICAgIHdpbi5jbG9zZSgpOworICAgIH0pOworCisgICAgY3cgPSB3aW4uVGFiVmlldy5nZXRDb250
+ZW50V2luZG93KCk7CisgICAgU2ltcGxlVGVzdC53YWl0Rm9yRm9jdXModGVzdEZvY3VzVGl0bGUs
+IGN3KTsKICAgfSk7CiB9Cg==
+</data>
+<flag name="review"
+          id="437992"
+          type_id="4"
+          status="+"
+          setter="ian"
+    />
+    <flag name="feedback"
+          id="437971"
+          type_id="607"
+          status="+"
+          setter="raymond"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524463</attachid>
+            <date>2011-04-07 13:16:00 -0700</date>
+            <delta_ts>2011-04-07 13:16:32 -0700</delta_ts>
+            <desc>patch for checkin</desc>
+            <filename>bug-648137-checkin.patch</filename>
+            <type>text/plain</type>
+            <size>2050</size>
+            <attacher>tim.taubert</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIFRpbSBUYXViZXJ0IDx0aW0udGF1YmVydEBnbXgu
+ZGU+CiMgRGF0ZSAxMzAyMjA3MTg1IDI1MjAwCiMgTm9kZSBJRCA3ZGMzODMwYTQ5ZDM2NzEwZGYx
+MTg0OWQ5ZDJhOGYwOTUyNGRhMTAwCiMgUGFyZW50ICBhOGEwYTdiNTE4OTI1ZDMyNTY3MjNjZjE3
+OTA3MTI0ZTAzMTFhZTA3CkJ1ZyA2NDgxMzcgLSBJbnRlcm1pdHRlbnQgdGltZW91dCBpbiBicm93
+c2VyL2Jhc2UvY29udGVudC90ZXN0L3RhYnZpZXcvYnJvd3Nlcl90YWJ2aWV3X2J1ZzYxODgxNi5q
+cyB8IGFwcGxpY2F0aW9uIHRpbWVkIG91dCBhZnRlciAzMzAgc2Vjb25kcyB3aXRoIG5vIG91dHB1
+dCBbZj1yYXltb25kLCByPWlhbl0KCmRpZmYgLS1naXQgYS9icm93c2VyL2Jhc2UvY29udGVudC90
+ZXN0L3RhYnZpZXcvYnJvd3Nlcl90YWJ2aWV3X2J1ZzYxODgxNi5qcyBiL2Jyb3dzZXIvYmFzZS9j
+b250ZW50L3Rlc3QvdGFidmlldy9icm93c2VyX3RhYnZpZXdfYnVnNjE4ODE2LmpzCi0tLSBhL2Jy
+b3dzZXIvYmFzZS9jb250ZW50L3Rlc3QvdGFidmlldy9icm93c2VyX3RhYnZpZXdfYnVnNjE4ODE2
+LmpzCisrKyBiL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3QvdGFidmlldy9icm93c2VyX3RhYnZp
+ZXdfYnVnNjE4ODE2LmpzCkBAIC0zLDI0ICszLDExIEBACiAKIGZ1bmN0aW9uIHRlc3QoKSB7CiAg
+IGxldCBjdzsKLQotICBsZXQgY3JlYXRlR3JvdXBJdGVtID0gZnVuY3Rpb24gKCkgewotICAgIGxl
+dCBib3VuZHMgPSBuZXcgY3cuUmVjdCgyMCwgMjAsIDQwMCwgMjAwKTsKLSAgICBsZXQgZ3JvdXBJ
+dGVtID0gbmV3IGN3Lkdyb3VwSXRlbShbXSwge2JvdW5kczogYm91bmRzLCBpbW1lZGlhdGVseTog
+dHJ1ZX0pOwotCi0gICAgbGV0IGdyb3VwSXRlbUlkID0gZ3JvdXBJdGVtLmlkOwotICAgIHJlZ2lz
+dGVyQ2xlYW51cEZ1bmN0aW9uKGZ1bmN0aW9uKCkgewotICAgICAgbGV0IGdyb3VwSXRlbSA9IGN3
+Lkdyb3VwSXRlbXMuZ3JvdXBJdGVtKGdyb3VwSXRlbUlkKTsKLSAgICAgIGlmIChncm91cEl0ZW0p
+Ci0gICAgICAgIGdyb3VwSXRlbS5jbG9zZSgpOwotICAgIH0pOwotCi0gICAgcmV0dXJuIGdyb3Vw
+SXRlbTsKLSAgfQorICBsZXQgd2luOwogCiAgIGxldCB0ZXN0Rm9jdXNUaXRsZSA9IGZ1bmN0aW9u
+ICgpIHsKICAgICBsZXQgdGl0bGUgPSAndGl0bGUnOwotICAgIGxldCBncm91cEl0ZW0gPSBjcmVh
+dGVHcm91cEl0ZW0oKTsKKyAgICBsZXQgZ3JvdXBJdGVtID0gY3cuR3JvdXBJdGVtcy5ncm91cEl0
+ZW1zWzBdOwogICAgIGdyb3VwSXRlbS5zZXRUaXRsZSh0aXRsZSk7CiAKICAgICBsZXQgdGFyZ2V0
+ID0gZ3JvdXBJdGVtLiR0aXRsZVNoaWVsZFswXTsKQEAgLTM0LDE0ICsyMSwyMSBAQAogICAgIGlz
+KGlucHV0LnNlbGVjdGlvblN0YXJ0LCB0aXRsZS5sZW5ndGgsICdjYXJldCBpcyBhdCB0aGUgcmln
+aHRtb3N0IHBvc2l0aW9uIGFuZCBubyB0ZXh0IGlzIHNlbGVjdGVkJyk7CiAgICAgaXMoaW5wdXQu
+c2VsZWN0aW9uRW5kLCB0aXRsZS5sZW5ndGgsICdjYXJldCBpcyBhdCB0aGUgcmlnaHRtb3N0IHBv
+c2l0aW9uIGFuZCBubyB0ZXh0IGlzIHNlbGVjdGVkJyk7CiAKLSAgICBncm91cEl0ZW0uY2xvc2Uo
+KTsKLSAgICBoaWRlVGFiVmlldyhmaW5pc2gpOworICAgIHdpbi5jbG9zZSgpOworICAgIGZpbmlz
+aCgpOwogICB9CiAKICAgd2FpdEZvckV4cGxpY2l0RmluaXNoKCk7CiAKLSAgc2hvd1RhYlZpZXco
+ZnVuY3Rpb24gKCkgewotICAgIGN3ID0gVGFiVmlldy5nZXRDb250ZW50V2luZG93KCk7Ci0gICAg
+dGVzdEZvY3VzVGl0bGUoKTsKKyAgbmV3V2luZG93V2l0aFRhYlZpZXcoZnVuY3Rpb24gKHR2d2lu
+KSB7CisgICAgd2luID0gdHZ3aW47CisKKyAgICByZWdpc3RlckNsZWFudXBGdW5jdGlvbihmdW5j
+dGlvbiAoKSB7CisgICAgICBpZiAoIXdpbi5jbG9zZWQpCisgICAgICAgIHdpbi5jbG9zZSgpOwor
+ICAgIH0pOworCisgICAgY3cgPSB3aW4uVGFiVmlldy5nZXRDb250ZW50V2luZG93KCk7CisgICAg
+U2ltcGxlVGVzdC53YWl0Rm9yRm9jdXModGVzdEZvY3VzVGl0bGUsIGN3KTsKICAgfSk7CiB9Cg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647719</bug_id>
+          
+          <creation_ts>2011-04-04 11:21:00 -0700</creation_ts>
+          <short_desc>structured formatting triggered when it shouldn&apos;t be</short_desc>
+          <delta_ts>2011-04-04 12:38:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Message Reader UI</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dave Hildebrandt">dave</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>message-reader</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390342</commentid>
+            <who name="Dave Hildebrandt">dave</who>
+            <bug_when>2011-04-04 11:21:50 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.25 Safari/534.24
+Build Identifier: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.14) Gecko/20110223 Lightning/1.0b2 OracleBeehiveExtension/1.0.0.2-OracleInternal ObetStats/UAFCATUAFUAF_1301604580126-816159664 Thunderbird/3.1.8
+
+The issue is that certain text that appears in a plaintext log that is mailed causes the renderer to show italic text.  The text is below in the reproducibility section.  Perhaps it has to do with listing Perforce depots, which start with a double forward slash, in log lines that also contain colons.  Just a guess.
+
+I have a backup job running in cron and sending me email like cron does.  System running cron is a Solaris 10 box.  Problem has existed for years.  A little research reveals no exact bug match so I&apos;m making a new one, but that there is such a thing as structured text formatting. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. mail yourself this, make sure it&apos;s plaintext:
+
+Sat Apr  2 04:04:00 2011: /p4/work/servers/backup: p4 daemon has come
+Sat Apr  2 04:04:00 2011: /p4/work/servers/backup: verify: /opt/perforce/bin/p4 -p perforce.plumtree.com:3821 -u ReleaseDaemon -P bur98r verify -q //CCDS/...
+Sat Apr  2 04:04:02 2011: /p4/work/servers/backup: verify: /opt/perforce/bin/p4 -p perforce.plumtree.com:3821 -u ReleaseDaemon -P bur98r verify -q //Common/...
+Sat Apr  2 07:36:49 2011: /p4/work/servers/backup: stopping p4d 
+
+2. view in Thunderbird
+Actual Results:  
+The first line is correctly rendered.
+The second line through penultimate lines are rendered with italics starting at the text &quot;/p4/work/servers/backup: verify: ...&quot; and continuing to end of line.  (The initial date stamp is non-italic.)
+The third line is rendered as the second: the date stamp is not italic, and the rest of the line is italic.
+I have a number of lines like the second and third, and all behave the same way.  What is different is the text after the double slash near the end of the line (different perforce depots)
+The fourth (ultimate) line is rendered correctly. 
+
+
+
+Expected Results:  
+Nothing should be rendered italic.  There are no URIs anywhere in sight.
+
+There was a bug filed somewhere about how someone would like a tick box added to the prefs to turn off structured formatting.  I would prefer not to have to discover that, but that structured formatting just work.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390382</commentid>
+            <who name="Dave Hildebrandt">dave</who>
+            <bug_when>2011-04-04 12:38:00 -0700</bug_when>
+            <thetext>Here is another tickling of this bug:  The text
+
+
+LATEST is not a symlink: /socrates/build/components/INTERNAL/tools_common/LATEST/
+
+
+is rendered in italic starting from &quot;/socrates/...&quot; and continuing to end of line.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

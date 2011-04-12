@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647600</bug_id>
+          
+          <creation_ts>2011-04-03 13:46:00 -0700</creation_ts>
+          <short_desc>crash [@ AsyncCallbackAutoLock::AsyncCallbackAutoLock ]</short_desc>
+          <delta_ts>2011-04-11 11:15:33 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          <keywords>crash, regression, topcrash</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          
+          <blocked>645263</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Josh Aas (Mozilla Corporation)">joshmoz</reporter>
+          <assigned_to name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</assigned_to>
+          <cc>benjamin</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>ehsan</cc>
+    
+    <cc>jones.chris.g</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389414</commentid>
+            <who name="Josh Aas (Mozilla Corporation)">joshmoz</who>
+            <bug_when>2011-04-03 13:46:19 -0700</bug_when>
+            <thetext>This crash showed up in the last day or two, so far only on Mac OS X:
+
+0 	XUL 	AsyncCallbackAutoLock::AsyncCallbackAutoLock 	Mutex.h:106
+1 	XUL 	nsNPAPIPluginInstance::Stop 	modules/plugin/base/src/nsNPAPIPluginInstance.cpp:193
+2 	XUL 	nsPluginHost::DestroyRunningInstances 	modules/plugin/base/src/nsPluginHost.cpp:4224
+3 	XUL 	nsPluginHost::Destroy 	modules/plugin/base/src/nsPluginHost.cpp:870
+4 	XUL 	nsPluginHost::Observe 	modules/plugin/base/src/nsPluginHost.cpp:3526
+5 	XUL 	nsObserverList::NotifyObservers 	xpcom/ds/nsObserverList.cpp:130
+6 	XUL 	nsObserverService::NotifyObservers 	xpcom/ds/nsObserverService.cpp:182
+7 	XUL 	mozilla::ShutdownXPCOM 	xpcom/build/nsXPComInit.cpp:627
+8 	XUL 	ScopedXPCOMStartup::~ScopedXPCOMStartup 	toolkit/xre/nsAppRunner.cpp:1115
+9 	XUL 	XRE_main 	toolkit/xre/nsAppRunner.cpp:1118
+10 	firefox-bin 	main 	browser/app/nsBrowserApp.cpp:158
+11 	firefox-bin 	firefox-bin@0x953</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392541</commentid>
+              <attachid>524210</attachid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-06 10:31:38 -0700</bug_when>
+            <thetext>Created attachment 524210
+Restore null checks
+
+These null checks scare me, but bug 645263 regressed this so here we are.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397081</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-08 11:43:18 -0700</bug_when>
+            <thetext>*** Bug 648579 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399458</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-10 12:16:26 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/4e1710fd488a</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400968</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-11 11:15:33 -0700</bug_when>
+            <thetext>Thanks!</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524210</attachid>
+            <date>2011-04-06 10:31:00 -0700</date>
+            <delta_ts>2011-04-08 11:06:38 -0700</delta_ts>
+            <desc>Restore null checks</desc>
+            <filename>647600-pluginlock-nullcheck.patch</filename>
+            <type>text/plain</type>
+            <size>998</size>
+            <attacher>jones.chris.g</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIENocmlzIEpvbmVzIDxqb25lcy5jaHJpcy5nQGdt
+YWlsLmNvbT4KIyBEYXRlIDEzMDIxMTA4ODIgMTgwMDAKIyBOb2RlIElEIGUwNmEzNGI5ZTI0MWVm
+ZDljODQ2MzI3ZGZjMDAxMjI3NDA2YTliMzcKIyBQYXJlbnQgIGE4YTBhN2I1MTg5MjVkMzI1Njcy
+M2NmMTc5MDcxMjRlMDMxMWFlMDcKQnVnIDY0NzYwMDogUmVzdG9yZSBudWxsIGNoZWNrcy4gcj1i
+c21lZGJlcmcKCmRpZmYgLS1naXQgYS9tb2R1bGVzL3BsdWdpbi9iYXNlL3NyYy9uc05QQVBJUGx1
+Z2luLmNwcCBiL21vZHVsZXMvcGx1Z2luL2Jhc2Uvc3JjL25zTlBBUElQbHVnaW4uY3BwCi0tLSBh
+L21vZHVsZXMvcGx1Z2luL2Jhc2Uvc3JjL25zTlBBUElQbHVnaW4uY3BwCisrKyBiL21vZHVsZXMv
+cGx1Z2luL2Jhc2Uvc3JjL25zTlBBUElQbHVnaW4uY3BwCkBAIC05MTcsMjIgKzkxNywyNiBAQCBP
+blNodXRkb3duKCkKICAgICBkZWxldGUgc1BsdWdpblRocmVhZEFzeW5jQ2FsbExvY2s7CiAKICAg
+ICBzUGx1Z2luVGhyZWFkQXN5bmNDYWxsTG9jayA9IG5zbnVsbDsKICAgfQogfQogCiBBc3luY0Nh
+bGxiYWNrQXV0b0xvY2s6OkFzeW5jQ2FsbGJhY2tBdXRvTG9jaygpCiB7Ci0gIHNQbHVnaW5UaHJl
+YWRBc3luY0NhbGxMb2NrLT5Mb2NrKCk7CisgIGlmIChzUGx1Z2luVGhyZWFkQXN5bmNDYWxsTG9j
+aykgeworICAgIHNQbHVnaW5UaHJlYWRBc3luY0NhbGxMb2NrLT5Mb2NrKCk7CisgIH0KIH0KIAog
+QXN5bmNDYWxsYmFja0F1dG9Mb2NrOjp+QXN5bmNDYWxsYmFja0F1dG9Mb2NrKCkKIHsKLSAgc1Bs
+dWdpblRocmVhZEFzeW5jQ2FsbExvY2stPlVubG9jaygpOworICBpZiAoc1BsdWdpblRocmVhZEFz
+eW5jQ2FsbExvY2spIHsKKyAgICBzUGx1Z2luVGhyZWFkQXN5bmNDYWxsTG9jay0+VW5sb2NrKCk7
+CisgIH0KIH0KIAogCiBOUFAgTlBQU3RhY2s6OnNDdXJyZW50TlBQID0gbnNudWxsOwogCiBjb25z
+dCBjaGFyICoKIFBlZWtFeGNlcHRpb24oKQogewo=
+</data>
+<flag name="review"
+          id="437918"
+          type_id="4"
+          status="+"
+          setter="benjamin"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

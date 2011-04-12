@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648116</bug_id>
+          
+          <creation_ts>2011-04-06 14:23:00 -0700</creation_ts>
+          <short_desc>Unusual exception types (&quot;crash reasons&quot;) should become part of the signatures</short_desc>
+          <delta_ts>2011-04-06 14:50:43 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Socorro</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jesse Ruderman">jruderman</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dbaron</cc>
+    
+    <cc>lars</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>socorro</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393216</commentid>
+            <who name="Jesse Ruderman">jruderman</who>
+            <bug_when>2011-04-06 14:23:34 -0700</bug_when>
+            <thetext>If the crash isn&apos;t segfault-ish, the crash reason should probably be part of the signature.
+
+segfault-ish: EXC_BAD_ACCESS, KERN_PROTECTION_FAILURE, bus error
+
+not segfault-ish: integer division by zero, &lt;everything else&gt;
+
+Special cases:
+
+* Stack overflow bugs should be considered their own reason (with a signature prefix) regardless of whether the OS reported it as segfault-ish or not. Should be covered by bug 559077.
+
+* &quot;Invalid instruction&quot; should probably be grouped with segfaults.
+
+I&apos;m not completely sure about this. I&apos;d need to see a few signatures that have mixes of segfaulty and non-segfaulty crash reports, and I don&apos;t know how to do that search.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393298</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-06 14:50:43 -0700</bug_when>
+            <thetext>For reference, here&apos;s the current list of possible crash reasons:
+http://code.google.com/p/google-breakpad/source/browse/trunk/src/processor/minidump_processor.cc#453</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

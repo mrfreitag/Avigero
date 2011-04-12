@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648332</bug_id>
+          
+          <creation_ts>2011-04-07 12:45:00 -0700</creation_ts>
+          <short_desc>Design First Run page for Aurora Channel</short_desc>
+          <delta_ts>2011-04-08 10:59:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Marketing</product>
+          <component>Design</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>648330</dependson>
+          <blocked>646236</blocked>
+    
+    <blocked>646870</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Mesa">lmesa</reporter>
+          <assigned_to name="Tara">tshahian</assigned_to>
+          <cc>geekshadow</cc>
+    
+    <cc>gjimenez</cc>
+    
+    <cc>jslater</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>mayumi</cc>
+    
+    <cc>Mnovak</cc>
+    
+    <cc>smartell</cc>
+    
+    <cc>tymerkaev</cc>
+          <qa_contact>design</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394889</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-07 12:45:02 -0700</bug_when>
+            <thetext>In the case where we may need to have a first run page for the first release of Aurora next week, we&apos;d like to mock up a backup first run page.
+
+It can be based on this template http://www-trunk.stage.mozilla.com/en-US/firefox/4.0b1/firstrun/
+
+with the logo and word marks removed. We can also remove the image and just roll in copy. 
+
+We don&apos;t currently have copy, but I will start working on that asap.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395908</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-07 21:34:49 -0700</bug_when>
+            <thetext>Agreed on leaving out the image (since that&apos;s very Fx4-ish) but there&apos;s not really much on this page without it. Maybe better to base it on something more in the regular site template?
+
+What kind of content will go in there?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396905</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-08 10:59:49 -0700</bug_when>
+            <thetext>Per Bug 648330, we will not need this page. resolving as won&apos;t fix.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

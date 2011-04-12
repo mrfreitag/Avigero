@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648102</bug_id>
+          
+          <creation_ts>2011-04-06 13:41:00 -0700</creation_ts>
+          <short_desc>UTF-8 support for shell read/snarf function</short_desc>
+          <delta_ts>2011-04-08 13:59:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>635933</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dave Herman [:dherman]">dherman</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>mbasta</cc>
+    
+    <cc>walters</cc>
+    
+    <cc>wes</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393090</commentid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-06 13:41:31 -0700</bug_when>
+            <thetext>The AMO validator needs to read in UTF-8-encoded files, and read/snarf only reads in bytes with some old encoding. But we have UTF-8 support in the engine so it shouldn&apos;t be too hard to create a UTF-8 variant.
+
+This could be in the form of an optional second argument to read/snarf that is a string from a fixed set of recognized encoding names? Or maybe just a boolean to switch between the current encoding and UTF-8?
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394832</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-07 12:06:04 -0700</bug_when>
+            <thetext>FileAsString() reads the input file, converting C string to JS string via 
+JS_NewStringCopyN().
+
+It seems to me that the correct solution is not to add yet-another-code path, but rather use the one we already have: call JS_SetCStringsAreUTF8() before JS_NewRuntime()</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394835</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-07 12:08:58 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+ 
+&gt; It seems to me that the correct solution is not to add yet-another-code path,
+&gt; but rather use the one we already have: call JS_SetCStringsAreUTF8() before
+&gt; JS_NewRuntime()
+
+But if you do that, you lose out on the ability to hold arbitrary binary data in strings, which is in turn necessary if your javascript code doesn&apos;t uniformly use Uint8Array.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395075</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-07 14:03:50 -0700</bug_when>
+            <thetext>Where does the JS shell use C strings with bytes &gt; 0x7f?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395386</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-07 16:20:08 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; Where does the JS shell use C strings with bytes &gt; 0x7f?
+
+Sorry, I don&apos;t know all of the context here; it may be in some limited use case one can get away with JS_SetCStringsAreUTF8.  But in general it&apos;s web-incompatible at least.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396314</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 06:03:17 -0700</bug_when>
+            <thetext>Colin, whether or not a pointer to char represents ISO-8859-1 or UTF-8 data in the source to your web browser (or, in this case, JS shell) is completely orthognal web-compatibilty.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396526</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 08:42:41 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Colin, whether or not a pointer to char represents ISO-8859-1 or UTF-8 data in
+&gt; the source to your web browser (or, in this case, JS shell) is completely
+&gt; orthognal web-compatibilty.
+
+Setting it makes string handling *very* different from Firefox.  Note that Spidermonkey doesn&apos;t really try to enforce ISO-8859-1 - in practice it&apos;s just &quot;arbitrary binary data&quot;.
+
+Let me define &quot;web compatible&quot; here by saying basically if Firefox were to just invoke JS_SetCStringsAreUTF8 today with no other changes, it would probably fail to run many web pages.  For example, XPConnect would no longer pass through binary strings, but would throw an exception.
+
+On this particular bug, we have a version of this in GJS too; I think the right approach for the bug is what Dave suggested - a new variant of JS_CompileScript with an encoding argument.
+
+
+Although, it *would* be nice to eventually switch over spidermonkey to by default convert to UTF-8, and have callers that want access to raw string data just use JS_GetStringCharsAndLength (though even more ideally have a version that returns const uint8* instead of pretending it&apos;s valid unicode).
+
+Basically anything calling any of the JS_EncodeString family needs auditing if you&apos;re going to set this flag.  As is now in the JS shell, it is used for printing out values, as well as the Unix exec() wrapper.
+
+Formerly, looks like if you were printing a binary string, it&apos;d just go straight to your terminal; actually this is a bug either way - in gjs when printing things we detect if the value isn&apos;t valid UTF-8 and squash it.  Without modification, binary strings would throw an exception and fail to print.
+
+For the exec() case, you&apos;d no longer be able to pass binary data as arguments to subprocesses.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396627</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 09:44:13 -0700</bug_when>
+            <thetext>So we understand that this switch doesn&apos;t affect web correctness, it affects how the embedding or browser communicates with the JS engine. 
+
+The proper way to get Unicode data into the JS engine is to transform it to UTF-16 (native endian), from whatever the input encoding happens to be, and to feed it JS_CompileUCScript().
+
+IMO, he JS engine should NOT be doing arbitrary charset transformation: that is iconv&apos;s job; also, the browser already knows how to do this.
+
+Anyhow, Dave wasn&apos;t suggesting we add that to the JS engine, only to add a helper in the shell. My point is that it&apos;s probably easier to just turn on UTF-8 C strings than to write a routine to do this.
+
+For the exec() case - is this really a concern? It&apos;s not even built that way unless #if defined(SHELL_HACK) &amp;&amp; defined(DEBUG) &amp;&amp; defined(XP_UNIX)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396685</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 10:00:04 -0700</bug_when>
+            <thetext>(In reply to comment #7)
+&gt; So we understand that this switch doesn&apos;t affect web correctness, it affects
+&gt; how the embedding or browser communicates with the JS engine. 
+
+True, strictly speaking.  But my point remains that Firefox would break messily if this flag was set blindly.
+
+&gt; The proper way to get Unicode data into the JS engine is to transform it to
+&gt; UTF-16 (native endian), from whatever the input encoding happens to be, and to
+&gt; feed it JS_CompileUCScript().
+
+Ah, that&apos;s probably what Firefox does?  ... a quick &quot;git grep&quot; later...looks like mostly, yes.  A few tests use CompileScript.
+
+&gt; IMO, he JS engine should NOT be doing arbitrary charset transformation: that is
+&gt; iconv&apos;s job; also, the browser already knows how to do this.
+
+I agree with this generally.  In my case I already have high quality Unicode routines in GLib, so I don&apos;t really want Spidermonkey doing it too (though probably NSPR has stuff in this area too, which is a different mess).
+
+&gt; Anyhow, Dave wasn&apos;t suggesting we add that to the JS engine, only to add a
+&gt; helper in the shell. My point is that it&apos;s probably easier to just turn on
+&gt; UTF-8 C strings than to write a routine to do this.
+
+I think that&apos;d just lead to more confusion down the road when the JS shell behaves differently from Firefox.
+
+The right thing I think is to just kill off JS_SetCStringsAreUTF8.  It&apos;s an evil temptation for embedders as it is now.
+
+
+But for this bug, I think we agree the JS shell should:
+
+1) Gain some mechanism for specifying the input encoding of its script.  On Unix at least I&apos;d expect this to default to nl_langinfo (CODESET), and maybe have a command line argument?
+2) Convert the input into UTF-16 via JS_DecodeBytes, and then feed that to JS_CompileUCScript.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396724</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 10:10:20 -0700</bug_when>
+            <thetext>Maybe in the future of course we could actually flip the other way and use UTF-8 internally:
+
+Robert O&apos;Callahan has a good post on this:
+
+http://weblogs.mozillazine.org/roc/archives/2008/01/string_theory.html
+
+Though he doesn&apos;t mention (or perhaps didn&apos;t know) in that post that we need to support non-Unicode data in JavaScript strings for backwards compatibility.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396736</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 10:15:08 -0700</bug_when>
+            <thetext>Our opinions on what should happen in the long term with JS_SetCStringsAreUTF8() differ by 180 degress- but that&apos;s okay, neither of us are the module owner anyhow. :)
+
+&gt; 2) Convert the input into UTF-16 via JS_DecodeBytes, and then 
+&gt; feed that to JS_CompileUCScript.
+
+The current implementation, which uses JS_NewStringCopyN(), is equivalent to this. It and JS_DecodeBytes() are both implemented in terms of js_InflateStringToBuffer() which requires JS_SetCStringsAreUTF8() if you want the input to be recognized as UTF-8.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396752</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 10:19:24 -0700</bug_when>
+            <thetext>We mid-aired on the last comment.  ROC&apos;s post is interesting, and reminds me that Google&apos;s engine stores their JS strings internally as either UTF16, UTF8, or &quot;ascii&quot;, depending on the string.  At least they did a year ago.
+
+I&apos;m ambivalent as to whether the JS engine should change it&apos;s internal representation -- I would want to see perf numbers -- but that has no real bearing on the API, or how the shell reads files. It&apos;s (mostly) an engine-contained problem.  That said, an internal UTF-8 repn would go nicely with UTF-8 C strings.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396762</commentid>
+              <attachid>524660</attachid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 10:22:21 -0700</bug_when>
+            <thetext>Created attachment 524660
+Quick patch to add -U which sets UTF-8 C strings
+
+Dave, does this meet your needs?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396763</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 10:22:32 -0700</bug_when>
+            <thetext>(In reply to comment #10)
+&gt; Our opinions on what should happen in the long term with
+&gt; JS_SetCStringsAreUTF8() differ by 180 degress- but that&apos;s okay, neither of us
+&gt; are the module owner anyhow. :)
+
+Wait, do you actually use it?
+
+&gt; The current implementation, which uses JS_NewStringCopyN(), is equivalent to
+&gt; this. It and JS_DecodeBytes() are both implemented in terms of
+&gt; js_InflateStringToBuffer() which requires JS_SetCStringsAreUTF8() if you want
+&gt; the input to be recognized as UTF-8.
+
+Ohh right.  So I think the right fix is a public JS_DecodeUTF8 API that doesn&apos;t depend on the value of JS_CStringsAreUTF8().</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396880</commentid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-08 10:51:27 -0700</bug_when>
+            <thetext>&gt; Dave, does this meet your needs?
+
+They&apos;re actually Matt Basta&apos;s needs, not mine -- the AMO validator isn&apos;t my jurisdiction. They&apos;re using Reflect.parse, which is how I got involved.
+
+I haven&apos;t followed this whole conversation very well, but I&apos;m somewhat ambivalent. I don&apos;t really care that much about cleanliness in the shell, because it&apos;s a ball of mud to begin with and NPOTB... and anyway, SpiderNode FTW. ;)
+
+Matt: is Wes&apos;s patch sufficient for your needs? Basically, it adds a -U command-line option to the shell which changes all I/O to be UTF-8.
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396918</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 11:04:57 -0700</bug_when>
+            <thetext>To restate more clearly the reason I&apos;m fighting so much on this bug is simply because I&apos;ve learned over time when using Spidermonkey: 
+
+&quot;Do What Firefox Does&quot;
+
+Firefox is where all the effort goes into test suites, where new JS features are driven and prototyped, etc.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396940</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 11:14:32 -0700</bug_when>
+            <thetext>Normally, I&apos;d agree with you, but I think adding arbitrary character set conversion into the shell is too big a burden at this time.
+
+Feel free to pick up the slack, though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396951</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 11:17:43 -0700</bug_when>
+            <thetext>Sorry, I didn&apos;t mean that come off as snarky as did.
+
+The point, though, is that the shell doesn&apos;t have access to the same libraries that the browser uses to retrieve resources and perform characters set conversion.
+
+This is why the shell uses files, and why I&apos;m suggesting using what resources we have at our disposal to do the conversion.
+
+I would be very sad to see the JS shell start to depend on libiconv, for example.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396962</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 11:19:57 -0700</bug_when>
+            <thetext>Argh, I meant for this to be comment 15, mid-air collision bit me:
+
+Dave/Matt: Not all I/O - code coming in via JS_CompileFile() - e.g. from -f
+command line option - is currently unaffected by this switch. This is an engine
+bug I&apos;ve been meaning to fix for quite some time...  Matt will need to use
+snarf, read, or run to get the behaviour he wants.
+
+(Full disclosure -- I didn&apos;t really test this because I had a hard time generating a test case that didn&apos;t involve copy/pasting out of my browser which is causing me charset-grief)
+
+Colin: yes, I do I use UTF8 C strings. IMO, anybody who cares about getting
+arbitrary binary data into JS Strings should be relying on the defined
+interfaces for doing this rather than the happenstance of ISO-8859-1 -&gt; UTF-16
+mapping by the legacy implementation of js_inflateString.   (But I prefer
+storing arbitrary binary data in byte-oriented data types anyhow)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396976</commentid>
+            <who name="Dave Herman [:dherman]">dherman</who>
+            <bug_when>2011-04-08 11:23:07 -0700</bug_when>
+            <thetext>Wes: what effect does -U have on load() then?
+
+Dave</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397026</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 11:31:29 -0700</bug_when>
+            <thetext>(In reply to comment #12)
+&gt; Created attachment 524660 [details]
+&gt; Quick patch to add -U which sets UTF-8 C strings
+&gt; 
+&gt; Dave, does this meet your needs?
+
+So what&apos;s interesting to me is this patch actually *breaks* UTF-8 input for me.  I&apos;ll attach a sample test file.  But *why* that&apos;s the case I&apos;m not sure yet.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397028</commentid>
+              <attachid>524687</attachid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 11:31:51 -0700</bug_when>
+            <thetext>Created attachment 524687
+print a smiley!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397049</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 11:35:48 -0700</bug_when>
+            <thetext>But can we get a test case of a file that AMO wants to validate that failed?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397156</commentid>
+              <attachid>524699</attachid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 12:02:50 -0700</bug_when>
+            <thetext>Created attachment 524699
+Legal JS program with UTF-8 chars in it
+
+Dave -- load() is unaffected by this bug, because it is implemented with JS_CompileFile() which is not aware of the JS_SetCStringsAreUTF8() switch.  This is an engine bug, IMHO (there is an old bug on this).
+
+Colin - Not sure what&apos;s going on with your test; it works for me, but as I explained on IRC, I&apos;m suspicious of my terminal.
+
+The correct output from this program is &quot;Hello\n174&quot; when the shell is invoked -U; a syntax error results otherwise.
+
+To run the program, save it in a file and use the run() function or paste it into the REPL. Or use snarf()/read() to read it into a JS string and eval() it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397274</commentid>
+            <who name="Matt Basta (:basta)">mbasta</who>
+            <bug_when>2011-04-08 13:02:38 -0700</bug_when>
+            <thetext>Hi all, thanks for looking so deep into this.
+
+Dave: That would be fine, it&apos;s all we need. Our code looks something like this:
+
+try {
+    print(JSON.stringify(Reflect.parse(read(&quot;foo.js&quot;))));
+} catch(e) {
+    print(JSON.stringify({
+        &quot;error&quot;:true,
+        &quot;error_message&quot;:e.toString(),
+        &quot;line_number&quot;:e.lineNumber
+    }));
+}
+
+As long as the -U flag will allow read() to decode the file, then that should sufficiently meet our needs.
+
+Is the patch ready for us to install/deploy?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397292</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 13:07:34 -0700</bug_when>
+            <thetext>Matt:
+
+You could certainly *test* the patch, but it can&apos;t go into the source tree until it is reviewed by a JS peer.
+
+Are you able to test?   If so, please apply locally and test; indicate that it meets your needs by marking feedback+ on the attachment, and I will request peer review. Once reviewed, assuming it passes muster, I can push it into the tracemonkey tree, where it will eventually make it&apos;s way into mozilla-central.
+
+Wes
+
+PS: If you don&apos;t know how to apply a patch, build spidermonkey, etc -- find me in #jsapi and I will help you.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397343</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 13:28:25 -0700</bug_when>
+            <thetext>Ok, here&apos;s how I&apos;m testing.  I have two files:
+
+// begin testValidEscapedUTF8.js
+var \u03A9 = &quot;Hello&quot;;
+print(\u03A9);
+// end testValidEscapedUTF8.js
+
+// begin testValidLiteralUTF8.js
+var Ω = &quot;Hello&quot;;
+print(Ω);
+// end testValidLiteralUTF8.js
+
+Now, from the current mozilla-central git (I&apos;m using the github mirror):
+
+$ ./shell/js -e &apos;compile(snarf(&quot;/home/walters/tmp/jstest/testValidEscapedUTF8.js&quot;))&apos;
+$ ./shell/js -e &apos;compile(snarf(&quot;/home/walters/tmp/jstest/testValidLiteralUTF8.js&quot;))&apos;
+&lt;string&gt;:SyntaxError: illegal character:
+&lt;string&gt;:var Ω = &quot;Hello&quot;;
+&lt;string&gt;:.....^
+$
+
+We can see that the shell barfs on the literal UTF-8.  If I add JS_SetCStringsAreUTF8() before JS_NewRuntime, it does work (so I&apos;m not sure what happened above).
+
+Now, I have a series of patches that give the same result, but don&apos;t require calling JS_SetCStringsAreUTF8.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397350</commentid>
+              <attachid>524720</attachid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 13:31:04 -0700</bug_when>
+            <thetext>Created attachment 524720
+series of patches to improve UTF-8 support in the JS shell
+
+These patches are a different approach than Wes&apos; - we essentially assume that the shell input is always UTF-8.  This is honestly a lot better default than what we&apos;re doing now, which is hard to characterize - we&apos;re taking each byte of input as the low bit in UTF-16...I think that&apos;s basically going to be corrupted unless the input is ASCII.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397361</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-08 13:35:38 -0700</bug_when>
+            <thetext>What the current shell does is to treat all input as ISO-8859-1, via the algorithm you described.  There is no ambiguity.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397427</commentid>
+            <who name="Colin Walters">walters</who>
+            <bug_when>2011-04-08 13:59:25 -0700</bug_when>
+            <thetext>(In reply to comment #28)
+&gt; What the current shell does is to treat all input as ISO-8859-1, via the
+&gt; algorithm you described.  There is no ambiguity.
+
+You&apos;re right, sorry.  I had forgotten this property of UTF-16.  
+
+So this patch changes the shell to default to UTF-8 instead of ISO-8859-1 unconditionally.  I think this is basically unilaterally better because whatever encoding your JavaScript happens to be, you should be able to losslessly convert it to UTF-8 via an external mechanism (be that iconv or whatever).</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524660</attachid>
+            <date>2011-04-08 10:22:00 -0700</date>
+            <delta_ts>2011-04-08 11:57:27 -0700</delta_ts>
+            <desc>Quick patch to add -U which sets UTF-8 C strings</desc>
+            <filename>utf8-shell</filename>
+            <type>text/plain</type>
+            <size>2711</size>
+            <attacher>wes</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2pzL3NyYy9zaGVsbC9qcy5jcHAgYi9qcy9zcmMvc2hlbGwvanMuY3BwCi0t
+LSBhL2pzL3NyYy9zaGVsbC9qcy5jcHAKKysrIGIvanMvc3JjL3NoZWxsL2pzLmNwcApAQCAtNTcz
+LDE2ICs1NzMsMTggQEAgdXNhZ2Uodm9pZCkKICAgICAgICAgICAgICAgICAgICAgICAiICAtaCAg
+ICAgICAgICAgIERpc3BsYXkgdGhpcyBpbmZvcm1hdGlvblxuIgogICAgICAgICAgICAgICAgICAg
+ICAgICIgIC16ICAgICAgICAgICAgQ3JlYXRlIGEgc3BsaXQgZ2xvYmFsIG9iamVjdFxuIgogICAg
+ICAgICAgICAgICAgICAgICAgICIgICAgICAgICAgICAgICAgV2FybmluZzogdGhpcyBvcHRpb24g
+aXMgcHJvYmFibHkgbm90IHVzZWZ1bFxuIgogICAgICAgICAgICAgICAgICAgICAgICIgIC1QICAg
+ICAgICAgICAgRGVlcGx5IGZyZWV6ZSB0aGUgZ2xvYmFsIG9iamVjdCBwcm90b3R5cGVcbiIKICAg
+ICAgICAgICAgICAgICAgICAgICAiICAtcyAgICAgICAgICAgIFRvZ2dsZSBKU09QVElPTl9TVFJJ
+Q1QgZmxhZ1xuIgogICAgICAgICAgICAgICAgICAgICAgICIgIC13ICAgICAgICAgICAgUmVwb3J0
+IHN0cmljdCB3YXJuaW5nc1xuIgogICAgICAgICAgICAgICAgICAgICAgICIgIC1XICAgICAgICAg
+ICAgRG8gbm90IHJlcG9ydCBzdHJpY3Qgd2FybmluZ3NcbiIKICAgICAgICAgICAgICAgICAgICAg
+ICAiICAteCAgICAgICAgICAgIFRvZ2dsZSBKU09QVElPTl9YTUwgZmxhZ1xuIgorICAgICAgICAg
+ICAgICAgICAgICAgICIgIC1VICAgICAgICAgICAgRW5hYmxlIFVURi04IEMtc3RyaW5nczsgYWxz
+byBhZmZlY3RzIHNjcmlwdHMgbG9hZGVkIHZpYVxuIgorICAgICAgICAgICAgICAgICAgICAgICIg
+ICAgICAgICAgICAgICAgcnVuLCBzbmFyZiwgcmVhZCwgb3IgZW50ZXJlZCBpbnRvIHRoZSBSRVBM
+XG4iCiAgICAgICAgICAgICAgICAgICAgICAgIiAgLUMgICAgICAgICAgICBDb21waWxlLW9ubHk7
+IGRvIG5vdCBleGVjdXRlXG4iCiAgICAgICAgICAgICAgICAgICAgICAgIiAgLWkgICAgICAgICAg
+ICBFbmFibGUgaW50ZXJhY3RpdmUgcmVhZC1ldmFsLXByaW50IGxvb3BcbiIKICAgICAgICAgICAg
+ICAgICAgICAgICAiICAtaiAgICAgICAgICAgIEVuYWJsZSB0aGUgVHJhY2VNb25rZXkgdHJhY2lu
+ZyBKSVRcbiIKICAgICAgICAgICAgICAgICAgICAgICAiICAtbSAgICAgICAgICAgIEVuYWJsZSB0
+aGUgSmFlZ2VyTW9ua2V5IG1ldGhvZCBKSVRcbiIKICAgICAgICAgICAgICAgICAgICAgICAiICAt
+YSAgICAgICAgICAgIEFsd2F5cyBtZXRob2QgSklULCBpZ25vcmUgaW50ZXJuYWwgdHVuaW5nXG4i
+CiAgICAgICAgICAgICAgICAgICAgICAgIiAgICAgICAgICAgICAgICBUaGlzIG9ubHkgaGFzIGVm
+ZmVjdCB3aXRoIC1tXG4iCiAgICAgICAgICAgICAgICAgICAgICAgIiAgLXAgICAgICAgICAgICBF
+bmFibGUgbG9vcCBwcm9maWxpbmcgZm9yIFRyYWNlTW9ua2V5XG4iCiAgICAgICAgICAgICAgICAg
+ICAgICAgIiAgLWQgICAgICAgICAgICBFbmFibGUgZGVidWcgbW9kZVxuIgpAQCAtOTMxLDE2ICs5
+MzMsMTkgQEAgUHJvY2Vzc0FyZ3MoSlNDb250ZXh0ICpjeCwgSlNPYmplY3QgKm9iagogICAgICAg
+ICBjYXNlICdnJzoKICAgICAgICAgICAgIGlmICgrK2kgPT0gYXJnYykKICAgICAgICAgICAgICAg
+ICByZXR1cm4gdXNhZ2UoKTsKIAogICAgICAgICAgICAgUFJfU2xlZXAoUFJfU2Vjb25kc1RvSW50
+ZXJ2YWwoYXRvaShhcmd2W2ldKSkpOwogICAgICAgICAgICAgYnJlYWs7CiAjZW5kaWYKIAorICAg
+ICAgICBjYXNlICdVJzogLyogQWxyZWFkeSBoYW5kbGVkIGluIG1haW4oKSAqLworICAgICAgICAg
+ICAgYnJlYWs7CisKICAgICAgICAgZGVmYXVsdDoKICAgICAgICAgICAgIHJldHVybiB1c2FnZSgp
+OwogICAgICAgICB9CiAgICAgfQogCiAgICAgaWYgKGZpbGVuYW1lIHx8IGlzSW50ZXJhY3RpdmUp
+CiAgICAgICAgIFByb2Nlc3MoY3gsIG9iaiwgZmlsZW5hbWUsIGZvcmNlVFRZKTsKICAgICByZXR1
+cm4gZ0V4aXRDb2RlOwpAQCAtNTc3NywxNiArNTc4MiwyMyBAQCBtYWluKGludCBhcmdjLCBjaGFy
+ICoqYXJndiwgY2hhciAqKmVudnApCiAjZW5kaWYKIAogICAgIE1heWJlT3ZlcnJpZGVPdXRGaWxl
+RnJvbUVudigiSlNfU1RERVJSIiwgc3RkZXJyLCAmZ0VyckZpbGUpOwogICAgIE1heWJlT3ZlcnJp
+ZGVPdXRGaWxlRnJvbUVudigiSlNfU1RET1VUIiwgc3Rkb3V0LCAmZ091dEZpbGUpOwogCiAgICAg
+YXJnYy0tOwogICAgIGFyZ3YrKzsKIAorICAgIGludCBpOworICAgIGZvciAoaSA9IDA7IGkgPCBh
+cmdjOyBpKyspIHsKKyAgICAgICAgaWYgKGFyZ3ZbaV1bMF0gPT0gJy0nICYmIGFyZ3ZbaV1bMV0g
+PT0gJ1UnICYmIGFyZ3ZbaV1bMl0gPT0gJ1wwJykgeworICAgICAgICAgICAgSlNfU2V0Q1N0cmlu
+Z3NBcmVVVEY4KCk7CisgICAgICAgIH0KKyAgICB9CisKICNpZmRlZiBYUF9XSU4KICAgICAvLyBT
+ZXQgdGhlIHRpbWVyIGNhbGlicmF0aW9uIGRlbGF5IGNvdW50IHRvIDAgc28gd2UgZ2V0IGhpZ2gK
+ICAgICAvLyByZXNvbHV0aW9uIHJpZ2h0IGF3YXksIHdoaWNoIHdlIG5lZWQgZm9yIHByZWNpc2Ug
+YmVuY2htYXJraW5nLgogICAgIGV4dGVybiBpbnQgQ0FMSUJSQVRJT05fREVMQVlfQ09VTlQ7CiAg
+ICAgQ0FMSUJSQVRJT05fREVMQVlfQ09VTlQgPSAwOwogI2VuZGlmCiAKICAgICBydCA9IEpTX05l
+d1J1bnRpbWUoMTYwTCAqIDEwMjRMICogMTAyNEwpOwo=
+</data>
+<flag name="feedback"
+          id="438280"
+          type_id="607"
+          status="?"
+          setter="wes"
+          requestee="mbasta"
+    />
+          </attachment>
+          <attachment
+              isobsolete="1"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524687</attachid>
+            <date>2011-04-08 11:31:00 -0700</date>
+            <delta_ts>2011-04-08 13:31:04 -0700</delta_ts>
+            <desc>print a smiley!</desc>
+            <filename>test.js</filename>
+            <type>text/plain</type>
+            <size>84</size>
+            <attacher>walters</attacher>
+            
+              <data encoding="base64">Ly8gU2hvdWxkIHByaW50IGEgc21pbGV5IGZhY2UgYXNzdW1pbmcgeW91ciB0ZXJtaW5hbCBpcyBV
+VEYtOCBvbiBVbml4CnByaW50KCLimLoiKTsK
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524699</attachid>
+            <date>2011-04-08 12:02:00 -0700</date>
+            <delta_ts>2011-04-08 12:02:50 -0700</delta_ts>
+            <desc>Legal JS program with UTF-8 chars in it</desc>
+            <filename>utf.js</filename>
+            <type>text/plain</type>
+            <size>55</size>
+            <attacher>wes</attacher>
+            
+              <data encoding="base64">dmFyIMaSPSJIZWxsbyI7CnByaW50KMaSKTsKCnByaW50KCLCriIuY2hhckNvZGVBdCgwKSk7Cg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524720</attachid>
+            <date>2011-04-08 13:31:00 -0700</date>
+            <delta_ts>2011-04-08 13:31:04 -0700</delta_ts>
+            <desc>series of patches to improve UTF-8 support in the JS shell</desc>
+            <filename>js-utf8-2.patch</filename>
+            <type>text/plain</type>
+            <size>7321</size>
+            <attacher>walters</attacher>
+            
+              <data encoding="base64">RnJvbSBiZDFiNTJjNWNiYTEwODlhMzQ1YWY5MjBmMzE1MDIzYjE0Zjc2ODdjIE1vbiBTZXAgMTcg
+MDA6MDA6MDAgMjAwMQpGcm9tOiBDb2xpbiBXYWx0ZXJzIDx3YWx0ZXJzQHZlcmJ1bS5vcmc+CkRh
+dGU6IEZyaSwgOCBBcHIgMjAxMSAxNDozNzoxNCAtMDQwMApTdWJqZWN0OiBbUEFUQ0ggMS8zXSBq
+c2FwaTogQWRkIEpTX0RlY29kZVVURjgKCkluIHNvbWUgY2FzZXMsIHdlIG1heSB3YW50IHRvIHR1
+cm4gVVRGLTggaW5wdXQgaW50byBVVEYtMTYuCi0tLQoganMvc3JjL2pzYXBpLmNwcCB8ICAgIDcg
+KysrKysrKwoganMvc3JjL2pzYXBpLmggICB8ICAgIDYgKysrKysrCiAyIGZpbGVzIGNoYW5nZWQs
+IDEzIGluc2VydGlvbnMoKyksIDAgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvanMvc3JjL2pz
+YXBpLmNwcCBiL2pzL3NyYy9qc2FwaS5jcHAKaW5kZXggZjg0MmRlZi4uYjE4ODU3OSAxMDA2NDQK
+LS0tIGEvanMvc3JjL2pzYXBpLmNwcAorKysgYi9qcy9zcmMvanNhcGkuY3BwCkBAIC01NTI0LDYg
+KzU1MjQsMTMgQEAgSlNfRGVjb2RlQnl0ZXMoSlNDb250ZXh0ICpjeCwgY29uc3QgY2hhciAqc3Jj
+LCBzaXplX3Qgc3JjbGVuLCBqc2NoYXIgKmRzdCwgc2l6ZV8KICAgICByZXR1cm4ganNfSW5mbGF0
+ZVN0cmluZ1RvQnVmZmVyKGN4LCBzcmMsIHNyY2xlbiwgZHN0LCBkc3RsZW5wKTsKIH0KIAorSlNf
+UFVCTElDX0FQSShKU0Jvb2wpCitKU19EZWNvZGVVVEY4KEpTQ29udGV4dCAqY3gsIGNvbnN0IGNo
+YXIgKnNyYywgc2l6ZV90IHNyY2xlbiwganNjaGFyICpkc3QsCisgICAgICAgICAgICAgIHNpemVf
+dCAqZHN0bGVucCkKK3sKKyAgICByZXR1cm4ganNfSW5mbGF0ZVVURjhTdHJpbmdUb0J1ZmZlcihj
+eCwgc3JjLCBzcmNsZW4sIGRzdCwgZHN0bGVucCk7Cit9CisKIEpTX1BVQkxJQ19BUEkoY2hhciAq
+KQogSlNfRW5jb2RlU3RyaW5nKEpTQ29udGV4dCAqY3gsIEpTU3RyaW5nICpzdHIpCiB7CmRpZmYg
+LS1naXQgYS9qcy9zcmMvanNhcGkuaCBiL2pzL3NyYy9qc2FwaS5oCmluZGV4IGY0N2I5MzMuLjIw
+YmFkNzYgMTAwNjQ0Ci0tLSBhL2pzL3NyYy9qc2FwaS5oCisrKyBiL2pzL3NyYy9qc2FwaS5oCkBA
+IC0zMTgyLDYgKzMxODIsOCBAQCBKU19TZXRDU3RyaW5nc0FyZVVURjgodm9pZCk7CiAgKiBVVEYt
+OCwgYW5kIEpTX0RlY29kZUJ5dGVzIGRlY29kZXMgZnJvbSBVVEYtOCwgd2hpY2ggbWF5IGNyZWF0
+ZSBhZGRpdGlvbmFsCiAgKiBlcnJvcnMgaWYgdGhlIGNoYXJhY3RlciBzZXF1ZW5jZSBpcyBtYWxm
+b3JtZWQuICBJZiBVVEYtOCBzdXBwb3J0IGlzCiAgKiBkaXNhYmxlZCwgdGhlIGZ1bmN0aW9ucyBk
+ZWZsYXRlIGFuZCBpbmZsYXRlLCByZXNwZWN0aXZlbHkuCisgKgorICogSlNfRGVjb2RlVVRGOCgp
+IGFsd2F5cyBiZWhhdmVzIHRoZSBzYW1lIGluZGVwZW5kZW50bHkgb2YgSlNfQ1N0cmluZ3NBcmVV
+VEY4KCkuCiAgKi8KIEpTX1BVQkxJQ19BUEkoSlNCb29sKQogSlNfRW5jb2RlQ2hhcmFjdGVycyhK
+U0NvbnRleHQgKmN4LCBjb25zdCBqc2NoYXIgKnNyYywgc2l6ZV90IHNyY2xlbiwgY2hhciAqZHN0
+LApAQCAtMzE5MSw2ICszMTkzLDEwIEBAIEpTX1BVQkxJQ19BUEkoSlNCb29sKQogSlNfRGVjb2Rl
+Qnl0ZXMoSlNDb250ZXh0ICpjeCwgY29uc3QgY2hhciAqc3JjLCBzaXplX3Qgc3JjbGVuLCBqc2No
+YXIgKmRzdCwKICAgICAgICAgICAgICAgIHNpemVfdCAqZHN0bGVucCk7CiAKK0pTX1BVQkxJQ19B
+UEkoSlNCb29sKQorSlNfRGVjb2RlVVRGOChKU0NvbnRleHQgKmN4LCBjb25zdCBjaGFyICpzcmMs
+IHNpemVfdCBzcmNsZW4sIGpzY2hhciAqZHN0LAorICAgICAgICAgICAgICBzaXplX3QgKmRzdGxl
+bnApOworCiAvKgogICogQSB2YXJpYXRpb24gb24gSlNfRW5jb2RlQ2hhcmFjdGVycyB3aGVyZSBh
+IG51bGwgdGVybWluYXRlZCBzdHJpbmcgaXMKICAqIHJldHVybmVkIHRoYXQgeW91IGFyZSBleHBl
+Y3RlZCB0byBjYWxsIEpTX2ZyZWUgb24gd2hlbiBkb25lLgotLSAKMS43LjQKCgpGcm9tIDEyZGEz
+OTgwMDhiMjg4NzY5NDM2MGQyMjllOTk4ZmU4OWJiMTJmMWQgTW9uIFNlcCAxNyAwMDowMDowMCAy
+MDAxCkZyb206IENvbGluIFdhbHRlcnMgPHdhbHRlcnNAdmVyYnVtLm9yZz4KRGF0ZTogRnJpLCA4
+IEFwciAyMDExIDE1OjA4OjE2IC0wNDAwClN1YmplY3Q6IFtQQVRDSCAyLzNdIGpzYXBpOiBDaGFu
+Z2UgSlNfQnVmZmVySXNDb21waWxhYmxlVW5pdCB0byB0YWtlIGEgYm9vbGVhbiBmb3IgImlucHV0
+IGlzIFVURi04IgoKT3RoZXJ3aXNlLCBjYWxsZXJzIGFyZSBmb3JjZWQgdG8gdXNlIEpTX1NldENT
+dHJpbmdzQXJlVVRGOCgpLCB3aGljaApoYXMgYSB0b24gb2Ygc2lkZSBlZmZlY3RzLgotLS0KIGpz
+L3NyYy9qc2FwaS5jcHAgfCAgICA3ICsrKysrLS0KIGpzL3NyYy9qc2FwaS5oICAgfCAgICA0ICsr
+LS0KIDIgZmlsZXMgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQoKZGlm
+ZiAtLWdpdCBhL2pzL3NyYy9qc2FwaS5jcHAgYi9qcy9zcmMvanNhcGkuY3BwCmluZGV4IGIxODg1
+NzkuLmZiYWYyZDMgMTAwNjQ0Ci0tLSBhL2pzL3NyYy9qc2FwaS5jcHAKKysrIGIvanMvc3JjL2pz
+YXBpLmNwcApAQCAtNDYwMyw3ICs0NjAzLDcgQEAgSlNfQ29tcGlsZVNjcmlwdChKU0NvbnRleHQg
+KmN4LCBKU09iamVjdCAqb2JqLCBjb25zdCBjaGFyICpieXRlcywgc2l6ZV90IGxlbmd0aCwKIH0K
+IAogSlNfUFVCTElDX0FQSShKU0Jvb2wpCi1KU19CdWZmZXJJc0NvbXBpbGFibGVVbml0KEpTQ29u
+dGV4dCAqY3gsIEpTT2JqZWN0ICpvYmosIGNvbnN0IGNoYXIgKmJ5dGVzLCBzaXplX3QgbGVuZ3Ro
+KQorSlNfQnVmZmVySXNDb21waWxhYmxlVW5pdChKU0NvbnRleHQgKmN4LCBKU0Jvb2wgYnl0ZXNf
+YXJlX3V0ZjgsIEpTT2JqZWN0ICpvYmosIGNvbnN0IGNoYXIgKmJ5dGVzLCBzaXplX3QgbGVuZ3Ro
+KQogewogICAgIGpzY2hhciAqY2hhcnM7CiAgICAgSlNCb29sIHJlc3VsdDsKQEAgLTQ2MTIsNyAr
+NDYxMiwxMCBAQCBKU19CdWZmZXJJc0NvbXBpbGFibGVVbml0KEpTQ29udGV4dCAqY3gsIEpTT2Jq
+ZWN0ICpvYmosIGNvbnN0IGNoYXIgKmJ5dGVzLCBzaXplXwogCiAgICAgQ0hFQ0tfUkVRVUVTVChj
+eCk7CiAgICAgYXNzZXJ0U2FtZUNvbXBhcnRtZW50KGN4LCBvYmopOwotICAgIGNoYXJzID0ganNf
+SW5mbGF0ZVN0cmluZyhjeCwgYnl0ZXMsICZsZW5ndGgpOworICAgIGlmIChieXRlc19hcmVfdXRm
+OCkKKyAgICAgICAgY2hhcnMgPSBqc19JbmZsYXRlU3RyaW5nKGN4LCBieXRlcywgJmxlbmd0aCwg
+SlNfVFJVRSk7CisgICAgZWxzZQorICAgICAgICBjaGFycyA9IGpzX0luZmxhdGVTdHJpbmcoY3gs
+IGJ5dGVzLCAmbGVuZ3RoKTsKICAgICBpZiAoIWNoYXJzKQogICAgICAgICByZXR1cm4gSlNfVFJV
+RTsKIApkaWZmIC0tZ2l0IGEvanMvc3JjL2pzYXBpLmggYi9qcy9zcmMvanNhcGkuaAppbmRleCAy
+MGJhZDc2Li4yY2RjYjNkIDEwMDY0NAotLS0gYS9qcy9zcmMvanNhcGkuaAorKysgYi9qcy9zcmMv
+anNhcGkuaApAQCAtMjY2MCw4ICsyNjYwLDggQEAgSlNfQ2xvbmVGdW5jdGlvbk9iamVjdChKU0Nv
+bnRleHQgKmN4LCBKU09iamVjdCAqZnVub2JqLCBKU09iamVjdCAqcGFyZW50KTsKICAqIHRoZSBj
+b21waWxlci4KICAqLwogZXh0ZXJuIEpTX1BVQkxJQ19BUEkoSlNCb29sKQotSlNfQnVmZmVySXND
+b21waWxhYmxlVW5pdChKU0NvbnRleHQgKmN4LCBKU09iamVjdCAqb2JqLAotICAgICAgICAgICAg
+ICAgICAgICAgICAgICBjb25zdCBjaGFyICpieXRlcywgc2l6ZV90IGxlbmd0aCk7CitKU19CdWZm
+ZXJJc0NvbXBpbGFibGVVbml0KEpTQ29udGV4dCAqY3gsIEpTQm9vbCBieXRlc19hcmVfdXRmOCwK
+KyAgICAgICAgICAgICAgICAgICAgICAgICAgSlNPYmplY3QgKm9iaiwgY29uc3QgY2hhciAqYnl0
+ZXMsIHNpemVfdCBsZW5ndGgpOwogCiBleHRlcm4gSlNfUFVCTElDX0FQSShKU09iamVjdCAqKQog
+SlNfQ29tcGlsZVNjcmlwdChKU0NvbnRleHQgKmN4LCBKU09iamVjdCAqb2JqLAotLSAKMS43LjQK
+CgpGcm9tIDg5YjEzZTJlNzQ3MDA5MTYyZGFkZjk5Nzk4YjdiODk1M2M4NGIyYzUgTW9uIFNlcCAx
+NyAwMDowMDowMCAyMDAxCkZyb206IENvbGluIFdhbHRlcnMgPHdhbHRlcnNAdmVyYnVtLm9yZz4K
+RGF0ZTogRnJpLCA4IEFwciAyMDExIDE1OjA5OjQxIC0wNDAwClN1YmplY3Q6IFtQQVRDSCAzLzNd
+IGpzIHNoZWxsOiBDb25zaXN0ZW50bHkgdGFrZSBpbnB1dCBpbiBVVEYtOAoKLS0tCiBqcy9zcmMv
+c2hlbGwvanMuY3BwIHwgICAzMyArKysrKysrKysrKysrKysrKysrKysrKysrKysrKy0tLS0KIDEg
+ZmlsZXMgY2hhbmdlZCwgMjkgaW5zZXJ0aW9ucygrKSwgNCBkZWxldGlvbnMoLSkKCmRpZmYgLS1n
+aXQgYS9qcy9zcmMvc2hlbGwvanMuY3BwIGIvanMvc3JjL3NoZWxsL2pzLmNwcAppbmRleCBlNTIx
+ZDllLi4xMzcyZWYxIDEwMDY0NAotLS0gYS9qcy9zcmMvc2hlbGwvanMuY3BwCisrKyBiL2pzL3Ny
+Yy9zaGVsbC9qcy5jcHAKQEAgLTQwNSw2ICs0MDUsOCBAQCBQcm9jZXNzKEpTQ29udGV4dCAqY3gs
+IEpTT2JqZWN0ICpvYmosIGNoYXIgKmZpbGVuYW1lLCBKU0Jvb2wgZm9yY2VUVFkpCiAgICAgSlNT
+dHJpbmcgKnN0cjsKICAgICBjaGFyICpidWZmZXI7CiAgICAgc2l6ZV90IHNpemU7CisgICAganNj
+aGFyICp1Y19idWZmZXI7CisgICAgc2l6ZV90IHVjX2xlbjsKICAgICBpbnQgbGluZW5vOwogICAg
+IGludCBzdGFydGxpbmU7CiAgICAgRklMRSAqZmlsZTsKQEAgLTUyNiwxMSArNTI4LDIwIEBAIFBy
+b2Nlc3MoSlNDb250ZXh0ICpjeCwgSlNPYmplY3QgKm9iaiwgY2hhciAqZmlsZW5hbWUsIEpTQm9v
+bCBmb3JjZVRUWSkKICAgICAgICAgICAgICAgICBoaXRFT0YgPSBKU19UUlVFOwogICAgICAgICAg
+ICAgICAgIGJyZWFrOwogICAgICAgICAgICAgfQotICAgICAgICB9IHdoaWxlICghSlNfQnVmZmVy
+SXNDb21waWxhYmxlVW5pdChjeCwgb2JqLCBidWZmZXIsIGxlbikpOworICAgICAgICB9IHdoaWxl
+ICghSlNfQnVmZmVySXNDb21waWxhYmxlVW5pdChjeCwgSlNfVFJVRSwgb2JqLCBidWZmZXIsIGxl
+bikpOwogCiAgICAgICAgIGlmIChoaXRFT0YgJiYgIWJ1ZmZlcikKICAgICAgICAgICAgIGJyZWFr
+OwogCisgICAgICAgIGlmICghSlNfRGVjb2RlVVRGOChjeCwgYnVmZmVyLCBsZW4sIE5VTEwsICZ1
+Y19sZW4pKSB7CisgICAgICAgICAgICBKU19SZXBvcnRFcnJvcihjeCwgIkludmFsaWQgVVRGLTgg
+aW4gaW5wdXQiKTsKKyAgICAgICAgICAgIGdFeGl0Q29kZSA9IEVYSVRDT0RFX1JVTlRJTUVfRVJS
+T1I7CisgICAgICAgICAgICByZXR1cm47CisgICAgICAgIH0KKworICAgICAgICB1Y19idWZmZXIg
+PSAoanNjaGFyKiltYWxsb2ModWNfbGVuICogc2l6ZW9mKGpzY2hhcikpOworICAgICAgICBKU19E
+ZWNvZGVVVEY4KGN4LCBidWZmZXIsIGxlbiwgdWNfYnVmZmVyLCAmdWNfbGVuKTsKKwogICAgICAg
+ICAvKiBDbGVhciBhbnkgcGVuZGluZyBleGNlcHRpb24gZnJvbSBwcmV2aW91cyBmYWlsZWQgY29t
+cGlsZXMuICovCiAgICAgICAgIEpTX0NsZWFyUGVuZGluZ0V4Y2VwdGlvbihjeCk7CiAKQEAgLTUz
+OCw4ICs1NDksOCBAQCBQcm9jZXNzKEpTQ29udGV4dCAqY3gsIEpTT2JqZWN0ICpvYmosIGNoYXIg
+KmZpbGVuYW1lLCBKU0Jvb2wgZm9yY2VUVFkpCiAgICAgICAgIG9sZG9wdHMgPSBKU19HZXRPcHRp
+b25zKGN4KTsKICAgICAgICAgaWYgKCFjb21waWxlT25seSkKICAgICAgICAgICAgIEpTX1NldE9w
+dGlvbnMoY3gsIG9sZG9wdHMgfCBKU09QVElPTl9DT01QSUxFX05fR08pOwotICAgICAgICBzY3Jp
+cHRPYmogPSBKU19Db21waWxlU2NyaXB0KGN4LCBvYmosIGJ1ZmZlciwgbGVuLCAidHlwZWluIiwK
+LSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdGFydGxpbmUpOworICAgICAg
+ICBzY3JpcHRPYmogPSBKU19Db21waWxlVUNTY3JpcHQoY3gsIG9iaiwgdWNfYnVmZmVyLCB1Y19s
+ZW4sICJ0eXBlaW4iLAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3Rh
+cnRsaW5lKTsKICAgICAgICAgaWYgKCFjb21waWxlT25seSkKICAgICAgICAgICAgIEpTX1NldE9w
+dGlvbnMoY3gsIG9sZG9wdHMpOwogCkBAIC01NTcsNiArNTY4LDcgQEAgUHJvY2VzcyhKU0NvbnRl
+eHQgKmN4LCBKU09iamVjdCAqb2JqLCBjaGFyICpmaWxlbmFtZSwgSlNCb29sIGZvcmNlVFRZKQog
+ICAgICAgICAgICAgfQogICAgICAgICB9CiAgICAgICAgICpidWZmZXIgPSAnXDAnOworICAgICAg
+ICBmcmVlKHVjX2J1ZmZlcik7CiAgICAgfSB3aGlsZSAoIWhpdEVPRiAmJiAhZ1F1aXR0aW5nKTsK
+IAogICAgIGZyZWUoYnVmZmVyKTsKQEAgLTExMjMsOCArMTEzNSwyMSBAQCBGaWxlQXNTdHJpbmco
+SlNDb250ZXh0ICpjeCwgY29uc3QgY2hhciAqcGF0aG5hbWUpCiAgICAgICAgICAgICAgICAgICAg
+IEpTX1JlcG9ydEVycm9yKGN4LCAiY2FuJ3QgcmVhZCAlczogJXMiLCBwYXRobmFtZSwKICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKHB0cmRpZmZfdChjYykgPCAwKSA/IHN0cmVy
+cm9yKGVycm5vKSA6ICJzaG9ydCByZWFkIik7CiAgICAgICAgICAgICAgICAgfSBlbHNlIHsKKyAg
+ICAgICAgICAgICAgICAgICAganNjaGFyICp1Y2J1ZjsKKyAgICAgICAgICAgICAgICAgICAgc2l6
+ZV90IHVjbGVuOworCiAgICAgICAgICAgICAgICAgICAgIGxlbiA9IChzaXplX3QpY2M7Ci0gICAg
+ICAgICAgICAgICAgICAgIHN0ciA9IEpTX05ld1N0cmluZ0NvcHlOKGN4LCBidWYsIGxlbik7CisK
+KyAgICAgICAgICAgICAgICAgICAgaWYgKCFKU19EZWNvZGVVVEY4KGN4LCBidWYsIGxlbiwgTlVM
+TCwgJnVjbGVuKSkgeworICAgICAgICAgICAgICAgICAgICAgICAgSlNfUmVwb3J0RXJyb3IoY3gs
+ICJJbnZhbGlkIFVURi04IGluIGZpbGUgJyVzJyIsIHBhdGhuYW1lKTsKKyAgICAgICAgICAgICAg
+ICAgICAgICAgIGdFeGl0Q29kZSA9IEVYSVRDT0RFX1JVTlRJTUVfRVJST1I7CisgICAgICAgICAg
+ICAgICAgICAgICAgICByZXR1cm4gTlVMTDsKKyAgICAgICAgICAgICAgICAgICAgfQorCisgICAg
+ICAgICAgICAgICAgICAgIHVjYnVmID0gKGpzY2hhciopbWFsbG9jKHVjbGVuICogc2l6ZW9mKGpz
+Y2hhcikpOworICAgICAgICAgICAgICAgICAgICBKU19EZWNvZGVVVEY4KGN4LCBidWYsIGxlbiwg
+dWNidWYsICZ1Y2xlbik7CisgICAgICAgICAgICAgICAgICAgIHN0ciA9IEpTX05ld1VDU3RyaW5n
+Q29weU4oY3gsIHVjYnVmLCB1Y2xlbik7CisgICAgICAgICAgICAgICAgICAgIGZyZWUodWNidWYp
+OwogICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICBKU19mcmVlKGN4LCBidWYpOwog
+ICAgICAgICAgICAgfQotLSAKMS43LjQKCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

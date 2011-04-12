@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648270</bug_id>
+          
+          <creation_ts>2011-04-07 08:16:00 -0700</creation_ts>
+          <short_desc>Update first run page for Catalan (ca)</short_desc>
+          <delta_ts>2011-04-07 11:51:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Eduard Gamonal">edu</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mozbugs.retornam</cc>
+    
+    <cc>pascalc</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394425</commentid>
+            <who name="Eduard Gamonal">edu</who>
+            <bug_when>2011-04-07 08:16:30 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; es-ES; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 (.NET CLR 3.5.30729)
+Build Identifier: 
+
+Please update First Run page for Catalan (ca)
+Old http://viewvc.svn.mozilla.org/vc/projects/mozilla.com/trunk/ca/firefox/4/firstrun/index.html?revision=83367
+
+Find attatched the new one
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394426</commentid>
+              <attachid>524404</attachid>
+            <who name="Eduard Gamonal">edu</who>
+            <bug_when>2011-04-07 08:16:58 -0700</bug_when>
+            <thetext>Created attachment 524404
+Catalan (ca) localisation for first run page</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394502</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-07 09:10:18 -0700</bug_when>
+            <thetext>pushed in r87065, thanks</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394809</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-07 11:51:24 -0700</bug_when>
+            <thetext>qa-verified-trunk https://www-trunk.stage.mozilla.com/ca/firefox/4/firstrun/index.html</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524404</attachid>
+            <date>2011-04-07 08:16:00 -0700</date>
+            <delta_ts>2011-04-07 08:16:58 -0700</delta_ts>
+            <desc>Catalan (ca) localisation for first run page</desc>
+            <filename>index.html</filename>
+            <type>text/plain</type>
+            <size>187</size>
+            <attacher>edu</attacher>
+            
+              <data encoding="base64">PD9waHAKLyogIHRyYW5zbGF0ZSB0aGUgcGFnZSB0aXRsZSBiZWxvdyAqLwokcGFnZV90aXRsZSA9
+ICJVcyBkb25lbSBsYSBiZW52aW5ndWRhIjsKCiRwYWdlaWQgPSAnZmlyc3RydW4tNCc7CnJlcXVp
+cmVfb25jZSAieyRjb25maWdbJ2ZpbGVfcm9vdCddfS9pbmNsdWRlcy9sMTBuL2NvbnRyb2xsZXIu
+aW5jLnBocCI7Cgo/PgoKCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

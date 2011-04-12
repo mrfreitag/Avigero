@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647772</bug_id>
+          
+          <creation_ts>2011-04-04 21:57:00 -0700</creation_ts>
+          <short_desc>text displays in IE/FF3.6; does not appear in FF4.0</short_desc>
+          <delta_ts>2011-04-04 23:50:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Jonathan Mills">jonathan.n.mills</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+    
+    <cc>VYV03354</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390791</commentid>
+            <who name="Jonathan Mills">jonathan.n.mills</who>
+            <bug_when>2011-04-04 21:57:16 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+This code snippet was extracted from a control panel of an application.  it behaves differently under FF4.0.  the problem is the &quot;hidden&quot; keyword.
+
+&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;A page title&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+this is visible in  IE, FF3.6, FF 4.0
+&lt;div hidden=&quot;&quot;&gt;
+However,this is visible in IE, FF3.6 but NOT Firefox 4.0
+&lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. copy snippet into a file and point browser at it
+2.
+3.
+Actual Results:  
+this is visible in IE, FF3.6, FF 4.0
+However,this is visible in IE, FF3.6 but NOT Firefox 4.0 
+
+Expected Results:  
+this is visible in IE, FF3.6, FF 4.0
+
+
+I don&apos;t know the validity of the HTML - just that it worked before, and doesn&apos;t now.
+
+there are other reports like this - 643456, 646790 - but not obvious they are this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390827</commentid>
+            <who name="Masatoshi Kimura [:emk]">VYV03354</who>
+            <bug_when>2011-04-04 22:44:51 -0700</bug_when>
+            <thetext>It&apos;s because HTML5 &quot;hidden&quot; attribute was implemented in Firefox 4 (bug 567663).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390839</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 22:58:46 -0700</bug_when>
+            <thetext>Works as expected for me:
+--------------------------------------------------
+this is visible in IE, FF3.6, FF 4.0 
+
+Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Mozilla/5.0 (Windows NT 6.0; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre
+Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre
+Mozilla/5.0 (X11; Linux i686 on x86_64; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre
+
+-------------------------------------------------
+
+this is visible in IE, FF3.6, FF 4.0
+However,this is visible in IE, FF3.6 but NOT Firefox 4.0 
+
+Build identifier: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+
+--------------------------------------------------
+
+Jonathan, according to your &quot;Actual Results&quot; are both lines visible in your Firefox 4 client - or do I misinterpret you?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390845</commentid>
+            <who name="Jonathan Mills">jonathan.n.mills</who>
+            <bug_when>2011-04-04 23:12:12 -0700</bug_when>
+            <thetext>Thomas, you&apos;re right, I&apos;ve confused actual and expected results.
+
+I&apos;m expecting both lines as thats whats happened in the past.  I&apos;m only getting one line with FF4.0
+
+are you saying that you get both lines output with your more recent builds?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390866</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-04 23:50:47 -0700</bug_when>
+            <thetext>No, I&apos;m saying that the only thing that gives me two lines of output is Firefox 3.6.16. All Firefox 4 versions I have tested gave me only one line.
+
+Well, to be picky, the 3.6.16 is apparently from 20110319 so it&apos;s kind of a recent build - but it&apos;s an older generation of browser.
+
+After you have clarified that you swapped actual and expected results everything is as I expect it to be.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

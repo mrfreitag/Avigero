@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648442</bug_id>
+          
+          <creation_ts>2011-04-07 18:30:00 -0700</creation_ts>
+          <short_desc>Socorro does not have an installer</short_desc>
+          <delta_ts>2011-04-11 18:01:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Socorro</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          <see_also>https://bugzilla.mozilla.org/show_bug.cgi?id=649137</see_also>
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brandon Savage">bsavage</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>chris.lonnen</cc>
+    
+    <cc>kairo</cc>
+    
+    <cc>laura</cc>
+    
+    <cc>rhelmer</cc>
+          <qa_contact>socorro</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395628</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-07 18:30:12 -0700</bug_when>
+            <thetext>While there are puppet manifests and scripts to install Socorro for us from the tarball, there is no easy way for a user of the project outside Mozilla to install/upgrade Socorro.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402156</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-11 16:44:33 -0700</bug_when>
+            <thetext>Does this overlap with bug 481477?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402368</commentid>
+            <who name="Robert Helmer [:rhelmer]">rhelmer</who>
+            <bug_when>2011-04-11 17:35:43 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Does this overlap with bug 481477?
+
+I think there is overlap, although that bug has useful information I don&apos;t know if we should try to morph it beyond it&apos;s original purpose (updating docs that are now outdated).
+
+Also, there is overlap with bug 649137 and bug 634041 too (we need to decide what to document and what to script, and where to keep those documents).
+
+Note that Socorro itself does have a Makefile with an &quot;install&quot; target, but this bug is more for third-party dependencies.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402439</commentid>
+            <who name="Brandon Savage">bsavage</who>
+            <bug_when>2011-04-11 18:01:18 -0700</bug_when>
+            <thetext>The purpose of this issue is to spur a discussion on how best to automate the installation and maintenance of Socorro for the purposes of supporting third party installation. This bug would seem to overlap, but not fully duplicate, Bug #481477. That bug is a fairly large bug while these other, smaller bugs focus in on pieces and might be made blockers or &quot;see alsos&quot; to that issue.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

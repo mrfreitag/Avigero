@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647599</bug_id>
+          
+          <creation_ts>2011-04-03 13:16:00 -0700</creation_ts>
+          <short_desc>Double click close tab when only 2 tabs makes both tabs close.</short_desc>
+          <delta_ts>2011-04-08 11:28:19 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>4.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Daniel">daniel</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>deletesoftware</cc>
+    
+    <cc>hskupin</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389389</commentid>
+            <who name="Daniel">daniel</who>
+            <bug_when>2011-04-03 13:16:16 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+If user has only 2 tabs open, and clicks almost at the speed of a double click the &quot;X&quot; on the left one, both tabs will close, resulting in Firefox closing.
+
+Reproducible: Couldn&apos;t Reproduce
+
+Steps to Reproduce:
+1. Open 2 tabs
+2. Hover mouse over left tab&apos;s &quot;x&quot; (close button)
+3. Click twice, just a little slower than a normal double click.
+Actual Results:  
+Firefox closed.
+
+Expected Results:  
+The &quot;x&quot; close button should have disappeared faster. Or Firefox shouldn&apos;t be able to be closed by a tab&apos;s close button.
+
+It could have just been a one of a time instance, but yeah, probably good to tell you.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396563</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-08 09:10:51 -0700</bug_when>
+            <thetext>I cannot see this problem with a 4.0 build on Linux. Can you please run Firefox in Safe Mode so we can ensure that this is not an issue raised by an extension? Thanks
+
+http://support.mozilla.com/en-US/kb/Safe+Mode</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396656</commentid>
+            <who name="Daniel">daniel</who>
+            <bug_when>2011-04-08 09:51:51 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; I cannot see this problem with a 4.0 build on Linux. Can you please run Firefox
+&gt; in Safe Mode so we can ensure that this is not an issue raised by an extension?
+&gt; Thanks
+&gt; 
+&gt; http://support.mozilla.com/en-US/kb/Safe+Mode
+
+Just did it in safe-mode. Successfully re-created. It&apos;s really hard to do, to be honest: you need to move the mouse a little to the right and click like crazy to re-create it - before the x button disappears - I guess the first time I did it it must have been REALLY lucky. Well, unlucky. It&apos;s probably not worth worrying about, just thought y&apos;all might like to know about the bug.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

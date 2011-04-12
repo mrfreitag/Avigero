@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648167</bug_id>
+          
+          <creation_ts>2011-04-06 17:06:00 -0700</creation_ts>
+          <short_desc>my macbook says to &quot;service battery&quot;.  also has a messed up display</short_desc>
+          <delta_ts>2011-04-11 15:18:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="John Ford [:jhford]">jhford</reporter>
+          <assigned_to name="Guillermo Huerta">ghuerta</assigned_to>
+          <cc>ebalangue</cc>
+    
+    <cc>ghuerta</cc>
+    
+    <cc>shui</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      <flag name="order-this"
+          id="437984"
+          type_id="707"
+          status="+"
+          setter="ebalangue"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5393606</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-06 17:06:45 -0700</bug_when>
+            <thetext>My macbook has been shutting itself down randomly while on battery power.  The built in power indicator will show &gt;50%.  Looking at the help entry it says
+
+Service Battery: The battery isn’t functioning normally, and you may or may not notice a change in its behavior or the amount of charge it holds. Have your computer checked by an Apple Authorized Service Provider (AASP). You can continue to use your battery before it’s checked without harming your computer.
+
+Does fixing this require my machine to be sent it or is it something that I am ok to take to an apple store for?
+
+Thanks,
+
+John</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393622</commentid>
+            <who name="ebalangue@mozilla.com">ebalangue</who>
+            <bug_when>2011-04-06 17:11:33 -0700</bug_when>
+            <thetext>We can get you a new battery. Whatkind of macbook do you use?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393652</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-06 17:18:56 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; We can get you a new battery. Whatkind of macbook do you use?
+
+MacBookPro5,2  with 17&quot; screen and Core 2 Duo.
+
+
+
+From System Profiler
+=========================================================================
+  Model Name:	MacBook Pro
+  Model Identifier:	MacBookPro5,2
+  Processor Name:	Intel Core 2 Duo
+  Processor Speed:	2.8 GHz
+  Number Of Processors:	1
+  Total Number Of Cores:	2
+  L2 Cache:	6 MB
+  Memory:	4 GB
+  Bus Speed:	1.07 GHz
+  Boot ROM Version:	MBP52.008E.B05
+  SMC Version (system):	1.42f4
+  Serial Number (system):	W89430YW8YA
+  Hardware UUID:	71EB2072-0DE6-5352-85A7-90DA0DBDBB0F
+  Sudden Motion Sensor:
+  State:	Enabled</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394960</commentid>
+            <who name="Guillermo Huerta">ghuerta</who>
+            <bug_when>2011-04-07 13:08:59 -0700</bug_when>
+            <thetext>The unibodys have to go to Apple to get the battery repaired.  John, if you need we can setup a loaner for you and send your machine in.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394965</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-07 13:11:51 -0700</bug_when>
+            <thetext>Sure.  Can I have a macbook air as a loaner (contemplating getting an air for hardware refresh someday)?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397153</commentid>
+            <who name="ebalangue@mozilla.com">ebalangue</who>
+            <bug_when>2011-04-08 12:01:30 -0700</bug_when>
+            <thetext>Spencer loaned a macbook air loaner last Monday. You could stop by desktop and bring in your old machine for service by Apple.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399514</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-10 13:50:49 -0700</bug_when>
+            <thetext>(In reply to comment #5)
+&gt; Spencer loaned a macbook air loaner last Monday. You could stop by desktop and
+&gt; bring in your old machine for service by Apple.
+
+Actually, it wasn&apos;t last monday (this bug was filed last wednesday).  I am securely erasing my hard drive before sending the machine in.  That is running over the weekend and I will drop the machine off once I check that it is done tomorrow (monday).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400535</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-11 09:28:43 -0700</bug_when>
+            <thetext>I am going to drop off this computer.  Late last week, the computer screen went all grey and it looked like every other line went off (like one field turning off on an interlaced display).  I wonder if there is something more than the battery going bad.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400541</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-11 09:30:27 -0700</bug_when>
+            <thetext>computer dropped off at desk 78</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400774</commentid>
+            <who name="Spencer Hui">shui</who>
+            <bug_when>2011-04-11 10:26:23 -0700</bug_when>
+            <thetext>I&apos;m reimaged this machine to see what else is wrong and I will call Apple to get this shipped and fixed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400886</commentid>
+            <who name="John Ford [:jhford]">jhford</who>
+            <bug_when>2011-04-11 10:49:48 -0700</bug_when>
+            <thetext>the screen thing has only happened once, so i don&apos;t know how repeatable it is.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

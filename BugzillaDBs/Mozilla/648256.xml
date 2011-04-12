@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648256</bug_id>
+          
+          <creation_ts>2011-04-07 07:19:00 -0700</creation_ts>
+          <short_desc>Attachment detection in compose window should give me &quot;No attachment&quot; option for the current message</short_desc>
+          <delta_ts>2011-04-08 07:37:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Message Compose Window</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter>chazen</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>rsx11m.pub</cc>
+          <qa_contact>message-compose</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394355</commentid>
+            <who name="">chazen</who>
+            <bug_when>2011-04-07 07:19:10 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20110310 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.14) Gecko/20110223 Thunderbird/3.1.8
+
+This is papercuts category.  When I use a keyword that attachment detection recognizes (attachment, cv, etc) as an attachment word, I get a banner across the bottom of the compose window, &quot;Found an attachment keyword: ...&quot;, with the options &quot;Add attachment&quot; and &quot;Remind me later&quot;.
+
+But a substantial portion of the time, I don&apos;t want an attachment.  And that leaves me bothered -- &quot;stupid Thunderbird... I don&apos;t _want_ an attachment, and the only thing that will make this glowing banner go away is to say &apos;Remind me later&apos;.  I don&apos;t WANT it to remind me later, I don&apos;t want an attachment!&quot;  
+
+It would be great to have an option to dismiss attachment detection, and not to just defer the prompt to later.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Enter compose window.  Do not intend to add an attachment.
+2. Use an attachment keyword in the body.
+3. Notice that Compose window gives you no option to disable attachment detection for this message; and only options to add more clicks by &quot;Reminding me later&quot;.
+
+
+Expected Results:  
+When attachment detection kicks in, give the user a way to disable it for a message.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396433</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-08 07:37:08 -0700</bug_when>
+            <thetext>There is an [x] in the lower-right corner to close the bar for a single occurrence, but indeed it doesn&apos;t seem possible to disable the feature temporarily for the current message which is composed.
+
+Confirming as a valid RFE, nothing similar seems to have been filed yet.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

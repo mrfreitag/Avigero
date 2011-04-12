@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647893</bug_id>
+          
+          <creation_ts>2011-04-05 14:13:00 -0700</creation_ts>
+          <short_desc>Desk phone and extension</short_desc>
+          <delta_ts>2011-04-05 14:49:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>647895</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="jhoke@mozilla.com">jhoke</reporter>
+          <assigned_to>desktop-support</assigned_to>
+          <cc>reed</cc>
+    
+    <cc>shui</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391536</commentid>
+            <who name="jhoke@mozilla.com">jhoke</who>
+            <bug_when>2011-04-05 14:13:39 -0700</bug_when>
+            <thetext>Hi there,
+Sorry if I didn&apos;t pick the correct subject to put this bug under. 
+
+I&apos;m a new employee and would like a desk phone and extension. Thanks.
+
+Janice Hoke</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391547</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 14:23:56 -0700</bug_when>
+            <thetext>For what it&apos;s worth, you can file IT requests via https://bugzilla.mozilla.org/enter_bug.cgi?product=mozilla.org&amp;format=itrequest which is linked from https://intranet.mozilla.org/IT_Help_Desk (linked under &quot;IT Help Desk&quot; on the main intranet page).
+
+And welcome!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391562</commentid>
+            <who name="Spencer Hui">shui</who>
+            <bug_when>2011-04-05 14:49:53 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 647895 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

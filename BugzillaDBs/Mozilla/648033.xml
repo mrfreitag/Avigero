@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648033</bug_id>
+          
+          <creation_ts>2011-04-06 10:41:00 -0700</creation_ts>
+          <short_desc>[404] link to http://www.mozilla.org/extensions/manager</short_desc>
+          <delta_ts>2011-04-06 10:41:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla-europe.org</component>
+          <version>Firefox 4</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla.org/extensions/manager</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>MS-230895</reporter>
+          <assigned_to name="Pascal Chevrel:pascalc">pascalc</assigned_to>
+          
+          <qa_contact>www-mozilla-europe-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392569</commentid>
+            <who name="">MS-230895</who>
+            <bug_when>2011-04-06 10:41:51 -0700</bug_when>
+            <thetext>Dead URL</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648226</bug_id>
+          
+          <creation_ts>2011-04-07 01:47:00 -0700</creation_ts>
+          <short_desc>Mouse wheel and edit address only work after one click on page</short_desc>
+          <delta_ts>2011-04-07 10:42:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>sunny-day</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>surkov.alexander</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394139</commentid>
+            <who name="">sunny-day</who>
+            <bug_when>2011-04-07 01:47:57 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Some times the Mouse-wheel and edit address only work after one click on page.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. activate Tab
+2. click on Address field, edit the address did not work
+3. try to scroll over webpage did not work
+
+- WORKAROUND
+A. Click one time on page (no link need)
+B. scroll and edit address work.
+Actual Results:  
+No reaction on Mouse-wheel and click on address field
+
+Expected Results:  
+after activate the tab Scroll and edit Addressfield should work with out a click on page
+
+Same Problem i have on my Ubuntu Linux 10.10 too.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394141</commentid>
+            <who name="alexander surkov">surkov.alexander</who>
+            <bug_when>2011-04-07 01:51:32 -0700</bug_when>
+            <thetext>moving to general component for now, not sure what&apos;s the right component though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394625</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-07 10:05:00 -0700</bug_when>
+            <thetext>Is your Issue reproducible without Extensions in Safe-Mode and/or using a new Profile?
+https://support.mozilla.com/en-US/kb/Safe+Mode
+https://support.mozilla.com/en-US/kb/Managing+profiles#Creating_a_profile
+
+Does is happen if you manually disable all Plugins in the Addon Manager?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394688</commentid>
+            <who name="">sunny-day</who>
+            <bug_when>2011-04-07 10:42:46 -0700</bug_when>
+            <thetext>I will test it the next days with out the Add-ons who are the same on both system.
+ghostery, and &quot;Facebook blocker&quot;.
+both Firefoxes are not synced together with Firefox sync.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

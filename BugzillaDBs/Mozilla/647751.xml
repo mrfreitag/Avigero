@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647751</bug_id>
+          
+          <creation_ts>2011-04-04 16:52:00 -0700</creation_ts>
+          <short_desc>Remove tables from edit and create bug</short_desc>
+          <delta_ts>2011-04-04 16:52:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>User Interface</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>Bugzilla 4.2</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guy Pyrzak">guy.pyrzak</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">ui</assigned_to>
+          
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390642</commentid>
+            <who name="Guy Pyrzak">guy.pyrzak</who>
+            <bug_when>2011-04-04 16:52:53 -0700</bug_when>
+            <thetext>remove tables that facilitate page layout from edit/create ui to facilitate 5.0 redesign.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

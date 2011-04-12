@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648228</bug_id>
+          
+          <creation_ts>2011-04-07 02:13:00 -0700</creation_ts>
+          <short_desc>Lock order inconsistency (potential deadlock) in SSL3 machinery</short_desc>
+          <delta_ts>2011-04-08 09:25:22 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Julian Seward">jseward</reporter>
+          <assigned_to>nobody</assigned_to>
+          <cc>khuey</cc>
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394146</commentid>
+            <who name="Julian Seward">jseward</who>
+            <bug_when>2011-04-07 02:13:10 -0700</bug_when>
+            <thetext>TEST_PATH=content/base/test/test_bug466080.html
+
+Inconsistent lock order to do with SSL3 connections.  This is not the
+same as bug 638821 -- this build contains a fix for bug 638821, and I
+do not see any further errors that look like 638821.
+
+The inconsistency is to do with RecvBufLock and SSL3HandshakeLock.
+
+In sslsecur.c we have
+
+238    ssl_GetSSL3HandshakeLock(ss);
+...    shortly followed by
+251    ssl_GetRecvBufLock(ss);
+
+vs
+
+sslcon.c:
+1254    ssl_GetRecvBufLock(ss);
+....
+1258    rv = ssl3_GatherCompleteHandshake(ss, 0);
+        which calls
+        ssl3_GatherCompleteHandshake (security/nss/lib/ssl/ssl3gthr.c:209)
+
+209	rv = ssl3_HandleRecord(ss, &amp;cText, &amp;ss-&gt;gs.buf);
+        which calls
+        ssl3_HandleRecord (security/nss/lib/ssl/ssl3con.c:9053)
+
+9053    ssl_GetSSL3HandshakeLock(ss);
+
+
+
+
+ ---Thread-Announcement------------------------------------------
+
+ Thread #16 was created
+    at 0x86486CE: clone (/build/buildd/eglibc-2.11.1/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:77)
+    by 0x4E37172: pthread_create@@GLIBC_2.2.5 (/build/buildd/eglibc-2.11.1/nptl/../nptl/sysdeps/pthread/createthread.c:75)
+    by 0x4C2CA4A: pthread_create_WRK (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:257)
+    by 0x4C2CB5E: pthread_create@* (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:288)
+    by 0x799CE33: _PR_CreateThread (nsprpub/pr/src/pthreads/ptthread.c:432)
+    by 0x799D084: PR_CreateThread (nsprpub/pr/src/pthreads/ptthread.c:515)
+    by 0x6011AB9: nsPSMBackgroundThread::startThread() (security/manager/ssl/src/nsPSMBackgroundThread.cpp:59)
+    by 0x601CFC2: nsNSSComponent::Init() (security/manager/ssl/src/nsNSSComponent.cpp:1930)
+    by 0x602AA51: nsNSSComponentConstructor(nsISupports*, nsID const&amp;, void**) (security/manager/ssl/src/nsNSSModule.cpp:216)
+    by 0x62FC57E: mozilla::GenericFactory::CreateInstance(nsISupports*, nsID const&amp;, void**) (ff-opt/xpcom/build/GenericFactory.cpp:48)
+    by 0x633275D: nsComponentManagerImpl::CreateInstanceByContractID(char const*, nsISupports*, nsID const&amp;, void**) (xpcom/components/nsComponentManager.cpp:1302)
+    by 0x63357FD: nsComponentManagerImpl::GetServiceByContractID(char const*, nsID const&amp;, void**) (xpcom/components/nsComponentManager.cpp:1704)
+    by 0x62F58FC: CallGetService(char const*, nsID const&amp;, void**) (ff-opt/xpcom/build/nsComponentManagerUtils.cpp:94)
+    by 0x62F5959: nsGetServiceByContractID::operator()(nsID const&amp;, void**) const (ff-opt/xpcom/build/nsComponentManagerUtils.cpp:278)
+    by 0x62F4CC1: nsCOMPtr_base::assign_from_gs_contractid(nsGetServiceByContractID, nsID const&amp;) (ff-opt/xpcom/build/nsCOMPtr.cpp:132)
+    by 0x601A1F9: EnsureNSSInitialized(EnsureNSSOperator) (ff-opt/security/manager/ssl/src/../../../../dist/include/nsCOMPtr.h:627)
+    by 0x60299C9: nsCryptoHashConstructor(nsISupports*, nsID const&amp;, void**) (security/manager/ssl/src/nsNSSModule.cpp:253)
+    by 0x62FC57E: mozilla::GenericFactory::CreateInstance(nsISupports*, nsID const&amp;, void**) (ff-opt/xpcom/build/GenericFactory.cpp:48)
+    by 0x633275D: nsComponentManagerImpl::CreateInstanceByContractID(char const*, nsISupports*, nsID const&amp;, void**) (xpcom/components/nsComponentManager.cpp:1302)
+    by 0x62F57FA: CallCreateInstance(char const*, nsISupports*, nsID const&amp;, void**) (ff-opt/xpcom/build/nsComponentManagerUtils.cpp:170)
+
+ ----------------------------------------------------------------
+
+ Observed (incorrect) order is: acquisition of lock at 0x1ECE98B8
+    at 0x4C2BC62: pthread_mutex_lock (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:496)
+    by 0x79975A5: PR_Lock (nsprpub/pr/src/pthreads/ptsynch.c:208)
+    by 0x79976BD: PR_EnterMonitor (nsprpub/pr/src/pthreads/ptsynch.c:594)
+    by 0x8DABC84: ssl_GatherRecord1stHandshake (security/nss/lib/ssl/sslcon.c:1254)
+    by 0x8DB0A0A: ssl_Do1stHandshake (security/nss/lib/ssl/sslsecur.c:151)
+    by 0x8DB180A: ssl_SecureRecv (security/nss/lib/ssl/sslsecur.c:1141)
+    by 0x8DB4950: ssl_Read (security/nss/lib/ssl/sslsock.c:1632)
+    by 0x6012343: nsSSLThread::Run() (security/manager/ssl/src/nsSSLThread.cpp:1078)
+    by 0x6011978: nsPSMBackgroundThread::nsThreadRunner(void*) (security/manager/ssl/src/nsPSMBackgroundThread.cpp:45)
+    by 0x799CACC: _pt_root (nsprpub/pr/src/pthreads/ptthread.c:189)
+    by 0x4C2CBE7: mythread_wrapper (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:221)
+    by 0x4E369C9: start_thread (/build/buildd/eglibc-2.11.1/nptl/pthread_create.c:300)
+    by 0x864870C: clone (/build/buildd/eglibc-2.11.1/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:112)
+
+  followed by a later acquisition of lock at 0x1ECCB918
+    at 0x4C2BC62: pthread_mutex_lock (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:496)
+    by 0x79975A5: PR_Lock (nsprpub/pr/src/pthreads/ptsynch.c:208)
+    by 0x79976BD: PR_EnterMonitor (nsprpub/pr/src/pthreads/ptsynch.c:594)
+    by 0x8DA9347: ssl3_HandleRecord (security/nss/lib/ssl/ssl3con.c:9053)
+    by 0x8DA9C86: ssl3_GatherCompleteHandshake (security/nss/lib/ssl/ssl3gthr.c:209)
+    by 0x8DABC96: ssl_GatherRecord1stHandshake (security/nss/lib/ssl/sslcon.c:1258)
+    by 0x8DB0A0A: ssl_Do1stHandshake (security/nss/lib/ssl/sslsecur.c:151)
+    by 0x8DB180A: ssl_SecureRecv (security/nss/lib/ssl/sslsecur.c:1141)
+    by 0x8DB4950: ssl_Read (security/nss/lib/ssl/sslsock.c:1632)
+    by 0x6012343: nsSSLThread::Run() (security/manager/ssl/src/nsSSLThread.cpp:1078)
+    by 0x6011978: nsPSMBackgroundThread::nsThreadRunner(void*) (security/manager/ssl/src/nsPSMBackgroundThread.cpp:45)
+    by 0x799CACC: _pt_root (nsprpub/pr/src/pthreads/ptthread.c:189)
+    by 0x4C2CBE7: mythread_wrapper (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:221)
+    by 0x4E369C9: start_thread (/build/buildd/eglibc-2.11.1/nptl/pthread_create.c:300)
+    by 0x864870C: clone (/build/buildd/eglibc-2.11.1/misc/../sysdeps/unix/sysv/linux/x86_64/clone.S:112)
+
+ Required order was established by acquisition of lock at 0x1ECCB918
+    at 0x4C2BC62: pthread_mutex_lock (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:496)
+    by 0x79975A5: PR_Lock (nsprpub/pr/src/pthreads/ptsynch.c:208)
+    by 0x79976BD: PR_EnterMonitor (nsprpub/pr/src/pthreads/ptsynch.c:594)
+    by 0x8DB1C92: SSL_ResetHandshake (security/nss/lib/ssl/sslsecur.c:238)
+    by 0x6012E83: nsSSLThread::requestActivateSSL(nsNSSSocketInfo*) (security/manager/ssl/src/nsSSLThread.cpp:220)
+    by 0x60220EB: nsNSSSocketInfo::ActivateSSL() (security/manager/ssl/src/nsNSSIOLayer.cpp:824)
+    by 0x6022122: nsNSSSocketInfo::ProxyStartSSL() (security/manager/ssl/src/nsNSSIOLayer.cpp:602)
+    by 0x56BE41A: nsHttpConnection::ProxyStartSSL() (netwerk/protocol/http/nsHttpConnection.cpp:207)
+    by 0x56BE6A5: nsHttpConnection::OnHeadersAvailable(nsAHttpTransaction*, nsHttpRequestHead*, nsHttpResponseHead*, int*) (netwerk/protocol/http/nsHttpConnection.cpp:410)
+    by 0x56C0322: nsHttpConnectionMgr::nsConnectionHandle::OnHeadersAvailable(nsAHttpTransaction*, nsHttpRequestHead*, nsHttpResponseHead*, int*) (netwerk/protocol/http/nsHttpConnectionMgr.cpp:1136)
+    by 0x56C9654: nsHttpTransaction::HandleContentStart() (netwerk/protocol/http/nsHttpTransaction.cpp:950)
+    by 0x56C9983: nsHttpTransaction::HandleContent(char*, unsigned int, unsigned int*, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:1025)
+    by 0x56CA278: nsHttpTransaction::ProcessData(char*, unsigned int, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:1160)
+    by 0x56CA4F7: nsHttpTransaction::WritePipeSegment(nsIOutputStream*, void*, char*, unsigned int, unsigned int, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:510)
+    by 0x6320814: nsPipeOutputStream::WriteSegments(unsigned int (*)(nsIOutputStream*, void*, char*, unsigned int, unsigned int, unsigned int*), void*, unsigned int, unsigned int*) (xpcom/io/nsPipe3.cpp:1136)
+    by 0x56CA822: nsHttpTransaction::WriteSegments(nsAHttpSegmentWriter*, unsigned int, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:528)
+    by 0x56BE176: nsHttpConnection::OnSocketReadable() (netwerk/protocol/http/nsHttpConnection.cpp:672)
+    by 0x56BE991: nsHttpConnection::OnInputStreamReady(nsIAsyncInputStream*) (netwerk/protocol/http/nsHttpConnection.cpp:772)
+    by 0x56691A8: nsSocketInputStream::OnSocketReady(unsigned int) (netwerk/base/src/nsSocketTransport2.cpp:256)
+    by 0x56697A9: nsSocketTransport::OnSocketReady(PRFileDesc*, short) (netwerk/base/src/nsSocketTransport2.cpp:1533)
+
+  followed by a later acquisition of lock at 0x1ECE98B8
+    at 0x4C2BC62: pthread_mutex_lock (/home/sewardj/VgTRUNK/HGDEV2/helgrind/hg_intercepts.c:496)
+    by 0x79975A5: PR_Lock (nsprpub/pr/src/pthreads/ptsynch.c:208)
+    by 0x79976BD: PR_EnterMonitor (nsprpub/pr/src/pthreads/ptsynch.c:594)
+    by 0x8DB1CF9: SSL_ResetHandshake (security/nss/lib/ssl/sslsecur.c:251)
+    by 0x6012E83: nsSSLThread::requestActivateSSL(nsNSSSocketInfo*) (security/manager/ssl/src/nsSSLThread.cpp:220)
+    by 0x60220EB: nsNSSSocketInfo::ActivateSSL() (security/manager/ssl/src/nsNSSIOLayer.cpp:824)
+    by 0x6022122: nsNSSSocketInfo::ProxyStartSSL() (security/manager/ssl/src/nsNSSIOLayer.cpp:602)
+    by 0x56BE41A: nsHttpConnection::ProxyStartSSL() (netwerk/protocol/http/nsHttpConnection.cpp:207)
+    by 0x56BE6A5: nsHttpConnection::OnHeadersAvailable(nsAHttpTransaction*, nsHttpRequestHead*, nsHttpResponseHead*, int*) (netwerk/protocol/http/nsHttpConnection.cpp:410)
+    by 0x56C0322: nsHttpConnectionMgr::nsConnectionHandle::OnHeadersAvailable(nsAHttpTransaction*, nsHttpRequestHead*, nsHttpResponseHead*, int*) (netwerk/protocol/http/nsHttpConnectionMgr.cpp:1136)
+    by 0x56C9654: nsHttpTransaction::HandleContentStart() (netwerk/protocol/http/nsHttpTransaction.cpp:950)
+    by 0x56C9983: nsHttpTransaction::HandleContent(char*, unsigned int, unsigned int*, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:1025)
+    by 0x56CA278: nsHttpTransaction::ProcessData(char*, unsigned int, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:1160)
+    by 0x56CA4F7: nsHttpTransaction::WritePipeSegment(nsIOutputStream*, void*, char*, unsigned int, unsigned int, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:510)
+    by 0x6320814: nsPipeOutputStream::WriteSegments(unsigned int (*)(nsIOutputStream*, void*, char*, unsigned int, unsigned int, unsigned int*), void*, unsigned int, unsigned int*) (xpcom/io/nsPipe3.cpp:1136)
+    by 0x56CA822: nsHttpTransaction::WriteSegments(nsAHttpSegmentWriter*, unsigned int, unsigned int*) (netwerk/protocol/http/nsHttpTransaction.cpp:528)
+    by 0x56BE176: nsHttpConnection::OnSocketReadable() (netwerk/protocol/http/nsHttpConnection.cpp:672)
+    by 0x56BE991: nsHttpConnection::OnInputStreamReady(nsIAsyncInputStream*) (netwerk/protocol/http/nsHttpConnection.cpp:772)
+    by 0x56691A8: nsSocketInputStream::OnSocketReady(unsigned int) (netwerk/base/src/nsSocketTransport2.cpp:256)
+    by 0x56697A9: nsSocketTransport::OnSocketReady(PRFileDesc*, short) (netwerk/base/src/nsSocketTransport2.cpp:1533)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394374</commentid>
+            <who name="Julian Seward">jseward</who>
+            <bug_when>2011-04-07 07:34:14 -0700</bug_when>
+            <thetext>Also triggered by TEST_PATH=dom/tests/mochitest/globalstorage/test_bug614116.html</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

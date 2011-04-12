@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648257</bug_id>
+          
+          <creation_ts>2011-04-07 07:23:00 -0700</creation_ts>
+          <short_desc>Provide mechanism to lock/disable/hide kbforums on a given article</short_desc>
+          <delta_ts>2011-04-07 07:23:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>support.mozilla.com</product>
+          <component>Knowledge Base Software</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>P2</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2011Q2</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="James Socol [:jsocol, :james]">james</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>kb-software</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394358</commentid>
+            <who name="James Socol [:jsocol, :james]">james</who>
+            <bug_when>2011-04-07 07:23:00 -0700</bug_when>
+            <thetext>Some comments in the contributors&apos; forum[1] correctly point out that we don&apos;t have a way of disabling discussion on an article. Simple method is probably just to add a boolean to the Document model and make sure to
+
+* hide the discussion tab
+* show 404 or an error message on /kb/slug/discuss
+** and on all related URLs
+
+[1] https://support.mozilla.com/en-US/forums/contributors/705307#post-21453</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

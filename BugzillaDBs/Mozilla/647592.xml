@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647592</bug_id>
+          
+          <creation_ts>2011-04-03 12:08:00 -0700</creation_ts>
+          <short_desc>While uploading a youtube video, Firefox started using a lot of RAM.</short_desc>
+          <delta_ts>2011-04-11 03:54:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>sleepygamester</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jo.hermans</cc>
+    
+    <cc>matti</cc>
+    
+    <cc>SJGooch</cc>
+    
+    <cc>sk8erman67</cc>
+    
+    <cc>sleepygamester</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389344</commentid>
+            <who name="">sleepygamester</who>
+            <bug_when>2011-04-03 12:08:31 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+While uploading a 72MB youtube video (a lengthy process, taking approximately 40 minutes on my slow internet) Firefox started to eat RAM. By about 80% completion, I was seeing ~2GB memory use by Firefox. This was reaching 2.9GB by the time the video had finished uploading. Firefox was nearly unresponsive on my machine until I ended the process and started back up.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Start to upload video to youtube by dragging to upload page
+2. Watch Firefox memory usage skyrocket
+3.
+Actual Results:  
+The second time I attemtped to upload a video of similar size and resolution, the upload continued as expected. I tried a third time, and experienced the same memory problems.
+
+Expected Results:  
+Not consumed the majority of my system&apos;s memory.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389626</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-03 18:02:57 -0700</bug_when>
+            <thetext>Do you have addons like Firebug installed ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389891</commentid>
+            <who name="">sleepygamester</who>
+            <bug_when>2011-04-04 01:27:32 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Do you have addons like Firebug installed ?
+
+No. I have Adblock, Greasemonkey, British English Dictionary, the Java Console and Test Pilot. I could try and replicate the bug with Firebug installed, if that would help?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390340</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-04 11:21:22 -0700</bug_when>
+            <thetext>*** Bug 647713 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390760</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 20:19:28 -0700</bug_when>
+            <thetext>*** Bug 647756 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390762</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 20:22:33 -0700</bug_when>
+            <thetext>Is that a flash based uploader or a http form post ?
+Does this happen in the Firefox safemode ?
+
+And finally post the about:memory stats if the memory is consumed by Firefox itself and not the plugin-container and if you get the same problem without addons (safemode).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391168</commentid>
+            <who name="">sk8erman67</who>
+            <bug_when>2011-04-05 08:03:40 -0700</bug_when>
+            <thetext>Is that a flash based uploader or a http form post ?
+
+-It is the youtube uploader, I don&apos;t know if it&apos;s flash or HTTP based.
+
+-I will try and upload another video in safe mode and report back.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394446</commentid>
+            <who name="">sk8erman67</who>
+            <bug_when>2011-04-07 08:28:22 -0700</bug_when>
+            <thetext>Firefox seems to be running smooth as butter in safe mode when uploading. It must be one of the extensions that&apos;s causing the slowdown. The only two add ons that sleepy and I have in common are ad-block.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394450</commentid>
+            <who name="">sleepygamester</who>
+            <bug_when>2011-04-07 08:30:53 -0700</bug_when>
+            <thetext>I also got no slowdown when in safe mode. However the bug seems to be intermittent when not in safe mode.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395019</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-07 13:38:32 -0700</bug_when>
+            <thetext>The safmode does more than disabling the extensions:
+Disabled are : Extensions, JS JIT and Hardware acceleration.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396605</commentid>
+            <who name="">sk8erman67</who>
+            <bug_when>2011-04-08 09:35:57 -0700</bug_when>
+            <thetext>Okay, I noticed the same things as sleepy in safe mode. The browser itself is fast, but the upload itself is still slow and intermittent. I am now uploading a video in IE about the same size and it&apos;s uploading at double the speed. FF seems to hang when it uploads to you tube and  take forever.
+
+All in all, I don&apos;t think this is fully an add on issue, because in safe mode problems are still seen. Have you been able to recreate this Matti?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396610</commentid>
+            <who name="">sk8erman67</who>
+            <bug_when>2011-04-08 09:37:55 -0700</bug_when>
+            <thetext>&quot;FF
+seems to hang&quot;
+
+FF itself doesn&apos;t hang, I was referring to the upload.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

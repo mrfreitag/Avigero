@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648211</bug_id>
+          
+          <creation_ts>2011-04-06 23:02:00 -0700</creation_ts>
+          <short_desc>open embedded swf</short_desc>
+          <delta_ts>2011-04-06 23:02:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>File Handling</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>pwrelkin</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>file.handling</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393991</commentid>
+            <who name="">pwrelkin</who>
+            <bug_when>2011-04-06 23:02:16 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)
+Build Identifier: 
+
+When you enter the url of a swf it loads like a regular webpage and fills the screen. This can be useful for ie: playing flash games in full screen. However, to open embedded flash objects you must go through the source code and find the url of the swf. It would be nice if it was possible to open an embedded flash object like a regular link.
+
+Reproducible: Always
+
+Steps to Reproduce:
+Right click on an embedded swf.
+
+
+Expected Results:  
+Menu options for Open, Open in new tab, Open in new window.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

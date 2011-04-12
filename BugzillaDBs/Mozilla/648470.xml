@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648470</bug_id>
+          
+          <creation_ts>2011-04-07 20:33:00 -0700</creation_ts>
+          <short_desc>Automatic update can update to a blocklisted version of an add-on</short_desc>
+          <delta_ts>2011-04-11 15:38:15 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Add-ons Manager</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>648599</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Dave Townsend (:Mossop)">dtownsend</reporter>
+          <assigned_to name="Dave Townsend (:Mossop)">dtownsend</assigned_to>
+          
+          <qa_contact>add-ons.manager</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395828</commentid>
+            <who name="Dave Townsend (:Mossop)">dtownsend</who>
+            <bug_when>2011-04-07 20:33:11 -0700</bug_when>
+            <thetext>In Firefox 3.6 we used to ignore updates offered for hardblocked items. The code comments suggest that we warned about soft blocked items but I&apos;m not sure that is true. In 4.0 we lost this and now just update to the newest version regardless of whether it is blocked.
+
+Since we are now doing automatic silent updates for add-ons I don&apos;t think we should update even if it is only soft blocked. We wouldn&apos;t want to show UI to warn the user and we wouldn&apos;t want to disable the add-on automatically either I think.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

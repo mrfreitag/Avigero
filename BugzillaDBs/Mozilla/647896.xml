@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647896</bug_id>
+          
+          <creation_ts>2011-04-05 14:34:00 -0700</creation_ts>
+          <short_desc>Update nightly logo on nightly.mozilla.org/</short_desc>
+          <delta_ts>2011-04-08 10:34:47 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>other.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://nightly.mozilla.org/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>647241</dependson>
+          <blocked>646236</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="My">mayumi</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>david</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>gjimenez</cc>
+    
+    <cc>jslater</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>lmesa</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>samuel.sidler</cc>
+    
+    <cc>sayrer</cc>
+    
+    <cc>smartell</cc>
+          <qa_contact>other-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391552</commentid>
+            <who name="My">mayumi</who>
+            <bug_when>2011-04-05 14:34:27 -0700</bug_when>
+            <thetext>For phase 1, update logo on nightly
+For phase 2, redesign page to fit general Mozilla Firefox site design</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391554</commentid>
+            <who name="My">mayumi</who>
+            <bug_when>2011-04-05 14:36:31 -0700</bug_when>
+            <thetext>Also for phase 2, add link to Channel selection page (URL TBD, depends on bug 647241)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391705</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-05 17:12:13 -0700</bug_when>
+            <thetext>This should be two separate bugs so we can easily keep track. For now, lets keep this as cgangin the logo on nightly.Mozilla.org. I&apos;ll file a separate bug for the second step.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393094</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 13:44:06 -0700</bug_when>
+            <thetext>Hey guys.  We already have the nightly logo designed, right?  If it&apos;s just adding it to the site... that&apos;s a website but (not a design bug).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393099</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 13:44:54 -0700</bug_when>
+            <thetext>Phase 2 though (updating the skin of the page to echo our redesign) is indeed a design bug. Laura, did you file that one already?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393119</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 13:49:13 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; Phase 2 though (updating the skin of the page to echo our redesign) is indeed a
+&gt; design bug. Laura, did you file that one already?
+
+I did--see https://bugzilla.mozilla.org/show_bug.cgi?id=648002
+
+Although I now realize that I did not make it a design bug :( Change made.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393122</commentid>
+            <who name="Sean Martell">smartell</who>
+            <bug_when>2011-04-06 13:50:03 -0700</bug_when>
+            <thetext>the logo hasn&apos;t been finalized yet.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393165</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 14:05:19 -0700</bug_when>
+            <thetext>OK.  Thanks guys!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393404</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-06 15:37:05 -0700</bug_when>
+            <thetext>This does seem like a website bug more than a design one though, right?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393470</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 16:05:02 -0700</bug_when>
+            <thetext>My understanding was that the design of the logo isn&apos;t done yet.  In which case this bug is valid as long as we rename the bug to better reflect the request. Laura/Sean, please confirm.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393580</commentid>
+            <who name="Laura Mesa">lmesa</who>
+            <bug_when>2011-04-06 16:57:39 -0700</bug_when>
+            <thetext>(In reply to comment #9)
+&gt; My understanding was that the design of the logo isn&apos;t done yet.  In which case
+&gt; this bug is valid as long as we rename the bug to better reflect the request.
+&gt; Laura/Sean, please confirm.
+
+My&apos;s intention was to update the page with whatever the finalized new logo is, so maybe this should be a website bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393590</commentid>
+            <who name="Tara">tshahian</who>
+            <bug_when>2011-04-06 17:00:21 -0700</bug_when>
+            <thetext>Yes.  This is a website bug then.  Slater, could you please re-file since you&apos;re more familiar with how things are organized in that component?  cc-ing Forrest.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393712</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-06 17:40:17 -0700</bug_when>
+            <thetext>Just updated the bug to &quot;other.mozilla.org&quot;, which seems like the best option. Laura, can you ask one of the devs to help with this? (since it&apos;s technically outside the usual moz.com process)
+
+This needs to happen by next Tuesday, right?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393714</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-06 17:40:34 -0700</bug_when>
+            <thetext>The Laura in comment #12 is LoFo, btw.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648471</bug_id>
+          
+          <creation_ts>2011-04-07 20:44:00 -0700</creation_ts>
+          <short_desc>If the replacer is an array, only get the list of property names to use once, and use non-enumerable properties</short_desc>
+          <delta_ts>2011-04-07 20:44:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>mozilla2.2</target_milestone>
+          <dependson>636079</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jeff Walden (remove +bmo to email)">jwalden+bmo</reporter>
+          <assigned_to name="Jeff Walden (remove +bmo to email)">jwalden+bmo</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395834</commentid>
+            <who name="Jeff Walden (remove +bmo to email)">jwalden+bmo</who>
+            <bug_when>2011-04-07 20:44:31 -0700</bug_when>
+            <thetext>Noted during review in bug 636079:
+
+  var count = 0;
+  var a = [];
+  Object.defineProperty(a, 0, { get: function() { count++; return &quot;0&quot;; } });
+  assertEq(JSON.stringify({ &quot;0&quot;: { &quot;0&quot;: 5 } }, a), &apos;{&quot;0&quot;:{&quot;0&quot;:5}}&apos;);
+  assertEq(count, 1);
+
+We reget properties from the replacer array every time we hit an object, but per spec we should only get them once, at the start of the JSON.stringify recursive algorithm.
+
+Also, step 4b(ii) refers to array index properties, not merely to enumerable array index properties (implicitly demonstrated above, where ignoring non-enumerables would result in stringification to &quot;{}&quot;).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

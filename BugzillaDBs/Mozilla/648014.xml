@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648014</bug_id>
+          
+          <creation_ts>2011-04-06 09:48:00 -0700</creation_ts>
+          <short_desc>LDAP access for Mark Hammond</short_desc>
+          <delta_ts>2011-04-06 10:12:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Account Requests</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mark Hammond">mhammond</reporter>
+          <assigned_to name="Spencer Hui">shui</assigned_to>
+          <cc>dascher</cc>
+    
+    <cc>shui</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392437</commentid>
+            <who name="Mark Hammond">mhammond</who>
+            <bug_when>2011-04-06 09:48:14 -0700</bug_when>
+            <thetext>I&apos;m working with the Mozilla Messaging team who have recently moved under the Labs umbrella.  The rest of the team has recently had LDAP accounts created but I&apos;ve been overlooked - hence this bug!  It would be awesome to get this arranged during the all-hands.  Note I&apos;ve already got commit access.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392475</commentid>
+            <who name="Spencer Hui">shui</who>
+            <bug_when>2011-04-06 09:59:00 -0700</bug_when>
+            <thetext>Who is your manager? i need this information in order to create your LDAP/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392476</commentid>
+            <who name="David Ascher (:davida)">dascher</who>
+            <bug_when>2011-04-06 09:59:36 -0700</bug_when>
+            <thetext>a=david ascher (his manager)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392502</commentid>
+            <who name="Spencer Hui">shui</who>
+            <bug_when>2011-04-06 10:12:53 -0700</bug_when>
+            <thetext>LDAP has been created and sent, please check your email mhammond@skippinet.com.au.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

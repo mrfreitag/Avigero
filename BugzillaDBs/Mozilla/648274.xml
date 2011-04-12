@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648274</bug_id>
+          
+          <creation_ts>2011-04-07 08:26:00 -0700</creation_ts>
+          <short_desc>Update details page for Catalan (ca)</short_desc>
+          <delta_ts>2011-04-07 09:02:17 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Eduard Gamonal">edu</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>pascalc</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394442</commentid>
+            <who name="Eduard Gamonal">edu</who>
+            <bug_when>2011-04-07 08:26:49 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; es-ES; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 (.NET CLR 3.5.30729)
+Build Identifier: 
+
+Please update details page for Catalan
+Old http://viewvc.svn.mozilla.org/vc/projects/mozilla.com/trunk/ca/firefox/4/details/index.html?revision=84887&amp;view=markup
+
+find attatched the update
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394444</commentid>
+              <attachid>524406</attachid>
+            <who name="Eduard Gamonal">edu</who>
+            <bug_when>2011-04-07 08:27:20 -0700</bug_when>
+            <thetext>Created attachment 524406
+Catalan (ca) localisation for details page</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394492</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-07 09:02:17 -0700</bug_when>
+            <thetext>committed in r87064 (and converted to UTF-8)</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524406</attachid>
+            <date>2011-04-07 08:27:00 -0700</date>
+            <delta_ts>2011-04-07 08:27:20 -0700</delta_ts>
+            <desc>Catalan (ca) localisation for details page</desc>
+            <filename>index.html</filename>
+            <type>text/plain</type>
+            <size>463</size>
+            <attacher>edu</attacher>
+            
+              <data encoding="base64">PD9waHAKCiAgICAvKiB0cmFuc2xhdGUgdGhlIHZhcmlhYmxlcyBiZWxvdyAqLwoKICAgICRzdHIx
+ID0gIkJhaXhldS12b3MgZWwgRmlyZWZveCBt6XMgbm91IjsKICAgICRzdHIyID0gIkVsIEZpcmVm
+b3ggNCBqYSDpcyBhcXXtISI7CiAgICAkc3RyMyA9ICJVbmEgYWN0dWFsaXR6YWNp8yBy4HBpZGEs
+IGbgY2lsIGkgZ3JhdHXvdGEiOwogICAgJHN0cjQgPSAiVW5hIGFwYXJlbudhIGZyZXNjYSBpIG5v
+dmEiOwogICAgJHN0cjUgPSAiNiBjb3BzIG3pcyBy4HBpZCBxdWUgZWwgRmlyZWZveCAzLjYiOwog
+ICAgJHN0cjYgPSAiTm92ZXRhdHMgZXhjaXRhbnRzIjsKCiAgICAvKiBlbmQgb2YgdmFyaWFibGVz
+IHRvIHRyYW5zbGF0ZSAqLwoKICAgICRwYWdlaWQgPSAnTVUtZng0JzsKICAgIGluY2x1ZGVfb25j
+ZSAieyRjb25maWdbJ2ZpbGVfcm9vdCddfS9pbmNsdWRlcy9sMTBuL2NvbnRyb2xsZXIuaW5jLnBo
+cCI7Cj8+Cg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

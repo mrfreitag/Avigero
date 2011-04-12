@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647870</bug_id>
+          
+          <creation_ts>2011-04-05 11:37:00 -0700</creation_ts>
+          <short_desc>Prints only 1st, 2nd and last page out of 15</short_desc>
+          <delta_ts>2011-04-06 13:22:27 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Printing: Output</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>534182</dup_id>
+          
+          <bug_file_loc>http://www.monbiot.com/2011/04/04/correspondence-with-helen-caldicott/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jim Ronback">Jim_Ronback</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>dholbert</cc>
+    
+    <cc>fmdevelopertim</cc>
+    
+    <cc>jbecerra</cc>
+          <qa_contact>printing</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391393</commentid>
+            <who name="Jim Ronback">Jim_Ronback</who>
+            <bug_when>2011-04-05 11:37:27 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+FireFox 4 has not resolved its printing problems yet.
+At http://www.monbiot.com/2011/04/04/correspondence-with-helen-caldicott/ there are 15 pages of text with side bars to be printed. I can get all 15 printed without the side bars being truncated using IE 8.0.6001.18702 . Using Firefox 4.0 it will only print the first, second and last page out of the 15 pages.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Go to http://www.monbiot.com/2011/04/04/correspondence-with-helen-caldicott/
+2.Print on HP Laserjet 1000 printer. Only 3 pages out of 15 are printed
+3.Compare print output with that provided by IE 8.0.
+
+Actual Results:  
+4 You&apos;ll notice 12 pages are missing. Only 1st, 2nd and last page are printed and the side bar is truncated on the right as well.
+
+Expected Results:  
+5. All 15 pages should have been printed without the side bar truncated.
+
+This is a very serious printing problem which appeared in various forms for many many years. It prevents FireFox from ever being adequately usable in a business environment where printed hard copy must be available.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391895</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-05 22:13:38 -0700</bug_when>
+            <thetext>Confirmed on Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre
+Prints only 1st, 2nd and the last page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391899</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-05 22:18:47 -0700</bug_when>
+            <thetext>Does Firefox 3.6 have this problem, too, or is this new in Firefox 4?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392756</commentid>
+            <who name="Jim Ronback">Jim_Ronback</who>
+            <bug_when>2011-04-06 11:34:13 -0700</bug_when>
+            <thetext>I&apos;ve reported a similar bug with older versions of FireFox prior to 4.0 where only the first page is printed out of many but I&apos;m unable to find them using the Bugzilla Search capability using my last name &quot;Ronback&quot;. Is there a way of finding your old closed bug reports?
+This bug is unique in that it prints the first couple of pages, drops many pages and then prints the last page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392835</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 11:53:07 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; This bug is unique in that it prints the first couple of pages, drops many
+&gt; pages and then prints the last page.
+
+That&apos;s actually not that out of the ordinary - I&apos;ve seen things like that a lot.
+
+What Firefox does here is something like this:
+* [Render header content] --&gt; page 1
+* [Render main body; realize that it&apos;s in some sort of container that resists being split, and won&apos;t fit on the first page; push this container to 2nd page so that it&apos;s got as much space as possible.  It still gets clipped at the bottom of 2nd page.] --&gt; page 2
+* [Render footer content] --&gt; page 3
+
+Firefox 3.0 behaves similarly to trunk, and Firefox 3.6 skips the 2nd page for some reason (printing 2 pages), but probably has a form of the same problem.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393044</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-06 13:22:27 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+&gt; * [Render main body; realize that it&apos;s in some sort of container that resists
+&gt; being split
+
+In this case, it&apos;s resisting being split because it has &quot;display: inline-block&quot;.
+&gt; /* Posts */
+&gt; .entry-content, .entry-summary {
+&gt;	display: inline-block;
+http://www.monbiot.com/wp-content/themes/php-ease/style.css
+
+This is bug 534182.
+
+*** This bug has been marked as a duplicate of bug 534182 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

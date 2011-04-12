@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647774</bug_id>
+          
+          <creation_ts>2011-04-04 22:34:00 -0700</creation_ts>
+          <short_desc>borders missing on images that are links</short_desc>
+          <delta_ts>2011-04-05 16:11:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>641410</dup_id>
+          
+          <bug_file_loc>http://www.aaroads.com/northeast/i-095a_ny.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Lyle">gizmo0</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alice0775</cc>
+    
+    <cc>gizmo0</cc>
+    
+    <cc>matspal</cc>
+    
+    <cc>moz</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390815</commentid>
+            <who name="Lyle">gizmo0</who>
+            <bug_when>2011-04-04 22:34:29 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+An image that is also a link (i.e., with HTML &lt;A HREF=...&gt;&lt;IMG SRC=...&gt;&lt;/A&gt;),
+should by default be drawn with a border around in link color, so that the user
+knows that it is a link. However, beginning with version 4, Firefox has not been
+doing this.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Direct Firefox 4 to a Web page that has clickable images that do not specify
+border options, such as the specified URL.
+2. Observe clickable images.
+
+Actual Results:  
+Images do not have borders.
+
+Expected Results:  
+Images should have borders.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390849</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-04 23:20:29 -0700</bug_when>
+            <thetext>This  behavior is intentional.
+See Bug 452915</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391649</commentid>
+            <who name="j.j.">moz</who>
+            <bug_when>2011-04-05 16:11:07 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 641410 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648191</bug_id>
+          
+          <creation_ts>2011-04-06 20:38:00 -0700</creation_ts>
+          <short_desc>Push all versions to Dev. Channel</short_desc>
+          <delta_ts>2011-04-06 22:10:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Public Pages</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter name="ithinc">ithinc</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>atb12345</cc>
+    
+    <cc>bugzilla.mozilla.org</cc>
+          <qa_contact>web-ui</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393852</commentid>
+            <who name="ithinc">ithinc</who>
+            <bug_when>2011-04-06 20:38:19 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: 
+
+Please push both the dev. versions and public versions (reviewed or not) to the Dev. Channel.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393877</commentid>
+            <who name="Alan Baxter">atb12345</who>
+            <bug_when>2011-04-06 21:12:25 -0700</bug_when>
+            <thetext>From the Development Channel caution info at https://addons.mozilla.org/en-US/firefox/addon/load-tabs-progressively/
+&quot;To stop receiving development updates, reinstall the default version&quot; seems to imply that pushing a public version to the dev channel will stop development updates.
+
+If I&apos;m getting updates from the dev channel, I don&apos;t want dev channel updates to stop and put me on the release channel as soon as a public version is released.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393923</commentid>
+            <who name="Ted Thibodeau Jr">bugzilla.mozilla.org</who>
+            <bug_when>2011-04-06 22:10:37 -0700</bug_when>
+            <thetext>I think you&apos;re misunderstanding that caution, Alan.
+
+Install from the Dev Channel, and you subscribe to it for updates (and if you had been subscribed to the Release Channel, you get unsubscribed from it).
+
+Install from the Release Channel, and you subscribe to *that* for updates (and if you had been subscribed to the Dev Channel, you get unsubscribed from it).
+
+To me, the fact that the same &quot;issue&quot; is published down both Channels does not (and should not) imply changing your subscription to either.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

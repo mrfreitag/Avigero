@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648350</bug_id>
+          
+          <creation_ts>2011-04-07 13:38:00 -0700</creation_ts>
+          <short_desc>[WT] Create Webtrends Profile For Mobile Visitors Only</short_desc>
+          <delta_ts>2011-04-08 10:34:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Laura Forrest">lforrest</reporter>
+          <assigned_to name="Bradley Gross">brad.gross</assigned_to>
+          <cc>bcutler</cc>
+    
+    <cc>cbrodigan</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395017</commentid>
+            <who name="Laura Forrest">lforrest</who>
+            <bug_when>2011-04-07 13:38:11 -0700</bug_when>
+            <thetext>Hi Brad - Can you create a new profile that tracks only the visitors to Mozilla.com that are on a mobile browser? We&apos;d like to get more insight into what these people do once they&apos;re on mozilla.com so we can provide them with a better experience. 
+
+Would be great to have this within the next week (by /14 would be great)Let me know if you have any questions.
+
+Thanks!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647698</bug_id>
+          
+          <creation_ts>2011-04-04 09:32:00 -0700</creation_ts>
+          <short_desc>Lightning (and Sunbird) fail to correctly export recurring appointments to csv and html files</short_desc>
+          <delta_ts>2011-04-04 09:37:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Calendar</product>
+          <component>Import and Export</component>
+          <version>Lightning 1.0b2</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>lesley.ann.gould</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>lesley.ann.gould</cc>
+          <qa_contact>import-export</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390243</commentid>
+            <who name="">lesley.ann.gould</who>
+            <bug_when>2011-04-04 09:32:17 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30; .NET CLR 3.0.04506.648; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.2.15) Gecko/20110303 Lightning/1.0b2 Thunderbird/3.1.9
+
+.ics file (from Google Mail) opened and all events displayed correctly, including recurring appointments. Select Export to csv and repeated events are displayed only once. Nothing reported on error console. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open .ics file with recurring appointments/events
+2. Export as .csv file 
+3.
+Actual Results:  
+Only one instance of each recurring event appears in the csv rather than each date. The same problem occurs when exporting as html.
+
+Expected Results:  
+It should display all instances of the repeating event accurately.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390248</commentid>
+            <who name="Stefan Sitter">ssitter</who>
+            <bug_when>2011-04-04 09:37:46 -0700</bug_when>
+            <thetext>Unfortunately the Outlook CSV format provides no possibility to express recurrence rules. You need to use the iCalendar format for such &quot;advanced&quot; features.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

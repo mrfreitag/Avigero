@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647740</bug_id>
+          
+          <creation_ts>2011-04-04 14:25:00 -0700</creation_ts>
+          <short_desc>Firefox 4 wont display defual Joomla templat!</short_desc>
+          <delta_ts>2011-04-11 14:50:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://elitecoachingsolution.co.uk/smiley</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="tony">clu55ter</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390482</commentid>
+            <who name="tony">clu55ter</who>
+            <bug_when>2011-04-04 14:25:54 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; FDM; InfoPath.1; Tablet PC 2.0; msn OptimizedIE8;ENGB)
+Build Identifier: Firefox 4
+
+Firefox 4 doen&apos;t show defualt Joomla template when selected on the backend administrator pannel, it only shows the defualt rhuk_milkyway template even when other templates have been select as defualt! IE works fine and the previouse virsions of firefox was working fine aswell. I can&apos;t even downgrade to apreviouse virsion as can&apos;t find it on mozilla web site. I wish I never upgraded now!
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.goto http://www.elitecoachingsolution.co.uk/smiley/ on firefox 4
+2. goto http://www.elitecoachingsolution.co.uk/smiley/ on IE any
+Actual Results:  
+you will see the page diffrentley on the two diffrent browsers
+
+Expected Results:  
+not displaying site as it should do</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390802</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-04 22:18:00 -0700</bug_when>
+            <thetext>WFM - Mozilla/5.0 (Windows NT 5.1; rv:2.2a1pre) Gecko/20110403 Firefox/4.2a1pre ID:20110403030449
+
+Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile
+
+FYI - you can downgrade -&gt; http://www.mozilla.com/en-US/firefox/all-older.html</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401760</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-11 14:50:25 -0700</bug_when>
+            <thetext>Any update?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

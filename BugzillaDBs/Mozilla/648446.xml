@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648446</bug_id>
+          
+          <creation_ts>2011-04-07 19:24:00 -0700</creation_ts>
+          <short_desc>Don&apos;t build qcms with pedantic</short_desc>
+          <delta_ts>2011-04-10 09:19:17 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Build Config</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</reporter>
+          <assigned_to name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</assigned_to>
+          <cc>djcater+bugzilla</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>build-config</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395716</commentid>
+            <who name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</who>
+            <bug_when>2011-04-07 19:24:26 -0700</bug_when>
+            <thetext>qcms is not meant to be built with pedantic so we get warning messages that are wrong.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395717</commentid>
+            <who name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</who>
+            <bug_when>2011-04-07 19:24:49 -0700</bug_when>
+            <thetext>khuey, what&apos;s the best way to fix this?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395760</commentid>
+            <who name="Kyle Huey [:khuey]">khuey</who>
+            <bug_when>2011-04-07 19:56:31 -0700</bug_when>
+            <thetext>Assuming &quot;make it build with pedantic&quot; is not an acceptable course of action, something like http://mxr.mozilla.org/mozilla-central/source/gfx/angle/Makefile.in#129</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396269</commentid>
+            <who name="Ted Mielczarek [:ted, :luser]">ted.mielczarek</who>
+            <bug_when>2011-04-08 04:20:36 -0700</bug_when>
+            <thetext>See also bug 394311.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396946</commentid>
+              <attachid>524682</attachid>
+            <who name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</who>
+            <bug_when>2011-04-08 11:16:41 -0700</bug_when>
+            <thetext>Created attachment 524682
+Remove -pedantic from CFLAGS in qcms</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398127</commentid>
+            <who name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</who>
+            <bug_when>2011-04-09 00:51:04 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/a2884bfd1392</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399260</commentid>
+            <who name="Daniel Cater">djcater+bugzilla</who>
+            <bug_when>2011-04-10 08:30:03 -0700</bug_when>
+            <thetext>Which warnings were &quot;wrong&quot; out of interest?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399295</commentid>
+            <who name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</who>
+            <bug_when>2011-04-10 09:19:17 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; Which warnings were &quot;wrong&quot; out of interest?
+
+qcms is written in the subset of c99 that is supported by MSVC. This, for example, includes c++ style comments.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524682</attachid>
+            <date>2011-04-08 11:16:00 -0700</date>
+            <delta_ts>2011-04-08 11:25:17 -0700</delta_ts>
+            <desc>Remove -pedantic from CFLAGS in qcms</desc>
+            <filename>patch</filename>
+            <type>text/plain</type>
+            <size>481</size>
+            <attacher>jmuizelaar</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2dmeC9xY21zL01ha2VmaWxlLmluIGIvZ2Z4L3FjbXMvTWFrZWZpbGUuaW4K
+LS0tIGEvZ2Z4L3FjbXMvTWFrZWZpbGUuaW4KKysrIGIvZ2Z4L3FjbXMvTWFrZWZpbGUuaW4KQEAg
+LTQwLDE2ICs0MCwyMCBAQCBlbmRpZgogZWxzZQogCVNTRTFfRkxBR1M9CiAJU1NFMl9GTEFHUz0K
+IGVuZGlmCiBlbmRpZgogZW5kaWYKIGVuZGlmCiAKKyMgLXBlZGFudGljIGNhdXNlcyB3YXJuaW5n
+cyB0aGF0IHdlIGRvbid0IGNhcmUgYWJvdXQKKyMgc28gdHVybiBpdCBvZmYKK0NGTEFHUyA6PSAk
+KGZpbHRlci1vdXQgLXBlZGFudGljLCQoQ0ZMQUdTKSkKKwogRk9SQ0VfU1RBVElDX0xJQiA9IDEK
+ICMgVGhpcyBsaWJyYXJ5IGlzIHVzZWQgYnkgb3RoZXIgc2hhcmVkIGxpYnMKIEZPUkNFX1VTRV9Q
+SUMgPSAxCiAKIGluY2x1ZGUgJCh0b3BzcmNkaXIpL2NvbmZpZy9ydWxlcy5tawogCiBDRkxBR1Mg
+ICAgICAgICAgKz0gLURNT1pfUUNNUwogCg==
+</data>
+<flag name="review"
+          id="438308"
+          type_id="4"
+          status="+"
+          setter="khuey"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

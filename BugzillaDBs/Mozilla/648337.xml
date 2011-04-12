@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648337</bug_id>
+          
+          <creation_ts>2011-04-07 13:00:00 -0700</creation_ts>
+          <short_desc>not possible to use Firefox</short_desc>
+          <delta_ts>2011-04-07 13:12:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Migration</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 2000</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INCOMPLETE</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Alex Hahn">agallus</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bclary</cc>
+          <qa_contact>migration</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394931</commentid>
+            <who name="Alex Hahn">agallus</who>
+            <bug_when>2011-04-07 13:00:24 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0; .NET CLR 2.0.50727; FDM)
+Build Identifier: Firefox 4
+
+When I updated to Firefox 4 and the pgm was called it hangs after the first or second mouse click. Firefox can only be killed by the Taskmanager. Reinstalling 3.6.. brings the same result. This all happens on differnet PC&apos;s with different plattforms (Windows 2000 professionel, Windows Vista, Windows 7) At this time it is not possible to work with firefox. I think it is a mainproblem and you can tell me how to solve thhis problem. (I want not use MS EInternetexplorer)
+regards
+Alex Hahn
+
+Reproducible: Always
+
+Actual Results:  
+it is not possible to work with firefox.
+
+It happens on my home and my buesiness computers.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394956</commentid>
+            <who name="Benjamin Smedberg  [:bsmedberg]">benjamin</who>
+            <bug_when>2011-04-07 13:08:32 -0700</bug_when>
+            <thetext>This is not a security-sensitive issue. Please use support.mozilla.com for support issues, and only reopen this bug if the support team identifies an issue which an engineer ought to fix.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394967</commentid>
+            <who name="Bob Clary [:bc:]">bclary</who>
+            <bug_when>2011-04-07 13:12:07 -0700</bug_when>
+            <thetext>You can try the steps listed on http://support.mozilla.com/en-US/kb/Firefox%20will%20not%20start to help.
+
+I am guessing that you have either an extension installed that is causing the problem or have malware which is causing the problem. You can find more information how to trouble shoot problem extensions at http://support.mozilla.com/en-US/kb/Troubleshooting%20extensions%20and%20themes</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

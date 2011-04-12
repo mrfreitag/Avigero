@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648131</bug_id>
+          
+          <creation_ts>2011-04-06 15:00:00 -0700</creation_ts>
+          <short_desc>pp-app-dist01 not returning updates</short_desc>
+          <delta_ts>2011-04-11 10:44:58 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Nick Thomas [:nthomas]">nrthomas</reporter>
+          <assigned_to name="Jake Maul [:jakem]">nmaul</assigned_to>
+          <cc>nmaul</cc>
+    
+    <cc>release</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393314</commentid>
+            <who name="Nick Thomas [:nthomas]">nrthomas</who>
+            <bug_when>2011-04-06 15:00:57 -0700</bug_when>
+            <thetext>$ curl -i https://aus2.mozilla.org/update/1/Firefox/3.6.15/20110303024726/WINNT_x86-msvc/en-US/release/update.xml
+HTTP/1.1 200 OK
+Date: Wed, 06 Apr 2011 21:47:33 GMT
+Server: Apache
+X-Backend-Server: pp-app-dist01
+X-Powered-By: PHP/5.1.6
+Set-Cookie: aus2a=63.245.220.240.1302126453.9408; expires=Wed, 06-Apr-2016 02:51:23 GMT; path=/; domain=aus2.mozilla.org
+Cache-Control: no-store, must-revalidate, post-check=0, pre-check=0, private
+Content-Length: 42
+Content-Type: text/xml;
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;updates&gt;
+&lt;/updates&gt;
+
+This request should return 3.6.16 to the user, rather than an empty block. I think this is the only machine that is misbehaving but I&apos;d appreciate it if you could check.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400865</commentid>
+            <who name="Jake Maul [:jakem]">nmaul</who>
+            <bug_when>2011-04-11 10:44:58 -0700</bug_when>
+            <thetext>It appears this is working again. I ran this several times, and didn&apos;t hit any that returned an empty block.
+
+Here&apos;s the result for pp-app-dist01:
+
+$ curl -i https://aus2.mozilla.org/update/1/Firefox/3.6.15/20110303024726/WINNTen-US/release/update.xml
+HTTP/1.1 200 OK
+Date: Mon, 11 Apr 2011 17:25:46 GMT
+Server: Apache
+X-Backend-Server: pp-app-dist01
+X-Powered-By: PHP/5.1.6
+Set-Cookie: aus2a=63.245.217.5.1302542746.4964; expires=Sun, 10-Apr-2016 22:29:36 GMT; path=/; domain=aus2.mozilla.org
+Cache-Control: no-store, must-revalidate, post-check=0, pre-check=0, private
+Content-Length: 835
+Content-Type: text/xml;
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;updates&gt;
+    &lt;update type=&quot;minor&quot; version=&quot;3.6.16&quot; extensionVersion=&quot;3.6.16&quot; buildID=&quot;20110319135224&quot; detailsURL=&quot;http://www.mozilla.com/en-US/firefox/3.6.16/releasenotes/&quot;&gt;
+        &lt;patch type=&quot;complete&quot; URL=&quot;http://download.mozilla.org/?product=firefox-3.6.16-complete&amp;amp;os=win&amp;amp;lang=en-US&quot; hashFunction=&quot;SHA512&quot; hashValue=&quot;a823a9b6a29df7d9e24cf872f145e0126419593acca22f092b564967a3683822ed9e501cd01f240bdee8f8ee3365d4848b5fe96a734cbfc7be2fedbfb289cbd0&quot; size=&quot;11534385&quot;/&gt;
+        &lt;patch type=&quot;partial&quot; URL=&quot;http://download.mozilla.org/?product=firefox-3.6.16-partial-3.6.15&amp;amp;os=win&amp;amp;lang=en-US&quot; hashFunction=&quot;SHA512&quot; hashValue=&quot;b49eecf9fea9cf9a86dddf015d389ffa56643d7a3d18d818c96bd489b526604b74c9fd91dc3b83a28ac934b4fd7e382a883f2786c644df59adf7b01b2531f6e3&quot; size=&quot;1931333&quot;/&gt;
+    &lt;/update&gt;
+
+
+Here&apos;s the list of ones I hit that worked properly. This is not exhaustive, I just did a bunch of the same curl&apos;s over and over (~300). I didn&apos;t get any failures in my testing.
+
+X-Backend-Server: pm-app-dist01
+X-Backend-Server: pm-app-dist02
+X-Backend-Server: pm-app-dist04
+X-Backend-Server: pm-app-dist05
+X-Backend-Server: pm-app-dist06
+X-Backend-Server: pm-app-dist07
+X-Backend-Server: pm-app-dist08
+X-Backend-Server: pp-app-dist01
+X-Backend-Server: pp-app-dist02
+X-Backend-Server: pp-app-dist03
+X-Backend-Server: pp-app-dist04
+X-Backend-Server: pp-app-dist05
+X-Backend-Server: pp-app-dist06
+X-Backend-Server: pp-app-dist07
+X-Backend-Server: pp-app-dist08
+X-Backend-Server: pp-app-dist09
+
+Please let us know if you see this problem re-occur. Thanks!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

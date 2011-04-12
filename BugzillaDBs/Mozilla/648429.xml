@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648429</bug_id>
+          
+          <creation_ts>2011-04-07 17:01:00 -0700</creation_ts>
+          <short_desc>HTTP cache: compress all compressible files</short_desc>
+          <delta_ts>2011-04-11 15:32:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Networking: Cache</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>559729</blocked>
+    
+    <blocked>572459</blocked>
+    
+    <blocked>645848</blocked>
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jason Duell (:jduell)">jduell.mcbugs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>BernesB</cc>
+    
+    <cc>bjarne</cc>
+    
+    <cc>emanuel.hoogeveen</cc>
+    
+    <cc>harshid</cc>
+    
+    <cc>jo.hermans</cc>
+    
+    <cc>martijn.martijn</cc>
+    
+    <cc>matafagafo</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>michal.novotny</cc>
+    
+    <cc>mwu</cc>
+    
+    <cc>pcvrcek</cc>
+    
+    <cc>tglek</cc>
+    
+    <cc>vseerror</cc>
+    
+    <cc>VYV03354</cc>
+          <qa_contact>networking.cache</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395498</commentid>
+            <who name="Jason Duell (:jduell)">jduell.mcbugs</who>
+            <bug_when>2011-04-07 17:01:52 -0700</bug_when>
+            <thetext>Right now I believe we store all cache items in whatever compression level they were given to us (so gzipped HTML is stored compressed, but non-compressed items are stored uncompressed).
+
+This is silly, especially for the memory cache and for mobile, where we need to use space as wisely as possible.
+
+I&apos;m not sure of the best compression algorithm to use.  Given the high savings of network vs disk IO (usually :), a fairly expensive algorithm might be worth it to get maximum space saving.  But almost any compression would be a win.  Performance numbers would be useful here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396194</commentid>
+            <who name="Harsh86">harshid</who>
+            <bug_when>2011-04-08 02:05:06 -0700</bug_when>
+            <thetext>I don&apos;t know if this useful but Google recently open sourced a de|compression library called Snappy.
+
+&quot;It does not aim for maximum compression, or compatibility with any other compression library; instead, it aims for very high speeds and reasonable compression. For instance, compared to the fastest mode of zlib, Snappy is an order of magnitude faster for most inputs, but the resulting compressed files are anywhere from 20% to 100% bigger.&quot;
+
+It was originally licensed under APL 2.0 but was recently relicensed under a BSD license.
+
+http://code.google.com/p/snappy/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399416</commentid>
+            <who name="Brian Smith">bsmith</who>
+            <bug_when>2011-04-10 11:42:49 -0700</bug_when>
+            <thetext>*** Bug 648645 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648307</bug_id>
+          
+          <creation_ts>2011-04-07 10:52:00 -0700</creation_ts>
+          <short_desc>Create a mobile Tp pageset with real mobile pages</short_desc>
+          <delta_ts>2011-04-11 19:58:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[mobile_unittests]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mark Finkle (:mfinkle)">mark.finkle</reporter>
+          <assigned_to name="Joel Maher (:jmaher)">jmaher</assigned_to>
+          <cc>aki</cc>
+    
+    <cc>anodelman</cc>
+    
+    <cc>bear</cc>
+    
+    <cc>blassey.bugs</cc>
+    
+    <cc>ctalbert</cc>
+    
+    <cc>doug.turner</cc>
+    
+    <cc>martijn.martijn</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394710</commentid>
+            <who name="Mark Finkle (:mfinkle)">mark.finkle</who>
+            <bug_when>2011-04-07 10:52:48 -0700</bug_when>
+            <thetext>I thought I filed this bug already, but can&apos;t find it.
+
+We reduced the size of the Tp pageset for mobile so we can stop OOM&apos;ing during the tests. However, the pageset is 100% desktop webpages. We need a pageset with mostly mobile pages for testing the mobile browser.
+
+I have a pageset I have been using for Zippity that seems to work well. I&apos;ll post it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394783</commentid>
+            <who name="Mark Finkle (:mfinkle)">mark.finkle</who>
+            <bug_when>2011-04-07 11:33:38 -0700</bug_when>
+            <thetext>bug 629503 reduced the Tp4 manifest size, but we need a whole new pageset</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396366</commentid>
+              <attachid>524621</attachid>
+            <who name="Joel Maher (:jmaher)">jmaher</who>
+            <bug_when>2011-04-08 06:58:36 -0700</bug_when>
+            <thetext>Created attachment 524621
+update mobile talos tp4 to use mobile only pages (1.0)
+
+using the mobile only pages provided by mfinkle from the zippity tests and tools, I am able to run 22 mobile pages to completion in a tp4 style test a few times with no problems.  On the same machine I could not run tp4 with &gt;4 pages.
+
+I have a mobile_tp4.zip at http://people.mozilla.org/~jmaher/mobile_tp4.zip.  This needs to be downloaded to the {talos}/page_load_test/ directory and unzipped there so you have:
+{talos}/page_load_test/mobile_tp4/{m.domain.com/...}</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396459</commentid>
+            <who name="Joel Maher (:jmaher)">jmaher</who>
+            <bug_when>2011-04-08 07:51:08 -0700</bug_when>
+            <thetext>*** Bug 645939 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396583</commentid>
+              <attachid>524621</attachid>
+            <who name="Mark Finkle (:mfinkle)">mark.finkle</who>
+            <bug_when>2011-04-08 09:26:48 -0700</bug_when>
+            <thetext>Comment on attachment 524621
+update mobile talos tp4 to use mobile only pages (1.0)
+
+Yep, these are the pages I thought we were using. Sorry I dropped the ball getting us switched over to use the mobile-ish pageset.
+
+Thanks Joel</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397544</commentid>
+              <attachid>524621</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-08 14:34:00 -0700</bug_when>
+            <thetext>Comment on attachment 524621
+update mobile talos tp4 to use mobile only pages (1.0)
+
+This cannot land until we have the appropriate factory changes, or all mobile tp4 runs will burn.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397555</commentid>
+            <who name="Joel Maher (:jmaher)">jmaher</who>
+            <bug_when>2011-04-08 14:37:19 -0700</bug_when>
+            <thetext>is that something I can help write?  Otherwise, let me know when I can check this in.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402655</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-11 19:58:34 -0700</bug_when>
+            <thetext>I&apos;ve pushed the mobile_tp4 pageset to bm-remote-talos-webhost-01 through 03, so the tegras should be good.  I still need to write a patch for the n900s.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524621</attachid>
+            <date>2011-04-08 06:58:00 -0700</date>
+            <delta_ts>2011-04-08 14:34:00 -0700</delta_ts>
+            <desc>update mobile talos tp4 to use mobile only pages (1.0)</desc>
+            <filename>mobile_tp4.patch</filename>
+            <type>text/plain</type>
+            <size>3054</size>
+            <attacher>jmaher</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3BhZ2VfbG9hZF90ZXN0L21vYmlsZV90cDQubWFuaWZlc3QgYi9wYWdlX2xv
+YWRfdGVzdC9tb2JpbGVfdHA0Lm1hbmlmZXN0Ci0tLSBhL3BhZ2VfbG9hZF90ZXN0L21vYmlsZV90
+cDQubWFuaWZlc3QKKysrIGIvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC5tYW5pZmVzdApAQCAt
+MSwxNCArMSwyMiBAQAotaHR0cDovL2xvY2FsaG9zdC9wYWdlX2xvYWRfdGVzdC90cDQvd3d3Lnlv
+dXR1YmUuY29tL3d3dy55b3V0dWJlLmNvbS9pbmRleC5odG1sCi1odHRwOi8vbG9jYWxob3N0L3Bh
+Z2VfbG9hZF90ZXN0L3RwNC93d3cubXNuLmNvbS93d3cubXNuLmNvbS9pbmRleC5odG1sCi1odHRw
+Oi8vbG9jYWxob3N0L3BhZ2VfbG9hZF90ZXN0L3RwNC93d3cud2lraXBlZGlhLm9yZy93d3cud2lr
+aXBlZGlhLm9yZy9pbmRleC5odG1sCi1odHRwOi8vbG9jYWxob3N0L3BhZ2VfbG9hZF90ZXN0L3Rw
+NC93d3cueWFob28uY28uanAvd3d3LnlhaG9vLmNvLmpwL2luZGV4Lmh0bWwKLWh0dHA6Ly9sb2Nh
+bGhvc3QvcGFnZV9sb2FkX3Rlc3QvdHA0L3d3dy5xcS5jb20vd3d3LnFxLmNvbS9pbmRleC5odG1s
+Ci1odHRwOi8vbG9jYWxob3N0L3BhZ2VfbG9hZF90ZXN0L3RwNC93d3cubWFpbC5ydS93d3cubWFp
+bC5ydS9pbmRleC5odG1sCi1odHRwOi8vbG9jYWxob3N0L3BhZ2VfbG9hZF90ZXN0L3RwNC93d3cu
+YW1hem9uLmNvbS93d3cuYW1hem9uLmNvbS9pbmRleC5odG1sCi1odHRwOi8vbG9jYWxob3N0L3Bh
+Z2VfbG9hZF90ZXN0L3RwNC93d3cuaW1kYi5jb20vd3d3LmltZGIuY29tL2luZGV4Lmh0bWwKLWh0
+dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvdHA0L3d3dy5jbm4uY29tL3d3dy5jbm4uY29t
+L2luZGV4Lmh0bWwKLWh0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvdHA0L3d3dy51b2wu
+Y29tLmJyL3d3dy51b2wuY29tLmJyL2luZGV4Lmh0bWwKLWh0dHA6Ly9sb2NhbGhvc3QvcGFnZV9s
+b2FkX3Rlc3QvdHA0L3d3dy5kaWdnLmNvbS9kaWdnLmNvbS9pbmRleC5odG1sCi1odHRwOi8vbG9j
+YWxob3N0L3BhZ2VfbG9hZF90ZXN0L3RwNC93d3cuYW1hem9uLmNvLmpwL3d3dy5hbWF6b24uY28u
+anAvaW5kZXguaHRtbAotaHR0cDovL2xvY2FsaG9zdC9wYWdlX2xvYWRfdGVzdC90cDQvd3d3LnNw
+aWVnZWwuZGUvd3d3LnNwaWVnZWwuZGUvaW5kZXguaHRtbAotaHR0cDovL2xvY2FsaG9zdC9wYWdl
+X2xvYWRfdGVzdC90cDQvd3d3LnNlem5hbS5jei93d3cuc2V6bmFtLmN6L2luZGV4Lmh0bWwKK2h0
+dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC9uZXdzLmdvb2dsZS5jb20v
+bmV3cy5nb29nbGUuY29tL2luZGV4Lmh0bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rl
+c3QvbW9iaWxlX3RwNC9tLm5ld3MuZ29vZ2xlLmNvbS9uZXdzLmdvb2dsZS5jb20vaW5kZXguaHRt
+bAoraHR0cDovL2xvY2FsaG9zdC9wYWdlX2xvYWRfdGVzdC9tb2JpbGVfdHA0L2FtYXpvbi5jb20v
+d3d3LmFtYXpvbi5jb20vaW5kZXguaHRtbAoraHR0cDovL2xvY2FsaG9zdC9wYWdlX2xvYWRfdGVz
+dC9tb2JpbGVfdHA0L20uYW1hem9uLmNvbS93d3cuYW1hem9uLmNvbS9pbmRleC5odG1sCitodHRw
+Oi8vbG9jYWxob3N0L3BhZ2VfbG9hZF90ZXN0L21vYmlsZV90cDQveWFob28uY28uanAvd3d3Lnlh
+aG9vLmNvLmpwL2luZGV4Lmh0bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9i
+aWxlX3RwNC9tLnlhaG9vLmNvLmpwL3d3dy55YWhvby5jby5qcC9pbmRleC5odG1sCitodHRwOi8v
+bG9jYWxob3N0L3BhZ2VfbG9hZF90ZXN0L21vYmlsZV90cDQvbS5nb29nbGUuY29tL2dvb2dsZS5j
+b20vaW5kZXguaHRtbAoraHR0cDovL2xvY2FsaG9zdC9wYWdlX2xvYWRfdGVzdC9tb2JpbGVfdHA0
+L20uYWNjdXdlYXRoZXIuY29tL3d3dy5hY2N1d2VhdGhlci5jb20vaW5kZXguaHRtbAoraHR0cDov
+L2xvY2FsaG9zdC9wYWdlX2xvYWRfdGVzdC9tb2JpbGVfdHA0L20ubWFpbC5ydS9tYWlsLnJ1L2lu
+ZGV4Lmh0bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC9tLmJh
+aWR1LmNvbS93d3cuYmFpZHUuY29tL2luZGV4Lmh0bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9s
+b2FkX3Rlc3QvbW9iaWxlX3RwNC9tLm5ld3MuYmFpZHUuY29tL25ld3MuYmFpZHUuY29tL2luZGV4
+Lmh0bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC9tLnlhbmRl
+eC5ydS93d3cueWFuZGV4LnJ1L2luZGV4Lmh0bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2Fk
+X3Rlc3QvbW9iaWxlX3RwNC9tLm5ld3MueWFuZGV4LnJ1L25ld3MueWFuZGV4LnJ1L2luZGV4Lmh0
+bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC9tLmJiYy5jby51
+ay93d3cuYmJjLmNvLnVrL21vYmlsZS9pbmRleC5odG1sL2luZGV4Lmh0bWwKK2h0dHA6Ly9sb2Nh
+bGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC9tLm55dGltZXMuY29tL21vYmlsZS5ueXRp
+bWVzLmNvbS9pbmRleC5odG1sCitodHRwOi8vbG9jYWxob3N0L3BhZ2VfbG9hZF90ZXN0L21vYmls
+ZV90cDQvbS5jbm4uY29tL2Nubi5jb20vaW5kZXguaHRtbAoraHR0cDovL2xvY2FsaG9zdC9wYWdl
+X2xvYWRfdGVzdC9tb2JpbGVfdHA0L20udHdpdHRlci5jb20vdHdpdHRlci5jb20vdG9wdHdlZXRz
+L2Zhdm9yaXRlcy5odG1sL2luZGV4Lmh0bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rl
+c3QvbW9iaWxlX3RwNC9tLndpa2lwZWRpYS5jb20vZW4ubS53aWtpcGVkaWEub3JnL2luZGV4Lmh0
+bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC9tLmVzcG4uY29t
+L20uZXNwbi5nby5jb20vaW5kZXguaHRtbAoraHR0cDovL2xvY2FsaG9zdC9wYWdlX2xvYWRfdGVz
+dC9tb2JpbGVfdHA0L25ld3MuZ29vZ2xlLmNvLmlsL25ld3MuZ29vZ2xlLmNvLmlsL2luZGV4Lmh0
+bWwKK2h0dHA6Ly9sb2NhbGhvc3QvcGFnZV9sb2FkX3Rlc3QvbW9iaWxlX3RwNC9uZXdzLmdvb2ds
+ZS5hZS9uZXdzLmdvb2dsZS5hZS9pbmRleC5odG1sCisK
+</data>
+<flag name="review"
+          id="438241"
+          type_id="4"
+          status="+"
+          setter="aki"
+    />
+    <flag name="feedback"
+          id="438242"
+          type_id="607"
+          status="+"
+          setter="mark.finkle"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

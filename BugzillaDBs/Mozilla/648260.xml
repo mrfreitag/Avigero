@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648260</bug_id>
+          
+          <creation_ts>2011-04-07 07:33:00 -0700</creation_ts>
+          <short_desc>Private Chat view doesn&apos;t follow scrollback size preference</short_desc>
+          <delta_ts>2011-04-07 18:41:32 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Other Applications</product>
+          <component>ChatZilla</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="James Ross">silver</reporter>
+          <assigned_to name="Robert Ginda">rginda</assigned_to>
+          
+          <qa_contact>chatzilla</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394372</commentid>
+              <attachid>524400</attachid>
+            <who name="James Ross">silver</who>
+            <bug_when>2011-04-07 07:33:21 -0700</bug_when>
+            <thetext>Created attachment 524400
+Replace CIRCChanUser.prototype.MAX_MESSAGES with CIRCUser.prototype.MAX_MESSAGES</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395651</commentid>
+            <who name="James Ross">silver</who>
+            <bug_when>2011-04-07 18:41:32 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/chatzilla/rev/e0a761a47a84</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524400</attachid>
+            <date>2011-04-07 07:33:00 -0700</date>
+            <delta_ts>2011-04-07 16:34:42 -0700</delta_ts>
+            <desc>Replace CIRCChanUser.prototype.MAX_MESSAGES with CIRCUser.prototype.MAX_MESSAGES</desc>
+            <filename>Check-in_rev1338.patch</filename>
+            <type>text/plain</type>
+            <size>1983</size>
+            <attacher>silver</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEphbWVzIFJvc3MgPHNpbHZlckB3YXJ3aWNrY29t
+cHNvYy5jby51az4KIyBEYXRlIDEzMDIxODY3MzkgLTM2MDAKIyBOb2RlIElEIDhmN2YyYzFlNzk0
+MjZjMWE4YmU4ZmFjMzQ2OThjNzkxODA3NmIxMjYKIyBQYXJlbnQgIDU5YjQ2YzBiZjcxNjg5YjJl
+ZTEyMzk4ZjYxM2E5ZWE1OGFlNWNjNGYKRml4IHByaXZhdGUgbWVzc2FnZSB2aWV3cyBpZ25wb3Jp
+bmcgc2Nyb2xsYmFyIHByZWZlcmVuY2UuCgpkaWZmIC0tZ2l0IGEveHVsL2NvbnRlbnQvcHJlZnMu
+anMgYi94dWwvY29udGVudC9wcmVmcy5qcwotLS0gYS94dWwvY29udGVudC9wcmVmcy5qcworKysg
+Yi94dWwvY29udGVudC9wcmVmcy5qcwpAQCAtMjc5LDEwICsyNzksOSBAQCBmdW5jdGlvbiBpbml0
+UHJlZnMoKQogICAgIENJUkNOZXR3b3JrLnByb3RvdHlwZS5NQVhfTUVTU0FHRVMgID0gY2xpZW50
+LnByZWZzWyJuZXR3b3JrTWF4TGluZXMiXTsKICAgICBDSVJDTmV0d29yay5wcm90b3R5cGUuUFJP
+WFlfVFlQRV9PVkVSUklERSA9IGNsaWVudC5wcmVmc1sicHJveHkudHlwZU92ZXJyaWRlIl07CiAg
+ICAgQ0lSQ0NoYW5uZWwucHJvdG90eXBlLk1BWF9NRVNTQUdFUyAgPSBjbGllbnQucHJlZnNbImNo
+YW5uZWxNYXhMaW5lcyJdOwotICAgIENJUkNDaGFuVXNlci5wcm90b3R5cGUuTUFYX01FU1NBR0VT
+ID0gY2xpZW50LnByZWZzWyJ1c2VyTWF4TGluZXMiXTsKLSAgICB2YXIgZGNjVXNlck1heExpbmVz
+ID0gY2xpZW50LnByZWZzWyJkY2NVc2VyTWF4TGluZXMiXTsKLSAgICBDSVJDRENDQ2hhdC5wcm90
+b3R5cGUuTUFYX01FU1NBR0VTICA9IGRjY1VzZXJNYXhMaW5lczsKLSAgICBDSVJDRENDRmlsZVRy
+YW5zZmVyLnByb3RvdHlwZS5NQVhfTUVTU0FHRVMgPSBkY2NVc2VyTWF4TGluZXM7CisgICAgQ0lS
+Q1VzZXIucHJvdG90eXBlLk1BWF9NRVNTQUdFUyAgICAgPSBjbGllbnQucHJlZnNbInVzZXJNYXhM
+aW5lcyJdOworICAgIENJUkNEQ0NDaGF0LnByb3RvdHlwZS5NQVhfTUVTU0FHRVMgID0gY2xpZW50
+LnByZWZzWyJkY2NVc2VyTWF4TGluZXMiXTsKKyAgICBDSVJDRENDRmlsZVRyYW5zZmVyLnByb3Rv
+dHlwZS5NQVhfTUVTU0FHRVMgPSBjbGllbnQucHJlZnNbImRjY1VzZXJNYXhMaW5lcyJdOwogICAg
+IENJUkNEQ0MucHJvdG90eXBlLmxpc3RlblBvcnRzICAgICAgID0gY2xpZW50LnByZWZzWyJkY2Mu
+bGlzdGVuUG9ydHMiXTsKICAgICBjbGllbnQuTUFYX01FU1NBR0VTICAgICAgICAgICAgICAgICA9
+IGNsaWVudC5wcmVmc1siY2xpZW50TWF4TGluZXMiXTsKICAgICBjbGllbnQuY2hhcnNldCAgICAg
+ICAgICAgICAgICAgICAgICA9IGNsaWVudC5wcmVmc1siY2hhcnNldCJdOwpAQCAtNzQ5LDcgKzc0
+OCw3IEBAIGZ1bmN0aW9uIG9uUHJlZkNoYW5nZWQocHJlZk5hbWUsIG5ld1ZhbHUKICAgICAgICAg
+ICAgIGJyZWFrOwogCiAgICAgICAgIGNhc2UgInVzZXJNYXhMaW5lcyI6Ci0gICAgICAgICAgICBD
+SVJDQ2hhblVzZXIucHJvdG90eXBlLk1BWF9NRVNTQUdFUyA9IG5ld1ZhbHVlOworICAgICAgICAg
+ICAgQ0lSQ1VzZXIucHJvdG90eXBlLk1BWF9NRVNTQUdFUyA9IG5ld1ZhbHVlOwogICAgICAgICAg
+ICAgYnJlYWs7CiAKICAgICAgICAgY2FzZSAidXNlcmxpc3RMZWZ0IjoKZGlmZiAtLWdpdCBhL3h1
+bC9jb250ZW50L3N0YXRpYy5qcyBiL3h1bC9jb250ZW50L3N0YXRpYy5qcwotLS0gYS94dWwvY29u
+dGVudC9zdGF0aWMuanMKKysrIGIveHVsL2NvbnRlbnQvc3RhdGljLmpzCkBAIC0xMzIsOCArMTMy
+LDYgQEAgQ0lSQ1VzZXIucHJvdG90eXBlLk1BWF9NRVNTQUdFUyA9IDIwMDsKIAogQ0lSQ0NoYW5u
+ZWwucHJvdG90eXBlLk1BWF9NRVNTQUdFUyA9IDMwMDsKIAotQ0lSQ0NoYW5Vc2VyLnByb3RvdHlw
+ZS5NQVhfTUVTU0FHRVMgPSAyMDA7Ci0KIGZ1bmN0aW9uIGluaXQoKQogewogICAgIGlmICgoImlu
+aXRpYWxpemVkIiBpbiBjbGllbnQpICYmIGNsaWVudC5pbml0aWFsaXplZCkK
+</data>
+<flag name="review"
+          id="438028"
+          type_id="4"
+          status="+"
+          setter="samuel"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

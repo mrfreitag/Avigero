@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648324</bug_id>
+          
+          <creation_ts>2011-04-07 12:08:00 -0700</creation_ts>
+          <short_desc>new bookmarks are disappearing</short_desc>
+          <delta_ts>2011-04-11 03:14:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="matt">matthewldean</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394834</commentid>
+            <who name="matt">matthewldean</who>
+            <bug_when>2011-04-07 12:08:25 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+I save new bookmarks. I close Firefox. New bookmarks disappear. Bookmarks created before upgrade to 4.0 untouched. Apologies if this has been posted before, but I didn&apos;t see this specific problem listed. 
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.see details, it&apos;s pretty self explanatory.
+2.
+3.
+
+
+Expected Results:  
+save my bookmarks!!!
+
+delicious plug in doesn&apos;t work with Firefox 4, so I&apos;m loosing a lot of time trying to back up my bookmarks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395085</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-07 14:07:12 -0700</bug_when>
+            <thetext>If you start Firefox in Safe Mode - does that let you preserve your newly created bookmarks?
+https://support.mozilla.com/en-US/kb/Safe+Mode</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399764</commentid>
+            <who name="matt">matthewldean</who>
+            <bug_when>2011-04-10 18:55:33 -0700</bug_when>
+            <thetext>i tried safe mode, with unexpected results. some of my add-ons reinstalled themselves and/or re-enabled themselves after restart. The book mark issue had seemed to go away, but I just noticed that the bookmarks i save last night have now disappeared after restarting the app today. One thing I DID do differently, I watched a streaming movie on Netflix and had to reinstall their player.
+
+So, I have too many variables here. Is it the add-ons (likely) or is it a bug with bookmarks. If anyone has any clues i&apos;d like to track this down, and in the mean time I&apos;ll see if i can reproduce the exact process...
+
+One thing to note--NO Bookmarks that I have saved since installing FF 4 have been saved. All have disappeared after i have quit FF and restarted.
+
+i&apos;ll check bug reports for similar issues.
+
+Thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400062</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-11 03:14:57 -0700</bug_when>
+            <thetext>I agree it&apos;s likely there is a problem with an add-on.
+
+You may try to track it down by disabling them all, and the enable them one by one until the problem reoccurs.
+
+Since there seems to be some kind of mess with your profile I also suggest you create a new one:
+https://support.mozilla.com/en-US/kb/Basic%20Troubleshooting#w_8-make-a-new-profile</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

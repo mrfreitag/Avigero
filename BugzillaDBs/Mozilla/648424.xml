@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648424</bug_id>
+          
+          <creation_ts>2011-04-07 16:57:00 -0700</creation_ts>
+          <short_desc>Make all versions show up on &quot;beta&quot; dashboard</short_desc>
+          <delta_ts>2011-04-11 14:39:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Input</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>3.4</target_milestone>
+          <dependson>648405</dependson>
+          <blocked>647627</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Fred Wenzel [:wenzel]">fwenzel</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>m8ttyb</cc>
+          <qa_contact>input</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395483</commentid>
+            <who name="Fred Wenzel [:wenzel]">fwenzel</who>
+            <bug_when>2011-04-07 16:57:35 -0700</bug_when>
+            <thetext>The beta dashboard should now show all current versions of Firefox, including the newly available nightlies (5.0a1).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397100</commentid>
+            <who name="Matt Brandt [:mbrandt]">m8ttyb</who>
+            <bug_when>2011-04-08 11:46:03 -0700</bug_when>
+            <thetext>What is a good strategy for qa to test this?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

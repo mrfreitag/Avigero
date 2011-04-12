@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648489</bug_id>
+          
+          <creation_ts>2011-04-07 23:48:00 -0700</creation_ts>
+          <short_desc>The first orientation radio button label &quot;Portrait&quot; on &quot;Page Setup&quot; window is not accessible</short_desc>
+          <delta_ts>2011-04-08 00:18:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>P3</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="aaron yuan">yuanchong1986</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396078</commentid>
+            <who name="aaron yuan">yuanchong1986</who>
+            <bug_when>2011-04-07 23:48:01 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.16) Gecko/20110323 Ubuntu/10.04 (lucid) Firefox/3.6.16
+Build Identifier: Thunderbird 3.1.9
+
+orca screen reader can not read the first orientation radio button label &quot;Portrait&quot; on &quot;Page Setup&quot; window. Orca speaks &quot;seleted item&quot; instead of &quot;Portrait&quot;.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Launch orca, enable orca speech.
+2. Launch thunderbird, set up an account.
+3. Select &quot;File&quot;-&gt;&quot;Page Setup...&quot; to open the &quot;Page Setup&quot; window.
+4. Using &quot;tab&quot; to navigate the window.
+Actual Results:  
+When focus on the radio button &quot;Portrait&quot;, orca will says &quot;Portrait&quot;.
+
+Expected Results:  
+Orca says &quot;selected item&quot; instead.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648379</bug_id>
+          
+          <creation_ts>2011-04-07 15:21:00 -0700</creation_ts>
+          <short_desc>Add emscripten automatic tests to js engine</short_desc>
+          <delta_ts>2011-04-09 11:55:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Other Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Alon Zakai (:azakai)">azakai</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>dmandelin</cc>
+    
+    <cc>jandemooij</cc>
+    
+    <cc>jruderman</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>pbiggar</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>smoohta</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395234</commentid>
+            <who name="Alon Zakai (:azakai)">azakai</who>
+            <bug_when>2011-04-07 15:21:06 -0700</bug_when>
+            <thetext>Emscripten has 500+ automatic tests, that have uncovered various bugs in spidermonkey (in particular, recently in TI). It has been suggested to add some or all of those tests to the JS engine test suite, hence this bug.
+
+The tests include both compiling LLVM to JS and running the generated JS. That includes some very large JS scripts (multiple megabytes), and running the entire suite takes 1-2 hours, so that is the downside to adding them all (but the large JS scripts have tended to find the most JS engine bugs).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395312</commentid>
+            <who name="Alon Zakai (:azakai)">azakai</who>
+            <bug_when>2011-04-07 15:52:41 -0700</bug_when>
+            <thetext>To move on this, the relevant people (I am not sure who that is) need to decide if we want this, and if so how many of the tests.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395345</commentid>
+            <who name="Paul Biggar">pbiggar</who>
+            <bug_when>2011-04-07 16:04:25 -0700</bug_when>
+            <thetext>The criteria we want to use is &quot;the tests which increase our test coverage&quot;. Does this help or hinder?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395426</commentid>
+            <who name="Alon Zakai (:azakai)">azakai</who>
+            <bug_when>2011-04-07 16:34:47 -0700</bug_when>
+            <thetext>We have found several bugs in TI using this, including recent regressions after they were fixed (the reduced testcases for them, that were added to the js tests, still passed, but not the original emscripten test they were reduced from). So I believe these tests do increase coverage.
+
+However, it might be the case that some of that can be achieved with fuzzing, which AFAIK is not yet done on jaegermonkey, so maybe once fuzzing is done these tests will not increase the coverage that much. I don&apos;t know the answer to that, but I did ask jesse about one specific case - a bug with &gt;50 local variables - and he said his fuzzer would not have found that one.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395664</commentid>
+            <who name="Paul Biggar">pbiggar</who>
+            <bug_when>2011-04-07 18:51:08 -0700</bug_when>
+            <thetext>Just to clarify, I wasnt trying to shoot down including the tests, but trying to provide the criteria so that you can find some subset which is useful.
+
+But in fact, :decoder tells me that coverage is probably not a good metric for including tests, because we&apos;re doing pretty well on both line- and branch-coverage, and are finding bugs with fuzz-tests which 
+
+However, I believe we can&apos;t add 2 hours of tests, no matter what the benefits. I could be wrong - it may be worth checking with RelEng and see what they say.
+
+Assuming for a moment that I&apos;m right, then we need to find some subset of the tests that are useful to add to the testsuite. I don&apos;t know a way to identify that subset.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395666</commentid>
+            <who name="Paul Biggar">pbiggar</who>
+            <bug_when>2011-04-07 18:52:07 -0700</bug_when>
+            <thetext>(In reply to comment #4)
+ 
+&gt; But in fact, :decoder tells me that coverage is probably not a good metric for
+&gt; including tests, because we&apos;re doing pretty well on both line- and
+&gt; branch-coverage, and are finding bugs with fuzz-tests which
+
+... are not improving coverage stats.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397957</commentid>
+            <who name="Jesse Ruderman">jruderman</who>
+            <bug_when>2011-04-08 18:54:01 -0700</bug_when>
+            <thetext>How about running it once per day on TM, instead of once per push?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398497</commentid>
+            <who name="Alon Zakai (:azakai)">azakai</who>
+            <bug_when>2011-04-09 11:23:27 -0700</bug_when>
+            <thetext>I run the tests generally once a week, so I guess there is already some coverage in that sense, if we are happy with just that (and not preventing badness from even landing).
+
+The risk is that I might miss a few weeks now and then. For example, I just found another bug on tracemonkey with this, bug 648769, which looks like a regression from almost two weeks ago.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398518</commentid>
+            <who name="Jan de Mooij">jandemooij</who>
+            <bug_when>2011-04-09 11:55:37 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; How about running it once per day on TM, instead of once per push?
+
+If we do this we can also use it for Kraken and other long running scripts. Bug 624792 is about adding Kraken to jit-tests but I had to tweak the tests to run faster. It would be good to check correctness of the full version too.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

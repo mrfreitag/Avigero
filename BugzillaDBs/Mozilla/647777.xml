@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647777</bug_id>
+          
+          <creation_ts>2011-04-04 23:45:00 -0700</creation_ts>
+          <short_desc>odd Mac stack, crash [@ libmozjs.dylib@0x4a1ac]</short_desc>
+          <delta_ts>2011-04-04 23:45:52 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Breakpad Integration</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wayne Mery (:wsmwk)">vseerror</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugzilla</cc>
+    
+    <cc>ludovic</cc>
+    
+    <cc>ted.mielczarek</cc>
+          <qa_contact>breakpad.integration</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390861</commentid>
+            <who name="Wayne Mery (:wsmwk)">vseerror</who>
+            <bug_when>2011-04-04 23:45:52 -0700</bug_when>
+            <thetext>odd Mac stack, crash [@ libmozjs.dylib@0x4a1ac] 
+thunderbird 3.1.8
+
+bp-8777d2b8-e78e-4a29-9bc4-926432110301  is the only crash in 4 months.
+it is version 3.1.8, so perhaps it was a bad install?
+
+
+14 sec uptime
+EXC_BAD_ACCESS / KERN_INVALID_ADDRESS
+0x68007ff0
+App Notes	
+Obj-C Exception data:
+NSImageCacheException: Cannot lock focus on image &lt;NSImage 0x1e304c90 Size={0, 0} Reps=(
+)&gt;, because it is size zero.
+0	libmozjs.dylib	libmozjs.dylib@0x4a1ac	
+1	libmozjs.dylib	libmozjs.dylib@0x4a3f8	
+2	libmozjs.dylib	libmozjs.dylib@0x4b73e	
+3	libmozjs.dylib	libmozjs.dylib@0x4bd2e	
+4	libmozjs.dylib	libmozjs.dylib@0x4c506	
+5	libmozjs.dylib	libmozjs.dylib@0x5e77	
+6	thunderbird-bin	thunderbird-bin@0xdfb79	
+7	libxpcom_core.dylib	libxpcom_core.dylib@0x5da85	
+8	libxpcom_core.dylib	libxpcom_core.dylib@0x5dc88	
+9	thunderbird-bin	thunderbird-bin@0x63a373	
+10	libxpcom_core.dylib	libxpcom_core.dylib@0x5296c	
+11	libxpcom_core.dylib	libxpcom_core.dylib@0x52a87	
+12	libxpcom_core.dylib	libxpcom_core.dylib@0x4f196	
+13	libxpcom_core.dylib	libxpcom_core.dylib@0xaf26	
+14	thunderbird-bin	thunderbird-bin@0x29d540	
+
+part of the raw dump...
+Filename	Version	Debug Identifier	Debug Filename
+thunderbird-bin		000000000000000000000000000000000	thunderbird-bin
+libmozjs.dylib		000000000000000000000000000000000	libmozjs.dylib
+libxpcom.dylib		000000000000000000000000000000000	libxpcom.dylib
+libxpcom_core.dylib		000000000000000000000000000000000	libxpcom_core.dylib
+libplds4.dylib		000000000000000000000000000000000	libplds4.dylib
+libplc4.dylib		000000000000000000000000000000000	libplc4.dylib
+libnspr4.dylib		000000000000000000000000000000000	libnspr4.dylib</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

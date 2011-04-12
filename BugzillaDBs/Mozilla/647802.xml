@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647802</bug_id>
+          
+          <creation_ts>2011-04-05 04:17:00 -0700</creation_ts>
+          <short_desc>WebGL textures broken when decode-on-draw is enabled</short_desc>
+          <delta_ts>2011-04-08 21:09:45 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>Other</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Alvaro">alvaro.segura</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bas.schouten</cc>
+    
+    <cc>blassey.bugs</cc>
+    
+    <cc>bobbyholley+bmo</cc>
+    
+    <cc>jmuizelaar</cc>
+    
+    <cc>joe</cc>
+    
+    <cc>martijn.martijn</cc>
+    
+    <cc>nhirata.bugzilla</cc>
+    
+    <cc>vladimir</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390992</commentid>
+            <who name="Alvaro">alvaro.segura</who>
+            <bug_when>2011-04-05 04:17:20 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mobile Firefox 4 beta 13
+
+In Moble Firefox WebGL using textures does not work anymore on a Samsung Galaxy Tab. It&apos;s as if the texture was black. Non textured meshes are fine.
+
+Textures worked fine weeks or a month or so ago with Fennec (don&apos;t know the version, sorry), until we updated.
+
+Some other people also reported this here: http://support.mozilla.com/es/questions/799056
+
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+Any WebGL using textures
+Actual Results:  
+Black objects.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391546</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-05 14:23:45 -0700</bug_when>
+            <thetext>Steps to repro:
+
+Mozilla/5.0 (Android; Linux armv71; rv2.2a1pre) Gecko/20110405 Firefox/4.2a1pre Fennec/4.1a1pre
+Device: Droid 2 
+OS: Android 2.2
+
+1. go to http://www.khronos.org/webgl/wiki/WebGL_and_OpenGL
+2. open the link called : image-texture-test example in a new tab
+
+Expected: the new tab will show like the sample image in the first page
+Actual: only the text : &quot;Texture test&quot; appears, but not the blue boxes and the white wording; Console shows error : 
+Error: uncaught exception: [Exception... &quot;Failure arg 5 [nsIDOMWebGLRenderingContext.texImage2D]&quot; nsresult: &quot;0x80004005
+(NS_ERROR_FAILURE)&quot; location: &quot;JS frame :: https://cvs.khronos.org/svn/repos
+/registry/trunk/public/webgl/sdk/demos/google/image-texture-test/demo.js ::
+&lt;TOP_LEVEL&gt; :: line 213&quot; data:no]
+
+Note:
+1. works fine (no error in console) on desktop version of Firefox :
+Build identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.2a1pre) Gecko/20110331 Firefox/4.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392590</commentid>
+            <who name="Wesley Johnston (:wesj)">wjohnston</who>
+            <bug_when>2011-04-06 10:52:53 -0700</bug_when>
+            <thetext>*** Bug 638272 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392605</commentid>
+            <who name="Brad Lassey [:blassey][blassey@mozilla.com]">blassey.bugs</who>
+            <bug_when>2011-04-06 10:56:53 -0700</bug_when>
+            <thetext>some useful information from vlad in bug 638272:
+
+&gt; Works fine in 4.0b5, in 4.0b6pre (20110302) a bunch of the textures don&apos;t load.
+&gt;  The teximage2D call is returning a NS_ERROR_FAILURE, bad arg 5.  I&apos;m guessing
+&gt; we&apos;re failing somehow to convert the DOM image correctly, though again it works
+&gt; fine in 4.0b5.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394557</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-07 09:34:30 -0700</bug_when>
+            <thetext>Another page to look at :
+http://people.mozilla.org/~bjacob/webgltexture/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394638</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-07 10:13:10 -0700</bug_when>
+            <thetext>Odd.  http://people.mozilla.org/~bjacob/webgltexture/ WFM in the 04/05 build, I noted it because of the original message in the forums had mentioned it.
+
+http://www.khronos.org/webgl/wiki/WebGL_and_OpenGL is still broken for me with the release:
+Mozilla/5.0 (Android; Linux armv71; rv:2.1) Gecko20110318 Firefox/4.0b13pre Fennec/4.0
+Device: Droid 2
+OS: Android 2.2
+
+Still looking for regression range for the khronos.org page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394709</commentid>
+            <who name="Naoki Hirata :nhirata">nhirata.bugzilla</who>
+            <bug_when>2011-04-07 10:52:07 -0700</bug_when>
+            <thetext>http://www.khronos.org/webgl/wiki/WebGL_and_OpenGL works on 2/18 build, doesn&apos;t work on 2/19 build.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394842</commentid>
+            <who name="Martijn Wargers [:mw22] (QA - IRC nick: mw22)">martijn.martijn</who>
+            <bug_when>2011-04-07 12:16:30 -0700</bug_when>
+            <thetext>Bonsai change log:
+http://hg.mozilla.org/mozilla-central/pushloghtml?startdate=2011-02-18+04%3A00%3A00&amp;enddate=2011-02-19+04%3A00%3A00
+Regression from bug 635275?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396678</commentid>
+            <who name="Jeff Muizelaar [:jrmuizel]">jmuizelaar</who>
+            <bug_when>2011-04-08 09:57:08 -0700</bug_when>
+            <thetext>(In reply to comment #7)
+&gt; Bonsai change log:
+&gt; http://hg.mozilla.org/mozilla-central/pushloghtml?startdate=2011-02-18+04%3A00%3A00&amp;enddate=2011-02-19+04%3A00%3A00
+&gt; Regression from bug 635275?
+
+This regression range doesn&apos;t have anything specific. Can we get a regression range with changeset ids instead of dates?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397422</commentid>
+            <who name="Brad Lassey [:blassey][blassey@mozilla.com]">blassey.bugs</who>
+            <bug_when>2011-04-08 13:57:25 -0700</bug_when>
+            <thetext>this regression was caused by bug 622470, I reverted that and webgl textures work again.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398036</commentid>
+            <who name="Vladimir Vukicevic (:vlad - slow after Mar 1)">vladimir</who>
+            <bug_when>2011-04-08 21:09:45 -0700</bug_when>
+            <thetext>blassey: (from irc) I would have tested this on either a Galaxy S, Galaxy Tab, or a Nexus One -- but most likely one of the first two.
+
+WebGL uses a slightly different path through imglib than the rest of the code -- see bug 622184 .  Nothing in there jumped out at me as having been affected by decode on draw (I was thinking of it when I wrote it), but that doesn&apos;t necessarily mean much.  Stepping through webgl&apos;s TexImage2D on one of the simple testcases should pretty quickly show what&apos;s failing along the way.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647825</bug_id>
+          
+          <creation_ts>2011-04-05 08:17:00 -0700</creation_ts>
+          <short_desc>Cannot Transfer An Image From One Window To Another</short_desc>
+          <delta_ts>2011-04-06 06:04:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Message Compose Window</component>
+          <version>3.1</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>224733</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="jay garcia">jay</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dnpyles</cc>
+    
+    <cc>home.rr</cc>
+    
+    <cc>jsabash</cc>
+    
+    <cc>rsx11m.pub</cc>
+          <qa_contact>message-compose</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391181</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 08:17:15 -0700</bug_when>
+            <thetext>Thunderbird 3.1.9
+Windows XP SP3
+
+Steps To Reproduce:
+
+1. Open a received HTML formatted message with an image displayed inline
+2. Open a new compose window in HTML formatted display
+3. By any method, attempt to transfer the image to the compose window
+
+Result:
+
+Does not work, the image is not transferred, only a &quot;missing image&quot; type box is the result.
+
+100% reproducible
+
+Some users report that it used to work in previous 2.x and 3.x-pre versions.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391397</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 11:39:27 -0700</bug_when>
+            <thetext>Addendum
+
+Forgot to clarify #3. &quot;By any method&quot;. By any method per this bug means drag/drop from window to window or copy/paste from window to window. Saving the image first and then copy/paste works.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391429</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 12:18:26 -0700</bug_when>
+            <thetext>*** Bug 647827 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391640</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 15:53:50 -0700</bug_when>
+            <thetext>jay, can you double-click on the image to open the Image Properties and see
+if the Location looks like &quot;mailbox:///C%7C/&quot;? If yes, and if changing the
+&quot;%7C&quot; part to &quot;mailbox:///C:/&quot; or &quot;mailbox:///C|/&quot; instead resolves the issue, this should be a duplicate of bug 224733.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391645</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 16:03:13 -0700</bug_when>
+            <thetext>Copied the image to the clipboard and then pasted to a text file:
+
+mailbox:///C|/Documents%20and%20Settings/Administrator/Application%20Data/Thunderbird/Profiles/default.v9f/Mail/jaygarcia-1.com/Inbox?number=23822&amp;part=1.2&amp;type=image/jpeg&amp;filename=cert.jpg</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391682</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 16:46:28 -0700</bug_when>
+            <thetext>Thanks, but that&apos;s not quite what I meant; copy-paste or drag-and-drop an
+image from one message your are looking at into one that you compose. There
+you should see the &quot;broken image&quot; box. Double-click on that box in the message you compose, this should open the Image Properties with the pasted location.
+If it&apos;s the bug I&apos;m thinking of, the &quot;C|&quot; should have been translated to &quot;C%7C&quot; which breaks the picture in your new message.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391688</commentid>
+            <who name="Dave Pyles">dnpyles</who>
+            <bug_when>2011-04-05 16:50:14 -0700</bug_when>
+            <thetext>I just tied this.  Originally the Location began &quot;mailbox:///C|/&quot; which did not find the image, but changing it to &quot;mailbox:///C:/&quot; DID find the image.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391696</commentid>
+            <who name="Joe Sabash">jsabash</who>
+            <bug_when>2011-04-05 16:54:04 -0700</bug_when>
+            <thetext>WOW what an active bug..just mid-aired 3 times
+Mozilla/5.0 (Windows NT 5.0; rv:2.0pre) Gecko/20110401 Thunderbird/3.3a4pre
+is showing the same symptoms, and I&apos;m pretty sure this regressed
+Editing &quot;%7c&quot; to &quot;|&quot; restores the image here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391707</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 17:17:48 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; I just tied this.  Originally the Location began &quot;mailbox:///C|/&quot; which did not
+&gt; find the image, but changing it to &quot;mailbox:///C:/&quot; DID find the image.
+
+As Joe stated, those two forms should be equivalent, so I&apos;m a bit puzzled too
+(a) why you don&apos;t see the &quot;%7C&quot; escaped version of &quot;|&quot; in your location, and
+(b) why once you have a &quot;|&quot; it doesn&apos;t work. So, not as straight-forward of a duplicate as I initially thought...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391712</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 17:23:02 -0700</bug_when>
+            <thetext>Ok, here it the results of dbl clicking the image/box:
+
+mailbox:///C%7C/Documents%20and%20Settings/Administrator/Application%20Data/Thunderbird/Profiles/default.v9f/Mail/jaygarcia-1.com/Inbox?number=11495&amp;part=1.2&amp;type=image/jpeg&amp;filename=cert.jpg</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391714</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 17:26:23 -0700</bug_when>
+            <thetext>Addendum:
+
+Changing the %7C to | causes the image to be displayed properly. Now what?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391720</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 17:29:04 -0700</bug_when>
+            <thetext>Ok, that&apos;s what I&apos;d expect to see due to bug 224733, so it&apos;s indeed a duplicate of that bug. I don&apos;t know what happened in comment #6, any more details?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391733</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 17:43:11 -0700</bug_when>
+            <thetext>Changing the %7C to : also displays the image properly. So now where do we go from here? 224733 is quite old and stale being filed in 2003 and the last comment by David A in 2008.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391739</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 17:46:54 -0700</bug_when>
+            <thetext>Yes, but it&apos;s a duplicate anyway... it&apos;s policy to dupe a new bug against the older one, especially if some further analysis was provided there already.
+Also, running into dupes frequently &quot;revives&quot; old bugs even after a long time
+of no action (some bugs fixed were as old as 10 years), thus there&apos;s hope.
+
+*** This bug has been marked as a duplicate of bug 224733 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391744</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 17:50:59 -0700</bug_when>
+            <thetext>BTW: There is an extension available fixing the issue after the fact:
+
+(Quoting bug 224733 comment #12)
+&gt; In the meantime the bug is fixed, you can find a workaround in my extension
+&gt; QuoteAndComposeManager, here:
+&gt; https://nic-nac-project.org/~kaosmos/realborders-en.html
+&gt; See also https://bugzilla.mozilla.org/show_bug.cgi?id=380372 for another bug
+&gt; related to inline images paths.
+
+I&apos;ve suggested to the developer of that extension to post a patch, but since he is fixing the broken HTML code once the damage has already happened it&apos;s not possible to derive a core fix from that extension.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391762</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 18:27:34 -0700</bug_when>
+            <thetext>The extension doesn&apos;t work when copy/pasting an image to a new html format window. I still get the image block with the %7C still intact.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391813</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-05 20:04:26 -0700</bug_when>
+            <thetext>It may be necessary to switch that option (#12) on before it works. If you can&apos;t get it work you can e-mail the extension author from that web site.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391825</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-05 20:29:43 -0700</bug_when>
+            <thetext>The option is on by default, nonetheless it is on and still doesn&apos;t work. I emailed the author and invited him to view this bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392184</commentid>
+            <who name="Russ Ranshaw">home.rr</who>
+            <bug_when>2011-04-06 05:51:04 -0700</bug_when>
+            <thetext>Why is this labeled &quot;RESOLVED&quot;?  It now refers to bug 224733 which is 8 years old!  If that ancient bug was truly &quot;resolved&quot;, we shouldn&apos;t be seeing it in the current Thunderbird.
+
+Apparently the bug resurrected itself.  Pernicious darn thing!
+
+So, from the perspective of a lowly user, it definitely is NOT resolved.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392195</commentid>
+            <who name="jay garcia">jay</who>
+            <bug_when>2011-04-06 06:04:53 -0700</bug_when>
+            <thetext>&quot;Resolved&quot; in this vernacular means that this bug has been classed as a duplicate of another bug. In other words you&apos;re &quot;resolving&quot; the bug as a dupe, not &quot;fixing&quot; it.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647782</bug_id>
+          
+          <creation_ts>2011-04-05 00:53:00 -0700</creation_ts>
+          <short_desc>Java not running on FF4 unless set to open in 32-bit</short_desc>
+          <delta_ts>2011-04-05 13:17:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>arild.b.anda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+    
+    <cc>smichaud</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390894</commentid>
+            <who name="">arild.b.anda</who>
+            <bug_when>2011-04-05 00:53:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+
+Error message when loading Java-applet that this is not installed. Java is correctly installed however, runs as expected with Safari. Will only run with FF4 if started in 32-bit mode.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Asking web page to run script
+2.Error message that plug in is missing
+3.Clicking &quot;Install&quot;
+Actual Results:  
+Plug in not found (it is in fact installed)
+
+Expected Results:  
+Applet should start since Java is in fact installed already
+
+There is no message to start FF in 32 bit mode and that this will fix the problem. I found out that myself (been prompted to change mode when encountering a different issue).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391343</commentid>
+            <who name="Steven Michaud">smichaud</who>
+            <bug_when>2011-04-05 10:54:28 -0700</bug_when>
+            <thetext>We need to be able to reproduce this bug to understand it.
+
+There currently isn&apos;t enough information here to allow us to reproduce
+it.
+
+Please provide a link to a testcase (one that&apos;s accessible to the
+general public) that demonstrates the problem.
+
+Do you see this problem with any Java applet (for example the one at
+the following URL)?
+
+http://java.sun.com/applets/jdk/1.4/demo/applets/Clock/example1.html
+
+Are you quite sure that what you&apos;re having trouble with is a Java
+applet, and not some other kind of plugin?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391345</commentid>
+            <who name="Steven Michaud">smichaud</who>
+            <bug_when>2011-04-05 10:57:13 -0700</bug_when>
+            <thetext>Finally, your user-agent string (from comment #0) says that you&apos;re testing on OS X 10.6.  But are you actually testing on a developer preview of OS X Lion (10.7)?  It&apos;s a known bug that Java doesn&apos;t work in Firefox 4 on Lion (bug 645556).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391469</commentid>
+            <who name="">arild.b.anda</who>
+            <bug_when>2011-04-05 13:00:59 -0700</bug_when>
+            <thetext>Hello, no I am running 10.6.7 and FF4.0
+I have now tried a variety of Java scripts (no doubt it is Java) and it boils down to one specific applet that will not work unless you start FF in 32-bit mode. The domain belongs to a bank, www.dnbnor.no and is restricted. You could try to send an email to 07700@dnbnor.no
+I called them on +47 915 04800 and they could confirm the situation is exactly as described above. They suspect it is the encryption that will not work with FF4/64 bit.
+Please let me know what information you need if it cannot be retrieved from 07700@dnbnor.no, and I will try to relay it/put you in contact with a developer from their staff.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391478</commentid>
+            <who name="Steven Michaud">smichaud</who>
+            <bug_when>2011-04-05 13:17:14 -0700</bug_when>
+            <thetext>&gt; I am running 10.6.7 and FF4.0
+
+Thanks for the information.
+
+&gt; I have now tried a variety of Java scripts (no doubt it is Java)
+
+JavaScript is *not* Java.  But, for the time being, I&apos;ll take your
+word for it that what you&apos;re having problems with is a Java applet.
+
+&gt; Please let me know what information you need if it cannot be
+&gt; retrieved from 07700@dnbnor.no, and I will try to relay it/put you
+&gt; in contact with a developer from their staff.
+
+Give them the URL for this bug and ask them to ask one of their
+developers to comment here.  He/she will need to provide a testcase
+for this bug.  If it all possible it should be publicly accessible.
+At the very least it must not require that I have an account at the
+bank :-)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

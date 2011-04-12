@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648417</bug_id>
+          
+          <creation_ts>2011-04-07 16:41:00 -0700</creation_ts>
+          <short_desc>Investigate sharing font-related caches among Gecko processes</short_desc>
+          <delta_ts>2011-04-11 19:06:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Graphics</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>641681</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>jdaggett</cc>
+    
+    <cc>jfkthame</cc>
+    
+    <cc>joe</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>mwu</cc>
+    
+    <cc>roc</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>tglek</cc>
+          <qa_contact>thebes</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395448</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-07 16:41:39 -0700</bug_when>
+            <thetext>It&apos;s not entirely trivial to share the font cache.  Before doing so, let&apos;s find out how big it gets during normal browsing, to see if sharing is worth the engineering cost.  I&apos;m not sure how to measure it or what constitutes &quot;normal&quot; browsing wrt fonts.
+
+Joe: who&apos;s the right person to work on this?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396837</commentid>
+            <who name="Benjamin Smedberg  [:bsmedberg]">benjamin</who>
+            <bug_when>2011-04-08 10:38:46 -0700</bug_when>
+            <thetext>As noted in the e10s meeting, this is going to be much more interesting/important for the multiple-content-process case than for the single chrome/content split, because the chrome process *ought* to have only the UI fonts loaded and cached. Although we should probably verify that as well.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402572</commentid>
+            <who name="John Daggett (:jtd)">jdaggett</who>
+            <bug_when>2011-04-11 19:06:03 -0700</bug_when>
+            <thetext>The text rendering system in gfx has a set of caches:
+
+  - &quot;font cache&quot; == cache of gfxFont objects (one per style/size combination)
+  - &quot;font table cache&quot; == cache of tables pulled in per face
+  - other system-wide font list info (e.g. cmaps, names)
+  - &quot;word cache&quot; == cache of already computed text runs per word (temporal)
+
+The first three would be candidates for sharing across content processes, probably not the word cache.  This would also be a good time to come up with better metrics for how efficient/needed these caches are.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647882</bug_id>
+          
+          <creation_ts>2011-04-05 13:23:00 -0700</creation_ts>
+          <short_desc>&quot;Custom Search&quot; twisty not remembering its position</short_desc>
+          <delta_ts>2011-04-06 05:51:54 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>Query/Bug List</component>
+          <version>4.1.1</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Max Kanat-Alexander">mkanat</reporter>
+          <assigned_to name="Guy Pyrzak">guy.pyrzak</assigned_to>
+          
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391483</commentid>
+            <who name="Max Kanat-Alexander">mkanat</who>
+            <bug_when>2011-04-05 13:23:17 -0700</bug_when>
+            <thetext>At least on trunk (I haven&apos;t tested 4.0), when I open the &quot;Custom Search&quot; area on query.cgi, it isn&apos;t open the next time I load the page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392182</commentid>
+            <who name="Frédéric Buclin">LpSolit</who>
+            <bug_when>2011-04-06 05:49:45 -0700</bug_when>
+            <thetext>WFM on trunk.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

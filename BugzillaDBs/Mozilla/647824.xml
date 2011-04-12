@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647824</bug_id>
+          
+          <creation_ts>2011-04-05 08:09:00 -0700</creation_ts>
+          <short_desc>Session can&apos;t be restored if start page is other than about:home</short_desc>
+          <delta_ts>2011-04-05 18:52:25 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Session Restore</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>dupme</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Cláudio da Silveira Pinheiro">taupter</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>session.restore</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391176</commentid>
+            <who name="Cláudio da Silveira Pinheiro">taupter</who>
+            <bug_when>2011-04-05 08:09:36 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+
+When Firefox is opened after a disastrous failure, if the Start Page is other than about:home the custom Start Page will be opened and no option to restore the previous session will be shown to the user.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Change FF4&apos;s Start Page to another URL
+2. Open lots of tabs and/or windows with relevant pages to you (research material and such)
+3. Crash FF4 (i.e. powering off the computer)
+4. Run FF4 again
+
+Actual Results:  
+Voila! You lost everything (your session will not be restored)
+
+Expected Results:  
+As this behavior differs from 3.6&apos;s, when a popup window would come and offer a clear option to restore previous session, FF4 depends on a page that may or may not be shown depending on user&apos;s configuration. Two ways to fix it are:
+1. Restoring the popup window, or
+2. Opening the about:page in when running it after an unclean exit.
+
+
+The current way it&apos;s bein handled makes a PITA if you had 5 windows with ~20 tabs each, your Startup Page is different from about:home and FF4 exited uncleanly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391778</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-05 18:52:25 -0700</bug_when>
+            <thetext>(alt key)/history/restore previous session ?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

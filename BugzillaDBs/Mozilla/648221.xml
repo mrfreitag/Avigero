@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648221</bug_id>
+          
+          <creation_ts>2011-04-07 00:58:00 -0700</creation_ts>
+          <short_desc>Download status is not displayed in status bar</short_desc>
+          <delta_ts>2011-04-08 11:31:13 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>597155</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Himanshu">himanshu.eighteen</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+    
+    <cc>kbrosnan</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394094</commentid>
+            <who name="Himanshu">himanshu.eighteen</who>
+            <bug_when>2011-04-07 00:58:12 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+In FF 4.0 Download status is not displayed in status bar if we close the Download Manager while downloading.
+Also FF 4.0 gets hang often in Win7
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.Download something
+2.Close the Download Manager with some FF window open
+3.Check status bar, downloading status is not showing
+Actual Results:  
+same as previuos
+
+Expected Results:  
+it should show downloading status as previous releases, should show status in status bar</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394149</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-07 02:15:37 -0700</bug_when>
+            <thetext>The status bar has been removed in Firefox 4. The thing you are looking at is probably the Add-on Bar.
+
+There is ongoing work to solve the download progress issue:
+
+
+Bug 597155 - [meta] Alternative places to show download progress (instead of dead status bar) 
+Bug 564934 - Implement new Download Manager UI for browser</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394974</commentid>
+            <who name="Kevin Brosnan">kbrosnan</who>
+            <bug_when>2011-04-07 13:17:06 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 597115 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395036</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-07 13:43:26 -0700</bug_when>
+            <thetext>Kevin, did you make a typo in Comment 2? I suppose it should be bug 597155 and not bug 597115.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395077</commentid>
+            <who name="Kevin Brosnan">kbrosnan</who>
+            <bug_when>2011-04-07 14:05:29 -0700</bug_when>
+            <thetext>Typing an listening fail.
+
+*** This bug has been marked as a duplicate of bug 597155 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

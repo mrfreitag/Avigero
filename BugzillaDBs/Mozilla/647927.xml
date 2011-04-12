@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647927</bug_id>
+          
+          <creation_ts>2011-04-05 21:38:00 -0700</creation_ts>
+          <short_desc>Add SpiderMonkey builds that fail on warnings</short_desc>
+          <delta_ts>2011-04-06 16:51:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>P2</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>646702</dependson>
+          <blocked>647933</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Chris AtLee [:catlee]">catlee</assigned_to>
+          <cc>catlee</cc>
+    
+    <cc>nnethercote</cc>
+    
+    <cc>pbiggar</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391862</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-05 21:38:39 -0700</bug_when>
+            <thetext>Assuming bug 646702 lands as-is, we want to add both opt and debug SpiderMonkey builds that pass --enable-sm-fail-on-warnings to configure, on Linux and Mac.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391868</commentid>
+              <attachid>524129</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-05 21:41:20 -0700</bug_when>
+            <thetext>Created attachment 524129
+buildbot-configs, v.1
+
+If I understood the patch that created the other SM builds, and the one that switched them to debug, then this ought to give us builds I can spot in tbpl as &quot;warnaserr&quot; and as &quot;debug&quot; for the debug ones.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391869</commentid>
+              <attachid>524130</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-05 21:42:42 -0700</bug_when>
+            <thetext>Created attachment 524130
+tools/scripts, v.1</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524129</attachid>
+            <date>2011-04-05 21:41:00 -0700</date>
+            <delta_ts>2011-04-06 15:38:00 -0700</delta_ts>
+            <desc>buildbot-configs, v.1</desc>
+            <filename>werror-config</filename>
+            <type>text/plain</type>
+            <size>1688</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL21vemlsbGEvY29uZmlnLnB5IGIvbW96aWxsYS9jb25maWcucHkKLS0tIGEv
+bW96aWxsYS9jb25maWcucHkKKysrIGIvbW96aWxsYS9jb25maWcucHkKQEAgLTYyNiwyMSArNjI2
+LDI1IEBAIFBST0pFQ1RTID0gewogICAgICd2YWxncmluZCc6IHsKICAgICAgICAgJ3BsYXRmb3Jt
+cyc6IFsnbGludXgnLCAnbGludXg2NCddLAogICAgICAgICAnam9iX2ludGVydmFsJzogMjQqMzYw
+MCwgIyBPbmNlIGEgZGF5CiAgICAgICAgICdsaW51eCc6IHsnZW52JzogUExBVEZPUk1fVkFSU1sn
+bGludXgnXVsnZW52J119LAogICAgICAgICAnbGludXg2NCc6IHsnZW52JzogUExBVEZPUk1fVkFS
+U1snbGludXg2NCddWydlbnYnXX0sCiAgICAgfSwKICAgICAnc3BpZGVybW9ua2V5JzogewogICAg
+ICAgICAncGxhdGZvcm1zJzogewotICAgICAgICAgICAgJ2xpbnV4LWRlYnVnJzogICAgWydub21l
+dGhvZGppdCcsICdub3RyYWNlaml0J10sCi0gICAgICAgICAgICAnbGludXg2NC1kZWJ1Zyc6ICBb
+J25vbWV0aG9kaml0JywgJ25vdHJhY2VqaXQnXSwKKyAgICAgICAgICAgICdsaW51eCc6ICAgICAg
+ICAgIFsnd2FybmFzZXJyJ10sCisgICAgICAgICAgICAnbGludXgtZGVidWcnOiAgICBbJ25vbWV0
+aG9kaml0JywgJ25vdHJhY2VqaXQnLCAnd2FybmFzZXJyZGVidWcnXSwKKyAgICAgICAgICAgICds
+aW51eDY0JzogICAgICAgIFsnd2FybmFzZXJyJ10sCisgICAgICAgICAgICAnbGludXg2NC1kZWJ1
+Zyc6ICBbJ25vbWV0aG9kaml0JywgJ25vdHJhY2VqaXQnLCAnd2FybmFzZXJyZGVidWcnXSwKICAg
+ICAgICAgICAgICd3aW4zMi1kZWJ1Zyc6ICAgIFsnbm9tZXRob2RqaXQnLCAnbm90cmFjZWppdCdd
+LAotICAgICAgICAgICAgJ21hY29zeDY0LWRlYnVnJzogWydub21ldGhvZGppdCcsICdub3RyYWNl
+aml0JywgJ2R0cmFjZScsICdzaGFyayddLAotICAgICAgICAgICAgJ21hY29zeC1kZWJ1Zyc6ICAg
+Wydub21ldGhvZGppdCcsICdub3RyYWNlaml0JywgJ2R0cmFjZScsICdzaGFyayddLAorICAgICAg
+ICAgICAgJ21hY29zeDY0JzogICAgICAgWyd3YXJuYXNlcnInXSwKKyAgICAgICAgICAgICdtYWNv
+c3g2NC1kZWJ1Zyc6IFsnbm9tZXRob2RqaXQnLCAnbm90cmFjZWppdCcsICdkdHJhY2UnLCAnc2hh
+cmsnLCAnd2FybmFzZXJyZGVidWcnXSwKKyAgICAgICAgICAgICdtYWNvc3gnOiAgICAgICAgIFsn
+d2FybmFzZXJyJ10sCisgICAgICAgICAgICAnbWFjb3N4LWRlYnVnJzogICBbJ25vbWV0aG9kaml0
+JywgJ25vdHJhY2VqaXQnLCAnZHRyYWNlJywgJ3NoYXJrJywgJ3dhcm5hc2VycmRlYnVnJ10sCiAg
+ICAgICAgIH0sCiAgICAgICAgICdlbnYnOiB7CiAgICAgICAgICAgICAnbGludXgtZGVidWcnOiBQ
+TEFURk9STV9WQVJTWydsaW51eC1kZWJ1ZyddWydlbnYnXSwKICAgICAgICAgICAgICdsaW51eDY0
+LWRlYnVnJzogUExBVEZPUk1fVkFSU1snbGludXg2NC1kZWJ1ZyddWydlbnYnXSwKICAgICAgICAg
+ICAgICd3aW4zMi1kZWJ1Zyc6IFBMQVRGT1JNX1ZBUlNbJ3dpbjMyLWRlYnVnJ11bJ2VudiddLAog
+ICAgICAgICAgICAgJ21hY29zeDY0LWRlYnVnJzogUExBVEZPUk1fVkFSU1snbWFjb3N4NjQtZGVi
+dWcnXVsnZW52J10sCiAgICAgICAgICAgICAnbWFjb3N4LWRlYnVnJzogUExBVEZPUk1fVkFSU1sn
+bWFjb3N4LWRlYnVnJ11bJ2VudiddLAogICAgICAgICB9LAo=
+</data>
+<flag name="review"
+          id="437860"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="437965"
+          type_id="481"
+          status="?"
+          setter="philringnalda"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524130</attachid>
+            <date>2011-04-05 21:42:00 -0700</date>
+            <delta_ts>2011-04-06 15:38:14 -0700</delta_ts>
+            <desc>tools/scripts, v.1</desc>
+            <filename>werror-tools</filename>
+            <type>text/plain</type>
+            <size>526</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3NjcmlwdHMvc3BpZGVybW9ua2V5X2J1aWxkcy93YXJuYXNlcnIgYi9zY3Jp
+cHRzL3NwaWRlcm1vbmtleV9idWlsZHMvd2FybmFzZXJyCm5ldyBmaWxlIG1vZGUgMTAwNjQ0Ci0t
+LSAvZGV2L251bGwKKysrIGIvc2NyaXB0cy9zcGlkZXJtb25rZXlfYnVpbGRzL3dhcm5hc2VycgpA
+QCAtMCwwICsxLDQgQEAKKy0tZW5hYmxlLXRocmVhZHNhZmUKKy0tZW5hYmxlLW9wdGltaXplCist
+LWVuYWJsZS1zbS1mYWlsLW9uLXdhcm5pbmdzCisKZGlmZiAtLWdpdCBhL3NjcmlwdHMvc3BpZGVy
+bW9ua2V5X2J1aWxkcy93YXJuYXNlcnJkZWJ1ZyBiL3NjcmlwdHMvc3BpZGVybW9ua2V5X2J1aWxk
+cy93YXJuYXNlcnJkZWJ1ZwpuZXcgZmlsZSBtb2RlIDEwMDY0NAotLS0gL2Rldi9udWxsCisrKyBi
+L3NjcmlwdHMvc3BpZGVybW9ua2V5X2J1aWxkcy93YXJuYXNlcnJkZWJ1ZwpAQCAtMCwwICsxLDMg
+QEAKKy0tZW5hYmxlLXRocmVhZHNhZmUKKy0tZW5hYmxlLWRlYnVnCistLWVuYWJsZS1zbS1mYWls
+LW9uLXdhcm5pbmdzCg==
+</data>
+<flag name="review"
+          id="437861"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="437966"
+          type_id="481"
+          status="?"
+          setter="philringnalda"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

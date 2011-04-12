@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648293</bug_id>
+          
+          <creation_ts>2011-04-07 09:25:00 -0700</creation_ts>
+          <short_desc>Rename buildbot-master{4,6} to buildbot-master{04,06} in DNS</short_desc>
+          <delta_ts>2011-04-07 11:23:21 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: RelEng</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Chris AtLee [:catlee]">catlee</reporter>
+          <assigned_to name="Amy Rich [:arich]">arich</assigned_to>
+          <cc>arich</cc>
+    
+    <cc>dustin</cc>
+    
+    <cc>release</cc>
+          <qa_contact name="Zandr Milewski (:zandr)">zandr</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394537</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-07 09:25:46 -0700</bug_when>
+            <thetext>We&apos;d prefer if all of our masters used 0 padded numbers like our slaves do.
+
+buildbot-master{4,6} are currently unused, so there&apos;s no problem in renaming them whenever.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394623</commentid>
+            <who name="Dustin J. Mitchell [:dustin]">dustin</who>
+            <bug_when>2011-04-07 10:03:10 -0700</bug_when>
+            <thetext>For reference, this is a *new* naming scheme that we all agreed to yesterday.  The important detail for this bug is that *all* of our masters will be named |buildbot-masterNN| (with IRC/email abbreviations bmNN allowed).  We will be using slavealloc to ease the process of renaming the existing masters starting next week, but since bm04 and bm06 are currently unused, a rename is easy here.
+
+We also have a very carefully painted bikeshed available for $1000 OBO.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394759</commentid>
+            <who name="Amy Rich [:arich]">arich</who>
+            <bug_when>2011-04-07 11:23:21 -0700</bug_when>
+            <thetext>I have updated the A, PTR, and CNAME records as well as DHCP and nagios for buildbot-master4 and buildbot-master6.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647908</bug_id>
+          
+          <creation_ts>2011-04-05 16:12:00 -0700</creation_ts>
+          <short_desc>update German help for last mailnews moves</short_desc>
+          <delta_ts>2011-04-06 09:55:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Localizations</product>
+          <component>de / German</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Robert Kaiser">kairo</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>opitz.michael</cc>
+          <qa_contact>german.de</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391651</commentid>
+            <who name="Robert Kaiser">kairo</who>
+            <bug_when>2011-04-05 16:12:35 -0700</bug_when>
+            <thetext>Folgende Dateien gibt es nicht mehr:
+- mail_help.xhtml
+- mail_sec_help.xhtml
+
+Dafür gibt es jetzt folgende:
+- mailnews_getting_started.xhtml
+- mailnews_security.xhtml
+
+Möglicherweise sind das einfache Moves, aber wir müssen und darüber und um die korrekten Referenzierungen in den RDFs kümmern.
+
+Michael, hast du Pläne, da reinzuschauen?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392466</commentid>
+            <who name="Michael Opitz">opitz.michael</who>
+            <bug_when>2011-04-06 09:55:39 -0700</bug_when>
+            <thetext>Ich versuch die gesamte Hilfe für SM 2.1 Release aktuell zu bekommen, leider hab ich im Moment recht wenig Zeit, was sich auch in absehbarer Zeit nicht bessern wird.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

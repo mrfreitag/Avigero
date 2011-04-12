@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647700</bug_id>
+          
+          <creation_ts>2011-04-04 09:56:00 -0700</creation_ts>
+          <short_desc>Spelling errors/inaccuracies in the preferences dialog</short_desc>
+          <delta_ts>2011-04-06 09:48:12 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Mozilla Localizations</product>
+          <component>en-GB / English (United Kingdom)</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>retrocrew.djlarz</reporter>
+          <assigned_to name="Mark Tyndall">moz_en-gb</assigned_to>
+          <cc>bugzilla</cc>
+          <qa_contact name="Mark Tyndall">moz_en-gb</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390262</commentid>
+            <who name="">retrocrew.djlarz</who>
+            <bug_when>2011-04-04 09:56:02 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.16 (KHTML, like Gecko) Chrome/10.0.648.204 Safari/534.16
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-GB; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+Tools &gt; Account Settings &gt; Synchronisation &amp; Storage.
+
+The &quot;Disc Space&quot; section refers to &quot;Disc&quot; Space, which is actually called *Disk* Space. Only optical media is referred to as Discs, whilst Hard Drives and Flash Media is referred to as Disks.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Open Sync &amp; Storage panel
+2. ????
+3. PROFIT
+
+
+Expected Results:  
+Said &quot;disk&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392436</commentid>
+            <who name="Mark Banner (:standard8)">bugzilla</who>
+            <bug_when>2011-04-06 09:48:12 -0700</bug_when>
+            <thetext>I think you&apos;ll find this is because you&apos;re using the English (British) version of Thunderbird and disc is the standard there. However, I&apos;m not the localiser so I&apos;m not 100% sure (the en-US version uses disk); therefore moving to the appropriate component for the localisation.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

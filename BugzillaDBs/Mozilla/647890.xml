@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647890</bug_id>
+          
+          <creation_ts>2011-04-05 13:56:00 -0700</creation_ts>
+          <short_desc>crash [@ nsPluginHost::FindPlugins(int, int*)]</short_desc>
+          <delta_ts>2011-04-05 23:01:49 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>File Handling</component>
+          <version>Trunk</version>
+          <rep_platform>Other</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>593835</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Logan">computerwiz908</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>xtc4uall</cc>
+          <qa_contact>file.handling</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391512</commentid>
+            <who name="Logan">computerwiz908</who>
+            <bug_when>2011-04-05 13:56:35 -0700</bug_when>
+            <thetext>This bug was filed from the Socorro interface and is 
+report bp-073aea5f-2e8a-4ef7-876d-3cce42110405 .
+============================================================= 
+I was attempting to open a PDF file in Firefox, and it crashed with this signature.  Running Adobe Reader 10.0.1 and the latest trunk of Minefield.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391938</commentid>
+            <who name="XtC4UaLL [:xtc4uall]">xtc4uall</who>
+            <bug_when>2011-04-05 23:01:49 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 593835 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647807</bug_id>
+          
+          <creation_ts>2011-04-05 05:14:00 -0700</creation_ts>
+          <short_desc>Local Inbox don&apos;t display any mails</short_desc>
+          <delta_ts>2011-04-05 05:14:01 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Folder and Message Lists</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>blueduck</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>folders-message-lists</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391021</commentid>
+            <who name="">blueduck</who>
+            <bug_when>2011-04-05 05:14:01 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; de; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+There are no mails in local inbox anymore, but TB displayes new mails in the inbox.
+
+Reproducible: Always
+
+Actual Results:  
+No mails in inbox
+
+Expected Results:  
+All my mails should be displayed.
+
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	-- Exception object --
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ QueryInterface (function) 3 lines
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ message (string) &apos;Component returned failure code: 0x80004003 (NS_ERROR_INVALID_POINTER) [nsIMsgDBView.getMsgHdrsForSelection]&apos;
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ result (number) 2147500035
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ name (string) &apos;NS_ERROR_INVALID_POINTER&apos;
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ filename (string) &apos;chrome://messenger/content/folderDisplay.js&apos;
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ lineNumber (number) 2004
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ columnNumber (number) 0
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ location (object) JS frame :: chrome://messenger/content/folderDisplay.js :: anonymous :: line 2004
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ inner (object) null
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ data (object) null
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	+ initialize (function) 3 lines
+05.04.11 07:19:43	[0x0-0x1f01f].org.mozilla.thunderbird[399]	*
+05.04.11 07:20:40	[0x0-0x4a04a].org.mozilla.thunderbird[2277]	Warning: unrecognized command line flag -foreground</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

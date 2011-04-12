@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648192</bug_id>
+          
+          <creation_ts>2011-04-06 20:41:00 -0700</creation_ts>
+          <short_desc>Write library to digest Jobvite XML and generate job listing JSON</short_desc>
+          <delta_ts>2011-04-07 11:49:08 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.1</target_milestone>
+          
+          <blocked>604247</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Michael Morgan [:morgamic]">morgamic</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>lforrest</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393856</commentid>
+            <who name="Michael Morgan [:morgamic]">morgamic</who>
+            <bug_when>2011-04-06 20:41:44 -0700</bug_when>
+            <thetext>Possible inputs:
+- job category
+- group
+- date
+- position
+- other fields?
+
+Outputs:
+- ordered JSON blob with position metadata
+
+Part of this will include looking at what the site will need and adjusting the library to output the correct JSON, but we can figure this out pretty quickly after whiteboarding it.
+
+Right now, a UX issue is the discontinuity between mozilla.com|org and jobvite -- we should be able to easily eliminate that problem by using the XML feed to attain seamless integration with jobvite data.
+
+Pretty simple to do either client-side or on a cron (to prevent mitm).  Example:
+http://twitter.com/jobs-engineering.html
+
+XML link:
+http://www.jobvite.com/CompanyJobs/Xml.aspx?c=qpX9Vfwa
+
+Also, I just don&apos;t like having .aspx pages hosting our jobs...</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647808</bug_id>
+          
+          <creation_ts>2011-04-05 05:26:00 -0700</creation_ts>
+          <short_desc>The pages are stoped by &quot;leugostats.com&quot; and don&apos;t open.</short_desc>
+          <delta_ts>2011-04-05 14:02:17 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>3.6 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Tamir Drummond">tcdrummond</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391032</commentid>
+            <who name="Tamir Drummond">tcdrummond</who>
+            <bug_when>2011-04-05 05:26:53 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 5.1; pt-BR; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 ( .NET CLR 3.5.30729)
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; pt-BR; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 ( .NET CLR 3.5.30729)
+
+When I choose a site to open, before ins the status bar show the name &quot;leu gostats&quot; and the browser find the page, but it don&apos;t open. I use others browsers and this don&apos;t happen.
+Thanks
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391443</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 12:32:43 -0700</bug_when>
+            <thetext>Tamir, does this happen with a specific site, or does it happen with all sites? Please give us a link to a site where it happens.
+
+I guess &quot;leugostats.com&quot; is Portuguese and means Reading GoStats (a hit counter).
+
+Does this happen in Safe-Mode too?
+https://support.mozilla.com/en-US/kb/Safe+Mode
+
+You may also test with a clean profile:
+https://support.mozilla.com/en-US/kb/Basic%20Troubleshooting#w_8-make-a-new-profile
+
+And since you are still running Firefox 3.6.16, although still supported, you may consider upgrading to Firefox 4:
+https://www.mozilla.com/en-US/firefox/all.html</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391445</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-05 12:34:39 -0700</bug_when>
+            <thetext>$ nslookup leugostats.com 8.8.8.8
+Server:		8.8.8.8
+Address:	8.8.8.8#53
+
+** server can&apos;t find leugostats.com: NXDOMAIN</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

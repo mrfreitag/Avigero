@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647739</bug_id>
+          
+          <creation_ts>2011-04-04 14:23:00 -0700</creation_ts>
+          <short_desc>Embed video replays after closing Facebook photo page</short_desc>
+          <delta_ts>2011-04-04 23:52:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>90268</dup_id>
+          
+          <bug_file_loc>http://facebook.com</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mehdi Mulani [:mmm]">mars.martian+bugmail</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex.lakatos</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>mozilla</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390475</commentid>
+            <who name="Mehdi Mulani [:mmm]">mars.martian+bugmail</who>
+            <bug_when>2011-04-04 14:23:40 -0700</bug_when>
+            <thetext>This issue shows up on Facebook news feeds or profiles.
+
+STR:
+Play an embed video on a Facebook page and pause it, in my tests I played a Youtube video.
+From the same page click on a photo that takes you to the lightbox-like interface. Hit Esc to exit from the photo.
+
+At this point the embed video replays from the start when it was paused before.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390547</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 15:17:47 -0700</bug_when>
+            <thetext>What does the page actually do in this case?  Does it send the plugin through display:none somewhere in there?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390817</commentid>
+              <attachid>524039</attachid>
+            <who name="Mehdi Mulani [:mmm]">mars.martian+bugmail</who>
+            <bug_when>2011-04-04 22:35:06 -0700</bug_when>
+            <thetext>Created attachment 524039
+Reduced testcase that triggers the bug.
+
+(In reply to comment #1)
+&gt; What does the page actually do in this case?  Does it send the plugin through
+&gt; display:none somewhere in there?
+
+Bingo! The attached testcase toggles display:none and does a getBoundingClientRect to force a repaint, and it causes the problem to show up.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390826</commentid>
+            <who name="Matthew McPherrin">mozilla</who>
+            <bug_when>2011-04-04 22:43:18 -0700</bug_when>
+            <thetext>I don&apos;t think display:none; is what&apos;s going on here. I don&apos;t see that happening on Facebook.
+
+As well, Google Chrome has the same behaviour as Firefox on Mehdi&apos;s attachment, whereas it doesn&apos;t have the bug on Facebook.  Investigating for a new reduced testcase.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390842</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 22:59:52 -0700</bug_when>
+            <thetext>Right.  display:none would _definitely_ have this behavior; the question is what the page actually does.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390856</commentid>
+              <attachid>524040</attachid>
+            <who name="Matthew McPherrin">mozilla</who>
+            <bug_when>2011-04-04 23:35:29 -0700</bug_when>
+            <thetext>Created attachment 524040
+Reduced testcase
+
+Reduced testcase.
+
+changing the overflow attribute on body to hidden and back seems to cause the plugin to reload.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390857</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-04 23:37:58 -0700</bug_when>
+            <thetext>Ah, ok.  So yeah, reframing.
+
+*** This bug has been marked as a duplicate of bug 90268 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390869</commentid>
+            <who name="Mehdi Mulani [:mmm]">mars.martian+bugmail</who>
+            <bug_when>2011-04-04 23:52:48 -0700</bug_when>
+            <thetext>*** Bug 643683 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524039</attachid>
+            <date>2011-04-04 22:35:00 -0700</date>
+            <delta_ts>2011-04-04 22:35:06 -0700</delta_ts>
+            <desc>Reduced testcase that triggers the bug.</desc>
+            <filename>fbtestcase.html</filename>
+            <type>text/html</type>
+            <size>475</size>
+            <attacher>mars.martian+bugmail</attacher>
+            
+              <data encoding="base64">PGh0bWw+CiAgPGhlYWQ+CiAgICA8c2NyaXB0PgogICAgZnVuY3Rpb24gZmxhc2goKSB7CiAgICAg
+IGRvY3VtZW50LmJvZHkuc3R5bGUuZGlzcGxheSA9ICJub25lIjsKICAgICAgZG9jdW1lbnQuYm9k
+eS5nZXRCb3VuZGluZ0NsaWVudFJlY3QoKTsKICAgICAgZG9jdW1lbnQuYm9keS5zdHlsZS5kaXNw
+bGF5ID0gIiI7CiAgICB9CiAgICA8L3NjcmlwdD4KICA8L2hlYWQ+CiAgPGJvZHk+CiAgICA8ZW1i
+ZWQgc3JjPSJodHRwOi8vd3d3LnlvdXR1YmUuY29tL3YvNTR1VFNFbGJFYkUmYXV0b3BsYXk9MSIg
+dHlwZT0iYXBwbGljYXRpb24veC1zaG9ja3dhdmUtZmxhc2giIHdtb2RlPSJ0cmFuc3BhcmVudCIg
+d2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiPjwvZW1iZWQ+CiAgICA8YnIvPgogICAgPGEgaHJlZj0i
+IyIgb25jbGljaz0iZmxhc2goKTsgcmV0dXJuIGZhbHNlIj50cmlnZ2VyIGJ1ZyA2NDc3Mzk8L2E+
+CiAgPC9ib2R5Pgo8L2h0bWw+Cg==
+</data>
+
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="0"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524040</attachid>
+            <date>2011-04-04 23:35:00 -0700</date>
+            <delta_ts>2011-04-04 23:35:29 -0700</delta_ts>
+            <desc>Reduced testcase</desc>
+            <filename>bug647739test.html</filename>
+            <type>text/html</type>
+            <size>440</size>
+            <attacher>mozilla</attacher>
+            
+              <data encoding="base64">PHNjcmlwdD4KICAgIHZhciB0cmlnZ2VyID0gZnVuY3Rpb24oKSB7CiAgICAgICAgICAgIGRvY3Vt
+ZW50LmJvZHkuc3R5bGUub3ZlcmZsb3c9J2hpZGRlbic7CiAgICAgICAgICAgIGRvY3VtZW50LmJv
+ZHkuZ2V0Qm91bmRpbmdDbGllbnRSZWN0KCk7CiAgICAgICAgICAgIGRvY3VtZW50LmJvZHkuc3R5
+bGUub3ZlcmZsb3c9J3Njcm9sbCc7CiAgICB9Cjwvc2NyaXB0Pgo8aWZyYW1lIGlkPSJmb28iIHRp
+dGxlPSJZb3VUdWJlIHZpZGVvIHBsYXllciIgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzOTAiIHNyYz0i
+aHR0cDovL3d3dy55b3V0dWJlLmNvbS9lbWJlZC9RZUhWM3R5TlE2MCIgZnJhbWVib3JkZXI9IjAi
+IGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4KPHA+Cgo8YSBocmVmPSIjIiBvbmNsaWNrPSJ0cmln
+Z2VyKCk7cmV0dXJuIGZhbHNlIj5UcmlnZ2VyIEJ1ZzwvYT4KPC9wPgo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

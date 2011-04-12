@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648570</bug_id>
+          
+          <creation_ts>2011-04-08 10:26:00 -0700</creation_ts>
+          <short_desc>increase total idle pconn tool to 256 (matches chrome)</short_desc>
+          <delta_ts>2011-04-11 19:20:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Networking: HTTP</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>607741</dependson>
+          
+          <votes>1</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Patrick McManus">mcmanus</reporter>
+          <assigned_to name="Patrick McManus">mcmanus</assigned_to>
+          <cc>ben</cc>
+    
+    <cc>bmo</cc>
+    
+    <cc>ehsan</cc>
+    
+    <cc>jduell.mcbugs</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>mcmanus</cc>
+          <qa_contact>networking.http</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396778</commentid>
+            <who name="Patrick McManus">mcmanus</who>
+            <bug_when>2011-04-08 10:26:53 -0700</bug_when>
+            <thetext>this limit is currently at 30. This limit is global, it is different than the per host limit of 6 which remains unchanged.
+
+The primary problem with the low limit is that it forces valid idle connections to be closed in order to meet demand for connections to different hosts. This happens a lot, and of course some fraction of those connections we close would have been useful in the future. There are some pages that involve more than 5 hosts and therefore exhaust the pool all by themselves.
+
+the resources used to manage an idle connection in the client are pretty minimal, even the kernel. 
+
+This patch does not change the limit on mobile, the mobile pref file already overrides the 30 default.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396781</commentid>
+            <who name="Patrick McManus">mcmanus</who>
+            <bug_when>2011-04-08 10:28:25 -0700</bug_when>
+            <thetext>I forgot to mention that the socket transport service may clamp the number below 256 if the OS cannot allocate that many FDs, and it also always tries to reserve 250 file descriptors for things other than sockets. (which is actually more than we reserve on OS X right now)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396808</commentid>
+              <attachid>524665</attachid>
+            <who name="Patrick McManus">mcmanus</who>
+            <bug_when>2011-04-08 10:33:25 -0700</bug_when>
+            <thetext>Created attachment 524665
+raise limit to 256 v1
+
+firefox 5 candidate</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397019</commentid>
+              <attachid>524665</attachid>
+            <who name="Jason Duell (:jduell)">jduell.mcbugs</who>
+            <bug_when>2011-04-08 11:29:52 -0700</bug_when>
+            <thetext>Comment on attachment 524665
+raise limit to 256 v1
+
+I&apos;m going to add this comment to the patch before I land it on cedar today:
+
+// Note: the socket transport service will clamp the number
+// below 256 if the OS cannot allocate that many FDs, and it 
+// also always tries to reserve 250 file descriptors for 
+// things other than sockets.   
+
+Object ASAP if you want different wording.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397035</commentid>
+            <who name="Patrick McManus">mcmanus</who>
+            <bug_when>2011-04-08 11:32:32 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; Comment on attachment 524665 [details]
+&gt; raise limit to 256 v1
+&gt; 
+&gt; I&apos;m going to add this comment to the patch before I land it on cedar today:
+&gt; [..] 
+&gt; 
+&gt; Object ASAP if you want different wording.
+
+I&apos;ll add that comment and land it on cedar myself if that&apos;s ok (along with a few other).. it is going through Try right now and I want to confirm that result.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397266</commentid>
+            <who name="Jason Duell (:jduell)">jduell.mcbugs</who>
+            <bug_when>2011-04-08 12:59:30 -0700</bug_when>
+            <thetext>Landed on cedar:
+
+   http://hg.mozilla.org/projects/cedar/rev/33a01f08bbf3</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398566</commentid>
+            <who name="Benjamin Stover (:stechz)">ben</who>
+            <bug_when>2011-04-09 12:52:05 -0700</bug_when>
+            <thetext>Pushed to m-c: http://hg.mozilla.org/mozilla-central/rev/33a01f08bbf3</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400827</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-11 10:35:10 -0700</bug_when>
+            <thetext>Backed out because of mobile orange.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524665</attachid>
+            <date>2011-04-08 10:33:00 -0700</date>
+            <delta_ts>2011-04-08 11:29:52 -0700</delta_ts>
+            <desc>raise limit to 256 v1</desc>
+            <filename>648570-socket-limit.1</filename>
+            <type>text/plain</type>
+            <size>1386</size>
+            <attacher>mcmanus</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgMjhiNzBiOTlhNWMwZDUzYTg5NzQ1YzkxYTQ5
+Y2RkMGJlNGE5ZWNlZQojIFVzZXIgUGF0cmljayBNY01hbnVzIDxtY21hbnVzQGR1Y2tzb25nLmNv
+bT4KYnVnIDY0ODU3MCBpbmNyZWFzZSBodHRwIGlkbGUgcGNvbm4gcG9vbCBmcm9tIDMwIHRvIDI1
+NiAobWF0Y2ggY2hyb21lKSBvbiBkZXNrdG9wLgoKZGlmZiAtLWdpdCBhL21vZHVsZXMvbGlicHJl
+Zi9zcmMvaW5pdC9hbGwuanMgYi9tb2R1bGVzL2xpYnByZWYvc3JjL2luaXQvYWxsLmpzCi0tLSBh
+L21vZHVsZXMvbGlicHJlZi9zcmMvaW5pdC9hbGwuanMKKysrIGIvbW9kdWxlcy9saWJwcmVmL3Ny
+Yy9pbml0L2FsbC5qcwpAQCAtNjg5LDE3ICs2ODksMTcgQEAgcHJlZigibmV0d29yay5odHRwLnBy
+b3h5LmtlZXAtYWxpdmUiLCB0cgogLy8gVGhlcmUgaXMgYSBwcm9ibGVtIHdpdGggc29tZSBJSVM3
+IHNlcnZlcnMgdGhhdCBkb24ndCBjbG9zZSB0aGUgY29ubmVjdGlvbgogLy8gcHJvcGVybHkgYWZ0
+ZXIgaXQgdGltZXMgb3V0IChidWcgIzQ5MTU0MSkuIERlZmF1bHQgdGltZW91dCBvbiBJSVM3IGlz
+CiAvLyAxMjAgc2Vjb25kcy4gV2UgbmVlZCB0byByZXVzZSBvciBkcm9wIHRoZSBjb25uZWN0aW9u
+IHdpdGhpbiB0aGlzIHRpbWUuCiAvLyBXZSBzZXQgdGhlIHRpbWVvdXQgYSBsaXR0bGUgc2hvcnRl
+ciB0byBrZWVwIGEgcmVzZXJ2ZSBmb3IgY2FzZXMgd2hlbgogLy8gdGhlIHBhY2tldCBpcyBsb3N0
+IG9yIGRlbGF5ZWQgb24gdGhlIHJvdXRlLgogcHJlZigibmV0d29yay5odHRwLmtlZXAtYWxpdmUu
+dGltZW91dCIsIDExNSk7CiAKIC8vIGxpbWl0IHRoZSBhYnNvbHV0ZSBudW1iZXIgb2YgaHR0cCBj
+b25uZWN0aW9ucy4KLXByZWYoIm5ldHdvcmsuaHR0cC5tYXgtY29ubmVjdGlvbnMiLCAzMCk7Citw
+cmVmKCJuZXR3b3JrLmh0dHAubWF4LWNvbm5lY3Rpb25zIiwgMjU2KTsKIAogLy8gbGltaXQgdGhl
+IGFic29sdXRlIG51bWJlciBvZiBodHRwIGNvbm5lY3Rpb25zIHRoYXQgY2FuIGJlIGVzdGFibGlz
+aGVkIHBlcgogLy8gaG9zdC4gIGlmIGEgaHR0cCBwcm94eSBzZXJ2ZXIgaXMgZW5hYmxlZCwgdGhl
+biB0aGUgInNlcnZlciIgaXMgdGhlIHByb3h5CiAvLyBzZXJ2ZXIuICBPdGhlcndpc2UsICJzZXJ2
+ZXIiIGlzIHRoZSBodHRwIG9yaWdpbiBzZXJ2ZXIuCiBwcmVmKCJuZXR3b3JrLmh0dHAubWF4LWNv
+bm5lY3Rpb25zLXBlci1zZXJ2ZXIiLCAxNSk7CiAKIC8vIGlmIG5ldHdvcmsuaHR0cC5rZWVwLWFs
+aXZlIGlzIHRydWUsIGFuZCBpZiBOT1QgY29ubmVjdGluZyB2aWEgYSBwcm94eSwgdGhlbgogLy8g
+YSBuZXcgY29ubmVjdGlvbiB3aWxsIG9ubHkgYmUgYXR0ZW1wdGVkIGlmIHRoZSBudW1iZXIgb2Yg
+YWN0aXZlIHBlcnNpc3RlbnQK
+</data>
+<flag name="review"
+          id="438287"
+          type_id="4"
+          status="+"
+          setter="jduell.mcbugs"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

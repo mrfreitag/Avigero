@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648476</bug_id>
+          
+          <creation_ts>2011-04-07 21:25:00 -0700</creation_ts>
+          <short_desc>Android Talos fails posting to the graph server on 2.1/2.0</short_desc>
+          <delta_ts>2011-04-08 11:47:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>ARM</rep_platform>
+          <op_sys>Android</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>648301</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>646358</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aki</cc>
+    
+    <cc>bear</cc>
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395899</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-07 21:25:36 -0700</bug_when>
+            <thetext>I foolishly thought I could figure out why myself, but the hellish tangle of Mobile2.0/mobile-2.0/mozilla-2.1 defeated me.
+
+Maemo Talos on http://tinderbox.mozilla.org/showbuilds.cgi?tree=Mobile2.0 posts to the graphserver just fine, as mobile-2.0, I think because it has http://mxr.mozilla.org/build/source/buildbot-configs/mobile/config-production-n900.py#72 to tell it the branch name that the graphserver expects.
+
+Android Talos fails, because the graphserver has never heard of a Mobile2.0 branch, which I sort of vaguely think it uses because it doesn&apos;t have the talos_branch step so it just uses something like maybe http://mxr.mozilla.org/build/source/buildbot-configs/mozilla-tests/config.py#558</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397104</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-08 11:47:14 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 648301 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

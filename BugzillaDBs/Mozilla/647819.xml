@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647819</bug_id>
+          
+          <creation_ts>2011-04-05 07:43:00 -0700</creation_ts>
+          <short_desc>a specific PDF will not display</short_desc>
+          <delta_ts>2011-04-08 02:15:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>644431</dup_id>
+          
+          <bug_file_loc>http://www.cisx.com/download_news.php?newsID=58827&amp;format=pdf</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="William">wdesausmarez</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>VYV03354</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391135</commentid>
+            <who name="William">wdesausmarez</who>
+            <bug_when>2011-04-05 07:43:12 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+a particular PDF does not display in FF4.0. It does however display in IE 7. FF 2.0.0.18, FF 3.0.15, FF 3.5.5 &amp; Safari 4.0.4. This is with Adobe Reader 8.2.6.
+FF 4.0 on a different pc experiences same problem. 10&apos;s of other PDFs tested in the same setup previously worked without issue and 100&apos;s with previous versions of Firefox. The PDF does not seem obviously malformed since so many other browsers have no problems with this particular pdf.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. visit url in FF4.0
+
+Actual Results:  
+blank white screen - that does not redraw on dirty.
+
+Expected Results:  
+PDF display.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391140</commentid>
+            <who name="Masatoshi Kimura [:emk]">VYV03354</who>
+            <bug_when>2011-04-05 07:45:46 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 644431 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396203</commentid>
+            <who name="William">wdesausmarez</who>
+            <bug_when>2011-04-08 02:15:18 -0700</bug_when>
+            <thetext>thanks</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

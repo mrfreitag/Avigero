@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648518</bug_id>
+          
+          <creation_ts>2011-04-08 06:08:00 -0700</creation_ts>
+          <short_desc>Added Serbian IRC channel</short_desc>
+          <delta_ts>2011-04-08 06:08:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>irc.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://irc.mozilla.org/index.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dušan Boškić">firefox</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>reed</cc>
+          <qa_contact>irc-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396318</commentid>
+            <who name="Dušan Boškić">firefox</who>
+            <bug_when>2011-04-08 06:08:57 -0700</bug_when>
+            <thetext>--- mozilla-org/irc/index.html
++++ mozilla-org/irc/index.html
+@@ -119,6 +119,10 @@
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;irc://irc.mozilla.org/mozilla-ru&quot;&gt;#mozilla-ru&lt;/a&gt;&lt;/li&gt;
+ &lt;/ul&gt;
++&lt;h5&gt;Serbian&lt;/h5&gt;
++&lt;ul&gt;
++&lt;li&gt;&lt;a href=&quot;irc://irc.mozilla.org/mozilla.sr&quot;&gt;#mozilla.sr&lt;/a&gt;&lt;/li&gt;
++&lt;/ul&gt;
+ &lt;h5&gt;Swedish&lt;/h5&gt;
+ &lt;ul&gt;
+ &lt;li&gt;&lt;a href=&quot;irc://irc.mozilla.org/mozilla.se&quot;&gt;#mozilla.se&lt;/a&gt;&lt;/li&gt;</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

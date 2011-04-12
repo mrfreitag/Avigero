@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647731</bug_id>
+          
+          <creation_ts>2011-04-04 13:39:00 -0700</creation_ts>
+          <short_desc>404 page should work harder to include the referring URL automatically</short_desc>
+          <delta_ts>2011-04-05 07:19:33 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Tanner Filip [:Tanner]">tanner.sumo.bugs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>gphemsley</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390429</commentid>
+            <who name="Tanner Filip [:Tanner]">tanner.sumo.bugs</who>
+            <bug_when>2011-04-04 13:39:04 -0700</bug_when>
+            <thetext>It&apos;s quite useful to include the referring URL in bug reports for 404s, and the 404 page doesn&apos;t tell the user to include that/include by default. I can probably work on this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390508</commentid>
+            <who name="Tanner Filip [:Tanner]">tanner.sumo.bugs</who>
+            <bug_when>2011-04-04 14:46:44 -0700</bug_when>
+            <thetext>Oops, it already does this. I didn&apos;t look hard enough. Sorry for bugspam!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391109</commentid>
+            <who name="Gordon P. Hemsley [:gphemsley]">gphemsley</who>
+            <bug_when>2011-04-05 07:19:25 -0700</bug_when>
+            <thetext>Even if it does already ask you to include the referring URL, it should work harder to do that for you. Reopening and changing the scope of the bug slightly.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

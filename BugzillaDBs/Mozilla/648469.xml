@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648469</bug_id>
+          
+          <creation_ts>2011-04-07 20:25:00 -0700</creation_ts>
+          <short_desc>Cmd+W (Ctrl+W on Linux) doesn&apos;t close app tab</short_desc>
+          <delta_ts>2011-04-07 23:38:27 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Tabbed Browser</component>
+          <version>4.0 Branch</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ginn Chen">ginn.chen</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>cwwmozilla</cc>
+    
+    <cc>hskupin</cc>
+          <qa_contact>tabbed.browser</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395822</commentid>
+            <who name="Ginn Chen">ginn.chen</who>
+            <bug_when>2011-04-07 20:25:44 -0700</bug_when>
+            <thetext>The document at
+http://support.mozilla.com/en-US/kb/what-are-app-tabs#w_how-do-i-remove-an-app-tab
+
+says app tab can be closed by Cmd+W.
+
+It doesn&apos;t work.
+Also, when I switch to a app tab, the File menu on Mac OS X, &quot;Close Tab&quot; doesn&apos;t have Cmd+W as accel.
+
+I guess we&apos;re doing this on purpose, the document should be updated.
+
+On Linux, Ctrl+W doesn&apos;t close app tab, but if I press Alt+F, I can see &quot;Ctrl+W&quot; as accel for &quot;Close Tab&quot; and &quot;Ctrl+W&quot; doesn&apos;t work.
+
+It is inconsistent.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396000</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 22:38:35 -0700</bug_when>
+            <thetext>(In reply to comment #0)
+&gt; The document at
+&gt; http://support.mozilla.com/en-US/kb/what-are-app-tabs#w_how-do-i-remove-an-app-tab
+&gt; 
+&gt; says app tab can be closed by Cmd+W.
+&gt; 
+&gt; It doesn&apos;t work.
+[..]
+&gt; I guess we&apos;re doing this on purpose, the document should be updated.
+
+That&apos;s right. We don&apos;t allow users to close app tabs with the keyboard shortcut. CC&apos;ing Cheng so we can get this updated on SUMO.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396064</commentid>
+            <who name="Ginn Chen">ginn.chen</who>
+            <bug_when>2011-04-07 23:38:27 -0700</bug_when>
+            <thetext>Then you should hide &quot;Ctrl+W&quot; as accel on Linux.
+Filed bug 648488.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

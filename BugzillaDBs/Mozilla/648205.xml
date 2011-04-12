@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648205</bug_id>
+          
+          <creation_ts>2011-04-06 22:18:00 -0700</creation_ts>
+          <short_desc>Implement LESS on AMO</short_desc>
+          <delta_ts>2011-04-11 11:13:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Code Quality</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[blocked on IT]</status_whiteboard>
+          
+          <priority>P5</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>Q2 2011</target_milestone>
+          <dependson>648658</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Gregory Koberger (:gkoberger)">gkoberger</reporter>
+          <assigned_to name="Gregory Koberger (:gkoberger)">gkoberger</assigned_to>
+          <cc>clouserw</cc>
+    
+    <cc>jbalogh</cc>
+    
+    <cc>thepotch</cc>
+          <qa_contact>code-quality</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393931</commentid>
+            <who name="Gregory Koberger (:gkoberger)">gkoberger</who>
+            <bug_when>2011-04-06 22:18:30 -0700</bug_when>
+            <thetext>I never want to write &quot;-webkit-border-radius&quot; ever again.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648022</bug_id>
+          
+          <creation_ts>2011-04-06 10:18:00 -0700</creation_ts>
+          <short_desc>Firefox 4.2a1pre Crash Report [@ js_XDRScript(JSXDRState*, JSScript**) ]</short_desc>
+          <delta_ts>2011-04-11 16:53:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash, regression</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>chofmann</cc>
+    
+    <cc>clegnitto</cc>
+    
+    <cc>igor</cc>
+    
+    <cc>mwu</cc>
+    
+    <cc>smooney</cc>
+    
+    <cc>wes</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392518</commentid>
+            <who name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</who>
+            <bug_when>2011-04-06 10:18:28 -0700</bug_when>
+            <thetext>Seen while reviewing trunk top changers. http://tinyurl.com/3bb45hf to the reports.
+
+https://crash-stats.mozilla.com/report/index/64affb79-7ce6-437d-8e7d-441812110405
+
+Frame 	Module 	Signature [Expand] 	Source
+0 	mozjs.dll 	js_XDRScript 	js/src/jsscript.cpp:439
+1 	mozjs.dll 	JS_XDRScriptObject 	js/src/jsxdrapi.cpp:735
+2 	xul.dll 	ReadScriptFromStream 	js/src/xpconnect/loader/mozJSComponentLoader.cpp:367
+3 	xul.dll 	mozJSComponentLoader::ReadScript 	js/src/xpconnect/loader/mozJSComponentLoader.cpp:899
+4 	xul.dll 	mozJSComponentLoader::GlobalForLocation 	js/src/xpconnect/loader/mozJSComponentLoader.cpp:1044
+5 	xul.dll 	nsRefPtr&lt;nsPresContext&gt;::~nsRefPtr&lt;nsPresContext&gt; 	obj-firefox/dist/include/nsAutoPtr.h:969
+6 	xul.dll 	mozJSComponentLoader::JarKey 	js/src/xpconnect/loader/mozJSComponentLoader.cpp:599
+7 	kernel32.dll 	InterlockedExchangeAdd 	
+
+https://crash-stats.mozilla.com/report/index/64affb79-7ce6-437d-8e7d-441812110405</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394880</commentid>
+            <who name="Wesley W. Garland">wes</who>
+            <bug_when>2011-04-07 12:40:16 -0700</bug_when>
+            <thetext>bug 630209 recently landed (post ff4) and changes some of the rooting API/semantics for JScripts; the scrobj and JSScript are now used as a single unit (a JSObject *) in the API.  This bug also introduced JS_XDRScriptObject(), replacing JS_XDRScript().</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401243</commentid>
+            <who name="David Baron [:dbaron]">dbaron</who>
+            <bug_when>2011-04-11 12:47:04 -0700</bug_when>
+            <thetext>Query:
+https://crash-stats.mozilla.com/report/list?product=Firefox&amp;branch=2.2&amp;query_search=signature&amp;query_type=exact&amp;query=&amp;date=04%2F25%2F2011%2000%3A00%3A00&amp;range_value=30&amp;range_unit=days&amp;hang_type=crash&amp;process_type=browser&amp;plugin_field=&amp;plugin_query_type=&amp;plugin_query=&amp;do_query=1&amp;admin=&amp;signature=js_XDRScript%28JSXDRState*%2C%20JSScript**%29</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402183</commentid>
+            <who name="chris hofmann">chofmann</who>
+            <bug_when>2011-04-11 16:52:12 -0700</bug_when>
+            <thetext>around #4 topcrash on mozilla-central so this needs to block wide distribution of aurrora.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

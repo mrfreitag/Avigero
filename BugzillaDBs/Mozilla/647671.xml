@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647671</bug_id>
+          
+          <creation_ts>2011-04-04 06:00:00 -0700</creation_ts>
+          <short_desc>Could not send smime encrypted messages to my own email address</short_desc>
+          <delta_ts>2011-04-04 06:00:55 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Mail Window Front End</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Scout">123news</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>front-end</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390021</commentid>
+            <who name="Scout">123news</who>
+            <bug_when>2011-04-04 06:00:55 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; de; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+Hi, i want to write encrypted messages with my own smime certificate to myself (sender and recipent are equel). But after press send button thunderbird is showing an error ...could not find public certificate...
+Ok thats right. On certificate store there is no public certificate of mine on &quot;other persons&quot; tab but my own certificate (private+public key) on &quot;own certificates&quot;. I extracted the public key of my certificate and want it import to certificate store but nothing is happened - no massages, no import.
+
+Coould you one of the following allow:
+1. search for a public key in certificat store &quot;own certs&quot; tab
+or
+2. import of own public key
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. import your certificate to certs store (private+public key)
+2. efforts to send an encrypted new mail to your self
+3.
+Actual Results:  
+no mail is send when encryption is enabled
+
+Expected Results:  
+mail is send to myself encrypted</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

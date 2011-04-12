@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648435</bug_id>
+          
+          <creation_ts>2011-04-07 17:22:00 -0700</creation_ts>
+          <short_desc>Do not access NSS&apos;s databases (cert8.db and key3.db) during startup</short_desc>
+          <delta_ts>2011-04-08 15:01:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Security: PSM</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[psm-startup]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brian Smith">bsmith</reporter>
+          <assigned_to name="Brian Smith">bsmith</assigned_to>
+          <cc>kaie</cc>
+    
+    <cc>khuey</cc>
+    
+    <cc>mwu</cc>
+    
+    <cc>rrelyea</cc>
+    
+    <cc>ryanvm</cc>
+    
+    <cc>tglek</cc>
+    
+    <cc>wtc</cc>
+          <qa_contact>psm</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395545</commentid>
+            <who name="Brian Smith">bsmith</who>
+            <bug_when>2011-04-07 17:22:12 -0700</bug_when>
+            <thetext>I think that it should be (made) possible to use NSS&apos;s hashing and HMAC functions during startup, before opening the NSS key and cert DBs. This is part of our overall goal of eliminating File I/O during startup whenever possible, for performance reasons.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397468</commentid>
+            <who name="Robert Relyea">rrelyea</who>
+            <bug_when>2011-04-08 14:13:31 -0700</bug_when>
+            <thetext>Now that you can open NSS databases later, We could experiment with using NSS_NoDBInit() and then using NSS_OpenUserDB to later open our db&apos;s and slots. To do this right, we would probably want to remember FIPS preferences in firefox because you wouldn&apos;t want to do this in FIPS mode and you won&apos;t know until you open the database.
+
+There may have to be additional NSS changes to make that all work.
+
+bob</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

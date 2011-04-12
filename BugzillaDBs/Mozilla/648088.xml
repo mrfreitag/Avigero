@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648088</bug_id>
+          
+          <creation_ts>2011-04-06 12:44:00 -0700</creation_ts>
+          <short_desc>Avoid nested invocations after the stack has been exhausted</short_desc>
+          <delta_ts>2011-04-08 04:20:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>JavaScript Engine</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Steve Fink [:sfink]">sphink</reporter>
+          <assigned_to>general</assigned_to>
+          <cc>sroussey</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392968</commentid>
+              <attachid>524236</attachid>
+            <who name="Steve Fink [:sfink]">sphink</who>
+            <bug_when>2011-04-06 12:44:15 -0700</bug_when>
+            <thetext>Created attachment 524236
+Suppress debugErrorHook for too much recursion
+
+Bug 643360 deals with the case where a control flow cycle from JS -&gt; JSD -&gt; JS is created (there&apos;s a rogue toString that triggers an exception that triggers a JSD callback to handle the exception etc.), causing stack exhaustion. The stack exhaustion itself triggers an exception that gets caught again by JSD. This will sometimes crash the browser.
+
+It seems incorrect to invoke callbacks that could conceivably reenter JS when the stack is known to already be exhausted. The specific case here is the debugHooks exception handler (debugErrorHook); I&apos;m not sure if there are others.
+
+The complication is that the semantics of debugErrorHook say that it can override whether or not an error gets reported, so simply omitting the call would change those semantics in this situation. I won&apos;t cry over that.
+
+I&apos;m attaching a simple-minded patch to suppress the callback hook only for js_ReportOverRecursed, which may not be the right answer. Especially since a debugErrorHook user now has no way to report this particular error.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393042</commentid>
+              <attachid>524236</attachid>
+            <who name="David Mandelin">dmandelin</who>
+            <bug_when>2011-04-06 13:21:10 -0700</bug_when>
+            <thetext>Comment on attachment 524236
+Suppress debugErrorHook for too much recursion
+
+The patch itself seems fine. RAII would be nice, but it&apos;s such a small thing I don&apos;t think it matters.
+
+On the approach, it seems to me the right general idea would be to detect recursion happening in this case and stop it then. I think any such approach is likely to have at least some false positives (i.e., suppress when the debug hook is called even if unbounded recursion is not actually happening). So it seems reasonable to start with something simple, like this patch, and try to be smarter only if we find out we need to.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396270</commentid>
+            <who name="timeless">timeless</who>
+            <bug_when>2011-04-08 04:20:48 -0700</bug_when>
+            <thetext>So, the problem is that jsd is really the debugger (well, its proxy), and deciding whether or not to do something should really be the debugger&apos;s choice.
+
+I think what we need is for jsd (or any other debugger) to quickly look at the error to see if it&apos;s recursion. the other thing we need to know is how much space we have.
+
+Infinite recursion errors are actually common, and debugging them is incredibly important -- look how unfortunate it was that the debugger in question couldn&apos;t be debugged so it could identify and fix the problem!
+
+probably jsd needs to have a thread local recursion count and when that exceeds &lt;x [default=1]&gt; it should stop sending them to its client.
+
+if you&apos;re familiar w/ jsdb, it has 3 levels of debuggers, each is able to handle an error, so if the first script (not a debugger) triggers an exception, that&apos;s sent to the first debugger, and if that in turn triggers an exception, that is sent to *its* debugger (#2), and when that messes up, you get one last chance.
+
+the &lt;default=1&gt; thing i&apos;m describing is roughly jsdb w/o its second and third debuggers. if someone would want to debug the debugger itself, they&apos;d have to set the pref to e.g. 2 or 3.
+
+offhand, i&apos;d vote against this solution (not in favor of the patch i&apos;ve posted to the other bug either, but in favor of what i&apos;ve outlined here).</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524236</attachid>
+            <date>2011-04-06 12:44:00 -0700</date>
+            <delta_ts>2011-04-06 13:21:10 -0700</delta_ts>
+            <desc>Suppress debugErrorHook for too much recursion</desc>
+            <filename>no-recursion-hook</filename>
+            <type>text/plain</type>
+            <size>888</size>
+            <attacher>sphink</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgNzk3Yzg2MzBhZjNmMTI2YzY3MjMxNjdmNTE0
+MzRkMzMwZmU5ZDUwYQojIFVzZXIgU3RldmUgRmluayA8c2ZpbmtAbW96aWxsYS5jb20+CmRpZmYg
+LS1naXQgYS9qcy9zcmMvanNjbnR4dC5jcHAgYi9qcy9zcmMvanNjbnR4dC5jcHAKLS0tIGEvanMv
+c3JjL2pzY250eHQuY3BwCisrKyBiL2pzL3NyYy9qc2NudHh0LmNwcApAQCAtMTI5MiwxNyArMTI5
+MiwyMSBAQCBqc19SZXBvcnRPdXRPZlNjcmlwdFF1b3RhKEpTQ29udGV4dCAqY3gpCiB7CiAgICAg
+SlNfUmVwb3J0RXJyb3JOdW1iZXIoY3gsIGpzX0dldEVycm9yTWVzc2FnZSwgTlVMTCwKICAgICAg
+ICAgICAgICAgICAgICAgICAgICBKU01TR19TQ1JJUFRfU1RBQ0tfUVVPVEEpOwogfQogCiBKU19G
+UklFTkRfQVBJKHZvaWQpCiBqc19SZXBvcnRPdmVyUmVjdXJzZWQoSlNDb250ZXh0ICpjeCkKIHsK
+KyAgICAvLyBTdXBwcmVzcyB0aGUgZGVidWdFcnJvckhvb2sgdG8gcHJldmVudCByZWN1cnNpb24g
+bG9vcHMKKyAgICBKU0RlYnVnRXJyb3JIb29rIGhvb2sgPSBjeC0+ZGVidWdIb29rcy0+ZGVidWdF
+cnJvckhvb2s7CisgICAgY3gtPmRlYnVnSG9va3MtPmRlYnVnRXJyb3JIb29rID0gTlVMTDsKICAg
+ICBKU19SZXBvcnRFcnJvck51bWJlcihjeCwganNfR2V0RXJyb3JNZXNzYWdlLCBOVUxMLCBKU01T
+R19PVkVSX1JFQ1VSU0VEKTsKKyAgICBjeC0+ZGVidWdIb29rcy0+ZGVidWdFcnJvckhvb2sgPSBo
+b29rOwogfQogCiB2b2lkCiBqc19SZXBvcnRBbGxvY2F0aW9uT3ZlcmZsb3coSlNDb250ZXh0ICpj
+eCkKIHsKICAgICBKU19SZXBvcnRFcnJvck51bWJlcihjeCwganNfR2V0RXJyb3JNZXNzYWdlLCBO
+VUxMLCBKU01TR19BTExPQ19PVkVSRkxPVyk7CiB9CiAK
+</data>
+<flag name="review"
+          id="437935"
+          type_id="4"
+          status="+"
+          setter="dmandelin"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

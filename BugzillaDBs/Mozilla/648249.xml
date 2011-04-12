@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648249</bug_id>
+          
+          <creation_ts>2011-04-07 06:16:00 -0700</creation_ts>
+          <short_desc>Build error with gcc4.5</short_desc>
+          <delta_ts>2011-04-07 06:16:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Tamarin</product>
+          <component>Virtual Machine</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Tommy Reilly">treilly</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>vm</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394292</commentid>
+            <who name="Tommy Reilly">treilly</who>
+            <bug_when>2011-04-07 06:16:24 -0700</bug_when>
+            <thetext>Hi,
+
+I&apos;m looking at a compile error on GCC4.5. It complains about setting NULL to a non pointer type.
+
+On linux vmpi_thread_t is defined as pthread_t. That&apos;s a long int, not a pointer, so the error.
+
+/home/ambry/flash/split/third_party/avmplus/MMgc/GC.cpp: In member function ‘void MMgc::GC::ThreadLeave(bool, MMgc::GC*)’:
+/home/ambry/flash/split/third_party/avmplus/MMgc/GC.cpp:3495:26: error: converting to non-pointer type ‘vmpi_thread_t’ from NULL
+make[2]: *** [CMakeFiles/mmgc.dir/home/ambry/flash/split/third_party/avmplus/MMgc/GC.cpp.o] Error 1
+make[1]: *** [CMakeFiles/mmgc.dir/all] Error 2</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

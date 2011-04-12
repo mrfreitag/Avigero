@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648229</bug_id>
+          
+          <creation_ts>2011-04-07 02:34:00 -0700</creation_ts>
+          <short_desc>Compatibility info of the add-ons isn&apos;t properly considered during performance testing</short_desc>
+          <delta_ts>2011-04-11 16:48:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Talos</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>599169</blocked>
+    
+    <blocked>648784</blocked>
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wladimir Palant">trev.moz</reporter>
+          <assigned_to name="alice nodelman [:alice] [:anode]">anodelman</assigned_to>
+          <cc>anodelman</cc>
+    
+    <cc>bmo</cc>
+    
+    <cc>bzcc</cc>
+    
+    <cc>erikvvold</cc>
+    
+    <cc>harshid</cc>
+    
+    <cc>jorge</cc>
+    
+    <cc>kairo</cc>
+          <qa_contact>talos</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394153</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-07 02:34:44 -0700</bug_when>
+            <thetext>I tried to understand why Adblock Plus got a perfect score in the March 26th performance testing run. Turns out that this run tested Adblock Plus 1.3.3 because Adblock Plus 1.3.5 wasn&apos;t reviewed yet. And Adblock Plus 1.3.3 has an install.rdf file saying that it is only compatible with Firefox 4.0b9pre. It was marked as compatible to the Firefox 4 release on addons.mozilla.org but that info wasn&apos;t considered - so the performance test checked a disabled add-on and gave it perfect marks.
+
+Talos should test extension compatibility *before* downloading an add-on, incompatible add-ons shouldn&apos;t even be downloaded. And it should make sure a compatible add-on isn&apos;t disabled because of install.rdf info, probably easiest by setting checkCompatibility pref to false.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401064</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 11:41:06 -0700</bug_when>
+            <thetext>If we download an incompatible addon there should be a compatibility check pre-testing... there is no point in testing an addon that a user will be unable to installer in their particular browser.
+
+I believe that a graceful fail would be sufficient here by comparing the addon information to the browser.ini info.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401389</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-11 13:31:06 -0700</bug_when>
+            <thetext>To clarify: there are two sources of compatibility info - the extension itself and addons.mozilla.org info. The latter can be updated without updating the extension, particularly when a new browser version comes out. Because of this 30 add-ons tested by Talos are currently not marked as compatible with Firefox 4 in the extension - but most of them are marked as compatible on addons.mozilla.org. When Talos installs add-ons it doesn&apos;t give the browser a chance to query addons.mozilla.org for current compatibility info. So an extension that would be compatible isn&apos;t tested.
+
+I think that setting extensions.checkCompatibility.4.0 pref to false would be the best short-term solution - the add-ons that are really not compatible with Firefox 4 are very few. For the final solution it is probably possible to get the list of add-ons generated dynamically on AMO so that incompatible add-ons are not even included. Otherwise the only way to get current compatibility info is to parse https://services.addons.mozilla.org/en-US/firefox/api/1/addon/1865.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401394</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-11 13:32:11 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; So an extension that would be compatible isn&apos;t tested.
+
+To be precise: it is tested but the browser disables it as incompatible.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401524</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 14:02:18 -0700</bug_when>
+            <thetext>If skipping the compatibility check is reasonable I&apos;m willing to do it - I only fear testing addons that realistically are not compatible with a given version of the browser...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401557</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-11 14:10:20 -0700</bug_when>
+            <thetext>Incompatible add-ons should be rare, specially within the testing set we&apos;re currently using.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401631</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-11 14:23:32 -0700</bug_when>
+            <thetext>Right now, occasionally testing an incompatible add-on should be better than testing 30 compatible add-ons in a disabled state. But of course this needs to be fixed properly later.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402174</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 16:48:38 -0700</bug_when>
+            <thetext>What is the pref that needs setting?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

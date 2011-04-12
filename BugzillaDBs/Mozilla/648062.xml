@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648062</bug_id>
+          
+          <creation_ts>2011-04-06 11:50:00 -0700</creation_ts>
+          <short_desc>Grant access to mpt-vpn for Fabrice Desré</short_desc>
+          <delta_ts>2011-04-06 14:14:48 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Account Requests</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Fabrice Desré [:fabrice]">fabrice</reporter>
+          <assigned_to name="Justin Lazaro [:jlazaro]">jlazaro</assigned_to>
+          <cc>jlazaro</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392821</commentid>
+            <who name="Fabrice Desré [:fabrice]">fabrice</who>
+            <bug_when>2011-04-06 11:50:21 -0700</bug_when>
+            <thetext>I currently can&apos;t login to mpt-vpn :
+
+You must be a member of cn=mptvpn,ou=groups,dc=mozilla to login.
+Connection closed by 63.245.208.142
+
+My key is in LDAP.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393018</commentid>
+            <who name="Justin Lazaro [:jlazaro]">jlazaro</who>
+            <bug_when>2011-04-06 13:11:56 -0700</bug_when>
+            <thetext>MPT bit enabled</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393188</commentid>
+            <who name="Fabrice Desré [:fabrice]">fabrice</who>
+            <bug_when>2011-04-06 14:14:48 -0700</bug_when>
+            <thetext>Thanks, it works!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

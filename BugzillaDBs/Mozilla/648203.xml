@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648203</bug_id>
+          
+          <creation_ts>2011-04-06 21:58:00 -0700</creation_ts>
+          <short_desc>Phishing protection dont get triggered at certain case</short_desc>
+          <delta_ts>2011-04-07 01:09:26 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Phishing Protection</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>INVALID</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Biju">BijuMailList</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>mars.martian+bugmail</cc>
+          <qa_contact>phishing.protection</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393907</commentid>
+            <who name="Biju">BijuMailList</who>
+            <bug_when>2011-04-06 21:58:14 -0700</bug_when>
+            <thetext>Phishing protection dont get triggered at certain case.
+
+Steps:-
+1. goto http://antispyware-pack.co.cc/fast-scan/ 
+   - Phishing protection get triggered.
+2. goto http://tinyurl.com/trap-user 
+   
+result:-
+   It get redirected to 
+   http://antispyware-pack.co.cc/fast-scan/ 
+   but no Phishing protection screen.
+
+Expected:-
+   Phishing protection screen popup.
+When you got http://tinyurl.com/trap-user make sure you have automatically
+forwarded to http://antispyware-pack.co.cc/fast-scan/ and seeing 
+&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393927</commentid>
+            <who name="Mehdi Mulani [:mmm]">mars.martian+bugmail</who>
+            <bug_when>2011-04-06 22:12:24 -0700</bug_when>
+            <thetext>Good catch!
+
+The redirect actually takes me to http://antispyware-rebate.co.cc/fast-scan/ or http://antispyware-gmail.co.cc/fast-scan/ (note -rebate/-gmail and not -pack).
+I have reported the site from Help -&gt; Report Web Forgery and encourage you to do the same.
+
+(Marking this INVALID as Firefox is working exactly as expected in this case.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394020</commentid>
+            <who name="Biju">BijuMailList</who>
+            <bug_when>2011-04-06 23:36:59 -0700</bug_when>
+            <thetext>Problem is complicated.
+
+1. my URL http://tinyurl.com/trap-user redirect to google
+
+2. Google access http://revcon.osce.org/revcon/1/94.php?q=mozilla-thunderbird-3
+   in the IFRAME/FRAME
+   which is Organization for Security and Co-operation in Europe | OSCE
+
+3. which access target of tinyURL http://tinyurl.com/trap-user-2
+   (preview http://preview.tinyurl.com/trap-user-2 )
+    ie, http://gvknnfev.cw.cm/
+   (cw.cm is a free domain service provide)
+
+4. http://gvknnfev.cw.cm/**** is redirect to 
+   http://antispyware-*****.co.cc/fast-scan/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394026</commentid>
+            <who name="Biju">BijuMailList</who>
+            <bug_when>2011-04-06 23:41:46 -0700</bug_when>
+            <thetext>I have submitted a report against http://gvknnfev.cw.cm/
+
+=== report comment ========
+They are redirecting to 
+http://antispyware-*****.co.cc/fast-scan/
+
+See details at
+https://bugzilla.mozilla.org/show_bug.cgi?id=648203#c2
+=== report comment end ========</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394110</commentid>
+            <who name="Biju">BijuMailList</who>
+            <bug_when>2011-04-07 01:09:26 -0700</bug_when>
+            <thetext>looks like culprit is http://revcon.osce.org/revcon/1/94.php?q=a
+if the referrer is google it send back &quot;CURRENTLY&quot; active   http://***.cw.cm/**** which is redirect to latest 
+http://antispyware-*****.co.cc/fast-scan/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

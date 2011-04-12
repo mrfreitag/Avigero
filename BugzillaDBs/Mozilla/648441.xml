@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648441</bug_id>
+          
+          <creation_ts>2011-04-07 18:29:00 -0700</creation_ts>
+          <short_desc>S/Mime email signing certificates ?</short_desc>
+          <delta_ts>2011-04-11 15:16:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ludovic Hirlimann [:Usul ]">ludovic</reporter>
+          <assigned_to name="Julius Berry [:b-man]">jberry</assigned_to>
+          <cc>bwinton</cc>
+    
+    <cc>jberry</cc>
+    
+    <cc>tmzmoz</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395627</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-07 18:29:44 -0700</bug_when>
+            <thetext>Would it be possible to have S/Mime certificates to sign emails with.
+
+I&apos;m currently signing all my outgoing emails using a mozillamessaging cert. Would it be possible to get an equivalent cert to sign mozilla.com emails ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399824</commentid>
+            <who name="matthew zeier [:mrz]">mrz</who>
+            <bug_when>2011-04-10 20:46:27 -0700</bug_when>
+            <thetext>We don&apos;t currently have a signing cert for mozilla.com.  You&apos;re the first to ask.  In terms of urgency, where does this fit for you?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399932</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-11 00:14:29 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; We don&apos;t currently have a signing cert for mozilla.com.  You&apos;re the first to
+&gt; ask.  In terms of urgency, where does this fit for you?
+
+Not urgent. It&apos;s a nice to have feature, as I sign every email I send. I still can use my mozillamessaging.com email address, when it goes away it would be nice to have a solution to sign my mozilla.com emails.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

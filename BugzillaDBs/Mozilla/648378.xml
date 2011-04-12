@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648378</bug_id>
+          
+          <creation_ts>2011-04-07 15:17:00 -0700</creation_ts>
+          <short_desc>&quot;mobile/app/macbuild/.DS_Store&quot; probably shouldn&apos;t exist</short_desc>
+          <delta_ts>2011-04-08 11:20:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Daniel Holbert [:dholbert]">dholbert</reporter>
+          <assigned_to name="Daniel Holbert [:dholbert]">dholbert</assigned_to>
+          <cc>ehsan</cc>
+    
+    <cc>gavin.sharp</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395230</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 15:17:41 -0700</bug_when>
+            <thetext>This file:
+http://hg.mozilla.org/mozilla-central/annotate/fb566937c787/mobile/app/macbuild/.DS_Store
+probably should not exist.
+
+Its HG history is a single changeset, which says:
+&quot;Add macbuild files to allow easy building on OS X (copied over from Firefox with s/firefox/fennec/&quot;
+http://hg.mozilla.org/mozilla-central/rev/6c3459a8cd4d
+
+...but given that this is the only instance of such a file in mozilla-central (and that our fennec macbuild stuff is apparently supposed to match our desktop macbuild stuff (?)), I&apos;m guessing this file was an instance of accidentally-introduced-OSX-filesystem-cruft. (and hence wants to die)
+
+gavin, can you confirm?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395232</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 15:19:36 -0700</bug_when>
+            <thetext>(while we&apos;re at it, mobile/app/macbuild/CVS/* (from that same cset) probably all wants to die, too, right?)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395244</commentid>
+            <who name="Gavin Sharp">gavin.sharp</who>
+            <bug_when>2011-04-07 15:25:25 -0700</bug_when>
+            <thetext>Yeah those can all just go (.DS_Store and CVS/*).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395275</commentid>
+              <attachid>524513</attachid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 15:37:42 -0700</bug_when>
+            <thetext>Created attachment 524513
+fix</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395362</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 16:11:04 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Yeah those can all just go (.DS_Store and CVS/*).
+
+Done, with r=gavin (based on comment 2):
+http://hg.mozilla.org/projects/cedar/rev/39c3c868dbd8</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395363</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 16:11:32 -0700</bug_when>
+            <thetext>(optimistically/ambitiously assumed r=gavin since he&apos;s afk at the moment and this is trivial. :))</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396964</commentid>
+            <who name="Ehsan Akhgari [:ehsan]">ehsan</who>
+            <bug_when>2011-04-08 11:20:51 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/39c3c868dbd8</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524513</attachid>
+            <date>2011-04-07 15:37:00 -0700</date>
+            <delta_ts>2011-04-07 15:37:42 -0700</delta_ts>
+            <desc>fix</desc>
+            <filename>648378-fix.patch</filename>
+            <type>text/plain</type>
+            <size>1263</size>
+            <attacher>dholbert</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgMWMxYzFhODE0MTllYzA3MTQ1MWJkYjNmZjMz
+NDNlNzBkODZmMzJmOAojIFVzZXIgRGFuaWVsIEhvbGJlcnQgPGRob2xiZXJ0QGNzLnN0YW5mb3Jk
+LmVkdT4KQnVnIDY0ODM3OCAtIFJlbW92ZSBjcnVmdCBtZXRhZGF0YSBmaWxlcyAuRFNfU3RvcmUg
+JiBDVlMvKiBpbiBtb2JpbGUvYXBwL21hY2J1aWxkLiByPWdhdmluCgpkaWZmIC0tZ2l0IGEvbW9i
+aWxlL2FwcC9tYWNidWlsZC8uRFNfU3RvcmUgYi9tb2JpbGUvYXBwL21hY2J1aWxkLy5EU19TdG9y
+ZQpkZWxldGVkIGZpbGUgbW9kZSAxMDA2NDQKQmluYXJ5IGZpbGUgbW9iaWxlL2FwcC9tYWNidWls
+ZC8uRFNfU3RvcmUgaGFzIGNoYW5nZWQKZGlmZiAtLWdpdCBhL21vYmlsZS9hcHAvbWFjYnVpbGQv
+Q1ZTL0VudHJpZXMgYi9tb2JpbGUvYXBwL21hY2J1aWxkL0NWUy9FbnRyaWVzCmRlbGV0ZWQgZmls
+ZSBtb2RlIDEwMDY0NAotLS0gYS9tb2JpbGUvYXBwL21hY2J1aWxkL0NWUy9FbnRyaWVzCisrKyAv
+ZGV2L251bGwKQEAgLTEsNyArMCwwIEBACi1EL0NvbnRlbnRzLy8vLwotL2JhY2tncm91bmQucG5n
+LzEuMS9TdW4gRGVjICAyIDIzOjA4OjEyIDIwMDcvLWtiLwotL2Rpc2suaWNucy8xLjEvU3VuIERl
+YyAgMiAyMzowODoxMiAyMDA3Ly1rYi8KLS9kb2N1bWVudC5pY25zLzEuMS9TdW4gRGVjICAyIDIz
+OjA4OjEyIDIwMDcvLWtiLwotL2Rzc3RvcmUvMS4xL1N1biBEZWMgIDIgMjM6MDg6MTIgMjAwNy8t
+a2IvCi0vZmlyZWZveC5pY25zLzEuMy9TdW4gRGVjICAyIDIzOjA4OjEyIDIwMDcvLWtiLwotL2xp
+Y2Vuc2Uuci8xLjQvTW9uIE1heSAgNSAwMDo0MDoyNSAyMDA4Ly8KZGlmZiAtLWdpdCBhL21vYmls
+ZS9hcHAvbWFjYnVpbGQvQ1ZTL1JlcG9zaXRvcnkgYi9tb2JpbGUvYXBwL21hY2J1aWxkL0NWUy9S
+ZXBvc2l0b3J5CmRlbGV0ZWQgZmlsZSBtb2RlIDEwMDY0NAotLS0gYS9tb2JpbGUvYXBwL21hY2J1
+aWxkL0NWUy9SZXBvc2l0b3J5CisrKyAvZGV2L251bGwKQEAgLTEsMSArMCwwIEBACi1tb3ppbGxh
+L2Jyb3dzZXIvYXBwL21hY2J1aWxkCmRpZmYgLS1naXQgYS9tb2JpbGUvYXBwL21hY2J1aWxkL0NW
+Uy9Sb290IGIvbW9iaWxlL2FwcC9tYWNidWlsZC9DVlMvUm9vdApkZWxldGVkIGZpbGUgbW9kZSAx
+MDA2NDQKLS0tIGEvbW9iaWxlL2FwcC9tYWNidWlsZC9DVlMvUm9vdAorKysgL2Rldi9udWxsCkBA
+IC0xLDEgKzAsMCBAQAotOnBzZXJ2ZXI6YW5vbnltb3VzQGN2cy1taXJyb3IubW96aWxsYS5vcmc6
+L2N2c3Jvb3QK
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

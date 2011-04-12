@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647919</bug_id>
+          
+          <creation_ts>2011-04-05 18:57:00 -0700</creation_ts>
+          <short_desc>Leaks during startup due to lack of autorelease pool in nsNativeThemeCocoa constructor</short_desc>
+          <delta_ts>2011-04-05 19:52:46 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Widget: Cocoa</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>mlk</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Boris Zbarsky (:bz)">bzbarsky</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>joshmoz</cc>
+    
+    <cc>phiw</cc>
+    
+    <cc>smichaud</cc>
+          <qa_contact>cocoa</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391780</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 18:57:03 -0700</bug_when>
+            <thetext>On every startup I get a ton of reports of leaks due to there not being an autorelease pool.  The stacks go through nsNativeThemeCocoa::nsNativeThemeCocoa being called from the GetService call for the native theme from frame construction.  This is all happening while command-line handlers are being processes and we&apos;re opening a browser window, as far as I can tell.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391809</commentid>
+            <who name="philippe">phiw</who>
+            <bug_when>2011-04-05 19:48:44 -0700</bug_when>
+            <thetext>Same as bug 577599 ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391810</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 19:52:46 -0700</bug_when>
+            <thetext>I don&apos;t think so.  We are not in the middle of opening profile manager when I see the leak, and this is a recent regression.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

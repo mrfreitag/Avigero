@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648104</bug_id>
+          
+          <creation_ts>2011-04-06 13:46:00 -0700</creation_ts>
+          <short_desc>reftest failures on desktop - can&apos;t drawWindow remote content fails</short_desc>
+          <delta_ts>2011-04-06 13:46:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Doug Turner (:dougt)">doug.turner</reporter>
+          <assigned_to name="Doug Turner (:dougt)">doug.turner</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393105</commentid>
+              <attachid>524253</attachid>
+            <who name="Doug Turner (:dougt)">doug.turner</who>
+            <bug_when>2011-04-06 13:46:20 -0700</bug_when>
+            <thetext>Created attachment 524253
+patch v.1</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524253</attachid>
+            <date>2011-04-06 13:46:00 -0700</date>
+            <delta_ts>2011-04-06 13:46:20 -0700</delta_ts>
+            <desc>patch v.1</desc>
+            <filename>force_remote_browser_to_use_widget_layer</filename>
+            <type>text/plain</type>
+            <size>2296</size>
+            <attacher>doug.turner</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBQYXJlbnQgYThhMGE3YjUxODkyNWQzMjU2NzIzY2YxNzkw
+NzEyNGUwMzExYWUwNwpkaWZmIC0tZ2l0IGEvbGF5b3V0L3Rvb2xzL3JlZnRlc3QvcmVmdGVzdC5q
+cyBiL2xheW91dC90b29scy9yZWZ0ZXN0L3JlZnRlc3QuanMKLS0tIGEvbGF5b3V0L3Rvb2xzL3Jl
+ZnRlc3QvcmVmdGVzdC5qcworKysgYi9sYXlvdXQvdG9vbHMvcmVmdGVzdC9yZWZ0ZXN0LmpzCkBA
+IC05NDQsNDEgKzk0NCwzMiBAQCBmdW5jdGlvbiBVcGRhdGVDYW52YXNDYWNoZSh1cmwsIGNhbnZh
+cykKIC8vIFJlY29tcHV0ZSBkcmF3V2luZG93IGZsYWdzIGZvciBldmVyeSBkcmF3V2luZG93IG9w
+ZXJhdGlvbi4KIC8vIFdlIGhhdmUgdG8gZG8gdGhpcyBldmVyeSB0aW1lIHNpbmNlIG91ciB3aW5k
+b3cgY2FuIGJlCiAvLyBhc3luY2hyb25vdXNseSByZXNpemVkIChlLmcuIGJ5IHRoZSB3aW5kb3cg
+bWFuYWdlciwgdG8gbWFrZQogLy8gaXQgZml0IG9uIHNjcmVlbikgYXQgdW5wcmVkaWN0YWJsZSB0
+aW1lcy4KIC8vIEZvcnR1bmF0ZWx5IHRoaXMgaXMgcHJldHR5IGNoZWFwLgogZnVuY3Rpb24gRG9E
+cmF3V2luZG93KGN0eCwgeCwgeSwgdywgaCkKIHsKICAgICB2YXIgZmxhZ3MgPSBjdHguRFJBV1dJ
+TkRPV19EUkFXX0NBUkVUIHwgY3R4LkRSQVdXSU5ET1dfRFJBV19WSUVXOwotICAgIHZhciB0ZXN0
+UmVjdCA9IGdCcm93c2VyLmdldEJvdW5kaW5nQ2xpZW50UmVjdCgpOwotICAgIGlmICgwIDw9IHRl
+c3RSZWN0LmxlZnQgJiYKLSAgICAgICAgMCA8PSB0ZXN0UmVjdC50b3AgJiYKLSAgICAgICAgd2lu
+ZG93LmlubmVyV2lkdGggPj0gdGVzdFJlY3QucmlnaHQgJiYKLSAgICAgICAgd2luZG93LmlubmVy
+SGVpZ2h0ID49IHRlc3RSZWN0LmJvdHRvbSkgewotICAgICAgICAvLyBXZSBjYW4gdXNlIHRoZSB3
+aW5kb3cncyByZXRhaW5lZCBsYXllciBtYW5hZ2VyCi0gICAgICAgIC8vIGJlY2F1c2UgdGhlIHdp
+bmRvdyBpcyBiaWcgZW5vdWdoIHRvIGRpc3BsYXkgdGhlIGVudGlyZQotICAgICAgICAvLyBicm93
+c2VyIGVsZW1lbnQKKyAgICBpZiAoZ0Jyb3dzZXJJc1JlbW90ZSkKICAgICAgICAgZmxhZ3MgfD0g
+Y3R4LkRSQVdXSU5ET1dfVVNFX1dJREdFVF9MQVlFUlM7Ci0gICAgfSBlbHNlIGlmIChnQnJvd3Nl
+cklzUmVtb3RlKSB7Ci0gICAgICAgIGdEdW1wTG9nKCJSRUZURVNUIFRFU1QtVU5FWFBFQ1RFRC1G
+QUlMIHwgfCBjYW4ndCBkcmF3V2luZG93IHJlbW90ZSBjb250ZW50XG4iKTsKLSAgICAgICAgKytn
+VGVzdFJlc3VsdHMuRXhjZXB0aW9uOwotICAgIH0KIAogICAgIGlmIChnRHJhd1dpbmRvd0ZsYWdz
+ICE9IGZsYWdzKSB7CiAgICAgICAgIC8vIEV2ZXJ5IHRpbWUgdGhlIGZsYWdzIGNoYW5nZSwgZHVt
+cCB0aGUgbmV3IHN0YXRlLgogICAgICAgICBnRHJhd1dpbmRvd0ZsYWdzID0gZmxhZ3M7CiAgICAg
+ICAgIHZhciBmbGFnc1N0ciA9ICJEUkFXV0lORE9XX0RSQVdfQ0FSRVQgfCBEUkFXV0lORE9XX0RS
+QVdfVklFVyI7CiAgICAgICAgIGlmIChmbGFncyAmIGN0eC5EUkFXV0lORE9XX1VTRV9XSURHRVRf
+TEFZRVJTKSB7CiAgICAgICAgICAgICBmbGFnc1N0ciArPSAiIHwgRFJBV1dJTkRPV19VU0VfV0lE
+R0VUX0xBWUVSUyI7CiAgICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgICAvLyBPdXRwdXQgYSBz
+cGVjaWFsIHdhcm5pbmcgYmVjYXVzZSB3ZSBuZWVkIHRvIGJlIGFibGUgdG8gZGV0ZWN0CiAgICAg
+ICAgICAgICAvLyB0aGlzIHdoZW5ldmVyIGl0IGhhcHBlbnMuCiAgICAgICAgICAgICBnRHVtcExv
+ZygiUkVGVEVTVCBJTkZPIHwgV0FSTklORzogVVNFX1dJREdFVF9MQVlFUlMgZGlzYWJsZWRcbiIp
+OwogICAgICAgICB9CisKKyAgICAgICAgdmFyIHRlc3RSZWN0ID0gZ0Jyb3dzZXIuZ2V0Qm91bmRp
+bmdDbGllbnRSZWN0KCk7CiAgICAgICAgIGdEdW1wTG9nKCJSRUZURVNUIElORk8gfCBkcmF3V2lu
+ZG93IGZsYWdzID0gIiArIGZsYWdzU3RyICsKICAgICAgICAgICAgICAgICAgIjsgd2luZG93IHNp
+emUgPSAiICsgd2luZG93LmlubmVyV2lkdGggKyAiLCIgKyB3aW5kb3cuaW5uZXJIZWlnaHQgKwog
+ICAgICAgICAgICAgICAgICAiOyB0ZXN0IGJyb3dzZXIgc2l6ZSA9ICIgKyB0ZXN0UmVjdC53aWR0
+aCArICIsIiArIHRlc3RSZWN0LmhlaWdodCArCiAgICAgICAgICAgICAgICAgICJcbiIpOwogICAg
+IH0KIAogICAgIExvZ0luZm8oIkRvRHJhd1dpbmRvdyAiICsgeCArICIsIiArIHkgKyAiLCIgKyB3
+ICsgIiwiICsgaCk7CiAgICAgY3R4LmRyYXdXaW5kb3cod2luZG93LCB4LCB5LCB3LCBoLCAicmdi
+KDI1NSwyNTUsMjU1KSIsCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

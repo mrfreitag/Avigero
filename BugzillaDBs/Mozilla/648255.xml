@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648255</bug_id>
+          
+          <creation_ts>2011-04-07 07:08:00 -0700</creation_ts>
+          <short_desc>Intermittent failure in test_history_sidebar.js | Yesterday == Today crossing midnight</short_desc>
+          <delta_ts>2011-04-08 13:32:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Toolkit</product>
+          <component>Places</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>ehsan</cc>
+    
+    <cc>mak77</cc>
+    
+    <cc>mounir.lamouri</cc>
+          <qa_contact>places</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394347</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-07 07:08:52 -0700</bug_when>
+            <thetext>I very much doubt it&apos;s coincidence that this test run started at 23:43 and finished at 00:09.
+
+http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1302158588.1302160038.1877.gz&amp;fulltext=1
+Rev3 Fedora 12 mozilla-central debug test xpcshell on 2011/04/06 23:43:08
+s: talos-r3-fed-024
+
+TEST-UNEXPECTED-FAIL | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | test failed (with xpcshell return code: 0), see following log:
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+...
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [add_normalized_visit : 81] true == true
+Found containers:
+Yesterday
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+Last 7 days
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+March
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+February
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+January
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+December 2010
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+November 2010
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+Older than 6 months
+TEST-PASS | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | [check_visit : 197] -1 == -1
+Found containers:
+Yesterday
+TEST-UNEXPECTED-FAIL | /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js | Yesterday == Today - See following stack:
+JS frame :: /home/cltbld/talos-slave/test/build/xpcshell/head.js :: do_throw :: line 439
+JS frame :: /home/cltbld/talos-slave/test/build/xpcshell/head.js :: do_check_eq :: line 491
+JS frame :: /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js :: fill_history :: line 156
+JS frame :: /home/cltbld/talos-slave/test/build/xpcshell/tests/toolkit/components/places/tests/unit/test_history_sidebar.js :: run_test :: line 464
+JS frame :: /home/cltbld/talos-slave/test/build/xpcshell/head.js :: _execute_test :: line 322
+JS frame :: -e :: &lt;TOP_LEVEL&gt; :: line 1
+TEST-INFO | (xpcshell/head.js) | exiting test</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397355</commentid>
+            <who name="Mounir Lamouri (:volkmar)">mounir.lamouri</who>
+            <bug_when>2011-04-08 13:32:28 -0700</bug_when>
+            <thetext>Ehsan, I believe these kind of situations should be mentioned in https://developer.mozilla.org/en/QA/Avoiding_intermittent_oranges</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

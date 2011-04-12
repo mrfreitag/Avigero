@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647758</bug_id>
+          
+          <creation_ts>2011-04-04 18:23:00 -0700</creation_ts>
+          <short_desc>Add way to signal/assert &quot;might allocate&quot;</short_desc>
+          <delta_ts>2011-04-04 23:49:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Tamarin</product>
+          <component>Virtual Machine</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Felix S Klock II">fklockii</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>lhansen</cc>
+          <qa_contact>vm</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390708</commentid>
+            <who name="Felix S Klock II">fklockii</who>
+            <bug_when>2011-04-04 18:23:21 -0700</bug_when>
+            <thetext>From Bug 627032, comment 1:
+
+  When we do this, let&apos;s add a way to signal &quot;might allocate&quot;...
+  ie, say we have
+
+    void foo() { if (something) gc-&gt;Alloc()... }
+
+  we want *every* call to foo() to warn us if called during 
+  finalization. So maybe add a debug-only trigger so we could 
+  write it as
+
+    void foo() { GC_MIGHT_ALLOC(); if (something) gc-&gt;Alloc()... }
+
+  this would be useful to put in methods that don&apos;t obviously
+  allocate and might be tempting to call from finalizers 
+  (eg List::clear)
+
+
+(I&apos;ve also considered whether a static effect analysis could be applied here.  Probably easier to put in the dynamic check as first step and then worry about sophisticated static analyses later.)
+
+As part of this work, the existing error messages about leakage should also be fixed (see Bug 627032, comment 7).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390865</commentid>
+            <who name="Lars T Hansen">lhansen</who>
+            <bug_when>2011-04-04 23:49:23 -0700</bug_when>
+            <thetext>Almost anything we do might allocate, along one path or another (error detected? allocates an exception object.  boxing a value? allocates.  looks up a property by name?  may intern a string.)  My preference would probably be to investigate why we need these macros, ie, why is allocation a problem, and then addressing those problems instead.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

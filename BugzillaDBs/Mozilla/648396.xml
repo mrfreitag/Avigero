@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648396</bug_id>
+          
+          <creation_ts>2011-04-07 16:01:00 -0700</creation_ts>
+          <short_desc>Add Videos to Influencer landing page</short_desc>
+          <delta_ts>2011-04-11 12:56:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>WONTFIX</resolution>
+          
+          
+          <bug_file_loc>https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.0</target_milestone>
+          
+          <blocked>647730</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mike Alexis">malexis</reporter>
+          <assigned_to name="James Long (:jlongster)">jlong</assigned_to>
+          <cc>jfinette</cc>
+    
+    <cc>jlong</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>Mnovak</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>williamr</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395338</commentid>
+            <who name="Mike Alexis">malexis</who>
+            <bug_when>2011-04-07 16:01:56 -0700</bug_when>
+            <thetext>Once videos are ready they need to be added to the video gallery and URLs need to be passed to Web dev to add to the landing page.
+
+Grace, can you add the URLs here when ready?
+
+Hoping to get these videos added to staging URL Friday 4/8.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395487</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-07 16:58:39 -0700</bug_when>
+            <thetext>here are the links below. Note:  the mp4 and ogv are not live yet as we are updating the video, but these are the links where they would be live. 
+
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4Mac.webm
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4PC.webm
+
+
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4Mac.mp4
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4PC.mp4
+
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4Mac.theora.ogv
+http://videos-cdn.mozilla.net/serv/marketing/firefox4/Firefox4UpgradeCampaign/FX4PC.theora.ogv</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395516</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-07 17:10:54 -0700</bug_when>
+            <thetext>Hi James, can you help with adding these 2 videos to the Mozilla Firefox video&apos;s page? We&apos;re desperately trying to make code freeze this afternoon (by 5pm) -- which is now(!!) 
+
+Is there any chance you can help this early evening? thank you so much</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395534</commentid>
+            <who name="Laura Forrest">lforrest</who>
+            <bug_when>2011-04-07 17:19:24 -0700</bug_when>
+            <thetext>Jane - This is a pretty late request, and for future releases we should avoid treating code freeze as = to when engagement requirements can come in. I&apos;m also not sure where on the videos page this should go, or what the copy should be. There needs to be a title and a brief summary. Any suggestions are welcome here - Cc-ing Matej here too.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395571</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-07 17:28:53 -0700</bug_when>
+            <thetext>Hey Laura - believe me this wasn&apos;t in the plan. 
+
+We were looking for each video to be hosted on an individual page and would still like that to be the solution. It seems like we need to have them on the Videos in order to get them live. 
+
+If there is a way to get them hosted on a page which doesn&apos;t include the videos page, I&apos;d be delighted to do that.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395918</commentid>
+            <who name="Matej Novak [:matej]">Mnovak</who>
+            <bug_when>2011-04-07 21:38:55 -0700</bug_when>
+            <thetext>Let me know if you need descriptions for these videos from me. Shouldn&apos;t be a problem to get them done, just want to make sure they&apos;re needed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395934</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-07 21:51:26 -0700</bug_when>
+            <thetext>thanks Matej. I&apos;ve asked to chat with Laura and Grace in the morning to figure out where we go from here. Thanks for the offer of help.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396008</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-07 22:45:29 -0700</bug_when>
+            <thetext>Hey Guys --  we have a challenge hosting and getting the Installation videos
+live, therefore I&apos;m going to take them out of this release, rather than
+jeopardize the launch. 
+
+We&apos;re going to make the following edits to the copy.
+
+OLD COPY:
+Take them to school. Send a video that teaches them how to install Firefox 4 on
+their Mac or PC. Or send them PDF instructions for Mac or PC instead.
+
+NEW COPY:
+Take them to school. Send a PDF guide that teaches them how to install Firefox
+4 on their Mac or PC. 
+
+I&apos;d still like to add the videos -- but not for this release.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396585</commentid>
+            <who name="Mike Alexis">malexis</who>
+            <bug_when>2011-04-08 09:26:56 -0700</bug_when>
+            <thetext>resolving this for now and I added the copy above to bug#647730 for craig to make the changes. We can open a new bug for videos for a future release.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401268</commentid>
+            <who name="James Long (:jlongster)">jlong</who>
+            <bug_when>2011-04-11 12:56:40 -0700</bug_when>
+            <thetext>Hey guys, sorry I didn&apos;t see this before, it was a crazy couple of days. I&apos;ll be tracking this page more closely now.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

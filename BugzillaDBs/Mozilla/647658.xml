@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647658</bug_id>
+          
+          <creation_ts>2011-04-04 02:07:00 -0700</creation_ts>
+          <short_desc>PDF in an iframe can&apos;t be printed with JavaScript in Firefox 4.</short_desc>
+          <delta_ts>2011-04-08 07:55:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://bertilow.com/div/pdftest/index.html</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Bertilo Wennergren">bertilow</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>aravind</cc>
+    
+    <cc>bertilow</cc>
+    
+    <cc>bugcuddler</cc>
+    
+    <cc>george.carstoiu</cc>
+    
+    <cc>jbecerra</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389909</commentid>
+            <who name="Bertilo Wennergren">bertilow</who>
+            <bug_when>2011-04-04 02:07:37 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0 FirePHP/0.5
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0 FirePHP/0.5
+
+Printing of PDFs inside of iframes with the Javascript command print() does not work in Firefox 4. It used to work in Firefox 3.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Go to the test page at http://bertilow.com/div/pdftest/index.html
+2. Wait for the PDF to load, then click the button &quot;Print the PDF&quot;.
+3. Nothing happens.
+Actual Results:  
+Nothing happens.
+
+Expected Results:  
+The Firefox print window should open (showing a preview of the PDF).
+
+I have tried using the ordinary Acrobat Reader PDF plugin, and also using mozplugger with Evince. The results are the same: the JavaScript print() function is dead for a PDF inside of an iframe. It is possible to print the entire page, but not the PDF. In Firefox 3 everything works as it always have.
+
+I have tested this mainly in Linux (Ubuntu), but I have seen the same problem in Windows as well.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391060</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-05 06:01:06 -0700</bug_when>
+            <thetext>Regression Range:
+works:
+Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.3a1pre) Gecko/20100127 Minefield/3.7a1pre
+broken:
+Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.3a1pre) Gecko/20100128 Minefield/3.7a1pre
+pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=bcd9709de08a&amp;tochange=6712bed154ed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394308</commentid>
+            <who name="George Carstoiu">george.carstoiu</who>
+            <bug_when>2011-04-07 06:27:55 -0700</bug_when>
+            <thetext>Mozilla/5.0 (X11; Linux i686; rv:2.2a1pre) Gecko/20110407 Firefox/4.2a1pre
+
+Works fine for me using the latest trunk.
+
+Bertilo can you please verify it again using the latest trunk?
+
+Thanks!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396471</commentid>
+            <who name="Bertilo Wennergren">bertilow</who>
+            <bug_when>2011-04-08 07:55:29 -0700</bug_when>
+            <thetext>I just installed the latest trunk (4.2a1pre - 2011-04-08). The test results were very confusing indeed:
+
+At first everything worked perfectly, using the Acrobat Reader PDF plugin. But, if I remember correctly, not using Mozplugger and Evince. But then I found that it suddenly worked in the official Firefox 4 as well (both with Acrobat and Evince). ??? On the other hand that was in a newly installed Ubuntu 11.04 (beta) where Firefox 4 is actually a version packaged by Ubuntu and thus perhaps not quite the same as vanilla Firefox 4. Acrobat Reader seems to work a bit differently in Ubuntu 11.04 (it seems to use Mozplugger now). When I reported this bug I was on Ubuntu 10.10.
+
+So I went back to my old Ubuntu 10.10, and found that the bug is still there in Firefox 4 and also in the trunk version. :(
+
+But then when I returned to my new Ubuntu 11.04, suddenly it didn&apos;t work in the trunk version any more. But it still worked in the official Firefox 4 (Ubuntu packaged)! Perhaps tomorrow things will be different still. Utterly confusing!
+
+So perhaps this is really a Ubuntu thing, or perhaps not. Aravindm seems to have seen the bug in Windows.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

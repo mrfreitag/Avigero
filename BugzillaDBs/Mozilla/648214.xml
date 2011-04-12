@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648214</bug_id>
+          
+          <creation_ts>2011-04-06 23:26:00 -0700</creation_ts>
+          <short_desc>mobile talos regression emails pointing to wrong repo</short_desc>
+          <delta_ts>2011-04-08 12:11:39 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Aki Sasaki [:aki]">aki</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394012</commentid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-06 23:26:01 -0700</bug_when>
+            <thetext>They&apos;re still pointing to mobile-browser; they need to point to mozilla-central now. (Is this in braindump?)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394516</commentid>
+              <attachid>524412</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-07 09:15:30 -0700</bug_when>
+            <thetext>Created attachment 524412
+talos analyzer mobile-browser -&gt; mozilla-central
+
+in graphs, not braindump.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394576</commentid>
+              <attachid>524412</attachid>
+            <who name="Aki Sasaki [:aki]">aki</who>
+            <bug_when>2011-04-07 09:40:47 -0700</bug_when>
+            <thetext>Comment on attachment 524412
+talos analyzer mobile-browser -&gt; mozilla-central
+
+http://hg.mozilla.org/graphs/rev/96806dea256e
+
+Will this Just Work now, or does some other something have to happen to push this live?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394606</commentid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-07 09:51:20 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; Comment on attachment 524412
+&gt;   --&gt; https://bugzilla.mozilla.org/attachment.cgi?id=524412
+&gt; talos analyzer mobile-browser -&gt; mozilla-central
+&gt; 
+&gt; http://hg.mozilla.org/graphs/rev/96806dea256e
+&gt; 
+&gt; Will this Just Work now, or does some other something have to happen to push
+&gt; this live?
+
+I&apos;ll update it on cruncher</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524412</attachid>
+            <date>2011-04-07 09:15:00 -0700</date>
+            <delta_ts>2011-04-07 09:40:47 -0700</delta_ts>
+            <desc>talos analyzer mobile-browser -&gt; mozilla-central</desc>
+            <filename>fix_talos_analyzer.diff</filename>
+            <type>text/plain</type>
+            <size>486</size>
+            <attacher>aki</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3NlcnZlci9hbmFseXNpcy9hbmFseXNpcy5jZmcudGVtcGxhdGUgYi9zZXJ2
+ZXIvYW5hbHlzaXMvYW5hbHlzaXMuY2ZnLnRlbXBsYXRlCi0tLSBhL3NlcnZlci9hbmFseXNpcy9h
+bmFseXNpcy5jZmcudGVtcGxhdGUKKysrIGIvc2VydmVyL2FuYWx5c2lzL2FuYWx5c2lzLmNmZy50
+ZW1wbGF0ZQpAQCAtOTYsMTUgKzk2LDE1IEBAIHJlcG9fcGF0aCA9IHRyYWNlbW9ua2V5CiAKIFtQ
+bGFjZXNdCiByZXBvX3BhdGggPSBwcm9qZWN0cy9wbGFjZXMKIAogW0VsZWN0cm9seXNpc10KIHJl
+cG9fcGF0aCA9IHByb2plY3RzL2VsZWN0cm9seXNpcwogCiBbbW9iaWxlXQotcmVwb19wYXRoID0g
+bW9iaWxlLWJyb3dzZXIKK3JlcG9fcGF0aCA9IG1vemlsbGEtY2VudHJhbAogCiBbbW9iaWxlLTEu
+OS4yXQogcmVwb19wYXRoID0gcmVsZWFzZXMvbW9iaWxlLTEuMQogCiBbbW9iaWxlLXRyYWNlbW9u
+a2V5XQogcmVwb19wYXRoID0gdHJhY2Vtb25rZXkK
+</data>
+<flag name="review"
+          id="438031"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="438037"
+          type_id="481"
+          status="+"
+          setter="aki"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

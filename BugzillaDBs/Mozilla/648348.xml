@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648348</bug_id>
+          
+          <creation_ts>2011-04-07 13:35:00 -0700</creation_ts>
+          <short_desc>search does open when you type and when you pull it up from drop box it does not come up</short_desc>
+          <delta_ts>2011-04-08 08:58:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Search</component>
+          <version>3.6 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="SAL">salalba</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+          <qa_contact>search</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395013</commentid>
+            <who name="SAL">salalba</who>
+            <bug_when>2011-04-07 13:35:56 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 GTB7.1
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16 GTB7.1
+
+h does open when you type and when you pull it up from drop box it does not come up
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396007</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 22:44:33 -0700</bug_when>
+            <thetext>Can you please give a better and more detailed description of the steps you are doing? Even a screencast if possible? Right now, I really don&apos;t know what you are trying to do. Thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396284</commentid>
+            <who name="SAL">salalba</who>
+            <bug_when>2011-04-08 04:49:49 -0700</bug_when>
+            <thetext>Im typing in search box and it starts search right away in ver 4 it dont open even when you it goes into the drop box you cant click on it to make it start a search.   Sal</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396550</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-08 08:58:18 -0700</bug_when>
+            <thetext>Can you please create a screencast and attach it here? I think that would help a lot to better understand the issue. You can use Jing for it: http://www.techsmith.com/download/jing/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

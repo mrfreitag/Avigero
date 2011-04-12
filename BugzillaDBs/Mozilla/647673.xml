@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647673</bug_id>
+          
+          <creation_ts>2011-04-04 06:29:00 -0700</creation_ts>
+          <short_desc>Need to --disable-elf-hack for Valgrind builds until V understands it</short_desc>
+          <delta_ts>2011-04-07 21:48:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Release Engineering</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>647622</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Phil Ringnalda (:philor)">philringnalda</assigned_to>
+          
+          <qa_contact>release</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390055</commentid>
+              <attachid>523977</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-04 06:29:50 -0700</bug_when>
+            <thetext>Created attachment 523977
+fix
+
+As bug 647622 says, Valgrind currently doesn&apos;t understand elfhack, so we need to not do it in those builds until it does.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393563</commentid>
+              <attachid>523977</attachid>
+            <who name="Chris AtLee [:catlee]">catlee</who>
+            <bug_when>2011-04-06 16:50:03 -0700</bug_when>
+            <thetext>Comment on attachment 523977
+fix
+
+http://hg.mozilla.org/build/tools/rev/8e1cd38b7bc8</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395931</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-07 21:48:53 -0700</bug_when>
+            <thetext>Thanks, http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1302225785.1302232886.13437.gz got 99 problems but elfhack ain&apos;t one</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>523977</attachid>
+            <date>2011-04-04 06:29:00 -0700</date>
+            <delta_ts>2011-04-06 16:50:03 -0700</delta_ts>
+            <desc>fix</desc>
+            <filename>no-hacking-elves</filename>
+            <type>text/plain</type>
+            <size>844</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3NjcmlwdHMvdmFsZ3JpbmQvdmFsZ3JpbmQuc2ggYi9zY3JpcHRzL3ZhbGdy
+aW5kL3ZhbGdyaW5kLnNoCi0tLSBhL3NjcmlwdHMvdmFsZ3JpbmQvdmFsZ3JpbmQuc2gKKysrIGIv
+c2NyaXB0cy92YWxncmluZC92YWxncmluZC5zaApAQCAtMzgsMTYgKzM4LDE3IEBAIGlmIFsgISAt
+ZCBvYmpkaXIgXTsgdGhlbgogZmkKIGNkIG9iamRpcgogCiAjIFNldHVwIGEgYmFzaWMgbW96Y29u
+ZmlnIGZpbGUKIGVjaG8gJy4gJHRvcHNyY2Rpci9icm93c2VyL2NvbmZpZy9tb3pjb25maWcnID4g
+bW96Y29uZmlnCiBlY2hvICdhY19hZGRfb3B0aW9ucyAtLWVuYWJsZS12YWxncmluZCcgPj4gbW96
+Y29uZmlnCiBlY2hvICdhY19hZGRfb3B0aW9ucyAtLXdpdGgtY2NhY2hlJyA+PiBtb3pjb25maWcK
+IGVjaG8gJ2FjX2FkZF9vcHRpb25zIC0tZGlzYWJsZS1qZW1hbGxvYycgPj4gbW96Y29uZmlnCitl
+Y2hvICdhY19hZGRfb3B0aW9ucyAtLWRpc2FibGUtZWxmLWhhY2snID4+IG1vemNvbmZpZwogZWNo
+byAnQ0M9L3Rvb2xzL2djYy00LjMuMy9pbnN0YWxsZWQvYmluL2djYycgPj4gbW96Y29uZmlnCiBl
+Y2hvICdDWFg9L3Rvb2xzL2djYy00LjMuMy9pbnN0YWxsZWQvYmluL2crKycgPj4gbW96Y29uZmln
+CiBlY2hvICdleHBvcnQgR19TTElDRT1hbHdheXNfbWFsbG9jJyA+PiBtb3pjb25maWcKIAogaWYg
+WyAiYHVuYW1lIC1tYCIgPSAieDg2XzY0IiBdOyB0aGVuCiAgICAgZXhwb3J0IExEX0xJQlJBUllf
+UEFUSD0vdG9vbHMvZ2NjLTQuMy4zL2luc3RhbGxlZC9saWI2NAogZWxzZQogICAgIGV4cG9ydCBM
+RF9MSUJSQVJZX1BBVEg9L3Rvb2xzL2djYy00LjMuMy9pbnN0YWxsZWQvbGliCg==
+</data>
+<flag name="review"
+          id="437744"
+          type_id="4"
+          status="+"
+          setter="catlee"
+    />
+    <flag name="checked-in"
+          id="437964"
+          type_id="481"
+          status="+"
+          setter="catlee"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

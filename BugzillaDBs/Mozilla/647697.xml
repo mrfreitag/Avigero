@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647697</bug_id>
+          
+          <creation_ts>2011-04-04 09:31:00 -0700</creation_ts>
+          <short_desc>computer freezes up/locks up anytime i prompt it to print.  I get the blue crash screen about 4 times a day. This seems to happen if i have to many windows open or doing to much at one time</short_desc>
+          <delta_ts>2011-04-04 14:10:35 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Mary">marylank2011</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alex_mayorga</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390241</commentid>
+            <who name="Mary">marylank2011</who>
+            <bug_when>2011-04-04 09:31:11 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.14) Gecko/20110218 Firefox/3.6.14
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.14) Gecko/20110218 Firefox/3.6.14
+
+I cannot get my printer to print anything off of my computer. Also, my screen will stall out and i have to open the task manager to get it to close. It will close the entire program instead of just the window i was working in.   I was creating a sales receipt and saved and then told it to print. The Windows froze up and so i did a task manager and told it to end service and instead of it closing just the sales receipt it closed all of quickbooks. So i went to Authorize.net entered his (customer)information in off of his credit card and submitted it. It was approved so i told it to view printable receipt and again it stalled out and froze and i was unable to get it to print.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.click on create sales receipt in QkBks and filled out the necessary information, click saved
+2.Then i proceeded to Authorize.net, logged in, enter in the his cc info and clicked submit, came back approved to i clicked on the button that was labeled view printable receipts
+3.
+Actual Results:  
+I cannot get my printer to print anything off of my computer. Also, my screen will stall out and i have to open the task manager to get it to close. It will close the entire program instead of just the window i was working in.   I was creating a sales receipt and saved and then told it to print. The Windows froze up and so i did a task manager and told it to end service and instead of it closing just the sales receipt it closed all of quickbooks. So i went to Authorize.net entered his (customer)information in off of his credit card and submitted it. It was approved so i told it to view printable receipt and again it stalled out and froze and i was unable to get it to print.
+
+Expected Results:  
+Printed a sales receipt &amp; print a cc receipt
+
+i have had lots of crash problems with this computer the os is windows 7 ultimate. I have a 64 processor but i installed the the 32 bit
+ and im right handed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390458</commentid>
+            <who name="alex_mayorga">alex_mayorga</who>
+            <bug_when>2011-04-04 14:10:35 -0700</bug_when>
+            <thetext>Mary,
+
+You should update your browser to at least 3.6.16 from here http://www.mozilla.com/en-US/firefox/all-older.html or better yet to 4 at http://www.mozilla.com/en-US/firefox/
+
+Please close this bug and if you continue having issues try http://support.mozilla.com/</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

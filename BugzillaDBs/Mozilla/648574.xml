@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648574</bug_id>
+          
+          <creation_ts>2011-04-08 10:33:00 -0700</creation_ts>
+          <short_desc>everytime I open tbird, same messages (over 200) download.</short_desc>
+          <delta_ts>2011-04-08 10:33:52 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>kveduseds</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396812</commentid>
+            <who name="">kveduseds</who>
+            <bug_when>2011-04-08 10:33:52 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2.15) Gecko/20110303 Thunderbird/3.1.9
+
+Everytime I open tbird, same messages download(over 200) along with new ones, including all the junk mail.  Nothing is going into junk mail folder unless I put it there.  I am getting frustrated at having to take so much time marking over 200 messages as junk everytime I oopen!  And I just re-installed from cnet a safe version, I thought!
+
+Reproducible: Always
+
+Steps to Reproduce:
+1.reinstalled
+2.open t bird( in safe run!)
+3.same old junk messages show up in inbox along with new ones
+Actual Results:  
+same
+
+Expected Results:  
+duh, how about junk mail actually going into junk mailbox by learning and once a message is sent to junk mail, how about staying there?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

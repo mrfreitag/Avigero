@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648571</bug_id>
+          
+          <creation_ts>2011-04-08 10:29:00 -0700</creation_ts>
+          <short_desc>TBPL doesn&apos;t always show all tests which were run on Try</short_desc>
+          <delta_ts>2011-04-08 13:23:32 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Tinderboxpushlog</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>590526</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Justin Lebar [:jlebar]">justin.lebar+bug</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>arpad.borsos</cc>
+    
+    <cc>justin.lebar+bug</cc>
+    
+    <cc>mounir.lamouri</cc>
+          <qa_contact>tinderboxpushlog</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396785</commentid>
+            <who name="Justin Lebar [:jlebar]">justin.lebar+bug</who>
+            <bug_when>2011-04-08 10:29:28 -0700</bug_when>
+            <thetext>For a recent push to try [1], I don&apos;t see links to mochitest-1, mochitest-2, and mochitest-other on TBPL.
+
+However, these tests were actually run.  The logs from these builds are available at [2].
+
+I don&apos;t know why this happens, but it shouldn&apos;t.
+
+[1] http://tbpl.mozilla.org/?tree=MozillaTry&amp;rev=9578bc4efb3a
+[2] http://ftp.mozilla.org/pub/mozilla.org/firefox/tryserver-builds/jlebar@mozilla.com-9578bc4efb3a/tryserver-linux-debug/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397316</commentid>
+            <who name="Arpad Borsos (Swatinem)">arpad.borsos</who>
+            <bug_when>2011-04-08 13:21:16 -0700</bug_when>
+            <thetext>Sounds to me like bug 590526, can you confirm?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397323</commentid>
+            <who name="Justin Lebar [:jlebar]">justin.lebar+bug</who>
+            <bug_when>2011-04-08 13:23:32 -0700</bug_when>
+            <thetext>Yes.  I&apos;m even cc&apos;ed on that bug!
+
+Thanks.
+
+*** This bug has been marked as a duplicate of bug 590526 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

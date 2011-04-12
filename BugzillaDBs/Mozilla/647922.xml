@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647922</bug_id>
+          
+          <creation_ts>2011-04-05 20:06:00 -0700</creation_ts>
+          <short_desc>Should not execute text selection when mouse buttons are up</short_desc>
+          <delta_ts>2011-04-06 14:48:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Selection</component>
+          <version>2.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>503943</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Alice0775 White">alice0775</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>tnikkel</cc>
+    
+    <cc>VYV03354</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>selection</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391815</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-05 20:06:42 -0700</bug_when>
+            <thetext>Build Identifier:
+http://hg.mozilla.org/mozilla-central/rev/385684ad7eed
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.2a1pre) Gecko/20110405 Firefox/4.2a1pre ID:20110405092515
+
+Should not change text selection by mouse move when mouse buttons are up.
+
+This problem happens when the right button click quickly, after performed drag selection by mouse.
+This is annoying issue.
+
+This does not happen on Firefox3.6.x.
+
+Reproducible: Always
+
+Steps to Reproduce#1:
+1. Start Minefield with new profile
+2. Open any page
+3. In the location bar by mouse left button down .
+4. Drag to the left.
+5. Holding left button and right button down at Identify box/backforeard button. 
+6. Release Left button 
+7. Holding right button and move right to inside textbox
+8. Release right button.
+9. Move mouse left and right
+
+Steps to Reproduce#2:
+1. Start Minefield with new profile.
+2. Open any page with textarea.
+3. Input some text in the textarea.
+3. Mouse left button down in the textarea.
+4. Drag to the left.
+5. Holding left button and right button down at outside of the textarea. 
+6. Release Left button 
+7. Holding right button and move right to inside textarea
+8. Release right button. (context menu pops up as expexted)
+9. Move mouse left and right
+
+Actual Results:
+ Text selection is performed by mouse move.
+
+Expected Results:
+ Should not execute text selection(expand/collapse) when mouse buttons are up.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391819</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-05 20:17:51 -0700</bug_when>
+            <thetext>Regression window:
+Works:
+http://hg.mozilla.org/mozilla-central/rev/bf0fdec8f43b
+Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.3a1pre) Gecko/20090913 Minefield/3.7a1pre ID:20090913050738
+Fails:
+http://hg.mozilla.org/mozilla-central/rev/912c6ae3b70c
+Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.3a1pre) Gecko/20090914 Minefield/3.7a1pre ID:20090914045953
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=bf0fdec8f43b&amp;tochange=912c6ae3b70c
+Suspected bug:
+eda2433181c9	Neil Deakin — Bug 503943, add mouse capturing api to elements, remove capturing from views, r=roc,sr=smaug</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

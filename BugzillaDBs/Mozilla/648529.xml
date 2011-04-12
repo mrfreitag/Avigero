@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648529</bug_id>
+          
+          <creation_ts>2011-04-08 07:45:00 -0700</creation_ts>
+          <short_desc>SVG elements in defs typically not identified as animation targets</short_desc>
+          <delta_ts>2011-04-08 08:10:09 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>SVG</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://hoffmann.bplaced.net/mozilla/use01.svg</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Dr. Olaf Hoffmann">dr.o.hoffmann</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>birtles</cc>
+    
+    <cc>dholbert</cc>
+          <qa_contact name="General SVG Bugs">general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396443</commentid>
+            <who name="Dr. Olaf Hoffmann">dr.o.hoffmann</who>
+            <bug_when>2011-04-08 07:45:04 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux i686; rv:2.0) Gecko/20100101 Firefox/4.0
+
+If elements from within a defs element are referenced with use, the animation
+is typically ignored, if the animation element is not a direct child of the
+animated element with implied identification of the target element.
+If the element is identified otherwise as animation target, the animation is
+ignored.
+
+About the example/test case:
+The radii of circles in a defs-area are animated and then
+referred with use. Several positions for the animation element
+in the source code are tested.
+A red comparison is available without use. This has to be covered always completely.
+If something red gets visible, an error is occured.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Try the sample given above
+2. Compare with description and specification (of use, cloning etc)
+3. Compare with the behaviour of other viewers, for example Opera or the adobe plugin
+Actual Results:  
+Only the blue circle top left is animated, this has the animate element 
+directly inside the circle element without using XLink:href.
+For the other circles other variants are used to identify them as animation
+target, respectively one set is used with an animation of XLink:href to reference an animated circle. For all these variants, the animation is ignored, respecitively the animation target not found.
+
+Expected Results:  
+Animated blue circles should always cover the red comparison. This indicates,
+that all circles (and one use element) have been identified as animation targets,
+whatever method is used.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648093</bug_id>
+          
+          <creation_ts>2011-04-06 13:17:00 -0700</creation_ts>
+          <short_desc>button to send patches to try</short_desc>
+          <delta_ts>2011-04-06 13:48:24 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Bugzilla: Other b.m.o Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>648092</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jeff Hammel [:jhammel]">jhammel</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>dkl</cc>
+    
+    <cc>glob</cc>
+    
+    <cc>justdave</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>other-bmo-issues</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393029</commentid>
+            <who name="Jeff Hammel [:jhammel]">jhammel</who>
+            <bug_when>2011-04-06 13:17:10 -0700</bug_when>
+            <thetext>It would be nice to have a button to push patches to try, possibly with a button to push to m-c if all goes well. 
+
+The latter should only work if the patch isn&apos;t bitrotted.  Also, it would be nice to know that (see bug 648092) and of course depends on the appropriate r+/a+ flags as necessary.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393115</commentid>
+            <who name="Jeff Hammel [:jhammel]">jhammel</who>
+            <bug_when>2011-04-06 13:48:24 -0700</bug_when>
+            <thetext>An ideal workflow would look something like this:
+
+    - bugzilla would ideally tell you if a patch to m-c is bitrotted: bug 648092
+    - you should be able to push to try from bugzilla, ideally: bug 648092
+    - ideally, in the case where try passes and there are no conflicts with m-c tip (that is, no one has landed changes that conflict with your patch, whether that means bitrotting your patch, changes in the same file, etc) you should be able to take the changeset from try and apply it directly to m-c.  Whether this means pulleys and levers that do this semi-automatically or the sheriff makes the call and pushes a button to pull your try changeset(s) to m-c is a topic of discussion.  Total savings: 100% of the machine time for tests since you&apos;re not running them twice!
+    - as a nuance, this means no one touches m-c directly, probably; you push to try and if you win you get to land on m-c.  This is actually a lie -- there will need to be people with the ability to tweak m-c directly but that is a small minority
+    - and of course this only applies to m-c tip.  If you want to run a try job with some other crazy check that you don&apos;t want on m-c that should be allowed and encouraged; maybe that&apos;s even the default.  But the point is: the stuff that can/will land on m-c must go on try versus m-c tip instead of developers not updating their m-c copy and therefore trying versus outdated copies of m-c and pushed to m-c tip
+    - it would also be nice to be able to tie bugzilla attachments to mq; this way, pushing to an m-q would obselete old attachments on a bug and load the new ones (nuances to be worked out)
+
+Much of this is outside of the scope of bugzilla....possibly worth one (or several) follow-up bugs</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

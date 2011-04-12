@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647703</bug_id>
+          
+          <creation_ts>2011-04-04 10:10:00 -0700</creation_ts>
+          <short_desc>Firefox 4.2a1pre Crash Report [@ nsDocument::AdoptNode(nsIDOMNode*, nsIDOMNode**) ]</short_desc>
+          <delta_ts>2011-04-05 21:22:27 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows NT</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          <keywords>crash, crashreportid</keywords>
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Mats Palmgren [:mats]">matspal</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>chofmann</cc>
+    
+    <cc>dveditz</cc>
+    
+    <cc>kev</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390269</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-04 10:10:43 -0700</bug_when>
+            <thetext>Firefox 4.2a1pre Crash Report [@ nsDocument::AdoptNode(nsIDOMNode*, nsIDOMNode**)]
+
+This signature is climbing on the 4.2a1pre top crash list, 
+now at #3 for 4.2a1pre. 
+
+bp-00148c0f-0a1b-4664-9b4b-d62a02110329
+
+xul.dll	nsDocument::AdoptNode	content/base/src/nsDocument.cpp:6038
+coFFPlgn.dll	coFFPlgn.dll@0x18018	
+cowpplg.dll	cowpplg.dll@0x5b610	
+cowpplg.dll	cowpplg.dll@0x48b80	
+cowpplg.dll	cowpplg.dll@0x1ae37	
+coFFPlgn.dll	coFFPlgn.dll@0x2c767	
+coFFPlgn.dll	coFFPlgn.dll@0x2c4be	
+coFFPlgn.dll	coFFPlgn.dll@0x3238d	
+coFFPlgn.dll	coFFPlgn.dll@0x355ea	
+coFFPlgn.dll	coFFPlgn.dll@0x3cf52	
+xul.dll	nsDocLoader::FireOnStateChange	uriloader/base/nsDocLoader.cpp:1334
+xul.dll	nsDocLoader::FireOnStateChange	uriloader/base/nsDocLoader.cpp:1341
+xul.dll	nsDocLoader::FireOnStateChange	uriloader/base/nsDocLoader.cpp:1341
+xul.dll	nsDocLoader::FireOnStateChange	uriloader/base/nsDocLoader.cpp:1341
+xul.dll	nsDocLoader::OnProgress	uriloader/base/nsDocLoader.cpp:1110
+xul.dll	nsHttpChannel::OnTransportStatus	netwerk/protocol/http/nsHttpChannel.cpp:4171
+xul.dll	nsHttpChannel::OnDataAvailable	netwerk/protocol/http/nsHttpChannel.cpp:4126
+xul.dll	nsInputStreamPump::OnStateTransfer	netwerk/base/src/nsInputStreamPump.cpp:510 
+
+
+The user comment says:
+&quot;It&apos;s Norton Tool bar 5.5 extension that is the problem.&quot;
+
+I looked at a dozen or so crash incidents and they all have coFFPlgn.dll
+and/or coWPPlg.dll on the stack which appears to be associated with some
+Norton plugin/extension.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390275</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-04 10:15:50 -0700</bug_when>
+            <thetext>Do we have a contact at Symantec(?) we should notify?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391852</commentid>
+            <who name="chris hofmann">chofmann</who>
+            <bug_when>2011-04-05 21:22:27 -0700</bug_when>
+            <thetext>kev, ?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647601</bug_id>
+          
+          <creation_ts>2011-04-03 13:47:00 -0700</creation_ts>
+          <short_desc>Installing more than 1 addon w/o restart fails completely</short_desc>
+          <delta_ts>2011-04-04 13:23:38 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>1</votes>
+          
+          <reporter>vasyabelkin5</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>bugcuddler</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389415</commentid>
+            <who name="">vasyabelkin5</who>
+            <bug_when>2011-04-03 13:47:08 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20110321 Firefox/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20110321 Firefox/4.0
+
+Installing more than one addon, that needs restart to work, without restarting in between fails and addons do not show as installed and do not work at all. The bug applies also to addon updating. The bug is 100% reproducible with new profiles created each time. Applies to different addons (for example, Stylish and Greasemonkey, or Downthemall and DOM Inspector). It does not matter whether the addons are installed from web or from downloaded files; it does not matter whether the restart is via the restart prompt after installing the second addon or via File -&gt; Exit. At the same time, if I do restart after each installation, the problem does not happen!
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Create new profile.
+2. Install, for example, Greasemonkey and Stylish in the same session.
+3. Restart Firefox
+Actual Results:  
+The addons do not show as installed and do not work. They are actually written to the extension directory.
+The extensions.log contains the following:
+2011-04-03 23:44:53 ERROR addons.xpi: SQL error 10: disk I/O error at resource://gre/modules/XPIProvider.jsm:3407
+2011-04-03 23:44:53 ERROR addons.xpi: Failed to add add-on {46551EC9-40F0-4e47-8E18-8E5CF550CFB8} in app-profile to database: [Exception... &quot;Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [mozIStorageStatement.execute]&quot;  nsresult: &quot;0x80004005 (NS_ERROR_FAILURE)&quot;  location: &quot;JS frame :: resource://gre/modules/XPIProvider.jsm :: XPIDB_rollbackTransaction :: line 3642&quot;  data: no] at resource://gre/modules/XPIProvider.jsm:3642
+2011-04-03 23:44:53 ERROR addons.xpi: Error during startup file checks, rolling back any database changes: [Exception... &quot;Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [mozIStorageStatement.execute]&quot;  nsresult: &quot;0x80004005 (NS_ERROR_FAILURE)&quot;  location: &quot;JS frame :: resource://gre/modules/XPIProvider.jsm :: XPIDB_commitTransaction :: line 3627&quot;  data: no] at resource://gre/modules/XPIProvider.jsm:3627
+2011-04-03 23:44:53 ERROR addons.manager: Exception calling provider startup: [Exception... &quot;Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [mozIStorageStatement.execute]&quot;  nsresult: &quot;0x80004005 (NS_ERROR_FAILURE)&quot;  location: &quot;JS frame :: resource://gre/modules/XPIProvider.jsm :: XPIDB_rollbackTransaction :: line 3642&quot;  data: no] at resource://gre/modules/XPIProvider.jsm:3642
+2011-04-03 23:45:02 ERROR addons.xpi: 2 outstanding transactions, rolling back. at resource://gre/modules/XPIProvider.jsm:3959
+2011-04-03 23:45:02 ERROR addons.manager: Exception calling provider shutdown: [Exception... &quot;Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [mozIStorageStatement.execute]&quot;  nsresult: &quot;0x80004005 (NS_ERROR_FAILURE)&quot;  location: &quot;JS frame :: resource://gre/modules/XPIProvider.jsm :: XPIDB_rollbackTransaction :: line 3642&quot;  data: no] at resource://gre/modules/XPIProvider.jsm:3642
+
+Expected Results:  
+Both addons should be installed and fully working</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389845</commentid>
+            <who name="Thomas Ahlblom">bugcuddler</who>
+            <bug_when>2011-04-03 23:43:41 -0700</bug_when>
+            <thetext>I have tried to reproduce this bug with different Firefox 4 versions, but it always works as expected for me.
+
+From where did you get your Firefox 4 client? (Directly from Mozilla or has it been repacked by someone?)
+
+What Linux flavor are you running?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390409</commentid>
+            <who name="">vasyabelkin5</who>
+            <bug_when>2011-04-04 13:23:38 -0700</bug_when>
+            <thetext>I use ArchLinux(http://www.archlinux.org) x86_64. This is the page for the browser installation: http://www.archlinux.org/packages/extra/x86_64/firefox
+If you click on the first link titled &quot;SVN Entries (extra-x86_64)&quot; in &quot;Package Actions&quot; section (upper right corner), you will go to http://projects.archlinux.org/svntogit/packages.git/tree/firefox/repos/extra-x86_64/ The installation procedure is described in the PKGBUILD file.
+I&apos;ve also uploaded a short video to http://www.youtube.com/watch?v=XM3s6sl-z8I, showing the problematic usage and a workaround.
+I also downloaded the official release from http://releases.mozilla.org/pub/mozilla.org/firefox/releases/4.0/linux-x86_64/en-US/firefox-4.0.tar.bz2 and observed the very same behavior</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

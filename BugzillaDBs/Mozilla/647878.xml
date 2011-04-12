@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647878</bug_id>
+          
+          <creation_ts>2011-04-05 12:55:00 -0700</creation_ts>
+          <short_desc>plugin-container.exe high CPU loads</short_desc>
+          <delta_ts>2011-04-08 10:56:06 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>General</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="John Hinton">webmaster</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>benjamin</cc>
+    
+    <cc>jo.hermans</cc>
+    
+    <cc>kliu</cc>
+    
+    <cc>tyler.downer</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391464</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-05 12:55:22 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.0; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: All new Firefox 3 and 4 versions
+
+On multiple systems, Win 7 64, Vista 32 and Vista 64, using any recent version of Firefox with Plugin Container, CPU loads go dangerously high when any Flash page is opened.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Start Firefox
+2. Visit any website with Flash
+Actual Results:  
+As a baseline, I am reporting based on the use of a HP Touchsmart with a Turion x2 at 2.2ghz.
+
+Task Manager reports around an average of 40% CPU use by Plugin Container For Firefox. After a few minutes, cooling fans speed up and the system begins to get very hot.
+
+Closing the page with Flash drops Plugin Container CPU usage back to around 1%. Hardware temps reduce and cooling fan slows back to normal.
+
+Expected Results:  
+I would expect CPU usage to be around 10% like is reported when running the same web pages from Internet Explorer or Google Chrome. Neither run up my hardware temps to any noticeable difference.
+
+This began with the introduction of Plugin Container. I had 0 problems prior to that. Unfortunately, I fear hardware heat damage will occur on a couple of my laptops and have had to go to other browsers, now only quickly testing newly developed websites in Firefox instead of it being my main browser.
+
+We have a number of clients who are suffering from poor website performance on their Flash pages under Firefox.
+
+I have spent hours searching on this issue. It seems to be very widespread, across even to the Linux world, but yet nothing seems to be done in spite of various bug reports... or did I miss the one that matters?
+
+I am marking this a Critical as I fear it could cause destruction of computer hardware due to constantly intensive CPU cycles and extreme heat generation. As for system crashes, I cannot point to Firefox but I have had a greater number of unexplained system shutdowns on two machines in the last 6 months or so.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391487</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-05 13:30:21 -0700</bug_when>
+            <thetext>Note that Plugin Container is basically your plugin 
+(Flash for instance), with a thin layer around it. Previously, users complained that the browser was using too much cpu, now it&apos;s Plugin Container. If there&apos;s a problem, it  might be in the plugin itself. Make sure that the plugin is up-to-date (check using &lt;http://www.mozilla.com/en-US/plugincheck/&gt;), and your graphics drivers too (graphics intensive pages often cause that).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391549</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-05 14:25:25 -0700</bug_when>
+            <thetext>Jo,
+
+I have the latest Flash plug-in. Video is up to date... the whole system is up to date according to hp, firefox, adobe and windows.
+
+I hear what your are saying and perhaps this is just a horrid version of the Flash plugin. Still, here are keys.
+
+Running the same page in Chrome cuts CPU use to 1/4th that of Firefox... same with IE.
+
+Adobe doesn&apos;t seem to think it is their problem, Firefox doesn&apos;t seem to think it is their problem. But obviously the problem exist, is widespread across platforms and versions. What are we Firefox devotees to do? Just quit using Firefox?
+
+My fear is that I will accidentally open a page with a Flash ad, get a phone call, set my laptop down in a less than perfect spot, like on a couch and come back to a cooked system. Seriously, this thing is a lap cooker and &quot;only&quot; when running a flash site in Firefox. CAD, no problem... Photoshop, DW, 50 browser instances in three browsers, email and a few other intensive apps... no problem.
+
+1. If this is a bug with the Adobe plugin, is anyone talking to Adobe about this?
+2. Is there anything I can do to stop this other than killing Flash?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391566</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-05 14:52:53 -0700</bug_when>
+            <thetext>I just tried the same video (&lt;http://www.youtube.com/watch?v=kG8wZjKEnNQ&amp;feature=topvideos&gt;) in Firefox and in Chrome. Firefox was using 8%+1% (firefox.exe + plugincontainer.exe), Chrome 7%+1% (both processes are called chrome.exe, but Flash is packed inside Chrome itself).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391842</commentid>
+            <who name="Tyler Downer [Triage] (do not e-mail) [Away]">tyler.downer</who>
+            <bug_when>2011-04-05 21:09:46 -0700</bug_when>
+            <thetext>BTW, chrome has it&apos;s own flash player bundled into it managing it&apos;s own version. double check your Firefox version.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391853</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-05 21:24:20 -0700</bug_when>
+            <thetext>Jo,
+
+Eureka! AV software. In the case of my two computers, it is F-secure. In the
+case of my partner who is experiencing the same problems, I believe he is
+running Kapersky.
+
+I have firewall exceptions for both Firefox and added in plugincontainer.exe
+and it made no difference in loads. Only shutting down the AV succeeded in
+ending the high loads.
+
+Why does task manager show this load under plugincontainer.exe while the AV
+program seems to be running along at normal loads? Misleading.
+
+As stated, I have confirmed that at least two different AV programs are
+producing like results. I would suspect this is the cause for so many reports
+of a problem with plugincontainer.exe.
+
+I just switched to Webroot AV and CPU loads are now down to maybe an average of
+5% on the same Flash webpage that was averaging 40% loads under F-secure.
+
+Sorry for missing the obvious in my troubleshooting, but the three systems with
+unlike AV along with task manager reporting plugincontainer caused me to
+discount AV as a possibility.
+
+Thanks for hanging with me on this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391870</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-05 21:42:47 -0700</bug_when>
+            <thetext>Also of interest, before killing F-secure, I turned off Plugin Container in my FF 3 install. CPU load runs at 40-50% showing Firefox as the troublesome program. So in fact Plugin Container is not the added layer causing the problem.
+
+Is the Flash plug-in the same for IE? Note that I was not experiencing high CPU loads with IE. I understand from the above that Chrome runs its own compilation internally.
+
+I do still have a F-secure system I can test on if this would help with any troubleshooting.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391892</commentid>
+            <who name="Tyler Downer [Triage] (do not e-mail) [Away]">tyler.downer</who>
+            <bug_when>2011-04-05 22:09:52 -0700</bug_when>
+            <thetext>&gt;Is the Flash plug-in the same for IE? Note that I was not experiencing high CPU
+&gt;loads with IE. I understand from the above that Chrome runs its own compilation
+&gt;internally.
+No, flash for IE is totally different, Active X not at all the same as Firefox</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392036</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-06 00:55:59 -0700</bug_when>
+            <thetext>Is there anything that can be determined by this report? Flash, AV or FF bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392042</commentid>
+            <who name="Jo Hermans">jo.hermans</who>
+            <bug_when>2011-04-06 01:11:24 -0700</bug_when>
+            <thetext>(In reply to comment #7)
+&gt; &gt;Is the Flash plug-in the same for IE? Note that I was not experiencing high CPU
+&gt; &gt;loads with IE. I understand from the above that Chrome runs its own compilation
+&gt; &gt;internally.
+&gt; No, flash for IE is totally different, Active X not at all the same as Firefox
+
+Note that http://get.adobe.com/flashplayer/ will offer you a different version if you surf it with IE than with Firefox. Quite a number of people are confused by that, since they will swear that their Flash version is up to date, while it might be in 1 browser, but not in the other one. Grrrrrr...
+
+(In reply to comment #6)
+&gt; Also of interest, before killing F-secure, I turned off Plugin Container in my
+&gt; FF 3 install. CPU load runs at 40-50% showing Firefox as the troublesome
+&gt; program. So in fact Plugin Container is not the added layer causing the
+&gt; problem.
+
+Switching off Plugin Container means that Flash will now run inside the browser itself, so the 40% cpu-load just moves with it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392274</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-06 07:50:44 -0700</bug_when>
+            <thetext>Is this to say the plugin checker link above does not report properly? It does tell me I am running the latest Flash update. Also, I only rarely run IE, leaving it most likely the Flash would update in FF every time.
+
+We obviously have softwares that are NOT playing nice together affecting lots of users. How should we proceed?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392287</commentid>
+            <who name="Kai Liu">kliu</who>
+            <bug_when>2011-04-06 08:05:41 -0700</bug_when>
+            <thetext>FWIW, Opera uses the same Flash plugin as Firefox.
+
+As for why the AV would result in higher CPU loads for the Flash process but not for itself, you have to understand that AV often hooks into certain system APIs, and by doing that, it has the potential of making some system calls significantly more expensive, and if the Flash that Fx/Opera uses happens to make use of those calls, then the burden could fall on them and not the AV.
+
+Also, You can always download the latest version of Flash directly:
+http://fpdownload.adobe.com/get/flashplayer/current/install_flash_player_ax.exe
+http://fpdownload.adobe.com/get/flashplayer/current/install_flash_player.exe
+
+The _ax is for IE while the other is for non-IE (except for Chrome, which bundles Flash).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392328</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-06 08:49:23 -0700</bug_when>
+            <thetext>I did a Opera install to test the Flash Plugin. I am loading the same webpage with a very light Flash application. (I get the same results on any Flash page except heavier Flash apps do runs loads higher... duh)
+
+Testing a Vista 32 system running F-secure AV.
+
+Opera - CPU loads up and down between 1% and 7%
+Firefox - CPU loads up and down between 30% and 50%
+
+Chrome - 1% and 7%
+IE - 2% and 8%
+
+I don&apos;t think we can blame Adobe for this. I don&apos;t think we can blame F-secure for this. I think we have to ask why only with Firefox?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392439</commentid>
+            <who name="Kai Liu">kliu</who>
+            <bug_when>2011-04-06 09:48:19 -0700</bug_when>
+            <thetext>To clarify: Other browsers + F-S is okay, and Firefox + no F-S is okay.  Right?
+
+Could you download &amp; run this:
+http://technet.microsoft.com/en-us/sysinternals/bb896653
+(IIRC, to do what I&apos;m about to suggest, you should run it with admin privs)
+
+When the plugin container&apos;s CPU is pegged, double-click on it in Process Explorer.  Then click the Threads tab in the dialog that shows up.  Ignore the message about symbols.  You should see a thread with really high CPU usage.  Double-click on that thread, hit Copy All, and paste it here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392936</commentid>
+            <who name="John Hinton">webmaster</who>
+            <bug_when>2011-04-06 12:26:45 -0700</bug_when>
+            <thetext>(In reply to comment #13)
+&gt; To clarify: Other browsers + F-S is okay, and Firefox + no F-S is okay.  Right?
+
+That is correct.
+
+I also checked with my friend running Kapersky who was also having problems, but CPU loads on his system now seem to be back to an acceptable level. Perhaps an upgrade to Kapersky? Who knows, but it went away.
+
+I also have sent logs to F-secure support and they are looking into this as well.
+&gt; 
+&gt; Could you download &amp; run this:
+&gt; http://technet.microsoft.com/en-us/sysinternals/bb896653
+&gt; (IIRC, to do what I&apos;m about to suggest, you should run it with admin privs)
+&gt; 
+&gt; When the plugin container&apos;s CPU is pegged, double-click on it in Process
+&gt; Explorer.  Then click the Threads tab in the dialog that shows up.  Ignore the
+&gt; message about symbols.  You should see a thread with really high CPU usage. 
+&gt; Double-click on that thread, hit Copy All, and paste it here.
+
+Here you go.
+
+ntoskrnl.exe!KeWaitForMultipleObjects+0xabd
+ntoskrnl.exe!PsGetCurrentThreadTeb+0x64f
+ntoskrnl.exe!NtOpenProcessToken+0x1ae1
+ntoskrnl.exe!KiDeliverApc+0xce
+ntoskrnl.exe!KeInsertQueueDpc+0x654
+ntoskrnl.exe!KeWaitForMutexObject+0x492
+ntoskrnl.exe!NtWaitForSingleObject+0xc8
+ntoskrnl.exe!ZwQueryLicenseValue+0xbca
+ntdll.dll!KiFastSystemCallRet
+kernel32.dll!WaitForSingleObject+0x12
+NPSWF32.dll!native_ShockwaveFlash_TCallLabel+0x176f5
+
+Thanks!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396896</commentid>
+            <who name="Benjamin Smedberg  [:bsmedberg]">benjamin</who>
+            <bug_when>2011-04-08 10:56:06 -0700</bug_when>
+            <thetext>I&apos;m not sure there&apos;s a point to leaving this bug open, if we can verify that it only happens with Kaspersky.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

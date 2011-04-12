@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648447</bug_id>
+          
+          <creation_ts>2011-04-07 19:28:00 -0700</creation_ts>
+          <short_desc>bugzilla attachments aren&apos;t loading</short_desc>
+          <delta_ts>2011-04-08 12:49:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Daniel Holbert [:dholbert]">dholbert</reporter>
+          <assigned_to name="matthew zeier [:mrz]">mrz</assigned_to>
+          <cc>bugspam.Callek</cc>
+    
+    <cc>justdave</cc>
+    
+    <cc>philringnalda</cc>
+    
+    <cc>stephen.donner</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395722</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 19:28:03 -0700</bug_when>
+            <thetext>Attachments seem to currently be busted at bugzilla.mozilla.org
+
+e.g. try to load https://bugzilla.mozilla.org/attachment.cgi?id=524558
+or  https://bug453407.bugzilla.mozilla.org/attachment.cgi?id=524558
+
+It just times out right now.
+
+curl -v:
+&gt; [dholbert@azure:~]$ curl -v https://bug453407.bugzilla.mozilla.org/attachment.cgi?id=524558
+&gt; * About to connect() to bug453407.bugzilla.mozilla.org port 443 (#0)
+&gt; *   Trying 63.245.209.86... 
+[-- I&apos;ve been waiting here for ~30 seconds so far with no response --]</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395729</commentid>
+            <who name="Dave Miller [:justdave]">justdave</who>
+            <bug_when>2011-04-07 19:35:41 -0700</bug_when>
+            <thetext>Most likely related to the earlier Bugzilla outage, probably missed this IP when resolving the load balancer conflict earlier.  Dmoore is looking...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395733</commentid>
+            <who name="Daniel Holbert [:dholbert]">dholbert</who>
+            <bug_when>2011-04-07 19:38:04 -0700</bug_when>
+            <thetext>*** Bug 648448 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395782</commentid>
+            <who name="Dave Miller [:justdave]">justdave</who>
+            <bug_when>2011-04-07 20:03:48 -0700</bug_when>
+            <thetext>yep, was the same problem, should be fixed now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397248</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-08 12:49:59 -0700</bug_when>
+            <thetext>Verified FIXED; been loading several attachments without issue, since.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

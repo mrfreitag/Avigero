@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647761</bug_id>
+          
+          <creation_ts>2011-04-04 18:56:00 -0700</creation_ts>
+          <short_desc>[autoconfig] when servers cannot be verified, cannot create any accounts with Manual Config, &quot;Advanced&quot; and &quot;Create&quot; options remain disabled</short_desc>
+          <delta_ts>2011-04-11 17:34:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Account Manager</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>636016</dependson>
+    
+    <dependson>549045</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Adrien de Croy">adrien</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>ben.bucksch</cc>
+    
+    <cc>bwinton</cc>
+    
+    <cc>clarkbw</cc>
+    
+    <cc>rsx11m.pub</cc>
+          <qa_contact>account-manager</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390726</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-04 18:56:43 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; GTB6.6; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)
+Build Identifier: 3.3a3
+
+like the title says, account creation fails.  All details are correct, server logs show connections from TB, but no protocol which could enable TB to actually validate anything other than the servername (no auth protocol).
+
+Therefore validation is failing.
+
+Even though I selected Manual config, it still disables the Create Account button, I presume I have to pass the Re-test before it will allow me to create an account?
+
+I tried servername as my local IP, and a fully qualified domain name of another server (also known correct).  Failed on all accounts.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. try to create an account
+2. Click manual configuration to stop it from testing
+3.
+Actual Results:  
+always fails tests, and keeps the button that creates the account disabled.
+
+Expected Results:  
+allow creation of the account, no matter what garbage I put in there.
+
+The philosophy of banning account creation until some test is passed is fundamentally flawed.
+
+There are numerous reasons why validation of details may fail, such as:
+
+* server currently off line
+* validation heuristics incorrect
+* something else no-one thought of
+
+to deny account creation because of this is at best annoying, and a waste of time, since one is forced to go fix other problems (maybe?) before being able to proceed with account creation even with details that are known to be correct, or even if they weren&apos;t could be modified later once the account was created.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392650</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-06 11:08:51 -0700</bug_when>
+            <thetext>Adrien, while I realize that this issue is personally bugging you a lot, the &quot;blocker&quot; severity is only intended for cases where, let&apos;s say, the program does no longer compile. The next level &quot;critical&quot; is mainly for crashes and hang situations, so I&apos;ll give you a &quot;major&quot; severity on this bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392659</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-06 11:10:40 -0700</bug_when>
+            <thetext>I&apos;m unable to set up an IP-numerical server with Manual Config either, which worked in the old Account Wizard implementation before bug 549045 by clicking
+on the &quot;Advanced Configuration&quot; instead, then filling in the right parameters using the conventional Account Settings dialogs.
+
+So that&apos;s a regression and should be made possible again for those cases where you need it. The main issue is that the &quot;Advanced&quot; button is grayed out as well thus there is no chance to finalize the account setup in the Settings dialog.
+
+It may be on purpose that &quot;Create Account&quot; is only active once re-testing was performed successfully, thus adding the people who should know. But even if the re-test fails, the &quot;Advanced&quot; settings should be made available as a fallback.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393118</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 13:49:02 -0700</bug_when>
+            <thetext>I can&apos;t create any account.  numerical or otherwise.
+
+My main concern is that this is the result of major re-work of the account creation UI, and when I see valid account creation blocked for any reason, I have to conclude that development is going in the wrong direction.
+
+I think it will bring problems to others if account creation is blocked for a user based on a policy made by a developer.  Unless the developer is omnipotent and can foresee all things, then failure to auto-detect settings should not block creation.
+
+Blocking account creation renders the product completely unusable.
+
+It&apos;s possible there may be scenarios where account creation could succeed (I haven&apos;t let the auto discovery process complete / timeout / fail yet).  I&apos;ve repro&apos;d this on 2 systems now though.  I haven&apos;t managed to create an account yet, and I&apos;m hardly a novice user.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393262</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 14:38:42 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; Adrien, while I realize that this issue is personally bugging you a lot, the
+&gt; &quot;blocker&quot; severity is only intended for cases where, let&apos;s say, the program
+&gt; does no longer compile. The next level &quot;critical&quot; is mainly for crashes and
+&gt; hang situations, so I&apos;ll give you a &quot;major&quot; severity on this bug.
+
+OK, thanks will keep in mind for next time.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393540</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 16:39:35 -0700</bug_when>
+            <thetext>&gt; I can&apos;t create any account.  numerical or otherwise.
+
+You&apos;ll have to be more precise than that, because it&apos;s obviously possible to create accounts.
+
+&gt; (I haven&apos;t let the auto discovery process complete / timeout / fail yet)
+
+Well...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393565</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 16:50:29 -0700</bug_when>
+            <thetext>Do users really have to wait for the discovery to time out?  The manual config button seems to stop it.  
+
+I did another test, where I waited (and waited).  Finally it came up with some settings I didn&apos;t want, but importantly enabled the Create Account button.
+
+It also then seemed to behave properly.
+
+So the bug is: if you hit the manual config button during discovery, the system gets hosed:
+
+a) never enables the Create account button
+b) never does anything useful if you hit Re-Test (connects but never tries to auth)
+
+So, steps to reproduce:
+
+1. New account
+2. Enter name, email and password
+3. Click continue
+4. Before discovery completes, hit &quot;Manual config&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393572</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-06 16:55:27 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; I&apos;m unable to set up an IP-numerical server with Manual Config either, which
+&gt; worked in the old Account Wizard implementation before bug 549045 by clicking
+&gt; on the &quot;Advanced Configuration&quot; instead, then filling in the right parameters
+&gt; using the conventional Account Settings dialogs.
+
+For the sake of completeness, I&apos;ve indeed waited for the discovery to fail on
+my provided @127.0.0.1 address, then tried to use that IP address in the manual config dialog. At no time (including re-testing) I saw &quot;Advanced Config&quot; or &quot;Create Account&quot; enabled, in contrast to the old wizard. But then, I&apos;m not running an IMAP server on localhost, so that wasn&apos;t quite a perfect test.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393579</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 16:57:38 -0700</bug_when>
+            <thetext>I&apos;ve said this before in another bug, but I&apos;ll say it again.
+
+I think it would be wise to offer an option to avoid discovery and go straight to manual config.  E.g. a manual config button on the first page of the wizard.
+
+It&apos;s conceivable that the discovery process could cause unforeseen problems in some environments.
+
+Apart from the time it takes and this problem it does a bunch of things:
+
+* DNS lookups
+* connections to servers it generates the name for itself based on common extensions of the email domain (e.g. imap.*, smtp.* etc).
+
+In some environments this could set off all manner of firewall alarms etc, and create issues for people to deal with (Bob, why were you trying to connect to x.y.z)
+
+Creating accounts is not (thankfully) something done every day (unless you&apos;re like me and develop mail servers and need to set up test accounts all the time).  The delay would be nice to avoid for me, but you could argue that an adequate fix for general public user is to just disable the manual config button until discovery is completed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393584</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 16:59:11 -0700</bug_when>
+            <thetext>I just tried it, with my own local server (Cyrus and Postfix) on my LAN, and it works fine.
+
+Reproduction:
+1. Enter &quot;foo@foobar.com&quot; as email address, and random real name, and your real, working password for the IMAP server
+2. Click Continue
+3. Click Stop (or wait for the detection to fail)
+4. You end up in the Manual Config mode with fields for the server hostname
+5. Enter the IP address of the server in both fields
+6. Enter your real, working IMAP/SMTP username in the username field.
+7. Click [Re-Test]
+   ([Create] and [Advanced Config] are disabled, you need to test first)
+8. It connects to the IMAP and SMTP servers, correctly detects their settings (ports, SSL, authentication methods), and displays them.
+9. Click [Create]
+10. Click on the new account
+11. See your mail
+
+WORKSFORME</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393603</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:05:33 -0700</bug_when>
+            <thetext>&gt; The manual config button seems to stop [autodetection]
+
+Yes, it does. Clicking that is fine, you did that right.
+Sorry, I misunderstood you.
+
+&gt; where I waited (and waited)
+
+(FYI: You will not wait more than ~15 seconds, unless your server or network setup is bad, e.g. servers deliberately do not respond at all or DNS server is extremely slow. I explicitly tried to make it very fast and fail quickly.)
+
+&gt; b) never does anything useful if you hit Re-Test
+&gt; (connects but never tries to auth)
+
+That works as expected for me. It&apos;s not supposed to auth, but only test server capabilities. If the server is implemented properly, that works fine.
+
+I guess that your server is just broken.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393608</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:08:40 -0700</bug_when>
+            <thetext>Please read and follow &lt;https://developer.mozilla.org/en/Thunderbird/Autoconfiguration/FileFormat/HowTo#How_to_probe_mail_servers&gt; and post the output of your manual probing with netcat / telnet.
+
+One way to counter these problems is to just set up autoconfig for your domain. See &lt;https://developer.mozilla.org/en/Thunderbird/Autoconfiguration#Small_company&gt;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393611</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:09:15 -0700</bug_when>
+            <thetext>Hi
+
+If I hit the stop button, it goes back to first page, and I have to hit Continue, which then starts discovery again.
+
+The only thing for me that lets the wizard move onwards is if I hit the &quot;Manual config&quot; button.  Then it&apos;s in the problem condition.
+
+Do you have a later build than me?  Mine only says 3.3a3, doesn&apos;t give a build no or date or anything.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393615</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:09:42 -0700</bug_when>
+            <thetext>&gt; One way to counter these problems
+
+Correction: If your server doesn&apos;t properly respond to CAPABILITIES check, that won&apos;t help either. That CAP has to work.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393621</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:11:00 -0700</bug_when>
+            <thetext>&gt; If I hit the stop button, it goes back to first page
+&gt; The only thing for me that lets the wizard move onwards is if
+&gt; I hit the &quot;Manual config&quot; button.
+
+You&apos;re right, sorry.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393626</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-06 17:13:47 -0700</bug_when>
+            <thetext>(In reply to comment #13)
+&gt; Correction: If your server doesn&apos;t properly respond to CAPABILITIES check, that
+&gt; won&apos;t help either. That CAP has to work.
+
+Ok, so the conclusion of this is that you need a working server on both POP/IMAP and SMTP side to set up account. Meaning, if one of the servers is currently unavailable for whatever reason, you won&apos;t be able to set up a respective account. That would explain why my testing failed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393641</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:16:35 -0700</bug_when>
+            <thetext>&gt; you need a working server on both POP/IMAP and SMTP side to set up account.
+&gt; Meaning, if one of the servers is currently unavailable for whatever reason,
+&gt; you won&apos;t be able to set up a respective account.
+
+eh... Yes :-)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393645</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:17:36 -0700</bug_when>
+            <thetext>(Note that you should be able to select an existing SMTP server from the drop-down, too.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393650</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:18:13 -0700</bug_when>
+            <thetext>I see it do the CAPABILITY, and it gets the response fine.  So server not broken (the account is actually usable and used by Miramar).  So the probing code must behave differently to the code that actually uses the account.
+
+S:=&gt; * OK WinGate IMAP4rev1 service ready
+C:&lt;= 1 CAPABILITY
+S:=&gt; * CAPABILITY IMAP4 IMAP4rev1 UNSELECT LITERAL+ ID UIDPLUS ENABLE MOVE CONDSTORE IDLE AUTH=NTLM LOGIN
+S:=&gt; 1 OK CAPABILITY command completed
+C:&lt;= 2 LOGOUT
+S:=&gt; * BYE WinGate IMAP4rev1 server closing connection
+S:=&gt; 2 OK LOGOUT command completed
+
+I tried with different IPs, and hostnames.  Always Advanced config and Create Account buttons remain disabled</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393659</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:21:50 -0700</bug_when>
+            <thetext>(In reply to comment #16)
+&gt; &gt; you need a working server on both POP/IMAP and SMTP side to set up account.
+&gt; &gt; Meaning, if one of the servers is currently unavailable for whatever reason,
+&gt; &gt; you won&apos;t be able to set up a respective account.
+&gt; eh... Yes :-)
+
+so what happens if hypothetically I&apos;m at a customer site trying to set up their email client, but the server (100 miles away, no remote access) is unavailable...  I have to get in my car, go fix the server?  Drive back and set up the account?
+
+How about we just let the account setup proceed?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393662</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-06 17:24:54 -0700</bug_when>
+            <thetext>(In reply to comment #18)
+&gt; CONDSTORE IDLE AUTH=NTLM LOGIN
+
+Shouldn&apos;t the last token be AUTH=LOGIN to be correct? Also, if the verification code checks NTLM and it fails, the entire verification fails?
+
+This may also be subject to bug 635628 if NTLM is treated similar to GSSAPI.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393689</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:33:39 -0700</bug_when>
+            <thetext>&gt; Shouldn&apos;t the last token be AUTH=LOGIN to be correct?
+
+Yes, WinGate is pathologically broken, IIRC. Bad server implementation.
+
+Try Cyrus or Dovecot or Currier and Postfix, on Linux, for a proper server, if you are the admin.
+
+&gt; I see it do the CAPABILITY, and it gets the response fine.
+&gt; So server not broken
+
+But you said one of the servers was not available. That would be the reason why it failed for you. It should fail, that&apos;s what it&apos;s supposed to do.
+
+If only the IMAP server is available, see comment 17.
+
+Sorry, but the point of the wizard is to ensure that the user ends up with a working account.
+Yes, better make sure your server is actually working.
+
+&gt; if hypothetically I&apos;m at a customer site trying to set up their
+&gt; email client, but the server (100 miles away, no remote access) is
+&gt; unavailable...
+&gt; I have to get in my car, go fix the server?  Drive back and set
+&gt; up the account?
+
+In that hypothetical, rare case, you would set up the account with another, working server, then, after creation, go into Account Settings and change the hostname and settings.
+
+You can also always hack about:config / prefs.js manually, FWIW.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393695</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:34:37 -0700</bug_when>
+            <thetext>LOGIN is not an SASL mechanism, it&apos;s inbuilt to IMAP, so isn&apos;t advertised as AUTH=
+
+NTLM isn&apos;t even tried - as Ben said, it only does the CAPABILITY command, it doesn&apos;t try to actually auth.
+
+NTLM works fine to that server with the creds I supplied.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393699</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:35:10 -0700</bug_when>
+            <thetext>(In reply to comment #21)
+&gt; &gt; Shouldn&apos;t the last token be AUTH=LOGIN to be correct?
+&gt; Yes, WinGate is pathologically broken, IIRC. Bad server implementation.
+
+Oh really?
+
+you should look who you&apos;re talking to.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393710</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:39:54 -0700</bug_when>
+            <thetext>p.s. I&apos;d be happy to discuss any concrete issues with WinGate IMAP</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393726</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:44:17 -0700</bug_when>
+            <thetext>&gt; &gt; Shouldn&apos;t the last token be AUTH=LOGIN to be correct?
+
+&gt; Yes
+
+Note that this shouldn&apos;t be fatal, because there&apos;s no LOGINDISABLED, so we have the old IMAP login available. That means unencrypted password is available, no need for NTLM.
+
+&gt; you should look who you&apos;re talking to.
+
+Why? Are you the author of WinGate?
+
+&gt; LOGIN is not an SASL mechanism, it&apos;s inbuilt to IMAP, so isn&apos;t
+&gt; advertised as AUTH=
+
+No. There is a SASL AUTH LOGIN mechanism. That&apos;s NOT the same as the LOGIN command of IMAP (RFC 3501 Sec 6.2.3).
+
+For SASL LOGIN, see
+http://www.cyrusimap.org/docs/cyrus-sasl/2.1.23/draft-murchison-sasl-login-xx.txt
+http://mxr.mozilla.org/comm-central/source/mailnews/test/fakeserver/auth.js#88
+http://www.postfix.org/SASL_README.html
+
+An IMAP capability &quot;LOGIN&quot; does not exist, it&apos;s invalid. The IMAP command LOGIN is always available, unless you have capability LOGINDISABLED (which the server must implement, because the IMAP LOGIN command is deprecated, but the admin can chose not to set it and allow old-style LOGIN command).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393733</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:46:58 -0700</bug_when>
+            <thetext>(In reply to comment #21)
+&gt; &gt; I see it do the CAPABILITY, and it gets the response fine.
+&gt; &gt; So server not broken
+&gt; But you said one of the servers was not available. 
+
+I don&apos;t recall saying that.  In my test cases, all servers are available.  How else could I post a protocol transcript.
+
+&gt; it failed for you. It should fail, that&apos;s what it&apos;s supposed to do.
+&gt; If only the IMAP server is available, see comment 17.
+
+yep.  I&apos;m not complaining about the SMTP, it is using correct info.  Although it shouldn&apos;t prevent account creation there either.  It&apos;s perfectly valid to have an email client that can read only.
+
+&gt; Sorry, but the point of the wizard is to ensure that the user ends up with a
+&gt; working account.
+&gt; Yes, better make sure your server is actually working.
+
+That&apos;s a _really_bad_idea_.  I&apos;d recommend you check with Mozilla superiors before implementing policy like this.
+
+I&apos;m just trying to help.
+
+&gt; &gt; if hypothetically I&apos;m at a customer site trying to set up their
+&gt; &gt; email client, but the server (100 miles away, no remote access) is
+&gt; &gt; unavailable...
+&gt; &gt; I have to get in my car, go fix the server?  Drive back and set
+&gt; &gt; up the account?
+&gt; In that hypothetical, rare case, you would set up the account with another,
+&gt; working server, then, after creation, go into Account Settings and change the
+&gt; hostname and settings.
+
+Still need to go back there to change it.
+
+You&apos;re forcing people to do things in your sequence.  This is software.
+
+Up until now, you&apos;ve not mandated people march to your tune.  See how your customers like it.  My guess is they wont.
+
+&gt; You can also always hack about:config / prefs.js manually, FWIW.
+
+OK, thanks I&apos;ll look more into this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393740</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 17:49:56 -0700</bug_when>
+            <thetext>(In reply to comment #25)
+&gt; &gt; &gt; Shouldn&apos;t the last token be AUTH=LOGIN to be correct?
+&gt; &gt; Yes
+&gt; Note that this shouldn&apos;t be fatal, because there&apos;s no LOGINDISABLED, so we have
+&gt; the old IMAP login available. That means unencrypted password is available, no
+&gt; need for NTLM.
+&gt; &gt; you should look who you&apos;re talking to.
+&gt; Why? Are you the author of WinGate?
+
+for my sins.
+
+&gt; &gt; LOGIN is not an SASL mechanism, it&apos;s inbuilt to IMAP, so isn&apos;t
+&gt; &gt; advertised as AUTH=
+&gt; No. There is a SASL AUTH LOGIN mechanism. That&apos;s NOT the same as the LOGIN
+&gt; command of IMAP (RFC 3501 Sec 6.2.3).
+
+ok, you&apos;re correct.  The LOGIN in IMAP is not the SASL LOGIN.  It&apos;s the inbuild plaintext login.  It&apos;s not advertised as AUTH=LOGIN, but there are requirements around availability of plaintext authentication methods based on whether a TLS connection has been set up, and you may see LOGINDISABLED if the server is so configured.
+
+&gt; For SASL LOGIN, see
+&gt; http://www.cyrusimap.org/docs/cyrus-sasl/2.1.23/draft-murchison-sasl-login-xx.txt
+&gt; http://mxr.mozilla.org/comm-central/source/mailnews/test/fakeserver/auth.js#88
+&gt; http://www.postfix.org/SASL_README.html
+&gt; An IMAP capability &quot;LOGIN&quot; does not exist, it&apos;s invalid. The IMAP command LOGIN
+&gt; is always available, unless you have capability LOGINDISABLED (which the server
+&gt; must implement, because the IMAP LOGIN command is deprecated, but the admin can
+&gt; chose not to set it and allow old-style LOGIN command).
+
+OK, I wonder where I got the idea to advertise LOGIN from... I&apos;ll have to do some more digging.  It could have been an extension RFC.  I can&apos;t find it in 3501 any more.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393755</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 17:55:54 -0700</bug_when>
+            <thetext>&gt; Are you the author of WinGate?
+
+Checked, and yes. Sorry, it wasn&apos;t my intention to insult you personally.
+I do not remember the concrete problems (thus IIRC). Thanks for the offer for bug reports. If I encounter a concrete problem, I&apos;ll mail you.
+
+For now:
+- remove &quot;LOGIN&quot; capability
+- implement LOGINDISABLED, if you didn&apos;t already
+- implement AUTH PLAIN and AUTH CRAM-MD5
+  You&apos;ll find example implementations in the above fakeserver link -
+  it took me just a few days to implement them, IIRC.
+- By default, set LOGINDISABLED AUTH=PLAIN AUTH=CRAM-MD5
+
+Esp. CRAM-MD5 is important to protect the user&apos;s password when the user has no SSL.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393768</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 18:07:31 -0700</bug_when>
+            <thetext>&gt; - By default, set LOGINDISABLED AUTH=PLAIN AUTH=CRAM-MD5
+
+Correction: 
+- By default, set AUTH=PLAIN AUTH=CRAM-MD5</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393769</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 18:09:07 -0700</bug_when>
+            <thetext>hey no problem :)  I didn&apos;t take it personally.  What are the chances hey?
+
+You&apos;re right about advertising LOGIN.  It should have been advertised as AUTH=PLAIN, which is a requirement in 3501 (although can be overridden by LOGINDISABLED).
+
+We support LOGINDISABLED, but it wasn&apos;t turned on on our server.
+
+	if(m_bCanUseLogin)
+		strResponse += &quot; LOGIN&quot;;
+	else
+		strResponse += &quot; LOGINDISABLED&quot;;
+
+There&apos;s the puppy.
+
+We support CRAM-MD5 where the user database we are using offers plaintext passwords, (which Windows normally does not). So normally NTLM is the only &quot;secure&quot; option for users.  I don&apos;t know if there was a DIGEST or Kerberos option for IMAP, but all the MD5 and other hash-based ones are no good without PT password.
+
+I still reckon it is asking for trouble to deny the user ability to create the account though.
+
+I also timed my setup (i7 nehalem, GB-connected servers) 18s.  18s isn&apos;t long, but Joe Average doesn&apos;t know how long he&apos;s likely to have to wait.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393774</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 18:14:00 -0700</bug_when>
+            <thetext>p.s. in 6 years never had a problem before advertising LOGIN, which is why it was still there.
+
+thanks for pointing that out.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393777</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 18:19:06 -0700</bug_when>
+            <thetext>Thanks for not taking offense :) I&apos;ll mail you with the server issues right now.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393788</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 18:29:14 -0700</bug_when>
+            <thetext>thanks.  If you need a test account here (so you can hit our latest server code - it&apos;s quite different now), let me know.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393792</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-06 18:33:51 -0700</bug_when>
+            <thetext>&gt; You&apos;re right about advertising LOGIN.  It should have been advertised as
+&gt; AUTH=PLAIN, which is a requirement in 3501
+
+Please note that AUTH=PLAIN is SASL AUTH PLAIN defined in RFC 4616 and again not the same as IMAP LOGIN command. Please do not send capability AUTH=PLAIN unless RFC 4616 is working, otherwise it would be invalid and break us.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393837</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-06 20:13:02 -0700</bug_when>
+            <thetext>OK.  I did a bunch more testing and can report.
+
+1. server advertising LOGIN has no bearing on result.  Client behaviour is the same.  I fixed our server anyway, and it now advertises AUTH=PLAIN (SASL PLAIN = NUL user NUL pass) or LOGINDISABLED if configured to disallow PLAIN in our UI.
+
+2. Problem of disabled Create account button only occurs if Manual config button clicked while TB is discovering settings.
+
+So this needs to be fixed, either by disabling the manual config button during discovery, or fixing it so it works (my preference).
+
+3. Final stage of verifying password is problematic.
+
+Unless you click &quot;advanced config&quot;, it doesn&apos;t give you any opportunity to enter a username, and instead derives this from the email address.  This will fail more often than not on an AD for example, where usernames are fully qualified with the AD domain name.  If the user part of the email address is not the account login, then this check fails, hitting Create Account just recycles this.  This is a problematic user experience.  I don&apos;t think the timid user will want to hit &quot;Advanced Config&quot;. 
+
+That button bypasses all checking and creates the account (does what one would expect the Create Account button to do).
+
+In fact, one would expect re-test to do the testing, including verifying password.  Failure to verify password should prompt for username and password.
+
+Create account should only create the account. 
+
+I think Mozilla will have support issues with this wizard the way it is.
+
+If people are allowed to edit accounts with bad data, they should be able to create them also.
+
+the human should always have the last say - ask any airline pilot.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394079</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-07 00:44:10 -0700</bug_when>
+            <thetext>&gt; 2. Problem of disabled Create account button only occurs if Manual config
+&gt; button clicked while TB is discovering settings.
+
+As said, it&apos;s intentionally disabled when the server hostname hasn&apos;t been verified. (It may be that you can modify the hostname and Create stays enabled, but that&apos;s a bug, not a feature.)
+
+Do the steps in comment 9 (Correction: in Step 3 clicking [Manual Config] instead of [Stop]) work, assuming the server works?
+
+In that hypothetical, rare case, you could set up the account with another,
+working server, then, after creation, go into Account Settings and change the
+hostname and settings.
+
+&gt; Unless you click &quot;advanced config&quot;, it doesn&apos;t give you any opportunity to
+&gt; enter a username
+
+I have a Username field underneath the hostname fields.
+
+&gt; 3. Final stage of verifying password is problematic.
+
+This happens after clicking [Create]. You can bypass that password check (not the server host check) using [Advanced Config].</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394081</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-07 00:44:49 -0700</bug_when>
+            <thetext>For SMTP, see comment 17.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394140</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-07 01:50:07 -0700</bug_when>
+            <thetext>(In reply to comment #36)
+&gt; &gt; 2. Problem of disabled Create account button only occurs if Manual config
+&gt; &gt; button clicked while TB is discovering settings.
+&gt; As said, it&apos;s intentionally disabled when the server hostname hasn&apos;t been
+&gt; verified. (It may be that you can modify the hostname and Create stays enabled,
+&gt; but that&apos;s a bug, not a feature.)
+
+can edit everything on that page, just that Create Account and Advanced config buttons remain disabled.  Have to cancel and start over, and not interrupt.
+
+&gt; Do the steps in comment 9 (Correction: in Step 3 clicking [Manual Config]
+&gt; instead of [Stop]) work, assuming the server works?
+
+nope, as soon as I hit that manual config button if it was still discovering, it&apos;s hosed.  If I let it finish, all is fine.
+
+&gt; In that hypothetical, rare case, you could set up the account with another,
+&gt; working server, then, after creation, go into Account Settings and change the
+&gt; hostname and settings.
+&gt; &gt; Unless you click &quot;advanced config&quot;, it doesn&apos;t give you any opportunity to
+&gt; &gt; enter a username
+&gt; I have a Username field underneath the hostname fields.
+
+just saw that - I must be going blind or something.  Ok, so setting username isn&apos;t a problem.
+
+&gt; &gt; 3. Final stage of verifying password is problematic.
+&gt; This happens after clicking [Create]. You can bypass that password check (not
+&gt; the server host check) using [Advanced Config].
+
+I think this will be counter-intuitive for many people.  What happens when you hit the button is not what is advertised on the button.  It says it will create the mailbox, but instead it tries to verify your password.  If that succeeds, all good, and it creates the account, but if it fails, it&apos;s not a great experience.  You already have a test button... shouldn&apos;t we just use that?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394533</commentid>
+            <who name="Blake Winton (:bwinton)">bwinton</who>
+            <bug_when>2011-04-07 09:23:04 -0700</bug_when>
+            <thetext>&gt; What happens when you hit the [Create] button is not what is advertised on the button.  It says it will create the mailbox, but instead it tries to verify your password.
+
+Yeah, that doesn&apos;t really make sense.  Would you file a new bug for this (and add me to the Cc list), and we can hash out the wording there?
+
+Thanks,
+Blake.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395333</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-07 15:59:44 -0700</bug_when>
+            <thetext>&gt; &gt; Do the steps in comment 9 (Correction: in Step 3 clicking [Manual Config]
+&gt; &gt; instead of [Stop]) work, assuming the server works?
+
+&gt; nope
+
+Well, they do work for me... Clicking [Re-Test] (and that test succeeding, i.e. the server working) is necessary, though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395838</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-07 20:47:20 -0700</bug_when>
+            <thetext>Ben, I emailed you a video showing clearly the problem.
+
+Regards
+
+Adrien</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396185</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-08 01:51:30 -0700</bug_when>
+            <thetext>Thanks, Adrien, that was useful. You are not entering any SMTP server, your SMTP server hostname is &quot;.qbik.com&quot;, that&apos;s why it says the server is not correct.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396343</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-08 06:35:30 -0700</bug_when>
+            <thetext>so you mean you need to have working IMAP _and_ SMTP to set up an account?
+
+What about the fact the Advanced config button was disabled?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396392</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-08 07:12:48 -0700</bug_when>
+            <thetext>&gt; so you mean you need to have working IMAP _and_ SMTP to set up an account?
+
+Yes
+(See comment 9 step 5)
+
+&gt; What about the fact the Advanced config button was disabled?
+
+Comment 36.
+
+We intentionally ensure that the servers are working and the settings are correct before letting you proceed. We&apos;re tuning for average users who just want a working account. If we allow them to set up a broken account, chances are that a good portion of users does so, even if they didn&apos;t really mean to, and then have a hard time to correct it.
+
+I provided workarounds for cases where you absolutely want to set up an account for a server that doesn&apos;t work.
+
+Sorry, but I don&apos;t see a bug here.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397536</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-08 14:31:38 -0700</bug_when>
+            <thetext>(In reply to comment #44)
+&gt; &gt; so you mean you need to have working IMAP _and_ SMTP to set up an account?
+&gt; Yes
+
+OK, I guess we will continue to disagree on that, and we&apos;ll see what the users think when it&apos;s put to them.
+
+&gt; (See comment 9 step 5)
+&gt; &gt; What about the fact the Advanced config button was disabled?
+&gt; Comment 36.
+&gt; We intentionally ensure that the servers are working and the settings are
+&gt; correct before letting you proceed. We&apos;re tuning for average users who just
+&gt; want a working account. If we allow them to set up a broken account, chances
+&gt; are that a good portion of users does so, even if they didn&apos;t really mean to,
+&gt; and then have a hard time to correct it.
+&gt; I provided workarounds for cases where you absolutely want to set up an account
+&gt; for a server that doesn&apos;t work.
+
+OK.  I can&apos;t get this workaround to work if I interrupt the discovery process.
+
+By workaround do you mean the advanced config button or something else?  If you mean that button, it needs to be enabled.
+
+Otherwise you need to post a warning during discovery
+
+&quot;don&apos;t press the manual config button&quot;</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397539</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-08 14:32:54 -0700</bug_when>
+            <thetext>also, if you&apos;re going to fail a process on lack of a working SMTP server, you need to make the error text refer to that.
+
+I think expectations could be managed a lot better during the process.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397569</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-08 14:44:01 -0700</bug_when>
+            <thetext>(In reply to comment #45)
+&gt; &gt; We intentionally ensure that the servers are working and the settings are
+&gt; &gt; correct before letting you proceed. We&apos;re tuning for average users who just
+&gt; &gt; want a working account. If we allow them to set up a broken account, chances
+&gt; &gt; are that a good portion of users does so, even if they didn&apos;t really mean to,
+&gt; &gt; and then have a hard time to correct it.
+
+Just for the record:
+
+1. I&apos;m fine with there being a mechanism to verify / validate settings.  This should be a tool to assist however, not a shackle we must all wear.  Computers are still thought of as tools to assist aren&apos;t they?
+
+2. I&apos;m fine with a mechanism to automatically try and find account details based on whatever (e.g. domain part of email address).  I think there are numerous improvements that could be made to how this is communicated to the user while it&apos;s happening.
+
+3. If the workaround is &quot;hack about:config / prefs.js &quot; that&apos;s not good enough.  Not when there is an Advanced settings button and a create account button sitting there disabled/lying to me.
+
+Buttons should
+
+a) work
+b) do what they say
+
+regards
+
+Adrien</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397719</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-08 15:35:42 -0700</bug_when>
+            <thetext>This is mostly a UX question, thus I think that Bryan should make this decision given that bug 549045 doesn&apos;t explicitly state that the user shall be actively prevented from setting up a broken account (the end of bug 549045 comment #81 actually implies that this &quot;power&quot; should still be given to the user).
+
+-&gt; REOPENING (as a minimum, this should be a valid RFE)
+
+(In reply to comment #47)
+&gt; 1. I&apos;m fine with there being a mechanism to verify / validate settings.  This
+&gt; should be a tool to assist however, not a shackle we must all wear.  Computers
+&gt; are still thought of as tools to assist aren&apos;t they?
+
+I agree with that. Yes, the first step is to use the settings that are known for a provider, or can be guessed from the domain, and verify that they work before accepting them. The second step is to let the user enter manual mode and provide the entries, then re-test if it works. But, there may be still cases where even that doesn&apos;t proceed, being that some detail is missing or the server is indeed just down. So, after re-testing fails, there sure should be some notification about &quot;Hey, you may be creating a broken account now!&quot; but the user should be permitted to either create the account anyway as specified on his or her own risk, be it by using the &quot;Create&quot; button of through the &quot;Advanced Settings&quot;. One can always delete a non-functional account afterwards.
+
+(In reply to comment #44)
+&gt; I provided workarounds for cases where you absolutely want to set up an account
+&gt; for a server that doesn&apos;t work.
+
+It&apos;s a workaround, but a rather bumpy one and requires that you set up another account correctly first which must have working servers. Asking a user to manually hack the rather complex server/account/identity settings in prefs.js was hopefully a joke, as it is highly unlikely that even an experienced user will be successful doing that on a first attempt.
+
+If everything was done that Thunderbird can do to ensure that the account was set up correctly, it&apos;s ok to say &quot;Sorry, but you are on your own - do you still want me to create that account?&quot; and then just let the user make the final decision so that a chance is given to figure it out in the Account Settings...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398082</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-08 23:23:02 -0700</bug_when>
+            <thetext>&gt; 3. If the workaround is &quot;hack about:config / prefs.js &quot; that&apos;s not good enough.
+
+The workaround is to create an account with a working server, then change it to the broken server in &quot;Account Settings&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398098</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-08 23:57:51 -0700</bug_when>
+            <thetext>(In reply to comment #49)
+&gt; &gt; 3. If the workaround is &quot;hack about:config / prefs.js &quot; that&apos;s not good enough.
+&gt; The workaround is to create an account with a working server, then change it to
+&gt; the broken server in &quot;Account Settings&quot;.
+
+OK.
+
+Firstly.  The server was not broken, it was available.  The validation was broken.
+
+Secondly, most people don&apos;t have another account lying around they can use.  So your workaround is not good enough.
+
+What would be good enough is to simply fix the bug that is preventing the Advanced button from being enabled.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398105</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-09 00:12:44 -0700</bug_when>
+            <thetext>&gt; Firstly.  The server was not broken, it was available.  The validation was
+&gt; broken.
+
+You haven&apos;t shown that. In all cases I saw, you either didn&apos;t enter IMAP *and* SMTP hostname, or the server was down.
+
+&gt; most people don&apos;t have another account lying around they can use.
+
+*Most people* do not want to set up accounts for servers which are not working. This is why it works it does. Admins typically do have more than one account.
+
+&gt; What would be good enough is to simply fix the bug that is preventing the
+&gt; Advanced button from being enabled.
+
+Again: It&apos;s not a bug. It&apos;s intentional. This is a change request, not a bug report. (Which is fine, but please don&apos;t call it a bug.)</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398154</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-09 01:47:55 -0700</bug_when>
+            <thetext>(In reply to comment #51)
+&gt; &gt; Firstly.  The server was not broken, it was available.  The validation was
+&gt; &gt; broken.
+&gt; You haven&apos;t shown that. In all cases I saw, you either didn&apos;t enter IMAP *and*
+&gt; SMTP hostname, or the server was down.
+
+OK, so you&apos;re saying when I see
+
+Outgoing: [SMTP] .qbik.com
+
+Then I&apos;m not supposed to read that as smtp.qbik.com, and in fact I need to enter smtp.qbik.com?  That&apos;s confusing.  
+
+smtp.qbik.com has been available through all these tests.
+
+in fact mail.qbik.com has also been available through all these tests.
+
+So lets consider the case where someone is trying to manually set it up.
+
+If there&apos;s a working IMAP server specified, but no working SMTP server, there&apos;s no indication from the dialog which is failing validation.  My assumption was that it was the IMAP.  I probably won&apos;t be the only one to assume that.  I knew smtp.qbik.com wouldn&apos;t be failing, and as far as I was concerned it was displaying that it was using smtp.qbik.com.
+
+So out of all this I would propose:
+
+1. Change &quot;Outgoing: SMTP&quot; to &quot;Outgoing (SMTP):&quot; to make it clear that the SMTP label is an indication of the protocol only, and does not form part of the name being tested.
+2. don&apos;t bother automatically putting any domain name into the edit fields that starts with a &apos;.&apos;.  It implies something before it in the dialog is pre-pended.
+
+3. display more specific progress and results from the tests than &quot;Miramar failed to find the settings for your email account&quot;.  E.g display
+
+* verifying IMAP account, looking up imap.qbik.com - failed
+* verifying IMAP account, looking up mail.qbik.com - succeeded
+* verifying IMAP account, connecting to mail.qbik.com - succeeded
+* verifying IMAP account, probing mail.qbik.com - succeeded
+* verifying SMTP, looking up smtp.qbik.com - succeeded
+* verifying SMTP, connecting to smtp.qbik.com - succeeded
+* verifying SMTP, probing smtp.qbik.com - succeeded
+
+if these flicked past, and stuck on the one that failed, it would be much more clear what remedial action was needed.
+
+You might need to put in a log button to bring up the test history so if it happens too quick you can go back and see what it did.
+
+&gt; &gt; most people don&apos;t have another account lying around they can use.
+&gt; *Most people* do not want to set up accounts for servers which are not working.
+
+There&apos;s a difference between &quot;not working NOW and will never work&quot;, and &quot;not working NOW, but will be working in 1hr when I get back to the office and enable the client IP on my firewall&quot;.  You need to keep in mind the timing.
+
+&gt; This is why it works it does. Admins typically do have more than one account.
+&gt; &gt; What would be good enough is to simply fix the bug that is preventing the
+&gt; &gt; Advanced button from being enabled.
+&gt; Again: It&apos;s not a bug. It&apos;s intentional. This is a change request, not a bug
+&gt; report. (Which is fine, but please don&apos;t call it a bug.)
+
+I guess you&apos;re right this part is a change request.  Now that I&apos;ve figured out what is going on, there are 2 issues.  
+
+1. communication and confusion during discovery and retesting, arguably mis-labelled buttons.
+
+2. policy issue about intentionally preventing creation of accounts where TB cannot validate them NOW.
+
+I think we can probably call 1 a bug at some level.  As for 2, it&apos;s only my opinion, but I believe it&apos;s really foolhardy not to allow for a possibility that TB&apos;s ability to validate account details may not be perfect.
+
+There are lots of problem cases that could prevent validation (and therefore account creation) with valid data.  This is a really serious message you&apos;re sending.  TB hasn&apos;t done this in the past.  TB 3.1 would allow account creation with any garbage that might work later when required.  It puts users to some inconvenience to force them to fix other problems (possibly outside their realm of capability or administration) before they can set up an email account in a mail client.  It&apos;s the closest thing to flipping the user the bird I can think of in software.
+
+Allowing the creation of the account gives the user flexibility about the order in which things are done.  The support tech who has to do a 200 mile round trip to enable the mail to work because of this is NOT going to recommend TB to his next customer.  In fact faced with a 200 mile round trip, I would most likely install Outlook Express instead.  We have customers who support clients who don&apos;t have remote access to systems, or even enough nouse to edit account settings afterwards.  We&apos;ve had irate customers who have had to make such trips.  It happens. It would not be good PR for TB.  
+
+In the end, what&apos;s the first thing a new user of TB does once they download and install it - they set up an account.  If they can&apos;t do that, what chance do you think TB has of remaining installed on their computer?  This is where first impressions are made.  After the installer itself, this part needs to be ultra-slick to cement in the user&apos;s mind that they made a good choice with this one.
+
+To my knowledge, no email software has ever prevented creation of an account simply because it was incapable _at_that_moment_ of verifying the details.  It&apos;s a very bold and extremely unusual step.
+
+Regards
+
+Adrien</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398169</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-09 02:20:53 -0700</bug_when>
+            <thetext>Sorry - probably scratch my comments about 200 mile round trips - I didn&apos;t understand where the workaround was headed.  I see now that you meant entering some other valid servers in there so that the test would succeed then creating the account, then editing it to the real values.  Which of course doesn&apos;t require any road miles.... as long as the tech thinks of it and has access to some servers that will validate (which he should, except SMTP could be a problem).
+
+It begs the question why put the user to that pain though.
+
+thanks for all your patience.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400496</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-11 09:07:10 -0700</bug_when>
+            <thetext>Ok, so let&apos;s keep this bug open for the question whether or not the redesigned account wizard should allow setup of a non-verifiable configuration if the user wishes to do so and all other options are exhausted (IMO after the user has entered Manual Config and re-tested it after editing). 
+
+Some other issues Adrien mentions in comment #52 should be worth covering in separate bugs:
+
+&gt; 1. Change &quot;Outgoing: SMTP&quot; to &quot;Outgoing (SMTP):&quot; to make it clear that the SMTP
+&gt; label is an indication of the protocol only, and does not form part of the name
+&gt; being tested.
+&gt; 2. don&apos;t bother automatically putting any domain name into the edit fields that
+&gt; starts with a &apos;.&apos;.  It implies something before it in the dialog is pre-pended.
+
+Item #2 appears to be the main problem for the confusion. Manual Config starts off with a leading &apos;.&apos; if a configuration couldn&apos;t be established, which would be an invalid host name anyway. That looks clearly like a bug, and an &quot;smtp&quot;, &quot;imap&quot;, or &quot;pop&quot; could be prepended even if the server couldn&apos;t be verified. Making that unambiguous would also solve item #1.
+ 
+&gt; 3. display more specific progress and results from the tests than &quot;Miramar
+&gt; failed to find the settings for your email account&quot;.  E.g display
+&gt; 
+&gt; * verifying IMAP account, looking up imap.qbik.com - failed
+&gt; * verifying IMAP account, looking up mail.qbik.com - succeeded
+&gt; * verifying IMAP account, connecting to mail.qbik.com - succeeded
+&gt; * verifying IMAP account, probing mail.qbik.com - succeeded
+&gt; * verifying SMTP, looking up smtp.qbik.com - succeeded
+&gt; * verifying SMTP, connecting to smtp.qbik.com - succeeded
+&gt; * verifying SMTP, probing smtp.qbik.com - succeeded
+
+Yes, if would be good to see those at least listed in the Activity Manager (maybe there is some debug information available already, but either would need a hidden preference being set or may be disabled in non-debug builds). Also, such an output would greatly benefit support to see how far the autoconfig process gets before an error occurs that leads it to fail.
+
+Adrien, if you want to file those two suggestions as new bugs I&apos;ll be happy to confirm them, or I can file them on your behalf.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400511</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-11 09:18:00 -0700</bug_when>
+            <thetext>&gt; 3. display more specific progress and results from the tests than &quot;Miramar
+&gt; failed to find the settings for your email account&quot;
+
+We can&apos;t show progress, because we try all hosts *in parallel* now.
+Showing the all the &quot;failed&quot; results would be too technical, and wouldn&apos;t help.
+
+We don&apos;t want the user to guess, we want him to *get* the right config from his ISP or admin and enter that.
+
+&gt; Manual Config starts off with a leading &apos;.&apos; if a configuration
+&gt; couldn&apos;t be established, which would be an invalid host name anyway
+
+That&apos;s precisely the point. I prefill the domain, to save the user the typing. I add the dot in front, specifically to avoid catching a valid host &quot;foo.com&quot;. The point is to *force* the user to enter something valid, but still help him maximally.
+
+I see that Adrian misunderstood 1) the label of the field 2) that he has to fill out both servers, but I believe that&apos;s obvious for most people.
+
+&gt; &quot;imap&quot;, or &quot;pop&quot; could be prepended even if the server couldn&apos;t be verified.
+
+We already try pop.foo.com. If that was working, it would be prefilled.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400520</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-11 09:22:36 -0700</bug_when>
+            <thetext>FWIW, the reason why I force the user to enter a valid server *before* he can click &quot;Advanced config&quot; is that the servername and -type that is entered here in the wizard will stay in the Thunderbird config forever, even if changed later in the Account Settings that open after &quot;Advanced Config&quot; opens. This has been the source of lots of confusion and *very* angry users before, that they didn&apos;t understand that clicking &quot;Advanced Config&quot; *creates* an account with these values. The server name and username can be changed, but they stay as internal values (e.g. directory name in profile).
+
+So, if we fix this, we must fix bug 636016 first (better communicate implication of &quot;advanced config&quot; button to user).</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400538</commentid>
+            <who name="Ben Bucksch (:BenB)">ben.bucksch</who>
+            <bug_when>2011-04-11 09:29:57 -0700</bug_when>
+            <thetext>To summarize, *if* we fix this bug (I am still think that &quot;Set up a server that&apos;s not working&quot; is an edge case not worth considering), we should:
+- enable &quot;advanced config&quot; button as soon as we go into manual mode
+- fix bug 636016 to make the implication clear to the user
+
+Alternatively, we can treat this as DUP of bug 599173 - wizard should work when offline.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400547</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-11 09:33:01 -0700</bug_when>
+            <thetext>(In reply to comment #55)
+&gt; We can&apos;t show progress, because we try all hosts *in parallel* now.
+&gt; Showing the all the &quot;failed&quot; results would be too technical, and wouldn&apos;t help.
+
+I had the Activity Manager in mind, which is well capable of handling parallel processes. The main reason here would be for someone seeking support to direct him or her to the Activity Manager output, which would be better to pinpoint the possible cause than just the information &quot;if went to Manual Config and now I have no clue how to continue&quot; or to probe the servers manually from potentially a different location as the user with different conditions.
+
+Anyway, this would be another bug...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400646</commentid>
+            <who name="rsx11m">rsx11m.pub</who>
+            <bug_when>2011-04-11 09:57:14 -0700</bug_when>
+            <thetext>(In reply to comment #57)
+&gt; - fix bug 636016 to make the implication clear to the user
+
+I&apos;m fine with that part. If we allow the user to screw up, he or she should be sufficiently informed about this. Then it&apos;s no longer Thunderbird&apos;s fault. ;-) 
+
+&gt; Alternatively, we can treat this as DUP of bug 599173 - wizard should work when
+&gt; offline.
+
+No, that one was duped against bug 583602 which was mainly about offline mode throwing an exception. That behavior is valid on branch where the old wizard is still there and may be solved independently, so these are two different issues.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402188</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-11 16:52:50 -0700</bug_when>
+            <thetext>(In reply to comment #55)
+&gt; &gt; 3. display more specific progress and results from the tests than &quot;Miramar
+&gt; &gt; failed to find the settings for your email account&quot;
+&gt; We can&apos;t show progress, because we try all hosts *in parallel* now.
+
+OK.
+
+&gt; Showing the all the &quot;failed&quot; results would be too technical, and wouldn&apos;t help.
+
+In the end though, the overall failure is based on being unable to verify both IMAP/POP3 _and_ SMTP.  This isn&apos;t explicit stated anywhere.  Even if you just said like &quot;couldn&apos;t validate your SMTP server (tried x, y, z)&quot; or something.
+
+Like I said, nowhere does it state that TB will 
+
+a) attempt to verify all your settings
+b) block account creation unless all servers are currently accessible
+
+b is not the sort of thing I believe users will expect, since it&apos;s the first mail client I know of to take that (fairly outrageous) step.  
+
+I certainly didn&apos;t expect TB to say to me &quot;I know better than you so get lost&quot;.
+
+In fact I had to infer it from the actual message.  I guess I was still stunned from having some piece of software effectively tell me I was too dumb to use it.
+
+&gt; We don&apos;t want the user to guess, we want him to *get* the right config from his
+&gt; ISP or admin and enter that.
+
+Sure.
+
+&gt; &gt; Manual Config starts off with a leading &apos;.&apos; if a configuration
+&gt; &gt; couldn&apos;t be established, which would be an invalid host name anyway
+&gt; That&apos;s precisely the point. I prefill the domain, to save the user the typing.
+&gt; I add the dot in front, specifically to avoid catching a valid host &quot;foo.com&quot;.
+&gt; The point is to *force* the user to enter something valid, but still help him
+&gt; maximally.
+
+I think you&apos;d actually be better off leaving something in there that didn&apos;t validate than try to help people without telling them what&apos;s going on.
+
+leaving smtp.qbik.com in there even if it failed validation (you don&apos;t necessarily know whether it&apos;s good or not, since you don&apos;t know when discovery may have been interrupted) is better.  Or even bogusreplaceme.qbik.com
+
+&gt; I see that Adrian misunderstood 1) the label of the field 2) that he has to
+&gt; fill out both servers, but I believe that&apos;s obvious for most people.
+
+It&apos;s possible.  Most people won&apos;t even get to this dialog.  It&apos;s also possible I wouldn&apos;t be the only one confused by this.  It&apos;s also possible there are so few of us that will be confused by this that it&apos;s not worth doing anything.
+
+But based on my experience of users, I doubt it.  Whether in the end this creates more problems than it solves is something only history will tell us I think.  At least you won&apos;t be bothered by support requests for all those people who couldn&apos;t create an account and instead just uninstalled.
+
+&gt; &gt; &quot;imap&quot;, or &quot;pop&quot; could be prepended even if the server couldn&apos;t be verified.
+&gt; We already try pop.foo.com. If that was working, it would be prefilled.
+
+If it had been tried at that stage.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402235</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-11 17:02:25 -0700</bug_when>
+            <thetext>(In reply to comment #57)
+&gt; To summarize, *if* we fix this bug (I am still think that &quot;Set up a server
+&gt; that&apos;s not working&quot;
+
+please consider instead &quot;Set up a server that&apos;s not currently verifiable&quot;
+
+that is the real edge case.
+
+TB&apos;s ability to verify something and a server&apos;s validity are two independent things that should not be confused.
+
+&gt; is an edge case not worth considering), we should:
+&gt; - enable &quot;advanced config&quot; button as soon as we go into manual mode
+&gt; - fix bug 636016 to make the implication clear to the user
+&gt; Alternatively, we can treat this as DUP of bug 599173 - wizard should work when
+&gt; offline.
+
+I&apos;ve got some ideas how the buttons etc could go, but I&apos;d also want a skip button in there :)
+
+I think basically that the advanced config button could be removed, and that job could be done by the [Create account] button.  If the CA button did just that, and the validation button could either be a next button (traditional wizard style) or an explicit [Validate] button.
+
+Could even separate out validation of mailbox from validation of ability to send (e.g. on different pages).
+
+I still think telling customers that don&apos;t want their users to use SMTP for whatever reason that they don&apos;t have a valid reason to exist is fairly problematic.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5402253</commentid>
+            <who name="Adrien de Croy">adrien</who>
+            <bug_when>2011-04-11 17:05:37 -0700</bug_when>
+            <thetext>(In reply to comment #56)
+&gt; FWIW, the reason why I force the user to enter a valid server *before* he can
+&gt; click &quot;Advanced config&quot; is that the servername and -type that is entered here
+&gt; in the wizard will stay in the Thunderbird config forever, even if changed
+&gt; later in the Account Settings that open after &quot;Advanced Config&quot; opens. This has
+&gt; been the source of lots of confusion and *very* angry users before, 
+
+sounds like a bug to fix?  I understand about not changing type (although some other clients did it I think - Eudora?).  But not changing servername I can&apos;t think of any reason why that would not just be changed... or is it used in too many places?  Maybe that job (e.g. folder paths etc) should be replaced by a name/label of the mailbox, instead of using the servername.
+
+
+that they
+&gt; didn&apos;t understand that clicking &quot;Advanced Config&quot; *creates* an account with
+&gt; these values. The server name and username can be changed, but they stay as
+&gt; internal values (e.g. directory name in profile).
+&gt; So, if we fix this, we must fix bug 636016 first (better communicate
+&gt; implication of &quot;advanced config&quot; button to user).
+
+When I clicked advanced config, I expected to see an advanced config dialog, 
+
+I certainly didn&apos;t expect it to create the account.  I expected that job would have been done by the Create Account button.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

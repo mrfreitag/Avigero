@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647861</bug_id>
+          
+          <creation_ts>2011-04-05 11:12:00 -0700</creation_ts>
+          <short_desc>Some Android devices aren&apos;t redirected to the mobile site</short_desc>
+          <delta_ts>2011-04-11 12:05:59 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>spark.mozilla.org</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>WORKSFORME</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>1.1</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Guillaume Lecollinet">guillaume</reporter>
+          <assigned_to name="Franck Lecollinet">franck.bugzilla</assigned_to>
+          <cc>claudia</cc>
+    
+    <cc>clooney</cc>
+    
+    <cc>ericac</cc>
+    
+    <cc>franck.bugzilla</cc>
+    
+    <cc>guillaume</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>ryansnyder.me+bugs</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>tdickson</cc>
+          <qa_contact>spark-mozilla-org</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391360</commentid>
+            <who name="Guillaume Lecollinet">guillaume</who>
+            <bug_when>2011-04-05 11:12:05 -0700</bug_when>
+            <thetext>Reported by TBG.
+
+TBG: It would be nice to have more details about the device, user agent, browser version with which this bug occured. Thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396673</commentid>
+            <who name="claudia // barbarian">claudia</who>
+            <bug_when>2011-04-08 09:56:52 -0700</bug_when>
+            <thetext>One user experienced this on Android 1.6, stock browser.
+
+There were others that we are asking currently for additional versions.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396689</commentid>
+            <who name="Franck Lecollinet">franck.bugzilla</who>
+            <bug_when>2011-04-08 10:01:27 -0700</bug_when>
+            <thetext>Claudia, please give the exact User-Agent strings of the browsers on which you experience this issue.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400723</commentid>
+            <who name="Ryan Snyder [:ryansnyder] [:rsnyder] [:rysny]">ryansnyder.me+bugs</who>
+            <bug_when>2011-04-11 10:14:47 -0700</bug_when>
+            <thetext>Claudia will send user agent strings by EOD today.  If we don&apos;t receive these, this will not make 1.1 code freeze.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400881</commentid>
+            <who name="claudia // barbarian">claudia</who>
+            <bug_when>2011-04-11 10:49:14 -0700</bug_when>
+            <thetext>We received this one from one of our testers:
+
+Mozilla/5.0 (Linux; U; Android 1.6; en-us; T-Mobile myTouch 3G Build/DRC92) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401091</commentid>
+            <who name="Franck Lecollinet">franck.bugzilla</who>
+            <bug_when>2011-04-11 11:48:27 -0700</bug_when>
+            <thetext>I cannot reproduce this bug.
+
+When issuing the following command:
+curl -I -A &apos;Mozilla/5.0 (Linux; U; Android 1.6; en-us; T-Mobile myTouch 3G Build/DRC92) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1&apos; https://spark.mozilla.org/en-US/home
+
+The server returns a 302 FOUND redirection including the following headers:
+Vary: X-Mobile
+Location: https://spark.mozilla.org/en-US/m/home
+
+The /m/ in the &apos;Location&apos; header means that the redirection is working properly for the user agent mentionned in Comment 4.
+
+For reference, this redirection is triggered by a server script (not by the Django code) added by IT via bug 642816.
+
+Should we resolve this bug as WORKSFORME?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401122</commentid>
+            <who name="Ryan Snyder [:ryansnyder] [:rsnyder] [:rysny]">ryansnyder.me+bugs</who>
+            <bug_when>2011-04-11 11:56:38 -0700</bug_when>
+            <thetext>Yep.  Marking as such.  Please re-open if this is reproducible.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401153</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-11 12:05:59 -0700</bug_when>
+            <thetext>I wasn&apos;t able to reproduce either. I tried on  the HTC Desire and  used the  user-agent switcher  add-on. marking as verified works for me until someone can reproduce</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

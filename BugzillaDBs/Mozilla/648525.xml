@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648525</bug_id>
+          
+          <creation_ts>2011-04-08 07:10:00 -0700</creation_ts>
+          <short_desc>Intermittent test_instantiation.html | application timed out after 330 seconds with no output</short_desc>
+          <delta_ts>2011-04-08 07:10:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>Trunk</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[orange]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>438871</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396388</commentid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-08 07:10:37 -0700</bug_when>
+            <thetext>http://tinderbox.mozilla.org/showlog.cgi?log=Firefox/1302253338.1302254953.5988.gz
+Rev3 MacOSX Snow Leopard 10.6.2 mozilla-central opt test mochitest-other on 2011/04/08 02:02:18
+s: talos-r3-snow-006
+
+318 INFO TEST-START | /tests/modules/plugin/test/test_instantiation.html
+NPP_Destroy
+TEST-UNEXPECTED-FAIL | /tests/modules/plugin/test/test_instantiation.html | application timed out after 330 seconds with no output</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647710</bug_id>
+          
+          <creation_ts>2011-04-04 10:32:00 -0700</creation_ts>
+          <short_desc>Huge leak in Mac OS X plugin CoreAnimationSupport.</short_desc>
+          <delta_ts>2011-04-08 11:36:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          <bug_file_loc>http://www.mozilla.com/products/download.html?product=firefox-4.0&amp;os=osx&amp;lang=en-US</bug_file_loc>
+          
+          
+          <priority>P1</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Bino George">bino_george</reporter>
+          <assigned_to name="Benoit Girard (:BenWa)">b56girard</assigned_to>
+          <cc>b56girard</cc>
+    
+    <cc>clegnitto</cc>
+    
+    <cc>highmind63</cc>
+    
+    <cc>jbecerra</cc>
+    
+    <cc>joshmoz</cc>
+    
+    <cc>mwu</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>Macaw+</cf_blocking_20>
+          <cf_status_20>.1-fixed</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390291</commentid>
+            <who name="Bino George">bino_george</who>
+            <bug_when>2011-04-04 10:32:52 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7) AppleWebKit/534.26.4 (KHTML, like Gecko) Version/5.1 Safari/534.26.4
+Build Identifier: 4.0 RC
+
+With the latest Lion Beta, available through Apple Developer Connection, there is a huge leak in the Core animation support code. To reproduce it, just run FireFox with Malloc stack logging enabled and you will see that the Real memory used by FireFox goes up my 1 Meg every 10 seconds when running a Java Applet like :
+
+http://java.sun.com/applets/jdk/1.4/demo/applets/ArcTest/example1.html
+
+Below are the cases of the leaks :
+
+The major culprit is lots of :
+
+Leak: 0x11c87eb50  size=48  zone: DefaultMallocZone_0x101d3a000	instance of &apos;__NSCFData&apos;, type ObjC, implemented in CoreFoundation	
+	0x7bbed6e8 0x00007fff 0x00001480 0x00000001 	...{............
+	0x00000020 0x00000000 0x00000020 0x00000000 	 ....... .......
+	0x7bc16760 0x00007fff 0x133bb364 0x00000001 	`g.{....d.;.....
+	Call stack: [thread 0x7fff7ad64950]: | CreateSystemColorSpace() | CGColorSpaceCreateWithPlatformColorSpace | ColorSyncProfileFromCMProfile | ColorSyncProfileCreate | create | __CFDataInit | _CFRuntimeCreateInstance | malloc_zone_malloc 
+
+
+followed by :
+
+Leak: 0x11c8b0710  size=32  zone: DefaultMallocZone_0x101d3a000	instance of &apos;__NSCFString&apos;, type ObjC, implemented in CoreFoundation	
+	0x7bbed508 0x00007fff 0x0000078c 0x00000001 	...{............
+	0x59586704 0x0000005a 0x00000000 0x00000000 	.gXYZ...........
+	Call stack: [thread 0x7fff7ad64950]: | CreateSystemColorSpace() | CGColorSpaceCreateWithPlatformColorSpace | ColorSyncProfileFromCMProfile | ColorSyncProfileCreate | create | CFStringCreateWithBytes | __CFStringCreateImmutableFunnel3 
+
+and :
+
+Leak: 0x114426ca0  size=16  zone: DefaultMallocZone_0x101d3a000	
+	0x12ab8ead 0x7972ac53 0x3b98c697 0x69d22374 	....S.ry...;t#.i
+	Call stack: [thread 0x7fff7ad64950]: | nsCARenderer::DrawSurfaceToCGContext(CGContext*, nsIOSurface*, CGColorSpace*, int, int, int, int) | CGContextDrawImage | ripc_DrawImage | ripc_AcquireImage | CGSImageDataLock | img_data_lock | 
+
+All of these are in FireFox code :
+
+http://mxr.mozilla.org/mozilla-central/source/gfx/thebes/nsCoreAnimationSupport.mm
+
+and 
+
+http://mxr.mozilla.org/mozilla-central/source/gfx/thebes/nsCoreAnimationSupport.mm
+
+
+
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+0. Install Lion Beta from developer.apple.com, Make sure you install the developer tools.
+1. MallocStackLogging=1 /Applications/Firefox.app/Contents/MacOS/firefox-bin
+2. Go to the URL : http://java.sun.com/applets/jdk/1.4/demo/applets/ArcTest/example1.html
+3. leaks &lt;pid&gt;
+
+
+Actual Results:  
+Below are the cases of the leaks :
+
+The major culprit is lots of :
+
+Leak: 0x11c87eb50  size=48  zone: DefaultMallocZone_0x101d3a000	instance of &apos;__NSCFData&apos;, type ObjC, implemented in CoreFoundation	
+	0x7bbed6e8 0x00007fff 0x00001480 0x00000001 	...{............
+	0x00000020 0x00000000 0x00000020 0x00000000 	 ....... .......
+	0x7bc16760 0x00007fff 0x133bb364 0x00000001 	`g.{....d.;.....
+	Call stack: [thread 0x7fff7ad64950]: | CreateSystemColorSpace() | CGColorSpaceCreateWithPlatformColorSpace | ColorSyncProfileFromCMProfile | ColorSyncProfileCreate | create | __CFDataInit | _CFRuntimeCreateInstance | malloc_zone_malloc 
+
+
+followed by :
+
+Leak: 0x11c8b0710  size=32  zone: DefaultMallocZone_0x101d3a000	instance of &apos;__NSCFString&apos;, type ObjC, implemented in CoreFoundation	
+	0x7bbed508 0x00007fff 0x0000078c 0x00000001 	...{............
+	0x59586704 0x0000005a 0x00000000 0x00000000 	.gXYZ...........
+	Call stack: [thread 0x7fff7ad64950]: | CreateSystemColorSpace() | CGColorSpaceCreateWithPlatformColorSpace | ColorSyncProfileFromCMProfile | ColorSyncProfileCreate | create | CFStringCreateWithBytes | __CFStringCreateImmutableFunnel3 
+
+and :
+
+Leak: 0x114426ca0  size=16  zone: DefaultMallocZone_0x101d3a000	
+	0x12ab8ead 0x7972ac53 0x3b98c697 0x69d22374 	....S.ry...;t#.i
+	Call stack: [thread 0x7fff7ad64950]: | nsCARenderer::DrawSurfaceToCGContext(CGContext*, nsIOSurface*, CGColorSpace*, int, int, int, int) | CGContextDrawImage | ripc_DrawImage | ripc_AcquireImage | CGSImageDataLock | img_data_lock | 
+
+All of these are in FireFox code :
+
+http://mxr.mozilla.org/mozilla-central/source/gfx/thebes/nsCoreAnimationSupport.mm
+
+and 
+
+http://mxr.mozilla.org/mozilla-central/source/gfx/thebes/nsCoreAnimationSupport.mm</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390301</commentid>
+            <who name="Josh Aas (Mozilla Corporation)">joshmoz</who>
+            <bug_when>2011-04-04 10:41:56 -0700</bug_when>
+            <thetext>Benoit - can you look into this?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390312</commentid>
+            <who name="Benoit Girard (:BenWa)">b56girard</who>
+            <bug_when>2011-04-04 10:55:17 -0700</bug_when>
+            <thetext>Thanks for the report.
+
+The fault is here:
+http://mxr.mozilla.org/mozilla-central/source/layout/generic/nsObjectFrame.cpp#4425
+
+Some sloppy testing code I forgot to fix before submitting a patch.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392406</commentid>
+            <who name="Josh Aas (Mozilla Corporation)">joshmoz</who>
+            <bug_when>2011-04-06 09:32:49 -0700</bug_when>
+            <thetext>We should get this into Firefox 4.0.1.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392969</commentid>
+              <attachid>524237</attachid>
+            <who name="Benoit Girard (:BenWa)">b56girard</who>
+            <bug_when>2011-04-06 12:44:53 -0700</bug_when>
+            <thetext>Created attachment 524237
+Fix Color Profile Leak v1</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393002</commentid>
+            <who name="Benoit Girard (:BenWa)">b56girard</who>
+            <bug_when>2011-04-06 12:58:59 -0700</bug_when>
+            <thetext>Is someone available to check this in? Particularly in 1.9.2.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393190</commentid>
+            <who name="Josh Aas (Mozilla Corporation)">joshmoz</who>
+            <bug_when>2011-04-06 14:15:27 -0700</bug_when>
+            <thetext>I don&apos;t think 1.9.2 supports CA, does it? Do you mean the 2.0 branch?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393219</commentid>
+            <who name="Benoit Girard (:BenWa)">b56girard</who>
+            <bug_when>2011-04-06 14:24:14 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; I don&apos;t think 1.9.2 supports CA, does it? Do you mean the 2.0 branch?
+
+Right, opps.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393395</commentid>
+            <who name="Christian Legnitto [:LegNeato]">clegnitto</who>
+            <bug_when>2011-04-06 15:33:33 -0700</bug_when>
+            <thetext>Pulling into Macaw</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393465</commentid>
+              <attachid>524297</attachid>
+            <who name="Josh Aas (Mozilla Corporation)">joshmoz</who>
+            <bug_when>2011-04-06 16:03:45 -0700</bug_when>
+            <thetext>Created attachment 524297
+fix v1.1
+
+Update to current trunk.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393681</commentid>
+            <who name="Michael Wu [:mwu]">mwu</who>
+            <bug_when>2011-04-06 17:31:13 -0700</bug_when>
+            <thetext>http://hg.mozilla.org/mozilla-central/rev/d256fbc66a37
+
+Leaving the checkin-needed keyword since I assume we want this landed on 2.0 branch too.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396942</commentid>
+              <attachid>524297</attachid>
+            <who name="Daniel Veditz">dveditz</who>
+            <bug_when>2011-04-08 11:14:50 -0700</bug_when>
+            <thetext>Comment on attachment 524297
+fix v1.1
+
+Approved for the mozilla2.0 repository, a=dveditz for release-drivers
+
+Please land for the Tumucumaque Macaw release</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397052</commentid>
+            <who name="Josh Aas (Mozilla Corporation)">joshmoz</who>
+            <bug_when>2011-04-08 11:35:58 -0700</bug_when>
+            <thetext>pushed to mozilla-2.0
+
+http://hg.mozilla.org/releases/mozilla-2.0/rev/a2840fe77a5b</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="1"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524237</attachid>
+            <date>2011-04-06 12:44:00 -0700</date>
+            <delta_ts>2011-04-06 16:03:45 -0700</delta_ts>
+            <desc>Fix Color Profile Leak v1</desc>
+            <filename>profile_leak.patch</filename>
+            <type>text/plain</type>
+            <size>3907</size>
+            <attacher>b56girard</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEJlbm9pdCBHaXJhcmQgPGI1NmdpcmFyZEBnbWFp
+bC5jb20+CiMgRGF0ZSAxMzAyMTE4OTI4IDE0NDAwCiMgTm9kZSBJRCAwNmI1NzdjODFmMGExZWVk
+MWJiOWY0NmQ3MmU2YTQ4ZjdlY2NmNmU5CiMgUGFyZW50ICA5M2NkNmM2MGUxNmIzNDc1OGE3OGQ3
+ZjZiODY5NjNjZTBjYjFiM2JiCkZpeGVkIGNvbG9yIHByb2ZpbGUgbGVhay4gYj02NDc3MTAKCmRp
+ZmYgLS1naXQgYS9sYXlvdXQvZ2VuZXJpYy9uc09iamVjdEZyYW1lLmNwcCBiL2xheW91dC9nZW5l
+cmljL25zT2JqZWN0RnJhbWUuY3BwCi0tLSBhL2xheW91dC9nZW5lcmljL25zT2JqZWN0RnJhbWUu
+Y3BwCisrKyBiL2xheW91dC9nZW5lcmljL25zT2JqZWN0RnJhbWUuY3BwCkBAIC01MTYsMTYgKzUx
+NiwxNyBAQCBwcml2YXRlOgogI2lmZGVmIFhQX01BQ09TWAogICBOUF9DR0NvbnRleHQgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBtQ0dQbHVnaW5Qb3J0Q29weTsKICNpZm5kZWYgTlBfTk9f
+UVVJQ0tEUkFXCiAgIE5QX1BvcnQgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1R
+RFBsdWdpblBvcnRDb3B5OwogI2VuZGlmCiAgIFBSSW50MzIgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIG1JbkNHUGFpbnRMZXZlbDsKICAgbnNJT1N1cmZhY2UgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAqbUlPU3VyZmFjZTsKICAgbnNDQVJlbmRlcmVyICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgbUNBUmVuZGVyZXI7CisgIENHQ29sb3JTcGFjZVJlZiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIG1Db2xvclByb2ZpbGU7CiAgIHN0YXRpYyBuc0NPTVB0cjxuc0lU
+aW1lcj4gICAgICAgICAgICAgICAgKnNDQVRpbWVyOwogICBzdGF0aWMgbnNUQXJyYXk8bnNQbHVn
+aW5JbnN0YW5jZU93bmVyKj4gICpzQ0FSZWZyZXNoTGlzdGVuZXJzOwogICBQUkJvb2wgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtU2VudEluaXRpYWxUb3BMZXZlbFdpbmRvd0V2
+ZW50OwogI2VuZGlmCiAKICAgLy8gSW5pdGlhbGx5LCB0aGUgZXZlbnQgbG9vcCBuZXN0aW5nIGxl
+dmVsIHdlIHdlcmUgY3JlYXRlZCBvbiwgaXQncyB1cGRhdGVkCiAgIC8vIGlmIHdlIGRldGVjdCB0
+aGUgYXBwc2hlbGwgaXMgb24gYSBsb3dlciBsZXZlbCBhcyBsb25nIGFzIHdlJ3JlIG5vdCBzdG9w
+cGVkLgogICAvLyBXZSBkZWxheSBEb1N0b3BQbHVnaW4oKSB1bnRpbCB0aGUgYXBwc2hlbGwgcmVh
+Y2hlcyB0aGlzIGxldmVsIG9yIGxvd2VyLgpAQCAtMjg4NSwxNiArMjg4NiwxNyBAQCBuc1BsdWdp
+bkluc3RhbmNlT3duZXI6Om5zUGx1Z2luSW5zdGFuY2VPCiAjaWZkZWYgWFBfTUFDT1NYCiAgIG1l
+bXNldCgmbUNHUGx1Z2luUG9ydENvcHksIDAsIHNpemVvZihOUF9DR0NvbnRleHQpKTsKICNpZm5k
+ZWYgTlBfTk9fUVVJQ0tEUkFXCiAgIG1lbXNldCgmbVFEUGx1Z2luUG9ydENvcHksIDAsIHNpemVv
+ZihOUF9Qb3J0KSk7CiAjZW5kaWYKICAgbUluQ0dQYWludExldmVsID0gMDsKICAgbVNlbnRJbml0
+aWFsVG9wTGV2ZWxXaW5kb3dFdmVudCA9IFBSX0ZBTFNFOwogICBtSU9TdXJmYWNlID0gbnNudWxs
+OworICBtQ29sb3JQcm9maWxlID0gbnNudWxsOwogICBtUGx1Z2luUG9ydENoYW5nZWQgPSBQUl9G
+QUxTRTsKICNlbmRpZgogICBtQ29udGVudEZvY3VzZWQgPSBQUl9GQUxTRTsKICAgbVdpZGdldFZp
+c2libGUgPSBQUl9UUlVFOwogICBtUGx1Z2luV2luZG93VmlzaWJsZSA9IFBSX0ZBTFNFOwogICBt
+TnVtQ2FjaGVkQXR0cnMgPSAwOwogICBtTnVtQ2FjaGVkUGFyYW1zID0gMDsKICAgbUNhY2hlZEF0
+dHJQYXJhbU5hbWVzID0gbnNudWxsOwpAQCAtNDA4NywxNiArNDA4OSwxOSBAQCB2b2lkIG5zUGx1
+Z2luSW5zdGFuY2VPd25lcjo6UmVuZGVyQ29yZUFuCiAgICAgICB9IGVsc2UgewogICAgICAgICBO
+U19FUlJPUigiSU9TdXJmYWNlIGF0dGFjaG1lbnQgZmFpbGVkIik7CiAgICAgICAgIGRlbGV0ZSBh
+dHRhY2hTdXJmYWNlOwogICAgICAgICBkZWxldGUgbUlPU3VyZmFjZTsKICAgICAgICAgbUlPU3Vy
+ZmFjZSA9IE5VTEw7CiAgICAgICB9CiAgICAgfQogICB9CisgIGlmICghbUNvbG9yUHJvZmlsZSkg
+eworICAgIG1Db2xvclByb2ZpbGUgPSBDcmVhdGVTeXN0ZW1Db2xvclNwYWNlKCk7CisgIH0KIAog
+ICBpZiAobUNBUmVuZGVyZXIuaXNJbml0KCkgPT0gZmFsc2UpIHsKICAgICB2b2lkICpjYUxheWVy
+ID0gTlVMTDsKICAgICBtSW5zdGFuY2UtPkdldFZhbHVlRnJvbVBsdWdpbihOUFBWcGx1Z2luQ29y
+ZUFuaW1hdGlvbkxheWVyLCAmY2FMYXllcik7CiAgICAgaWYgKCFjYUxheWVyKSB7CiAgICAgICBy
+ZXR1cm47CiAgICAgfQogCkBAIC00MTA1LDE4ICs0MTEwLDE4IEBAIHZvaWQgbnNQbHVnaW5JbnN0
+YW5jZU93bmVyOjpSZW5kZXJDb3JlQW4KICAgICAvLyBTZXR0aW5nIHVwIHRoZSBDQUxheWVyIHJl
+cXVpcmVzIHJlc2V0dGluZyB0aGUgcGFpbnRpbmcgb3RoZXJ3aXNlIHdlCiAgICAgLy8gZ2V0IGdh
+cmJhZ2UgZm9yIHRoZSBmaXJzdCBmZXcgZnJhbWVzLgogICAgIEZpeFVwUGx1Z2luV2luZG93KGVQ
+bHVnaW5QYWludERpc2FibGUpOwogICAgIEZpeFVwUGx1Z2luV2luZG93KGVQbHVnaW5QYWludEVu
+YWJsZSk7CiAgIH0KIAogICBDR0ltYWdlUmVmIGNhSW1hZ2UgPSBOVUxMOwogICBuc3Jlc3VsdCBy
+dCA9IG1DQVJlbmRlcmVyLlJlbmRlcihhV2lkdGgsIGFIZWlnaHQsICZjYUltYWdlKTsKLSAgaWYg
+KHJ0ID09IE5TX09LICYmIG1JT1N1cmZhY2UpIHsKLSAgICBuc0NBUmVuZGVyZXI6OkRyYXdTdXJm
+YWNlVG9DR0NvbnRleHQoYUNHQ29udGV4dCwgbUlPU3VyZmFjZSwgQ3JlYXRlU3lzdGVtQ29sb3JT
+cGFjZSgpLAorICBpZiAocnQgPT0gTlNfT0sgJiYgbUlPU3VyZmFjZSAmJiBtQ29sb3JQcm9maWxl
+KSB7CisgICAgbnNDQVJlbmRlcmVyOjpEcmF3U3VyZmFjZVRvQ0dDb250ZXh0KGFDR0NvbnRleHQs
+IG1JT1N1cmZhY2UsIG1Db2xvclByb2ZpbGUsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIDAsIDAsIGFXaWR0aCwgYUhlaWdodCk7CiAgIH0gZWxzZSBpZiAocnQgPT0g
+TlNfT0sgJiYgY2FJbWFnZSAhPSBOVUxMKSB7CiAgICAgLy8gU2lnbmlmaWNhbnQgc3BlZWQgdXAg
+YnkgcmVzZXR0aW5nIHRoZSBzY2FsaW5nCiAgICAgOjpDR0NvbnRleHRTZXRJbnRlcnBvbGF0aW9u
+UXVhbGl0eShhQ0dDb250ZXh0LCBrQ0dJbnRlcnBvbGF0aW9uTm9uZSApOwogICAgIDo6Q0dDb250
+ZXh0VHJhbnNsYXRlQ1RNKGFDR0NvbnRleHQsIDAsIGFIZWlnaHQpOwogICAgIDo6Q0dDb250ZXh0
+U2NhbGVDVE0oYUNHQ29udGV4dCwgMS4wLCAtMS4wKTsKIAogICAgIDo6Q0dDb250ZXh0RHJhd0lt
+YWdlKGFDR0NvbnRleHQsIENHUmVjdE1ha2UoMCwwLGFXaWR0aCxhSGVpZ2h0KSwgY2FJbWFnZSk7
+CkBAIC01NDMwLDE2ICs1NDM1LDE4IEBAIG5zUGx1Z2luSW5zdGFuY2VPd25lcjo6RGVzdHJveSgp
+CiAjaWZkZWYgTUFDX0NBUkJPTl9QTFVHSU5TCiAgIC8vIHN0b3AgdGhlIHRpbWVyIGV4cGxpY2l0
+bHkgdG8gcmVkdWNlIHJlZmVyZW5jZSBjb3VudC4KICAgQ2FuY2VsVGltZXIoKTsKICNlbmRpZgog
+I2lmZGVmIFhQX01BQ09TWAogICBSZW1vdmVGcm9tQ0FSZWZyZXNoVGltZXIodGhpcyk7CiAgIGlm
+IChtSU9TdXJmYWNlKQogICAgIGRlbGV0ZSBtSU9TdXJmYWNlOworICBpZiAobUNvbG9yUHJvZmls
+ZSkKKyAgICA6OkNHQ29sb3JTcGFjZVJlbGVhc2UobUNvbG9yUHJvZmlsZSk7ICAKICNlbmRpZgog
+CiAgIC8vIHVucmVnaXN0ZXIgY29udGV4dCBtZW51IGxpc3RlbmVyCiAgIGlmIChtQ1hNZW51TGlz
+dGVuZXIpIHsKICAgICBtQ1hNZW51TGlzdGVuZXItPkRlc3Ryb3kobUNvbnRlbnQpOwogICAgIG1D
+WE1lbnVMaXN0ZW5lciA9IG5zbnVsbDsKICAgfQogCg==
+</data>
+<flag name="review"
+          id="437936"
+          type_id="4"
+          status="+"
+          setter="joshmoz"
+    />
+          </attachment>
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524297</attachid>
+            <date>2011-04-06 16:03:00 -0700</date>
+            <delta_ts>2011-04-08 11:14:50 -0700</delta_ts>
+            <desc>fix v1.1</desc>
+            <filename>profile_leak2.patch</filename>
+            <type>text/plain</type>
+            <size>2641</size>
+            <attacher>joshmoz</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIEJlbm9pdCBHaXJhcmQgPGI1NmdpcmFyZEBnbWFp
+bC5jb20+CiMgRGF0ZSAxMzAyMTMwODQ1IDI1MjAwCiMgTm9kZSBJRCAyZjNkNjU3NjJlNDRmMjJk
+NGViZDg1OGEwZjUwYzc4ODRiMGRhZjM1CiMgUGFyZW50ICA4ZTlmOTAwNzNhMjBkZmJmNTRjMmFi
+MjAwMWZhN2ZhNzNiZmNlZWY5CkJ1ZyA2NDc3MTA6IEZpeGVkIGNvbG9yIHByb2ZpbGUgbGVhay4g
+cj1qb3NoCgpkaWZmIC0tZ2l0IGEvbGF5b3V0L2dlbmVyaWMvbnNPYmplY3RGcmFtZS5jcHAgYi9s
+YXlvdXQvZ2VuZXJpYy9uc09iamVjdEZyYW1lLmNwcAotLS0gYS9sYXlvdXQvZ2VuZXJpYy9uc09i
+amVjdEZyYW1lLmNwcAorKysgYi9sYXlvdXQvZ2VuZXJpYy9uc09iamVjdEZyYW1lLmNwcApAQCAt
+NTM4LDYgKzUzOCw3IEBAIHByaXZhdGU6CiAgIFBSSW50MzIgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIG1JbkNHUGFpbnRMZXZlbDsKICAgbnNJT1N1cmZhY2UgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAqbUlPU3VyZmFjZTsKICAgbnNDQVJlbmRlcmVyICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgbUNBUmVuZGVyZXI7CisgIENHQ29sb3JTcGFjZVJlZiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIG1Db2xvclByb2ZpbGU7CiAgIHN0YXRpYyBuc0NPTVB0cjxuc0lU
+aW1lcj4gICAgICAgICAgICAgICAgKnNDQVRpbWVyOwogICBzdGF0aWMgbnNUQXJyYXk8bnNQbHVn
+aW5JbnN0YW5jZU93bmVyKj4gICpzQ0FSZWZyZXNoTGlzdGVuZXJzOwogICBQUkJvb2wgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtU2VudEluaXRpYWxUb3BMZXZlbFdpbmRvd0V2
+ZW50OwpAQCAtMzE4MSw2ICszMTgyLDcgQEAgbnNQbHVnaW5JbnN0YW5jZU93bmVyOjpuc1BsdWdp
+bkluc3RhbmNlTwogICBtSW5DR1BhaW50TGV2ZWwgPSAwOwogICBtU2VudEluaXRpYWxUb3BMZXZl
+bFdpbmRvd0V2ZW50ID0gUFJfRkFMU0U7CiAgIG1JT1N1cmZhY2UgPSBuc251bGw7CisgIG1Db2xv
+clByb2ZpbGUgPSBuc251bGw7CiAgIG1QbHVnaW5Qb3J0Q2hhbmdlZCA9IFBSX0ZBTFNFOwogI2Vu
+ZGlmCiAgIG1Db250ZW50Rm9jdXNlZCA9IFBSX0ZBTFNFOwpAQCAtNDM4Miw4ICs0Mzg0LDggQEAg
+dm9pZCBuc1BsdWdpbkluc3RhbmNlT3duZXI6OlJlbmRlckNvcmVBbgogICAgIHJldHVybjsKIAog
+ICBpZiAoIW1JT1N1cmZhY2UgfHwgCi0gICAgIChtSU9TdXJmYWNlLT5HZXRXaWR0aCgpICE9IChz
+aXplX3QpYVdpZHRoIHx8IAotICAgICAgbUlPU3VyZmFjZS0+R2V0SGVpZ2h0KCkgIT0gKHNpemVf
+dClhSGVpZ2h0KSkgeworICAgICAgKG1JT1N1cmZhY2UtPkdldFdpZHRoKCkgIT0gKHNpemVfdClh
+V2lkdGggfHwgCisgICAgICAgbUlPU3VyZmFjZS0+R2V0SGVpZ2h0KCkgIT0gKHNpemVfdClhSGVp
+Z2h0KSkgewogICAgIGlmIChtSU9TdXJmYWNlKSB7CiAgICAgICBkZWxldGUgbUlPU3VyZmFjZTsK
+ICAgICB9CkBAIC00NDA0LDYgKzQ0MDYsMTAgQEAgdm9pZCBuc1BsdWdpbkluc3RhbmNlT3duZXI6
+OlJlbmRlckNvcmVBbgogICAgIH0KICAgfQogCisgIGlmICghbUNvbG9yUHJvZmlsZSkgeworICAg
+IG1Db2xvclByb2ZpbGUgPSBDcmVhdGVTeXN0ZW1Db2xvclNwYWNlKCk7CisgIH0KKwogICBpZiAo
+bUNBUmVuZGVyZXIuaXNJbml0KCkgPT0gZmFsc2UpIHsKICAgICB2b2lkICpjYUxheWVyID0gTlVM
+TDsKICAgICBuc3Jlc3VsdCBydiA9IG1JbnN0YW5jZS0+R2V0VmFsdWVGcm9tUGx1Z2luKE5QUFZw
+bHVnaW5Db3JlQW5pbWF0aW9uTGF5ZXIsICZjYUxheWVyKTsKQEAgLTQ0MjEsOCArNDQyNyw4IEBA
+IHZvaWQgbnNQbHVnaW5JbnN0YW5jZU93bmVyOjpSZW5kZXJDb3JlQW4KIAogICBDR0ltYWdlUmVm
+IGNhSW1hZ2UgPSBOVUxMOwogICBuc3Jlc3VsdCBydCA9IG1DQVJlbmRlcmVyLlJlbmRlcihhV2lk
+dGgsIGFIZWlnaHQsICZjYUltYWdlKTsKLSAgaWYgKHJ0ID09IE5TX09LICYmIG1JT1N1cmZhY2Up
+IHsKLSAgICBuc0NBUmVuZGVyZXI6OkRyYXdTdXJmYWNlVG9DR0NvbnRleHQoYUNHQ29udGV4dCwg
+bUlPU3VyZmFjZSwgQ3JlYXRlU3lzdGVtQ29sb3JTcGFjZSgpLAorICBpZiAocnQgPT0gTlNfT0sg
+JiYgbUlPU3VyZmFjZSAmJiBtQ29sb3JQcm9maWxlKSB7CisgICAgbnNDQVJlbmRlcmVyOjpEcmF3
+U3VyZmFjZVRvQ0dDb250ZXh0KGFDR0NvbnRleHQsIG1JT1N1cmZhY2UsIG1Db2xvclByb2ZpbGUs
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDAsIDAsIGFXaWR0aCwg
+YUhlaWdodCk7CiAgIH0gZWxzZSBpZiAocnQgPT0gTlNfT0sgJiYgY2FJbWFnZSAhPSBOVUxMKSB7
+CiAgICAgLy8gU2lnbmlmaWNhbnQgc3BlZWQgdXAgYnkgcmVzZXR0aW5nIHRoZSBzY2FsaW5nCkBA
+IC01NzU0LDYgKzU3NjAsOCBAQCBuc1BsdWdpbkluc3RhbmNlT3duZXI6OkRlc3Ryb3koKQogICBS
+ZW1vdmVGcm9tQ0FSZWZyZXNoVGltZXIodGhpcyk7CiAgIGlmIChtSU9TdXJmYWNlKQogICAgIGRl
+bGV0ZSBtSU9TdXJmYWNlOworICBpZiAobUNvbG9yUHJvZmlsZSkKKyAgICA6OkNHQ29sb3JTcGFj
+ZVJlbGVhc2UobUNvbG9yUHJvZmlsZSk7ICAKICNlbmRpZgogCiAgIC8vIHVucmVnaXN0ZXIgY29u
+dGV4dCBtZW51IGxpc3RlbmVyCg==
+</data>
+<flag name="approval2.0"
+          id="438066"
+          type_id="647"
+          status="+"
+          setter="dveditz"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648513</bug_id>
+          
+          <creation_ts>2011-04-08 04:23:00 -0700</creation_ts>
+          <short_desc>Check for Updates option missing in the Help Menu</short_desc>
+          <delta_ts>2011-04-08 07:34:27 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Menus</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>615513</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="babu">vgangeya</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>hskupin</cc>
+          <qa_contact>menus</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396272</commentid>
+            <who name="babu">vgangeya</who>
+            <bug_when>2011-04-08 04:23:51 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+The &apos;Check for Updates&apos; link is  missing in the help menu. When automatic updates feature doesn&apos;t function, we don&apos;t have a way to forcibly check for updates.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Invoke the browser.
+2. Click on the &apos;Firefox&apos; tab.
+3. Hover the mouse over the &apos;Help&apos; option.
+Actual Results:  
+The &apos;Check for Updates&apos; link is missing in the Help menu.
+
+Expected Results:  
+The &apos;Check for Updates&apos; link should be displayed in the Help menu.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396427</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-08 07:34:27 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 615513 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

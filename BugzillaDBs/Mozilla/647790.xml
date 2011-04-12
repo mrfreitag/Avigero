@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647790</bug_id>
+          
+          <creation_ts>2011-04-05 02:59:00 -0700</creation_ts>
+          <short_desc>Allow filter to search on the entire message</short_desc>
+          <delta_ts>2011-04-05 02:59:12 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Search</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Laurent Bauvens">laurent.bauvens</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>search</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390955</commentid>
+            <who name="Laurent Bauvens">laurent.bauvens</who>
+            <bug_when>2011-04-05 02:59:12 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 5.1; fr; rv:1.9.2.15) Gecko/20110303 Lightning/1.0b2 Thunderbird/3.1.9
+
+I need to move messages into special folders on the fact they have a .PDF or a .DOC file attachment.
+
+But Thunderbird filtering capability doesn&apos;t permit to create filter which allows to search:
+ a) on the entire message. Even with customized keywords.
+ b) on keywords of attachment header (like Content-Type). The search is restricted to 
+    the message header.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Send to yourself a mail with a PDF attachment
+2. Create a new filter
+    Filter name: PDF
+    Apply filter when: Checking mail or run manually
+    Match all the following
+3. Create a new search keyword
+    Customize...
+    Content-Type
+4. &quot;Content-Type&quot; &quot;contains&quot; &quot;application/pdf;&quot;
+5. Perform these actions
+    Add Star 
+6. Select the new filter and click on the button &quot;Run now&quot;
+Actual Results:  
+Nothing happens
+
+Expected Results:  
+Thunderbird should check all Content-Type keywords existing in the entire message, find the string &quot;application/pdf;&quot; and perform the Add-Star action.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

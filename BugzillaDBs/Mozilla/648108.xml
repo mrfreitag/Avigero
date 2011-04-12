@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648108</bug_id>
+          
+          <creation_ts>2011-04-06 14:05:00 -0700</creation_ts>
+          <short_desc>Should detect accounts with pluggable stores created by newer versions of TB</short_desc>
+          <delta_ts>2011-04-06 14:05:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Account Manager</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="David :Bienvenu">bienvenu</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>account-manager</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      <flag name="wanted-thunderbird"
+          id="437947"
+          type_id="598"
+          status="+"
+          setter="bienvenu"
+    />
+
+          <long_desc isprivate="0">
+            <commentid>5393167</commentid>
+            <who name="David :Bienvenu">bienvenu</who>
+            <bug_when>2011-04-06 14:05:40 -0700</bug_when>
+            <thetext>Once pluggable stores land, newer versions of Thunderbird can make message stores not accessible by older versions of TB. The next version of TB that we ship should detect such message stores and disable those account(s) with stores it can&apos;t read or write to, by checking that the pluggable store type is either empty or berkeley mailbox. We could either completely disable the profile if any account has an unreadable message store, or try to disable individual accounts. We also need to tell the user, obviously.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

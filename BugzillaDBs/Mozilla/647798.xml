@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647798</bug_id>
+          
+          <creation_ts>2011-04-05 04:10:00 -0700</creation_ts>
+          <short_desc>Problem installing Lightning extension</short_desc>
+          <delta_ts>2011-04-05 05:27:00 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Calendar</product>
+          <component>Lightning Only</component>
+          <version>unspecified</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Tomas Mikkelsen">tnm</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>lightning</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390986</commentid>
+            <who name="Tomas Mikkelsen">tnm</who>
+            <bug_when>2011-04-05 04:10:57 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.16) Gecko/20110323 Ubuntu/10.04 (lucid) Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.2.14) Gecko/20110223 Thunderbird/3.1.8
+
+&quot;Lightning&quot; could not be installed because it is not compatible with your Thunderbird build type (Linux_x86_64-gcc3). Please contact the author of this item about the problem.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. try to install the extension lightning
+2.
+3.
+Actual Results:  
+Extension not installed.
+
+Expected Results:  
+Extension installed</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391033</commentid>
+            <who name="Stefan Sitter">ssitter</who>
+            <bug_when>2011-04-05 05:27:00 -0700</bug_when>
+            <thetext>Did you use the 64-bit Lightning builds? https://www.mozilla.org/projects/calendar/releases/lightning1.0b2.html#linux-x86-64-builds</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

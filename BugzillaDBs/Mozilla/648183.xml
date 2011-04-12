@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648183</bug_id>
+          
+          <creation_ts>2011-04-06 17:53:00 -0700</creation_ts>
+          <short_desc>Add country-level GeoIP to mozilla.com</short_desc>
+          <delta_ts>2011-04-06 17:53:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[l10n]</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Pascal Chevrel:pascalc">pascalc</reporter>
+          <assigned_to name="Pascal Chevrel:pascalc">pascalc</assigned_to>
+          <cc>reed</cc>
+          <qa_contact name="Pascal Chevrel:pascalc">pascalc</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5393747</commentid>
+            <who name="Pascal Chevrel:pascalc">pascalc</who>
+            <bug_when>2011-04-06 17:53:56 -0700</bug_when>
+            <thetext>We have GeoIP needs for our localized pages and already have a solution in place on mozilla-europe.org that has been pretty effective last year. Filing this bug to keep that task on my radar.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

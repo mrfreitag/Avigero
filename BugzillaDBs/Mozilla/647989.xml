@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647989</bug_id>
+          
+          <creation_ts>2011-04-06 06:46:00 -0700</creation_ts>
+          <short_desc>IMAP copy actions, can&apos;t stop or interrupt/pause action, no multitasking</short_desc>
+          <delta_ts>2011-04-06 06:46:42 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Toolbars and Tabs</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Lady Di">diaspora</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>toolbars-tabs</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392220</commentid>
+            <who name="Lady Di">diaspora</who>
+            <bug_when>2011-04-06 06:46:42 -0700</bug_when>
+            <thetext>User-Agent:       -
+Build Identifier: Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.13) Gecko/20101208 Lightning/1.0b2 Thunderbird/3.1.7
+
+There is no button to stop/interrupt/pause any IMAP copy process.
+I cannot see the progress (like in Kmail).
+The action stops, if I start working in other folders/other tabs (no multitasking).
+
+I need a simple but clear interface for IMAP copy actions, and that it does not stop while doing other stuff with Thunderbird.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. mark a huge number of mails in IMAP folder (extern)
+2. rightclick &apos;copy to&apos; local folder (any)
+3. try to stop the progress! (you can&apos;t I think)
+4. start any action in 3rd folder on other tab, leave the anterior process.
+5. you recognize the copy process does not work anymore (though Thunderbird is a bit sluggy)
+Actual Results:  
+I started the same again and left Thunderbird working .... .... ... ....</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

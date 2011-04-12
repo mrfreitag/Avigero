@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648075</bug_id>
+          
+          <creation_ts>2011-04-06 12:06:00 -0700</creation_ts>
+          <short_desc>Compatibility information on Zamboni review page shows data for public version instead of new one</short_desc>
+          <delta_ts>2011-04-11 13:10:03 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>addons.mozilla.org</product>
+          <component>Admin/Editor Tools</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>https://addons.mozilla.org/en-US/editors/review/770992</bug_file_loc>
+          <status_whiteboard>[required amo-editors]</status_whiteboard>
+          
+          <priority>P3</priority>
+          <bug_severity>minor</bug_severity>
+          <target_milestone>6.0.6</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Andrew Williamson">evil.jeff</reporter>
+          <assigned_to name="Gregory Koberger (:gkoberger)">gkoberger</assigned_to>
+          <cc>archaeopteryx</cc>
+    
+    <cc>clouserw</cc>
+    
+    <cc>jorge</cc>
+          <qa_contact>admin-tools</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392894</commentid>
+            <who name="Andrew Williamson">evil.jeff</who>
+            <bug_when>2011-04-06 12:06:34 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: 
+
+the (zamboni) review page is showing a different min-ver for the addon version than the edit|versions page indicates.  Its possibly getting the min-ver from a previous version or the most recent public version.
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Go to a review in a queue.  Check the min-ver on the review page.
+2. go to edit, versions and files and check the min-ver there.
+
+
+
+
+they should be the same.  Sometimes they arn&apos;t - it might only be versions that have different min-vers than the current public version.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395171</commentid>
+            <who name="Jorge Villalobos [:jorgev]">jorge</who>
+            <bug_when>2011-04-07 14:49:35 -0700</bug_when>
+            <thetext>This is happening for all the compat info, and it appears to point to the latest public version.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395181</commentid>
+            <who name="Archaeopteryx [:aryx]">archaeopteryx</who>
+            <bug_when>2011-04-07 14:52:49 -0700</bug_when>
+            <thetext>https://addons.mozilla.org/de/editors/review/803268?num=90 shows     Firefox 3.0 - 4.0b6pre
+the install.rdf:
+		&lt;!-- Firefox --&gt;
+			&lt;em:targetApplication&gt;
+				&lt;Description&gt;
+					&lt;em:id&gt;{ec8030f7-c20a-464f-9b0e-13a3a9e97384}&lt;/em:id&gt;
+					&lt;em:minVersion&gt;4.0&lt;/em:minVersion&gt;
+					&lt;em:maxVersion&gt;4.2a1pre&lt;/em:maxVersion&gt;
+				&lt;/Description&gt;
+			&lt;/em:targetApplication&gt;</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

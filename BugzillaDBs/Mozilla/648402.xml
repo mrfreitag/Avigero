@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648402</bug_id>
+          
+          <creation_ts>2011-04-07 16:06:00 -0700</creation_ts>
+          <short_desc>Automatically switching from Bookmarks to All pages tab when text entered in awesome bar is deleted</short_desc>
+          <delta_ts>2011-04-07 16:07:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Lokesh Goel">lokesh.kumar.goel</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>naginenis</cc>
+    
+    <cc>romaxa</cc>
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395353</commentid>
+            <who name="Lokesh Goel">lokesh.kumar.goel</who>
+            <bug_when>2011-04-07 16:06:52 -0700</bug_when>
+            <thetext>SOFTWARE:
+===================
+http://ftp.mozilla.org/pub/mozilla.org/mobile/releases/latest-beta/linux-i686/fennec-4.0.en-US.linux-i686.tar.bz2
+
+STEPS:
+============
+1. open fennec
+2. tap on awesome bar
+3. switch to Bookmarks
+4. enter anything to awesome bar
+5. delete all chars from awesome bar
+
+EXPECTED OUTCOME:
+===================
+user is still in Bookmarks and may to filter down bookmarks once again
+
+ACTUAL OUTCOME:
+===================
+user is automatically switched to All pages</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

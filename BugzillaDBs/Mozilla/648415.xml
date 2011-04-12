@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648415</bug_id>
+          
+          <creation_ts>2011-04-07 16:38:00 -0700</creation_ts>
+          <short_desc>about:memory doesn&apos;t report on the plugin processes</short_desc>
+          <delta_ts>2011-04-08 06:49:56 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Plug-ins</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>633653</dependson>
+          <blocked>640791</blocked>
+          <votes>3</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Nicholas Nethercote [:njn]">nnethercote</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>djcater+bugzilla</cc>
+    
+    <cc>ehsan</cc>
+    
+    <cc>geekshadow</cc>
+    
+    <cc>jmuizelaar</cc>
+    
+    <cc>jones.chris.g</cc>
+    
+    <cc>matjk7</cc>
+    
+    <cc>ryanvm</cc>
+          <qa_contact>plugins</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395436</commentid>
+            <who name="Nicholas Nethercote [:njn]">nnethercote</who>
+            <bug_when>2011-04-07 16:38:05 -0700</bug_when>
+            <thetext>about:memory doesn&apos;t report any information for the plugin-container process.  We probably can&apos;t report much info for it, but some basics (eg. the amount of mapped and resident memory) would be nice.  (If we can do more, that would be nice.)
+
+about:memory already handles the separate chrome and content processes for Fennec, so the infrastructure is already present for reporting for multiple processes.  It just needs to be hooked up to the plugin-container process.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395961</commentid>
+            <who name="Chris Jones [:cjones] [:warhammer]">jones.chris.g</who>
+            <bug_when>2011-04-07 22:03:15 -0700</bug_when>
+            <thetext>(We use the plugin-container process for all subprocess types.  Yeah, sigh.)  I think for this bug you&apos;re referring to the subprocesses in which plugin code runs.
+
+We can quite easily forward jemalloc, gfxASurface, and shmem stats from plugin processes.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396119</commentid>
+            <who name="Nicholas Nethercote [:njn]">nnethercote</who>
+            <bug_when>2011-04-08 00:27:11 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; I think for this bug you&apos;re referring to the subprocesses in which plugin code
+&gt; runs.
+
+Probably, I don&apos;t have the terminology down :)
+
+&gt; We can quite easily forward jemalloc, gfxASurface, and shmem stats from plugin
+&gt; processes.
+
+That&apos;d be great!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

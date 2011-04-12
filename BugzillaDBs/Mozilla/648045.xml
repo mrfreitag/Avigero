@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648045</bug_id>
+          
+          <creation_ts>2011-04-06 11:12:00 -0700</creation_ts>
+          <short_desc>Mark the active tab in minimized windows as inactive</short_desc>
+          <delta_ts>2011-04-10 05:26:37 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Boris Zbarsky (:bz)">bzbarsky</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>acelists</cc>
+    
+    <cc>bugzilla.x.0x</cc>
+    
+    <cc>gavin.sharp</cc>
+    
+    <cc>matafagafo</cc>
+    
+    <cc>tnikkel</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392672</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-06 11:12:28 -0700</bug_when>
+            <thetext>We do all sorts of aggressive throttling for background tabs, but we define &quot;background&quot; as &quot;not currently selected in the tabbrowser&quot;.  We should consider extending this definition to all tabs in minimized windows.
+
+Gavin, whom should I cc or where should I put this bug to get some traction?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399141</commentid>
+            <who name="[Baboo]">bugzilla.x.0x</who>
+            <bug_when>2011-04-10 04:40:14 -0700</bug_when>
+            <thetext>I guess this and bug 648046 should be platform-independent?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

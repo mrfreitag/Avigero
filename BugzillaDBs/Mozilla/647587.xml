@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647587</bug_id>
+          
+          <creation_ts>2011-04-03 11:29:00 -0700</creation_ts>
+          <short_desc>New build columns which have defaulted scrape to true should be checked in admintree</short_desc>
+          <delta_ts>2011-04-03 11:29:53 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Tinderbox</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>545825</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Phil Ringnalda (:philor)">philringnalda</reporter>
+          <assigned_to name="Phil Ringnalda (:philor)">philringnalda</assigned_to>
+          <cc>bear</cc>
+          <qa_contact>tinderbox</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389310</commentid>
+              <attachid>523899</attachid>
+            <who name="Phil Ringnalda (:philor)">philringnalda</who>
+            <bug_when>2011-04-03 11:29:53 -0700</bug_when>
+            <thetext>Created attachment 523899
+fix?
+
+In the world after bug 545825, when you add a build to a tree, it defaults to scraped and thus shows up in tbpl, and everything&apos;s unicorns and butterflies if and only if the first person who uses admintree.cgi knows that they have to check all the scrape checkboxes. Otherwise, they do the one thing they came there to do, uncheck some active checkbox, and when they submit they suddenly make all the defaulted things unscraped. We need admintree.cgi to understand that things are scraped unless someone has actively said not to scrape them, which I hope is just this (untested) simple.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>523899</attachid>
+            <date>2011-04-03 11:29:00 -0700</date>
+            <delta_ts>2011-04-03 11:29:53 -0700</delta_ts>
+            <desc>fix?</desc>
+            <filename>admintree</filename>
+            <type>text/plain</type>
+            <size>1548</size>
+            <attacher>philringnalda</attacher>
+            
+              <data encoding="base64">SW5kZXg6IHdlYnRvb2xzL3RpbmRlcmJveC9hZG1pbnRyZWUuY2dpCj09PT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KUkNTIGZp
+bGU6IC9jdnNyb290L21vemlsbGEvd2VidG9vbHMvdGluZGVyYm94L2FkbWludHJlZS5jZ2ksdgpy
+ZXRyaWV2aW5nIHJldmlzaW9uIDEuNDMKZGlmZiAtdSAtcCAtOCAtcjEuNDMgYWRtaW50cmVlLmNn
+aQotLS0gd2VidG9vbHMvdGluZGVyYm94L2FkbWludHJlZS5jZ2kJMjggRmViIDIwMTEgMDY6NDQ6
+NDIgLTAwMDAJMS40MworKysgd2VidG9vbHMvdGluZGVyYm94L2FkbWludHJlZS5jZ2kJMyBBcHIg
+MjAxMSAxNzoyMjo0MiAtMDAwMApAQCAtMTkzLDE3ICsxOTMsMTcgQEAgVGluZGVyYm94IGlzIGNv
+bmZpZ3VyZWQgdG8gc2hvdyB1cCB0byAkOgogICAgIH0KIAogCiAgICAgZm9yICRpIChzb3J0IEBu
+YW1lcykgewogICAgICAgICBpZiAoJGkgbmUgIiIpIHsKICAgICAgICAgICAgIG15ICRidWlsZG5h
+bWUgPSAmdmFsdWVfZW5jb2RlKCRpKTsKICAgICAgICAgICAgIG15ICRjdXJyZW50X3N0YXR1cyA9
+IChncmVwKC9eJGkkLywgQHskdHJlZWRhdGEtPntidWlsZF9uYW1lc319KSA/ICJDSEVDS0VEIiA6
+ICIiKTsKICAgICAgICAgICAgIG15ICRhY3RpdmVfY2hlY2sgPSAoJHRyZWVkYXRhLT57aWdub3Jl
+X2J1aWxkc30tPnskaX0gIT0gMCA/ICIiOiAiQ0hFQ0tFRD0xIiApOwotICAgICAgICAgICAgbXkg
+JHNjcmFwZV9jaGVjayA9ICgkdHJlZWRhdGEtPntzY3JhcGVfYnVpbGRzfS0+eyRpfSAhPSAwID8g
+IkNIRUNLRUQ9MSIgOiAiIiApOworICAgICAgICAgICAgbXkgJHNjcmFwZV9jaGVjayA9ICgkdHJl
+ZWRhdGEtPntzY3JhcGVfYnVpbGRzfS0+eyRpfSA9PSAwID8gIiI6ICJDSEVDS0VEPTEiICk7CiAg
+ICAgICAgICAgICBteSAkd2FybmluZ19jaGVjayA9ICgkdHJlZWRhdGEtPnt3YXJuaW5nX2J1aWxk
+c30tPnskaX0gIT0gMCA/ICJDSEVDS0VEPTEiOiAiIiApOwogICAgICAgICAgICAgcHJpbnQgIjxU
+Uj5cbiI7CiAgICAgICAgICAgICBwcmludCAiPFREPiRidWlsZG5hbWU8L1REPlxuIjsKICAgICAg
+ICAgICAgIHByaW50ICJcdDxURD48SU5QVVQgVFlQRT1jaGVja2JveCBOQU1FPSdjdXJyZW50XyRi
+dWlsZG5hbWUnICRjdXJyZW50X3N0YXR1cyBESVNBQkxFRD48L1REPlxuIjsKICAgICAgICAgICAg
+IHByaW50ICI8VEQ+PElOUFVUIFRZUEU9Y2hlY2tib3ggTkFNRT0nYWN0aXZlXyRidWlsZG5hbWUn
+ICRhY3RpdmVfY2hlY2sgPjwvVEQ+XG4iOwogICAgICAgICAgICAgcHJpbnQgIjxURD48SU5QVVQg
+VFlQRT1jaGVja2JveCBOQU1FPSdzY3JhcGVfJGJ1aWxkbmFtZScgJHNjcmFwZV9jaGVjayA+PC9U
+RD5cbiI7CiAgICAgICAgICAgICBwcmludCAiPFREPjxJTlBVVCBUWVBFPWNoZWNrYm94IE5BTUU9
+J3dhcm5pbmdfJGJ1aWxkbmFtZScgJHdhcm5pbmdfY2hlY2sgPjwvVEQ+XG4iOwogICAgICAgICAg
+ICAgcHJpbnQgIlx0PElOUFVUIFRZUEU9SElEREVOIE5BTUU9J2FsbF8kYnVpbGRuYW1lJyBDSEVD
+S0VEPlxuIjsK
+</data>
+<flag name="review"
+          id="437691"
+          type_id="4"
+          status="?"
+          setter="philringnalda"
+          requestee="bear"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

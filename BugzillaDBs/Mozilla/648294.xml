@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648294</bug_id>
+          
+          <creation_ts>2011-04-07 09:33:00 -0700</creation_ts>
+          <short_desc>Opening and closing Panorama fails because keys as given in the DTD are not recognized anymore when synthesizing the key event</short_desc>
+          <delta_ts>2011-04-11 09:46:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>Panorama</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://mozmill-release.brasstacks.mozilla.com/#/general/report/f529e67a713f63040abc3d8b66e8f4c6</bug_file_loc>
+          <status_whiteboard>[mozmill-panorama][mozmill-test-failure]</status_whiteboard>
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>603789</blocked>
+    
+    <blocked>629050</blocked>
+    
+    <blocked>648590</blocked>
+    
+    <blocked>587276</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Anthony Hughes (:ashughes)">anthony.s.hughes</reporter>
+          <assigned_to name="Raymond Lee">raymond</assigned_to>
+          <cc>aaron.train</cc>
+    
+    <cc>clegnitto</cc>
+    
+    <cc>hskupin</cc>
+    
+    <cc>ian</cc>
+    
+    <cc>jbecerra</cc>
+    
+    <cc>raymond</cc>
+    
+    <cc>tim.taubert</cc>
+          <qa_contact>panorama</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394549</commentid>
+            <who name="Anthony Hughes (:ashughes)">anthony.s.hughes</who>
+            <bug_when>2011-04-07 09:33:03 -0700</bug_when>
+            <thetext>ERROR:
+waitFor([object Proxy],&quot;TabView is still open.&quot;)@resource://mozmill/modules/utils.js:449 @:0 
+
+All of our Panorama tests have been failing since 2011-04-01.  This is most likely due to a recent change in functionality in Firefox.
+
+Since daily testruns do not happen on 4.0, I need to investigate there first.  This may be trunk-only.
+
+This bug blocks landing of any new Panorama tests.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394585</commentid>
+            <who name="Anthony Hughes (:ashughes)">anthony.s.hughes</who>
+            <bug_when>2011-04-07 09:44:02 -0700</bug_when>
+            <thetext>The tests do not fail on Firefox 4.0.  This is trunk-only.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394694</commentid>
+            <who name="Aaron Train [:aaronmt]">aaron.train</who>
+            <bug_when>2011-04-07 10:45:05 -0700</bug_when>
+            <thetext>This is the strangest thing, from digging in a bit and looking at the entity lookup for tabView.commandKey on tabView::close. This entity is retrieving the appropriate entity fine, which has the keycode value: &apos;e&apos; - the same as entity value retrieved for tabView::open, but the controller::keypress call is not appropriately closing Tab View. Here comes the strange part, replace cmdKey with the keycode value &apos;E&apos; (uppercase), and the tests now pass. 
+
+Why is keypress not appropriately closing tabView with the retrieved keycode value?
+Why will it act appropriately on a hardcoded uppercase keycode?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394876</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 12:37:31 -0700</bug_when>
+            <thetext>Can one of you please give the changeset between those two builds when the regression has been started?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394894</commentid>
+            <who name="Aaron Train [:aaronmt]">aaron.train</who>
+            <bug_when>2011-04-07 12:46:22 -0700</bug_when>
+            <thetext>31st-&gt;1st
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=2f45c30741c5&amp;tochange=1a89509e25e4</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395154</commentid>
+            <who name="Ian Gilman [:iangilman]">ian</who>
+            <bug_when>2011-04-07 14:41:12 -0700</bug_when>
+            <thetext>Bug 587276 landed during that window; I&apos;m guessing that&apos;s the cause. It&apos;s possible the tests just need to be updated to the new invocation pattern. Raymond can hopefully shed some light.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395192</commentid>
+            <who name="Anthony Hughes (:ashughes)">anthony.s.hughes</who>
+            <bug_when>2011-04-07 14:57:21 -0700</bug_when>
+            <thetext>Interesting to see that the Panorama development team uses hardcoded string values instead of DTD strings in their own tests.
+
+http://hg.mozilla.org/mozilla-central/diff/565c588e3e51/browser/base/content/test/tabview/browser_tabview_launch.js
+
+-    EventUtils.synthesizeKey(&quot;e&quot;, { accelKey: true, shiftKey: true }, win);
++    EventUtils.synthesizeKey(&quot;E&quot;, { accelKey: true, shiftKey: true }, win);</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395202</commentid>
+            <who name="Anthony Hughes (:ashughes)">anthony.s.hughes</who>
+            <bug_when>2011-04-07 15:00:39 -0700</bug_when>
+            <thetext>The DTD still refers to lowercase &apos;e&apos;:
+http://mxr.mozilla.org/mozilla-central/source/browser/locales/en-US/chrome/browser/browser.dtd#317
+
+Are these key values case sensitive?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395304</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-07 15:47:36 -0700</bug_when>
+            <thetext>This is not something our test is doing wrong. It&apos;s clearly a regression in the TabView code. The key identifier as read from the DTD file is the one which has to work. And we are synthesizing the right character:
+
+var cmdKey = utils.getEntity(this.dtds, &quot;tabView.commandkey&quot;);
+this._controller.keypress(null, cmdKey, {accelKey: true, shiftKey: true});
+
+(In reply to comment #6)
+&gt; Interesting to see that the Panorama development team uses hardcoded string
+&gt; values instead of DTD strings in their own tests.
+
+That&apos;s something which happens across the different components and that&apos;s one of the reasons why we have Mozmill tests. Only our framework is currently able to get that information from the DTD files.
+
+&gt; http://hg.mozilla.org/mozilla-central/diff/565c588e3e51/browser/base/content/test/tabview/browser_tabview_launch.js
+&gt; 
+&gt; -    EventUtils.synthesizeKey(&quot;e&quot;, { accelKey: true, shiftKey: true }, win);
+&gt; +    EventUtils.synthesizeKey(&quot;E&quot;, { accelKey: true, shiftKey: true }, win);
+
+This change looks broken and conflicts with the value we currently have in the DTD file as given by Anthony above.
+
+Moving this over to Panorama. Also it would be great to get this fixed hopefully soon. Thanks.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395745</commentid>
+            <who name="Raymond Lee">raymond</who>
+            <bug_when>2011-04-07 19:46:45 -0700</bug_when>
+            <thetext>I&apos;ve mentioned the reason why I changed the lower case e to upper case E in our test here bug 587276 comment c31.
+
+&quot; Furthermore, you would notice in some tests, I&apos;ve changed to the letter &quot;e&quot; to
+&quot;E&quot; when the key combination involves shiftKey=true.  When ctrl/cmd + shift + e
+is pressed in the tabview UI, the charCode of &quot;E&quot; would be passed into the
+white list function processBrowserKeys() because the shift button is also
+pressed.  However, the charCode of &quot;e&quot; is passed to the white list function
+when stimulating a key press using EventUtils.synthesizeKey().  That&apos;s why I&apos;ve
+changed the lower case letter to upper one if the key combination involves
+shift key.  Another way to leave the tests and fix the problem is to add the
+lower case as well as upper case charCodes to the white list function
+processBrowserKeys() 
+
+-    EventUtils.synthesizeKey(&quot;e&quot;, { accelKey: true, shiftKey: true });
++    EventUtils.synthesizeKey(&quot;E&quot;, { accelKey: true, shiftKey: true });
+&quot;
+
+I am working on a patch to fix this.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395766</commentid>
+            <who name="Anthony Hughes (:ashughes)">anthony.s.hughes</who>
+            <bug_when>2011-04-07 19:57:36 -0700</bug_when>
+            <thetext>(In reply to comment #9)
+&gt; I am working on a patch to fix this.
+
+Will that be done on bug 587276? If not, is there another bug? Will it be done on this bug?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395780</commentid>
+            <who name="Raymond Lee">raymond</who>
+            <bug_when>2011-04-07 20:02:35 -0700</bug_when>
+            <thetext>(In reply to comment #10)
+&gt; (In reply to comment #9)
+&gt; &gt; I am working on a patch to fix this.
+&gt; 
+&gt; Will that be done on bug 587276? If not, is there another bug? Will it be done
+&gt; on this bug?
+
+Will upload the patch to this bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395864</commentid>
+              <attachid>524566</attachid>
+            <who name="Raymond Lee">raymond</who>
+            <bug_when>2011-04-07 21:05:15 -0700</bug_when>
+            <thetext>Created attachment 524566
+v1
+
+This should fix the issue.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397811</commentid>
+            <who name="Raymond Lee">raymond</who>
+            <bug_when>2011-04-08 16:12:16 -0700</bug_when>
+            <thetext>(In reply to comment #12)
+&gt; Created attachment 524566 [details]
+&gt; v1
+&gt; 
+&gt; This should fix the issue.
+
+http://tbpl.mozilla.org/?tree=MozillaTry&amp;rev=15a131a369f0</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400009</commentid>
+            <who name="Raymond Lee">raymond</who>
+            <bug_when>2011-04-11 01:57:10 -0700</bug_when>
+            <thetext>Tim: We want to land this asap.  If you have time, could you give me feedback on this patch please?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5400600</commentid>
+            <who name="Henrik Skupin [:whimboo]">hskupin</who>
+            <bug_when>2011-04-11 09:46:18 -0700</bug_when>
+            <thetext>Christian, this regression busted all of our Mozmill tests for Panorama and even a couple more for all localized and the en-US build because we can&apos;t exit the Panorama view anymore. We would really like to see it fixed on Aurora or the causing check-in to be backed out. We are not on buildbot yet but i think for our tests the same policy should apply. We hope that we can find the best solution for it soon. Thanks.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524566</attachid>
+            <date>2011-04-07 21:05:00 -0700</date>
+            <delta_ts>2011-04-07 21:05:15 -0700</delta_ts>
+            <desc>v1</desc>
+            <filename>bug-648294.diff</filename>
+            <type>text/plain</type>
+            <size>8641</size>
+            <attacher>raymond</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIFJheW1vbmQgTGVlIDxyYXltb25kQHJheXNxdWFy
+ZS5jb20+CiMgRGF0ZSAxMzAyMjM0NjA2IC0yODgwMAojIE5vZGUgSUQgMTVhMTMxYTM2OWYwZWEz
+YWIwODBkZWVhNWQyNDY0MjJlN2EzZjUzYgojIFBhcmVudCAgZjc2YzM0ZmQ3MjI4OGYwYzNiOGJi
+MjQ2NzA0M2EwMDY4ZTNlN2ExOApCdWcgNjQ4Mjk0IC0gT3BlbmluZyBhbmQgY2xvc2luZyBQYW5v
+cmFtYSBmYWlscyBiZWNhdXNlIGtleXMgYXMgZ2l2ZW4gaW4gdGhlIERURCBhcmUgbm90IHJlY29n
+bml6ZWQgYW55bW9yZSB3aGVuIHN5bnRoZXNpemluZyB0aGUga2V5IGV2ZW50IHRyeTogLW0gbm9u
+ZSAtdSBtb2NoaXRlc3QtbwoKZGlmZiAtLWdpdCBhL2Jyb3dzZXIvYmFzZS9jb250ZW50L3RhYnZp
+ZXcvdWkuanMgYi9icm93c2VyL2Jhc2UvY29udGVudC90YWJ2aWV3L3VpLmpzCi0tLSBhL2Jyb3dz
+ZXIvYmFzZS9jb250ZW50L3RhYnZpZXcvdWkuanMKKysrIGIvYnJvd3Nlci9iYXNlL2NvbnRlbnQv
+dGFidmlldy91aS5qcwpAQCAtOTUzLDIyICs5NTMsMjQgQEAgbGV0IFVJID0gewogICAgICAgInBy
+ZWZlcmVuY2VzQ21kTWFjIiwgIm1pbmltaXplV2luZG93IiwKICNlbmRpZgogICAgICAgIm5ld05h
+dmlnYXRvciIsICJuZXdOYXZpZ2F0b3JUYWIiLCAiZmluZCIKICAgICAgXS5mb3JFYWNoKGZ1bmN0
+aW9uKGtleSkgewogICAgICAgbGV0IGVsZW1lbnQgPSBnV2luZG93LmRvY3VtZW50LmdldEVsZW1l
+bnRCeUlkKCJrZXlfIiArIGtleSk7CiAgICAgICBrZXlzW2tleV0gPSBlbGVtZW50LmdldEF0dHJp
+YnV0ZSgia2V5IikudG9Mb2NhbGVMb3dlckNhc2UoKS5jaGFyQ29kZUF0KDApOwogICAgIH0pOwog
+Ci0gICAgLy8gZm9yIGtleSBjb21iaW5hdGlvbnMgd2l0aCBzaGlmdCBrZXksIHRoZSBjaGFyQ29k
+ZSBvZiB1cHBlciBjYXNlIGxldHRlcnMgCi0gICAgLy8gYXJlIGRpZmZlcmVudCB0byB0aGUgbG93
+ZXIgY2FzZSBvbmVzIHNvIG5lZWQgdG8gaGFuZGxlIHRoZW0gZGlmZmVyZW50bHkuCisgICAgLy8g
+VGhlIGxvd2VyIGNhc2UgbGV0dGVycyBhcmUgcGFzc2VkIHRvIHByb2Nlc3NCcm93c2VyS2V5cygp
+IGV2ZW4gd2l0aCBzaGlmdCAKKyAgICAvLyBrZXkgd2hlbiBzdGltdWxhdGluZyBhIGtleSBwcmVz
+cyB1c2luZyBFdmVudFV0aWxzLnN5bnRoZXNpemVLZXkoKSBzbyBuZWVkIAorICAgIC8vIHRvIGhh
+bmRsZSBib3RoIHVwcGVyIGFuZCBsb3dlciBjYXNlcyBoZXJlLgogICAgIFsiY2xvc2VXaW5kb3ci
+LCAidGFidmlldyIsICJ1bmRvQ2xvc2VUYWIiLCAidW5kb0Nsb3NlV2luZG93IiwKICAgICAgInBy
+aXZhdGVicm93c2luZyJdLmZvckVhY2goZnVuY3Rpb24oa2V5KSB7CiAgICAgICBsZXQgZWxlbWVu
+dCA9IGdXaW5kb3cuZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoImtleV8iICsga2V5KTsKLSAgICAg
+IGtleXNba2V5XSA9IGVsZW1lbnQuZ2V0QXR0cmlidXRlKCJrZXkiKS50b0xvY2FsZVVwcGVyQ2Fz
+ZSgpLmNoYXJDb2RlQXQoMCk7CisgICAgICBrZXlzW2tleSArICJVcHBlckNhc2UiXSA9IGVsZW1l
+bnQuZ2V0QXR0cmlidXRlKCJrZXkiKS50b0xvY2FsZVVwcGVyQ2FzZSgpLmNoYXJDb2RlQXQoMCk7
+CisgICAgICBrZXlzW2tleV0gPSBlbGVtZW50LmdldEF0dHJpYnV0ZSgia2V5IikudG9Mb2NhbGVM
+b3dlckNhc2UoKS5jaGFyQ29kZUF0KDApOwogICAgIH0pOwogCiAgICAgZGVsZXRlIHRoaXMuX2Jy
+b3dzZXJLZXlzOwogICAgIHRoaXMuX2Jyb3dzZXJLZXlzID0ga2V5czsKICAgfSwKIAogICAvLyAt
+LS0tLS0tLS0tCiAgIC8vIEZ1bmN0aW9uOiBfc2V0VGFiVmlld0ZyYW1lS2V5SGFuZGxlcnMKQEAg
+LTk5MiwyMiArOTk0LDI3IEBAIGxldCBVSSA9IHsKICAgICAgICAgaWYgKGV2dC5tZXRhS2V5KSB7
+CiAjZWxzZQogICAgICAgICBpZiAoZXZ0LmN0cmxLZXkpIHsKICNlbmRpZgogICAgICAgICAgIGxl
+dCBwcmV2ZW50RGVmYXVsdCA9IHRydWU7CiAgICAgICAgICAgaWYgKGV2dC5zaGlmdEtleSkgewog
+ICAgICAgICAgICAgc3dpdGNoIChldnQuY2hhckNvZGUpIHsKICAgICAgICAgICAgICAgY2FzZSBz
+ZWxmLl9icm93c2VyS2V5cy5wcml2YXRlYnJvd3Npbmc6CisgICAgICAgICAgICAgIGNhc2Ugc2Vs
+Zi5fYnJvd3NlcktleXMucHJpdmF0ZWJyb3dzaW5nVXBwZXJDYXNlOgogICAgICAgICAgICAgICBj
+YXNlIHNlbGYuX2Jyb3dzZXJLZXlzLnVuZG9DbG9zZVRhYjoKKyAgICAgICAgICAgICAgY2FzZSBz
+ZWxmLl9icm93c2VyS2V5cy51bmRvQ2xvc2VUYWJVcHBlckNhc2U6CiAgICAgICAgICAgICAgIGNh
+c2Ugc2VsZi5fYnJvd3NlcktleXMudW5kb0Nsb3NlV2luZG93OgorICAgICAgICAgICAgICBjYXNl
+IHNlbGYuX2Jyb3dzZXJLZXlzLnVuZG9DbG9zZVdpbmRvd1VwcGVyQ2FzZToKICAgICAgICAgICAg
+ICAgY2FzZSBzZWxmLl9icm93c2VyS2V5cy5jbG9zZVdpbmRvdzoKKyAgICAgICAgICAgICAgY2Fz
+ZSBzZWxmLl9icm93c2VyS2V5cy5jbG9zZVdpbmRvd1VwcGVyQ2FzZToKICAgICAgICAgICAgICAg
+ICBwcmV2ZW50RGVmYXVsdCA9IGZhbHNlOwogICAgICAgICAgICAgICAgIGJyZWFrOwogICAgICAg
+ICAgICAgICBjYXNlIHNlbGYuX2Jyb3dzZXJLZXlzLnRhYnZpZXc6CisgICAgICAgICAgICAgIGNh
+c2Ugc2VsZi5fYnJvd3NlcktleXMudGFidmlld1VwcGVyQ2FzZToKICAgICAgICAgICAgICAgICBz
+ZWxmLmV4aXQoKTsKICAgICAgICAgICAgICAgICBicmVhazsKICAgICAgICAgICAgIH0KICAgICAg
+ICAgICB9IGVsc2UgewogICAgICAgICAgICAgc3dpdGNoIChldnQuY2hhckNvZGUpIHsKICAgICAg
+ICAgICAgICAgY2FzZSBzZWxmLl9icm93c2VyS2V5cy5maW5kOgogICAgICAgICAgICAgICAgIHNl
+bGYuZW5hYmxlU2VhcmNoKCk7CiAgICAgICAgICAgICAgICAgYnJlYWs7CmRpZmYgLS1naXQgYS9i
+cm93c2VyL2Jhc2UvY29udGVudC90ZXN0L3RhYnZpZXcvYnJvd3Nlcl90YWJ2aWV3X2J1ZzU4NzI3
+Ni5qcyBiL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3QvdGFidmlldy9icm93c2VyX3RhYnZpZXdf
+YnVnNTg3Mjc2LmpzCi0tLSBhL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3QvdGFidmlldy9icm93
+c2VyX3RhYnZpZXdfYnVnNTg3Mjc2LmpzCisrKyBiL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3Qv
+dGFidmlldy9icm93c2VyX3RhYnZpZXdfYnVnNTg3Mjc2LmpzCkBAIC0xMiwxNyArMTIsMTcgQEAg
+ZnVuY3Rpb24gdGVzdCgpIHsKIGZ1bmN0aW9uIHRlc3QxKCkgewogICBvayhUYWJWaWV3LmlzVmlz
+aWJsZSgpLCAiVGFiIFZpZXcgaXMgdmlzaWJsZSIpOwogCiAgIGNvbnRlbnRXaW5kb3cgPSBkb2N1
+bWVudC5nZXRFbGVtZW50QnlJZCgidGFiLXZpZXciKS5jb250ZW50V2luZG93OwogICB3aGVuVGFi
+Vmlld0lzSGlkZGVuKGZ1bmN0aW9uKCkgewogICAgIG9rKCFUYWJWaWV3LmlzVmlzaWJsZSgpLCAi
+VGFiIFZpZXcgaXMgbm90IHZpc2libGUiKTsKICAgICBzaG93VGFiVmlldyh0ZXN0Mik7CiAgIH0p
+OwotICBFdmVudFV0aWxzLnN5bnRoZXNpemVLZXkoIkUiLCB7IGFjY2VsS2V5OiB0cnVlLCBzaGlm
+dEtleTogdHJ1ZSB9LCBjb250ZW50V2luZG93KTsKKyAgRXZlbnRVdGlscy5zeW50aGVzaXplS2V5
+KCJlIiwgeyBhY2NlbEtleTogdHJ1ZSwgc2hpZnRLZXk6IHRydWUgfSwgY29udGVudFdpbmRvdyk7
+CiB9CiAKIGZ1bmN0aW9uIHRlc3QyKCkgewogICBvayhUYWJWaWV3LmlzVmlzaWJsZSgpLCAiVGFi
+IFZpZXcgaXMgdmlzaWJsZSIpOwogCiAgIHdoZW5TZWFyY2hJc0VuYWJsZWQoZnVuY3Rpb24oKSB7
+CiAgICAgb2soY29udGVudFdpbmRvdy5pc1NlYXJjaEVuYWJsZWQoKSwgIlRoZSBzZWFyY2ggaXMg
+ZW5hYmxlZCIpCiAKZGlmZiAtLWdpdCBhL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3QvdGFidmll
+dy9icm93c2VyX3RhYnZpZXdfYnVnNTk1MTkxLmpzIGIvYnJvd3Nlci9iYXNlL2NvbnRlbnQvdGVz
+dC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc1OTUxOTEuanMKLS0tIGEvYnJvd3Nlci9iYXNl
+L2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc1OTUxOTEuanMKKysrIGIv
+YnJvd3Nlci9iYXNlL2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc1OTUx
+OTEuanMKQEAgLTUyLDEwICs1MiwxMCBAQCBmdW5jdGlvbiB0b2dnbGVUYWJWaWV3VGVzdChjb250
+ZW50V2luZG93CiAgIGxldCBvblRhYlZpZXdIaWRkZW4gPSBmdW5jdGlvbigpIHsKICAgICBjb250
+ZW50V2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoInRhYnZpZXdoaWRkZW4iLCBvblRhYlZpZXdI
+aWRkZW4sIGZhbHNlKTsKIAogICAgIG9rKCFUYWJWaWV3LmlzVmlzaWJsZSgpLCAiVGFiIFZpZXcg
+aXMgaGlkZGVuIik7CiAgICAgZmluaXNoKCk7CiAgIH0KICAgY29udGVudFdpbmRvdy5hZGRFdmVu
+dExpc3RlbmVyKCJ0YWJ2aWV3aGlkZGVuIiwgb25UYWJWaWV3SGlkZGVuLCBmYWxzZSk7CiAgIC8v
+IFVzZSBrZXlib2FyZCBzaG9ydGN1dCB0byB0b2dnbGUgYmFjayB0byBicm93c2VyIHZpZXcKLSAg
+RXZlbnRVdGlscy5zeW50aGVzaXplS2V5KCJFIiwgeyBhY2NlbEtleTogdHJ1ZSwgc2hpZnRLZXk6
+IHRydWUgfSk7CisgIEV2ZW50VXRpbHMuc3ludGhlc2l6ZUtleSgiZSIsIHsgYWNjZWxLZXk6IHRy
+dWUsIHNoaWZ0S2V5OiB0cnVlIH0pOwogfQpkaWZmIC0tZ2l0IGEvYnJvd3Nlci9iYXNlL2NvbnRl
+bnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc1OTU1MTguanMgYi9icm93c2VyL2Jh
+c2UvY29udGVudC90ZXN0L3RhYnZpZXcvYnJvd3Nlcl90YWJ2aWV3X2J1ZzU5NTUxOC5qcwotLS0g
+YS9icm93c2VyL2Jhc2UvY29udGVudC90ZXN0L3RhYnZpZXcvYnJvd3Nlcl90YWJ2aWV3X2J1ZzU5
+NTUxOC5qcworKysgYi9icm93c2VyL2Jhc2UvY29udGVudC90ZXN0L3RhYnZpZXcvYnJvd3Nlcl90
+YWJ2aWV3X2J1ZzU5NTUxOC5qcwpAQCAtMjMsMTcgKzIzLDE3IEBAIGZ1bmN0aW9uIG9uVGFiVmll
+d1dpbmRvd0xvYWRlZCgpIHsKICAgICAKICAgICAvLyB2ZXJpZnkgdGhhdCB0aGUgZXhpdCBidXR0
+b24gbm8gbG9uZ2VyIGhhcyBmb2N1cwogICAgIGlzKGNvbnRlbnRXaW5kb3cuaVEoIiNleGl0LWJ1
+dHRvbjpmb2N1cyIpLmxlbmd0aCwgMCwgCiAgICAgICAgIlRoZSBleGl0IGJ1dHRvbiBkb2Vzbid0
+IGhhdmUgdGhlIGZvY3VzIik7CiAKICAgICAvLyB2ZXJpZnkgdGhhdCB0aGUga2V5Ym9hcmQgY29t
+Ym8gd29ya3MgKHRoaXMgaXMgdGhlIGNydXggb2YgYnVnIDU5NTUxOCkKICAgICAvLyBQcmVwYXJl
+IHRoZSBrZXkgY29tYm8KICAgICB3aW5kb3cuYWRkRXZlbnRMaXN0ZW5lcigidGFidmlld3Nob3du
+Iiwgb25UYWJWaWV3U2hvd24sIGZhbHNlKTsKLSAgICBFdmVudFV0aWxzLnN5bnRoZXNpemVLZXko
+IkUiLCB7IGFjY2VsS2V5OiB0cnVlLCBzaGlmdEtleTogdHJ1ZSB9LCBjb250ZW50V2luZG93KTsK
+KyAgICBFdmVudFV0aWxzLnN5bnRoZXNpemVLZXkoImUiLCB7IGFjY2VsS2V5OiB0cnVlLCBzaGlm
+dEtleTogdHJ1ZSB9LCBjb250ZW50V2luZG93KTsKICAgfQogICAKICAgbGV0IG9uVGFiVmlld1No
+b3duID0gZnVuY3Rpb24oKSB7CiAgICAgd2luZG93LnJlbW92ZUV2ZW50TGlzdGVuZXIoInRhYnZp
+ZXdzaG93biIsIG9uVGFiVmlld1Nob3duLCBmYWxzZSk7CiAgICAgCiAgICAgLy8gdGVzdCBpZiB0
+aGUga2V5IGNvbWJvIHdvcmtlZAogICAgIG9rKFRhYlZpZXcuaXNWaXNpYmxlKCksICJUYWIgVmll
+dyBpcyB2aXNpYmxlIik7CiAKZGlmZiAtLWdpdCBhL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3Qv
+dGFidmlldy9icm93c2VyX3RhYnZpZXdfYnVnNTk1OTMwLmpzIGIvYnJvd3Nlci9iYXNlL2NvbnRl
+bnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc1OTU5MzAuanMKLS0tIGEvYnJvd3Nl
+ci9iYXNlL2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19idWc1OTU5MzAuanMK
+KysrIGIvYnJvd3Nlci9iYXNlL2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19i
+dWc1OTU5MzAuanMKQEAgLTM2LDE3ICszNiwxNyBAQCBmdW5jdGlvbiBvblRhYlZpZXdXaW5kb3dM
+b2FkZWQoKSB7CiAgICAgICBmaW5pc2goKTsKICAgICB9OwogICAgIHdpbmRvdy5hZGRFdmVudExp
+c3RlbmVyKCJ0YWJ2aWV3aGlkZGVuIiwgb25UYWJWaWV3SGlkZGVuLCBmYWxzZSk7CiAKICAgICAv
+LyBkZWxheSB0byBnaXZlIHRpbWUgZm9yIGhpZGRlbiBncm91cCBET00gZWxlbWVudCB0byBiZSBy
+ZW1vdmVkIHNvCiAgICAgLy8gdGhlIGFwcHJvcHJpYXRlIGdyb3VwIHdvdWxkIGdldCBzZWxlY3Rl
+ZCB3aGVuIHRoZSBrZXkKICAgICAvLyBjb21iaW5hdGlvbiBpcyBwcmVzc2VkCiAgICAgZXhlY3V0
+ZVNvb24oZnVuY3Rpb24oKSB7IAotICAgICAgRXZlbnRVdGlscy5zeW50aGVzaXplS2V5KCJFIiwg
+e2FjY2VsS2V5IDogdHJ1ZSwgc2hpZnRLZXk6IHRydWV9LCBjb250ZW50V2luZG93KTsKKyAgICAg
+IEV2ZW50VXRpbHMuc3ludGhlc2l6ZUtleSgiZSIsIHthY2NlbEtleSA6IHRydWUsIHNoaWZ0S2V5
+OiB0cnVlfSwgY29udGVudFdpbmRvdyk7CiAgICAgfSk7CiAgIH0pOwogCiAgIGdyb3VwMS5hZGRT
+dWJzY3JpYmVyKGdyb3VwMSwgImdyb3VwSGlkZGVuIiwgZnVuY3Rpb24oKSB7CiAgICAgZ3JvdXAx
+LnJlbW92ZVN1YnNjcmliZXIoZ3JvdXAxLCAiZ3JvdXBIaWRkZW4iKTsKIAogICAgIC8vIGNsb3Nl
+IHVuZG8gZ3JvdXAKICAgICBsZXQgY2xvc2VCdXR0b24gPSBncm91cDEuJHVuZG9Db250YWluZXIu
+ZmluZCgiLmNsb3NlIik7CmRpZmYgLS1naXQgYS9icm93c2VyL2Jhc2UvY29udGVudC90ZXN0L3Rh
+YnZpZXcvYnJvd3Nlcl90YWJ2aWV3X2J1ZzU5Nzk4MC5qcyBiL2Jyb3dzZXIvYmFzZS9jb250ZW50
+L3Rlc3QvdGFidmlldy9icm93c2VyX3RhYnZpZXdfYnVnNTk3OTgwLmpzCi0tLSBhL2Jyb3dzZXIv
+YmFzZS9jb250ZW50L3Rlc3QvdGFidmlldy9icm93c2VyX3RhYnZpZXdfYnVnNTk3OTgwLmpzCisr
+KyBiL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3QvdGFidmlldy9icm93c2VyX3RhYnZpZXdfYnVn
+NTk3OTgwLmpzCkBAIC03MywxMyArNzMsMTMgQEAgZnVuY3Rpb24gcGFydDIod2luKSB7CiAKICAg
+ICB3aW4uYWRkRXZlbnRMaXN0ZW5lcigidGFidmlld2hpZGRlbiIsIGZ1bmN0aW9uICgpIHsKICAg
+ICAgIHdpbi5yZW1vdmVFdmVudExpc3RlbmVyKCJ0YWJ2aWV3aGlkZGVuIiwgYXJndW1lbnRzLmNh
+bGxlZSwgZmFsc2UpOwogICAgICAgaXMod2luLmdCcm93c2VyLnNlbGVjdGVkVGFiLCBuZXdUYWIs
+ICJUaGUgc2VsZXRlZCB0YWIgc2hvdWxkIGJlIHRoZSBzYW1lIGFzIGJlZm9yZSAobmV3IHRhYiki
+KTsKICAgICAgICB3aW4uY2xvc2UoKTsKICAgICAgICBmaW5pc2goKTsKICAgICB9LCBmYWxzZSk7
+CiAgICAgLy8gc2hvdyB0YWJ2aWV3Ci0gICAgRXZlbnRVdGlscy5zeW50aGVzaXplS2V5KCJFIiwg
+eyBhY2NlbEtleTogdHJ1ZSwgc2hpZnRLZXk6IHRydWUgfSwgd2luKTsKKyAgICBFdmVudFV0aWxz
+LnN5bnRoZXNpemVLZXkoImUiLCB7IGFjY2VsS2V5OiB0cnVlLCBzaGlmdEtleTogdHJ1ZSB9LCB3
+aW4pOwogICAgIC8vIGhpZGUgdGFidmlldwotICAgIEV2ZW50VXRpbHMuc3ludGhlc2l6ZUtleSgi
+RSIsIHsgYWNjZWxLZXk6IHRydWUsIHNoaWZ0S2V5OiB0cnVlIH0sIHdpbik7CisgICAgRXZlbnRV
+dGlscy5zeW50aGVzaXplS2V5KCJlIiwgeyBhY2NlbEtleTogdHJ1ZSwgc2hpZnRLZXk6IHRydWUg
+fSwgd2luKTsKICAgfSkKIH0KZGlmZiAtLWdpdCBhL2Jyb3dzZXIvYmFzZS9jb250ZW50L3Rlc3Qv
+dGFidmlldy9icm93c2VyX3RhYnZpZXdfbGF1bmNoLmpzIGIvYnJvd3Nlci9iYXNlL2NvbnRlbnQv
+dGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19sYXVuY2guanMKLS0tIGEvYnJvd3Nlci9iYXNl
+L2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19sYXVuY2guanMKKysrIGIvYnJv
+d3Nlci9iYXNlL2NvbnRlbnQvdGVzdC90YWJ2aWV3L2Jyb3dzZXJfdGFidmlld19sYXVuY2guanMK
+QEAgLTY5LDE1ICs2OSwxNSBAQCBmdW5jdGlvbiBvblRhYlZpZXdTaG93bigpIHsKIAogLy8gLS0t
+LS0tLS0tLQogZnVuY3Rpb24gb25UYWJWaWV3SGlkZGVuKCkgewogICBvayghVGFiVmlldy5pc1Zp
+c2libGUoKSwgIlRhYiBWaWV3IGlzIGhpZGRlbi4gQ291bnQ6ICIgKyB0YWJWaWV3U2hvd25Db3Vu
+dCk7CiAKICAgaWYgKHRhYlZpZXdTaG93bkNvdW50ID09IDEpIHsKICAgICBkb2N1bWVudC5nZXRF
+bGVtZW50QnlJZCgibWVudV90YWJ2aWV3IikuZG9Db21tYW5kKCk7CiAgIH0gZWxzZSBpZiAodGFi
+Vmlld1Nob3duQ291bnQgPT0gMikgewotICAgIEV2ZW50VXRpbHMuc3ludGhlc2l6ZUtleSgiRSIs
+IHsgYWNjZWxLZXk6IHRydWUsIHNoaWZ0S2V5OiB0cnVlIH0pOworICAgIEV2ZW50VXRpbHMuc3lu
+dGhlc2l6ZUtleSgiZSIsIHsgYWNjZWxLZXk6IHRydWUsIHNoaWZ0S2V5OiB0cnVlIH0pOwogICB9
+IGVsc2UgaWYgKHRhYlZpZXdTaG93bkNvdW50ID09IDMpIHsKICAgICB3aW5kb3cucmVtb3ZlRXZl
+bnRMaXN0ZW5lcigidGFidmlld3Nob3duIiwgb25UYWJWaWV3U2hvd24sIGZhbHNlKTsKICAgICB3
+aW5kb3cucmVtb3ZlRXZlbnRMaXN0ZW5lcigidGFidmlld2hpZGRlbiIsIG9uVGFiVmlld0hpZGRl
+biwgZmFsc2UpOwogICAgIGZpbmlzaCgpOwogICB9CiB9Cg==
+</data>
+<flag name="feedback"
+          id="438206"
+          type_id="607"
+          status="?"
+          setter="raymond"
+          requestee="tim.taubert"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

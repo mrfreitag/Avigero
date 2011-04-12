@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648015</bug_id>
+          
+          <creation_ts>2011-04-06 09:54:00 -0700</creation_ts>
+          <short_desc>caretOffset for focused elements should be -1</short_desc>
+          <delta_ts>2011-04-06 11:40:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Disability Access APIs</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Fernando Herrera">fherrera</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>accessibility-apis</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392462</commentid>
+              <attachid>524203</attachid>
+            <who name="Fernando Herrera">fherrera</who>
+            <bug_when>2011-04-06 09:54:53 -0700</bug_when>
+            <thetext>Created attachment 524203
+mochitest for this bug
+
+If you focus, for example, a button, and you check caretOffset of its text interface (not with DOMi nor accerciser, as window needs to be active to return caret), it is set after the last character. Is should be -1</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392561</commentid>
+            <who name="Fernando Herrera">fherrera</who>
+            <bug_when>2011-04-06 10:39:14 -0700</bug_when>
+            <thetext>*** Bug 646785 has been marked as a duplicate of this bug. ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392792</commentid>
+            <who name="Fernando Herrera">fherrera</who>
+            <bug_when>2011-04-06 11:40:36 -0700</bug_when>
+            <thetext>Notice that firefox 3.6 is still reporting a caret position in this situation, but at 0 instead of at characterCount</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524203</attachid>
+            <date>2011-04-06 09:54:00 -0700</date>
+            <delta_ts>2011-04-06 09:54:53 -0700</delta_ts>
+            <desc>mochitest for this bug</desc>
+            <filename>testCaret-on-focusable-elements.patch</filename>
+            <type>text/plain</type>
+            <size>1949</size>
+            <attacher>fherrera</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2FjY2Vzc2libGUvdGVzdHMvbW9jaGl0ZXN0L3Rlc3RfdGV4dF9jYXJldC5o
+dG1sIGIvYWNjZXNzaWJsZS90ZXN0cy9tb2NoaXRlc3QvdGVzdF90ZXh0X2NhcmV0Lmh0bWwKLS0t
+IGEvYWNjZXNzaWJsZS90ZXN0cy9tb2NoaXRlc3QvdGVzdF90ZXh0X2NhcmV0Lmh0bWwKKysrIGIv
+YWNjZXNzaWJsZS90ZXN0cy9tb2NoaXRlc3QvdGVzdF90ZXh0X2NhcmV0Lmh0bWwKQEAgLTUxLDMw
+ICs1MSw1NiBAQAogICAgICAgfQogCiAgICAgICB0aGlzLmV2ZW50U2VxID0gWwogICAgICAgICBu
+ZXcgaW52b2tlckNoZWNrZXIoRVZFTlRfRk9DVVMsIHRoaXMudGFyZ2V0KSwKICAgICAgICAgbmV3
+IGNhcmV0TW92ZWRDaGVja2VyKHRoaXMudGFyZ2V0LCBhT2Zmc2V0KQogICAgICAgXTsKICAgICB9
+CiAKKyAgICBmdW5jdGlvbiBzZXRGb2N1c0ludm9rZXIoYUlELCBhT2Zmc2V0KQorICAgIHsKKyAg
+ICAgIHRoaXMudGFyZ2V0ID0gZ2V0QWNjZXNzaWJsZShhSUQsIFtuc0lBY2Nlc3NpYmxlVGV4dF0p
+OworCisgICAgICB0aGlzLmludm9rZSA9IGZ1bmN0aW9uIHNldEZvY3VzSW52b2tlcl9pbnZva2Uo
+KQorICAgICAgeworICAgICAgICB0aGlzLnRhcmdldC50YWtlRm9jdXMoKTsKKyAgICAgIH0KKwor
+ICAgICAgdGhpcy5nZXRJRCA9IGZ1bmN0aW9uIHNldEZvY3VzSW52b2tlcl9nZXRJRCgpCisgICAg
+ICB7CisgICAgICAgIHJldHVybiAibnNJQWNjZXNzaWJsZVRleHQ6OmNhcmV0T2Zmc2V0IHRlc3Qg
+Zm9yIGZvY3VzYWJsZSBlbGVtZW50IjsKKyAgICAgIH0KKworICAgICAgdGhpcy5ldmVudFNlcSA9
+IFsKKyAgICAgICAgbmV3IGludm9rZXJDaGVja2VyKEVWRU5UX0ZPQ1VTLCB0aGlzLnRhcmdldCkK
+KyAgICAgIF07CisKKyAgICAgIHRoaXMuY2hlY2sgPSBmdW5jdGlvbiBmb2N1c0NoZWNrZXJfY2hl
+Y2soKQorICAgICAgeworICAgICAgICBpcyh0aGlzLnRhcmdldC5jYXJldE9mZnNldCwgYU9mZnNl
+dCwKKyAgICAgICAgICAgIldyb25nIGNhcmV0IG9mZnNldCBmb3IgIiArIHByZXR0eU5hbWUoYUlE
+KSk7CisgICAgICB9CisgICAgfQorCiAgICAgLyoqCiAgICAgICogRG8gdGVzdHMuCiAgICAgICov
+CiAgICAgdmFyIGdRdWV1ZSA9IG51bGw7CiAKICAgICAvLyBnQTExeUV2ZW50RHVtcElEID0gImV2
+ZW50ZHVtcCI7IC8vIGRlYnVnIHN0dWZmCiAKICAgICBmdW5jdGlvbiBkb1Rlc3RzKCkKICAgICB7
+CiAgICAgICAvLyB0ZXN0IGNhcmV0IG1vdmUgZXZlbnRzIGFuZCBjYXJldCBvZmZzZXRzCiAgICAg
+ICBnUXVldWUgPSBuZXcgZXZlbnRRdWV1ZSgpOwogCiAgICAgICBnUXVldWUucHVzaChuZXcgc2V0
+Q2FyZXRPZmZzZXRJbnZva2VyKCJ0ZXh0Ym94IiwgMSkpOwogICAgICAgZ1F1ZXVlLnB1c2gobmV3
+IHNldENhcmV0T2Zmc2V0SW52b2tlcigibGluayIsIDEpKTsKKyAgICAgIGdRdWV1ZS5wdXNoKG5l
+dyBzZXRGb2N1c0ludm9rZXIoImJ1dHRvbiIsIC0xKSk7CiAKICAgICAgIGdRdWV1ZS5pbnZva2Uo
+KTsgLy8gV2lsbCBjYWxsIFNpbXBsZVRlc3QuZmluaXNoKCk7CiAgICAgfQogCiAgICAgU2ltcGxl
+VGVzdC53YWl0Rm9yRXhwbGljaXRGaW5pc2goKTsKICAgICBhZGRBMTF5TG9hZEV2ZW50KGRvVGVz
+dHMpOwogICA8L3NjcmlwdD4KIDwvaGVhZD4KQEAgLTg4LDEyICsxMTQsMTMgQEAKICAgPC9hPgog
+ICA8cCBpZD0iZGlzcGxheSI+PC9wPgogICA8ZGl2IGlkPSJjb250ZW50IiBzdHlsZT0iZGlzcGxh
+eTogbm9uZSI+PC9kaXY+CiAgIDxwcmUgaWQ9InRlc3QiPgogICA8L3ByZT4KIAogICA8aW5wdXQg
+aWQ9InRleHRib3giIHZhbHVlPSJoZWxsbyIvPgogICA8YSBpZD0ibGluayIgaHJlZj0iYWJvdXQ6
+Ij5hYm91dCBtb3ppbGxhPC9hPgorICA8aW5wdXQgdHlwZT0iYnV0dG9uIiBpZD0iYnV0dG9uIiB2
+YWx1ZT0icHJlc3MgbWUiLz4KIAogICA8ZGl2IGlkPSJldmVudGR1bXAiPjwvZGl2PgogPC9ib2R5
+PgogPC9odG1sPgo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

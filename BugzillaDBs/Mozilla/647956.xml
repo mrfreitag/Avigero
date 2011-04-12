@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647956</bug_id>
+          
+          <creation_ts>2011-04-06 02:11:00 -0700</creation_ts>
+          <short_desc>Mail Client  does not Del POP Svr Copy when only header downloaded and deleted.</short_desc>
+          <delta_ts>2011-04-10 23:26:02 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>MailNews Core</product>
+          <component>Networking: POP</component>
+          <version>1.9.1 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows Vista</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          <keywords>verifyme</keywords>
+          <priority>--</priority>
+          <bug_severity>major</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>seirei</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>networking.pop</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          <cf_blocking_seamonkey21>---</cf_blocking_seamonkey21>
+          <cf_status_seamonkey21>---</cf_status_seamonkey21>
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392063</commentid>
+            <who name="">seirei</who>
+            <bug_when>2011-04-06 02:11:12 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.18) Gecko/20110320 SeaMonkey/2.0.13
+Build Identifier: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.1.18) Gecko/20110320 SeaMonkey/2.0.13
+
+Need to fix that or not show status read when only header has been read
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392065</commentid>
+            <who name="">seirei</who>
+            <bug_when>2011-04-06 02:17:20 -0700</bug_when>
+            <thetext>Claimed by major ISP that this is a seamonkey bug not a mozilla one.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392171</commentid>
+            <who name="Philip Chee">philip.chee</who>
+            <bug_when>2011-04-06 05:32:00 -0700</bug_when>
+            <thetext>You seem to be using SeaMonkey 2.0. POP3 code is shared with Thunderbird.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5399916</commentid>
+            <who name="">seirei</who>
+            <bug_when>2011-04-10 23:26:02 -0700</bug_when>
+            <thetext>Can  I suggest the client displays size in grey if the body has not been
+&gt; downloaded?.
+&gt; I tried 2.1 beta2 but can not yet verify that the problem isn&apos;t still there.
+&gt; I was/am being left with mail on the server when I deleted the header on the
+&gt; client.
+&gt; I checked leave on server till I delete
+&gt;
+&gt; I believe the example was another state required in client state machine.
+&gt; Deleting a header only message was not deleting on the server unless the
+&gt; full message had been downloaded.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

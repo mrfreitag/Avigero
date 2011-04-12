@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647723</bug_id>
+          
+          <creation_ts>2011-04-04 11:40:00 -0700</creation_ts>
+          <short_desc>ssl log rotation now happening at midnight Monday instead of midnight Sunday</short_desc>
+          <delta_ts>2011-04-04 13:52:12 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Camino</product>
+          <component>Product Site</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Smokey Ardisson (offline for a while; no bugmail - do not email)">alqahira</reporter>
+          <assigned_to name="Samuel Sidler (:ss)">samuel.sidler</assigned_to>
+          
+          <qa_contact>product.site</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390360</commentid>
+            <who name="Smokey Ardisson (offline for a while; no bugmail - do not email)">alqahira</who>
+            <bug_when>2011-04-04 11:40:58 -0700</bug_when>
+            <thetext>For some reason, this week&apos;s log rotation occurred at 0:00 04/Apr (midnight Monday) instead of 0:00 03/Apr (midnight Sunday).  The crontab appears unchanged (the cron.daily is still set to run at 0 0 * * * root run-parts /etc/cron.daily); /etc/logrotate.d/httpd is unchanged since Feb, and /etc/logrotate.conf unchanged since March of last year!
+
+Whatever tells logrotate that when it&apos;s run on Sunday morning it needs to logrotate the httpd stuff seems to have changed; I have no idea what that is, though.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390433</commentid>
+            <who name="Samuel Sidler (:ss)">samuel.sidler</who>
+            <bug_when>2011-04-04 13:52:12 -0700</bug_when>
+            <thetext>But last week&apos;s was fine? If this happens again (as in, if it moves to Tuesday), I can investigate, but if it stays on Monday, I say we just ignore it.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

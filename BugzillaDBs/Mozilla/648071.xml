@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648071</bug_id>
+          
+          <creation_ts>2011-04-06 12:01:00 -0700</creation_ts>
+          <short_desc>Update copy on Our Videos page</short_desc>
+          <delta_ts>2011-04-06 12:01:28 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>Firefox 4</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla.com/en-US/firefox/video/</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.0</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Matej Novak [:matej]">Mnovak</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>lforrest</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392873</commentid>
+            <who name="Matej Novak [:matej]">Mnovak</who>
+            <bug_when>2011-04-06 12:01:28 -0700</bug_when>
+            <thetext>Firefox Desktop section:
+
+• Remove &quot;What&apos;s your style?&quot; from the description of Personas video.
+
+Firefox Mobile section:
+
+• Change section heading to &quot;Firefox for Mobile.&quot;
+• What&apos;s New video headline should read &quot;What&apos;s New in Firefox 4 for Mobile.&quot;
+• Lowercase &quot;mobile&quot; in description for mobile Add-ons video (but please keep uppercase Mobile in video headline)</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

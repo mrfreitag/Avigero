@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647923</bug_id>
+          
+          <creation_ts>2011-04-05 20:08:00 -0700</creation_ts>
+          <short_desc>libPKIX should permanently store each CRLs it downloads</short_desc>
+          <delta_ts>2011-04-08 16:37:57 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSS</product>
+          <component>Libraries</component>
+          <version>3.12.9</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>489347</dup_id>
+          
+          
+          <status_whiteboard>DUPE-ME</status_whiteboard>
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>479393</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Kai Engert (:kaie)">kaie</reporter>
+          <assigned_to>nobody</assigned_to>
+          <cc>alvolkov.bgs</cc>
+    
+    <cc>bsmith</cc>
+    
+    <cc>rrelyea</cc>
+          <qa_contact>libraries</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5391816</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-05 20:08:13 -0700</bug_when>
+            <thetext>libPKIX should permanently store each CRLs it downloads
+
+The permanent NSS database might have limitations, and might not be able to store all variants of CRLs. (partitioned? partial?)
+
+The PKIX should make sure it imports only those who can be managed by CRLs.
+At this time it might only support &quot;full CRLs&quot;.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391817</commentid>
+              <attachid>524121</attachid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-05 20:11:09 -0700</bug_when>
+            <thetext>Created attachment 524121
+Patch v1 - initial hack
+
+This patch works for me.
+
+However, it has the following problems:
+
+- it doesn&apos;t check whether the CRL is valid,
+  doesn&apos;t check that it has a valid signature
+
+  PSM does check that.
+  Function SEC_NewCrl requires that the CRL has been checked before import.
+
+  I wonder where PKIX is doing that check currently.
+  Couldn&apos;t find it yet.
+
+- we probably need to free the object returned by SEC_NewCrl ?
+  using SEC_DestroyCrl() ?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391989</commentid>
+            <who name="Nelson Bolyard (:MisterSSL)">nelson</who>
+            <bug_when>2011-04-05 23:48:28 -0700</bug_when>
+            <thetext>This bug is a dupe of a much older one, IINM</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397833</commentid>
+            <who name="Kai Engert (:kaie)">kaie</who>
+            <bug_when>2011-04-08 16:37:57 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 489347 ***</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524121</attachid>
+            <date>2011-04-05 20:11:00 -0700</date>
+            <delta_ts>2011-04-05 20:11:09 -0700</delta_ts>
+            <desc>Patch v1 - initial hack</desc>
+            <filename>p-647923</filename>
+            <type>text/plain</type>
+            <size>1613</size>
+            <attacher>kaie</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3NlY3VyaXR5L25zcy9saWIvbGlicGtpeC9wa2l4X3BsX25zcy9tb2R1bGUv
+cGtpeF9wbF9wazExY2VydHN0b3JlLmMgYi9zZWN1cml0eS9uc3MvbGliL2xpYnBraXgvcGtpeF9w
+bF9uc3MvbW9kdWxlL3BraXhfcGxfcGsxMWNlcnRzdG9yZS5jCi0tLSBhL3NlY3VyaXR5L25zcy9s
+aWIvbGlicGtpeC9wa2l4X3BsX25zcy9tb2R1bGUvcGtpeF9wbF9wazExY2VydHN0b3JlLmMKKysr
+IGIvc2VjdXJpdHkvbnNzL2xpYi9saWJwa2l4L3BraXhfcGxfbnNzL21vZHVsZS9wa2l4X3BsX3Br
+MTFjZXJ0c3RvcmUuYwpAQCAtMzU0LDE2ICszNTQsMTcgQEAgcGtpeF9wbF9QazExQ2VydFN0b3Jl
+X0ltcG9ydENybCgKICAgICAgICAgUEtJWF9DZXJ0U3RvcmUgKnN0b3JlLAogICAgICAgICBQS0lY
+X1BMX1g1MDBOYW1lICppc3N1ZXJOYW1lLAogICAgICAgICBQS0lYX0xpc3QgKmNybExpc3QsCiAg
+ICAgICAgIHZvaWQgKnBsQ29udGV4dCkKIHsKICAgICBDRVJUQ2VydERCSGFuZGxlICpjZXJ0SGFu
+ZGxlID0gQ0VSVF9HZXREZWZhdWx0Q2VydERCKCk7CiAgICAgUEtJWF9QTF9DUkwgKmNybCA9IE5V
+TEw7CiAgICAgU0VDSXRlbSAqZGVyQ3JsID0gTlVMTDsKKyAgICBDRVJUU2lnbmVkQ3JsICpzaWdu
+ZWRDcmwgPSBOVUxMOwogCiAgICAgUEtJWF9FTlRFUihDRVJUU1RPUkUsICJwa2l4X3BsX1BrMTFD
+ZXJ0U3RvcmVfSW1wb3J0Q3JsIik7CiAgICAgUEtJWF9OVUxMQ0hFQ0tfVFdPKHN0b3JlLCBwbENv
+bnRleHQpOwogICAgIAogICAgIGlmICghY3JsTGlzdCkgewogICAgICAgICBnb3RvIGNsZWFudXA7
+CiAgICAgfQogICAgIHdoaWxlIChjcmxMaXN0LT5sZW5ndGggPiAwKSB7CkBAIC0zODUsMTYgKzM4
+NiwyMCBAQCBwa2l4X3BsX1BrMTFDZXJ0U3RvcmVfSW1wb3J0Q3JsKAogICAgICAgICBQT1JUX0Fz
+c2VydCghcGtpeEVycm9yUmVzdWx0ICYmIGRlckNybCk7CiAgICAgICAgIGlmIChwa2l4RXJyb3JS
+ZXN1bHQgfHwgIWRlckNybCkgewogICAgICAgICAgICAgLyogQWxsIHBraXggZGVsaXZlcmVkIGNy
+bHMgc2hvdWxkIGJlIGFibGUgdG8KICAgICAgICAgICAgICAqIHJlbGVhc2UgdGhlaXIgZGVycy4g
+Ki8KICAgICAgICAgICAgIFBLSVhfREVDUkVGKHBraXhFcnJvclJlc3VsdCk7CiAgICAgICAgICAg
+ICBQS0lYX0RFQ1JFRihjcmwpOwogICAgICAgICAgICAgY29udGludWU7CiAgICAgICAgIH0KKyAg
+ICAgICAgCisgICAgICAgIHNpZ25lZENybCA9IFNFQ19OZXdDcmwoQ0VSVF9HZXREZWZhdWx0Q2Vy
+dERCKCksIAorICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5VTEwsIGRlckNybCwgU0VD
+X0NSTF9UWVBFKTsKKyAgICAgICAgCiAgICAgICAgIGNlcnRfQ2FjaGVDUkxCeUdlbmVyYWxOYW1l
+KGNlcnRIYW5kbGUsIGRlckNybCwgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgY3JsLT5kZXJHZW5OYW1lKTsKICAgICAgICAgLyogRG8gbm90IGNoZWNrIHRoZSBzdGF0
+dXMuIElmIGl0IGlzIGEgU0VDRmFpbHVyZSwKICAgICAgICAgICogZGVyQ3JsIGlzIGFscmVhZHkg
+ZGVzdHJveWVkLiAqLwogICAgICAgICBkZXJDcmwgPSBOVUxMOwogICAgICAgICBQS0lYX0RFQ1JF
+RihjcmwpOwogICAgIH0KIAo=
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

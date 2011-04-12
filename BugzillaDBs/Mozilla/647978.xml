@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647978</bug_id>
+          
+          <creation_ts>2011-04-06 05:12:00 -0700</creation_ts>
+          <short_desc>Email alias request</short_desc>
+          <delta_ts>2011-04-06 11:24:31 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations: Desktop Issues</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Ludovic Hirlimann [:Usul ]">ludovic</reporter>
+          <assigned_to name="Spencer Hui">shui</assigned_to>
+          <cc>ebalangue</cc>
+    
+    <cc>shui</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392154</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-06 05:12:19 -0700</bug_when>
+            <thetext>Would it be possible to have ludovic@mozilla.com as an alias to lhirlimann@mozilla.com ?
+
+
+ps sorry if that&apos;s not the right component to ask that</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392333</commentid>
+            <who name="Spencer Hui">shui</who>
+            <bug_when>2011-04-06 08:52:47 -0700</bug_when>
+            <thetext>I made a email under the alias lhirlimann@mozilla.com last week. I&apos;ll resend
+you the credentials to ludovic@mozillamessaging.com 
+Its&apos; possible the password has expired, if you cant log in I can reset it for
+you.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392341</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-06 08:58:13 -0700</bug_when>
+            <thetext>(In reply to comment #1)
+&gt; I made a email under the alias lhirlimann@mozilla.com last week. I&apos;ll resend
+&gt; you the credentials to ludovic@mozillamessaging.com 
+&gt; Its&apos; possible the password has expired, if you cant log in I can reset it for
+&gt; you.
+
+Spencer it works and I can log in etc, I&apos;m just asking to have ludovic@mozilla.com as an email that I can share, lhirlimann is crappy to spell over the phone etc ...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392393</commentid>
+            <who name="Spencer Hui">shui</who>
+            <bug_when>2011-04-06 09:27:35 -0700</bug_when>
+            <thetext>ludovic@mozilla.com has been added to as an alias under lhirlimann@mozilla.com
+try it out and comment back if everything works.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392716</commentid>
+            <who name="Ludovic Hirlimann [:Usul ]">ludovic</who>
+            <bug_when>2011-04-06 11:24:31 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; ludovic@mozilla.com has been added to as an alias under lhirlimann@mozilla.com
+&gt; try it out and comment back if everything works.
+
+Thanks !!!</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

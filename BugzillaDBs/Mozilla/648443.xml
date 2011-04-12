@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648443</bug_id>
+          
+          <creation_ts>2011-04-07 18:36:00 -0700</creation_ts>
+          <short_desc>HBase stopped responding at 2011-04-08 00:28 UTC</short_desc>
+          <delta_ts>2011-04-07 22:19:14 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Server Operations</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>blocker</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jeff Balogh (:jbalogh)">jbalogh</reporter>
+          <assigned_to name="Daniel Einspanjer :dre">deinspanjer</assigned_to>
+          <cc>deinspanjer</cc>
+    
+    <cc>jdow</cc>
+    
+    <cc>xstevens</cc>
+          <qa_contact name="matthew zeier [:mrz]">mrz</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5395639</commentid>
+            <who name="Jeff Balogh (:jbalogh)">jbalogh</who>
+            <bug_when>2011-04-07 18:36:04 -0700</bug_when>
+            <thetext>glow is hanging trying to talk to Hbase. It makes a call and Hbase never responds. It doesn&apos;t matter what the input is, any Hbase call hangs forever.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395645</commentid>
+            <who name="Jeff Balogh (:jbalogh)">jbalogh</who>
+            <bug_when>2011-04-07 18:39:16 -0700</bug_when>
+            <thetext>Making this an IT bug because I don&apos;t know who to page.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395658</commentid>
+            <who name="Dave Miller [:justdave]">justdave</who>
+            <bug_when>2011-04-07 18:44:09 -0700</bug_when>
+            <thetext>paged jabba.  hunting for deinspanjer, haven&apos;t found him yet.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395663</commentid>
+            <who name="Dave Miller [:justdave]">justdave</who>
+            <bug_when>2011-04-07 18:50:49 -0700</bug_when>
+            <thetext>found deinspanjer, he&apos;s on it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395734</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-07 19:38:52 -0700</bug_when>
+            <thetext>We had an unspecified network disruption in SJC that caused the HBase outage.  HBase came back up quickly, but we are investigating why SQLStream isn&apos;t feeding new rows in right now.  Another update to follow shortly.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395815</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-07 20:20:42 -0700</bug_when>
+            <thetext>Jeff, how easy would it be to skip glow ahead to look for 03:11 and later?  Data is flowing through again, but it would take a while longer to try to get it to backfill the missing data from 00:30 and on.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395944</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-07 21:54:07 -0700</bug_when>
+            <thetext>The SQLStream guys got back online before Jeff did.  We are backfilling the missing data now, it is almost half way done.  will close the bug in a few minutes after it has caught up and the site is glowing again.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395978</commentid>
+            <who name="Daniel Einspanjer :dre">deinspanjer</who>
+            <bug_when>2011-04-07 22:19:14 -0700</bug_when>
+            <thetext>Glow is now glowing again.
+
+SQLStream is looking into beefing up the HBase writing agent to better survive an outage like this again.
+
+Metrics will look at diversifying our zookeeper cluster so that temporary network connectivity issues to a portion of the zk cluster won&apos;t cause a total failure.
+
+It would be nice if glow could be updated to at least keep the map glowing even if there is a hole in the data that causes the cumulative stats to be incorrect.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

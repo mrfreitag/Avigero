@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647737</bug_id>
+          
+          <creation_ts>2011-04-04 14:11:00 -0700</creation_ts>
+          <short_desc>Arabic language has a problem</short_desc>
+          <delta_ts>2011-04-04 22:18:34 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter>ali.sherif10</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>matti</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390460</commentid>
+            <who name="">ali.sherif10</who>
+            <bug_when>2011-04-04 14:11:15 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+
+   Arabic words appears separated when I use (I don&apos;t know the right English word) pointing or formation. This problem is exist in all the browser and during browsing. Example: النَاس / عَنه. You can see the whole in the 2 words.
+   This problem annoys everyone.
+
+Reproducible: Always
+
+
+
+
+   This problem was also during beta versions.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390465</commentid>
+            <who name="">ali.sherif10</who>
+            <bug_when>2011-04-04 14:14:04 -0700</bug_when>
+            <thetext>   This bug might be the only bad thing on Firefox 4.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390527</commentid>
+            <who name="Matthias Versen (Matti)">matti</who>
+            <bug_when>2011-04-04 15:04:08 -0700</bug_when>
+            <thetext>Do you mean bug 635639 ?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

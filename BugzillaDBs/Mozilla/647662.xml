@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647662</bug_id>
+          
+          <creation_ts>2011-04-04 03:22:00 -0700</creation_ts>
+          <short_desc>Add a &quot;size&quot; return value to Bug.attachments</short_desc>
+          <delta_ts>2011-04-04 03:23:29 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>WebService</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          <status_whiteboard>[Good Intro Bug]</status_whiteboard>
+          
+          <priority>P3</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Konstantin Petrukhnov">konstantin.petrukhnov</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">webservice</assigned_to>
+          <cc>mkanat</cc>
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389931</commentid>
+            <who name="Konstantin Petrukhnov">konstantin.petrukhnov</who>
+            <bug_when>2011-04-04 03:22:34 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15
+Build Identifier: Bugzilla 4.0
+
+Bugzilla::Webservice::Bug.attachments size field
+
+Size value is missing from return map. It would be good to have possibility to know size of file, before retrieving data.
+
+
+Reproducible: Always
+
+
+
+
+Ideally there should be possible to get data by chunks, so memory could be used efficiently, and big files could be transferred. E.g. Bug.attachmentData, and pass limit and offset values to it.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

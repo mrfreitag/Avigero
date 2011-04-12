@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647792</bug_id>
+          
+          <creation_ts>2011-04-05 03:30:00 -0700</creation_ts>
+          <short_desc>Using Print and Print Preview, FF freezes for certain settings in Page Setup on certain sites.</short_desc>
+          <delta_ts>2011-04-06 12:02:36 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Layout: Floats</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          <bug_file_loc>http://www.mozilla-europe.org/en/firefox/features/</bug_file_loc>
+          
+          <keywords>regression</keywords>
+          <priority>--</priority>
+          <bug_severity>critical</bug_severity>
+          <target_milestone>mozilla2.0</target_milestone>
+          
+          <blocked>563584</blocked>
+    
+    <blocked>595740</blocked>
+          <votes>2</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter>christian.zier</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>alice0775</cc>
+    
+    <cc>aravind</cc>
+    
+    <cc>bzbarsky</cc>
+    
+    <cc>dbaron</cc>
+    
+    <cc>jbecerra</cc>
+    
+    <cc>tnikkel</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>layout.floats</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390965</commentid>
+            <who name="">christian.zier</who>
+            <bug_when>2011-04-05 03:30:28 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20110322 Firefox/4.0 Iceweasel/4.0
+Build Identifier: Mozilla/5.0 (X11; Linux x86_64; rv:2.0) Gecko/20110322 Firefox/4.0 Iceweasel/4.0
+
+FF freezes when trying to print or print preview with
+the settings
+	File | Page Setup -&gt; Landscape, (US-Letter, A4)
+e.g. on the page
+	http://www.mozilla-europe.org/en/firefox/features/
+
+On other pages like
+https://addons.mozilla.org/en-US/firefox/
+http://www.mozilla-europe.org/en/press/2011/03/29/1429-mozilla-launches-firefox-4-for-android
+it works, though.
+
+However, with the settings
+	File | Page Setup -&gt; Landscape, (US-Legal, A5)
+also the page indicated above doesn&apos;t cause any problems. 
+Other formats than those used above have not been tested.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. Use settings &quot;landscape&quot; and paper format &quot;US-Letter&quot; or &quot;A4&quot;.
+2. Visit page http://www.mozilla-europe.org/en/firefox/features/
+3. Then try to print the page or print preview.
+
+Actual Results:  
+FF freezes.
+
+Expected Results:  
+To print the page or preview.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390985</commentid>
+            <who name="aravindm">aravind</who>
+            <bug_when>2011-04-05 04:10:18 -0700</bug_when>
+            <thetext>Confirmed on Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390988</commentid>
+            <who name="Alice0775 White">alice0775</who>
+            <bug_when>2011-04-05 04:14:37 -0700</bug_when>
+            <thetext>Regression window1:
+Works:
+http://hg.mozilla.org/mozilla-central/rev/373d1b393f28
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100805 Minefield/4.0b4pre ID:20100805200154
+Fails Crash:
+http://hg.mozilla.org/mozilla-central/rev/8ab7ef79b673
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b4pre) Gecko/20100805 Minefield/4.0b4pre ID:20100805224228
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=373d1b393f28&amp;tochange=8ab7ef79b673
+
+Regression window2:
+Fails Crash:
+http://hg.mozilla.org/mozilla-central/rev/c8e72631d44b
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b10pre) Gecko/20110111 Firefox/4.0b10pre ID:20110111165601
+Fails Hang:
+http://hg.mozilla.org/mozilla-central/rev/b6f7632f63b7
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b10pre) Gecko/20110111 Firefox/4.0b10pre ID:20110111171558
+Pushlog:
+http://hg.mozilla.org/mozilla-central/pushloghtml?fromchange=c8e72631d44b&amp;tochange=b6f7632f63b7</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5391291</commentid>
+            <who name="Boris Zbarsky (:bz)">bzbarsky</who>
+            <bug_when>2011-04-05 10:09:41 -0700</bug_when>
+            <thetext>David, this looks like your stuff.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

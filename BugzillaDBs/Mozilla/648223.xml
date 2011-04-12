@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648223</bug_id>
+          
+          <creation_ts>2011-04-07 01:25:00 -0700</creation_ts>
+          <short_desc>stop support of accessibility.disableenumvariant</short_desc>
+          <delta_ts>2011-04-07 01:25:26 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Core</product>
+          <component>Disability Access APIs</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          <bug_file_loc>http://kb.mozillazine.org/Accessibility.disableenumvariant</bug_file_loc>
+          
+          <keywords>access</keywords>
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>389800</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="alexander surkov">surkov.alexander</reporter>
+          <assigned_to name="alexander surkov">surkov.alexander</assigned_to>
+          
+          <qa_contact>accessibility-apis</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394123</commentid>
+              <attachid>524367</attachid>
+            <who name="alexander surkov">surkov.alexander</who>
+            <bug_when>2011-04-07 01:25:26 -0700</bug_when>
+            <thetext>Created attachment 524367
+patch
+
+I don&apos;t see how it can be useful, it doesn&apos;t make sense to continue its support.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524367</attachid>
+            <date>2011-04-07 01:25:00 -0700</date>
+            <delta_ts>2011-04-07 01:25:26 -0700</delta_ts>
+            <desc>patch</desc>
+            <filename>patch</filename>
+            <type>text/plain</type>
+            <size>3629</size>
+            <attacher>surkov.alexander</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL2FjY2Vzc2libGUvc3JjL21zYWEvbnNBY2Nlc3NOb2RlV3JhcC5jcHAgYi9h
+Y2Nlc3NpYmxlL3NyYy9tc2FhL25zQWNjZXNzTm9kZVdyYXAuY3BwCi0tLSBhL2FjY2Vzc2libGUv
+c3JjL21zYWEvbnNBY2Nlc3NOb2RlV3JhcC5jcHAKKysrIGIvYWNjZXNzaWJsZS9zcmMvbXNhYS9u
+c0FjY2Vzc05vZGVXcmFwLmNwcApAQCAtNjMsMTcgKzYzLDE2IEBACiAvLy8gdGhlIGFjY2Vzc2li
+bGUgbGlicmFyeSBhbmQgY2FjaGVkIG1ldGhvZHMKIEhJTlNUQU5DRSBuc0FjY2Vzc05vZGVXcmFw
+OjpnbUFjY0xpYiA9IG5zbnVsbDsKIEhJTlNUQU5DRSBuc0FjY2Vzc05vZGVXcmFwOjpnbVVzZXJM
+aWIgPSBuc251bGw7CiBMUEZOQUNDRVNTSUJMRU9CSkVDVEZST01XSU5ET1cgbnNBY2Nlc3NOb2Rl
+V3JhcDo6Z21BY2Nlc3NpYmxlT2JqZWN0RnJvbVdpbmRvdyA9IG5zbnVsbDsKIExQRk5MUkVTVUxU
+RlJPTU9CSkVDVCBuc0FjY2Vzc05vZGVXcmFwOjpnbUxyZXN1bHRGcm9tT2JqZWN0ID0gTlVMTDsK
+IExQRk5OT1RJRllXSU5FVkVOVCBuc0FjY2Vzc05vZGVXcmFwOjpnbU5vdGlmeVdpbkV2ZW50ID0g
+bnNudWxsOwogTFBGTkdFVEdVSVRIUkVBRElORk8gbnNBY2Nlc3NOb2RlV3JhcDo6Z21HZXRHVUlU
+aHJlYWRJbmZvID0gbnNudWxsOwogCi1QUkJvb2wgbnNBY2Nlc3NOb2RlV3JhcDo6Z0lzRW51bVZh
+cmlhbnRTdXBwb3J0RGlzYWJsZWQgPSAwOwogLy8gVXNlZCB0byBkZXRlcm1pbmUgd2hldGhlciBh
+biBJQWNjZXNzaWJsZTIgY29tcGF0aWJsZSBzY3JlZW4gcmVhZGVyIGlzIGxvYWRlZC4KIFBSQm9v
+bCBuc0FjY2Vzc05vZGVXcmFwOjpnSXNJQTJEaXNhYmxlZCA9IFBSX0ZBTFNFOwogCiBBY2NUZXh0
+Q2hhbmdlRXZlbnQqIG5zQWNjZXNzTm9kZVdyYXA6OmdUZXh0RXZlbnQgPSBuc251bGw7CiAKIC8v
+IFByZWYgdG8gZGlzYWxsb3cgQ3RybFRhYiBwcmV2aWV3IGZ1bmN0aW9uYWxpdHkgaWYgSkFXUyBv
+ciBXaW5kb3ctRXllcyBhcmUKIC8vIHJ1bm5pbmcuCiAjZGVmaW5lIENUUkxUQUJfRElTQUxMT1df
+Rk9SX1NDUkVFTl9SRUFERVJTX1BSRUYgImJyb3dzZXIuY3RybFRhYi5kaXNhbGxvd0ZvclNjcmVl
+blJlYWRlcnMiCkBAIC01OTMsMjEgKzU5MiwxNiBAQCBfX3RyeSB7CiAgICpsb2NhbEludGVyZmFj
+ZSA9IHN0YXRpY19jYXN0PG5zSUFjY2Vzc05vZGUqPih0aGlzKTsKICAgTlNfQUREUkVGX1RISVMo
+KTsKIH0gX19leGNlcHQoRmlsdGVyQTExeUV4Y2VwdGlvbnMoOjpHZXRFeGNlcHRpb25Db2RlKCks
+IEdldEV4Y2VwdGlvbkluZm9ybWF0aW9uKCkpKSB7IH0KICAgcmV0dXJuIFNfT0s7CiB9CiAgCiB2
+b2lkIG5zQWNjZXNzTm9kZVdyYXA6OkluaXRBY2Nlc3NpYmlsaXR5KCkKIHsKLSAgbnNDT01QdHI8
+bnNJUHJlZkJyYW5jaD4gcHJlZkJyYW5jaChkb19HZXRTZXJ2aWNlKE5TX1BSRUZTRVJWSUNFX0NP
+TlRSQUNUSUQpKTsKLSAgaWYgKHByZWZCcmFuY2gpIHsKLSAgICBwcmVmQnJhbmNoLT5HZXRCb29s
+UHJlZigiYWNjZXNzaWJpbGl0eS5kaXNhYmxlZW51bXZhcmlhbnQiLCAmZ0lzRW51bVZhcmlhbnRT
+dXBwb3J0RGlzYWJsZWQpOwotICB9Ci0KICAgaWYgKCFnbVVzZXJMaWIpIHsKICAgICBnbVVzZXJM
+aWIgPTo6TG9hZExpYnJhcnlXKEwiVVNFUjMyLkRMTCIpOwogICB9CiAKICAgaWYgKGdtVXNlckxp
+YikgewogICAgIGlmICghZ21Ob3RpZnlXaW5FdmVudCkKICAgICAgIGdtTm90aWZ5V2luRXZlbnQg
+PSAoTFBGTk5PVElGWVdJTkVWRU5UKUdldFByb2NBZGRyZXNzKGdtVXNlckxpYiwiTm90aWZ5V2lu
+RXZlbnQiKTsKICAgICBpZiAoIWdtR2V0R1VJVGhyZWFkSW5mbykKZGlmZiAtLWdpdCBhL2FjY2Vz
+c2libGUvc3JjL21zYWEvbnNBY2Nlc3NOb2RlV3JhcC5oIGIvYWNjZXNzaWJsZS9zcmMvbXNhYS9u
+c0FjY2Vzc05vZGVXcmFwLmgKLS0tIGEvYWNjZXNzaWJsZS9zcmMvbXNhYS9uc0FjY2Vzc05vZGVX
+cmFwLmgKKysrIGIvYWNjZXNzaWJsZS9zcmMvbXNhYS9uc0FjY2Vzc05vZGVXcmFwLmgKQEAgLTE4
+MCwxOCArMTgwLDE2IEBAIHByb3RlY3RlZDoKICAgLyoqCiAgICAqIFJldHVybiBJU2ltcGxlRE9N
+Tm9kZSBpbnN0YW5jZSBmb3IgZXhpc3RpbmcgYWNjZXNzaWJsZSBvYmplY3Qgb3IKICAgICogY3Jl
+YXRlcyBuZXcgbnNBY2Nlc3NOb2RlIGluc3RhbmNlIGlmIHRoZSBhY2Nlc3NpYmxlIGRvZXNuJ3Qg
+ZXhpc3QuCiAgICAqCiAgICAqIEBub3RlIElTaW1wbGVET01Ob2RlIGlzIHJldHVybmVkIGFkZHJl
+ZmVkCiAgICAqLwogICBJU2ltcGxlRE9NTm9kZSAqTWFrZUFjY2Vzc05vZGUobnNJTm9kZSAqYU5v
+ZGUpOwogCi0gICAgc3RhdGljIFBSQm9vbCBnSXNFbnVtVmFyaWFudFN1cHBvcnREaXNhYmxlZDsK
+LQogICAgIC8qKgogICAgICAqIFVzZWQgdG8gZGV0ZXJtaW5lIHdoZXRoZXIgYW4gSUFjY2Vzc2li
+bGUyIGNvbXBhdGlibGUgc2NyZWVuIHJlYWRlciBpcwogICAgICAqIGxvYWRlZC4gQ3VycmVudGx5
+IHVzZWQgZm9yIEpBV1MgdmVyc2lvbnMgb2xkZXIgdGhhbiA4LjAuMjE3My4KICAgICAgKi8KICAg
+ICAgc3RhdGljIFBSQm9vbCBnSXNJQTJEaXNhYmxlZDsKIAogICAgIC8qKgogICAgICAqIEl0IGlz
+IHVzZWQgaW4gbnNIeXBlclRleHRBY2Nlc3NpYmxlV3JhcCBmb3IgSUEyOjpuZXdUZXh0L29sZFRl
+eHQKZGlmZiAtLWdpdCBhL2FjY2Vzc2libGUvc3JjL21zYWEvbnNBY2Nlc3NpYmxlV3JhcC5jcHAg
+Yi9hY2Nlc3NpYmxlL3NyYy9tc2FhL25zQWNjZXNzaWJsZVdyYXAuY3BwCi0tLSBhL2FjY2Vzc2li
+bGUvc3JjL21zYWEvbnNBY2Nlc3NpYmxlV3JhcC5jcHAKKysrIGIvYWNjZXNzaWJsZS9zcmMvbXNh
+YS9uc0FjY2Vzc2libGVXcmFwLmNwcApAQCAtMTEzLDE3ICsxMTMsMTcgQEAgTlNfSU1QTF9JU1VQ
+UE9SVFNfSU5IRVJJVEVEMChuc0FjY2Vzc2libAogLy8gTWljcm9zb2Z0IENPTSBRdWVyeUludGVy
+ZmFjZQogU1RETUVUSE9ESU1QIG5zQWNjZXNzaWJsZVdyYXA6OlF1ZXJ5SW50ZXJmYWNlKFJFRklJ
+RCBpaWQsIHZvaWQqKiBwcHYpCiB7CiBfX3RyeSB7CiAgICpwcHYgPSBOVUxMOwogCiAgIGlmIChJ
+SURfSVVua25vd24gPT0gaWlkIHx8IElJRF9JRGlzcGF0Y2ggPT0gaWlkIHx8IElJRF9JQWNjZXNz
+aWJsZSA9PSBpaWQpCiAgICAgKnBwdiA9IHN0YXRpY19jYXN0PElBY2Nlc3NpYmxlKj4odGhpcyk7
+Ci0gIGVsc2UgaWYgKElJRF9JRW51bVZBUklBTlQgPT0gaWlkICYmICFnSXNFbnVtVmFyaWFudFN1
+cHBvcnREaXNhYmxlZCkgeworICBlbHNlIGlmIChJSURfSUVudW1WQVJJQU5UID09IGlpZCkgewog
+ICAgIGxvbmcgbnVtQ2hpbGRyZW47CiAgICAgZ2V0X2FjY0NoaWxkQ291bnQoJm51bUNoaWxkcmVu
+KTsKICAgICBpZiAobnVtQ2hpbGRyZW4gPiAwKSAgLy8gRG9uJ3Qgc3VwcG9ydCB0aGlzIGludGVy
+ZmFjZSBmb3IgbGVhZiBlbGVtZW50cwogICAgICAgKnBwdiA9IHN0YXRpY19jYXN0PElFbnVtVkFS
+SUFOVCo+KHRoaXMpOwogICB9IGVsc2UgaWYgKElJRF9JU2VydmljZVByb3ZpZGVyID09IGlpZCkK
+ICAgICAqcHB2ID0gc3RhdGljX2Nhc3Q8SVNlcnZpY2VQcm92aWRlcio+KHRoaXMpOwogICBlbHNl
+IGlmIChJSURfSUFjY2Vzc2libGUyID09IGlpZCAmJiAhZ0lzSUEyRGlzYWJsZWQpCiAgICAgKnBw
+diA9IHN0YXRpY19jYXN0PElBY2Nlc3NpYmxlMio+KHRoaXMpOwo=
+</data>
+<flag name="review"
+          id="438014"
+          type_id="4"
+          status="?"
+          setter="surkov.alexander"
+          requestee="bolterbugz"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

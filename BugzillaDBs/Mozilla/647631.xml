@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647631</bug_id>
+          
+          <creation_ts>2011-04-03 19:20:00 -0700</creation_ts>
+          <short_desc>Commit Access (Level 1a) for William Reynolds - mozilla.com</short_desc>
+          <delta_ts>2011-04-07 22:37:40 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>mozilla.org</product>
+          <component>Repository Account Requests</component>
+          <version>other</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>FIXED</resolution>
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="William Reynolds [:williamr]">williamr</reporter>
+          <assigned_to name="Justin Lazaro [:jlazaro]">jlazaro</assigned_to>
+          <cc>jlazaro</cc>
+    
+    <cc>jslater</cc>
+    
+    <cc>reed</cc>
+          <qa_contact>repo-acct-req</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389686</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-03 19:20:45 -0700</bug_when>
+            <thetext>Requesting commit access to mozilla.com. For now I&apos;ll only be committing code for my projects on the Engagement team and to help with trivial fixes on mozilla.com (grammatical fixes, updating links, etc).
+
+Already had my SVN account set up in bug 579474. Just asking to expand that to mozilla.com to make quick fixes to projects I&apos;m working on.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392740</commentid>
+            <who name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</who>
+            <bug_when>2011-04-06 11:31:20 -0700</bug_when>
+            <thetext>William: Can you get jslater to vouch?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392845</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-06 11:55:28 -0700</bug_when>
+            <thetext>a=jslater
+
+Go William!</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392874</commentid>
+            <who name="Marcia Knous [:marcia] afk 4/7 - 4/22">mozillamarcia.knous</who>
+            <bug_when>2011-04-06 12:01:38 -0700</bug_when>
+            <thetext>Over to server ops for access to mozilla.com</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392992</commentid>
+            <who name="Justin Lazaro [:jlazaro]">jlazaro</who>
+            <bug_when>2011-04-06 12:55:19 -0700</bug_when>
+            <thetext>Added wreynolds@mozilla.com to mozilla-com-webmasters in authz</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395977</commentid>
+            <who name="Dave Miller [:justdave]">justdave</who>
+            <bug_when>2011-04-07 22:19:10 -0700</bug_when>
+            <thetext>jslater: apparently he needs access to /projects/mozilla.com/trunk, which is a separate group from mozilla-com-webmasters.  OK to grant?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395984</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-07 22:28:23 -0700</bug_when>
+            <thetext>Dave, just so I fully understand, what are the implications of being in the two different groups?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395991</commentid>
+            <who name="John Slater">jslater</who>
+            <bug_when>2011-04-07 22:34:28 -0700</bug_when>
+            <thetext>(In reply to comment #6)
+&gt; Dave, just so I fully understand, what are the implications of being in the two
+&gt; different groups?
+
+Got the info offline. a=jslater</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395999</commentid>
+            <who name="Dave Miller [:justdave]">justdave</who>
+            <bug_when>2011-04-07 22:37:40 -0700</bug_when>
+            <thetext>Done.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

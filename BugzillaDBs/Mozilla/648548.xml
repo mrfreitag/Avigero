@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648548</bug_id>
+          
+          <creation_ts>2011-04-08 09:42:00 -0700</creation_ts>
+          <short_desc>provide a UI to allow users to download fonts that are missing from their system</short_desc>
+          <delta_ts>2011-04-08 09:42:52 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Fennec</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>x86_64</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>619521</dependson>
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Brad Lassey [:blassey][blassey@mozilla.com]">blassey.bugs</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>general</qa_contact>
+          <cf_blocking_fennec>?</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396623</commentid>
+            <who name="Brad Lassey [:blassey][blassey@mozilla.com]">blassey.bugs</who>
+            <bug_when>2011-04-08 09:42:52 -0700</bug_when>
+            <thetext>mobile devices ship with a fairly limited set of fonts and if a user views pages that use fonts their device doesn&apos;t support they up a bit of a creek. Bug 619521 is for providing the fonts, I intend for this bug to be about the UI</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647679</bug_id>
+          
+          <creation_ts>2011-04-04 07:36:00 -0700</creation_ts>
+          <short_desc>Message move or delete seems to be ignored. moveCopyModule ERROR in moveCopy.js</short_desc>
+          <delta_ts>2011-04-06 08:43:23 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Thunderbird</product>
+          <component>Message Reader UI</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Linux</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="xzoli">xlator</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>vseerror</cc>
+          <qa_contact>message-reader</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          <cf_blocking_thunderbird33>---</cf_blocking_thunderbird33>
+          <cf_status_thunderbird33>---</cf_status_thunderbird33>
+          <cf_blocking_thunderbird32>---</cf_blocking_thunderbird32>
+          <cf_status_thunderbird32>---</cf_status_thunderbird32>
+          <cf_blocking_thunderbird31>---</cf_blocking_thunderbird31>
+          <cf_status_thunderbird31>---</cf_status_thunderbird31>
+          <cf_blocking_thunderbird30>---</cf_blocking_thunderbird30>
+          <cf_status_thunderbird30>---</cf_status_thunderbird30>
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5390128</commentid>
+            <who name="xzoli">xlator</who>
+            <bug_when>2011-04-04 07:36:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.16) Gecko/20110319 Firefox/3.6.16
+Build Identifier: Mozilla/5.0 (X11; U; Linux i686; en-GB; rv:1.9.2.15) Gecko/20110303 Lightning/1.0b2 Thunderbird/3.1.9
+
+Sometimes, TB refuses to display, move or delete messages from a local folder.
+(Meanwhile, the filters on the inbox that move mail from Inbox to the local folder do work. Inbox is IMAP if that matters.)
+A restart usually helps.
+
+@ Deleting/moving:
+Tried to
+- delete via Del button on the screen or keyboard
+- Edit menu/ delete 
+- doubleclicking the message to open it in a new tab and select delete/move there.
+Neither of these works.
+
+Not sure if this is the same bug as 603437.
+
+@ Displaying:
+Clicking on the message in the folder pane doesn&apos;t display the message in the mail text body pane. If I doubleclick on it, it&apos;s opened in a separate tab. But even here, the delete button doesn&apos;t work.
+
+Nothing is shown in the Activity manager or the Error console.
+
+(I just saw one error msg, but not related to my move/delete attempts but when clicking on different mail folders:
+
+Error: uncaught exception: [Exception... &quot;Component returned failure code: 0x80550006 [nsIMsgFolder.msgDatabase]&quot;  nsresult: &quot;0x80550006 (&lt;unknown&gt;)&quot;  location: &quot;JS frame :: chrome://messenger/content/mailWidgets.xml :: parseFolder :: line 2143&quot;  data: no]
+)
+
+Reproducible: Sometimes
+
+Steps to Reproduce:
+1. Click on a mail in a folder.
+2. Delete/move it with any of the methods described above.
+
+Actual Results:  
+It&apos;s not deleted/moved.
+
+Expected Results:  
+It should be deleted/moved.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390134</commentid>
+            <who name="xzoli">xlator</who>
+            <bug_when>2011-04-04 07:44:22 -0700</bug_when>
+            <thetext>I just found this in the error window while clicking here and there and trying to delete various ways:
+
+2011-04-04 16:34:14	moveCopyModule	ERROR	Exception: [Exception... &quot;&apos;Component is not available&apos; when calling method: [nsIActivityManager::removeActivity]&quot;  nsresult: &quot;0x80040111 (NS_ERROR_NOT_AVAILABLE)&quot;  location: &quot;JS frame :: file:///export/localhome/loctzp/usr/thunderbird/modules/activity/moveCopy.js :: anonymous :: line 170&quot;  data: no]
+
+Still cannot reproduce the error message.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390213</commentid>
+            <who name="Wayne Mery (:wsmwk)">vseerror</who>
+            <bug_when>2011-04-04 09:08:39 -0700</bug_when>
+            <thetext>xzoli does this also happen with thunderbird started in safe mode?
+https://support.mozillamessaging.com/en-US/kb/Safe+Mode</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5390911</commentid>
+            <who name="xzoli">xlator</who>
+            <bug_when>2011-04-05 01:24:25 -0700</bug_when>
+            <thetext>It is not deterministically reproducible.
+A restart of TB does cure it anyhow, so did the restart in safe mode. Should I run TB in safe mode permanently ?
+
+Meanwhile I found another error (2*) in the error window:
+
+2011-04-05 09:13:39	gloda.index_msg	ERROR	Problem encountered during message move/copy: [Exception... &quot;Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIArray.queryElementAt]&quot;  nsresult: &quot;0x80070057 (NS_ERROR_ILLEGAL_VALUE)&quot;  location: &quot;JS frame :: file:///.../thunderbird/modules/gloda/index_msg.js :: gloda_indexer_msgsMoveCopyCompleted :: line 2202&quot;  data: no]
+
+undefined</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392320</commentid>
+            <who name="xzoli">xlator</who>
+            <bug_when>2011-04-06 08:43:23 -0700</bug_when>
+            <thetext>Yet another error log entry, a lot of these arrived for local folders, observed after leaving the folder, probably during auto compacting:
+
+2011-04-06 17:38:51	gloda.index_msg	WARN	Observed header that claims to be gloda indexed but that gloda has never heard of during compaction. In folder: mailbox://nobody@Local%20Folders/misc sketchy key: 16716372 subject: ...
+
+Could be related to the problem ?</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

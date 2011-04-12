@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647591</bug_id>
+          
+          <creation_ts>2011-04-03 11:54:00 -0700</creation_ts>
+          <short_desc>queries without a version are getting an (incorrect) version autoselected and added to the query</short_desc>
+          <delta_ts>2011-04-03 11:54:26 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Webtools</product>
+          <component>Socorro</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="David Baron [:dbaron]">dbaron</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          
+          <qa_contact>socorro</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389333</commentid>
+            <who name="David Baron [:dbaron]">dbaron</who>
+            <bug_when>2011-04-03 11:54:26 -0700</bug_when>
+            <thetext>This has happened before (bug 629552), and started happening again about two to four days ago.
+
+I&apos;ve started seeing queries like this:
+
+http://crash-stats.mozilla.com/query/query?product=Firefox&amp;platform=windows&amp;branch=2.2&amp;date=&amp;range_value=30&amp;range_unit=days&amp;query_search=signature&amp;query_type=exact&amp;query=&amp;build_id=20110402030439&amp;process_type=browser&amp;hang_type=crash&amp;do_query=1
+
+incorrectly add a version-specific query and thus produce no results.  In particular, the output in the query results says:
+
+Results within 30 days of 04/03/2011 11:51:28, and the product is one of Firefox, and the branch is one of 2.2, and the version is one of Firefox:4.0, and the platform is one of Windows for build 20110402030439 and the crashing process was a browser.
+
+(and the corresponding version line is highlighted in the search form in the query)
+
+
+The part of that output that&apos;s incorrect is &quot;the version is one of Firefox:4.0&quot;, which is not requested anywhere in the query -- and in particular it&apos;s guaranteed to lead to no results since the query does contain branch=2.2 (while Firefox 4.0 crashes should match branch=2.0).
+
+
+I can work around this by adding &amp;version=ALL:ALL to my queries -- but it seems odd that this behavior keeps coming and going.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

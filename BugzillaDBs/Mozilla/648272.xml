@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648272</bug_id>
+          
+          <creation_ts>2011-04-07 08:19:00 -0700</creation_ts>
+          <short_desc>Implement/activate new Websocket Protocol (HyBi 06 or greater)</short_desc>
+          <delta_ts>2011-04-08 15:55:35 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>Trunk</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>VERIFIED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>640003</dup_id>
+          
+          <bug_file_loc>http://tools.ietf.org/html/draft-ietf-hybi-thewebsocketprotocol-06</bug_file_loc>
+          
+          
+          <priority>--</priority>
+          <bug_severity>enhancement</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Joel Martin">mozilla</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>Cork</cc>
+    
+    <cc>kbrosnan</cc>
+    
+    <cc>mcmanus</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394431</commentid>
+            <who name="Joel Martin">mozilla</who>
+            <bug_when>2011-04-07 08:19:24 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.552.215 Safari/534.10
+Build Identifier: 
+
+The current WebSocket protocol draft is here: http://tools.ietf.org/html/draft-ietf-hybi-thewebsocketprotocol-06
+
+IMO, the HyBi working group has largely reached consensus on the outstanding major issues and the next few drafts will mostly be wording cleanup and very minor functional tweaks (if any). Also, the handshake now includes the protocol version so the server can determine more easily what version of the protocol it should speak to the UA.
+
+The security concerns that prompted Mozilla and Opera to disable WebSockets by default have been addressed.
+
+I think it&apos;s time to update the WebSockets implementation in Firefox and turn it on by default again.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394454</commentid>
+            <who name="Mats Palmgren [:mats]">matspal</who>
+            <bug_when>2011-04-07 08:34:00 -0700</bug_when>
+            <thetext>Duplicate of bug 640003?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394538</commentid>
+            <who name="Cork">Cork</who>
+            <bug_when>2011-04-07 09:28:14 -0700</bug_when>
+            <thetext>yup
+
+*** This bug has been marked as a duplicate of bug 640003 ***</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394542</commentid>
+            <who name="Joel Martin">mozilla</who>
+            <bug_when>2011-04-07 09:29:40 -0700</bug_when>
+            <thetext>Sigh. I swear I did several searches. Somehow missed it.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394587</commentid>
+            <who name="Patrick McManus">mcmanus</who>
+            <bug_when>2011-04-07 09:44:32 -0700</bug_when>
+            <thetext>fwiw I expect -07 to have minor binary incompatibilies.. that would be the target draft for semantic interoperability imo.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

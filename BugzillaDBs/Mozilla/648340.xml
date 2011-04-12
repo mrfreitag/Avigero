@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648340</bug_id>
+          
+          <creation_ts>2011-04-07 13:06:00 -0700</creation_ts>
+          <short_desc>selected item from Google search list does not populate; must type it in</short_desc>
+          <delta_ts>2011-04-08 07:49:41 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows XP</op_sys>
+          <bug_status>UNCONFIRMED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Patricia Shalis">pshalis</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>fmdevelopertim</cc>
+    
+    <cc>xtc4uall</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394947</commentid>
+            <who name="Patricia Shalis">pshalis</who>
+            <bug_when>2011-04-07 13:06:07 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 5.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Firefox/4.0
+
+with a new tab, when a word or phrase is typed into the Goggle search box on the left side of the main title bar, a drop down menu of possible selections appears, but when you select one of them, it does not auto-populate the rest of the phrase into the Goggle box.  You have to continue typing in the complete item to search on it.  This always worked prior to the Firefox 4.0 upgrade.
+
+Reproducible: Always
+
+Steps to Reproduce:
+1. select new tab to get a fresh window
+2. begin typing a word or phrase such as &quot;ecolog&quot;
+3. drop down list shows &quot;ecology center ann arbor&quot;
+4. put cursor on this item and left click mouse
+5. search box continues to show &quot;ecolog&quot; rather than full phrase
+6. either type in the rest and hit &quot;search&quot; or hit &quot;search&quot; and it takes you to a Google screen to further search for the item.  It should go directly after step 3
+Actual Results:  
+The drop down box is not useful because I have to type everything in completely even after I select the item I want to search
+
+Expected Results:  
+In step 3 above, as soon as I select the option from the drop down list, it should go directly there.  It has always worked this way before the 4.0 upgrade.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5395778</commentid>
+            <who name="Tim (fmdeveloper)">fmdevelopertim</who>
+            <bug_when>2011-04-07 20:02:10 -0700</bug_when>
+            <thetext>WFM - Mozilla/5.0 (Windows NT 5.1; rv:2.2a1pre) Gecko/20110404 Firefox/4.2a1pre ID:20110404030429
+
+Does the issue still occur if you start Firefox in Safe Mode? http://support.mozilla.com/en-US/kb/Safe+Mode
+
+How about with a new, empty profile? http://support.mozilla.com/en-US/kb/Basic+Troubleshooting#Make_a_new_profile</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

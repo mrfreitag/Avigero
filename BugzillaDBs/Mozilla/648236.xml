@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648236</bug_id>
+          
+          <creation_ts>2011-04-07 04:58:00 -0700</creation_ts>
+          <short_desc>Javascrip messages not shown in the nice new screen</short_desc>
+          <delta_ts>2011-04-08 11:54:16 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>2</classification_id>
+          <classification>Client Software</classification>
+          <product>Firefox</product>
+          <component>General</component>
+          <version>4.0 Branch</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>RESOLVED</bug_status>
+          <resolution>DUPLICATE</resolution>
+          <dup_id>637160</dup_id>
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>trivial</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          
+          <reporter name="Mjal">jalilyvand_m</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">nobody</assigned_to>
+          <cc>andrei.domuta</cc>
+    
+    <cc>dolske</cc>
+    
+    <cc>kbrosnan</cc>
+          <qa_contact>general</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5394213</commentid>
+            <who name="Mjal">jalilyvand_m</who>
+            <bug_when>2011-04-07 04:58:18 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows NT 6.1; rv:2.0) Gecko/20100101 Firefox/4.0
+Build Identifier: Firefox 4.0
+
+Browse to a page on a website contaning a from with a javascrip check
+Dont fill in al the requierd fields
+Click on submit (Ok, Send, Yes....)
+The Javascript is shown and tells the user that not all requierd fields are filled in. This is done in the new GUI of Firefox 4.0
+Now close the message an click on a different menu link on the website
+Click on back (return to the form)
+Again click on submit (Ok, Send, Yes....)
+You will see  that the Javascrip message is shown in the old style.
+
+
+Reproducible: Always
+
+Steps to Reproduce:
+Browse to a page on a website contaning a from with a javascrip check
+Dont fill in al the requierd fields
+Click on submit (Ok, Send, Yes....)
+The Javascript is shown and tells the user that not all requierd fields are filled in. This is done in the new GUI of Firefox 4.0
+Now close the message an click on a different menu link on the website
+Click on back (return to the form)
+Again click on submit (Ok, Send, Yes....)
+You will see  that the Javascrip message is shown in the old style.
+Actual Results:  
+The old javascript messaging gui is shown
+
+Expected Results:  
+The new javascript messaging gui of firefox 4.0 should be shown</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5394226</commentid>
+            <who name="AndreiD">andrei.domuta</who>
+            <bug_when>2011-04-07 05:09:00 -0700</bug_when>
+            <thetext>Build: Mozilla/5.0 (Windows NT 6.1; rv:2.2a1pre) Gecko/20110406 Firefox/4.2a1pre
+
+I was unable to verify the issue. Can you please be more clear on the steps to reproduce? Do you have an example website? Can you provide a screenshot/ screen video of the issue?
+
+Remaining Unconfirmed.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397124</commentid>
+            <who name="Kevin Brosnan">kbrosnan</who>
+            <bug_when>2011-04-08 11:51:56 -0700</bug_when>
+            <thetext>Can you provide an example page either a link to one or attach a single page example to the bug.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397130</commentid>
+            <who name="Justin Dolske [:Dolske]">dolske</who>
+            <bug_when>2011-04-08 11:54:16 -0700</bug_when>
+            <thetext>
+
+*** This bug has been marked as a duplicate of bug 637160 ***</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>648486</bug_id>
+          
+          <creation_ts>2011-04-07 22:39:00 -0700</creation_ts>
+          <short_desc>Fx4 upgrade INFLUENCER campaign - remove video copy / links</short_desc>
+          <delta_ts>2011-04-11 18:02:51 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>5</classification_id>
+          <classification>Other</classification>
+          <product>Websites</product>
+          <component>www.mozilla.com</component>
+          <version>unspecified</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>REOPENED</bug_status>
+          
+          
+          
+          <bug_file_loc>https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</bug_file_loc>
+          
+          
+          <priority>P1</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>2.0</target_milestone>
+          
+          <blocked>647730</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Jane Finette">jfinette</reporter>
+          <assigned_to name="William Reynolds [:williamr]">williamr</assigned_to>
+          <cc>gjimenez</cc>
+    
+    <cc>lforrest</cc>
+    
+    <cc>malexis</cc>
+    
+    <cc>mozbugs.retornam</cc>
+    
+    <cc>reed</cc>
+    
+    <cc>stephen.donner</cc>
+    
+    <cc>williamr</cc>
+          <qa_contact>www-mozilla-com</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5396002</commentid>
+            <who name="Jane Finette">jfinette</who>
+            <bug_when>2011-04-07 22:39:51 -0700</bug_when>
+            <thetext>Hi there - we have a challenge hosting and getting the Installation videos live, therefore I&apos;m going to take them out of this release, rather than jeopardize the launch. 
+
+Please can you make the following edits to the copy.
+
+OLD COPY:
+Take them to school. Send a video that teaches them how to install Firefox 4 on their Mac or PC. Or send them PDF instructions for Mac or PC instead.
+
+NEW COPY:
+Take them to school. Send a PDF guide that teaches them how to install Firefox 4 on their Mac or PC. 
+
+thanks</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396044</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-07 23:19:48 -0700</bug_when>
+            <thetext>Made this change to trunk in r87098
+
+Viewable here: https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396748</commentid>
+            <who name="raymond [:retornam]">mozbugs.retornam</who>
+            <bug_when>2011-04-08 10:18:26 -0700</bug_when>
+            <thetext>video links still present reopening...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5396758</commentid>
+            <who name="Stephen Donner [:stephend]">stephen.donner</who>
+            <bug_when>2011-04-08 10:21:18 -0700</bug_when>
+            <thetext>(In reply to comment #2)
+&gt; video links still present reopening...
+
+Really?  I don&apos;t see them on https://www-trunk.stage.mozilla.com/en-US/firefox/webhero/.  I do see a generic &quot;Video&quot; link, but that goes to https://www-trunk.stage.mozilla.com/en-US/firefox/video/.  What are you seeing?  Did you look at the diff?  And the copy in comment 0?</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5397393</commentid>
+            <who name="William Reynolds [:williamr]">williamr</who>
+            <bug_when>2011-04-08 13:45:44 -0700</bug_when>
+            <thetext>(In reply to comment #3)
+&gt; (In reply to comment #2)
+&gt; I do see a generic &quot;Video&quot; link, but that goes to
+&gt; https://www-trunk.stage.mozilla.com/en-US/firefox/video/.
+
+That generic link is intentional so we&apos;re good there.</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647652</bug_id>
+          
+          <creation_ts>2011-04-04 00:40:00 -0700</creation_ts>
+          <short_desc>inconsistent Bug.fields and Bug.get field names (XML-RPC)</short_desc>
+          <delta_ts>2011-04-04 00:49:20 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>4</classification_id>
+          <classification>Server Software</classification>
+          <product>Bugzilla</product>
+          <component>WebService</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>All</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Konstantin Petrukhnov">konstantin.petrukhnov</reporter>
+          <assigned_to name="Nobody; OK to take it and work on it">webservice</assigned_to>
+          <cc>mkanat</cc>
+          <qa_contact>default-qa</qa_contact>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389872</commentid>
+            <who name="Konstantin Petrukhnov">konstantin.petrukhnov</who>
+            <bug_when>2011-04-04 00:40:59 -0700</bug_when>
+            <thetext>User-Agent:       Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2.15) Gecko/20110303 Firefox/3.6.15
+Build Identifier: Bugzilla 4.0
+
+Bug.fields return fields with names: 
+bug_id, short_desc, bug_status, bug_severity
+
+But Bug.get expect different names for same fields:
+id, summary, status, severity
+
+I think field names should be consistent for all return and send values.
+
+Now WS.Bug.fields is almost unusable because of this bug.
+
+Reproducible: Always</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389873</commentid>
+            <who name="Konstantin Petrukhnov">konstantin.petrukhnov</who>
+            <bug_when>2011-04-04 00:47:21 -0700</bug_when>
+            <thetext>Bug.update and Bug.create and Bug.get uses same names, so most probably issue is with Bug.fields</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389875</commentid>
+            <who name="Max Kanat-Alexander">mkanat</who>
+            <bug_when>2011-04-04 00:49:20 -0700</bug_when>
+            <thetext>This is true. We should probably have a separate field called &quot;internal_name&quot; for what we call it internally (which is what is being returned as &quot;name&quot; now).</thetext>
+          </long_desc>
+      
+      
+
+    </bug>
+
+</bugzilla>

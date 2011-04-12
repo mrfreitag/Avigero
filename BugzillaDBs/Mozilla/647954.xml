@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647954</bug_id>
+          
+          <creation_ts>2011-04-06 01:16:00 -0700</creation_ts>
+          <short_desc>When extracting add-ons files should be written in binary mode</short_desc>
+          <delta_ts>2011-04-11 16:41:18 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>Testing</product>
+          <component>Talos</component>
+          <version>unspecified</version>
+          <rep_platform>All</rep_platform>
+          <op_sys>Windows 7</op_sys>
+          <bug_status>ASSIGNED</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          <dependson>649175</dependson>
+          <blocked>599169</blocked>
+    
+    <blocked>648784</blocked>
+          <votes>3</votes>
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Wladimir Palant">trev.moz</reporter>
+          <assigned_to name="Wladimir Palant">trev.moz</assigned_to>
+          <cc>anodelman</cc>
+    
+    <cc>bmo</cc>
+    
+    <cc>clouserw</cc>
+    
+    <cc>ctalbert</cc>
+    
+    <cc>davemgarrett</cc>
+    
+    <cc>erikvvold</cc>
+    
+    <cc>fligtar</cc>
+    
+    <cc>harshid</cc>
+    
+    <cc>jorge</cc>
+    
+    <cc>MaierMan</cc>
+    
+    <cc>sabret00the</cc>
+    
+    <cc>sdwilsh</cc>
+          <qa_contact>talos</qa_contact>
+          
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5392046</commentid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-06 01:16:48 -0700</bug_when>
+            <thetext>I tried to reproduce Talos results for Adblock Plus and noticed that Adblock Plus was broken in the test profile created. Apparently, the file adblockplus.jar has been written in text mode which broke it on Windows (the ZIP file format doesn&apos;t like LF being randomly replaced by CR LF). The problem here is function zip_extractall in ffsetup.py.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5392048</commentid>
+              <attachid>524153</attachid>
+            <who name="Wladimir Palant">trev.moz</who>
+            <bug_when>2011-04-06 01:20:49 -0700</bug_when>
+            <thetext>Created attachment 524153
+Proposed patch
+
+With this change I get more sane results, UI still being intact...</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393840</commentid>
+            <who name="Nils Maier [:nmaier]">MaierMan</who>
+            <bug_when>2011-04-06 20:17:22 -0700</bug_when>
+            <thetext>CC&apos;ing Justin, as he seems he seems to be the contact person for authors in the &quot;Slow performing Add-ons&quot; campaign, and this bug would impact the test results.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401032</commentid>
+              <attachid>524153</attachid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 11:34:34 -0700</bug_when>
+            <thetext>Comment on attachment 524153
+Proposed patch
+
+Easy fix, thanks for the patch.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5401034</commentid>
+            <who name="alice nodelman [:alice] [:anode]">anodelman</who>
+            <bug_when>2011-04-11 11:35:09 -0700</bug_when>
+            <thetext>There&apos;s a bunch of talos changes post all-hands, I&apos;ll get this shepherded into the next available downtime.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524153</attachid>
+            <date>2011-04-06 01:20:00 -0700</date>
+            <delta_ts>2011-04-11 11:34:34 -0700</delta_ts>
+            <desc>Proposed patch</desc>
+            <filename>binary_mode.patch</filename>
+            <type>text/plain</type>
+            <size>992</size>
+            <attacher>trev.moz</attacher>
+            
+              <data encoding="base64">IyBIRyBjaGFuZ2VzZXQgcGF0Y2gKIyBVc2VyIFdsYWRpbWlyIFBhbGFudCA8dHJldkBhZGJsb2Nr
+cGx1cy5vcmc+CiMgRGF0ZSAxMzAyMDc3ODQxIC03MjAwCiMgTm9kZSBJRCAzOGY4NjA2NmU5YmM0
+ODY3NWU0MGU4NTJhMmZjZGU2ZjhkYjU1MjM3CiMgUGFyZW50ICBiZDRmNTllZDcwYTAzYmJjZDk4
+YzUwNjEyNjEyMzE4NThiMTA4ZTI2CkJ1ZyA2NDc5NTQgLSBXaGVuIGV4dHJhY3RpbmcgYWRkLW9u
+cyBmaWxlcyBzaG91bGQgYmUgd3JpdHRlbiBpbiBiaW5hcnkgbW9kZQoKZGlmZiAtLWdpdCBhL2Zm
+c2V0dXAucHkgYi9mZnNldHVwLnB5Ci0tLSBhL2Zmc2V0dXAucHkKKysrIGIvZmZzZXR1cC5weQpA
+QCAtNjYsMTcgKzY2LDE3IEBAIGRlZiB6aXBfZXh0cmFjdGFsbCh6aXBmaWxlLCByb290ZGlyKToK
+ICAgICAgICAgICAgIGlmIG5vdCBvcy5wYXRoLmV4aXN0cyhvcy5wYXRoLmpvaW4ocm9vdGRpciwg
+bmFtZSkpOgogICAgICAgICAgICAgICAgIG9zLm1ha2VkaXJzKG9zLnBhdGguam9pbihyb290ZGly
+LCBuYW1lKSkKICAgICAgICAgZWxzZToKICAgICAgICAgICAgIGRlc3RmaWxlID0gb3MucGF0aC5q
+b2luKHJvb3RkaXIsIG5hbWUpCiAgICAgICAgICAgICBkZXN0ZGlyID0gb3MucGF0aC5kaXJuYW1l
+KGRlc3RmaWxlKQogICAgICAgICAgICAgaWYgbm90IG9zLnBhdGguaXNkaXIoZGVzdGRpcik6CiAg
+ICAgICAgICAgICAgICAgb3MubWFrZWRpcnMoZGVzdGRpcikKICAgICAgICAgICAgIGRhdGEgPSB6
+aXBmaWxlLnJlYWQobmFtZSkKLSAgICAgICAgICAgIGYgPSBvcGVuKGRlc3RmaWxlLCAndycpCisg
+ICAgICAgICAgICBmID0gb3BlbihkZXN0ZmlsZSwgJ3diJykKICAgICAgICAgICAgIGYud3JpdGUo
+ZGF0YSkKICAgICAgICAgICAgIGYuY2xvc2UoKQogCiBjbGFzcyBGRlNldHVwKG9iamVjdCk6CiAK
+ICAgICBmZnByb2Nlc3MgPSBOb25lCiAgICAgX3JlbW90ZVdlYlNlcnZlciA9ICdsb2NhbGhvc3Qn
+CiAgICAgX2RldmljZXJvb3QgPSAnJwo=
+</data>
+<flag name="review"
+          id="437869"
+          type_id="4"
+          status="+"
+          setter="anodelman"
+    />
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>

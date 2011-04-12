@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE bugzilla SYSTEM "https://bugzilla.mozilla.org/bugzilla.dtd">
+
+<bugzilla version="3.6.4+"
+          urlbase="https://bugzilla.mozilla.org/"
+          
+          maintainer="bugzilla-admin@mozilla.org"
+>
+
+    <bug>
+          <bug_id>647580</bug_id>
+          
+          <creation_ts>2011-04-03 10:56:00 -0700</creation_ts>
+          <short_desc>[Clang]: Fatal error for prprf.h if build with Xcode 4 Clang</short_desc>
+          <delta_ts>2011-04-09 14:55:07 -0700</delta_ts>
+          <reporter_accessible>1</reporter_accessible>
+          <cclist_accessible>1</cclist_accessible>
+          <classification_id>3</classification_id>
+          <classification>Components</classification>
+          <product>NSPR</product>
+          <component>NSPR</component>
+          <version>other</version>
+          <rep_platform>x86</rep_platform>
+          <op_sys>Mac OS X</op_sys>
+          <bug_status>NEW</bug_status>
+          
+          
+          
+          
+          
+          
+          <priority>--</priority>
+          <bug_severity>normal</bug_severity>
+          <target_milestone>---</target_milestone>
+          
+          <blocked>574346</blocked>
+          
+          <everconfirmed>1</everconfirmed>
+          <reporter name="Nomis101">Nomis101</reporter>
+          <assigned_to name="Wan-Teh Chang">wtc</assigned_to>
+          <cc>respindola</cc>
+          <qa_contact>nspr</qa_contact>
+          <cf_blocking_fennec>---</cf_blocking_fennec>
+          <cf_blocking_fx>---</cf_blocking_fx>
+          <cf_blocking_20>---</cf_blocking_20>
+          <cf_status_20>---</cf_status_20>
+          <cf_blocking_192>---</cf_blocking_192>
+          <cf_status_192>---</cf_status_192>
+          <cf_blocking_191>---</cf_blocking_191>
+          <cf_status_191>---</cf_status_191>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+      
+
+      
+
+      
+
+          <long_desc isprivate="0">
+            <commentid>5389287</commentid>
+            <who name="Nomis101">Nomis101</who>
+            <bug_when>2011-04-03 10:56:45 -0700</bug_when>
+            <thetext>If you build Firefox Trunk with Apples Clang (Xcode 4), you get the following fatal error:
+
+In file included from nssb64d.c:44:
+In file included from /Developer/mozilla/obj-x86_64-apple-darwin10.7.0/dist/include/nspr/nspr.h:62:
+In file included from /Developer/mozilla/obj-x86_64-apple-darwin10.7.0/dist/include/nspr/prprf.h:60:
+/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdarg.h:4:15: fatal error: 
+      &apos;stdarg.h&apos; file not found
+#include_next &lt;stdarg.h&gt;
+              ^
+1 error generated.
+make[7]: *** [/Developer/mozilla/obj-x86_64-apple-darwin10.7.0/nss/nssutil/nssb64d.o] Error 1
+make[6]: *** [libs] Error 2
+make[5]: *** [libs] Error 2
+make[4]: *** [libs_tier_platform] Error 2
+make[3]: *** [tier_platform] Error 2
+make[2]: *** [default] Error 2
+make[1]: *** [realbuild] Error 2
+make: *** [build] Error 2
+
+It builds with Clang trunk.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5389695</commentid>
+            <who name="Rafael Ávila de Espíndola">respindola</who>
+            <bug_when>2011-04-03 19:36:55 -0700</bug_when>
+            <thetext>It also builds fine with the 2.9 branch.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393630</commentid>
+            <who name="Wan-Teh Chang">wtc</who>
+            <bug_when>2011-04-06 17:14:24 -0700</bug_when>
+            <thetext>stdarg.h is a Standard C Library header.  It is documented
+on page 254 of The C Programming Language, Second Edition.
+
+But I don&apos;t see stdarg.h in the /usr/include directory on
+Ubuntu 10.04.  Strange.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393754</commentid>
+            <who name="Rafael Ávila de Espíndola">respindola</who>
+            <bug_when>2011-04-06 17:55:49 -0700</bug_when>
+            <thetext>It is provided by the compiler. For example, in my machine I have:
+
+/usr/lib/gcc/x86_64-redhat-linux/4.5.1/include/stdarg.h
+
+/home/espindola/inst/clang/lib/clang/3.0/include/stdarg.h
+
+I remember seeing this when first trying to build with clang. I am almost sure the problem was
+
+https://bugzilla.mozilla.org/show_bug.cgi?id=629839
+
+The fix for that bug was to use -dumpversion, but I just noticed that version of clang in xcode 4 doesn&apos;t include revision 123296 which is the one that changed clang to produce a fake gcc version.
+
+To fix this bug (assuming the above assumption is really the problem), we can change security/coreconf/Darwin.mk to detect and handle the clang in xcode 4.</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5393762</commentid>
+              <attachid>524325</attachid>
+            <who name="Rafael Ávila de Espíndola">respindola</who>
+            <bug_when>2011-04-06 17:58:44 -0700</bug_when>
+            <thetext>Created attachment 524325
+hack to test if the version detection is the problem</thetext>
+          </long_desc>
+          <long_desc isprivate="0">
+            <commentid>5398640</commentid>
+            <who name="Nomis101">Nomis101</who>
+            <bug_when>2011-04-09 14:55:07 -0700</bug_when>
+            <thetext>Interestingly, if I download the current m-c source, I don&apos;t have this dumpversion line:
+http://hg.mozilla.org/mozilla-central/file/1edfae12015b/security/coreconf/Darwin.mk#l63
+But &quot;GCC_VERSION_FULL := 4.2.1&quot; will fix the error for me.</thetext>
+          </long_desc>
+      
+          <attachment
+              isobsolete="0"
+              ispatch="1"
+              isprivate="0"
+              isurl="0"
+          >
+            <attachid>524325</attachid>
+            <date>2011-04-06 17:58:00 -0700</date>
+            <delta_ts>2011-04-06 17:58:44 -0700</delta_ts>
+            <desc>hack to test if the version detection is the problem</desc>
+            <filename>hack.patch</filename>
+            <type>text/plain</type>
+            <size>562</size>
+            <attacher>respindola</attacher>
+            
+              <data encoding="base64">ZGlmZiAtLWdpdCBhL3NlY3VyaXR5L2NvcmVjb25mL0Rhcndpbi5tayBiL3NlY3VyaXR5L2NvcmVj
+b25mL0Rhcndpbi5tawppbmRleCBlNzZkODM4Li5iMTE0ZWEwIDEwMDY0NAotLS0gYS9zZWN1cml0
+eS9jb3JlY29uZi9EYXJ3aW4ubWsKKysrIGIvc2VjdXJpdHkvY29yZWNvbmYvRGFyd2luLm1rCkBA
+IC02MCw3ICs2MCw3IEBAIE9TX1JFTF9DRkxBR1MJPSAtRHBwYwogZW5kaWYKIAogaWZuZXEgKCwk
+KE1BQ09TX1NES19ESVIpKQotICAgIEdDQ19WRVJTSU9OX0ZVTEwgOj0gJChzaGVsbCAkKENDKSAt
+ZHVtcHZlcnNpb24pCisgICAgR0NDX1ZFUlNJT05fRlVMTCA6PSA0LjIuMQogICAgIEdDQ19WRVJT
+SU9OX01BSk9SIDo9ICQoc2hlbGwgZWNobyAkKEdDQ19WRVJTSU9OX0ZVTEwpIHwgYXdrIC1GLiAn
+eyBwcmludCAkJDEgfScpCiAgICAgR0NDX1ZFUlNJT05fTUlOT1IgOj0gJChzaGVsbCBlY2hvICQo
+R0NDX1ZFUlNJT05fRlVMTCkgfCBhd2sgLUYuICd7IHByaW50ICQkMiB9JykKICAgICBHQ0NfVkVS
+U0lPTiA9ICQoR0NDX1ZFUlNJT05fTUFKT1IpLiQoR0NDX1ZFUlNJT05fTUlOT1IpCg==
+</data>
+
+          </attachment>
+      
+
+    </bug>
+
+</bugzilla>
