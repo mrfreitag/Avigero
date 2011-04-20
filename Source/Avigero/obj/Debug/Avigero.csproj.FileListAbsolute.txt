@@ -16,3 +16,8 @@ C:\Pr\Archive\Avigero\Source\Avigero\obj\Debug\Avigero.pdb
 C:\Pr\Archive\Avigero\Binaries\Avigero.exe
 C:\Pr\Archive\Avigero\Binaries\Avigero.pdb
 C:\Pr\Archive\Avigero\Source\Avigero\obj\Debug\ResolveAssemblyReference.cache
+C:\Pr\Archive\Avigero\Git\Avigero\Binaries\Avigero.exe
+C:\Pr\Archive\Avigero\Git\Avigero\Binaries\Avigero.pdb
+C:\Pr\Archive\Avigero\Git\Avigero\Source\Avigero\obj\Debug\ResolveAssemblyReference.cache
+C:\Pr\Archive\Avigero\Git\Avigero\Source\Avigero\obj\Debug\Avigero.exe
+C:\Pr\Archive\Avigero\Git\Avigero\Source\Avigero\obj\Debug\Avigero.pdb

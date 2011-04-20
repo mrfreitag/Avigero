@@ -8,3 +8,8 @@ C:\Pr\Archive\Avigero\Binaries\SortAndSplit.pdb
 C:\Pr\Archive\Avigero\Source\SortAndSplit\obj\Debug\ResolveAssemblyReference.cache
 C:\Pr\Archive\Avigero\Source\SortAndSplit\obj\Debug\SortAndSplit.exe
 C:\Pr\Archive\Avigero\Source\SortAndSplit\obj\Debug\SortAndSplit.pdb
+C:\Pr\Archive\Avigero\Git\Avigero\Binaries\SortAndSplit.exe
+C:\Pr\Archive\Avigero\Git\Avigero\Binaries\SortAndSplit.pdb
+C:\Pr\Archive\Avigero\Git\Avigero\Source\SortAndSplit\obj\Debug\ResolveAssemblyReference.cache
+C:\Pr\Archive\Avigero\Git\Avigero\Source\SortAndSplit\obj\Debug\SortAndSplit.exe
+C:\Pr\Archive\Avigero\Git\Avigero\Source\SortAndSplit\obj\Debug\SortAndSplit.pdb

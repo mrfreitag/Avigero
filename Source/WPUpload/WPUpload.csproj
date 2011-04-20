@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ToolChain\100-Upload\bin\CookComputing.XmlRpcV2.dll</HintPath>
+      <HintPath>..\..\Toolchain\100-WpUpload\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

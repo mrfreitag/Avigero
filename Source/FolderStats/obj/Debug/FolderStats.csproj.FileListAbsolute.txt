@@ -10,3 +10,8 @@ C:\Pr\Archive\Avigero\Binaries\FolderStats.pdb
 C:\Pr\Archive\Avigero\Source\FolderStats\obj\Debug\ResolveAssemblyReference.cache
 C:\Pr\Archive\Avigero\Source\FolderStats\obj\Debug\FolderStats.exe
 C:\Pr\Archive\Avigero\Source\FolderStats\obj\Debug\FolderStats.pdb
+C:\Pr\Archive\Avigero\Git\Avigero\Binaries\FolderStats.exe
+C:\Pr\Archive\Avigero\Git\Avigero\Binaries\FolderStats.pdb
+C:\Pr\Archive\Avigero\Git\Avigero\Source\FolderStats\obj\Debug\ResolveAssemblyReference.cache
+C:\Pr\Archive\Avigero\Git\Avigero\Source\FolderStats\obj\Debug\FolderStats.exe
+C:\Pr\Archive\Avigero\Git\Avigero\Source\FolderStats\obj\Debug\FolderStats.pdb

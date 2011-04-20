@@ -52,6 +52,8 @@
     <Compile Include="Dataset\PieDonut.cs" />
     <Compile Include="Dataset\ScatterPlot.cs" />
     <Compile Include="Dataset\TimeSeries.cs" />
+    <Compile Include="Entities\DataSuperset.cs" />
+    <Compile Include="Entities\GlobalOverview.cs" />
     <Compile Include="Helper\TemplateTags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

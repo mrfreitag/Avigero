@@ -6,13 +6,15 @@ using System.IO;
 using System.Xml.Serialization;
 using Avigero.Dataset;
 using System.Collections;
+using Avigero.Entities;
+using Avigero.Helper;
 
 namespace Avigero
 {
     class Avigero
     {
         static bool splitBugs = true;
-        static bool doTheMeat = false;
+        static bool doTheMeat = true;
         static bool packagesAndComponents = true;
 
         private static string inputFolder;
@@ -27,7 +29,7 @@ namespace Avigero
             stat_filesAnalyzed = 0;
             stat_filesTried = 0;
             stat_fixedAndResolved = 0;
-            bool demo = true;
+            bool demo = false;
 
             if (demo)
             {
@@ -37,6 +39,9 @@ namespace Avigero
             {
                 inputFolder = @"..\BugzillaDBs\";
             }
+            // Check if all input folders and all output folders exist
+            CheckInputOutputFolders();
+
             // Step 1: Usually there are a lot of bugs and it makes sense to split the input into several subfolders
             // first. The structure is Project, Product, Components. Project is the name of the input folder, Product
             // and Component are both defined in the XSD of Bugzilla.
@@ -65,23 +70,35 @@ namespace Avigero
 
             if (doTheMeat)
             {
-
-                foreach (string folder in folders)
+                // Each folder is equivalent to a project
+                foreach (string projectfolder in folders)
                 {
-                    Console.WriteLine("Entering Directory {0}", folder);
+                    // Each project needs a DataSuperset
+                    DataSuperset projectSuperset = new DataSuperset();
+
+                    projectSuperset.Project = GetProjectName(projectfolder);
+
+                    Console.WriteLine("Entering Directory {0}", projectfolder);
                     // Set the project name
                     TimeSeries TimeSeriesDiagram = new TimeSeries();
-                    TimeSeriesDiagram.Project = GetProjectName(folder);
+                    TimeSeriesDiagram.Project = GetProjectName(projectfolder);
+                    projectSuperset.Name = GetProjectName(projectfolder);
 
                     ScatterPlot ScatterPlotDiagram = new ScatterPlot();
-                    ScatterPlotDiagram.Project = folder.Substring(folder.LastIndexOf(@"\") + 1);
+                    ScatterPlotDiagram.Project = projectfolder.Substring(projectfolder.LastIndexOf(@"\") + 1);
+
+                    // Initialize the global overview
+                    GlobalOverview globalOverview = new GlobalOverview();
+                    globalOverview.Initialize();
+                    globalOverview.Project = GetProjectName(projectfolder);
+
 
                     // Create the quarantine folder
-                    if (!Directory.Exists(folder + @"\Unsorted"))
-                        Directory.CreateDirectory(folder + @"\Unsorted");
+                    if (!Directory.Exists(projectfolder + @"\Unsorted"))
+                        Directory.CreateDirectory(projectfolder + @"\Unsorted");
 
                     // Blockfolders
-                    string blocksfolder = folder + @"\Blocks\";
+                    string blocksfolder = projectfolder + @"\Blocks\";
                     foreach (string blockfolder in Directory.GetDirectories(blocksfolder))
                     {
 
@@ -97,8 +114,14 @@ namespace Avigero
                                 BugzillaBug = (bugzilla)rqSerializer.Deserialize(fileReader);
                                 stat_filesAnalyzed++;
                                 bug Bug = BugzillaBug.bug[0];
+                                // We have the bug, add it to the superset
+                                projectSuperset.RawData.Add(Bug);
+
                                 string product = Bug.product.Text[0];
                                 string component = Bug.component.Text[0];
+
+                                projectSuperset.AddProductComponent(product, component);
+
                                 // Console.WriteLine("{0} - {1}", product, component);
 
                                 // First thing for the visualization: Time Series Diagram of the raw data
@@ -115,8 +138,14 @@ namespace Avigero
 
                                 //DateTime creationDate = System.Convert.ToDateTime(Bug.creation_ts.Text[0]);
 
+
+                                // Only consider bugs created after 1980, everything else is considered to be wrong.
                                 if (creationDate.Year > 1980)
                                 {
+                                    // First treat the global overview
+                                    globalOverview.AddProduct(Bug.product.Text[0]);
+                                    globalOverview.AddComponent(Bug.component.Text[0]);
+
                                     TimeSeriesDiagram.AddValue(creationDate);
                                     // Only add the ones that have been resolved and fixed
                                     if (Bug.bug_status.Text[0].Equals("RESOLVED") && Bug.resolution.Text[0].Equals("FIXED"))
@@ -145,6 +174,9 @@ namespace Avigero
                             }
                         }
                     }
+
+                    //
+
                     // All values have been added, so now it is time to create the diagram
                     TimeSeriesDiagram.Create();
                     ScatterPlotDiagram.Create();
@@ -154,12 +186,35 @@ namespace Avigero
                     Console.WriteLine("Analyzed {0} files", stat_filesAnalyzed);
                     Console.WriteLine("Fixed and Resolved: {0} files", stat_fixedAndResolved);
 
+                    // This is where we do the meat ;-)
+                    projectSuperset.Evaluate();
+
+                    projectSuperset.ListStatistics();
+
                     // Reset counters
                     stat_filesAnalyzed = 0;
                     stat_filesTried = 0;
                     stat_fixedAndResolved = 0;
                 }
             }
+        }
+
+        private static void CheckInputOutputFolders()
+        {
+            if (!Directory.Exists(OutputDirectories.OutputDirectory))
+                Directory.CreateDirectory(OutputDirectories.OutputDirectory);
+
+            if (!Directory.Exists(OutputDirectories.PieDonutCharts))
+                Directory.CreateDirectory(OutputDirectories.PieDonutCharts);
+
+            if (!Directory.Exists(OutputDirectories.TimeSeriesDiagrams))
+                Directory.CreateDirectory(OutputDirectories.TimeSeriesDiagrams);
+
+            if (!Directory.Exists(OutputDirectories.ScatterPlots))
+                Directory.CreateDirectory(OutputDirectories.ScatterPlots);
+
+            if (!Directory.Exists(OutputDirectories.MachineLearningOutput))
+                Directory.CreateDirectory(OutputDirectories.MachineLearningOutput);
         }
 
         /// <summary>
