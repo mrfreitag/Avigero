@@ -105,9 +105,6 @@ namespace Avigero.Dataset
             TextWriter timeSeriesText = new StreamWriter("../Output/ScatterPlot/" + m_Project + ".htm");
             timeSeriesText.Write(Content);
             timeSeriesText.Close();
-
-
-            bool bla = true;
         }
     }
 }

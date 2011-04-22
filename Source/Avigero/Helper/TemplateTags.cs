@@ -72,4 +72,15 @@ namespace Avigero.Helper
         public static string Major = "major";
         public static string Critical = "critical";
     }
+
+    internal class AvigeroConfig
+    {
+        public static bool userExperienceVector = true;
+        public static bool severityVector = true;
+
+        public static int FirstBug = 14;
+        public static int LastBug = 2;
+        public static int BugThreshold = 100;
+
+    }
 }
