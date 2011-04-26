@@ -18,6 +18,10 @@ namespace Avigero.Entities
         public List<bug> RawData;
         public int NumberOfBugs;
 
+        public int NumPredictedBugs;
+        public double PercentCorrectlyPredictedBugs;
+        public int NumCorrectlyPredictedBugs;
+
         public int NumClosedBugs;
 
         public DateTime FirstBug;
@@ -86,6 +90,9 @@ namespace Avigero.Entities
             RawData = new List<bug>();
             m_ProductComponentTree = new List<KeyValuePair<string, string>>();
             m_UserExperienceVector = new List<int>();
+            NumPredictedBugs = 0;
+            NumCorrectlyPredictedBugs = 0;
+            PercentCorrectlyPredictedBugs = 0;
         }
         /// <summary>
         /// Calculate everything out of the bug reports.
@@ -667,9 +674,9 @@ namespace Avigero.Entities
                 // string to determine language from: summary + description
                 string description = string.Empty;
                 if (shortDescriptionOnly)
-                    description = myBug.short_desc.Text[0].ToLower();
+                    description = StemString(myBug.short_desc.Text[0].ToLower());
                 else
-                    description = myBug.short_desc.Text[0].ToLower() + " " + myBug.long_desc[0].thetext.Text[0].ToLower();
+                    description = StemString(myBug.short_desc.Text[0].ToLower() + " " + myBug.long_desc[0].thetext.Text[0].ToLower());
                 description = CleanedStringWithSpace(description);
                 // ToDo: Spellcheck
                 //if (spellcheck)
@@ -689,8 +696,8 @@ namespace Avigero.Entities
                     // The description needs to be stemmed separately.
                     // description = StemmedString(description);
 
-                    englishSeverityWordWriter.WriteLine(GetSeverity(myBug) + " " + description);
-                    englishTtcWordWriter.WriteLine(daysToFixBin + " " + description);
+                    englishSeverityWordWriter.WriteLine(GetSeverity(myBug) + " " + GetReporter(myBug)); // + " " + description);
+                    englishTtcWordWriter.WriteLine(daysToFixBin + " " + GetReporter(myBug) + " " + description);
                     numEnglishRQs++;
                 }
                 else
@@ -739,9 +746,39 @@ namespace Avigero.Entities
             stemProcess.WaitForExit();
         }
 
-        private string StemmedString(string description)
+        private string GetReporter(bug myBug)
         {
-            throw new NotImplementedException();
+            return myBug.reporter.Text[0];
+        }
+
+        /// <summary>
+        /// Stem a single string of words
+        /// </summary>
+        /// <param name="ToStem"></param>
+        /// <returns></returns>
+        private string StemString(string ToStem)
+        {
+            string FileToStem = "ToStem.txt";
+            string StemmedFile = "Stemmed.txt";
+
+            TextWriter stemText = new StreamWriter(FileToStem);
+            stemText.WriteLine(ToStem);
+            stemText.Close();
+
+            System.Diagnostics.Process stemProcess = new System.Diagnostics.Process();
+            stemProcess.StartInfo.FileName = "stem.exe";
+            stemProcess.StartInfo.Arguments = FileToStem + " " + StemmedFile;
+            stemProcess.StartInfo.CreateNoWindow = false;
+            stemProcess.StartInfo.RedirectStandardError = false;
+            stemProcess.StartInfo.UseShellExecute = false;
+            stemProcess.Start();
+            stemProcess.WaitForExit();
+
+            TextReader stemReader = new StreamReader(StemmedFile);
+            string stemmedString = stemReader.ReadToEnd();
+            stemReader.Close();
+
+            return stemmedString;
         }
 
         /// <summary>
@@ -764,6 +801,7 @@ namespace Avigero.Entities
             cleaned = cleaned.Replace("Ö", "Oe");
             cleaned = cleaned.Replace("\n", "");
             cleaned = cleaned.Replace("\t", "");
+            cleaned = cleaned.Replace("\r", "");
             cleaned = cleaned.Replace("`", "");
             return cleaned;
 
@@ -945,6 +983,9 @@ namespace Avigero.Entities
             Console.WriteLine("Low quartile: {0:N2}", m_LowQuartileDaysToClose);
             Console.WriteLine("Median: {0:N2}", m_MedianDaysToClose);
             Console.WriteLine("High quartile: {0:N2}", m_HighQuartileDaysToClose);
+            Console.WriteLine("Predicted Bugs: {0}", NumPredictedBugs);
+            Console.WriteLine("Correctly predicted: {0}", NumCorrectlyPredictedBugs);
+            Console.WriteLine("Percentage: {0:N3}", PercentCorrectlyPredictedBugs);
         }
 
         private void ListProductComponentTree()
@@ -991,6 +1032,44 @@ namespace Avigero.Entities
                     firstBugDate = tmp;
             }
             return firstBugDate;
+        }
+
+        /// <summary>
+        /// ToDo: Create some nice diagrams
+        /// </summary>
+        public void CreatePredictionDiagrams()
+        {
+            int[] predictionbins = GetPredictionAccuracy();
+        }
+
+        private int[] GetPredictionAccuracy()
+        {
+            int[] bins = new int[7] { 0, 0, 0, 0, 0, 0, 0 };
+
+            StreamReader testreader = new StreamReader(GetOut20Vector().Substring(6));
+            StreamReader predictreader = new StreamReader(GetOut20Vector().Substring(6) + ".predict");
+
+            string line = string.Empty;
+            while ((line = testreader.ReadLine()) != null)
+            {
+                int test = System.Convert.ToInt16(line.Substring(0, 1));
+                int predict = System.Convert.ToInt16(predictreader.ReadLine());
+                bins[test - predict + 3]++;
+                NumPredictedBugs++;
+                if (test == predict)
+                    NumCorrectlyPredictedBugs++;
+            }
+            PercentCorrectlyPredictedBugs = (double)NumCorrectlyPredictedBugs / (double)NumPredictedBugs;
+            return bins;
+        }
+
+        /// <summary>
+        /// This is where all the output is generated in order to make sense
+        /// out of the data
+        /// </summary>
+        public void CreatePredictionOutput()
+        {
+
         }
     }
 }

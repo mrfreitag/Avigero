@@ -188,7 +188,7 @@ namespace Avigero
 
                     // This is where we do the meat ;-)
                     projectSuperset.Evaluate();
-
+                    projectSuperset.CreatePredictionDiagrams();
                     projectSuperset.ListStatistics();
 
                     // Reset counters
